@@ -1,5 +1,23 @@
+:root {
+  color-scheme: dark;
+  --background: #0d1420;
+  --surface: #131e2c;
+  --surface-raised: #192638;
+  --border: #2c3c50;
+  --text-primary: #edf2f8;
+  --text-secondary: #b5c2d4;
+  --accent: #5ee0c5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

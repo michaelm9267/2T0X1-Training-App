@@ -1,24 +1,233 @@
-import logo from './logo.svg';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import Layout from './Layout/Layout.js';
+import DocumentationPanel from './Components/Documentation/DocumentationPanel.js';
+import ProcessPanel from './Components/ProcessPanel/ProcessPanel.js';
+import CargoWindow from './Components/CargoWindow/CargoWindow';
+import { createExercise, isStageComplete } from './Components/CargoWindow/exercise';
+import { editNotebookEntry, saveNotebookEntry, placeTapeLabel } from './Components/CargoWindow/notebook';
+import { applyVehicleAction, canConfirmVehicleCorrection } from './Components/CargoWindow/vehicleInspection';
+import { resetPiece } from './Components/CargoWindow/pieces';
+import { exportSession, importSession, loadSession, newSession, saveSession } from './session';
+import { removeFromManifest, manifestFields } from './Components/CargoWindow/workflow';
+import { withDocumentErrors } from './Components/CargoWindow/discrepancies';
+import { recordMistake } from './Components/CargoWindow/mistakes';
+import { pieceResult } from './Components/CargoWindow/scoring';
+import AfterActionReport from './Components/Documentation/AfterActionReport';
+import SessionBar from './Components/Session/SessionBar';
+import { ModeContext } from './Components/Session/mode';
+import InstructorSetup from './Components/Session/InstructorSetup';
+import Dsoe from './Components/Documentation/Dsoe';
+import AcronymTooltip from './Components/Glossary/AcronymTooltip';
+import LoadPlan from './Components/LoadPlan/LoadPlan';
+import TrainingGuide from './Components/Training/TrainingGuide';
+import QuickDrills from './Components/Training/QuickDrills';
+import { reconcilePlan } from './Components/LoadPlan/loadPlanLogic';
 import './App.css';
 
+const processSteps = [
+  { id: 'precheck', title: 'Precheck' },
+  { id: 'incheck', title: 'Incheck' },
+  { id: 'manifest', title: 'Manifest' },
+  { id: 'load-plan', title: 'Load plan' },
+  { id: 'ji', title: 'JI' },
+];
+
+const placeholderModules = {
+  pdf: 'PDF Training',
+  outbound: 'Outbound Training',
+  inbound: 'Inbound Training',
+  hhg: 'HHG Training',
+  pax: 'PAX Training',
+};
+
 function App() {
+  const [activeModule, setActiveModule] = useState('cdf');
+  // The session resumes from this browser's saved copy, or starts the standard deployment.
+  const [initial] = useState(() => loadSession() || newSession());
+  const [selectedStep, setSelectedStep] = useState(() => processSteps.find(step => step.id === initial.stepId) || processSteps[0]);
+  // scenarioId holds the selected piece's key; pieceCount is the number of pieces on the DSOE.
+  const [scenarioId, setScenarioId] = useState(initial.scenarioId);
+  const [pieceCount, setPieceCount] = useState(initial.pieceCount);
+  const [shipments, setShipments] = useState(initial.shipments);
+  const [exercises, setExercises] = useState(initial.exercises);
+  const [sceneVersion, setSceneVersion] = useState(0);
+  const pieceKeys = Object.keys(shipments).slice(0, pieceCount);
+  // One destination for the whole deployment, picked at random each session and changeable on
+  // the DSOE until a piece is manifested to it.
+  const [destination, setDestination] = useState(initial.destination);
+  // Guided mode shows hints and explanations; test mode hides them and leaves feedback to the report.
+  const [mode, setMode] = useState(initial.mode || 'guided');
+  const [loadPlan, setLoadPlan] = useState(initial.loadPlan);
+  const [clock, setClock] = useState(initial.clock);
+  const [meta, setMeta] = useState({ startedAt: initial.startedAt, code: initial.code });
+  useEffect(() => {
+    saveSession({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, clock, ...meta });
+  }, [initial.version, shipments, exercises, destination, pieceCount, scenarioId, selectedStep.id, mode, loadPlan, clock, meta]);
+  useEffect(() => {
+    if (!clock.running) return undefined;
+    const timer = window.setInterval(() => setClock(value => ({ ...value, elapsed: value.elapsed + 1 })), 1000);
+    return () => window.clearInterval(timer);
+  }, [clock.running]);
+  function startSession(session) {
+    setShipments(session.shipments); setExercises(session.exercises); setDestination(session.destination);
+    setPieceCount(session.pieceCount); setScenarioId(session.scenarioId); setSelectedStep(processSteps.find(step => step.id === session.stepId) || processSteps[0]);
+    setMode(session.mode); setLoadPlan(session.loadPlan); setClock(session.clock); setMeta({ startedAt: session.startedAt, code: session.code }); setSceneVersion(version => version + 1);
+  }
+  // Each piece as the trainee sees it: deployment destination, plus paperwork errors not yet corrected.
+  const piece = key => shipments[key] && withDocumentErrors({ ...shipments[key], destination }, exercises[key]);
+  function changePieceCount(count) {
+    setPieceCount(count);
+    if (Object.keys(shipments).indexOf(scenarioId) >= count) { setScenarioId(Object.keys(shipments)[0]); setSelectedStep(processSteps[0]); }
+  }
+  const exercise = exercises[scenarioId];
+  const scenario = useMemo(() => withDocumentErrors({ ...shipments[scenarioId], destination }, exercise), [shipments, scenarioId, destination, exercise]);
+  const cargoSteps = processSteps.filter(step => step.id !== 'load-plan');
+  const completedStages = cargoSteps.filter(step => isStageComplete(scenario, step.id, exercise)).map(step => step.id);
+  const loadBasis = JSON.stringify(pieceKeys.map(key => ({ key, length: shipments[key].length, width: shipments[key].width, weight: shipments[key].weight, manifested: isStageComplete(piece(key), 'manifest', exercises[key]) })));
+  const loadPlanCurrent = loadPlan.accepted && loadPlan.basis === loadBasis;
+  // JI follows the deployment load plan. If a manifest or cargo value changes, the plan reopens
+  // and JI locks until the revised plan is accepted.
+  const jiLocked = !['precheck', 'incheck', 'manifest'].every(id => completedStages.includes(id)) || !loadPlanCurrent;
+  const lockedSteps = jiLocked ? { ji: 'Locked until Precheck, Incheck, Manifest, and the deployment Load Plan are complete' } : {};
+  useEffect(() => { if (jiLocked && selectedStep.id === 'ji') setSelectedStep(processSteps.find(step => step.id === 'load-plan')); }, [jiLocked, selectedStep.id]);
+  function updateExercise(update, preserveFinal = false) {
+    setExercises(previous => {
+      const current = previous[scenarioId];
+      const next = preserveFinal ? update(current) : {...update(current),manifestAccepted:false,jiInspected:[],jiTerminals:{},jiVerified:[],jiDocumentsViewed:[],jiMeasurements:[],jiWeights:{},jiSides:[]};
+      return { ...previous, [scenarioId]: { ...next, firstActionAt: current.firstActionAt || Date.now() } };
+    });
+  }
+  // Record when each piece first finishes each stage, for the after-action report.
+  useEffect(() => {
+    const now = Date.now();
+    const updates = {};
+    for (const key of Object.keys(shipments)) {
+      const item = exercises[key];
+      const view = withDocumentErrors({ ...shipments[key], destination }, item);
+      const missing = processSteps.filter(step => !item.stageTimes?.[step.id] && isStageComplete(view, step.id, item));
+      if (missing.length) updates[key] = { ...item, stageTimes: { ...item.stageTimes, ...Object.fromEntries(missing.map(step => [step.id, now])) } };
+    }
+    if (Object.keys(updates).length) setExercises(previous => ({ ...previous, ...updates }));
+  }, [exercises, shipments, destination]);
+  const [setupOpen, setSetupOpen] = useState(false);
+  const closeSetup = useCallback(() => setSetupOpen(false), []);
+  const [reportOpen, setReportOpen] = useState(false);
+  const closeReport = useCallback(() => setReportOpen(false), []);
+  const [guideOpen, setGuideOpen] = useState(false);
+  const [drillsOpen, setDrillsOpen] = useState(false);
+  const closeGuide = useCallback(() => setGuideOpen(false), []);
+  const closeDrills = useCallback(() => setDrillsOpen(false), []);
+  const [transferFeedback, setTransferFeedback] = useState('');
+  const sessionSnapshot = () => ({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, clock, ...meta });
+  function downloadSession() {
+    const blob = new Blob([exportSession(sessionSnapshot())], { type: 'application/json' });
+    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `cdf-training-${new Date().toISOString().slice(0, 10)}.json`; link.click(); URL.revokeObjectURL(link.href);
+    setTransferFeedback('Session file exported.');
+  }
+  function uploadSession(text) {
+    const session = importSession(text);
+    if (!session) { setTransferFeedback('Import failed: choose a valid CDF training session file.'); return; }
+    startSession(session); setTransferFeedback('Session imported.');
+  }
+  // The CDF process starts from the DSOE; viewing it marks it reviewed for every increment.
+  const [dsoeOpen, setDsoeOpen] = useState(false);
+  const closeDsoe = useCallback(() => setDsoeOpen(false), []);
+  const dsoeViewed = Boolean(exercise.dsoeViewed);
+  function viewDsoe() {
+    setDsoeOpen(true);
+    setExercises(previous => Object.fromEntries(Object.entries(previous).map(([id, item]) => [id, { ...item, dsoeViewed: true }])));
+  }
+  const dsoeIncrements = pieceKeys.map(key => {
+    const done = processSteps.filter(step => isStageComplete(piece(key), step.id, exercises[key]));
+    return { scenario: piece(key), status: done.length ? `${done[done.length - 1].title} complete` : 'Scheduled', done: done.map(step => step.id) };
+  });
+  useEffect(() => { setLoadPlan(plan => reconcilePlan(plan, loadBasis)); }, [loadBasis]);
+  useEffect(() => {
+    const any = stage => dsoeIncrements.some(item => item.done.includes(stage));
+    const all = stage => dsoeIncrements.length > 0 && dsoeIncrements.every(item => item.done.includes(stage));
+    const reached = { cargoPrepStart: any('precheck'), reportTo: all('precheck'), incheckStart: any('precheck'), incheckComplete: all('incheck'), manifestStart: any('incheck'), manifestComplete: all('manifest'), jiStart: loadPlanCurrent, jiComplete: all('ji'), cargoLoadStart: all('ji'), cargoLoadComplete: all('ji') };
+    setClock(current => {
+      const missing = Object.entries(reached).filter(([key, complete]) => complete && current.events?.[key] === undefined);
+      return missing.length ? { ...current, events: { ...(current.events || {}), ...Object.fromEntries(missing.map(([key]) => [key, current.elapsed])) } } : current;
+    });
+  }, [dsoeIncrements, loadPlanCurrent]);
+  // Every manifested piece across all training shipments, in shipment order.
+  const manifestPieces = pieceKeys.filter(key => exercises[key].manifestAccepted && exercises[key].manifestRecord)
+    .map(key => ({ scenarioId: key, title: shipments[key].title, record: exercises[key].manifestRecord, mslApplied: exercises[key].mslApplied, current: key === scenarioId }));
+  function removePiece(id) {
+    setExercises(previous => ({ ...previous, [id]: removeFromManifest(previous[id]) }));
+  }
+  function onAnswer(id, choice) {
+    const finding = scenario.findings.find(item => item.id === id);
+    const label = { satisfactory: 'Satisfactory', unsatisfactory: 'Unsatisfactory', 'not-applicable': 'Not applicable' };
+    updateExercise(current => {
+      const next = { ...current, answers: { ...current.answers, [id]: { choice, corrected: false } } };
+      return finding && choice !== finding.correct && current.answers[id]?.choice !== choice ? recordMistake(next, 'decision', `Marked ${finding.title} ${label[choice]}; it was ${label[finding.correct]}`, `DTR Part III App O ${finding.source?.paragraph || ''}`.trim()) : next;
+    });
+  }
+  function onCorrect(id) {
+    const finding = scenario.findings.find(item => item.id === id);
+    // In test mode the correction button shows for any Unsatisfactory call; correcting a sound item is a mistake.
+    if (finding && finding.correct !== 'unsatisfactory' && exercise.answers[id]?.choice === 'unsatisfactory') { updateExercise(current => recordMistake(current, 'decision', `Tried to correct ${finding.title}, which was serviceable`, `DTR Part III App O ${finding.source?.paragraph || ''}`.trim()), true); return; }
+    if (finding?.correct !== 'unsatisfactory' || exercise.answers[id]?.choice !== finding.correct || !exercise.inspected.includes(id) || !canConfirmVehicleCorrection(scenario, exercise, id)) return;
+    updateExercise(current => ({ ...current, answers: { ...current.answers, [id]: { ...current.answers[id], corrected: true } } }));
+  }
   return (
+    <ModeContext.Provider value={mode}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AcronymTooltip />
+      <Layout activeModule={activeModule} onModuleChange={setActiveModule}>
+        {activeModule === 'cdf' ? <>
+        <ProcessPanel steps={processSteps} selectedStepId={selectedStep.id} onSelectStep={setSelectedStep} completedStages={completedStages} lockedSteps={lockedSteps} onViewDsoe={viewDsoe} dsoeViewed={dsoeViewed} />
+        {reportOpen && <AfterActionReport destination={destination} mode={mode} onClose={closeReport}
+          pieces={pieceKeys.map(key => { const view = piece(key); return { title: shipments[key].title, tcn: manifestFields(view).find(field => field.id === 'tcn').expected, result: pieceResult(view, exercises[key], cargoSteps.filter(step => isStageComplete(view, step.id, exercises[key])).map(step => step.id)) }; })} />}
+        {dsoeOpen && <Dsoe increments={dsoeIncrements} pieceCount={pieceCount} onPieceCountChange={changePieceCount} destination={destination} onDestinationChange={setDestination} destinationLocked={Object.values(exercises).some(item => item.manifestAccepted)} elapsedSeconds={clock.elapsed} milestoneTimes={clock.events} onClose={closeDsoe} />}
+        {guideOpen && <TrainingGuide onClose={closeGuide} />}
+        {drillsOpen && <QuickDrills onClose={closeDrills} />}
+        <main className="training-workspace">
+          <SessionBar mode={mode} onModeChange={setMode} onNewSession={() => startSession(newSession({ mode }))} clock={clock} onClockChange={setClock}
+            onExport={downloadSession} onImport={uploadSession} tools={[['Training guide', () => setGuideOpen(true)], ['Quick drills', () => setDrillsOpen(true)], ['Instructor setup', () => setSetupOpen(true)]]} />
+          {transferFeedback && <p className="transfer-feedback" role="status">{transferFeedback}</p>}
+          {meta.code && <p className="scenario-code-note">Scenario code <code>{meta.code}</code></p>}
+          {setupOpen && <InstructorSetup currentCode={meta.code} onClose={closeSetup} onStart={session => { startSession(session); setSetupOpen(false); }} />}
+          <div className="shipment-bar">
+            <label>Training shipment <select value={scenarioId} onChange={event => { setScenarioId(event.target.value); setSelectedStep(processSteps[0]); }}>{pieceKeys.map(key => <option value={key} key={key}>{shipments[key].title}</option>)}</select></label>
+            <button type="button" onClick={() => setReportOpen(true)}>After-action report</button>
+            <button type="button" onClick={() => { setShipments(previous => ({...previous,[scenarioId]:resetPiece(previous[scenarioId])})); updateExercise(current => ({ ...createExercise(), dsoeViewed: current.dsoeViewed })); setSceneVersion(version => version + 1); }}>Reset this shipment</button>
+          </div>
+          <p className="simulation-note">Shipment values approximate the real equipment · Guided by your Appendix O edition, 3 February 2023. Reset varies each item's size and weight slightly. Standard ISU and pallet footprints stay fixed.</p>
+          {selectedStep.id === 'load-plan' ? <LoadPlan pieces={pieceKeys.map(key => ({ ...shipments[key], manifested: isStageComplete(piece(key), 'manifest', exercises[key]) }))} plan={loadPlan} onChange={next => setLoadPlan({ ...next, basis: loadBasis })} /> : <div className="simulation-layout">
+            <CargoWindow key={`${scenarioId}-${sceneVersion}`} scenario={scenario} exercise={exercise} stage={selectedStep.id}
+              onInspectMarkings={side => updateExercise(current=>({...current,jiSides:[...new Set([...current.jiSides,side])]}),true)}
+              onVehicleAction={action => updateExercise(current => {
+                const next=applyVehicleAction(scenario,current,action);
+                if (selectedStep.id!=='ji') return next;
+                if(action.type==='inspect-terminal') { const viewed={...current.jiTerminals,[action.terminal]:true}; return {...next,jiTerminals:viewed,jiInspected:viewed.positive&&viewed.negative ? [...new Set([...current.jiInspected,'battery'])] : current.jiInspected}; }
+                if(action.type==='read-fuel') return {...next,jiInspected:[...new Set([...current.jiInspected,'fuel'])]};
+                return {...next,manifestAccepted:false,jiInspected:[],jiVerified:[],jiTerminals:{}};
+              },selectedStep.id==='ji')}
+              onPlaceLabel={label => updateExercise(current => placeTapeLabel(scenario,current,label))}
+              onRemoveLabel={(side,type) => updateExercise(current => ({ ...current, tapeLabels: current.tapeLabels.filter(label => !(label.side === side && label.type === type)), labelFeedback: `${type.toUpperCase()} tape removed from the ${side} side.` }))}
+              onRecordMeasurement={record => updateExercise(current => ({ ...current, measurements: [...current.measurements, record], jiMeasurements:selectedStep.id==='ji' ? [...current.jiMeasurements,record] : [] }),selectedStep.id==='ji')}
+              onRecordWeight={record => updateExercise(current => ({ ...current, weights: { ...current.weights, [record.id]: record }, jiWeights:selectedStep.id==='ji' ? {...current.jiWeights,[record.id]:record} : {} }),selectedStep.id==='ji')}
+              onInspect={id => updateExercise(current => ({ ...current, inspected: [...new Set([...current.inspected, id])], jiInspected: selectedStep.id==='ji' ? [...new Set([...current.jiInspected,id])] : [] }), selectedStep.id==='ji')} />
+            <DocumentationPanel step={selectedStep} scenario={scenario} exercise={exercise} onAnswer={onAnswer} onCorrect={onCorrect} completedStages={completedStages}
+              onWorkflow={update => updateExercise(update,true)} manifestPieces={manifestPieces} onRemovePiece={removePiece}
+              onNotebookChange={(field,value) => updateExercise(current => editNotebookEntry(current,field,value))}
+              onNotebookSave={field => updateExercise(current => saveNotebookEntry(scenario,current,field))}
+              onCBCalculate={result => updateExercise(current => ({ ...current, cbResult: result, tapeLabels: current.tapeLabels.filter(label => label.type !== 'cb'), labelFeedback: '' }))} />
+          </div>}
+        </main>
+        </> : <main className="module-placeholder">
+          <div className="module-placeholder-card">
+            <span className="module-status">Coming soon</span>
+            <h2>{placeholderModules[activeModule]}</h2>
+            <p>This training area is ready for its course content. Use the navigation above to return to CDF Training.</p>
+          </div>
+        </main>}
+      </Layout>
     </div>
+    </ModeContext.Provider>
   );
 }
 

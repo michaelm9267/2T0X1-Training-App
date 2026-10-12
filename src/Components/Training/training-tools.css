@@ -1,0 +1,13 @@
+.training-tool-sheet { width: min(820px, 100%); max-height: calc(100vh - 48px); overflow: auto; padding: 22px; border: 1px solid var(--border); border-radius: 12px; background: #111c2a; color: var(--text-primary); box-shadow: 0 24px 70px #000b; }
+.training-tool-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+.training-tool-header button { font-size: 1.4rem; }
+.walkthrough-steps { display: grid; gap: 8px; line-height: 1.5; }
+.tool-search, .drill-sheet label { display: grid; gap: 6px; color: var(--text-secondary); }
+.tool-search input, .drill-sheet input, .drill-sheet select { min-height: 42px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: #0d1724; color: var(--text-primary); font: inherit; }
+.glossary-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px 18px; }
+.glossary-list div { padding: 9px 0; border-bottom: 1px solid var(--border); }
+.glossary-list dt { color: var(--accent); font-weight: 700; }
+.glossary-list dd { margin: 4px 0 0; color: var(--text-secondary); font-size: .85rem; }
+.drill-sheet { display: grid; gap: 16px; }
+.drill-prompt { padding: 16px; border-radius: 8px; background: #0d1724; line-height: 1.6; }
+.drill-feedback { color: #efce8d; }

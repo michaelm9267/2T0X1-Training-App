@@ -1,0 +1,19 @@
+.acronym-tooltip {
+  position: fixed;
+  z-index: 2000; /* above document overlays */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  color: var(--text-primary);
+  background: #0b1420;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .45);
+  font-size: .82rem;
+  line-height: 1.35;
+  pointer-events: none;
+}
+.acronym-tooltip[hidden] { display: none; }
+.acronym-tooltip strong { color: var(--accent); letter-spacing: .03em; }
+::highlight(acronym) { text-decoration: underline dotted; text-decoration-color: rgba(94, 224, 197, .7); text-underline-offset: 3px; }

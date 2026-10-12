@@ -1,0 +1,25 @@
+.load-plan { display: grid; gap: 16px; }
+.load-floor-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: #0b1420; padding: 12px; }
+.load-floor { width: 100%; min-width: 760px; touch-action: none; }
+.load-floor .floor { fill: #1a2633; stroke: #7591a5; stroke-width: 1.5; }
+.load-floor .ramp { fill: #22303f; stroke: #7591a5; stroke-dasharray: 6 4; }
+.load-floor .centerline { stroke: #496577; stroke-dasharray: 10 6; }
+.load-floor .tick { stroke: #7591a5; }
+.load-floor .tick-label { fill: #b5c2d4; font-size: 11px; text-anchor: middle; }
+.load-floor .cb-range { fill: rgba(94, 224, 197, .35); }
+.load-floor .cb-mark { fill: var(--accent); }
+.load-floor .cb-bad { fill: #ef9e8b; }
+.load-piece { cursor: grab; }
+.load-piece.dragging { cursor: grabbing; }
+.load-piece rect { fill: rgba(239, 206, 141, .25); stroke: #efce8d; stroke-width: 1.5; }
+.load-piece .piece-cb { stroke: #5ee0c5; stroke-dasharray: 4 3; }
+.load-piece text { fill: #edf2f8; font-size: 12px; pointer-events: none; }
+.load-piece .piece-weight { fill: #b5c2d4; font-size: 11px; }
+.load-summary { display: flex; flex-wrap: wrap; gap: 8px 28px; color: var(--text-secondary); }
+.load-summary strong { color: var(--text-primary); }
+.load-problems { margin: 0; color: #ef9e8b; font-size: .88rem; }
+.load-table { overflow-x: auto; }
+.load-table table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.load-table th, .load-table td { padding: 6px 8px; border-bottom: 1px solid var(--border); text-align: left; }
+.load-table input { width: 90px; padding: 4px 6px; color: var(--text-primary); background: var(--surface-raised); border: 1px solid var(--border); border-radius: 6px; }
+.load-accepted { color: var(--accent); font-weight: 700; }

@@ -1,0 +1,46 @@
+.cargo-window {
+  min-width: 0;
+  align-self: start;
+  position: sticky;
+  top: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 16%);
+}
+.scene-header { display: flex; justify-content: space-between; align-items: start; gap: 16px; padding: 24px; }
+.scene-header h3 { margin: 6px 0 0; font-size: 1.2rem; }
+.eyebrow { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.sample-badge { color: var(--text-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 4px 10px; font-size: .7rem; white-space: nowrap; }
+.scene-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 0 24px 20px; }
+.tool-group, .action-row, .target-buttons, .inspection-points, .answer-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.scene-toolbar label { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: .85rem; }
+.scene-canvas { background: #0c1521; border-block: 1px solid var(--border); }
+.scene-canvas svg { display: block; width: 100%; min-height: 210px; max-height: 370px; }
+.tool-tape svg { cursor: crosshair; }
+.cargo-art { pointer-events: none; }
+.cargo-outline { fill: none; stroke: #7591a5; stroke-dasharray: 3 3; stroke-width: .5; }
+.scene-actions { padding: 20px 24px; display: flex; flex-direction: column; gap: 16px; }
+.scene-actions p { margin: 0; }
+.tool-hint { color: var(--text-secondary); font-size: .88rem; }
+.scene-actions details { color: var(--text-secondary); font-size: .85rem; }
+.scene-actions summary { cursor: pointer; padding: 8px 0; }
+.target-buttons { padding-top: 8px; }
+.scene-readout { padding: 14px 24px; background: #102a2d; color: #a6f3e5; border-top: 1px solid #26494b; font-size: .88rem; min-height: 55px; }
+.inspection-detail { padding: 16px; background: var(--surface-raised); border-left: 3px solid var(--accent); border-radius: 6px; }
+.inspection-detail p { margin-top: 8px; color: var(--text-secondary); }
+@media (max-width: 1100px) { .cargo-window { position: static; } }
+@media (max-width: 450px) { .scene-header { flex-direction: column; } .scene-header, .scene-actions { padding: 18px; } .scene-toolbar { padding-inline: 18px; } }
+
+.vehicle-closeup { margin-top: 16px; padding: 18px; background: #172330; border: 1px solid #3a5265; border-radius: 12px; }
+.vehicle-closeup h4 { margin: 0 0 10px; color: #eff6f9; }
+.vehicle-closeup p { color: #c3d2df; line-height: 1.5; }
+.vehicle-closeup svg { display: block; width: 100%; max-width: 430px; margin: 12px auto; }
+.terminal-check, .vehicle-hotspots { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 12px 0; }
+.terminal-check span { color: #d5e6ec; }
+.scene-tcn { margin: 6px 0 0; color: var(--text-secondary); font-size: .85rem; }
+.scene-tcn strong { color: var(--text-primary, #edf4fa); font-family: "Courier New", Courier, monospace; letter-spacing: .04em; }
+
+.shipping-label { cursor: pointer; outline: none; }
+.shipping-label:hover .shipping-label-hit, .shipping-label:focus-visible .shipping-label-hit { stroke: #5ee0c5; stroke-width: .6; stroke-dasharray: 1.2 .8; }
