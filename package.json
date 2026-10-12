@@ -2,6 +2,7 @@
   "name": "2t0x1_training_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://michaelm9267.github.io/2T0X1-Training-App",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">RampReady logo</title>
+  <desc id="desc">A cargo pallet, aircraft wing, and readiness checkmark</desc>
+  <defs>
+    <linearGradient id="field" x1="18" y1="12" x2="110" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#203a4c"/>
+      <stop offset="1" stop-color="#0c1723"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="33" y1="37" x2="96" y2="91" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9df3e5"/>
+      <stop offset="1" stop-color="#42bfae"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#field)" stroke="#42657a" stroke-width="4" d="M64 5 111 32v64L64 123 17 96V32Z"/>
+  <path fill="none" stroke="#7893a5" stroke-linecap="round" stroke-width="5" d="M25 47h43L99 30M24 59h47l29-12"/>
+  <path fill="#172838" stroke="#d7e6ee" stroke-width="4" d="M34 60h55v35H34z"/>
+  <path fill="none" stroke="#7893a5" stroke-width="3" d="M42 60v35m39-35v35M29 101h65"/>
+  <path fill="none" stroke="url(#accent)" stroke-linecap="round" stroke-linejoin="round" stroke-width="9" d="m48 78 12 12 25-29"/>
+</svg>

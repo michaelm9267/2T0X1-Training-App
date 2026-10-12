@@ -7,6 +7,14 @@ import * as workflow from './Components/CargoWindow/workflow';
 beforeEach(() => { window.localStorage.clear(); jest.spyOn(workflow, 'randomDestination').mockReturnValue('FB5294'); });
 afterEach(() => { jest.restoreAllMocks(); });
 
+test('shows the RampReady brand and identifies the 2T0X1 training portal', () => {
+  render(<App />);
+  const brand = screen.getByRole('banner');
+  expect(within(brand).getByRole('img', { name: 'RampReady logo' })).toBeInTheDocument();
+  expect(within(brand).getByRole('heading', { name: 'RampReady' })).toBeInTheDocument();
+  expect(within(brand).getByText('2T0X1 Training Portal')).toBeInTheDocument();
+});
+
 test('opens the existing trainer from the CDF Training tab by default', () => {
   render(<App />);
   const navigation = screen.getByRole('navigation', { name: 'Training modules' });

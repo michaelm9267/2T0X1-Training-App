@@ -13,7 +13,13 @@ const trainingModules = [
 function Navbar({ activeModule, onModuleChange }) {
   return (
     <header className="navbar-container">
-        <h1 className="page-title">2T0X1 Training App</h1>
+        <div className="app-brand">
+          <img src={`${process.env.PUBLIC_URL}/rampready-mark.svg`} alt="RampReady logo" />
+          <div>
+            <h1 className="page-title">RampReady</h1>
+            <span className="brand-subtitle">2T0X1 Training Portal</span>
+          </div>
+        </div>
         <nav className="module-tabs" aria-label="Training modules">
           <div role="tablist" aria-label="Training modules">
             {trainingModules.map(module => (
