@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { manifestFields, paperwork, tcnUln, tcnIncrement, DODAAC_INFO, ORIGIN, DESTINATION, DESTINATIONS } from '../CargoWindow/workflow';
 import { MAX_PIECES } from '../CargoWindow/pieces';
+import { formatTime, parseLocal } from '../Departure/departureLogic';
 
 // Deployment Schedule of Events for the training increments, laid out as a LOGMOD Schedule
 // Processing Recap Report for one cargo chalk on a C-17. The processing schedule lists the chalk's
@@ -27,7 +28,7 @@ function Field({ label, children, wide }) {
   return <div className={`recap-field${wide ? ' recap-wide' : ''}`}><span className="recap-label">{label}:</span><span className="recap-value">{children}</span></div>;
 }
 
-export default function Dsoe({ increments, pieceCount = increments.length, onPieceCountChange, destination = DESTINATION, onDestinationChange, destinationLocked = false, elapsedSeconds = 0, milestoneTimes = {}, date = new Date(), onClose }) {
+export default function Dsoe({ increments, pieceCount = increments.length, onPieceCountChange, destination = DESTINATION, onDestinationChange, destinationLocked = false, elapsedSeconds = 0, milestoneTimes = {}, date = new Date(), departureAt = null, onClose }) {
   const dialog = useRef(null);
   useEffect(() => {
     dialog.current?.focus();
@@ -37,6 +38,8 @@ export default function Dsoe({ increments, pieceCount = increments.length, onPie
     return () => { document.removeEventListener('keydown', closeOnEscape); document.body.classList.remove('cmos-modal-open'); };
   }, [onClose]);
   const time = chalkSchedule(increments.length);
+  // The departure set on the Departure step replaces the scheduled ETD.
+  const etd = parseLocal(departureAt) ? formatTime(parseLocal(departureAt)) : stamp(date, time.departure);
   const origin = DODAAC_INFO[ORIGIN], dest = DODAAC_INFO[destination];
   const printed = `${date.getDate()} ${MONTHS[date.getMonth()]} ${date.getFullYear()} ${two(date.getHours())}:${two(date.getMinutes())}:${two(date.getSeconds())}`;
   // Actual reads COMPLETE once a milestone is reached: a start when any increment has finished the
@@ -55,7 +58,7 @@ export default function Dsoe({ increments, pieceCount = increments.length, onPie
     ['C', 'CARGO LOAD', 'START', stamp(date, time.loadStart), milestoneTimes.cargoLoadStart !== undefined, 'cargoLoadStart'],
     ['C', 'CARGO LOAD', 'COMPLETE', stamp(date, time.loadComplete), milestoneTimes.cargoLoadComplete !== undefined, 'cargoLoadComplete'],
     ['M', 'AC', 'ARRIVAL', stamp(date, time.arrival), false],
-    ['M', 'AC', 'DEPARTURE', stamp(date, time.departure), false],
+    ['M', 'AC', 'DEPARTURE', etd, false],
   ];
   return <div className="cmos-overlay" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
     <article className="paper-sheet dsoe-sheet" role="dialog" aria-modal="true" aria-label="Deployment Schedule of Events" tabIndex={-1} ref={dialog}>
@@ -82,7 +85,7 @@ export default function Dsoe({ increments, pieceCount = increments.length, onPie
           <Field label="Schedule">TR001</Field><Field label="RST">{stamp(date, 0, -7)}</Field><Field label="As Of Date">{stamp(date, 6 * 60, -1)}</Field><Field label="Change #">0</Field>
           <Field label="Chalk">001C</Field><Field label="Mode">C17</Field><Field label="Mission Number">JTRN0001</Field><span />
           <Field label="Parking" /><Field label="Tail Number" /><span /><span />
-          <Field label="ETA">{stamp(date, time.arrival)}</Field><Field label="ETD">{stamp(date, time.departure)}</Field><Field label="ATD" /><span />
+          <Field label="ETA">{stamp(date, time.arrival)}</Field><Field label="ETD">{etd}</Field><Field label="ATD" /><span />
           <Field label="Origin">{`${ORIGIN} · ${origin.unit} · ${origin.city}`}</Field><Field label="APOE">{origin.port}</Field><Field label="Destination">{`${destination} · ${dest.unit} · ${dest.city}`}</Field><Field label="APOD">{dest.port}</Field>
           <Field label="Remarks" wide>CARGO CHALK · {ORIGIN} THROUGH APOE {origin.port} TO {destination} THROUGH APOD {dest.port}</Field>
         </div>

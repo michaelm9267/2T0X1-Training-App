@@ -22,6 +22,10 @@ import LoadPlan from './Components/LoadPlan/LoadPlan';
 import TrainingGuide from './Components/Training/TrainingGuide';
 import QuickDrills from './Components/Training/QuickDrills';
 import { reconcilePlan } from './Components/LoadPlan/loadPlanLogic';
+import Departure from './Components/Departure/Departure';
+import AircraftPackage from './Components/Documentation/AircraftPackage';
+import { defaultDepartureAt, emptyDeparture, reconcileRelease } from './Components/Departure/departureLogic';
+import { chalkSchedule } from './Components/Documentation/Dsoe';
 import './App.css';
 
 const processSteps = [
@@ -30,6 +34,7 @@ const processSteps = [
   { id: 'manifest', title: 'Manifest' },
   { id: 'load-plan', title: 'Load plan' },
   { id: 'ji', title: 'JI' },
+  { id: 'departure', title: 'Departure' },
 ];
 
 const placeholderModules = {
@@ -58,11 +63,12 @@ function App() {
   // Guided mode shows hints and explanations; test mode hides them and leaves feedback to the report.
   const [mode, setMode] = useState(initial.mode || 'guided');
   const [loadPlan, setLoadPlan] = useState(initial.loadPlan);
+  const [departure, setDeparture] = useState(initial.departure || emptyDeparture());
   const [clock, setClock] = useState(initial.clock);
   const [meta, setMeta] = useState({ startedAt: initial.startedAt, code: initial.code });
   useEffect(() => {
-    saveSession({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, clock, ...meta });
-  }, [initial.version, shipments, exercises, destination, pieceCount, scenarioId, selectedStep.id, mode, loadPlan, clock, meta]);
+    saveSession({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, departure, clock, ...meta });
+  }, [initial.version, shipments, exercises, destination, pieceCount, scenarioId, selectedStep.id, mode, loadPlan, departure, clock, meta]);
   useEffect(() => {
     if (!clock.running) return undefined;
     const timer = window.setInterval(() => setClock(value => ({ ...value, elapsed: value.elapsed + 1 })), 1000);
@@ -71,7 +77,7 @@ function App() {
   function startSession(session) {
     setShipments(session.shipments); setExercises(session.exercises); setDestination(session.destination);
     setPieceCount(session.pieceCount); setScenarioId(session.scenarioId); setSelectedStep(processSteps.find(step => step.id === session.stepId) || processSteps[0]);
-    setMode(session.mode); setLoadPlan(session.loadPlan); setClock(session.clock); setMeta({ startedAt: session.startedAt, code: session.code }); setSceneVersion(version => version + 1);
+    setMode(session.mode); setLoadPlan(session.loadPlan); setDeparture(session.departure || emptyDeparture()); setClock(session.clock); setMeta({ startedAt: session.startedAt, code: session.code }); setSceneVersion(version => version + 1);
   }
   // Each piece as the trainee sees it: deployment destination, plus paperwork errors not yet corrected.
   const piece = key => shipments[key] && withDocumentErrors({ ...shipments[key], destination }, exercises[key]);
@@ -81,15 +87,20 @@ function App() {
   }
   const exercise = exercises[scenarioId];
   const scenario = useMemo(() => withDocumentErrors({ ...shipments[scenarioId], destination }, exercise), [shipments, scenarioId, destination, exercise]);
-  const cargoSteps = processSteps.filter(step => step.id !== 'load-plan');
+  const cargoSteps = processSteps.filter(step => !['load-plan', 'departure'].includes(step.id));
   const completedStages = cargoSteps.filter(step => isStageComplete(scenario, step.id, exercise)).map(step => step.id);
   const loadBasis = JSON.stringify(pieceKeys.map(key => ({ key, length: shipments[key].length, width: shipments[key].width, weight: shipments[key].weight, manifested: isStageComplete(piece(key), 'manifest', exercises[key]) })));
   const loadPlanCurrent = loadPlan.accepted && loadPlan.basis === loadBasis;
   // JI follows the deployment load plan. If a manifest or cargo value changes, the plan reopens
   // and JI locks until the revised plan is accepted.
   const jiLocked = !['precheck', 'incheck', 'manifest'].every(id => completedStages.includes(id)) || !loadPlanCurrent;
-  const lockedSteps = jiLocked ? { ji: 'Locked until Precheck, Incheck, Manifest, and the deployment Load Plan are complete' } : {};
+  // Aircraft departure follows JI: the manifest is released once every piece on the DSOE passed JI.
+  const passedJI = pieceKeys.map(key => ({ key, title: shipments[key].title, done: isStageComplete(piece(key), 'ji', exercises[key]) }));
+  const allPassedJI = passedJI.every(item => item.done);
+  const lockedSteps = { ...(jiLocked ? { ji: 'Locked until Precheck, Incheck, Manifest, and the deployment Load Plan are complete' } : {}), ...(allPassedJI ? {} : { departure: 'Locked until every piece on the DSOE passes JI' }) };
   useEffect(() => { if (jiLocked && selectedStep.id === 'ji') setSelectedStep(processSteps.find(step => step.id === 'load-plan')); }, [jiLocked, selectedStep.id]);
+  useEffect(() => { if (!allPassedJI && selectedStep.id === 'departure') setSelectedStep(processSteps.find(step => step.id === 'ji')); }, [allPassedJI, selectedStep.id]);
+  const departureAt = departure.at || defaultDepartureAt(chalkSchedule(pieceCount).departure);
   function updateExercise(update, preserveFinal = false) {
     setExercises(previous => {
       const current = previous[scenarioId];
@@ -111,6 +122,8 @@ function App() {
   }, [exercises, shipments, destination]);
   const [setupOpen, setSetupOpen] = useState(false);
   const closeSetup = useCallback(() => setSetupOpen(false), []);
+  const [packageOpen, setPackageOpen] = useState(false);
+  const closePackage = useCallback(() => setPackageOpen(false), []);
   const [reportOpen, setReportOpen] = useState(false);
   const closeReport = useCallback(() => setReportOpen(false), []);
   const [guideOpen, setGuideOpen] = useState(false);
@@ -118,7 +131,7 @@ function App() {
   const closeGuide = useCallback(() => setGuideOpen(false), []);
   const closeDrills = useCallback(() => setDrillsOpen(false), []);
   const [transferFeedback, setTransferFeedback] = useState('');
-  const sessionSnapshot = () => ({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, clock, ...meta });
+  const sessionSnapshot = () => ({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, departure, clock, ...meta });
   function downloadSession() {
     const blob = new Blob([exportSession(sessionSnapshot())], { type: 'application/json' });
     const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `cdf-training-${new Date().toISOString().slice(0, 10)}.json`; link.click(); URL.revokeObjectURL(link.href);
@@ -154,6 +167,18 @@ function App() {
   // Every manifested piece across all training shipments, in shipment order.
   const manifestPieces = pieceKeys.filter(key => exercises[key].manifestAccepted && exercises[key].manifestRecord)
     .map(key => ({ scenarioId: key, title: shipments[key].title, record: exercises[key].manifestRecord, mslApplied: exercises[key].mslApplied, current: key === scenarioId }));
+  // A released manifest stays released only while the manifest itself is unchanged.
+  const releaseBasis = JSON.stringify(manifestPieces.map(item => [item.scenarioId, item.record.tcn, item.record.weight]));
+  useEffect(() => { setDeparture(state => reconcileRelease(state, releaseBasis)); }, [releaseBasis]);
+  // The aircraft commander's package uses the corrected paperwork for every manifested piece.
+  const packagePieces = manifestPieces.map(item => ({ key: item.scenarioId, title: item.title, record: item.record,
+    scenario: withDocumentErrors({ ...shipments[item.scenarioId], destination }, { docFixes: { logmod: true, attla: true, hazdec: true } }) }));
+  const packageOutstanding = [
+    ...(manifestPieces.length < pieceKeys.length ? [`${pieceKeys.length - manifestPieces.length} of ${pieceKeys.length} pieces are not on the manifest.`] : []),
+    ...(allPassedJI ? [] : ['Not every piece on the DSOE has passed JI.']),
+    ...(loadPlanCurrent ? [] : ['The load plan is not accepted for the current manifest.']),
+    ...(departure.releasedAt ? [] : ['The manifest has not been released.']),
+  ];
   function removePiece(id) {
     setExercises(previous => ({ ...previous, [id]: removeFromManifest(previous[id]) }));
   }
@@ -178,11 +203,12 @@ function App() {
       <AcronymTooltip />
       <Layout activeModule={activeModule} onModuleChange={setActiveModule}>
         {activeModule === 'cdf' ? <>
-        <ProcessPanel steps={processSteps} selectedStepId={selectedStep.id} onSelectStep={setSelectedStep} completedStages={completedStages} lockedSteps={lockedSteps} onViewDsoe={viewDsoe} dsoeViewed={dsoeViewed} />
-        {reportOpen && <AfterActionReport destination={destination} mode={mode} onClose={closeReport}
+        <ProcessPanel steps={processSteps} selectedStepId={selectedStep.id} onSelectStep={setSelectedStep} completedStages={[...completedStages, ...(loadPlanCurrent ? ['load-plan'] : []), ...(departure.releasedAt ? ['departure'] : [])]} lockedSteps={lockedSteps} onViewDsoe={viewDsoe} dsoeViewed={dsoeViewed} />
+        {reportOpen && <AfterActionReport destination={destination} mode={mode} release={{ ...departure, departureAt }} onClose={closeReport}
           pieces={pieceKeys.map(key => { const view = piece(key); return { title: shipments[key].title, tcn: manifestFields(view).find(field => field.id === 'tcn').expected, result: pieceResult(view, exercises[key], cargoSteps.filter(step => isStageComplete(view, step.id, exercises[key])).map(step => step.id)) }; })} />}
-        {dsoeOpen && <Dsoe increments={dsoeIncrements} pieceCount={pieceCount} onPieceCountChange={changePieceCount} destination={destination} onDestinationChange={setDestination} destinationLocked={Object.values(exercises).some(item => item.manifestAccepted)} elapsedSeconds={clock.elapsed} milestoneTimes={clock.events} onClose={closeDsoe} />}
+        {dsoeOpen && <Dsoe increments={dsoeIncrements} pieceCount={pieceCount} onPieceCountChange={changePieceCount} destination={destination} onDestinationChange={setDestination} destinationLocked={Object.values(exercises).some(item => item.manifestAccepted)} elapsedSeconds={clock.elapsed} milestoneTimes={clock.events} departureAt={departureAt} onClose={closeDsoe} />}
         {guideOpen && <TrainingGuide onClose={closeGuide} />}
+        {packageOpen && packagePieces.length > 0 && <AircraftPackage pieces={packagePieces} plan={loadPlan} departureAt={departureAt} releasedAt={departure.releasedAt} destination={destination} outstanding={packageOutstanding} onClose={closePackage} />}
         {drillsOpen && <QuickDrills onClose={closeDrills} />}
         <main className="training-workspace">
           <SessionBar mode={mode} onModeChange={setMode} onNewSession={() => startSession(newSession({ mode }))} clock={clock} onClockChange={setClock}
@@ -193,10 +219,12 @@ function App() {
           <div className="shipment-bar">
             <label>Training shipment <select value={scenarioId} onChange={event => { setScenarioId(event.target.value); setSelectedStep(processSteps[0]); }}>{pieceKeys.map(key => <option value={key} key={key}>{shipments[key].title}</option>)}</select></label>
             <button type="button" onClick={() => setReportOpen(true)}>After-action report</button>
+            <button type="button" disabled={manifestPieces.length === 0} title={manifestPieces.length ? undefined : 'Add a piece to the manifest first'} onClick={() => setPackageOpen(true)}>Aircraft paperwork package</button>
             <button type="button" onClick={() => { setShipments(previous => ({...previous,[scenarioId]:resetPiece(previous[scenarioId])})); updateExercise(current => ({ ...createExercise(), dsoeViewed: current.dsoeViewed })); setSceneVersion(version => version + 1); }}>Reset this shipment</button>
           </div>
           <p className="simulation-note">Shipment values approximate the real equipment · Guided by your Appendix O edition, 3 February 2023. Reset varies each item's size and weight slightly. Standard ISU and pallet footprints stay fixed.</p>
-          {selectedStep.id === 'load-plan' ? <LoadPlan pieces={pieceKeys.map(key => ({ ...shipments[key], manifested: isStageComplete(piece(key), 'manifest', exercises[key]) }))} plan={loadPlan} onChange={next => setLoadPlan({ ...next, basis: loadBasis })} /> : <div className="simulation-layout">
+          {selectedStep.id === 'departure' ? <Departure state={departure} departureAt={departureAt} onChange={setDeparture} ready={allPassedJI} waiting={passedJI.filter(item => !item.done).map(item => item.title)} manifestPieces={manifestPieces} destination={destination} basis={releaseBasis} onPrintPackage={() => setPackageOpen(true)} />
+          : selectedStep.id === 'load-plan' ? <LoadPlan pieces={pieceKeys.map(key => ({ ...shipments[key], manifested: isStageComplete(piece(key), 'manifest', exercises[key]) }))} plan={loadPlan} onChange={next => setLoadPlan({ ...next, basis: loadBasis })} /> : <div className="simulation-layout">
             <CargoWindow key={`${scenarioId}-${sceneVersion}`} scenario={scenario} exercise={exercise} stage={selectedStep.id}
               onInspectMarkings={side => updateExercise(current=>({...current,jiSides:[...new Set([...current.jiSides,side])]}),true)}
               onVehicleAction={action => updateExercise(current => {

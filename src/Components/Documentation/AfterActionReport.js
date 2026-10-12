@@ -1,12 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { MISTAKE_POINTS, MISSED_POINTS, overallScore } from '../CargoWindow/scoring';
 import { DODAAC_INFO } from '../CargoWindow/workflow';
+import { formatTime, parseLocal } from '../Departure/departureLogic';
 
 // After-action report for the deployment: score, stage progress, mistakes, and caught or missed
 // discrepancies for each piece, with the reference that covers each item. Printable.
 const STAGES = [['precheck', 'Precheck'], ['incheck', 'Incheck'], ['manifest', 'Manifest'], ['ji', 'JI']];
 
-export default function AfterActionReport({ pieces, destination, mode, onClose }) {
+export default function AfterActionReport({ pieces, destination, mode, release, onClose }) {
   const dialog = useRef(null);
   useEffect(() => {
     dialog.current?.focus();
@@ -26,6 +27,14 @@ export default function AfterActionReport({ pieces, destination, mode, onClose }
         {[['Pieces started', `${pieces.filter(p => p.result.started).length} of ${pieces.length}`], ['Pieces through JI', pieces.filter(p => p.result.done.includes('ji')).length], ['Mistakes', totals.mistakes], ['Discrepancies caught', `${totals.caught} of ${totals.found}`], ['Discrepancies missed', totals.missed]].map(([k, v]) => <div key={k}><small>{k}</small><span>{v}</span></div>)}
       </div>
       <p className="reference-note">Each piece starts at 100. A mistake costs {MISTAKE_POINTS} points; a discrepancy still uncaught when the piece reaches the manifest costs {MISSED_POINTS}. The overall score averages the pieces started.</p>
+      {release && <section className="aar-piece" aria-label="Manifest release results">
+        <h5>Aircraft departure and manifest release</h5>
+        <p className="aar-stages"><span>Departure {parseLocal(release.departureAt) ? formatTime(parseLocal(release.departureAt)) : '—'}</span><span className={release.releasedAt ? 'aar-done' : ''}>{release.releasedAt ? `✓ Released ${formatTime(new Date(release.releasedAt))}` : '○ Not released'}</span></p>
+        <div className="paper-table"><table>
+          <thead><tr><th>Release attempt problem</th><th>Reference</th></tr></thead>
+          <tbody>{release.mistakes?.length ? release.mistakes.map((m, i) => <tr key={i}><td>{m.detail}</td><td>{m.reference}</td></tr>) : <tr><td colSpan="2">No release problems recorded.</td></tr>}</tbody>
+        </table></div>
+      </section>}
       {pieces.map(({ title, tcn, result }) => <section key={tcn} className="aar-piece" aria-label={`${title} results`}>
         <h5>{title} · {tcn} · {result.started ? `Score ${result.score}` : 'Not started'}</h5>
         <p className="aar-stages">{STAGES.map(([id, label]) => <span key={id} className={result.done.includes(id) ? 'aar-done' : ''}>{result.done.includes(id) ? '✓' : '○'} {label}</span>)}{result.minutes !== null && <span>Time to JI: {result.minutes} min</span>}</p>

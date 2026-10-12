@@ -51,7 +51,10 @@ test('lists the CDF steps in order and opens Precheck initially', () => {
   render(<App />);
   const navigation = screen.getByRole('navigation', { name: 'CDF process steps' });
   expect(within(navigation).getAllByRole('button').map(button => button.textContent))
-    .toEqual(['View DSOE', '1. Precheck', '2. Incheck', '3. Manifest', '4. Load plan', '5. JI']);
+    .toEqual(['View DSOE', '1. Precheck', '2. Incheck', '3. Manifest', '4. Load plan', '5. JI', '6. Departure']);
+  expect(screen.getByRole('button', { name: '6. Departure' })).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Aircraft paperwork package' })).toBeDisabled();
+  expect(screen.getByRole('button', { name: '6. Departure' })).toHaveAccessibleDescription('Locked until every piece on the DSOE passes JI');
   expect(screen.getByRole('heading', { name: 'Precheck' })).toBeInTheDocument();
   expect(screen.getByRole('button', { name: '1. Precheck' })).toHaveAttribute('aria-current', 'step');
 });
@@ -348,6 +351,11 @@ test('prepared pallet manifests but JI waits for the deployment load plan',()=>{
  userEvent.click(screen.getByRole('button',{name:'Close Shipment Planning'}));
  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
  expect(screen.getByText('Piece added to manifest.')).toBeInTheDocument();
+ userEvent.click(screen.getByRole('button',{name:'Aircraft paperwork package'}));
+ const pkg=within(screen.getByRole('dialog',{name:'Aircraft commander paperwork package'}));
+ expect(pkg.getByText('DRAFT — NOT READY')).toBeInTheDocument();
+ expect(within(pkg.getByRole('region',{name:'Cargo manifest'})).getAllByText('F00001$$E100300XX').length).toBeGreaterThan(0);
+ userEvent.click(pkg.getByRole('button',{name:'Close paperwork package'}));
  userEvent.click(screen.getByRole('button',{name:'View DSOE'}));
  expect(within(screen.getByRole('dialog',{name:'Deployment Schedule of Events'})).getByLabelText(/^Destination/)).toBeDisabled();
  // One of six increments is through Incheck: Manifest has started, but Incheck is not complete for the chalk.
@@ -616,6 +624,8 @@ test('load planning follows Manifest, uses manifested pieces, and resumes after 
  expect(screen.getByText(/Waiting for Manifest:/)).toBeInTheDocument();
  userEvent.click(screen.getByRole('button', { name: 'Submit load plan' }));
  expect(screen.getAllByText(/must complete Manifest before/).length).toBeGreaterThan(0);
+ // The step shows Complete only once the plan is accepted.
+ expect(screen.getByRole('button', { name: '4. Load plan' }).closest('li')).not.toHaveTextContent('Complete');
  first.unmount(); render(<App />);
  expect(screen.getByRole('heading', { name: 'Load plan' })).toBeInTheDocument();
 });

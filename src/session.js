@@ -2,6 +2,7 @@ import { createPieces, MAX_PIECES } from './Components/CargoWindow/pieces';
 import { createExercise } from './Components/CargoWindow/exercise';
 import { DESTINATIONS, randomDestination } from './Components/CargoWindow/workflow';
 import { emptyPlan } from './Components/LoadPlan/loadPlanLogic';
+import { emptyDeparture } from './Components/Departure/departureLogic';
 import { scenarios } from './Components/CargoWindow/scenarios';
 
 // The training session, saved in this browser so a refresh or closed tab resumes where the
@@ -19,7 +20,9 @@ export function normalizeSession(saved) {
   if (!plan.placements || typeof plan.placements !== 'object' || !Array.isArray(plan.mistakes)) return null;
   const elapsed = Number.isFinite(saved.clock?.elapsed) && saved.clock.elapsed >= 0 ? saved.clock.elapsed : 0;
   const events = saved.clock?.events && typeof saved.clock.events === 'object' ? saved.clock.events : {};
-  return { ...saved, loadPlan: plan, clock: { elapsed, running: false, events } };
+  // Sessions saved before the departure step start with no departure set.
+  const departure = saved.departure && typeof saved.departure === 'object' && Array.isArray(saved.departure.mistakes) ? saved.departure : emptyDeparture();
+  return { ...saved, loadPlan: plan, departure, clock: { elapsed, running: false, events } };
 }
 
 // A fresh session. With a seeded random function and forced discrepancies, every trainee who
@@ -38,6 +41,7 @@ export function newSession({ random, forced, destination, pieceCount = scenarios
     code,
     startedAt: Date.now(),
     loadPlan: emptyPlan(),
+    departure: emptyDeparture(),
     clock: { elapsed: 0, running: false, events: {} },
   };
 }

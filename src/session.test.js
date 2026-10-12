@@ -30,3 +30,10 @@ test('load planning and simulation clock survive resuming a session', () => {
  saveSession(session);
  expect(loadSession()).toEqual(session);
 });
+test('sessions saved before the departure step resume with no departure set', () => {
+ const session = newSession();
+ expect(session.departure).toEqual(expect.objectContaining({ at: null, releasedAt: null, mistakes: [] }));
+ delete session.departure;
+ saveSession(session);
+ expect(loadSession().departure).toEqual(expect.objectContaining({ at: null, releasedAt: null }));
+});
