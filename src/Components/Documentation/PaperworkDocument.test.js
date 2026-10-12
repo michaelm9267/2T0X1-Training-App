@@ -41,3 +41,16 @@ test('LOGMOD placard shows the shipment identifiers and handling data', () => {
   expect(within(placard).getByText(`${values.destination} / ${values.apod}`)).toBeInTheDocument();
   expect(within(placard).getByText(`${values.weight} LB`)).toBeInTheDocument();
 });
+
+test.each([
+  ['age-generator', ['UN1202, Diesel Fuel, 3, III, Fuel Drained to 500 ML or less.', 'UN2800, 1 Non-Spillable Batteries installed, Terminals Taped']],
+  ['rolling-stock', ['UN1202, Diesel Fuel, 3, III, Fuel Drained to 1/4 or less. 23.75 Lt', 'UN2800, 2 Non-Spillable Batteries installed, Terminals Taped']],
+  ['three-axle', ['UN1202, Diesel Fuel, 3, III, Fuel Drained to 1/4 or less. 55 Lt', 'UN2800, 4 Non-Spillable Batteries installed, Terminals Taped']],
+])('%s HAZDEC states its fuel and batteries and shows quantities in metric', (scenarioId, statements) => {
+  const scenario = scenarios.find(item => item.id === scenarioId);
+  render(<PaperworkDocument scenario={scenario} document={{ id: 'hazdec', title: 'HAZDEC' }} onClose={() => {}} />);
+  const form = screen.getByRole('dialog', { name: 'HAZDEC' });
+  for (const statement of statements) expect(within(form).getByText(statement)).toBeInTheDocument();
+  expect(within(form).getByText(`1 unpackaged × ${Math.round(scenario.weight * 0.45359237).toLocaleString()} kg`)).toBeInTheDocument();
+  expect(within(form).queryByText(/\blb\b/)).not.toBeInTheDocument();
+});

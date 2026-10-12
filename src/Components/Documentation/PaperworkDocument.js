@@ -28,11 +28,20 @@ function packingContents(scenario) {
     { box: '5–12', item: 'Carton, general supplies — light (top tier)', qty: 8, unit: 'CT' },
   ];
 }
+// HAZDEC additional handling statements (Key 19) for each vehicle's fuel and batteries.
+export const HANDLING_STATEMENTS = {
+  'age-generator': ['UN1202, Diesel Fuel, 3, III, Fuel Drained to 500 ML or less.', 'UN2800, 1 Non-Spillable Batteries installed, Terminals Taped'],
+  'rolling-stock': ['UN1202, Diesel Fuel, 3, III, Fuel Drained to 1/4 or less. 23.75 Lt', 'UN2800, 2 Non-Spillable Batteries installed, Terminals Taped'],
+  'three-axle': ['UN1202, Diesel Fuel, 3, III, Fuel Drained to 1/4 or less. 55 Lt', 'UN2800, 4 Non-Spillable Batteries installed, Terminals Taped'],
+  'mj1-jammer': ['UN1202, Diesel Fuel, 3, III, Fuel Drained to 1/4 or less.', 'UN2800, Non-Spillable Batteries installed, Terminals Taped'],
+};
+const LB_TO_KG = 0.45359237;
+// Every quantity on the HAZDEC is metric.
 function declaredHazards(scenario, weight) {
-  if (scenario.id === 'isu-90') return [{ un: 'UN1950', quantity: '1 fibreboard box × 12 kg', instruction: 'A6.2', authorization: '', handling: 'Aerosols packed in crate 2 inside the ISU.' }];
+  if (scenario.id === 'isu-90') return [{ un: 'UN1950', quantity: '1 fibreboard box × 12 kg', instruction: 'A6.2', authorization: '', handling: ['Aerosols packed in crate 2 inside the ISU.'] }];
   const un = scenario.kind === 'generator' ? 'UN3528' : 'UN3166';
   const name = scenario.kind === 'generator' ? 'MACHINERY, INTERNAL COMBUSTION, FLAMMABLE LIQUID POWERED' : undefined;
-  return [{ un, name, quantity: `1 unpackaged × ${weight} lb`, instruction: scenario.kind === 'generator' ? 'A7.11' : 'A13.4', authorization: '', handling: 'Fuel tank no more than ¼ full. Battery secured and terminals protected.' }];
+  return [{ un, name, quantity: `1 unpackaged × ${Math.round(weight * LB_TO_KG).toLocaleString()} kg`, instruction: scenario.kind === 'generator' ? 'A7.11' : 'A13.4', authorization: '', handling: HANDLING_STATEMENTS[scenario.id] || [] }];
 }
 
 function Header({ title, subtitle, form }) {
@@ -148,7 +157,7 @@ function Hazdec({ scenario, values }) {
     </table></div>
     <div className="hz-row hz-cell hz-handling">
       <small>ADDITIONAL HANDLING INFORMATION</small>
-      <p className="hz-value">{rows.map(row => row.handling).join(' ')}</p>{/* Key 19 */}
+      <p className="hz-value">{rows.flatMap(row => row.handling).map((line, i) => <span key={i} className="hz-handling-line">{line}</span>)}</p>{/* Key 19 */}
       <small className="hz-emergency">EMERGENCY TELEPHONE NUMBER: <span className="hz-inline">1-800-851-8061 / 1-804-279-3131</span></small>
     </div>
     <div className="hz-row hz-split hz-last">

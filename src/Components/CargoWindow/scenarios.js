@@ -65,6 +65,8 @@ scenarios.push({
   ...twoAxle, id:'age-generator', kind:'generator', title:'Start cart (AGE)', subtitle:'A/M32A-60A start cart',
   length:150, width:66, height:62, exhaustHeight:6, weight:4100,
   axles:[{id:'front-axle',title:'Front axle',position:46,weight:2200},{id:'rear-axle',title:'Rear axle',position:124,weight:1900}],
+  // The start cart is drained nearly empty: residual fuel is measured in millilitres, 500 mL or less.
+  vehicleChecks:{positiveTaped:false,negativeTaped:true,fuelUnit:'mL',fuelFraction:3000,fuelLimit:500},
   findings:twoAxle.findings.map(finding=>finding.id === 'equipment' ? {...finding,title:'Generator accessories',observation:'The generator cables, covers, and tool kit are secured against movement.'} : {...finding}),
 });
 // MJ-1B munitions lift truck ("Jammer"): the forward boom and table put most weight on the front axle.

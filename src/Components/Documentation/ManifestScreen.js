@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTestMode } from '../Session/mode';
+import { MEASURES, linkedQuantity, measureOf } from './quantity';
 import { manifestFields, isHazardousIndicator, paperwork, manifestTab } from '../CargoWindow/workflow';
 import { DocumentBody } from './PaperworkDocument';
 import RemoveFromManifest from './RemoveFromManifest';
@@ -19,8 +20,10 @@ const DG2_FIELDS = [
   { id: 'dg2Compatibility', title: 'Compatibility Group' },
   { id: 'dg2Packages', title: 'Number of Packages' },
   { id: 'dg2PackageType', title: 'Type of Packaging' },
-  { id: 'dg2NetQuantity', title: 'Net Quantity per Package' },
-  { id: 'dg2Unit', title: 'Unit of Measure', options: ['L', 'mL', 'kg', 'g', 'lb', 'gal'] },
+  { id: 'dg2QtyBasis', title: 'Total Qty Net/Gross', options: ['Net', 'Gross'] },
+  { id: 'dg2QtyMeasure', title: 'Measure', options: Object.keys(MEASURES) },
+  { id: 'dg2QtyMetric', title: 'Total Qty/Metric', unit: 'metric' },
+  { id: 'dg2QtyImperial', title: 'Total Qty/Imperial', unit: 'imperial' },
   { id: 'dg2NEW', title: 'Net Explosive Weight (lb)' },
   { id: 'dg2Aircraft', title: 'Aircraft Limitation', options: ['Passenger and cargo aircraft', 'Cargo aircraft only'] },
   { id: 'dg2Authorization', title: 'Special Provisions/Authorization', wide: true },
@@ -61,15 +64,20 @@ export default function ManifestScreen({ scenario, exercise, onChange, onSubmit,
   // Selecting a UN/ID number fills its shipping name, class, labels, and packing group.
   const change = (id, next) => {
     onChange(id, next);
+    fillLinked(id, next);
     if (id === 'dg2Template') Object.entries(fieldsForUnNumber(next)).forEach(([field, filled]) => onChange(field, filled));
   };
   const unNames = findUnNumber(draft.dg2Template)?.names ?? [];
-  const dg2Fields = DG2_FIELDS.map(d => d.id === 'dg2Name' && unNames.length > 1 ? { ...d, options: unNames } : d);
+  // Quantity field titles show the chosen measure's units, e.g. Total Qty/Metric (kg).
+  const measure = measureOf(draft.dg2QtyMeasure);
+  const dg2Fields = DG2_FIELDS.map(d => d.id === 'dg2Name' && unNames.length > 1 ? { ...d, options: unNames } : d.unit ? { ...d, title: `${d.title} (${measure[d.unit]})` } : d);
+  // Typing one quantity (or changing the measure) fills the other.
+  const fillLinked = (id, next) => { const linked = linkedQuantity(id, next, draft); if (linked) onChange(linked.id, linked.value); };
   const input = (id, props = {}) => {
     const f = fields[id] || dg2Fields.find(d => d.id === id);
     return f?.options
       ? <select id={`cmos-${id}`} disabled={locked} aria-invalid={errors.includes(id) || undefined} className={errors.includes(id) ? 'cmos-invalid' : undefined} value={value(id)} onChange={event => change(id, event.target.value)} {...props}><option value=""></option>{f.options.map(o => <option key={o} value={o}>{f.optionLabel ? f.optionLabel(o) : o}</option>)}</select>
-      : <input id={`cmos-${id}`} readOnly={locked} aria-invalid={errors.includes(id) || undefined} className={errors.includes(id) ? 'cmos-invalid' : undefined} value={value(id)} onChange={event => onChange(id, event.target.value)} {...props} />;
+      : <input id={`cmos-${id}`} readOnly={locked} aria-invalid={errors.includes(id) || undefined} className={errors.includes(id) ? 'cmos-invalid' : undefined} value={value(id)} onChange={event => { onChange(id, event.target.value); fillLinked(id, event.target.value); }} {...props} />;
   };
   const label = (id, required) => <label htmlFor={`cmos-${id}`} className={required ? 'cmos-required' : ''}>{fields[id].title}</label>;
   const field = (id, required = false, className = '') => <div className={`cmos-field ${className}`}>{label(id, required)}{input(id, { 'aria-required': required })}</div>;

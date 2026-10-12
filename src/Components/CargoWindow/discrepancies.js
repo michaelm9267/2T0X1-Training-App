@@ -25,16 +25,23 @@ const CONTENTS_TEXT = {
 };
 // Transposed UN numbers used for the HAZDEC "wrong UN number" error.
 export const WRONG_UN = { UN1950: 'UN1905', UN3166: 'UN3616', UN3528: 'UN3258' };
-export const FUEL_LEVELS = [.125, .25, .375, .5, .75];
+// Fuel is checked as a fraction of a full tank by default (fuelFraction and fuelLimit). Equipment
+// drained nearly empty, such as the start cart, measures residual fuel in millilitres instead
+// (fuelUnit 'mL'; fuelFraction and fuelLimit then hold millilitres).
+export const FUEL_LEVELS = { tank: [.125, .25, .375, .5, .75], mL: [0, 250, 400, 500, 1500, 3000, 6000, 9500] };
+const TANK_LABELS = { .125: '⅛', .25: '¼', .375: '⅜', .5: '½', .625: '⅝', .75: '¾', 1: 'full' };
+export const fuelReading = (checks, level = checks.fuelFraction) => checks.fuelUnit === 'mL' ? `${level.toLocaleString()} mL` : `${TANK_LABELS[level] ? `${TANK_LABELS[level]} tank` : `${level * 100}% of a tank`} (${level * 100}% full)`;
+export const fuelLimitText = checks => checks.fuelUnit === 'mL' ? `${checks.fuelLimit.toLocaleString()} mL` : `${TANK_LABELS[checks.fuelLimit] || `${checks.fuelLimit * 100}%`} tank`;
 
 export function fuelFinding(checks) {
   const satisfactory = checks.fuelFraction <= checks.fuelLimit;
+  const limit = fuelLimitText(checks);
   return {
     id: 'fuel', title: 'Fuel level', stage: 'qc-after-incheck', correct: satisfactory ? 'satisfactory' : 'unsatisfactory',
-    observation: `The fuel gauge reads ${checks.fuelFraction * 100}% full. This scenario requires no more than 25% (¼ tank).`,
-    explanation: 'Compare the gauge with the ¼-tank training target. This is a scenario requirement, not a universal DTR limit; Appendix O specifies equipment- and movement-dependent fuel requirements.',
-    correction: 'Simulate draining to ¼ tank, reread the fuel gauge, then confirm correction.',
-    source: { paragraph: 'K.2.f(4) · scenario target: ¼ tank', page: 'III-O-8', edition: '3 February 2023' },
+    observation: checks.fuelUnit === 'mL' ? `Residual fuel measures ${fuelReading(checks)}. The fuel must be drained to ${limit} or less.` : `The fuel gauge reads ${fuelReading(checks)}. This scenario requires no more than ${limit}.`,
+    explanation: `Compare the fuel with the ${limit} limit for this equipment. Appendix O specifies equipment- and movement-dependent fuel requirements.`,
+    correction: `Simulate draining to ${limit}, reread the fuel level, then confirm correction.`,
+    source: { paragraph: `K.2.f(4) · limit: ${limit}`, page: 'III-O-8', edition: '3 February 2023' },
   };
 }
 
@@ -59,7 +66,7 @@ export function applyDiscrepancies(template, random = Math.random, forced = {}) 
     faulty.battery = pick('battery', FAULT_CHANCE);
     vehicleChecks.positiveTaped = !faulty.battery;
     faulty.fuel = pick('fuel', FAULT_CHANCE);
-    const levels = FUEL_LEVELS.filter(level => faulty.fuel ? level > vehicleChecks.fuelLimit : level <= vehicleChecks.fuelLimit);
+    const levels = FUEL_LEVELS[vehicleChecks.fuelUnit === 'mL' ? 'mL' : 'tank'].filter(level => faulty.fuel ? level > vehicleChecks.fuelLimit : level <= vehicleChecks.fuelLimit);
     vehicleChecks.fuelFraction = levels[Math.floor(random() * levels.length) % levels.length];
   }
   const findings = template.findings.map(finding => {

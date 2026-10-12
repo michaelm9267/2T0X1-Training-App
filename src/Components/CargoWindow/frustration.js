@@ -13,7 +13,7 @@ export const FRUSTRATION_REASONS = [
   { id: 'label', title: 'Missing or illegible military shipping label', finding: true },
   { id: 'undeclared-hazmat', title: 'Undeclared hazardous material', finding: true },
   { id: 'battery', title: 'Battery terminals unprotected', finding: true, physical: 'Inspect both battery terminals in the cargo bay and tape any exposed terminal, then confirm the correction here.' },
-  { id: 'fuel', title: 'Fuel level exceeds limit', finding: true, physical: 'Read the fuel gauge in the cargo bay, drain to ¼ tank, reread the gauge, then confirm the correction here.' },
+  { id: 'fuel', title: 'Fuel level exceeds limit', finding: true, physical: 'Read the fuel level in the cargo bay, drain to the equipment limit, reread the fuel level, then confirm the correction here.' },
   { id: 'equipment', title: 'Loose equipment or accessories', finding: true },
   { id: 'tiedowns', title: 'Unserviceable tie-down points', finding: true },
   { id: 'access', title: 'No access to locked container', finding: true },

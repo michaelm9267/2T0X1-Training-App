@@ -429,3 +429,5 @@
 @media print {
   .package-page + .package-page { break-before: page; margin-top: 0; padding-top: 0; border-top: 0; }
 }
+
+.hz-handling-line { display: block; }

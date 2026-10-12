@@ -341,6 +341,17 @@ test('prepared pallet manifests but JI waits for the deployment load plan',()=>{
  expect(screen.getByLabelText('Hazard Class/Division')).toHaveValue('2.2');
  expect(screen.getByLabelText('Subsidiary Risk')).toHaveValue('5.1');
  expect(screen.getByLabelText('Packing Group')).toHaveValue('N/A');
+ // Total quantity: one Net/Gross choice; metric and imperial fill each other.
+ expect(within(screen.getByLabelText('Total Qty Net/Gross')).getAllByRole('option').map(o=>o.textContent)).toEqual(['','Net','Gross']);
+ userEvent.selectOptions(screen.getByLabelText('Total Qty Net/Gross'),'Net');
+ userEvent.type(screen.getByLabelText('Total Qty/Metric (kg)'),'100');
+ expect(screen.getByLabelText('Total Qty/Imperial (lb)')).toHaveValue('220.46');
+ userEvent.selectOptions(screen.getByLabelText('Measure'),'Volume (L / gal)');
+ expect(screen.getByLabelText('Total Qty/Imperial (gal)')).toHaveValue('26.42');
+ userEvent.clear(screen.getByLabelText('Total Qty/Imperial (gal)'));
+ userEvent.type(screen.getByLabelText('Total Qty/Imperial (gal)'),'10');
+ expect(screen.getByLabelText('Total Qty/Metric (L)')).toHaveValue('37.85');
+ expect(screen.queryByLabelText('Net Quantity per Package')).not.toBeInTheDocument();
  userEvent.click(screen.getByRole('button',{name:'Save DG2'}));
  expect(screen.getByRole('cell',{name:'UN1072'})).toBeInTheDocument();
  userEvent.click(screen.getByRole('tab',{name:'Indicators'}));

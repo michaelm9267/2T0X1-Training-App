@@ -58,3 +58,15 @@ test('paperwork errors show until the trainee frustrates the piece and gets them
   expect(letterApplies(seen)).toBe(true);
   expect(seen.hazdecError).toBeUndefined();
 });
+
+test('the start cart fuel is measured in millilitres against a 500 mL limit', () => {
+  const cart = byId('age-generator');
+  expect(cart.vehicleChecks).toEqual(expect.objectContaining({ fuelUnit: 'mL', fuelLimit: 500 }));
+  const sound = applyDiscrepancies(cart, () => .99, { fuel: false });
+  expect(sound.vehicleChecks.fuelFraction).toBeLessThanOrEqual(500);
+  expect(sound.findings.find(f => f.id === 'fuel')).toEqual(expect.objectContaining({ correct: 'satisfactory', observation: expect.stringMatching(/mL\. The fuel must be drained to 500 mL or less/) }));
+  const bad = applyDiscrepancies(cart, () => .5, { fuel: true });
+  expect(bad.vehicleChecks.fuelFraction).toBeGreaterThan(500);
+  expect(bad.findings.find(f => f.id === 'fuel').correction).toBe('Simulate draining to 500 mL, reread the fuel level, then confirm correction.');
+  expect(byId('rolling-stock').findings.find(f => f.id === 'fuel').observation).toMatch(/no more than ¼ tank/);
+});
