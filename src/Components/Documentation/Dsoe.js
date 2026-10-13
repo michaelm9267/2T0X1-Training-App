@@ -3,6 +3,8 @@ import { manifestFields, paperwork, tcnUln, tcnIncrement, DODAAC_INFO, ORIGIN, D
 import { MAX_PIECES } from '../CargoWindow/pieces';
 import { formatTime, parseLocal } from '../Departure/departureLogic';
 
+// Deployment Schedule of Events for the training increments. Cargo events follow the standard
+// events in DAFI 10-403 Table 3.1, tailored with cargo prep, report time and manifest start.
 // Deployment Schedule of Events for the training increments, laid out as a LOGMOD Schedule
 // Processing Recap Report for one cargo chalk on a C-17. The processing schedule lists the chalk's
 // overall milestones, not per-increment times. Identifiers are fictional.
@@ -16,7 +18,7 @@ export function chalkSchedule(count) {
   const manifestComplete = round5(incheckComplete + 30 + count * 10);
   const jiStart = manifestComplete + 30, jiComplete = round5(jiStart + 30 + count * 15);
   const loadStart = Math.max(13 * 60, jiComplete + 60), loadComplete = round5(loadStart + 45 + count * 5);
-  return { cargoPrep: 7 * 60 + 30, report, incheckStart, incheckComplete, manifestStart: incheckComplete, manifestComplete, jiStart, jiComplete, loadStart, loadComplete, arrival: loadStart - 90, departure: loadComplete + 60 };
+  return { cargoPrep: 7 * 60 + 30, unitAssembly: report - 30, report, incheckStart, incheckComplete, manifestStart: incheckComplete, manifestComplete, jiStart, jiComplete, qcComplete: jiComplete + 30, acpComplete: loadStart - 30, loadStart, loadComplete, arrival: loadStart - 90, departure: loadComplete + 60 };
 }
 
 // Report timestamps in the recap format, e.g. 01-Aug-2024/07:30.
@@ -48,6 +50,7 @@ export default function Dsoe({ increments, pieceCount = increments.length, onPie
   const all = stage => increments.length > 0 && increments.every(item => item.done?.includes(stage));
   const events = [
     ['C', 'CARGO PREP', 'START', stamp(date, time.cargoPrep, -1), any('precheck'), 'cargoPrepStart'],
+    ['C', 'UNIT ASSEMBLY', 'COMPLETE', stamp(date, time.unitAssembly), any('precheck'), 'unitAssembly'],
     ['C', 'REPORT TO', 'CDF', stamp(date, time.report), all('precheck'), 'reportTo'],
     ['C', 'INCHECK', 'START', stamp(date, time.incheckStart), any('precheck'), 'incheckStart'],
     ['C', 'INCHECK', 'COMPLETE', stamp(date, time.incheckComplete), all('incheck'), 'incheckComplete'],
@@ -55,8 +58,11 @@ export default function Dsoe({ increments, pieceCount = increments.length, onPie
     ['C', 'MANIFEST', 'COMPLETE', stamp(date, time.manifestComplete), all('manifest'), 'manifestComplete'],
     ['C', 'JOINT INSPECTION', 'START', stamp(date, time.jiStart), any('manifest'), 'jiStart'],
     ['C', 'JOINT INSPECTION', 'COMPLETE', stamp(date, time.jiComplete), all('ji'), 'jiComplete'],
+    ['C', 'QC', 'COMPLETE', stamp(date, time.qcComplete), milestoneTimes.qcComplete !== undefined, 'qcComplete'],
+    ['C', 'AIRCRAFT COMMANDER PACKAGE', 'COMPLETE', stamp(date, time.acpComplete), milestoneTimes.acpComplete !== undefined, 'acpComplete'],
     ['C', 'CARGO LOAD', 'START', stamp(date, time.loadStart), milestoneTimes.cargoLoadStart !== undefined, 'cargoLoadStart'],
     ['C', 'CARGO LOAD', 'COMPLETE', stamp(date, time.loadComplete), milestoneTimes.cargoLoadComplete !== undefined, 'cargoLoadComplete'],
+    ['C', 'TRANSMIT MANIFEST', 'TO GATES', etd, milestoneTimes.transmitManifest !== undefined, 'transmitManifest'],
     ['M', 'AC', 'ARRIVAL', stamp(date, time.arrival), false],
     ['M', 'AC', 'DEPARTURE', etd, false],
   ];

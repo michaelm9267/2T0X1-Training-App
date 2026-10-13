@@ -29,7 +29,7 @@ export function Barcode({ text, height = 40, className = '' }) {
   return <svg className={`msl-barcode ${className}`} viewBox={`0 0 ${x} ${height}`} preserveAspectRatio="none" aria-hidden="true">{bars}</svg>;
 }
 
-function Pdf417({ text }) {
+export function Pdf417({ text }) {
   const random = seeded(hash(text));
   const cols = 44, rows = 18, cells = [];
   for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (random() > .5) cells.push(<rect key={`${r}-${c}`} x={6 + c} y={r} width="1" height="1" />);

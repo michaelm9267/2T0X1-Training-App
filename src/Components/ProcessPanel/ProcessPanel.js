@@ -2,10 +2,10 @@ import React from 'react'
 import './process-panel.css'
 import { FREQUENT_LINKS } from './frequentLinks'
 
-function ProcessPanel({ steps, selectedStepId, onSelectStep, completedStages = [], lockedSteps = {}, onViewDsoe, dsoeViewed = false }) {
+function ProcessPanel({ steps, selectedStepId, onSelectStep, completedStages = [], lockedSteps = {}, onViewDsoe, dsoeViewed = false, title = 'CDF Process', label = 'CDF process steps', links = FREQUENT_LINKS }) {
   return (
-    <nav className="process-panel" aria-label="CDF process steps">
-      <h2>CDF Process</h2>
+    <nav className="process-panel" aria-label={label}>
+      <h2>{title}</h2>
       {onViewDsoe && <div className="dsoe-entry">
         <button type="button" className="process-step dsoe-button" onClick={onViewDsoe}>View DSOE</button>
         <span className={dsoeViewed ? 'stage-complete-label' : 'dsoe-start-label'}>{dsoeViewed ? 'Reviewed' : 'Start here'}</span>
@@ -31,7 +31,7 @@ function ProcessPanel({ steps, selectedStepId, onSelectStep, completedStages = [
       </ol>
       <section className="frequent-links" aria-labelledby="frequent-links-title">
         <h2 id="frequent-links-title">Frequent links</h2>
-        {FREQUENT_LINKS.map(({ group, links }) => (
+        {links.map(({ group, links }) => (
           <details key={group}>
             <summary>{group}</summary>
             <ul>{links.map(([title, href]) => <li key={href}><a href={href} target="_blank" rel="noreferrer">{title}</a></li>)}</ul>

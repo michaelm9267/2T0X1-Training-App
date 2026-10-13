@@ -33,7 +33,6 @@ test('opens the existing trainer from the CDF Training tab by default', () => {
 
 test.each([
   'PDF Training',
-  'Outbound Training',
   'Inbound Training',
   'HHG Training',
   'PAX Training',
@@ -286,7 +285,7 @@ test('prepared pallet manifests but JI waits for the deployment load plan',()=>{
  for(const text of ['00001','F00001$$E100300XX','Palletized general supplies','4,800','Scheduled']) expect(within(increment).getByText(text)).toBeInTheDocument();
  // The processing schedule lists the chalk's overall milestones, not per-increment times.
  const schedule=within(dsoe).getByRole('table',{name:'Processing schedule'});
- expect(within(schedule).getAllByRole('row').slice(1).map(row=>row.getAttribute('aria-label'))).toEqual(['CARGO PREP START','REPORT TO CDF','INCHECK START','INCHECK COMPLETE','MANIFEST START','MANIFEST COMPLETE','JOINT INSPECTION START','JOINT INSPECTION COMPLETE','CARGO LOAD START','CARGO LOAD COMPLETE','AC ARRIVAL','AC DEPARTURE']);
+ expect(within(schedule).getAllByRole('row').slice(1).map(row=>row.getAttribute('aria-label'))).toEqual(['CARGO PREP START','UNIT ASSEMBLY COMPLETE','REPORT TO CDF','INCHECK START','INCHECK COMPLETE','MANIFEST START','MANIFEST COMPLETE','JOINT INSPECTION START','JOINT INSPECTION COMPLETE','QC COMPLETE','AIRCRAFT COMMANDER PACKAGE COMPLETE','CARGO LOAD START','CARGO LOAD COMPLETE','TRANSMIT MANIFEST TO GATES','AC ARRIVAL','AC DEPARTURE']);
  expect(within(within(schedule).getByRole('row',{name:'REPORT TO CDF'})).getByText(/\/06:00$/)).toBeInTheDocument();
  expect(within(schedule).queryByText(/E100/)).not.toBeInTheDocument();
  expect(within(dsoe).getByText('Schedule Processing Recap Report')).toBeInTheDocument();

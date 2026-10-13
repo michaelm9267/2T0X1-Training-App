@@ -26,6 +26,7 @@ import Departure from './Components/Departure/Departure';
 import AircraftPackage from './Components/Documentation/AircraftPackage';
 import { defaultDepartureAt, emptyDeparture, reconcileRelease } from './Components/Departure/departureLogic';
 import { chalkSchedule } from './Components/Documentation/Dsoe';
+import OutboundTrainer from './Components/Outbound/OutboundTrainer';
 import './App.css';
 
 const processSteps = [
@@ -39,7 +40,6 @@ const processSteps = [
 
 const placeholderModules = {
   pdf: 'PDF Training',
-  outbound: 'Outbound Training',
   inbound: 'Inbound Training',
   hhg: 'HHG Training',
   pax: 'PAX Training',
@@ -158,12 +158,16 @@ function App() {
   useEffect(() => {
     const any = stage => dsoeIncrements.some(item => item.done.includes(stage));
     const all = stage => dsoeIncrements.length > 0 && dsoeIncrements.every(item => item.done.includes(stage));
-    const reached = { cargoPrepStart: any('precheck'), reportTo: all('precheck'), incheckStart: any('precheck'), incheckComplete: all('incheck'), manifestStart: any('incheck'), manifestComplete: all('manifest'), jiStart: loadPlanCurrent, jiComplete: all('ji'), cargoLoadStart: all('ji'), cargoLoadComplete: all('ji') };
+    // Standard cargo events, DAFI 10-403 Table 3.1. QC is complete when the documentation (manifest,
+    // load plan, JI) is final; the aircraft commander's package and the manifest transmission to
+    // GATES complete when the manifest is released.
+    const released = Boolean(departure.releasedAt);
+    const reached = { cargoPrepStart: any('precheck'), unitAssembly: any('precheck'), reportTo: all('precheck'), incheckStart: any('precheck'), incheckComplete: all('incheck'), manifestStart: any('incheck'), manifestComplete: all('manifest'), jiStart: loadPlanCurrent, jiComplete: all('ji'), qcComplete: loadPlanCurrent && all('ji'), acpComplete: released, cargoLoadStart: all('ji'), cargoLoadComplete: all('ji'), transmitManifest: released };
     setClock(current => {
       const missing = Object.entries(reached).filter(([key, complete]) => complete && current.events?.[key] === undefined);
       return missing.length ? { ...current, events: { ...(current.events || {}), ...Object.fromEntries(missing.map(([key]) => [key, current.elapsed])) } } : current;
     });
-  }, [dsoeIncrements, loadPlanCurrent]);
+  }, [dsoeIncrements, loadPlanCurrent, departure.releasedAt]);
   // Every manifested piece across all training shipments, in shipment order.
   const manifestPieces = pieceKeys.filter(key => exercises[key].manifestAccepted && exercises[key].manifestRecord)
     .map(key => ({ scenarioId: key, title: shipments[key].title, record: exercises[key].manifestRecord, mslApplied: exercises[key].mslApplied, current: key === scenarioId }));
@@ -246,7 +250,7 @@ function App() {
               onCBCalculate={result => updateExercise(current => ({ ...current, cbResult: result, tapeLabels: current.tapeLabels.filter(label => label.type !== 'cb'), labelFeedback: '' }))} />
           </div>}
         </main>
-        </> : <main className="module-placeholder">
+        </> : activeModule === 'outbound' ? <OutboundTrainer /> : <main className="module-placeholder">
           <div className="module-placeholder-card">
             <span className="module-status">Coming soon</span>
             <h2>{placeholderModules[activeModule]}</h2>
