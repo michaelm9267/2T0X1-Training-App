@@ -59,7 +59,7 @@ Tests must cover saving empty/invalid records without losing data; separate chec
 
 ## Revised shared-workspace design for review
 
-Status: Proposed revised design; pending user review.
+Status: Approved by the user on 2026-10-13; implementation plan pending review.
 
 ### Architecture and record ownership
 
