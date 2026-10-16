@@ -1,7 +1,7 @@
 # CDF CMOS process fidelity
 
 Date: 2026-10-13
-Status: Proposed specification, pending user review
+Status: Approved by user; implemented and verified
 
 ## Intent and approved scope
 

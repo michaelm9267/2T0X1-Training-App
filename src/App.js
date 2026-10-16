@@ -1,3 +1,7 @@
+import { resetCdfShipment } from './Components/Cmos/courseAdapters';
+import CdfCmosWorkspace from './Components/CdfCmos/CdfCmosWorkspace';
+import useCdfCmos, {emptyCdfCmos} from './Components/CdfCmos/useCdfCmos';
+import {manifestBasis, manifestPieces as assignedManifestPieces} from './Components/CdfCmos/manifestLogic';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import Layout from './Layout/Layout.js';
 import DocumentationPanel from './Components/Documentation/DocumentationPanel.js';
@@ -7,11 +11,13 @@ import { createExercise, isStageComplete } from './Components/CargoWindow/exerci
 import { editNotebookEntry, saveNotebookEntry, placeTapeLabel } from './Components/CargoWindow/notebook';
 import { applyVehicleAction, canConfirmVehicleCorrection } from './Components/CargoWindow/vehicleInspection';
 import { resetPiece } from './Components/CargoWindow/pieces';
-import { exportSession, importSession, loadSession, newSession, saveSession } from './session';
-import { removeFromManifest, manifestFields } from './Components/CargoWindow/workflow';
+import { exportSession, importSession, loadSession, newSession, normalizeSession, saveSession } from './session';
+import { manifestFields } from './Components/CargoWindow/workflow';
 import { withDocumentErrors } from './Components/CargoWindow/discrepancies';
 import { recordMistake } from './Components/CargoWindow/mistakes';
 import { pieceResult } from './Components/CargoWindow/scoring';
+import { newPracticeSession } from './Components/CargoWindow/practice';
+import { TraineeBar, emptyTest } from './Components/Session/Grading';
 import AfterActionReport from './Components/Documentation/AfterActionReport';
 import SessionBar from './Components/Session/SessionBar';
 import { ModeContext } from './Components/Session/mode';
@@ -21,12 +27,14 @@ import AcronymTooltip from './Components/Glossary/AcronymTooltip';
 import LoadPlan from './Components/LoadPlan/LoadPlan';
 import TrainingGuide from './Components/Training/TrainingGuide';
 import QuickDrills from './Components/Training/QuickDrills';
-import { reconcilePlan } from './Components/LoadPlan/loadPlanLogic';
+import { reconcilePlan, planBasis } from './Components/LoadPlan/loadPlanLogic';
 import Departure from './Components/Departure/Departure';
 import AircraftPackage from './Components/Documentation/AircraftPackage';
 import { defaultDepartureAt, emptyDeparture, reconcileRelease } from './Components/Departure/departureLogic';
 import { chalkSchedule } from './Components/Documentation/Dsoe';
 import OutboundTrainer from './Components/Outbound/OutboundTrainer';
+import PracticeBar from './Components/Session/PracticeBar';
+import CdfGradingSheet from './Components/Documentation/CdfGradingSheet';
 import './App.css';
 
 const processSteps = [
@@ -37,6 +45,8 @@ const processSteps = [
   { id: 'ji', title: 'JI' },
   { id: 'departure', title: 'Departure' },
 ];
+
+const CDF_MODES = [['guided', 'Guided'], ['practice', 'Practice'], ['test', 'Test']];
 
 const placeholderModules = {
   pdf: 'PDF Training',
@@ -63,21 +73,34 @@ function App() {
   // Guided mode shows hints and explanations; test mode hides them and leaves feedback to the report.
   const [mode, setMode] = useState(initial.mode || 'guided');
   const [loadPlan, setLoadPlan] = useState(initial.loadPlan);
+  const [storageError,setStorageError]=useState(false);
+  const [cdfCmos,setCdfCmos]=useState(initial.cdfCmos||emptyCdfCmos());
+  const [cmosPage,setCmosPage]=useState(null);
+  const closeCmos=useCallback(()=>setCmosPage(null),[]);
   const [departure, setDeparture] = useState(initial.departure || emptyDeparture());
   const [clock, setClock] = useState(initial.clock);
   const [meta, setMeta] = useState({ startedAt: initial.startedAt, code: initial.code });
+  // Practice mode works on its own deployment; practice.main keeps the session it set aside.
+  const [practice, setPractice] = useState(initial.mode === 'practice' && initial.practice ? initial.practice : null);
+  // Test mode: the trainee's rank and name, and when the test was finished (the work then locks).
+  const [test, setTest] = useState(initial.test || emptyTest());
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const closeSheet = useCallback(() => setSheetOpen(false), []);
+  const finished = Boolean(test.finishedAt);
   useEffect(() => {
-    saveSession({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, departure, clock, ...meta });
-  }, [initial.version, shipments, exercises, destination, pieceCount, scenarioId, selectedStep.id, mode, loadPlan, departure, clock, meta]);
+    setStorageError(!saveSession({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, departure, cdfCmos, clock, ...meta, practice, test }));
+  }, [initial.version, shipments, exercises, destination, pieceCount, scenarioId, selectedStep.id, mode, loadPlan, departure, cdfCmos, clock, meta, practice, test]);
   useEffect(() => {
     if (!clock.running) return undefined;
     const timer = window.setInterval(() => setClock(value => ({ ...value, elapsed: value.elapsed + 1 })), 1000);
     return () => window.clearInterval(timer);
   }, [clock.running]);
   function startSession(session) {
+    setCdfCmos(session.cdfCmos||emptyCdfCmos());setCmosPage(null);
     setShipments(session.shipments); setExercises(session.exercises); setDestination(session.destination);
     setPieceCount(session.pieceCount); setScenarioId(session.scenarioId); setSelectedStep(processSteps.find(step => step.id === session.stepId) || processSteps[0]);
     setMode(session.mode); setLoadPlan(session.loadPlan); setDeparture(session.departure || emptyDeparture()); setClock(session.clock); setMeta({ startedAt: session.startedAt, code: session.code }); setSceneVersion(version => version + 1);
+    setPractice(session.mode === 'practice' && session.practice ? session.practice : null); setTest(session.test || emptyTest()); setSheetOpen(false);
   }
   // Each piece as the trainee sees it: deployment destination, plus paperwork errors not yet corrected.
   const piece = key => shipments[key] && withDocumentErrors({ ...shipments[key], destination }, exercises[key]);
@@ -89,7 +112,7 @@ function App() {
   const scenario = useMemo(() => withDocumentErrors({ ...shipments[scenarioId], destination }, exercise), [shipments, scenarioId, destination, exercise]);
   const cargoSteps = processSteps.filter(step => !['load-plan', 'departure'].includes(step.id));
   const completedStages = cargoSteps.filter(step => isStageComplete(scenario, step.id, exercise)).map(step => step.id);
-  const loadBasis = JSON.stringify(pieceKeys.map(key => ({ key, length: shipments[key].length, width: shipments[key].width, weight: shipments[key].weight, manifested: isStageComplete(piece(key), 'manifest', exercises[key]) })));
+  const loadBasis = planBasis(pieceKeys.map(key => ({ ...shipments[key], key, manifested: isStageComplete(piece(key), 'manifest', exercises[key]) })));
   const loadPlanCurrent = loadPlan.accepted && loadPlan.basis === loadBasis;
   // JI follows the deployment load plan. If a manifest or cargo value changes, the plan reopens
   // and JI locks until the revised plan is accepted.
@@ -101,7 +124,10 @@ function App() {
   useEffect(() => { if (jiLocked && selectedStep.id === 'ji') setSelectedStep(processSteps.find(step => step.id === 'load-plan')); }, [jiLocked, selectedStep.id]);
   useEffect(() => { if (!allPassedJI && selectedStep.id === 'departure') setSelectedStep(processSteps.find(step => step.id === 'ji')); }, [allPassedJI, selectedStep.id]);
   const departureAt = departure.at || defaultDepartureAt(chalkSchedule(pieceCount).departure);
+  const cmosContext={storageError,scenarioId,shipments,exercises,destination,pieceCount,pieceKeys,loadPlan,departure,departureAt,finished,...meta,test};
+  const cmos=useCdfCmos({state:cdfCmos,setState:setCdfCmos,context:cmosContext,setExercises});
   function updateExercise(update, preserveFinal = false) {
+    if (finished) return;
     setExercises(previous => {
       const current = previous[scenarioId];
       const next = preserveFinal ? update(current) : {...update(current),manifestAccepted:false,jiInspected:[],jiTerminals:{},jiVerified:[],jiDocumentsViewed:[],jiMeasurements:[],jiWeights:{},jiSides:[]};
@@ -131,7 +157,15 @@ function App() {
   const closeGuide = useCallback(() => setGuideOpen(false), []);
   const closeDrills = useCallback(() => setDrillsOpen(false), []);
   const [transferFeedback, setTransferFeedback] = useState('');
-  const sessionSnapshot = () => ({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, departure, clock, ...meta });
+  const sessionSnapshot = () => ({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, departure, cdfCmos, clock, ...meta, practice, test });
+  // Entering practice sets the current session aside; leaving brings it back as it was.
+  const startPractice = (section, main = practice?.main) => startSession({ ...newPracticeSession({ section }), practice: { section, main } });
+  function changeMode(next) {
+    if (next === mode) return;
+    if (next === 'practice') { startPractice(processSteps.some(step => step.id === selectedStep.id) ? selectedStep.id : 'precheck', sessionSnapshot()); return; }
+    if (mode === 'practice') { startSession({ ...(normalizeSession(practice?.main) || newSession()), mode: next }); return; }
+    setMode(next);
+  }
   function downloadSession() {
     const blob = new Blob([exportSession(sessionSnapshot())], { type: 'application/json' });
     const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `cdf-training-${new Date().toISOString().slice(0, 10)}.json`; link.click(); URL.revokeObjectURL(link.href);
@@ -169,13 +203,12 @@ function App() {
     });
   }, [dsoeIncrements, loadPlanCurrent, departure.releasedAt]);
   // Every manifested piece across all training shipments, in shipment order.
-  const manifestPieces = pieceKeys.filter(key => exercises[key].manifestAccepted && exercises[key].manifestRecord)
-    .map(key => ({ scenarioId: key, title: shipments[key].title, record: exercises[key].manifestRecord, mslApplied: exercises[key].mslApplied, current: key === scenarioId }));
+  const manifestPieces = assignedManifestPieces(cdfCmos,cmosContext).map(p=>({...p,current:p.scenarioId===scenarioId}));
   // A released manifest stays released only while the manifest itself is unchanged.
-  const releaseBasis = JSON.stringify(manifestPieces.map(item => [item.scenarioId, item.record.tcn, item.record.weight]));
+  const releaseBasis = manifestBasis(cdfCmos,cmosContext);
   useEffect(() => { setDeparture(state => reconcileRelease(state, releaseBasis)); }, [releaseBasis]);
   // The aircraft commander's package uses the corrected paperwork for every manifested piece.
-  const packagePieces = manifestPieces.map(item => ({ key: item.scenarioId, title: item.title, record: item.record,
+  const packagePieces = manifestPieces.map(item => ({ key: item.scenarioId, title: item.title, record: item.record, palletId:item.palletId,
     scenario: withDocumentErrors({ ...shipments[item.scenarioId], destination }, { docFixes: { logmod: true, attla: true, hazdec: true } }) }));
   const packageOutstanding = [
     ...(manifestPieces.length < pieceKeys.length ? [`${pieceKeys.length - manifestPieces.length} of ${pieceKeys.length} pieces are not on the manifest.`] : []),
@@ -183,9 +216,14 @@ function App() {
     ...(loadPlanCurrent ? [] : ['The load plan is not accepted for the current manifest.']),
     ...(departure.releasedAt ? [] : ['The manifest has not been released.']),
   ];
-  function removePiece(id) {
-    setExercises(previous => ({ ...previous, [id]: removeFromManifest(previous[id]) }));
-  }
+  // Each piece's results, for the after-action report and the grading sheet.
+  const pieceResults = () => pieceKeys.map(key => { const view = piece(key); return { key, title: shipments[key].title, tcn: manifestFields(view).find(field => field.id === 'tcn').expected, result: pieceResult(view, exercises[key], cargoSteps.filter(step => isStageComplete(view, step.id, exercises[key])).map(step => step.id)) }; });
+  // Practice: the section is done when every piece in it is through the stage (or the plan is
+  // accepted, or the manifest released); mistakes count across the practice deployment.
+  const practiceComplete = practice ? (practice.section === 'load-plan' ? loadPlanCurrent : practice.section === 'departure' ? Boolean(departure.releasedAt)
+    : pieceKeys.every(key => isStageComplete(piece(key), practice.section, exercises[key]))) : false;
+  const practiceMistakes = practice ? [...pieceKeys.flatMap(key => exercises[key].mistakes || []), ...(loadPlan.mistakes || []), ...(departure.mistakes || []),...cdfCmos.mistakes] : [];
+  function removePiece(id) { cmos.removePiece(id); }
   function onAnswer(id, choice) {
     const finding = scenario.findings.find(item => item.id === id);
     const label = { satisfactory: 'Satisfactory', unsatisfactory: 'Unsatisfactory', 'not-applicable': 'Not applicable' };
@@ -207,27 +245,34 @@ function App() {
       <AcronymTooltip />
       <Layout activeModule={activeModule} onModuleChange={setActiveModule}>
         {activeModule === 'cdf' ? <>
-        <ProcessPanel steps={processSteps} selectedStepId={selectedStep.id} onSelectStep={setSelectedStep} completedStages={[...completedStages, ...(loadPlanCurrent ? ['load-plan'] : []), ...(departure.releasedAt ? ['departure'] : [])]} lockedSteps={lockedSteps} onViewDsoe={viewDsoe} dsoeViewed={dsoeViewed} />
-        {reportOpen && <AfterActionReport destination={destination} mode={mode} release={{ ...departure, departureAt }} onClose={closeReport}
-          pieces={pieceKeys.map(key => { const view = piece(key); return { title: shipments[key].title, tcn: manifestFields(view).find(field => field.id === 'tcn').expected, result: pieceResult(view, exercises[key], cargoSteps.filter(step => isStageComplete(view, step.id, exercises[key])).map(step => step.id)) }; })} />}
+        <ProcessPanel steps={processSteps} selectedStepId={selectedStep.id} onSelectStep={practice ? step => startPractice(step.id) : setSelectedStep} completedStages={[...completedStages, ...(loadPlanCurrent ? ['load-plan'] : []), ...(departure.releasedAt ? ['departure'] : [])]} lockedSteps={practice ? {} : lockedSteps} onViewDsoe={viewDsoe} dsoeViewed={dsoeViewed} />
+        {reportOpen && <AfterActionReport destination={destination} mode={mode} release={{ ...departure, departureAt }} cdfCmos={cdfCmos} onClose={closeReport} pieces={pieceResults()} />}
+        {sheetOpen && finished && <CdfGradingSheet test={test} destination={destination} pieces={pieceResults()} loadPlan={loadPlan} departure={departure} cdfCmos={cdfCmos} onClose={closeSheet} />}
         {dsoeOpen && <Dsoe increments={dsoeIncrements} pieceCount={pieceCount} onPieceCountChange={changePieceCount} destination={destination} onDestinationChange={setDestination} destinationLocked={Object.values(exercises).some(item => item.manifestAccepted)} elapsedSeconds={clock.elapsed} milestoneTimes={clock.events} departureAt={departureAt} onClose={closeDsoe} />}
         {guideOpen && <TrainingGuide onClose={closeGuide} />}
-        {packageOpen && packagePieces.length > 0 && <AircraftPackage pieces={packagePieces} plan={loadPlan} departureAt={departureAt} releasedAt={departure.releasedAt} destination={destination} outstanding={packageOutstanding} onClose={closePackage} />}
+        {packageOpen && packagePieces.length > 0 && <AircraftPackage manifest={cdfCmos.manifest} pieces={packagePieces} plan={loadPlan} departureAt={departureAt} releasedAt={departure.releasedAt} destination={destination} outstanding={packageOutstanding} onClose={closePackage} />}
         {drillsOpen && <QuickDrills onClose={closeDrills} />}
         <main className="training-workspace">
-          <SessionBar mode={mode} onModeChange={setMode} onNewSession={() => startSession(newSession({ mode }))} clock={clock} onClockChange={setClock}
-            onExport={downloadSession} onImport={uploadSession} tools={[['Training guide', () => setGuideOpen(true)], ['Quick drills', () => setDrillsOpen(true)], ['Instructor setup', () => setSetupOpen(true)]]} />
+          <SessionBar mode={mode} modes={CDF_MODES} testNote="Test mode: hints and explanations are hidden. Finish the test for the grading sheet." onModeChange={changeMode} onNewSession={() => practice ? startPractice(practice.section) : startSession(newSession({ mode }))} clock={clock} onClockChange={setClock}
+            onExport={downloadSession} onImport={uploadSession} tools={[['CMOS workspace',()=>setCmosPage('planning')],['Training guide', () => setGuideOpen(true)], ['Quick drills', () => setDrillsOpen(true)], ['Instructor setup', () => setSetupOpen(true)]]} />
           {transferFeedback && <p className="transfer-feedback" role="status">{transferFeedback}</p>}
           {meta.code && <p className="scenario-code-note">Scenario code <code>{meta.code}</code></p>}
           {setupOpen && <InstructorSetup currentCode={meta.code} onClose={closeSetup} onStart={session => { startSession(session); setSetupOpen(false); }} />}
+          {mode === 'test' && <TraineeBar trainee={test.trainee} finishedAt={test.finishedAt} onChange={trainee => setTest(current => ({ ...current, trainee }))}
+            onFinish={() => { setTest(current => ({ ...current, finishedAt: Date.now() })); setClock(current => ({ ...current, running: false })); setSheetOpen(true); }} onOpenSheet={() => setSheetOpen(true)} />}
+          {practice && <PracticeBar sections={processSteps} section={practice.section} onStart={section => startPractice(section)} note="deployment" complete={practiceComplete} mistakes={practiceMistakes} />}
+          {practice && ['precheck','incheck','manifest'].includes(practice.section) && <label className="simulation-note">Practice cargo <select aria-label="Practice cargo" value={shipments[scenarioId].ammo?'ammunition':'equipment'} onChange={event=>startSession({...newPracticeSession({section:practice.section,cargo:event.target.value}),practice:{...practice}})}><option value="equipment">Equipment</option><option value="ammunition">Ammunition / explosives</option></select></label>}
+          {practice && ['load-plan','ji','departure'].includes(practice.section) && <p className="simulation-note">Focused practice: predecessor CMOS shipment, assignment, check, and print tasks are prepared for you.</p>}
+          {finished && <p className="reference-note" role="status">Test finished. The work is locked; open the grading sheet to review or print it. Start a new session for the next trainee.</p>}
           <div className="shipment-bar">
             <label>Training shipment <select value={scenarioId} onChange={event => { setScenarioId(event.target.value); setSelectedStep(processSteps[0]); }}>{pieceKeys.map(key => <option value={key} key={key}>{shipments[key].title}</option>)}</select></label>
             <button type="button" onClick={() => setReportOpen(true)}>After-action report</button>
             <button type="button" disabled={manifestPieces.length === 0} title={manifestPieces.length ? undefined : 'Add a piece to the manifest first'} onClick={() => setPackageOpen(true)}>Aircraft paperwork package</button>
-            <button type="button" onClick={() => { setShipments(previous => ({...previous,[scenarioId]:resetPiece(previous[scenarioId])})); updateExercise(current => ({ ...createExercise(), dsoeViewed: current.dsoeViewed })); setSceneVersion(version => version + 1); }}>Reset this shipment</button>
+            <button type="button" disabled={finished} onClick={() => { const reset=resetPiece(shipments[scenarioId]);setShipments(previous => ({...previous,[scenarioId]:reset}));setCdfCmos(previous=>previous.sharedCmos?{...previous,sharedCmos:resetCdfShipment(previous.sharedCmos,scenarioId,reset)}:previous); updateExercise(current => ({ ...createExercise(), dsoeViewed: current.dsoeViewed })); setSceneVersion(version => version + 1); }}>Reset this shipment</button>
           </div>
           <p className="simulation-note">Shipment values approximate the real equipment · Guided by your Appendix O edition, 3 February 2023. Reset varies each item's size and weight slightly. Standard ISU and pallet footprints stay fixed.</p>
-          {selectedStep.id === 'departure' ? <Departure state={departure} departureAt={departureAt} onChange={setDeparture} ready={allPassedJI} waiting={passedJI.filter(item => !item.done).map(item => item.title)} manifestPieces={manifestPieces} destination={destination} basis={releaseBasis} onPrintPackage={() => setPackageOpen(true)} />
+          <div inert={finished || undefined}>
+          {selectedStep.id === 'departure' ? <Departure state={departure} departureAt={departureAt} onChange={setDeparture} ready={allPassedJI} waiting={passedJI.filter(item => !item.done).map(item => item.title)} manifestPieces={manifestPieces} destination={destination} basis={releaseBasis} onOpenCmos={()=>setCmosPage('air')} onPrintPackage={() => setPackageOpen(true)} />
           : selectedStep.id === 'load-plan' ? <LoadPlan pieces={pieceKeys.map(key => ({ ...shipments[key], manifested: isStageComplete(piece(key), 'manifest', exercises[key]) }))} plan={loadPlan} onChange={next => setLoadPlan({ ...next, basis: loadBasis })} /> : <div className="simulation-layout">
             <CargoWindow key={`${scenarioId}-${sceneVersion}`} scenario={scenario} exercise={exercise} stage={selectedStep.id}
               onInspectMarkings={side => updateExercise(current=>({...current,jiSides:[...new Set([...current.jiSides,side])]}),true)}
@@ -244,12 +289,14 @@ function App() {
               onRecordWeight={record => updateExercise(current => ({ ...current, weights: { ...current.weights, [record.id]: record }, jiWeights:selectedStep.id==='ji' ? {...current.jiWeights,[record.id]:record} : {} }),selectedStep.id==='ji')}
               onInspect={id => updateExercise(current => ({ ...current, inspected: [...new Set([...current.inspected, id])], jiInspected: selectedStep.id==='ji' ? [...new Set([...current.jiInspected,id])] : [] }), selectedStep.id==='ji')} />
             <DocumentationPanel step={selectedStep} scenario={scenario} exercise={exercise} onAnswer={onAnswer} onCorrect={onCorrect} completedStages={completedStages}
-              onWorkflow={update => updateExercise(update,true)} manifestPieces={manifestPieces} onRemovePiece={removePiece}
+              onWorkflow={update => updateExercise(update,true)} manifestPieces={manifestPieces} onRemovePiece={removePiece} onOpenCmos={()=>setCmosPage('planning')} manifestMetadata={cdfCmos.manifest}
               onNotebookChange={(field,value) => updateExercise(current => editNotebookEntry(current,field,value))}
               onNotebookSave={field => updateExercise(current => saveNotebookEntry(scenario,current,field))}
               onCBCalculate={result => updateExercise(current => ({ ...current, cbResult: result, tapeLabels: current.tapeLabels.filter(label => label.type !== 'cb'), labelFeedback: '' }))} />
           </div>}
+          </div>
         </main>
+        {cmosPage && <CdfCmosWorkspace session={cmosContext} state={cdfCmos} initialPage={cmosPage} onClose={closeCmos} onStateChange={cmos.onStateChange} onExerciseChange={cmos.onExerciseChange} onDepartureChange={update=>{if(!finished)setDeparture(update);}}/>}
         </> : activeModule === 'outbound' ? <OutboundTrainer /> : <main className="module-placeholder">
           <div className="module-placeholder-card">
             <span className="module-status">Coming soon</span>

@@ -75,7 +75,7 @@ export function manifestFields(scenario) {
     {id:'destination',title:'Destination DoDAAC',expected:destination,options:DODAACS},
     {id:'apod',title:'APOD',expected:DODAAC_PORTS[destination],options:AERIAL_PORTS},
     ...['length','width','height','weight'].map(id=>({id,title:id==='weight'?'Gross weight (lb)':`${id[0].toUpperCase()+id.slice(1)} (in)`,expected:scenario[id]})),
-    {id:'hazmat',title:'Hazardous/Ammunition Ind',expected:paperwork(scenario).some(d=>d.id==='hazdec' && d.required)?'H - Hazardous material':'N - Non-hazardous',options:HAZ_INDICATORS},
+    {id:'hazmat',title:'Hazardous/Ammunition Ind',expected:scenario.ammo?'A - Ammunition/explosives':paperwork(scenario).some(d=>d.id==='hazdec' && d.required)?'H - Hazardous material':'N - Non-hazardous',options:HAZ_INDICATORS},
   ];
 }
 export function verifyPaperwork(scenario,exercise,id,value) {

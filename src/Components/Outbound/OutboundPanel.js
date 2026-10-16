@@ -1,14 +1,14 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import CollapsibleCard from '../Documentation/CollapsibleCard';
+import SectionJump from '../Documentation/SectionJump';
 import { useTestMode } from '../Session/mode';
 import ShippingDocument, { DocumentBody } from './ShippingDocument';
-import CmosWindow from './CmosWindow';
-import CmosShipmentPlanning from './CmosShipmentPlanning';
-import CmosSmallPackage from './CmosSmallPackage';
+import { createRecord } from '../Cmos/model';
+import CmosWorkspace from '../Cmos/CmosWorkspace';
 import { usualDomInt } from './cmosLogic';
 import { ITEMS, CONTAINERS, MARKINGS, TYPE_PACKS, originOf } from './outboundData';
 import {
-  RECEIPT_CHECKS, CHOICE_LABEL, MIL_MODES, expectedReceipt, checkReady, checkComplete, formFields, presentedDocument,
+  OUTBOUND_STEPS, MODES, RECEIPT_CHECKS, CHOICE_LABEL, MIL_MODES, expectedReceipt, checkReady, checkComplete, formFields, presentedDocument,
   shipmentComplete, shipmentScore, smallParcelLimits, stageComplete,
 } from './outboundLogic';
 
@@ -53,7 +53,20 @@ function FormCard({ title, label, shipment, exercise, formId, onEdit, onSubmit, 
   </CollapsibleCard>;
 }
 
-export default function OutboundPanel({ step, shipment, exercise, actions, packages, onSelectStep, onNextCustomer, hasNextCustomer }) {
+// Practice: how the section went, and another shipment for it. The earlier sections were done for the trainee.
+function PracticeCard({ practice, shipment, exercise }) {
+  const section = OUTBOUND_STEPS.find(item => item.id === practice.section);
+  const complete = stageComplete(shipment, exercise, section.id);
+  const mistakes = exercise.mistakes || [];
+  const earlier = OUTBOUND_STEPS.slice(0, OUTBOUND_STEPS.indexOf(section)).filter(item => !MODES[item.id]).map(item => item.title);
+  return <CollapsibleCard className="practice-summary" label="Practice section" title={`Practice: ${section.title}`} summary={<span>{complete ? 'Complete' : 'In progress'}</span>}>
+    <p>{earlier.length ? `${earlier.join(', ')} ${earlier.length === 1 ? 'is' : 'are'} already done for this shipment. ` : ''}{complete ? `Section complete with ${mistakes.length} ${mistakes.length === 1 ? 'mistake' : 'mistakes'}.` : `${mistakes.length} ${mistakes.length === 1 ? 'mistake' : 'mistakes'} so far. Practice is not scored.`}</p>
+    {mistakes.length > 0 && <ul className="mistake-list">{mistakes.map((mistake, index) => <li key={index}>{mistake.detail} <span className="task-source">{mistake.reference}</span></li>)}</ul>}
+    <div className="answer-options"><button type="button" className={complete ? 'primary-button' : undefined} onClick={practice.onAgain}>Practice again with a new shipment</button></div>
+  </CollapsibleCard>;
+}
+
+export default function OutboundPanel({ step, shipment, exercise, actions, packages, onSelectStep, onNextCustomer, hasNextCustomer, practice, cmosStore, cmosContext, cmosRequest }) {
   const test = useTestMode();
   const item = ITEMS[shipment.itemId];
   const origin = originOf(shipment);
@@ -61,14 +74,16 @@ export default function OutboundPanel({ step, shipment, exercise, actions, packa
   const closeDoc = useCallback(() => setDocOpen(false), []);
   const [cmosPage, setCmosPage] = useState(null);
   const closeCmos = useCallback(() => setCmosPage(null), []);
+  useEffect(()=>{if(cmosRequest)setCmosPage('planning');},[cmosRequest]);
   const doc = presentedDocument(shipment, exercise.returned);
   const packing = exercise.forms.annotation?.accepted ? exercise.forms.annotation.draft : null;
   const paper = { title: `DD ${shipment.document}`, render: () => <DocumentBody doc={doc} shipment={shipment} received={exercise.custodyAccepted} packing={packing} /> };
-  function expressShip() { actions.openExpress(); setCmosPage('spe'); onSelectStep({ id: 'small-package' }); }
+  const openSmallPackage=()=>{const sid=Object.values(cmosStore.shipments).find(r=>r.draft.assetKey===shipment.key)?.id;const existing=Object.values(cmosStore.express).find(r=>r.draft.shipmentId===sid);if(sid){const next=existing?{...cmosStore,selection:{...cmosStore.selection,express:existing.id}}:createRecord(cmosStore,'express',{shipmentId:sid,packageType:'Box',domInt:usualDomInt(shipment)});actions.sharedCmos(next);}setCmosPage('spe');};
   const readings = exercise.packed ? [['Length', exercise.measured.length && `${shipment.packed.length} in`], ['Width', exercise.measured.width && `${shipment.packed.width} in`], ['Height', exercise.measured.height && `${shipment.packed.height} in`], ['Gross weight', exercise.weighed && `${shipment.packed.weight} lb`]] : [];
   const done = shipmentComplete(shipment, exercise);
   return <section className="documentation-panel" id="training-section" aria-labelledby="training-title">
-    <div className="training-heading"><span className="eyebrow">{test ? 'Test' : 'Guided practice'} · Customer {shipment.serial}</span><h2 id="training-title">{step.title}</h2><p className="muted">{STEP_SUMMARY[step.id]}</p></div>
+    <div className="training-heading"><span className="eyebrow">{practice ? 'Practice · one section' : `${test ? 'Test' : 'Guided practice'} · Customer ${shipment.serial}`}</span><h2 id="training-title">{step.title}</h2><p className="muted">{STEP_SUMMARY[step.id]}</p></div>
+    <SectionJump resetKey={`${shipment.key}-${shipment.serial}-${step.id}`} />
     {docOpen && <ShippingDocument doc={doc} shipment={shipment} received={exercise.custodyAccepted} packing={packing} onClose={closeDoc} />}
 
     <CollapsibleCard label="Shipping document" title="Shipping document" summary={<span>DD {shipment.document}{exercise.returned ? ' · corrected' : ''}</span>}>
@@ -138,25 +153,23 @@ export default function OutboundPanel({ step, shipment, exercise, actions, packa
     </CollapsibleCard>}
 
     {step.id === 'small-package' && <CollapsibleCard label="CMOS Small Package Express" title="CMOS · Small Package Express" summary={<span>{exercise.spe?.rated ? 'Rated' : 'Open'}</span>}>
-      <div className="answer-options"><button type="button" className="primary-button" onClick={() => { if (!exercise.spe) actions.openExpress(); setCmosPage('spe'); }}>Open CMOS Small Package Express</button></div>
+      <div className="answer-options"><button type="button" className="primary-button" onClick={openSmallPackage}>Open CMOS Small Package Express</button></div>
       {exercise.spe?.rated && <p className="reference-note" role="status">Tracking number {exercise.spe.result.tracking} · {exercise.spe.draft.scac} {exercise.spe.draft.service}.{exercise.printed?.carrierLabel ? '' : ' Print the shipping label from Print Express Docs.'}{exercise.labels?.carrier && exercise.labels?.msl ? '' : ' Apply the MSL and carrier label with the bench\'s Labels tool.'}</p>}
       {!test && <p className="reference-note">Every choice here is yours and is not graded; your trainer will guide the carrier and service. {usualDomInt(shipment) === 'INT' ? `From ${origin.name} this package is INT: ${origin.alaska ? 'Alaska to anywhere outside Alaska is international' : 'it goes overseas'}.` : 'Within the lower 48 a package is DOM.'} Pick the shipment date from the calendar (ddmmmyyyy). Send Request has the carrier rate the shipment and assign the tracking number; Cancel clears the rating so you can change entries and send it again. Print Express Docs opens Print Small Package Express Documents, where you print the shipping label and run the pickup report for the SCAC.</p>}
     </CollapsibleCard>}
 
-    {step.id === 'surface' && <FormCard title="Surface freight · commercial bill of lading" label="Commercial bill of lading" formId="surface" submitLabel="Print CBL and schedule pickup" shipment={shipment} exercise={exercise} onEdit={(field, value) => actions.editForm('surface', field, value)} onSubmit={() => actions.submitForm('surface')} />}
-    {step.id === 'amc' && <FormCard title="AMC · ATCMD" label="Advance transportation control and movement document" formId="amc" submitLabel="Build ATCMD and deliver to the aerial port" shipment={shipment} exercise={exercise} onEdit={(field, value) => actions.editForm('amc', field, value)} onSubmit={() => actions.submitForm('amc')} />}
+    {['surface','amc'].includes(step.id) && <CollapsibleCard label={step.id==='surface'?'Commercial bill of lading':'AMC transportation'} title={step.id==='surface'?'Commercial Bill of Lading':'AMC · Routings and Truck Manifest'}><div className="answer-options">{(step.id==='surface'?[['cbl','Commercial BOL']]:[['routing','Routings'],['truck','Truck Manifest'],['air','Air Manifest']]).map(([page,title])=><button key={page} onClick={()=>setCmosPage(page)}>Open CMOS {title}</button>)}</div></CollapsibleCard>}
 
     {['surface', 'amc'].includes(step.id) && exercise.forms[step.id]?.accepted && !exercise.labels?.msl && <p className="reference-note" role="status">{exercise.printed?.msl ? 'Apply the MSL to the box with the bench\'s Labels tool.' : 'Print the MSL from the CMOS Shipment Planning Pieces tab, then apply it to the box with the bench\'s Labels tool.'}</p>}
 
-    {cmosPage && <CmosWindow origin={origin} page={cmosPage} title={cmosPage === 'spe' ? 'Small Package Express' : 'Shipment Planning'} onNavigate={setCmosPage} onClose={closeCmos} paper={paper}>
-      {cmosPage === 'spe' ? <CmosSmallPackage shipment={shipment} exercise={exercise} actions={actions} packages={packages} onShipPlan={() => setCmosPage('planning')} />
-        : <CmosShipmentPlanning shipment={shipment} exercise={exercise} actions={actions} onExprShip={expressShip} />}
-    </CmosWindow>}
+    {cmosPage && <CmosWorkspace store={cmosStore} onChange={actions.sharedCmos} initialPage={cmosPage} onClose={closeCmos} context={{...cmosContext,course:'outbound',activeAssetKey:shipment.key,sourceOrigin:origin.dodaac,origin:origin.cmosDodaac,documents:[{id:'source',title:paper.title,render:paper.render},...(cmosContext.documents||[])]}}/>}
 
-    <CollapsibleCard className="practice-summary" label="Shipment record" title="Shipment record" summary={<span>{done ? `Score ${shipmentScore(exercise)}` : `${['receive', 'pack', 'planning'].filter(id => stageComplete(shipment, exercise, id)).length} / 4 steps`}</span>}>
+    {practice && <PracticeCard practice={practice} shipment={shipment} exercise={exercise} />}
+
+    {!practice && <CollapsibleCard className="practice-summary" label="Shipment record" title="Shipment record" summary={<span>{done ? `Score ${shipmentScore(exercise)}` : `${['receive', 'pack', 'planning'].filter(id => stageComplete(shipment, exercise, id)).length} / 4 steps`}</span>}>
       {done ? <p role="status">Shipment complete: Mil Mode {exercise.milMode} ({MIL_MODES[exercise.milMode].toLowerCase()}) to {shipment.dodaac || shipment.delivery?.name}. Score {shipmentScore(exercise)} / 100.</p> : <p>{(exercise.mistakes || []).length} {exercise.mistakes?.length === 1 ? 'mistake' : 'mistakes'} recorded. Each costs 5 points.</p>}
       {(done || !test) && exercise.mistakes?.length > 0 && <ul className="mistake-list">{exercise.mistakes.map((mistake, index) => <li key={index}>{mistake.detail} <span className="task-source">{mistake.reference}</span></li>)}</ul>}
       {done && hasNextCustomer && <div className="answer-options"><button type="button" className="primary-button" onClick={onNextCustomer}>Next customer</button></div>}
-    </CollapsibleCard>
+    </CollapsibleCard>}
   </section>;
 }

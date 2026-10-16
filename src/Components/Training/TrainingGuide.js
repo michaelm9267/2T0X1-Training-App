@@ -1,29 +1,25 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { GLOSSARY } from '../Glossary/acronyms';
-import useModalDialog from './useModalDialog';
+import FloatingWindow from '../Session/FloatingWindow';
 import './training-tools.css';
 
 export default function TrainingGuide({ onClose }) {
-  const dialog = useRef(null);
   const [query, setQuery] = useState('');
-  useModalDialog(dialog, onClose);
   const terms = Object.entries(GLOSSARY).filter(([term, meaning]) => `${term} ${meaning}`.toLowerCase().includes(query.toLowerCase()));
-  return <div className="cmos-overlay" onMouseDown={event => event.target === event.currentTarget && onClose()}>
-    <article className="training-tool-sheet" role="dialog" aria-modal="true" aria-label="Training guide" tabIndex={-1} ref={dialog}>
-      <div className="training-tool-header"><strong>Training guide</strong><button type="button" aria-label="Close training guide" onClick={onClose}>×</button></div>
+  return <FloatingWindow title={<strong>Training guide</strong>} label="Training guide" closeLabel="Close training guide" onClose={onClose} className="training-tool-sheet" titleClass="training-tool-header">
       <h2>Your first deployment</h2>
       <ol className="walkthrough-steps">
         <li>Open the DSOE, review the chalk, destination, and required timing.</li>
         <li>Precheck the document packet and identify missing or incorrect paperwork.</li>
         <li>Incheck the cargo: inspect, measure, weigh, calculate CB when required, and apply markings.</li>
-        <li>Manifest from verified paperwork and physical readings, then apply the MSL.</li>
-        <li>After every piece is manifested, build and accept the training load plan.</li>
+        <li>Open CMOS → Shipment Planning, search the TCN, enter verified readings, complete applicable DG2 details, and save.</li>
+        <li>In CMOS → Air Manifest, create and save the manifest. Assign pallets through Unassigned Pallets and loose cargo through Assign TCNs, then apply each MSL. Run Edit Check and open both print displays before accepting the load plan.</li>
         <li>Perform a fresh JI for airworthiness after the deployment load plan is accepted.</li>
+        <li>In CMOS Air Manifest, select Release, enter the flight number and departure, and release within the exercise’s 30-minute window.</li>
         <li>Open the after-action report to review decisions, misses, references, and elapsed time.</li>
       </ol>
       <h3>Acronym glossary</h3>
       <label className="tool-search">Search acronyms<input aria-label="Search acronyms" value={query} onChange={event => setQuery(event.target.value)} /></label>
       <dl className="glossary-list">{terms.map(([term, meaning]) => <div key={term}><dt>{term}</dt><dd>{meaning}</dd></div>)}</dl>
-    </article>
-  </div>;
+  </FloatingWindow>;
 }

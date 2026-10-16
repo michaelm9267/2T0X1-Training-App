@@ -139,11 +139,12 @@ test('DOM/INT guidance, CMOS cube rounding and date codes', () => {
 });
 
 test('DD 1149 TCNs: X in position 11, then 00# or a 500-series number, then XXX', () => {
-  for (let seed = 1; seed < 30; seed += 1) {
-    const shipment = createShipment({ random: seeded(seed), target: 'J' });
-    if (shipment.document === '1149') expect(shipment.tcn).toMatch(/^FA50306285X(00\d|5\d\d)XXX$/);
-    else expect(shipment.tcn).toBe(`${shipment.documentNumber}XXX`);
-  }
+  const shipments = Array.from({ length: 29 }, (_, i) => createShipment({ random: seeded(i + 1), target: 'J' }));
+  shipments.filter(shipment => shipment.document === '1149').forEach(shipment => {
+    expect(shipment.tcn).toMatch(/^FA50306285X(00\d|5\d\d)XXX$/);
+    expect(shipment.documentNumber).toMatch(/^FB50006285X\d{3}$/);
+  });
+  shipments.filter(shipment => shipment.document !== '1149').forEach(shipment => expect(shipment.tcn).toBe(`${shipment.documentNumber}XXX`));
   expect(expectedDocType({ ...createShipment({ random: seeded(3), target: 'J' }), document: '1149' })).toBe('N - Non-MILSTRIP');
 });
 

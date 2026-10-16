@@ -8,19 +8,21 @@ import MeasurementNotebook from '../CargoWindow/MeasurementNotebook';
 import FrustrationPanel from './FrustrationPanel';
 import ManifestView from './ManifestView';
 import CollapsibleCard from './CollapsibleCard';
+import SectionJump from './SectionJump';
 import FrustrateButton from './FrustrateButton';
 import { reasonForFinding } from '../CargoWindow/frustration';
 import { useTestMode } from '../Session/mode';
 
-export default function DocumentationPanel({ step, scenario, exercise, onAnswer, onCorrect, completedStages, onNotebookChange, onNotebookSave, onCBCalculate, onWorkflow, manifestPieces = [], onRemovePiece }) {
+export default function DocumentationPanel({ step, scenario, exercise, onAnswer, onCorrect, completedStages, onNotebookChange, onNotebookSave, onCBCalculate, onWorkflow, manifestPieces = [], onRemovePiece, onOpenCmos, manifestMetadata }) {
   const tasks = getTasks(scenario, step.id, exercise);
   const test = useTestMode();
   return <section className="documentation-panel" id="training-section" aria-labelledby="training-title">
     <div className="training-heading"><span className="eyebrow">{test ? 'Test' : 'Guided practice'} · {scenario.title}</span><h2 id="training-title">{step.title}</h2><p className="muted">{step.id === 'incheck' ? 'Measure, weigh, inspect, correct discrepancies, and apply tape markings.' : step.id==='precheck' ? 'Verify required paperwork with the increment monitor.' : step.id==='manifest' ? 'Manifest the asset using its paperwork and verified Incheck readings.' : 'Perform a fresh final inspection of the prepared asset for airworthiness.'}</p></div>
-    <ManifestView pieces={manifestPieces} onRemove={onRemovePiece} />
+    <SectionJump resetKey={`${scenario.key ?? scenario.id}-${step.id}`} />
+    <ManifestView pieces={manifestPieces} onRemove={onRemovePiece} manifest={manifestMetadata} />
     <FrustrationPanel scenario={scenario} exercise={exercise} onWorkflow={onWorkflow} />
     {step.id==='ji' && !isStageComplete(scenario,'manifest',exercise) && <p className="reference-note">Complete Precheck and Incheck, then accept the manifest to enable final JI verification.</p>}
-    <ShipmentPaperwork key={scenario.key ?? scenario.id} scenario={scenario} exercise={exercise} step={step.id} onWorkflow={onWorkflow} />
+    <ShipmentPaperwork key={scenario.key ?? scenario.id} scenario={scenario} exercise={exercise} step={step.id} onWorkflow={onWorkflow} onOpenCmos={onOpenCmos} />
     <CollapsibleCard label="Stage checklist" title="Stage checklist" summary={<span>{tasks.filter(task => task.complete).length} / {tasks.length} complete</span>}>
       <div className="task-list">{tasks.map(task => {
         const answer = exercise.answers[task.id];

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import FloatingWindow from '../Session/FloatingWindow';
 import { manifestFields, DODAAC_INFO } from '../CargoWindow/workflow';
 
 // Fictional training Military Shipping Label (MSL) laid out after the DD Form 1387 label.
@@ -77,18 +77,7 @@ export function MilitaryShippingLabel({ scenario }) {
 }
 
 export default function MslModal({ scenario, onClose }) {
-  const dialog = useRef(null);
-  useEffect(() => {
-    dialog.current?.focus();
-    const closeOnEscape = event => { if (event.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', closeOnEscape);
-    document.body.classList.add('cmos-modal-open');
-    return () => { document.removeEventListener('keydown', closeOnEscape); document.body.classList.remove('cmos-modal-open'); };
-  }, [onClose]);
-  return <div className="cmos-overlay" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
-    <article className="paper-sheet msl-sheet" role="dialog" aria-modal="true" aria-label="Military Shipping Label" tabIndex={-1} ref={dialog}>
-      <div className="paper-toolbar"><span>Military Shipping Label</span><button type="button" aria-label="Close Military Shipping Label" onClick={onClose}>×</button></div>
-      <MilitaryShippingLabel scenario={scenario} />
-    </article>
-  </div>;
+  return <FloatingWindow title="Military Shipping Label" onClose={onClose} className="paper-sheet msl-sheet">
+    <MilitaryShippingLabel scenario={scenario} />
+  </FloatingWindow>;
 }

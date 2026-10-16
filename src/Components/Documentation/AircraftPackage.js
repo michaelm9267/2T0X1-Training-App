@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import FloatingWindow from '../Session/FloatingWindow';
 import { ManifestBody } from './PrintManifest';
 import { DocumentBody } from './PaperworkDocument';
 import { DODAAC_INFO, ORIGIN, paperwork } from '../CargoWindow/workflow';
@@ -19,28 +19,18 @@ export function packageDocuments(pieces) {
   ];
 }
 
-export default function AircraftPackage({ pieces, plan, departureAt, releasedAt, destination, outstanding = [], date = new Date(), onClose }) {
-  const dialog = useRef(null);
-  useEffect(() => {
-    dialog.current?.focus();
-    const closeOnEscape = event => { if (event.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', closeOnEscape);
-    document.body.classList.add('cmos-modal-open');
-    return () => { document.removeEventListener('keydown', closeOnEscape); document.body.classList.remove('cmos-modal-open'); };
-  }, [onClose]);
+export default function AircraftPackage({ pieces, manifest, plan, departureAt, releasedAt, destination, outstanding = [], date = new Date(), onClose }) {
   const documents = packageDocuments(pieces);
   const loadPieces = pieces.map(item => ({ ...item.scenario, key: item.key, title: item.title }));
   const { weight, cb } = checkPlan(loadPieces, plan.placements);
   const departure = parseLocal(departureAt);
   const hazardous = documents.filter(d => d.kind === 'hazdec').length;
-  return <div className="cmos-overlay print-overlay" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
-    <article className="paper-sheet print-manifest package-sheet" role="dialog" aria-modal="true" aria-label="Aircraft commander paperwork package" tabIndex={-1} ref={dialog}>
-      <div className="paper-toolbar no-print"><span>Aircraft commander paperwork package</span><span className="print-actions"><button type="button" className="print-button" onClick={() => window.print()}>Print package</button><button type="button" aria-label="Close paperwork package" onClick={onClose}>×</button></span></div>
+  return <FloatingWindow title="Aircraft commander paperwork package" closeLabel="Close paperwork package" onClose={onClose} className="paper-sheet print-manifest package-sheet" printable printLabel="Print package">
       <p className="no-print reference-note package-tip">Print opens your browser's print dialog. To keep a file, choose Save as PDF as the printer. Each document starts on a new page.</p>
 
       <section className="package-page" aria-label="Package cover sheet">
         <p className="paper-banner">FOR TRAINING USE ONLY</p>
-        <header className="paper-header"><div><strong>Aircraft Commander Paperwork Package</strong><span>Mission JTRN0001 · Chalk 001C · C-17</span></div><span className="paper-form">{outstanding.length ? 'DRAFT — NOT READY' : 'READY FOR AIRCREW'}</span></header>
+        <header className="paper-header"><div><strong>Aircraft Commander Paperwork Package</strong><span>Mission {manifest?.mission || 'JTRN0001'} · Chalk {manifest?.chalk || '001C'} · C-17</span></div><span className="paper-form">{outstanding.length ? 'DRAFT — NOT READY' : 'READY FOR AIRCREW'}</span></header>
         <div className="paper-boxes">
           {[['APOE', `${DODAAC_INFO[ORIGIN].port} · ${ORIGIN}`], ['APOD', `${DODAAC_INFO[destination]?.port} · ${destination}`], ['Aircraft departure', departure ? formatTime(departure) : '—'], ['Manifest released', releasedAt ? formatTime(new Date(releasedAt)) : 'Not released'],
             ['Pieces', pieces.length], ['Total weight (lb)', weight.toLocaleString()], ['Hazardous pieces', hazardous], ['Combined CB (in)', cb === null ? '—' : cb.toFixed(1)]].map(([k, v]) => <div key={k}><small>{k}</small><span>{v}</span></div>)}
@@ -56,7 +46,7 @@ export default function AircraftPackage({ pieces, plan, departureAt, releasedAt,
         </div>
       </section>
 
-      <section className="package-page" aria-label="Cargo manifest"><ManifestBody pieces={pieces.map(item => ({ scenarioId: item.key, record: item.record }))} date={date} /></section>
+      <section className="package-page" aria-label="Cargo manifest"><ManifestBody pieces={pieces.map(item => ({ scenarioId: item.key, record: item.record, palletId:item.palletId }))} manifest={manifest} date={date} /></section>
 
       <section className="package-page" aria-label="Load plan">
         <p className="paper-banner">FOR TRAINING USE ONLY</p>
@@ -75,6 +65,5 @@ export default function AircraftPackage({ pieces, plan, departureAt, releasedAt,
         <p className="package-label">{d.title} · {d.detail}</p>
         <DocumentBody scenario={d.item.scenario} documentId={d.kind} />
       </section>)}
-    </article>
-  </div>;
+  </FloatingWindow>;
 }

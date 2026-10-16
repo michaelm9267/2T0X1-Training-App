@@ -6,7 +6,7 @@ import './departure.css';
 
 // Aircraft departure: set the departure date and time, then release the manifest within the
 // 30 minutes before departure.
-export default function Departure({ state, departureAt, onChange, ready, waiting, manifestPieces, destination, basis, onPrintPackage }) {
+export default function Departure({ state, departureAt, onChange, ready, waiting, manifestPieces, destination, basis, onPrintPackage, onOpenCmos }) {
   const test = useTestMode();
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Departure({ state, departureAt, onChange, ready, waiting
         <div><dt>Manifest</dt><dd>{manifestPieces.length} piece{manifestPieces.length === 1 ? '' : 's'} · {weight.toLocaleString()} lb</dd></div>
       </dl>
       {waiting.length > 0 && <p className="reference-note">Waiting for JI: {waiting.join(', ')}. Every piece on the DSOE must pass JI before the manifest is released.</p>}
-      <div className="answer-options"><button type="button" className="primary-button" disabled={released} onClick={() => onChange(releaseManifest(state, { departureAt, now: new Date(), ready, basis }))}>{released ? 'Manifest released' : 'Release manifest'}</button>
+      <div className="answer-options">{onOpenCmos ? <button type="button" className="primary-button" onClick={onOpenCmos}>Open CMOS Air Manifest</button> : <button type="button" className="primary-button" disabled={released} onClick={() => onChange(releaseManifest(state, { departureAt, now: new Date(), ready, basis }))}>{released ? 'Manifest released' : 'Release manifest'}</button>}
         {onPrintPackage && <button type="button" disabled={manifestPieces.length === 0} onClick={onPrintPackage}>Print aircraft paperwork package</button>}</div>
       <p aria-live="polite" className={released ? 'departure-released' : 'departure-feedback'}>{test && !released && state.mistakes.length && state.feedback && !/JI/.test(state.feedback) ? 'Manifest not released. Recheck the departure time and release timing.' : state.feedback}</p>
     </div>

@@ -127,3 +127,11 @@ Files: coverage document, final verification ledger; only corrective product fil
 ## Plan self-review
 
 All six requested screens and Rate Quote have owning tasks; unconditional Save applies to records and nested forms. Documents have a persistent nonmodal owner. The shared model precedes cross-screen operations; course grading and migrations are verified separately from saving. Source evidence covers controls rather than treating screen titles as complete coverage. Implementation and final verification use the existing project tools and preserve user changes.
+
+## Review focus
+
+- Source tabs whose contents are not pictured: Rail, Via SCAC, Stop Offs, Water Port, Hold At Location, T-9. Distinguish functional training controls from verified source layout.
+- Partial/Split/Copies and multiple physical asset associations: stable references must not duplicate course credit or lose source pieces.
+- Changes to pieces, hazards, equipment, assignments, quotes, or released records: dependent checks/print readiness and course progression must become stale consistently.
+- Finished tests, printing and document retrieval: viewing must work without changing finalized training state; retrieval alone must not award printing.
+- Imported or refreshed legacy/main/Practice sessions: raw invalid strings are permitted, malformed containers and dangling references must not crash or reset unrelated progress.

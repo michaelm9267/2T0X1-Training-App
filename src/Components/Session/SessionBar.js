@@ -1,15 +1,21 @@
 import { useRef, useState } from 'react';
 import './session-bar.css';
 
-// Session tools above the workspace: guided or test mode, reference tools, and starting over.
-export default function SessionBar({ mode, onModeChange, onNewSession, tools = [], clock, onClockChange, onExport, onImport }) {
+// Session tools above the workspace: the training mode, reference tools, and starting over.
+const MODE_NOTES = {
+  guided: 'Guided mode: hints, explanations, and fixes are shown.',
+  practice: 'Practice mode: work one section at a time on a fresh shipment, with hints shown.',
+  test: 'Test mode: hints and explanations are hidden; results are in the after-action report.',
+};
+
+export default function SessionBar({ mode, modes = [['guided', 'Guided'], ['test', 'Test']], testNote, onModeChange, onNewSession, tools = [], clock, onClockChange, onExport, onImport }) {
   const [confirming, setConfirming] = useState(false);
   const file = useRef(null);
   return <div className="session-bar" role="toolbar" aria-label="Session tools">
     <div className="mode-switch" role="group" aria-label="Training mode">
-      {[['guided', 'Guided'], ['test', 'Test']].map(([id, label]) => <button key={id} type="button" aria-pressed={mode === id} onClick={() => onModeChange(id)}>{label}</button>)}
+      {modes.map(([id, label]) => <button key={id} type="button" aria-pressed={mode === id} onClick={() => onModeChange(id)}>{label}</button>)}
     </div>
-    <span className="mode-note">{mode === 'test' ? 'Test mode: hints and explanations are hidden; results are in the after-action report.' : 'Guided mode: hints, explanations, and fixes are shown.'}</span>
+    <span className="mode-note">{mode === 'test' && testNote ? testNote : MODE_NOTES[mode]}</span>
     {clock && <div className="sim-clock" role="timer" aria-label="Simulation clock"><strong>{String(Math.floor(clock.elapsed / 60)).padStart(2, '0')}:{String(clock.elapsed % 60).padStart(2, '0')}</strong><button type="button" onClick={() => onClockChange({ ...clock, running: !clock.running })}>{clock.running ? 'Pause clock' : 'Start clock'}</button><button type="button" onClick={() => onClockChange({ ...clock, elapsed: 0, running: false })}>Reset clock</button></div>}
     <div className="session-tools">
       {tools.map(([label, onClick]) => <button key={label} type="button" onClick={onClick}>{label}</button>)}

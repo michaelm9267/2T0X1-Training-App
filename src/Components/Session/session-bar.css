@@ -9,3 +9,24 @@
 .sim-clock { display: flex; align-items: center; gap: 7px; color: var(--accent); }
 .sim-clock strong { min-width: 50px; font-variant-numeric: tabular-nums; }
 .transfer-feedback { margin: -10px 0 14px; color: var(--accent); font-size: .8rem; }
+
+/* Test mode: trainee and grading sheet */
+.shipment-bar.trainee-bar { margin-bottom: 12px; justify-content: flex-start; }
+.trainee-bar .session-confirm { color: inherit; }
+.trainee-bar .setup-error { flex-basis: 100%; margin: 0; }
+.grading-incomplete { color: #9b1c1c; font-weight: 700; font-size: .85rem; }
+.grading-signatures { margin-top: 24px; }
+.grading-signatures div { min-height: 48px; }
+.practice-bar { padding: 14px 18px; margin: 0 0 16px; }
+.practice-status { font-size: .82rem; color: var(--text-secondary); }
+.practice-status.is-complete { color: var(--accent); font-weight: 700; }
+.practice-mistakes { margin-top: 10px; font-size: .82rem; }
+.practice-mistakes summary { cursor: pointer; }
+.paper-sheet .reference-note { color: #3d3d3d; }
+.trainee-bar input {
+  box-sizing: border-box; width: 12em; min-height: 44px; padding: 10px 12px;
+  color: var(--text-primary); background: var(--surface-raised); border: 1px solid var(--border); border-radius: 8px; font: inherit; font-size: .85rem;
+}
+.trainee-bar input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.trainee-bar input[readonly] { opacity: .7; cursor: default; }
+@media (max-width: 700px) { .trainee-bar input { width: 100%; } }

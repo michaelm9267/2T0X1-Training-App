@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { hazardRequirements } from '../CdfCmos/trainingData';
+import FloatingWindow from '../Session/FloatingWindow';
 import { manifestFields, tcnUln, tcnIncrement, DODAAC_INFO, ORIGIN } from '../CargoWindow/workflow';
 import { findUnNumber } from './unNumbers';
 import AttlaCertification from './AttlaCertification';
@@ -38,6 +39,7 @@ export const HANDLING_STATEMENTS = {
 const LB_TO_KG = 0.45359237;
 // Every quantity on the HAZDEC is metric.
 function declaredHazards(scenario, weight) {
+  if (scenario.ammo) return [{ un:'UN0012', quantity:'1 crate × 15 kg N.E.W.', instruction:'TRAINING PACKING INSTRUCTION', authorization:'', handling:['Fictional ammunition lot TRN-001, DODIC A059, 100 rounds.'] }];
   if (scenario.id === 'isu-90') return [{ un: 'UN1950', quantity: '1 fibreboard box × 12 kg', instruction: 'A6.2', authorization: '', handling: ['Aerosols packed in crate 2 inside the ISU.'] }];
   const un = scenario.kind === 'generator' ? 'UN3528' : 'UN3166';
   const name = scenario.kind === 'generator' ? 'MACHINERY, INTERNAL COMBUSTION, FLAMMABLE LIQUID POWERED' : undefined;
@@ -169,7 +171,7 @@ function Hazdec({ scenario, values }) {
       </div>
     </div>
   </div>
-  <p className="hz-footer">DAF FORM 7507, 20250131 PRESCRIBED BY DAFI24-605V2 REPLACES AMC IMT 1033, WHICH IS OBSOLETE</p>
+  <aside className="training-cmos-source"><strong>Fictional CMOS source data</strong>{hazardRequirements(scenario).records.map(record => <dl key={record.id}>{[['DG2 Template ID',record.templateId],['Piece',record.piece],['Name and Title',record.certifier],['Hazard Codes',record.hazardCode],['Metric Hazmat Qty/UOM',`${record.page2.metricQty} ${record.page2.metricUom}`],['B/L Hazmat Qty/UOM',`${record.page2.imperialQty} ${record.page2.imperialUom}`],['Misc T-9 Required','No'],['Emergency Contact',record.page2.emergencyContact],['Certification Statement',record.certificationStatement],...record.lots.flatMap(lot=>Object.entries(lot).filter(([k])=>k!=='id'))].map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>)}</aside><p className="hz-footer">DAF FORM 7507, 20250131 PRESCRIBED BY DAFI24-605V2 REPLACES AMC IMT 1033, WHICH IS OBSOLETE</p>
   </div>;
 }
 
@@ -213,18 +215,7 @@ export function DocumentBody({ scenario, documentId }) {
 }
 
 export default function PaperworkDocument({ scenario, document, onClose }) {
-  const dialog = useRef(null);
-  useEffect(() => {
-    dialog.current?.focus();
-    const closeOnEscape = event => { if (event.key === 'Escape') onClose(); };
-    window.document.addEventListener('keydown', closeOnEscape);
-    window.document.body.classList.add('cmos-modal-open');
-    return () => { window.document.removeEventListener('keydown', closeOnEscape); window.document.body.classList.remove('cmos-modal-open'); };
-  }, [onClose]);
-  return <div className="cmos-overlay" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
-    <article className="paper-sheet" role="dialog" aria-modal="true" aria-label={document.title} tabIndex={-1} ref={dialog}>
-      <div className="paper-toolbar"><span>{document.title}</span><button type="button" aria-label={`Close ${document.title}`} onClick={onClose}>×</button></div>
-      <DocumentBody scenario={scenario} documentId={document.id} />
-    </article>
-  </div>;
+  return <FloatingWindow title={document.title} onClose={onClose} className="paper-sheet">
+    <DocumentBody scenario={scenario} documentId={document.id} />
+  </FloatingWindow>;
 }

@@ -33,3 +33,14 @@ export function overallScore(results) {
   const started = results.filter(result => result.started);
   return started.length ? Math.round(started.reduce((sum, result) => sum + result.score, 0) / started.length) : null;
 }
+
+// Test mode grading for the deployment. A piece that has not passed JI when the test is finished
+// scores 0; the final score averages every piece on the DSOE, then loses MISTAKE_POINTS for each
+// load plan or manifest release mistake.
+export const STAGE_OF_MISTAKE = { decision: 'Incheck', reading: 'Incheck', tape: 'Incheck', paperwork: 'Precheck', manifest: 'Manifest', frustration: 'Frustration', 'load plan': 'Load plan', release: 'Departure' };
+export function gradeDeployment(pieces, loadPlan, departure, cdfCmos) {
+  const graded = pieces.map(piece => ({ ...piece, passed: piece.result.done.includes('ji'), score: piece.result.done.includes('ji') ? piece.result.score : 0 }));
+  const deploymentMistakes = [...(cdfCmos?.mistakes || []), ...(loadPlan.mistakes || []).map(m => ({ ...m, kind: 'load plan' })), ...(departure.mistakes || []).map(m => ({ ...m, kind: 'release' }))];
+  const average = graded.length ? graded.reduce((sum, piece) => sum + piece.score, 0) / graded.length : 0;
+  return { pieces: graded, deploymentMistakes, final: Math.max(0, Math.round(average) - MISTAKE_POINTS * deploymentMistakes.length) };
+}

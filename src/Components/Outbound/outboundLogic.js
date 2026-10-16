@@ -13,8 +13,8 @@ export const OUTBOUND_STEPS = [
 export const MODES = { 'small-package': 'Small package', surface: 'Surface freight', amc: 'AMC channel airlift' };
 // CMOS Mil Mode codes and the step that processes each. Air (J) and surface (5) small parcels both
 // go through Small Package Express.
-export const MIL_MODES = { J: 'Air small parcel', 5: 'Surface small parcel', B: 'Less than truckload (LTL)', 9: 'AMC' };
-export const stepForMode = milMode => ({ J: 'small-package', 5: 'small-package', B: 'surface', 9: 'amc' }[milMode] || null);
+export const MIL_MODES = { J: 'Air small parcel', 5: 'Surface small parcel', B: 'Less than truckload (LTL)', F: 'AMC channel airlift', 9: 'AMC' };
+export const stepForMode = milMode => ({ J: 'small-package', 5: 'small-package', B: 'surface', F: 'amc', 9: 'amc' }[milMode] || null);
 
 export function createOutboundExercise() {
   return { documentViewed: false, tagInspected: false, counted: false, answers: {}, returned: false, custodyAccepted: false,
@@ -196,7 +196,7 @@ export function stageComplete(shipment, e, stepId) {
   switch (stepId) {
     case 'receive': return e.custodyAccepted;
     case 'pack': return e.packed && Boolean(e.forms.annotation?.accepted);
-    case 'planning': return Boolean(e.cmos?.record?.saved);
+    case 'planning': return e.sharedManaged ? Boolean(e.planningChecked) : Boolean(e.cmos?.record?.saved);
     case 'small-package': return e.mode === stepId && Boolean(e.spe?.rated) && msl && Boolean(e.labels?.carrier);
     default: return e.mode === stepId && Boolean(e.forms[stepId]?.accepted) && msl;
   }
@@ -208,7 +208,7 @@ export const LABELS = { msl: { title: 'Military shipping label (MSL)', printedBy
 export function applyLabel(e, id) {
   const label = LABELS[id];
   if (!label || !e.packed || !e.printed?.[label.printedBy] || e.labels?.[id]) return e;
-  return { ...e, labels: { ...e.labels, [id]: true } };
+  return { ...e, labels: { ...e.labels, [id]: true }, labelBasis: { ...e.labelBasis, [id]: e.printedBasis?.[label.printedBy] } };
 }
 export const shipmentComplete = (shipment, e) => Boolean(e.mode) && stageComplete(shipment, e, e.mode);
 

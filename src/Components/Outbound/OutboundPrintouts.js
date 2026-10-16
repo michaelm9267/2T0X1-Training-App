@@ -1,6 +1,4 @@
-import { useRef } from 'react';
-import { createPortal } from 'react-dom';
-import useModalDialog from '../Training/useModalDialog';
+import FloatingWindow from '../Session/FloatingWindow';
 import { Barcode, Pdf417 } from '../Documentation/MilitaryShippingLabel';
 import { ITEMS, consignee, originOf } from './outboundData';
 import { DOCUMENT_DAY, julian } from './outboundShipments';
@@ -12,16 +10,11 @@ import { activeTcn, pieceCube } from './cmosLogic';
 // values come from what the trainee entered in CMOS, so the printout shows their entries as made.
 // Fictional training facsimiles; barcodes are decorative.
 
-// The print viewer, opened on top of CMOS. Print sends it to the browser's printer.
+// The print viewer, a movable window over CMOS. Print sends it to the browser's printer.
 export function PrintPreview({ title, onClose, wide, children }) {
-  const dialog = useRef(null);
-  useModalDialog(dialog, onClose);
-  return createPortal(<div className="cmos-overlay print-overlay" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
-    <article className={`paper-sheet print-manifest outbound-print ${wide ? '' : 'outbound-print-label'}`} role="dialog" aria-modal="true" aria-label={title} tabIndex={-1} ref={dialog}>
-      <div className="paper-toolbar no-print"><span>{title}</span><span className="print-actions"><button type="button" className="print-button" onClick={() => window.print()}>Print</button><button type="button" aria-label={`Close ${title}`} onClick={onClose}>×</button></span></div>
-      {children}
-    </article>
-  </div>, document.body);
+  return <FloatingWindow title={title} onClose={onClose} className={`paper-sheet print-manifest outbound-print ${wide ? '' : 'outbound-print-label'}`} printable>
+    {children}
+  </FloatingWindow>;
 }
 
 // Where the piece goes: the Ultimate Consignee address when the trainee entered one, otherwise the

@@ -6,9 +6,9 @@ export default function useModalDialog(dialog, onClose) {
     const node = dialog.current;
     node?.focus();
     const onKeyDown = event => {
-      // A dialog opened on top of this one handles its own keys.
+      // A dialog or document window opened on top of this one handles its own keys.
       const top = document.activeElement?.closest?.('[aria-modal="true"]');
-      if (top && top !== node) return;
+      if ((top && top !== node) || document.activeElement?.closest?.('.floating-window')) return;
       if (event.key === 'Escape') { event.preventDefault(); onClose(); return; }
       if (event.key !== 'Tab' || !node) return;
       const focusable = [...node.querySelectorAll('button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])')].filter(item => !item.disabled);

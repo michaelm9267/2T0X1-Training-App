@@ -1,6 +1,6 @@
 {
-  "short_name": "RampReady",
-  "name": "RampReady — 2T0X1 Training Portal",
+  "short_name": "Transit IQ",
+  "name": "Transit IQ — 2T0X1 Training Portal",
   "icons": [
     {
       "src": "favicon.svg",
@@ -8,7 +8,7 @@
       "type": "image/svg+xml"
     },
     {
-      "src": "rampready-mark.svg",
+      "src": "transitiq-mark.svg",
       "type": "image/svg+xml",
       "sizes": "any",
       "purpose": "any maskable"

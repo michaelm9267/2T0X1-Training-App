@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import FloatingWindow from '../Session/FloatingWindow';
 import { ITEMS, originOf, consignee, isOverseas } from './outboundData';
 import { DOCUMENT_DAY, transportationPriority } from './outboundShipments';
 import { NO_DODAAC } from './cmosLogic';
@@ -211,20 +211,9 @@ export function DocumentBody({ doc, shipment, received, packing }) {
 }
 
 export default function ShippingDocument({ doc, shipment, received, packing, onClose }) {
-  const dialog = useRef(null);
   const title = doc.type === '1149' ? 'DD Form 1149' : 'DD Form 1348-1A';
-  useEffect(() => {
-    dialog.current?.focus();
-    const closeOnEscape = event => { if (event.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', closeOnEscape);
-    document.body.classList.add('cmos-modal-open');
-    return () => { document.removeEventListener('keydown', closeOnEscape); document.body.classList.remove('cmos-modal-open'); };
-  }, [onClose]);
-  return <div className="cmos-overlay" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
-    <article className="paper-sheet shipping-document" role="dialog" aria-modal="true" aria-label={title} tabIndex={-1} ref={dialog}>
-      <div className="paper-toolbar"><span>{title}</span><button type="button" aria-label={`Close ${title}`} onClick={onClose}>×</button></div>
-      <DocumentBody doc={doc} shipment={shipment} received={received} packing={packing} />
-      <p className="paper-sign">FOR TRAINING USE ONLY · Fictional NSNs, part numbers and DoDAACs</p>
-    </article>
-  </div>;
+  return <FloatingWindow title={title} onClose={onClose} className="paper-sheet shipping-document">
+    <DocumentBody doc={doc} shipment={shipment} received={received} packing={packing} />
+    <p className="paper-sign">FOR TRAINING USE ONLY · Fictional NSNs, part numbers and DoDAACs</p>
+  </FloatingWindow>;
 }

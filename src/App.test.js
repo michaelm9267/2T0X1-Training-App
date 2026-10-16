@@ -1,4 +1,6 @@
-import { render, screen, within } from '@testing-library/react';
+import { openSelectedPlanningTcn } from './Components/Cmos/planningTestHelpers';
+import {missionForSession} from './Components/CdfCmos/trainingData';
+import { render, screen, within, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import * as workflow from './Components/CargoWindow/workflow';
@@ -7,11 +9,11 @@ import * as workflow from './Components/CargoWindow/workflow';
 beforeEach(() => { window.localStorage.clear(); jest.spyOn(workflow, 'randomDestination').mockReturnValue('FB5294'); });
 afterEach(() => { jest.restoreAllMocks(); });
 
-test('shows the RampReady brand and identifies the 2T0X1 training portal', () => {
+test('shows the Transit IQ brand and identifies the 2T0X1 training portal', () => {
   render(<App />);
   const brand = screen.getByRole('banner');
-  expect(within(brand).getByRole('img', { name: 'RampReady logo' })).toBeInTheDocument();
-  expect(within(brand).getByRole('heading', { name: 'RampReady' })).toBeInTheDocument();
+  expect(within(brand).getByRole('img', { name: 'Transit IQ logo' })).toBeInTheDocument();
+  expect(within(brand).getByRole('heading', { name: 'Transit IQ' })).toBeInTheDocument();
   expect(within(brand).getByText('2T0X1 Training Portal')).toBeInTheDocument();
 });
 
@@ -268,9 +270,11 @@ test('precheck requests missing HAZDEC copies and manifest stays pending without
  userEvent.click(screen.getByRole('button',{name:'Verify HAZDEC copies'}));
  expect(screen.getByRole('group',{name:'HAZDEC'})).toHaveTextContent('Complete');
  userEvent.click(screen.getByRole('button',{name:'3. Manifest'}));
- userEvent.click(screen.getByRole('button',{name:'Open Shipment Planning'}));
- userEvent.click(screen.getByRole('button',{name:'Add piece to manifest'}));
- expect(screen.getByText('Complete Precheck and Incheck before accepting the manifest.')).toBeInTheDocument();
+ userEvent.click(screen.getByRole('button',{name:'Open CMOS'}));
+ userEvent.click(screen.getByRole('button',{name:'Search'}));
+ userEvent.click(screen.getByRole('button',{name:'Select F00001$$E100200XX'}));
+ userEvent.click(screen.getByRole('button',{name:'Incheck'}));openSelectedPlanningTcn();userEvent.click(within(screen.getByRole('dialog',{name:'CMOS Shipment Planning'})).getByRole('button',{name:'Save',exact:true}));
+ expect(screen.getByRole('group',{name:'Manifest asset'})).toHaveTextContent('Pending');
  expect(screen.getByRole('button',{name:'5. JI'})).toBeDisabled();
 });
 
@@ -317,98 +321,20 @@ test('prepared pallet manifests but JI waits for the deployment load plan',()=>{
   if(decision==='Unsatisfactory') userEvent.click(within(group).getByRole('button',{name:'Simulate correction and reinspection'}));
  }
  userEvent.click(screen.getByRole('button',{name:'3. Manifest'}));
- userEvent.click(screen.getByRole('button',{name:'Open Shipment Planning'}));
- userEvent.selectOptions(screen.getByLabelText('Origin DoDAAC'),'FB5000');
- userEvent.selectOptions(screen.getByLabelText('Destination DoDAAC'),'FB5294');
- for(const [label,value] of [['Transportation Control Number (TCN)','F00001$$E100300XX'],['Nomenclature','Palletized general supplies'],['Piece count','1'],['Length (in)','108'],['Width (in)','88'],['Height (in)','72'],['Gross weight (lb)','4800']]) userEvent.type(screen.getByLabelText(label),value);
- userEvent.selectOptions(screen.getByLabelText('APOE'),'EDF');
- userEvent.selectOptions(screen.getByLabelText('APOD'),'OSN');
- userEvent.click(screen.getByRole('tab',{name:'Indicators'}));
- userEvent.selectOptions(screen.getByLabelText('Hazardous/Ammunition Ind'),'H - Hazardous material');
- expect(screen.getByRole('tab',{name:'DG2'})).toBeInTheDocument();
- expect(screen.getByRole('tab',{name:'T-9 Misc'})).toBeInTheDocument();
- userEvent.click(screen.getByRole('tab',{name:'Pieces'}));
- userEvent.click(screen.getByRole('button',{name:'1 · HAZ'}));
- expect(screen.getByRole('tab',{name:'DG2'})).toHaveAttribute('aria-selected','true');
- userEvent.selectOptions(screen.getByLabelText('UN/ID Number'),'UN3528');
- expect(screen.getByLabelText('Hazard Class/Division')).toHaveValue('3');
- expect(screen.getByLabelText('Proper Shipping Name')).toHaveValue('');
- userEvent.selectOptions(screen.getByLabelText('Proper Shipping Name'),'MACHINERY, INTERNAL COMBUSTION, FLAMMABLE LIQUID POWERED');
- expect(screen.getByLabelText('Proper Shipping Name')).toHaveValue('MACHINERY, INTERNAL COMBUSTION, FLAMMABLE LIQUID POWERED');
- userEvent.selectOptions(screen.getByLabelText('UN/ID Number'),'UN1072');
- expect(screen.getByLabelText('Proper Shipping Name')).toHaveValue('OXYGEN, COMPRESSED');
- expect(screen.getByLabelText('Hazard Class/Division')).toHaveValue('2.2');
- expect(screen.getByLabelText('Subsidiary Risk')).toHaveValue('5.1');
- expect(screen.getByLabelText('Packing Group')).toHaveValue('N/A');
- // Total quantity: one Net/Gross choice; metric and imperial fill each other.
- expect(within(screen.getByLabelText('Total Qty Net/Gross')).getAllByRole('option').map(o=>o.textContent)).toEqual(['','Net','Gross']);
- userEvent.selectOptions(screen.getByLabelText('Total Qty Net/Gross'),'Net');
- userEvent.type(screen.getByLabelText('Total Qty/Metric (kg)'),'100');
- expect(screen.getByLabelText('Total Qty/Imperial (lb)')).toHaveValue('220.46');
- userEvent.selectOptions(screen.getByLabelText('Measure'),'Volume (L / gal)');
- expect(screen.getByLabelText('Total Qty/Imperial (gal)')).toHaveValue('26.42');
- userEvent.clear(screen.getByLabelText('Total Qty/Imperial (gal)'));
- userEvent.type(screen.getByLabelText('Total Qty/Imperial (gal)'),'10');
- expect(screen.getByLabelText('Total Qty/Metric (L)')).toHaveValue('37.85');
- expect(screen.queryByLabelText('Net Quantity per Package')).not.toBeInTheDocument();
- userEvent.click(screen.getByRole('button',{name:'Save DG2'}));
- expect(screen.getByRole('cell',{name:'UN1072'})).toBeInTheDocument();
- userEvent.click(screen.getByRole('tab',{name:'Indicators'}));
- userEvent.selectOptions(screen.getByLabelText('Hazardous/Ammunition Ind'),'N - Non-hazardous');
- expect(screen.queryByRole('tab',{name:'DG2'})).not.toBeInTheDocument();
- userEvent.click(screen.getByRole('button',{name:'Add piece to manifest'}));
- expect(within(screen.getByRole('dialog',{name:'Shipment Planning'})).getByText('Piece added to manifest.')).toBeInTheDocument();
- userEvent.click(screen.getByRole('button',{name:'Close Shipment Planning'}));
- expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
- expect(screen.getByText('Piece added to manifest.')).toBeInTheDocument();
- userEvent.click(screen.getByRole('button',{name:'Aircraft paperwork package'}));
- const pkg=within(screen.getByRole('dialog',{name:'Aircraft commander paperwork package'}));
- expect(pkg.getByText('DRAFT — NOT READY')).toBeInTheDocument();
- expect(within(pkg.getByRole('region',{name:'Cargo manifest'})).getAllByText('F00001$$E100300XX').length).toBeGreaterThan(0);
- userEvent.click(pkg.getByRole('button',{name:'Close paperwork package'}));
- userEvent.click(screen.getByRole('button',{name:'View DSOE'}));
- expect(within(screen.getByRole('dialog',{name:'Deployment Schedule of Events'})).getByLabelText(/^Destination/)).toBeDisabled();
- // One of six increments is through Incheck: Manifest has started, but Incheck is not complete for the chalk.
- const actual=name=>within(within(screen.getByRole('dialog',{name:'Deployment Schedule of Events'})).getByRole('row',{name})).getAllByRole('cell').at(-1);
- expect(actual('MANIFEST START')).toHaveTextContent('COMPLETE');
- expect(actual('INCHECK COMPLETE')).toBeEmptyDOMElement();
- userEvent.click(screen.getByRole('button',{name:'Close DSOE'}));
- const bay=screen.getByRole('region',{name:'Cargo simulator'});
- expect(within(bay).queryByRole('button',{name:/^Military shipping label /})).not.toBeInTheDocument();
- userEvent.click(screen.getByRole('button',{name:'Apply MSL'}));
- userEvent.click(within(bay).getByRole('button',{name:'Military shipping label F00001$$E100300XX. Select to view.'}));
- const fromCargo=screen.getByRole('dialog',{name:'Military Shipping Label'});
- expect(within(fromCargo).getAllByText('F00001$$E100300XX').length).toBeGreaterThan(0);
- userEvent.click(within(fromCargo).getByRole('button',{name:'Close Military Shipping Label'}));
- const manifest=screen.getByRole('region',{name:'Cargo manifest'});
- expect(within(manifest).getByText('F00001$$E100300XX')).toBeInTheDocument();
- expect(within(manifest).getByText('Applied')).toBeInTheDocument();
- userEvent.click(screen.getByRole('button',{name:'View MSL'}));
- const msl=screen.getByRole('dialog',{name:'Military Shipping Label'});
- for(const text of ['F00001$$E100300XX','EDF','OSN','FB5294']) expect(within(msl).getAllByText(text).length).toBeGreaterThan(0);
- userEvent.click(within(msl).getByRole('button',{name:'Close Military Shipping Label'}));
- expect(screen.getByRole('button',{name:'5. JI'})).toBeDisabled();
- expect(screen.getByRole('button',{name:'5. JI'})).toHaveAccessibleDescription(/deployment Load Plan/);
- // Manifested entries are locked; removing the piece unlocks them and withdraws the MSL.
- userEvent.click(screen.getByRole('button',{name:'3. Manifest'}));
- userEvent.click(screen.getByRole('button',{name:'Open Shipment Planning'}));
- expect(screen.getByLabelText('Transportation Control Number (TCN)')).toHaveAttribute('readonly');
- expect(screen.getByLabelText('Origin DoDAAC')).toBeDisabled();
- expect(screen.queryByRole('button',{name:'Add piece to manifest'})).not.toBeInTheDocument();
- userEvent.click(screen.getByRole('button',{name:'Close Shipment Planning'}));
- const card=screen.getByRole('region',{name:'Cargo manifest'});
- userEvent.click(within(card).getByRole('button',{name:'Remove piece from manifest'}));
- userEvent.click(within(card).getByRole('button',{name:'Cancel'}));
- expect(within(card).getByText('1 piece')).toBeInTheDocument();
- userEvent.click(within(card).getByRole('button',{name:'Remove piece from manifest'}));
- userEvent.click(within(card).getByRole('button',{name:'Confirm removal'}));
- expect(within(card).getByText('0 pieces')).toBeInTheDocument();
- expect(screen.getByText('Piece removed from the manifest. Correct the entries and add it again.')).toBeInTheDocument();
- expect(screen.getByRole('button',{name:'5. JI'})).toBeDisabled();
- expect(within(screen.getByRole('region',{name:'Cargo simulator'})).queryByRole('button',{name:/^Military shipping label /})).not.toBeInTheDocument();
- userEvent.click(screen.getByRole('button',{name:'Open Shipment Planning'}));
- expect(screen.getByLabelText('Transportation Control Number (TCN)')).not.toHaveAttribute('readonly');
- expect(screen.getByRole('button',{name:'Add piece to manifest'})).toBeInTheDocument();
+ userEvent.click(screen.getByRole('button',{name:'Open CMOS'}));
+ userEvent.click(screen.getByRole('button',{name:'Search'}));userEvent.click(screen.getByRole('button',{name:'Select F00001$$E100300XX'}));
+ userEvent.click(screen.getByRole('button',{name:'Incheck'}));openSelectedPlanningTcn();
+ const planning=within(screen.getByRole('dialog',{name:'CMOS Shipment Planning'}));
+ for(const [label,value]of [['TCN','F00001$$E100300XX'],['Nomen','Palletized general supplies'],['Consignor','FB5000'],['Consignee','FB5294'],['POE','EDF'],['POD','OSN']])fireEvent.change(planning.getByLabelText(label),{target:{value}});
+ userEvent.click(planning.getByRole('button',{name:'New piece'}));const piece=within(screen.getByRole('dialog',{name:'Piece Information'}));for(const [label,value]of [['Length','108'],['Width','88'],['Height','72'],['Weight','4800'],['Type Pack','PC']])fireEvent.change(piece.getByLabelText(label),{target:{value}});userEvent.click(piece.getByRole('button',{name:'Save and Close'}));userEvent.click(planning.getByRole('button',{name:'Save',exact:true}));userEvent.click(planning.getByRole('button',{name:'Edit TCN'}));expect(planning.getByRole('status')).toHaveTextContent('Passed Edits');
+ userEvent.click(screen.getByRole('button',{name:'Air Manifest',exact:true}));userEvent.click(screen.getByRole('button',{name:'New Cargo Manifest',exact:true}));const air=within(screen.getByRole('dialog',{name:'CMOS Air Manifest'})),mission=missionForSession({destination:'FB5294'});
+ for(const [key,label]of [['mission','Mission'],['dsoeId','DSOE ID'],['chalk','Chalk'],['pod','POD'],['destination','Destination']])fireEvent.change(air.getByLabelText(label),{target:{value:mission[key]}});userEvent.click(air.getByRole('button',{name:'Save',exact:true}));userEvent.click(air.getByRole('button',{name:'Unassigned Pallets'}));const assign=within(screen.getByRole('dialog',{name:'Assign TCNs'}));userEvent.click(assign.getByRole('checkbox',{name:'Assign F00001$$E100300XX'}));userEvent.click(assign.getByRole('button',{name:'Assign',exact:true}));userEvent.click(assign.getByRole('button',{name:'Close',exact:true}));userEvent.click(air.getByRole('button',{name:'Save',exact:true}));userEvent.click(screen.getByRole('button',{name:'Close CMOS'}));
+ const card=screen.getByRole('region',{name:'Cargo manifest'});expect(within(card).getByText('F00001$$E100300XX')).toBeInTheDocument();
+ userEvent.click(screen.getByRole('button',{name:'Apply MSL'}));expect(within(card).getByText('Applied')).toBeInTheDocument();expect(screen.getByRole('button',{name:'5. JI'})).toBeDisabled();
+ userEvent.click(screen.getByRole('button',{name:'Aircraft paperwork package'}));const pkg=within(screen.getByRole('dialog',{name:'Aircraft commander paperwork package'}));expect(pkg.getByText('DRAFT — NOT READY')).toBeInTheDocument();expect(within(pkg.getByRole('region',{name:'Cargo manifest'})).getAllByText('F00001$$E100300XX').length).toBeGreaterThan(0);userEvent.click(pkg.getByRole('button',{name:'Close paperwork package'}));
+ userEvent.click(within(card).getByRole('button',{name:'Remove piece from manifest'}));userEvent.click(within(card).getByRole('button',{name:'Cancel'}));expect(within(card).getByText('1 piece')).toBeInTheDocument();userEvent.click(within(card).getByRole('button',{name:'Remove piece from manifest'}));userEvent.click(within(card).getByRole('button',{name:'Confirm removal'}));expect(within(card).getByText('0 pieces')).toBeInTheDocument();
+ userEvent.click(screen.getByRole('button',{name:'Open CMOS'}));userEvent.click(screen.getByRole('button',{name:'Search'}));userEvent.click(screen.getByRole('button',{name:'Select F00001$$E100300XX'}));userEvent.click(screen.getByRole('button',{name:'Incheck'}));openSelectedPlanningTcn();expect(screen.getByLabelText('TCN')).not.toHaveAttribute('readonly');
+
 });
 
 test('HMMWV and FMTV carry their ATTLA certification letters and are checked against them',()=>{
@@ -510,21 +436,9 @@ test('each training section collapses and expands from its heading',()=>{
  expect(screen.getByRole('group',{name:'LOGMOD paperwork'})).toBeInTheDocument();
 });
 
-test('Shipment Planning shows packet paperwork beside the form while entries are typed',()=>{
- render(<App />);
- userEvent.selectOptions(screen.getByLabelText('Training shipment'),'463l-pallet');
- userEvent.click(screen.getByRole('button',{name:'3. Manifest'}));
- userEvent.click(screen.getByRole('button',{name:'Open Shipment Planning'}));
- const bar=screen.getByRole('group',{name:'Shipment Planning paperwork'});
- expect(within(bar).queryByRole('button',{name:/HAZDEC/})).not.toBeInTheDocument();
- expect(within(bar).getByRole('button',{name:'Packing list'})).toBeEnabled();
- userEvent.click(within(bar).getByRole('button',{name:'LOGMOD paperwork'}));
- const logmod=screen.getByRole('complementary',{name:'LOGMOD paperwork (paperwork)'});
- expect(within(logmod).getByText('F00001$$E100300XX')).toBeInTheDocument();
- userEvent.type(screen.getByLabelText('Transportation Control Number (TCN)'),'F00001$$E100300XX');
- expect(screen.getByRole('dialog',{name:'Shipment Planning'})).toBeInTheDocument();
- userEvent.click(within(bar).getByRole('button',{name:'LOGMOD paperwork'}));
- expect(screen.queryByRole('complementary',{name:'LOGMOD paperwork (paperwork)'})).not.toBeInTheDocument();
+test('Shipment Planning opens source paperwork and keeps the record editable',()=>{
+ render(<App/>);userEvent.selectOptions(screen.getByLabelText('Training shipment'),'463l-pallet');userEvent.click(screen.getByRole('button',{name:'3. Manifest'}));userEvent.click(screen.getByRole('button',{name:'Open CMOS'}));userEvent.click(screen.getByRole('button',{name:'Select F00001$$E100300XX'}));userEvent.click(screen.getByRole('button',{name:'Incheck'}));openSelectedPlanningTcn();
+ const docSelect=screen.getByLabelText('Documentation');const option=within(docSelect).getAllByRole('option').find(o=>o.textContent.includes('LOGMOD')&&o.textContent.toLowerCase().includes('pallet'));userEvent.selectOptions(docSelect,option.value);userEvent.click(screen.getByRole('button',{name:'View documentation'}));const doc=screen.getByRole('dialog',{name:/LOGMOD/});expect(doc).not.toHaveAttribute('aria-modal');expect(within(doc).getByText('F00001$$E100300XX')).toBeInTheDocument();fireEvent.change(screen.getByLabelText('TTAN'),{target:{value:'TEST'}});expect(screen.getByLabelText('TTAN')).toHaveValue('TEST');
 });
 
 test('the DSOE sets how many pieces are processed, repeating equipment types past six',()=>{
@@ -654,4 +568,41 @@ test('trainees can open the walkthrough, searchable glossary, and quick drills',
  expect(drill.getByLabelText('Drill topic')).toBeInTheDocument();
  userEvent.click(drill.getByRole('button', { name: 'Check answer' }));
  expect(drill.getByRole('alert')).toHaveTextContent('Enter an answer');
+});
+
+test('practice mode sets the deployment aside, opens any section ready to work, and brings it back', () => {
+  render(<App />);
+  userEvent.selectOptions(screen.getByRole('combobox', { name: 'Training shipment' }), screen.getByRole('option', { name: 'ISU-90' }));
+  userEvent.click(screen.getByRole('button', { name: 'Practice' }));
+  const practice = screen.getByRole('region', { name: 'Practice' });
+  userEvent.selectOptions(within(practice).getByRole('combobox', { name: 'Practice section' }), 'manifest');
+  expect(screen.getByRole('heading', { name: 'Manifest' })).toBeInTheDocument();
+  expect(within(screen.getByRole('combobox', { name: 'Training shipment' })).getAllByRole('option')).toHaveLength(1);
+  expect(within(practice).getByRole('status')).toHaveTextContent('Manifest in progress · 0 mistakes');
+  userEvent.click(screen.getByRole('button', { name: /^5\. JI/ }));
+  expect(within(screen.getByRole('region', { name: 'Practice' })).getByRole('combobox', { name: 'Practice section' })).toHaveValue('ji');
+  expect(screen.getByRole('button', { name: /^5\. JI/ })).toBeEnabled();
+  userEvent.click(screen.getByRole('button', { name: 'Guided' }));
+  expect(screen.queryByRole('region', { name: 'Practice' })).not.toBeInTheDocument();
+  expect(screen.getByRole('combobox', { name: 'Training shipment' })).toHaveValue('isu-90');
+});
+
+test('CDF test mode takes the trainee name, locks the work when finished, and prints a grading sheet', () => {
+  render(<App />);
+  userEvent.click(screen.getByRole('button', { name: 'Test' }));
+  const trainee = screen.getByRole('group', { name: 'Trainee' });
+  userEvent.selectOptions(within(trainee).getByRole('combobox', { name: 'Rank' }), 'SSgt');
+  userEvent.type(within(trainee).getByLabelText('First name'), 'Jordan');
+  userEvent.type(within(trainee).getByLabelText('Last name'), 'Reyes');
+  userEvent.click(within(trainee).getByRole('button', { name: 'Finish test' }));
+  userEvent.click(within(trainee).getByRole('button', { name: 'Finish and grade' }));
+  const sheet = screen.getByRole('dialog', { name: 'Grading sheet' });
+  expect(within(sheet).getByText('CDF Training Grading Sheet')).toBeInTheDocument();
+  expect(within(sheet).getByText('Reyes')).toBeInTheDocument();
+  expect(within(sheet).getAllByText('Final score 0 / 100').length).toBeGreaterThan(0);
+  expect(within(sheet).getByRole('region', { name: 'HMMWV breakdown' })).toHaveTextContent('Did not pass JI. No stages completed.');
+  expect(within(sheet).getByRole('button', { name: 'Print' })).toBeInTheDocument();
+  userEvent.click(within(sheet).getByRole('button', { name: 'Close Grading sheet' }));
+  expect(screen.getByRole('button', { name: 'Reset this shipment' })).toBeDisabled();
+  expect(within(trainee).getByLabelText('Last name')).toHaveAttribute('readonly');
 });

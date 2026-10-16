@@ -1,0 +1,268 @@
+.cdf-cmos {
+  color: #222;
+  font:
+    12px Arial,
+    sans-serif;
+  background: #d2d2d4;
+  min-height: 65vh;
+  padding: 12px;
+}
+.cdf-cmos button,
+.cdf-dialog button {
+  color: #222;
+  background: linear-gradient(#fff, #d4d4d6);
+  border: 1px solid #a5a5aa;
+  border-radius: 2px;
+  padding: 4px 9px;
+  font:
+    12px Arial,
+    sans-serif;
+  cursor: pointer;
+}
+.cdf-cmos button:disabled,
+.cdf-dialog button:disabled {
+  color: #888;
+  cursor: default;
+}
+.cdf-cmos button:focus-visible,
+.cdf-dialog button:focus-visible {
+  outline: 2px solid #036eaa;
+  outline-offset: 1px;
+}
+.cdf-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0003;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 20px;
+}
+.cdf-dialog {
+  color: #222;
+  background: #eee;
+  border: 1px solid #999;
+  box-shadow: 3px 4px 8px #0006;
+  width: 460px;
+  max-width: 96vw;
+  max-height: 90vh;
+  overflow: auto;
+  font:
+    12px Arial,
+    sans-serif;
+  padding: 10px;
+}
+.cdf-dialog-wide {
+  width: 1000px;
+}
+.cdf-dialog header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 8px;
+}
+.cdf-dialog h3 {
+  margin: 0;
+  font-size: 14px;
+}
+.cdf-dialog footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-end;
+  padding: 12px 0 2px;
+}
+.cdf-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px 14px;
+  padding: 10px;
+}
+.cdf-field {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+.cdf-field > span {
+  flex: 1;
+  text-align: right;
+  min-width: 95px;
+}
+.cdf-field input,
+.cdf-field select {
+  width: 140px;
+  min-width: 0;
+  color: #222;
+  background: #fff;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  padding: 3px;
+  font:
+    12px Arial,
+    sans-serif;
+}
+.cdf-field input:read-only,
+.cdf-field input:disabled,
+.cdf-field select:disabled {
+  background: #e0e0e5;
+}
+.cdf-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  border-bottom: 1px solid #aaa;
+  margin-top: 12px;
+}
+.cdf-tabs button {
+  border-radius: 7px 7px 0 0;
+  border-bottom: 0;
+}
+.cdf-tabs [aria-selected="true"] {
+  background: #cce8f6;
+  font-weight: 700;
+}
+.cdf-panel {
+  min-height: 220px;
+  border: 1px solid #aaa;
+  background: white;
+  padding: 12px;
+}
+.cdf-table {
+  overflow: auto;
+  margin-top: 8px;
+  background: white;
+  border: 1px solid #aaa;
+}
+.cdf-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 11px;
+  color: #222;
+  white-space: nowrap;
+}
+.cdf-table th {
+  background: #70b9e6;
+  font-weight: 400;
+}
+.cdf-table td,
+.cdf-table th {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.cdf-table tr[aria-selected="true"] {
+  background: #b5daf3;
+}
+.cdf-table p {
+  padding: 0 8px;
+}
+.cdf-table .cdf-field > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  min-width: 0;
+}
+.cdf-table .cdf-field input {
+  width: 80px;
+}
+.cdf-flags {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 8px;
+}
+.cdf-flags label {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+.cdf-totals {
+  text-align: right;
+  margin: 5px;
+}
+.cdf-query,
+.cdf-paper-buttons {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cdf-transaction {
+  color: #294c32;
+}
+.cdf-guidance {
+  background: #e9f4fc;
+  border-left: 3px solid #4797b8;
+  padding: 9px;
+  line-height: 1.5;
+}
+.cdf-mission-paper {
+  background: #f6f3e7;
+  padding: 8px;
+  margin: 8px 0;
+}
+.cdf-mission-paper dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+.cdf-mission-paper dt {
+  font-weight: bold;
+}
+.cdf-mission-paper dd {
+  margin: 2px 0;
+}
+.training-cmos-source {
+  margin: 12px;
+  padding: 10px;
+  background: #f5f2e5;
+}
+.training-cmos-source dl {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 11px;
+}
+.training-cmos-source dd {
+  margin: 2px 0;
+}
+.cdf-dialog .paper-sheet {
+  position: static;
+  max-height: none;
+  width: auto;
+  color: #222;
+}
+.cdf-assignment-toolbar {
+  display: flex;
+  gap: 6px;
+  margin: 8px 0;
+}
+@media (max-width: 850px) {
+  .cdf-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cdf-field {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cdf-field > span {
+    text-align: left;
+  }
+  .cdf-field input,
+  .cdf-field select {
+    width: 100%;
+  }
+  .cdf-flags {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cdf-mission-paper dl {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media print {
+  body:has(.print-manifest) {
+    background: white !important;
+  }
+}

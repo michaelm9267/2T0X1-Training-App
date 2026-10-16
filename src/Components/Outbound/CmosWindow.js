@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import useModalDialog from '../Training/useModalDialog';
 
 // CMOS browser window for the Outbound trainer: logo bar, login line, the Cargo Management menu,
@@ -21,10 +21,12 @@ function CmosLogo() {
   </svg>;
 }
 
-export default function CmosWindow({ origin, page, title, onNavigate, onClose, paper, children }) {
+export default function CmosWindow({ origin, page, title, onNavigate, onClose, paper, children, pages = CMOS_PAGES }) {
   const dialog = useRef(null);
   const [paperOpen, setPaperOpen] = useState(false);
-  useModalDialog(dialog, onClose);
+  const closeRef = useRef(onClose); closeRef.current = onClose;
+  const stableClose = useCallback(() => closeRef.current(), []);
+  useModalDialog(dialog, stableClose);
   useEffect(() => {
     document.body.classList.add('cmos-modal-open');
     return () => document.body.classList.remove('cmos-modal-open');
@@ -45,8 +47,8 @@ export default function CmosWindow({ origin, page, title, onNavigate, onClose, p
             <strong className="cmos-menu-root">⌄ Cargo Management</strong>
             {MENU.map(([group, items]) => <div key={group} className="cmos-menu-group">
               <span className="cmos-menu-heading">{group}</span>
-              <ul>{items.map(item => <li key={item}>{CMOS_PAGES[item]
-                ? <button type="button" aria-current={CMOS_PAGES[item] === page ? 'page' : undefined} onClick={() => onNavigate(CMOS_PAGES[item])}>{item}</button>
+              <ul>{items.map(item => <li key={item}>{pages[item]
+                ? <button type="button" aria-current={pages[item] === page ? 'page' : undefined} onClick={() => onNavigate(pages[item])}>{item}</button>
                 : <span title="Not used in this training">{item}</span>}</li>)}</ul>
             </div>)}
             {['Passenger Management', 'Reference Data', 'Reports & Queries'].map(item => <strong key={item} className="cmos-menu-root cmos-menu-closed">› {item}</strong>)}

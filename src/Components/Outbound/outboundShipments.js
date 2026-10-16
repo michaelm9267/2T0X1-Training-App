@@ -102,7 +102,9 @@ export function createShipment({ random = Math.random, origin = 'jber', target, 
   const delivery = vendor ? { name: vendor.name, address: vendor.address, address2: '', city: vendor.city, state: vendor.state, zip: vendor.zip, country: 'US', phone: vendor.phone }
     : point ? { name: `${CONUS[dodaac].unit} ${point[0]}`, address: point[1], address2: '', ...splitCity(CONUS[dodaac].city), country: 'US', phone: '' } : null;
   const { pd, rdd } = priorityFor(random, pick(random, spec.tp[origin]), spec.overseas, document);
-  const documentNumber = `${from.dodaac}${julian(DOCUMENT_DAY)}${String(between(random, 1, 8999) + serial).padStart(4, '0')}`;
+  // A DD 1149 requisition number is non-MILSTRIP too: X in position 11, then a three-digit serial.
+  const number = between(random, 1, 8999) + serial;
+  const documentNumber = `${from.dodaac}${julian(DOCUMENT_DAY)}${document === '1149' ? `X${String(number % 1000).padStart(3, '0')}` : String(number).padStart(4, '0')}`;
   const candidates = ['quantity', 'nsn', 'condition', 'funding', 'shipto', ...(document === '1149' ? ['signature'] : [])];
   const flaw = discrepancy !== undefined ? discrepancy : random() < .55 ? pick(random, candidates) : null;
   const size = packedSize(item, quantity);
@@ -119,7 +121,15 @@ export function createShipment({ random = Math.random, origin = 'jber', target, 
 }
 
 export function createQueue({ random = Math.random, origin = 'jber' } = {}) {
-  return shuffle(random, ORIGIN_TARGETS[origin]).map((target, index) => createShipment({ random, origin, target, serial: index + 1 }));
+  const seen=new Set();
+  return shuffle(random, ORIGIN_TARGETS[origin]).map((target,index)=>{
+    let shipment=createShipment({random,origin,target,serial:index+1});
+    if(seen.has(shipment.tcn)){
+      if(shipment.document==='1149')shipment={...shipment,tcn:tcn1149(ORIGINS[origin],TCN_SERIALS.find(serial=>!seen.has(tcn1149(ORIGINS[origin],serial))))};
+      else {let serial=Number(shipment.documentNumber.slice(-4));let doc;do{serial=(serial+1)%10000;doc=shipment.documentNumber.slice(0,-4)+String(serial).padStart(4,'0');}while(seen.has(doc+'XXX'));shipment={...shipment,documentNumber:doc,tcn:doc+'XXX'};}
+    }
+    seen.add(shipment.tcn);return shipment;
+  });
 }
 
 // The shipping document as the customer presents it. Until the trainee returns it for correction,

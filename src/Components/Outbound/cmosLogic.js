@@ -78,7 +78,7 @@ export const chosenMode = draft => String(draft?.milMode ?? '').trim().toUpperCa
 export function planningFields(shipment, draft = {}) {
   const item = ITEMS[shipment.itemId];
   const origin = originOf(shipment);
-  const amc = chosenMode(draft) === '9';
+  const amc = ['F', '9'].includes(chosenMode(draft));
   return {
     docType: { title: 'Doc Type', expected: expectedDocType(shipment), options: DOC_TYPES, advance: true },
     docNbr: { title: 'Doc Nbr', expected: shipment.documentNumber, advance: true },

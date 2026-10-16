@@ -431,3 +431,19 @@
 }
 
 .hz-handling-line { display: block; }
+
+/* Less scrolling: the bench stays in view beside the training panel, and the panel has a jump bar. */
+@media (min-width: 1101px) {
+  .simulation-layout > :first-child { position: sticky; top: calc(var(--navbar-height) + 16px); max-height: calc(100vh - var(--navbar-height) - 32px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+}
+.documentation-panel { scroll-margin-top: calc(var(--navbar-height) + 12px); }
+.documentation-panel .collapsible-card { scroll-margin-top: calc(var(--navbar-height) + 120px); }
+.section-jump { position: sticky; top: var(--navbar-height); z-index: 5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin: -8px 0 20px; padding: 10px 0; background: linear-gradient(var(--background) 85%, transparent); }
+.section-jump-links, .section-jump-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+.training-workspace .section-jump button { min-height: 32px; padding: 4px 10px; font-size: .74rem; border-radius: 999px; }
+.training-workspace .section-jump button[aria-pressed="false"] { color: var(--text-secondary); background: transparent; border-style: dashed; }
+/* The training panel stacks its children in a column so the section opened last can move to the
+   top (SectionJump sets its CSS order); the heading and the section bar always stay above it. */
+.documentation-panel { display: flex; flex-direction: column; }
+.documentation-panel > .training-heading { order: -3; }
+.documentation-panel > .section-jump { order: -2; }

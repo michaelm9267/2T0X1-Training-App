@@ -1,15 +1,13 @@
 import { useTestMode, neutral } from '../Session/mode';
 import { screenATTLA, letterApplies } from '../CargoWindow/transportability';
 import { useCallback, useState } from 'react';
-import { paperwork, verifyPaperwork, saveManifest, requestCopies, removeFromManifest, reviewHazdec } from '../CargoWindow/workflow';
-import { isStageComplete } from '../CargoWindow/exercise';
-import ManifestScreen from './ManifestScreen';
+import { paperwork, verifyPaperwork, requestCopies, reviewHazdec } from '../CargoWindow/workflow';
 import CollapsibleCard from './CollapsibleCard';
 import PaperworkDocument from './PaperworkDocument';
 import FrustrateButton from './FrustrateButton';
 import MslModal from './MilitaryShippingLabel';
 
-export default function ShipmentPaperwork({scenario,exercise,step,onWorkflow}) {
+export default function ShipmentPaperwork({scenario,exercise,step,onWorkflow,onOpenCmos}) {
   const [counts,setCounts]=useState({});
   const [requests,setRequests]=useState({});
   const [openDocument,setOpenDocument]=useState(null);
@@ -49,9 +47,7 @@ export default function ShipmentPaperwork({scenario,exercise,step,onWorkflow}) {
       </div>}
     </div>)}
     {openDocument && <PaperworkDocument scenario={scenario} document={openDocument} onClose={closeDocument} />}
-    {step==='manifest' && <ManifestScreen scenario={scenario} exercise={exercise} onRemove={()=>onWorkflow(removeFromManifest)}
-      onChange={(id,value)=>onWorkflow(e=>e.manifestAccepted?e:({...e,manifestDraft:{...e.manifestDraft,[id]:value},manifestErrors:(e.manifestErrors||[]).filter(error=>error!==id),manifestAccepted:false,manifestFeedback:'',jiVerified:[],jiInspected:[],jiDocumentsViewed:[],jiMeasurements:[],jiWeights:{},jiSides:[],jiTerminals:{}}))}
-      onSubmit={()=>onWorkflow(e=>({...saveManifest(scenario,e,isStageComplete(scenario,'incheck',e)),jiVerified:[],jiInspected:[],jiDocumentsViewed:[],jiMeasurements:[],jiWeights:{},jiSides:[],jiTerminals:{}}))} />}
+    {step==='manifest' && <div className="cmos-launcher"><button type="button" className="primary-button" onClick={onOpenCmos}>Open CMOS</button><p>Save the shipment in Shipment Planning, then assign it to a saved Air Manifest.</p><p aria-live="polite">{exercise.manifestFeedback}</p></div>}
     {step==='manifest' && <div className="training-task msl-task" aria-label="Military shipping label task"><h4>Military shipping label (MSL)</h4>
       <p>{!exercise.manifestAccepted ? 'Add the piece to the manifest before printing its MSL.' : exercise.mslApplied ? 'MSL applied to the piece in the cargo bay.' : 'Increment manifested. Print and apply the MSL.'}</p>
       <div className="answer-options"><button type="button" className="primary-button" disabled={!exercise.manifestAccepted || exercise.mslApplied} onClick={()=>onWorkflow(e=>e.manifestAccepted?{...e,mslApplied:true}:e)}>Apply MSL</button>

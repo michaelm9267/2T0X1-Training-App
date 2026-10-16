@@ -1,3 +1,5 @@
+import { normalizeCmosStore } from './Components/Cmos/model';
+import { emptyCdfCmos } from './Components/CdfCmos/manifestLogic';
 import { createPieces, MAX_PIECES } from './Components/CargoWindow/pieces';
 import { createExercise } from './Components/CargoWindow/exercise';
 import { DESTINATIONS, randomDestination } from './Components/CargoWindow/workflow';
@@ -22,7 +24,14 @@ export function normalizeSession(saved) {
   const events = saved.clock?.events && typeof saved.clock.events === 'object' ? saved.clock.events : {};
   // Sessions saved before the departure step start with no departure set.
   const departure = saved.departure && typeof saved.departure === 'object' && Array.isArray(saved.departure.mistakes) ? saved.departure : emptyDeparture();
-  return { ...saved, loadPlan: plan, departure, clock: { elapsed, running: false, events } };
+  const cdfCmos = saved.cdfCmos ? {...saved.cdfCmos,...(saved.cdfCmos.sharedCmos?{sharedCmos:normalizeCmosStore(saved.cdfCmos.sharedCmos)}:{})} : emptyCdfCmos();
+  if (!validCdfCmos(cdfCmos, saved)) return null;
+  const exercises = Object.fromEntries(keys.map(key => {
+    const e=saved.exercises[key];
+    return [key, {...e, cmosRequired:true, shipmentRecord:e.shipmentRecord || e.manifestRecord || null,
+      ...(!saved.cdfCmos ? {manifestAccepted:false, mslApplied:false} : {})}];
+  }));
+  return { ...saved, cdfCmos, exercises, loadPlan: plan, departure, clock: { elapsed, running: false, events } };
 }
 
 // A fresh session. With a seeded random function and forced discrepancies, every trainee who
@@ -32,7 +41,8 @@ export function newSession({ random, forced, destination, pieceCount = scenarios
   return {
     version: VERSION,
     shipments: Object.fromEntries(pieces.map(piece => [piece.key, piece])),
-    exercises: Object.fromEntries(pieces.map(piece => [piece.key, createExercise()])),
+    exercises: Object.fromEntries(pieces.map(piece => [piece.key, {...createExercise(), cmosRequired:true, shipmentRecord:null}])),
+    cdfCmos: emptyCdfCmos(),
     destination: destination || randomDestination(random),
     pieceCount,
     scenarioId: pieces[0].key,
@@ -67,9 +77,48 @@ export function importSession(text) {
 }
 
 export function saveSession(session) {
-  try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session)); } catch { /* storage full or blocked: keep working unsaved */ }
+  try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session)); return true; } catch { return false; }
 }
 
 export function clearSession() {
   try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* nothing saved */ }
+}
+
+function validCdfCmos(state, saved) {
+ if(!state || !state.releaseDetails || typeof state.releaseDetails!=='object' || Array.isArray(state.releaseDetails) || !Array.isArray(state.assignments) || !Array.isArray(state.mistakes) || !state.headerDraft || typeof state.headerDraft!=='object' || !Number.isInteger(state.revision) || state.revision<0)return false;
+ for(const field of ['checkedRevision','pullSheetRevision','manifestPrintRevision'])if(state[field]!==null&&(!Number.isInteger(state[field])||state[field]<0||state[field]>state.revision))return false;
+ if(state.manifest!==null&&(!state.manifest||typeof state.manifest.number!=='string'))return false;
+ if(state.assignments.length&&!state.manifest)return false;
+ const keys=Object.keys(saved.shipments).slice(0,saved.pieceCount),seen=new Set(),ids=new Set();
+ for(const a of state.assignments){
+  if(!a||!['loose','pallet'].includes(a.kind)||typeof a.id!=='string'||ids.has(a.id)||!Array.isArray(a.pieceKeys)||!a.pieceKeys.length)return false;
+  ids.add(a.id);
+  for(const key of a.pieceKeys){if(!keys.includes(key)||seen.has(key)||!(saved.exercises[key].shipmentRecord||saved.exercises[key].manifestRecord))return false;seen.add(key);}
+ }
+ for(const e of Object.values(saved.exercises)){
+  if(e.hazardDrafts!==undefined){
+   if(!isObject(e.hazardDrafts))return false;
+   for(const [key,draft] of Object.entries(e.hazardDrafts))if(!validHazardDraft(draft)||(key!=='new'&&draft.id!==key))return false;
+  }
+ }
+ for(const e of Object.values(saved.exercises))for(const holder of [e.manifestDraft,e.shipmentRecord]){
+  if(e.sharedManaged)continue;
+  if(!holder||holder.hazardRecords===undefined)continue;
+  if(!Array.isArray(holder.hazardRecords))return false;
+  const recordIds=new Set();
+  for(const r of holder.hazardRecords){
+   if(!r||typeof r.id!=='string'||recordIds.has(r.id)||!validHazardDraft(r))return false;recordIds.add(r.id);
+   const lots=new Set();for(const l of r.lots){if(!l||typeof l.id!=='string'||lots.has(l.id))return false;lots.add(l.id);for(const field of ['roundCount','new','metricNew','pieces','weight','cube'])if(l[field]!==undefined&&(!Number.isFinite(Number(l[field]))||Number(l[field])<0))return false;}
+  }
+ }
+ return true;
+}
+
+function isObject(value){return Boolean(value)&&typeof value==='object'&&!Array.isArray(value);}
+function validHazardDraft(record){
+ if(!isObject(record)||!isObject(record.page1)||!isObject(record.page2)||!Array.isArray(record.lots))return false;
+ if(Object.values(record.page1).some(value=>!['string','boolean','number'].includes(typeof value))||Object.values(record.page2).some(value=>!['string','number'].includes(typeof value)))return false;
+ const ids=new Set();
+ for(const lot of record.lots){if(!isObject(lot)||typeof lot.id!=='string'||ids.has(lot.id))return false;ids.add(lot.id);for(const field of ['roundCount','new','metricNew','pieces','weight','cube'])if(lot[field]!==undefined&&(!Number.isFinite(Number(lot[field]))||Number(lot[field])<0))return false;}
+ return true;
 }

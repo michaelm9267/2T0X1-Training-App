@@ -53,6 +53,34 @@ export function submitPlan(plan, pieces, allManifested) {
   return { ...plan, accepted: true, acceptedAt: Date.now(), feedback: 'Training load plan accepted.' };
 }
 
+// What the accepted plan was built on. A change to any piece's size, weight or manifest status
+// reopens the plan.
+export const planBasis = pieces => JSON.stringify(pieces.map(({ key, length, width, weight, manifested }) => ({ key, length, width, weight, manifested })));
+
+// A plan that passes checkPlan, for practice that starts after the load plan: one centerline row
+// if it fits, otherwise two side-by-side rows, shifted aft so the combined CB sits mid-range.
+export function autoPlan(pieces) {
+  const rows = (lanes) => {
+    const lines = Array.from({ length: lanes }, () => ({ end: 0, keys: [] }));
+    [...pieces].sort((a, b) => b.length - a.length).forEach(piece => {
+      const line = lines.reduce((low, next) => next.end < low.end ? next : low);
+      line.keys.push({ piece, station: line.end });
+      line.end += piece.length + 12;
+    });
+    const lateral = i => lanes === 1 ? 0 : (i === 0 ? -1 : 1) * FLOOR.width / 4;
+    return Object.fromEntries(lines.flatMap((line, i) => line.keys.map(({ piece, station }) => [piece.key, { station, lateral: lateral(i) }])));
+  };
+  for (const lanes of [1, 2]) {
+    const placements = rows(lanes);
+    const { cb } = checkPlan(pieces, placements);
+    const end = Math.max(...pieces.map(piece => placements[piece.key].station + piece.length));
+    const shift = Math.max(0, Math.min(FLOOR.length - end, Math.round((CB_RANGE[0] + CB_RANGE[1]) / 2 - cb)));
+    const shifted = Object.fromEntries(Object.entries(placements).map(([key, spot]) => [key, { ...spot, station: spot.station + shift }]));
+    if (!checkPlan(pieces, shifted).problems.length) return shifted;
+  }
+  return rows(2);
+}
+
 export const emptyPlan = () => ({ placements: {}, accepted: false, feedback: '', mistakes: [] });
 
 export function reconcilePlan(plan, basis) {

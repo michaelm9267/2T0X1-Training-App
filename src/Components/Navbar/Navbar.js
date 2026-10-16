@@ -14,9 +14,9 @@ function Navbar({ activeModule, onModuleChange }) {
   return (
     <header className="navbar-container">
         <div className="app-brand">
-          <img src={`${process.env.PUBLIC_URL}/rampready-mark.svg`} alt="RampReady logo" />
+          <img src={`${process.env.PUBLIC_URL}/transitiq-mark.svg`} alt="Transit IQ logo" />
           <div>
-            <h1 className="page-title">RampReady</h1>
+            <h1 className="page-title">Transit IQ</h1>
             <span className="brand-subtitle">2T0X1 Training Portal</span>
           </div>
         </div>

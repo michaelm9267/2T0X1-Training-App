@@ -1,0 +1,33 @@
+/* Movable document windows (FloatingWindow). Non-modal: the page behind stays usable. */
+.floating-window {
+  position: fixed;
+  box-sizing: border-box;
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 16px);
+  overflow: auto;
+  resize: both;
+  margin: 0;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .55);
+  overscroll-behavior: contain;
+}
+article.floating-window.paper-sheet, article.floating-window.training-tool-sheet { width: min(780px, calc(100vw - 16px)); height: min(80vh, 820px); }
+article.floating-window.print-manifest { width: min(900px, calc(100vw - 16px)); }
+article.floating-window.msl-sheet { width: min(560px, calc(100vw - 16px)); height: auto; }
+.floating-window:focus { outline: none; }
+.floating-window:focus-visible { outline: 2px solid var(--accent, #5ee0c5); outline-offset: 2px; }
+.floating-titlebar { position: sticky; top: 0; z-index: 2; cursor: move; user-select: none; touch-action: none; gap: 8px; }
+.floating-titlebar:focus-visible { outline: 2px solid #2a6ebb; outline-offset: -2px; }
+.floating-title { display: inline-flex; align-items: center; gap: 8px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.floating-grip { color: #8a949c; font-size: 1rem; }
+.floating-actions { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; }
+.floating-actions button { cursor: pointer; }
+.floating-minimize { font-size: 1.1rem !important; }
+.floating-window.is-minimized { resize: none; height: auto !important; overflow: hidden; padding-bottom: 0; }
+.floating-window.is-minimized .floating-titlebar { margin-bottom: 0; border-bottom: 0; }
+@media print {
+  .floating-window { position: absolute !important; left: 0 !important; top: 0 !important; width: 100% !important; height: auto !important; max-height: none; max-width: none; overflow: visible; resize: none; box-shadow: none; border: 0; }
+  body.print-one .floating-window:not([data-print-target]), body.print-one .print-manifest:not([data-print-target]) { display: none !important; }
+}
+.floating-window.training-tool-sheet .training-tool-header { margin: -22px -22px 12px; padding: 12px 22px 10px; background: #111c2a; }
+.floating-window.training-tool-sheet .training-tool-header button { padding: 0 8px; background: none; border: 1px solid transparent; border-radius: 6px; color: var(--text-primary); }
+.floating-window.training-tool-sheet .training-tool-header button:hover { border-color: var(--border); }
