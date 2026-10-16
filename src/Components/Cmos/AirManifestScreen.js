@@ -59,8 +59,8 @@ export default function AirManifestScreen({ store, record, opened, locked, openM
         <tbody>{matches.map(r => <tr key={r.id} aria-selected={record ? r.id === record.id : r.id === matches[0]?.id}>{AIR_MANIFEST_COLUMNS.map(([key]) => <td key={key} title={String(projected(r)[key] ?? '')}>{key === 'manifestNumber' ? <button className="shared-air-manifest-link" aria-label={`Open manifest ${r.draft.manifestNumber || r.id}`} onClick={() => { openManifest(r); setCargoTab('Assigned Pallets'); }}>{r.draft.manifestNumber || r.id}</button> : String(projected(r)[key] ?? '')}</td>)}</tr>)}{!matches.length && <tr><td colSpan={10}>No data to display.</td></tr>}</tbody></table></div><div className="shared-air-count">{matches.length} row(s) found.</div>
     </div>
   </div>;
-  return <div className="shared-air-detail">
-    <h3>Air Manifest</h3><div className="shared-air-header">{header.map((fields, index) => <div key={index}>{fields.map(f => <div key={f.id}>{renderFields([{ ...f, readOnly: ['manifestNumber', 'weight', 'cube'].includes(f.id) }], values)}</div>)}</div>)}</div>
+  return <Dialog title="Air Manifest" wide onClose={() => action('Close')}><div className="shared-air-detail">
+    <div className="shared-air-header">{header.map((fields, index) => <div key={index}>{fields.map(f => <div key={f.id}>{renderFields([{ ...f, readOnly: ['manifestNumber', 'weight', 'cube'].includes(f.id) }], values)}</div>)}</div>)}</div>
     <p className="shared-air-tip"><strong>Tip:</strong> Click Id Link to Build Pallet, or to unassign one or more Pallets or Loose Cargo, select row(s) with ctrl-click and click 'Unassign'.</p>
     <div className="shared-tab-bar" role="tablist" aria-label="Air Manifest tabs">{['Assigned Pallets', 'View Loose Cargo'].map(tab => <button key={tab} role="tab" aria-selected={cargoTab === tab} onClick={() => { setCargoTab(tab); setSelected([]); setCargoFilters({}); }}>{tab}</button>)}</div>
     <section role="tabpanel" aria-label={cargoTab} className="shared-air-cargo">
@@ -84,5 +84,5 @@ export default function AirManifestScreen({ store, record, opened, locked, openM
       change(next); setSelected([]); setBuild(false); setMessage('Pallet built and assigned. Save the shipment changes and run Edit Check.');
     }}>Build and Assign</button><button onClick={() => setBuild(false)}>Close</button></footer></Dialog>}
     {schedule && <Dialog title="Air Schedule" onClose={() => setSchedule(false)}><table className="shared-table"><thead><tr><th>Mission</th><th>POD</th><th>Destination</th></tr></thead><tbody>{all.filter(r => r.draft.mission).map(r => <tr key={r.id}><td>{r.draft.mission}</td><td>{r.draft.pod}</td><td>{r.draft.destination}</td></tr>)}</tbody></table><button onClick={() => setSchedule(false)}>Close</button></Dialog>}
-  </div>;
+  </div></Dialog>;
 }
