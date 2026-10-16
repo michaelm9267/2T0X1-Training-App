@@ -233,7 +233,8 @@ export function destinationOf(shipment) {
 export const destinationCity = shipment => destinationOf(shipment)?.city || '';
 
 // Type pack codes for block 18 of the shipping document and the CMOS Pieces tab.
-export const TYPE_PACKS = { BX: 'Box', CT: 'Carton', CR: 'Crate', PL: 'Pallet', PK: 'Package', EN: 'Envelope', BG: 'Bag', DR: 'Drum' };
-export const typePackFor = container => ({ mailer: 'EN', fiberboard: 'BX', 'esd-fiberboard': 'BX', 'wood-box': 'BX', triwall: 'PL', crate: 'CR' }[container]);
+// DTR type pack codes (DTEB V_TYPE_PACK) offered on the packing paperwork; a triwall is a multiwall container on a pallet.
+export const TYPE_PACKS = { BX: 'Box', CT: 'Carton', CR: 'Crate', CS: 'Case', MW: 'Multiwall container secured to warehouse plt', PT: 'Palletized unit load other than code MW', EN: 'Envelope', BG: 'Bag, burlap or cloth', DR: 'Drum' };
+export const typePackFor = container => ({ mailer: 'EN', fiberboard: 'BX', 'esd-fiberboard': 'BX', 'wood-box': 'BX', triwall: 'MW', crate: 'CR' }[container]);
 
 export const TACS = ['F8C0', 'FBM0', 'F5E1', 'F2R4'];

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTestMode } from '../Session/mode';
-import { TYPE_PACKS } from './outboundData';
+import { TYPE_PACK_CODES } from '../Cmos/dtrReference';
 import { MIL_MODES } from './outboundLogic';
 import { OutboundMsl, PrintPreview } from './OutboundPrintouts';
 import DateField from './DateField';
@@ -191,7 +191,7 @@ function PlanningRecord({ shipment, exercise, actions, onClose, onExprShip }) {
           <td>{index + 1}</td>
           <td><input aria-label={`Piece ${index + 1} weight`} readOnly={locked} inputMode="decimal" value={piece.weight} onChange={event => actions.editPiece(index, 'weight', event.target.value)} /></td>
           <td>{pieceCube(piece)}</td>
-          <td><select aria-label={`Piece ${index + 1} type pack`} disabled={locked} value={piece.typePack} onChange={event => actions.editPiece(index, 'typePack', event.target.value)}><option value=""></option>{Object.keys(TYPE_PACKS).map(code => <option key={code} value={code}>{code}</option>)}</select></td>
+          <td><select aria-label={`Piece ${index + 1} type pack`} disabled={locked} value={piece.typePack} onChange={event => actions.editPiece(index, 'typePack', event.target.value)}><option value=""></option>{TYPE_PACK_CODES.map(([code, text]) => <option key={code} value={code} title={text}>{code}</option>)}</select></td>
           {['length', 'width', 'height'].map(id => <td key={id}><input aria-label={`Piece ${index + 1} ${id}`} readOnly={locked} inputMode="decimal" value={piece[id]} onChange={event => actions.editPiece(index, id, event.target.value)} /></td>)}
           <td /><td /><td /><td /><td />
         </tr>) : <tr><td colSpan="13">No data to display.</td></tr>}</tbody>

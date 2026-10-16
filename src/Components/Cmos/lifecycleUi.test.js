@@ -29,6 +29,7 @@ function records() {
 }
 test("CBL print options retain their original target across navigation", () => {
   render(<Harness initial={records()} page="cbl" />);
+  userEvent.click(screen.getByRole("button", { name: "Open bill BILL TWO" }));
   userEvent.click(screen.getByRole("button", { name: "Print", exact: true }));
   userEvent.click(
     screen.getByRole("button", { name: "Shipment Planning", exact: true }),
@@ -46,7 +47,7 @@ test("CBL print options retain their original target across navigation", () => {
 });
 test("finished sessions can select a different record without mutating the stored session", () => {
   render(<Harness initial={records()} page="cbl" finished />);
-  userEvent.selectOptions(screen.getByLabelText("Select record"), "bills-1");
+  userEvent.click(screen.getByRole("button", { name: "Open bill BILL ONE" }));
   expect(screen.getByLabelText("Movement Doc Nbr")).toHaveValue("BILL ONE");
   expect(
     screen.getByRole("button", { name: "Save", exact: true }),

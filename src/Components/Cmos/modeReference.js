@@ -1,5 +1,7 @@
+import { completeClipped } from './dtrReference';
+
 // Mode codes transcribed from the user's CMOS reference table.
-const modes = [
+const clipped = [
   ['1', 'THIRD PARTY POOLING MOVE (TRUCKLOAD/LESS THAN TRUCKLOAD)'],
   ['2', 'GOVERNMENT WATERCRAFT, BARGE OR LIGHTER'],
   ['3', 'OCEAN (ROLL ON - ROLL OFF)'],
@@ -36,6 +38,7 @@ const modes = [
   ['Y', 'SHIPPER ASSOCIATION'],
   ['Z', 'MILITARY SEALIFT COMMAND (MSC), CONTROLLED...'],
 ];
+const modes = completeClipped(clipped, 'transportationMethods', 1);
 const ediCodes = ['PT', 'B', 'RO', 'AR', 'MP', '6', '7', 'PL', 'LD', 'J', 'LT', 'VA', 'TA', 'BU', 'ED', 'D', 'AE', 'SR', 'AF', 'R', 'X', 'SF', 'SB', 'LA', 'Q', 'AF', 'SC', 'L', 'FA', 'IP', 'O', 'W', 'CE', 'SD', 'MS'];
 export const MODE_REFERENCE = modes;
 export const MIL_EDI_REFERENCE = modes.map(([mil, description], i) => [mil, ediCodes[i], description]);

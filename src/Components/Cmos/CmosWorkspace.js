@@ -1,4 +1,7 @@
 import AirManifestScreen from "./AirManifestScreen";
+import CommercialBolScreen from "./CommercialBolScreen";
+import { CBL_SAMPLES, cblDefaults, fillFromShipments, nextCblNumber } from "./cblLogic";
+import { rinTextFor } from "./dtrReference";
 import { AIR_MANIFEST_SAMPLES, availableForAirManifest, nextAirManifestNumber, airManifestCounterKey } from "./airManifestLogic";
 import { PLANNING_STATUS_GROUPS, planningStatus, planningStatusLabel, isPlanningViewOnly, incheckedStatus, incheckPlanningRecord } from "./planningStatuses";
 import { documentTcn, documentType, nonMilstripTcn } from "./tcnCreation";
@@ -119,6 +122,7 @@ const planningMainRows = [
   [["shipmentId"], ["containerId"], ["aggregateId", "consolidationId"], ["etrrId", "pcfn"],
     ["tmrNumber"], ["rfTagNumber"], ["status"]],
 ];
+const LIST_FIRST = ["planning", "air", "cbl"];
 const defaults = {
   shipments: {
     docType: "N - Non-MILSTRIP",
@@ -143,7 +147,7 @@ export default function CmosWorkspace({
   onClose,
 }) {
   const [page, setPage] = useState(initialPage),
-    [opened, setOpened] = useState(!["planning", "air"].includes(initialPage)),
+    [opened, setOpened] = useState(!LIST_FIRST.includes(initialPage)),
     [tab, setTab] = useState(
       Object.keys(screens[initialPage]?.tabs || screens.planning.tabs)[0],
     ),
@@ -199,7 +203,7 @@ export default function CmosWorkspace({
     id = context.finished
       ? viewSelection[kind] || store.selection?.[kind]
       : store.selection?.[kind],
-    record = store[kind]?.[id] || (page === "air" ? AIR_MANIFEST_SAMPLES.find(r => r.id === id) : undefined),
+    record = store[kind]?.[id] || (page === "air" ? AIR_MANIFEST_SAMPLES.find(r => r.id === id) : page === "cbl" ? CBL_SAMPLES.find(r => r.id === id) : undefined),
     draft = data(record),
     locked = Boolean(context.finished || (page === "planning" && opened && isPlanningViewOnly(record)));
   const visibleTabs = Object.keys(definition.tabs).filter(t =>
@@ -263,7 +267,7 @@ export default function CmosWorkspace({
   const go = (next) => {
     setPage(next);
     setTab(Object.keys(screens[next].tabs)[0]);
-    setOpened(!["planning", "air"].includes(next));
+    setOpened(!LIST_FIRST.includes(next));
     setEntry(null);
     setSelected([]);
     setMessage("");
@@ -312,6 +316,8 @@ export default function CmosWorkspace({
     const airType = manifestType === "Mail" ? "Mail" : "Cargo";
     const manifestNumber = kind === "airManifests" ? nextAirManifestNumber(store, airType) : null;
     if (kind === "airManifests" && !manifestNumber) { setMessage("All manifest numbers in this training series are in use."); return; }
+    const movementDocNbr = kind === "bills" ? nextCblNumber(store) : null;
+    if (kind === "bills" && !movementDocNbr) { setMessage("All movement document numbers in this training series are in use."); return; }
     const tcn = kind === "shipments" ? nonMilstripTcn(store, context.now) : null;
     if (kind === "shipments" && !tcn) { setMessage("All Non-MILSTRIP serials 001–999 are in use for this date."); return; }
     let next = createRecord(store, kind, {
@@ -324,6 +330,7 @@ export default function CmosWorkspace({
             origin: context.sourceOrigin || context.origin || "",
           }
         : {}),
+      ...(kind === "bills" ? { ...cblDefaults(context.origin || "FA5030"), movementDocNbr } : {}),
       ...(kind === "express" ? { shipmentId: store.selection?.shipments } : {}),
       ...(kind === "quotes" ? { quoteTab: tab } : {}),
       ...(["airManifests", "truckManifests"].includes(kind)
@@ -333,6 +340,7 @@ export default function CmosWorkspace({
           }
         : {}),
     });
+    if (kind === "bills") next = { ...next, counters: { ...next.counters, cbl: Number(movementDocNbr.slice(-5)) } };
     if (kind === "airManifests") next = { ...next, counters: { ...next.counters, [airManifestCounterKey(airType)]: Number(manifestNumber.slice(-4)) + 1 } };
     if (kind === "shipments") {
       const sid = next.selection.shipments;
@@ -724,6 +732,41 @@ export default function CmosWorkspace({
       }
     />
   );
+  const detailTabs = (t) => (
+      <DetailTabs
+        apply={apply}
+        {...{
+          page,
+          tab: t,
+          total,
+          locked,
+          selected,
+          newPiece,
+          store,
+          id,
+          change,
+          print,
+          setMessage,
+          setSelected,
+          setConfirm,
+          rowTable,
+          openEntry,
+          definition,
+          setHazTab,
+          draft,
+          record,
+          setAssignment,
+          setAssignIds,
+          kind,
+          edit,
+          context,
+          go,
+          newCollection,
+          collectionRows,
+          renderFields,
+        }}
+      />
+  );
   const renderPlanningColumn = (fields, rows) => rows.map((ids, i) => (
     <div className="shared-detail-field-row" key={i}>
       {renderFields(ids.map(id => fields.find(f => f.id === id)).filter(Boolean))}
@@ -826,7 +869,7 @@ export default function CmosWorkspace({
               tab; export the session to keep a copy.
             </p>
           )}
-          <CmosDocumentation collapsed={page === "air"}>
+          <CmosDocumentation collapsed={["air", "cbl"].includes(page)}>
           <div className="shared-document-bar">
             <label>
               Documentation
@@ -921,6 +964,16 @@ export default function CmosWorkspace({
                   setOpened(true); setSelected([]);
                 }}
                 showAssignment={category => { setAssignment(category); setAssignIds([]); setAssignQuery(""); }}
+              /> : page === "cbl" ? <CommercialBolScreen
+                {...{ store, record, opened, locked, renderFields, change, edit, action, setAssignment, setAssignIds, openEntry, collectionRows, newCollection, print, setMessage }}
+                renderTab={detailTabs}
+                newBill={newRecord}
+                openBill={row => {
+                  if (locked) setViewSelection(prev => ({ ...prev, bills: row.id }));
+                  else if (!store.bills[row.id]) { const next = createRecord(store, "bills", row.draft, row.id); change({ ...next, bills: { ...next.bills, [row.id]: { ...next.bills[row.id], status: row.status } } }); }
+                  else change({ ...store, selection: { ...store.selection, bills: row.id } });
+                  setOpened(true); setSelected([]);
+                }}
               /> : page === "planning" && !opened ? (
                 <>
                   <form className="shared-planning-search" role="search" aria-label="Shipment Planning search" onSubmit={e => { e.preventDefault(); setSearch(queries); }}>
@@ -1101,39 +1154,7 @@ export default function CmosWorkspace({
                           ))}
                       </div>
                       <section role="tabpanel" aria-label={activeTab}>
-                        <DetailTabs
-                          apply={apply}
-                          {...{
-                            page,
-                            tab: activeTab,
-                            total,
-                            locked,
-                            selected,
-                            newPiece,
-                            store,
-                            id,
-                            change,
-                            print,
-                            setMessage,
-                            setSelected,
-                            setConfirm,
-                            rowTable,
-                            openEntry,
-                            definition,
-                            setHazTab,
-                            draft,
-                            record,
-                            setAssignment,
-                            setAssignIds,
-                            kind,
-                            edit,
-                            context,
-                            go,
-                            newCollection,
-                            collectionRows,
-                            renderFields,
-                          }}
-                        />
+                        {detailTabs(activeTab)}
                       </section>
                       {page === "quote" && record.result?.rates && (
                         <>
@@ -1266,7 +1287,11 @@ export default function CmosWorkspace({
           isPiece={entry.kind === "pieces"}
           onAddPiece={entry.kind === "pieces" ? () => beginNewPiece(saveRecord(store, "pieces", entry.id)) : undefined}
           onEdit={(key, v) =>
-            change(editRecord(store, entry.kind, entry.id, { [key]: v }))
+            change(editRecord(store, entry.kind, entry.id, {
+              [key]: v,
+              // Choosing a DTR route instruction note brings its text, unless the trainee already wrote one.
+              ...(key === "rin" && rinTextFor(v) && !activeEntry.draft.description ? { description: rinTextFor(v) } : {}),
+            }))
           }
           onSave={(close) => {
             change(saveRecord(store, entry.kind, entry.id));
@@ -1362,9 +1387,11 @@ export default function CmosWorkspace({
             <button
               disabled={locked || !assignIds.length}
               onClick={() => {
-                change(assignShipments(store, kind, id, assignIds));
+                let next = assignShipments(store, kind, id, assignIds);
+                if (kind === "bills") next = editRecord(next, kind, id, fillFromShipments(next, next.bills[id].draft));
+                change(next);
                 setAssignIds([]);
-                setMessage("TCNs assigned. Save the manifest.");
+                setMessage(`TCNs assigned. Save the ${kind === "bills" ? "bill of lading" : "manifest"}.`);
               }}
             >
               Assign

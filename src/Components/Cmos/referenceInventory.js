@@ -191,7 +191,13 @@ const phoneFields = fs(
   ...[1, 2, 3].flatMap((n) => [`Phone Number ${n}`, `Phone Number Type ${n}`]),
 );
 export const collections = {
-  RINs: fs("RIN", "Description"),
+  RINs: fs(
+    field("RIN Nbr", "rin"),
+    select("Print RIN", "printRin", ["Y", "N"]),
+    { ...field("Type RIN", "typeRin"), lookup: false },
+    "Custom Field",
+    field("RIN Text", "description"),
+  ),
   Conveyances: fs(
     "Conveyance Seq Nbr",
     "Primary Eq Init",
@@ -219,6 +225,7 @@ export const collections = {
     "Seals Applied By",
     "Seal Numbers",
     flag("Vehicle Fully Loaded"),
+    select("CP", "cp", ["Yes", "No"]),
   ),
   Commodities: fs(
     "NMFC/UFC",

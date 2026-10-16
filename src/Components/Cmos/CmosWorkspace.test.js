@@ -119,6 +119,7 @@ test("finished tests can still view generated print displays without mutating re
     );
   }
   render(<Finished />);
+  userEvent.click(screen.getByRole("button", { name: "Open bill bills-1" }));
   userEvent.click(screen.getByRole("button", { name: "Print", exact: true }));
   userEvent.click(screen.getByRole("button", { name: "OK" }));
   expect(
@@ -175,14 +176,15 @@ test("print options remain nonmodal while the CMOS form stays editable", () => {
     );
   }
   render(<Bills />);
+  userEvent.click(screen.getByRole("button", { name: "Open bill bills-1" }));
   userEvent.click(screen.getByRole("button", { name: "Print", exact: true }));
   expect(
     screen.getByRole("dialog", { name: "Print Commercial Bill of Lading" }),
   ).not.toHaveAttribute("aria-modal");
-  fireEvent.change(screen.getByLabelText("Movement Doc Nbr"), {
+  fireEvent.change(screen.getByLabelText("Route ID"), {
     target: { value: "EDIT WITH PRINT OPEN" },
   });
-  expect(screen.getByLabelText("Movement Doc Nbr")).toHaveValue(
+  expect(screen.getByLabelText("Route ID")).toHaveValue(
     "EDIT WITH PRINT OPEN",
   );
 });

@@ -1,3 +1,5 @@
+import { completeClipped } from './dtrReference';
+
 // Transcribed from the supplied CMOS screenshots. Ellipses retain clipped source descriptions.
 export const CIIC_REFERENCE = [
   ['$', 'NUCLEAR WEAPONS GROUND EQUIPMENT (CIIC UNCLASSIFIED)'],
@@ -24,7 +26,7 @@ export const CIIC_REFERENCE = [
   ['X', 'PHOTOGRAPHER EQUIPMENT AND SUPPLIES'], ['Y', 'COMMUNICATION/ELECTRONIC EQUIPMENT AND PARTS'],
   ['Z', 'VEHICULAR EQUIPMENT AND PARTS'],
 ];
-export const HOLD_CODE_REFERENCE = [
+export const HOLD_CODE_REFERENCE = completeClipped([
   ['0', 'AWAITING EXPORT/DOMESTIC TRAFFIC RELEASE'], ['1', 'CARGO WITH DOCUMENTATION ERRORS/PROBLEMS'],
   ['2', 'DAMAGED SHIPMENTS'], ['3', 'ACA/CSB REQUEST TO HOLD OR DIVERT, OR REMOVE SHIPMENT'],
   ['4', 'CUSTOMS REQUEST HOLD, DIVERT, OR REMOVE (CONFISCATE) SHIP...'],
@@ -46,7 +48,7 @@ export const HOLD_CODE_REFERENCE = [
   ['W', 'WOOD PACKING MATERIAL (WPM) REMEDIATION/DECONTAMINATION.'],
   ['Y', 'DLA DISPOSITION SERVICES FIELD OFFICE REDISTRIBUTION ORDER...'],
   ['Z', 'HOLDING ACTION OF LESS THAN 24 HOURS FROM DATE MATERIAL IS...'],
-];
+], 'holdCodes', 1);
 export const SECURITY_CLASSES = [
   ['E', 'Unclassified, Encrypt For Transmission'], ['C', 'Confidential'], ['F', 'For Official Use Only'],
   ['R', 'Restricted'], ['S', 'Secret'], ['T', 'Top Secret'], ['U', 'Unclassified'],

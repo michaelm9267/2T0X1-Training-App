@@ -803,3 +803,153 @@ section.cmos-app .shared-dg2-list .shared-table td button { font: 12px Arial, sa
   .shared-air-search { margin-top: 24px; }
   .shared-air-grid { width: 100%; }
 }
+
+/* Commercial Bill of Lading list and detail follow the CMOS reference screens. */
+.shared-cbl-list { min-height: 75vh; padding: 62px 0 30px; border-top: 0; }
+.shared-cbl-grid { border: 1px solid #a9acb5; background: white; }
+.shared-cbl-list .shared-cbl-grid { width: 100%; border-top: 6px solid #e4eaf5; }
+.shared-cbl-grid > .shared-toolbar { margin: 0; gap: 2px; padding: 2px 6px; background: #f2f2f5; border-bottom: 1px solid #c9ccd3; }
+.shared-cbl-grid > .shared-toolbar button, .shared-cbl-bottom button { padding: 2px 9px; font-size: 12px; font-weight: bold; border-radius: 0; }
+.shared-cbl-grid .shared-table { margin: 0; width: 100%; font-size: 12px; border-collapse: collapse; }
+.shared-cbl-grid .shared-table th { background: linear-gradient(#82c4f5, #4fa6ed); color: #111; padding: 2px 3px; border: 1px solid #abb0b9; font-size: 12px; white-space: nowrap; }
+.shared-cbl-grid .shared-table td { border: 1px solid #c4c4ca; padding: 0 3px; height: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.shared-cbl-grid tbody tr:nth-child(even) { background: #f3f3f3; }
+.shared-cbl-grid tbody tr[aria-selected="true"] { background: #6fa6e8; }
+.shared-cbl-grid .shared-air-filters th { padding: 1px; background: #f4f4f4; border-color: #d0d0d6; }
+.shared-cbl-list-table { table-layout: fixed; min-width: 1100px; }
+.shared-cbl-list .shared-table-scroll { max-height: 62vh; }
+.shared-cbl-link { color: #1d3f8f; font: inherit; font-weight: bold; background: none !important; border: 0 !important; padding: 0 !important; cursor: pointer; }
+.shared-cbl-expand { display: inline-block; width: 7px; height: 7px; margin: 0 5px 0 2px; border: 1px solid #555; background: linear-gradient(white, #ddd); vertical-align: middle; }
+.shared-cbl-detail { min-height: 650px; display: flex; flex-direction: column; padding-top: 58px; font-size: 12px; }
+.shared-cbl-detail .shared-fields { display: contents; }
+.shared-cbl-detail .shared-field { flex: 0 0 auto; justify-content: flex-start; gap: 4px; margin: 2px 0; font-size: 12px; }
+.shared-cbl-detail .shared-field > span:first-child { flex: 0 0 auto; text-align: right; font-weight: bold; white-space: nowrap; }
+.shared-cbl-detail .shared-field > span:first-child:empty { display: none; }
+.shared-cbl-detail .shared-control { flex: 0 0 auto; align-items: center; }
+.shared-cbl-detail .shared-control input, .shared-cbl-detail .shared-control select { height: 20px; font-size: 12px; padding: 0 3px; border-color: #a8b2bf; }
+.shared-cbl-detail .shared-control input[readonly], .shared-cbl-detail .shared-control select:disabled, .shared-cbl-detail textarea[readonly] { background: #e3e5ec; color: #666; }
+.shared-cbl-detail .shared-control button { min-width: 17px; height: 20px; padding: 0; background: transparent; border: 0; color: #2d6fa0; }
+.shared-cbl-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; column-gap: 14px; }
+.shared-cbl-header { padding: 6px 0 4px; border-top: 6px solid #e4eaf5; background: linear-gradient(#eef1f7, white 45%); }
+.shared-cbl-header .shared-field > span:first-child { color: #6b6026; }
+.shared-cbl-header [data-field="scac"] > span:first-child { color: #111; }
+.shared-cbl-header [data-field="movementDocNbr"] input, .shared-cbl-header [data-field="routing"] input { width: 168px; }
+.shared-cbl-header [data-field="scac"] input { width: 52px; }
+.shared-cbl-header [data-field="routingStatus"] select { width: 98px; }
+.shared-cbl-header [data-field="routeId"] input { width: 42px; }
+.shared-cbl-header [data-field="airServiceType"] select, .shared-cbl-header [data-field="airServiceLevel"] select { width: 50px; }
+.shared-cbl-header [data-field="etrrId"] select { width: 22px; padding: 0; }
+.shared-cbl-tabs { margin: 10px 0 0 6px; gap: 0; background: none; border-bottom: 0; }
+.shared-cbl-tabs button, .shared-cbl-subtabs button { margin-right: -1px; padding: 3px 18px !important; font-size: 12px !important; border: 1px solid #b9c4d1 !important; border-bottom: 0 !important; border-radius: 0 12px 0 0 !important; background: linear-gradient(#f2f6fa, #cfdcea) !important; color: #333 !important; }
+.shared-cbl-tabs button[aria-selected="true"], .shared-cbl-subtabs button[aria-selected="true"] { background: white !important; font-weight: bold; color: #111 !important; }
+.shared-cbl-panel { min-height: 405px; padding: 10px 6px; background: white; border: 1px solid #c3ccd8; border-radius: 0 5px 0 0; }
+.shared-cbl-panel > .shared-cbl-grid { margin: 0; }
+.shared-cbl-panel .shared-table-scroll { max-height: 330px; }
+.shared-cbl-cell-input { width: 38px; height: 16px; font-size: 11px; padding: 0 2px; border: 1px solid #a8b2bf; }
+.shared-cbl-grid td select { height: 17px; font-size: 11px; }
+.shared-cbl-bottom { justify-content: flex-end; gap: 0; margin: 8px 0 0; }
+.shared-cbl-bottom button { margin-left: -1px; }
+/* Addresses */
+.shared-cbl-addresses section { margin-bottom: 6px; }
+.shared-cbl-addresses h4 { margin: 0; font-size: 15px; }
+.shared-cbl-address-grid { display: grid; grid-template-columns: 175px 420px 1fr; align-items: center; }
+.shared-cbl-address-grid > div { display: flex; gap: 12px; align-items: center; }
+.shared-cbl-address-grid > div:nth-child(3n + 2), .shared-cbl-address-grid > div:nth-child(3n) { justify-content: flex-end; }
+.shared-cbl-address-grid > div:nth-child(3n) { justify-content: flex-start; padding-left: 26px; }
+.shared-cbl-addresses [data-field$="Dodaac"] input { width: 80px; }
+.shared-cbl-addresses [data-field$="Name"] input, .shared-cbl-addresses [data-field$="Address1"] input { width: 308px; }
+.shared-cbl-addresses [data-field$="Address2"] input { width: 308px; }
+.shared-cbl-addresses [data-field$="Splc"] input, .shared-cbl-addresses [data-field="gbloc"] input { width: 118px; }
+.shared-cbl-addresses [data-field$="City"] input { width: 188px; }
+.shared-cbl-addresses [data-field$="Country"] input, .shared-cbl-addresses [data-field$="State"] input { width: 48px; }
+.shared-cbl-addresses [data-field$="Zip"] input { width: 130px; }
+/* Billing */
+.shared-cbl-billing { display: grid; grid-template-columns: minmax(0, 700px) minmax(0, 1fr); gap: 20px; }
+.shared-cbl-billing-left { display: flex; flex-direction: column; align-items: flex-start; }
+.shared-cbl-billing-left > .shared-field { width: 100%; }
+.shared-cbl-billing-left .shared-field > span:first-child { min-width: 70px; }
+.shared-cbl-billing-left [data-field="billToName"] input { width: 310px; }
+.shared-cbl-billing-left [data-field="billToAddress"] input, .shared-cbl-billing-left [data-field="billToAddress2"] input { width: 430px; }
+.shared-cbl-billing-left [data-field="billToCity"] input { width: 190px; }
+.shared-cbl-billing-left [data-field="billToCountry"] input, .shared-cbl-billing-left [data-field="billToState"] input { width: 32px; }
+.shared-cbl-billing-left [data-field="billToZip"] input { width: 82px; }
+.shared-cbl-pair { display: flex; flex-wrap: wrap; align-items: center; column-gap: 12px; }
+.shared-cbl-accounting { margin: 16px 0 0; padding: 4px 10px 10px; width: min(690px, 100%); box-sizing: border-box; border: 1px solid #bbb; border-radius: 6px; box-shadow: 1px 1px 4px #0002; }
+.shared-cbl-accounting legend { font-weight: bold; padding: 0; }
+.shared-cbl-accounting p { margin: 2px 0 8px; }
+.shared-cbl-accounting .shared-table th { background: linear-gradient(#82c4f5, #4fa6ed); padding: 2px 3px; border: 1px solid #888; }
+.shared-cbl-accounting .shared-table td { border: 1px solid #aaa; padding: 1px 3px; }
+.shared-cbl-billing-right { display: flex; flex-direction: column; align-items: stretch; }
+.shared-cbl-billing-right > .shared-field, .shared-cbl-billing-right > .shared-cbl-pair { padding-left: 0; }
+.shared-cbl-billing-right .shared-field > span:first-child { min-width: 150px; }
+.shared-cbl-billing-right .shared-cbl-pair .shared-field + .shared-field > span:first-child { min-width: 0; }
+.shared-cbl-billing-right [data-field="billType"] select { width: 155px; }
+.shared-cbl-billing-right [data-field="carrierAcctNbr"] select { width: 100px; }
+.shared-cbl-billing-right [data-field="nmfcUfc"] input { width: 106px; }
+.shared-cbl-billing-right [data-field="nmfcSub"] input { width: 42px; text-align: right; }
+.shared-cbl-billing-right [data-field="currency"] input { width: 42px; }
+.shared-cbl-billing-right [data-field="estimatedCharges"] input, .shared-cbl-billing-right [data-field="oaCharges"] input { width: 128px; text-align: right; }
+.shared-cbl-billing-right [data-field="tariffSpecialRateAuth"] select { width: 260px; }
+.shared-cbl-billing-right [data-field="releaseValue"] input { width: 105px; }
+.shared-cbl-billing-right [data-field="certifyingPerson"] input { width: 310px; }
+.shared-cbl-billing-right .shared-field:has(textarea) { align-items: flex-start; }
+.shared-cbl-billing-right .shared-field:has(textarea) .shared-control { flex: 1; }
+.shared-cbl-billing-right textarea { width: 100%; height: 32px; font: 12px Arial, sans-serif; border: 1px solid #a8b2bf; resize: vertical; }
+.shared-cbl-billing-right [data-field="hazardousCert"] textarea, .shared-cbl-billing-right [data-field="descOfArtMiscRemarks"] textarea { height: 42px; }
+.shared-cbl-billing-right [data-field="hazardousCert"] > span:first-child { color: #6b6026; }
+/* Miscellaneous */
+.shared-cbl-misc .shared-cbl-row { margin: 1px 0; }
+.shared-cbl-misc .shared-cbl-gap { margin-top: 14px; }
+.shared-cbl-misc [data-field="contractAuthority"] input { width: 365px; }
+.shared-cbl-misc [data-field="waybill"] input { width: 190px; }
+.shared-cbl-misc [data-field="serviceAgency"] select { width: 36px; padding: 0; }
+.shared-cbl-misc [data-field="shipperInitials"] input { width: 44px; }
+.shared-cbl-misc [data-field="ratedMileage"] input, .shared-cbl-misc [data-field="costDiff"] input { width: 165px; }
+.shared-cbl-misc [data-field="mtx"] input { width: 70px; }
+.shared-cbl-misc [data-field="typeRate"] input { width: 22px; text-align: right; }
+.shared-cbl-misc [data-field="reason"] select { width: 44px; padding: 0; }
+.shared-cbl-misc [data-field="deliveryDateType"] select { width: 70px; }
+.shared-cbl-misc [data-field="fobPoint"] input { width: 490px; }
+.shared-cbl-misc [data-field="city"] input { width: 238px; }
+.shared-cbl-misc [data-field="state"] input { width: 46px; }
+.shared-cbl-misc [data-field="splc"] input { width: 62px; }
+.shared-cbl-misc [data-field="milMode"] input, .shared-cbl-misc [data-field="ediMode"] input { width: 28px; }
+.shared-cbl-misc [data-field="dsoeId"] input { width: 66px; }
+.shared-cbl-misc [data-field="chalk"] input { width: 52px; }
+.shared-cbl-misc [data-field="nbrOfClsTls"] input { width: 52px; text-align: right; }
+.shared-cbl-misc [data-field="blk31ProtSvc"] select { width: 58px; }
+.shared-cbl-misc [data-field="vesselName"] input { width: 310px; }
+.shared-cbl-misc [data-field="ircs"] input { width: 105px; }
+.shared-cbl-misc [data-field="milMode"] > span:first-child, .shared-cbl-misc [data-field="ediMode"] > span:first-child, .shared-cbl-misc [data-field="nbrOfClsTls"] > span:first-child { color: #6b6026; }
+.shared-cbl-subtabs { margin: 16px 0 0; gap: 0; background: none; border-bottom: 0; }
+.shared-cbl-subpanel { padding: 8px; border: 1px solid #c3ccd8; }
+.shared-cbl-phone { justify-content: flex-start; column-gap: 40px; }
+.shared-cbl-phone [data-field^="phoneNumber"]:not([data-field^="phoneNumberType"]) input { width: 310px; }
+.shared-cbl-phone [data-field^="phoneNumberType"] select { width: 200px; }
+@media (max-width: 1100px) {
+  .shared-cbl-billing { grid-template-columns: 1fr; }
+  .shared-cbl-address-grid { grid-template-columns: 1fr; }
+  .shared-cbl-address-grid > div, .shared-cbl-address-grid > div:nth-child(3n + 2), .shared-cbl-address-grid > div:nth-child(3n) { justify-content: flex-start; padding-left: 0; flex-wrap: wrap; }
+  .shared-cbl-address-grid > div:empty { display: none; }
+}
+@media (max-width: 600px) {
+  .shared-cbl-list, .shared-cbl-detail { padding-top: 16px; }
+  .shared-cbl-detail .shared-control input { max-width: 70vw; }
+}
+.shared-cbl-grid .shared-air-filters input { display: block; width: 100%; min-width: 0; height: 20px; box-sizing: border-box; }
+.shared-cbl-billing-right [data-field="billType"] select { width: 180px; }
+.shared-cbl-misc [data-field="deliveryDateType"] select { width: 88px; }
+/* BOL RIN entry dialog */
+.shared-cbl-rin-overlay .cdf-dialog { width: min(1320px, 94vw); background: white; padding: 6px 8px 8px; color-scheme: light; }
+.shared-cbl-rin-overlay .cdf-dialog header h3 { font-size: 17px; }
+.shared-cbl-rin { display: flex; flex-direction: column; gap: 4px; font: bold 12px Arial, sans-serif; color: #111; }
+.shared-cbl-rin label { display: grid; grid-template-columns: 70px auto; align-items: center; justify-content: start; gap: 4px; text-align: right; }
+.shared-cbl-rin select { width: min(640px, 70vw); height: 19px; font-size: 12px; text-overflow: ellipsis; }
+.shared-cbl-rin input[type="checkbox"] { margin: 0; justify-self: start; }
+.shared-cbl-rin-system { color: #6b6026; }
+.shared-cbl-rin-system input { width: 170px; height: 18px; background: #e3e5ec; border: 1px solid #a8b2bf; }
+.shared-cbl-rin-text { grid-template-columns: 70px 1fr !important; justify-content: stretch !important; align-items: start !important; }
+.shared-cbl-rin-text textarea { width: 100%; height: 280px; box-sizing: border-box; background: #e3e5ec; border: 1px solid #a8b2bf; font: 12px Arial, sans-serif; color: #111; resize: none; }
+.shared-cbl-rin footer { display: flex; justify-content: flex-end; gap: 3px; margin-top: 8px; }
+.shared-cbl-rin footer button { font-weight: bold; padding: 2px 8px; border-radius: 0; }
+.shared-cbl-rin input, .shared-cbl-rin textarea, .shared-cbl-rin select { text-align: left; }

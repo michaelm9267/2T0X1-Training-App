@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Dialog } from "../CdfCmos/controls";
 import { DODAAC_INFO, AERIAL_PORTS } from "../CargoWindow/workflow";
 import DateField from "../Outbound/DateField";
-import { TYPE_PACKS } from "../Outbound/outboundData";
 import { MODE_REFERENCE, MIL_EDI_REFERENCE } from "./modeReference";
 import { CIIC_REFERENCE, HOLD_CODE_REFERENCE } from "./planningReferences";
 import ReferenceLookup from "./ReferenceLookup";
+import { AIR_MANIFEST_REFERENCES, EQUIPMENT_TYPES, TYPE_PACK_CODES, GBLOCS, MEASURE_UNITS, RIN_CODES, ROUTE_ORDER_SERVICES, SPECIAL_SERVICES } from "./dtrReference";
 export { Dialog };
 export const lookupValues = (f) => {
   if (f.id === "ucCountry") return [
@@ -23,27 +23,19 @@ export const lookupValues = (f) => {
       ["UPSQ", "UPS Freight"],
       ["TRNC", "Training Motor Carrier"],
     ];
-  if (/rin/i.test(f.id))
-    return [
-      ["TRN-RIN-001", "Training requisition"],
-      ["TRN-RIN-002", "Training requisition 2"],
-    ];
-  if (/equipment|equipType/i.test(f.id))
-    return [
-      ["AV1", "Van, closed, 30 ft and less"],
-      ["AV2", "Van, closed, 31–40 ft"],
-      ["AV3", "Van, closed, over 40 ft"],
-      ["AR", "Van, refrigerated"],
-      ["AZ1", "Flatbed, air ride, 30 ft and less"],
-      ["AZ2", "Flatbed, air ride, 31–40 ft"],
-      ["AZ3", "Flatbed, air ride, over 40 ft"],
-    ];
+  if (f.id === "rin") return RIN_CODES;
+  if (/equipment|equipType/i.test(f.id)) return EQUIPMENT_TYPES;
+  if (f.id === "svcCode") return SPECIAL_SERVICES;
+  if (/^(uom|volumeUom)$/.test(f.id)) return MEASURE_UNITS;
+  if (f.id === "gbloc") return GBLOCS;
+  if (f.id === "refId") return AIR_MANIFEST_REFERENCES;
+  if (f.id === "svcAgencyCode") return ROUTE_ORDER_SERVICES;
   if (f.id === "ciic") return CIIC_REFERENCE;
   if (f.id === "holdCode") return HOLD_CODE_REFERENCE;
   if (/^(milMode|ediMode)$/i.test(f.id)) return MIL_EDI_REFERENCE;
   if (f.id === "expMode") return MODE_REFERENCE;
   if (/poe$|pod$/i.test(f.id)) return AERIAL_PORTS.map((v) => [v, v]);
-  if (/typePack/i.test(f.id)) return Object.entries(TYPE_PACKS);
+  if (/typePack/i.test(f.id)) return TYPE_PACK_CODES;
   if (/origin$|destination$|dodaac/i.test(f.id))
     return Object.entries(DODAAC_INFO).map(([id, v]) => [
       id,
@@ -77,6 +69,7 @@ export function Fields({
     <div className="shared-fields">
       {fields.map((f) => {
         const label = prefix ? `${prefix} ${f.label}` : f.label;
+        const name = f.ariaLabel || label;
         const options = f.options;
         const lookup = f.type === "checkbox" || options || f.lookup === false ? null : (f.lookup || lookupValues(f));
         const value = values?.[f.id] ?? "";
@@ -91,7 +84,7 @@ export function Fields({
               {f.type === "checkbox" ? (
                 <input
                   type="checkbox"
-                  aria-label={label}
+                  aria-label={name}
                   checked={Boolean(value)}
                   disabled={
                     locked ||
@@ -104,10 +97,10 @@ export function Fields({
                   onChange={(e) => onEdit(f.id, e.target.checked)}
                 />
               ) : f.type === "textarea" ? (
-                <textarea aria-label={label} value={value} readOnly={Boolean(f.readOnly)} disabled={locked} onChange={e => onEdit(f.id, e.target.value)} />
+                <textarea aria-label={name} value={value} readOnly={Boolean(f.readOnly)} disabled={locked} onChange={e => onEdit(f.id, e.target.value)} />
               ) : options ? (
                 <select
-                  aria-label={label}
+                  aria-label={name}
                   value={value}
                   disabled={locked || f.readOnly}
                   onChange={(e) => onEdit(f.id, e.target.value)}
@@ -123,7 +116,7 @@ export function Fields({
               ) : /date$/i.test(f.id) &&
                 !f.id.toLowerCase().includes("frustrat") ? (
                 <DateField
-                  label={label}
+                  label={name}
                   value={value}
                   disabled={locked}
                   readOnly={f.readOnly}
@@ -131,7 +124,7 @@ export function Fields({
                 />
               ) : (
                 <input
-                  aria-label={label}
+                  aria-label={name}
                   value={value}
                   placeholder={f.placeholder}
                   title={f.help}
@@ -145,7 +138,7 @@ export function Fields({
               {lookup && openLookup && (
                 <button
                   type="button"
-                  aria-label={`Look up ${f.lookupLabel || label}`}
+                  aria-label={`Look up ${f.lookupLabel || name}`}
                   disabled={locked || f.readOnly}
                   onClick={(event) => {
                     event.preventDefault();

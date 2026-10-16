@@ -1,0 +1,10190 @@
+{
+ "source": "DTEB Transportation Reference Data, https://www.business.ustranscom.mil/cmd/associated/dteb/files/refdata/",
+ "retrieved": "2026-10-15",
+ "tables": {
+  "routeInstructionNotes": {
+   "table": "V_RTE_INSTR_NT",
+   "columns": [
+    "RTE_INSTR_NT_CD",
+    "RTE_INSTR_NT_TX"
+   ],
+   "rows": [
+    [
+     "101",
+     "CMOS BL only. Annotate BL: \"This US Government shipment is subject to the terms and conditions listed in 41 CFR 102-117, Transportation Management, and 41 CFR 102-118, Transportation Payment and Audit.\""
+    ],
+    [
+     "102",
+     "Annotate BL: \"Security escort vehicle service requested.\""
+    ],
+    [
+     "103",
+     "Annotate BL: \"In-transit emergency contact information: (1) For DOD general hazardous (excludes Explosive and Radioactive) material shipments contact the DLA hotline, 800-851-8061. (2) For Ammunition and Explosive (Class 1) shipments, contact the Army Operations Center (AOC) at 703-695-4695/4696 or DSN225-4695/4696; ask for Watch Officer. (3) For Radioactive material (Class 7), contact the appropriate shipment sponsor's hotline: (Army: 703-695-4695/4696 or DSN225-4695/4696; USAF: 202-767-4011; DLA: 800-851-8061; at sea dial 804-279-3131). (4) For DOD Chemical/Bio Warfare Material contact the 20th CBRNE Command at 410-436-6200. (5) For DOD Secure Holding contact DTTS at 800-826-0794.\""
+    ],
+    [
+     "104",
+     "Shipper will request the carrier to provide dual driver protective service (DDP). Annotate BL: \"Dual driver protective service (DDP) requested. Both drivers must possess or be in the process of obtaining a secret clearance. One driver must possess an interim or final SECRET clearance and the second driver will have submitted an E-QIP through DSS and not have been previously denied a final clearance. Signature and Tally Record (DD form 1907) furnished to carrier.\""
+    ],
+    [
+     "105",
+     "Annotate BL: \"Use of Signature and Tally Record requested. DD Form 1907 furnished to carrier.\""
+    ],
+    [
+     "107",
+     "Annotate BL: \"Move shipment by door-to-door trailer-on-flatcar (TOFC) service.\""
+    ],
+    [
+     "108",
+     "Consignor must include the consignee [destination] telephone number on the BL for all FAK and AA&E shipments."
+    ],
+    [
+     "109",
+     "Annotate BL: \"Carrier to load and unload.\""
+    ],
+    [
+     "110",
+     "Annotate BL: \"Loading performed by [\"carrier\" or \"shipper\"]; unloading performed by [\"carrier\" or \"consignee\", as appropriate].\""
+    ],
+    [
+     "111",
+     "Annotate BL: \"Shipper to load and consignee to unload.\" Does not apply to tow away shipments."
+    ],
+    [
+     "112",
+     "Annotate BL: \"Flame or heat producing tools will not be used to remove security devices.\""
+    ],
+    [
+     "113",
+     "Annotate BL: \"Protective security service (PSS) required. Both drivers must possess a secret clearance Both drivers in the same line-haul vehicle must possess an interim SECRET security clearance under the DODIS Program. Signature and Tally Record (DD Form 1907) furnished to carrier.\""
+    ],
+    [
+     "114",
+     "Except for movements requiring Motor surveillance service (MVS), Annotate BL: \"Carrier to notify [name of consignor and consignee with duty and 24-hour non-duty telephone numbers] immediately if shipment is delayed en route because of an accident or incident. If neither can be reached, contact DTTS hotline at (800) 826-0794. Use hotline number to obtain safe haven or refuge instructions in the event of a civil disorder, natural disaster, carrier strike or other emergency.\""
+    ],
+    [
+     "115",
+     "Export: When a shipment is consigned overseas direct, or is forwarded to a port for export, Annotate BL: \"For Export.\""
+    ],
+    [
+     "116",
+     "Annotate BL: \"Released value not exceeding [released value per pound as furnished in the route order] per pound.\""
+    ],
+    [
+     "117",
+     "Annotate BL: \"Released value not exceeding $20,000 for each vehicle in the shipment.\""
+    ],
+    [
+     "118",
+     "Security Risk Category (SRC) I and II AA&E shipments are restricted to short stops in transit of 2 hours or less. Shipments will depart origin-shipping activities and will arrive at the destination point without delay. In the event of an incident/accident, or during secure hold emergencies, carrier will notify DTTS at 1-800-826-0794. Stops exceeding two (2) hours must be approved by SDDC."
+    ],
+    [
+     "119",
+     "Annotate BL: with the size of each piece of carrier equipment loaded to capacity and the weight of any overflow. DTR Appendix G4, Pickup Service Furnished Block Vehicle Fully Loaded."
+    ],
+    [
+     "120",
+     "Annotate BL: \"Shipper seal(s) applied. Carrier may remove seal(s) and replace with equivalent seal(s) on prior consent of consignor. If seals are broken in emergencies, notify consignor [consignor name with duty and 24-hour non-duty telephone numbers] as soon as possible. Carrier must annotate seal changes on BL. Application of shipper seal(s) does not constitute a request for exclusive use of vehicle.\""
+    ],
+    [
+     "121",
+     "Annotate BL: \"Department of Defense shipment. No export declaration or license required.\""
+    ],
+    [
+     "122",
+     "Annotate BL: \"Foreign Military Sales shipment.\""
+    ],
+    [
+     "123",
+     "On BL separate from weight of freight being shipped, show weights, each separately, for pallets, platforms, skids, dunnage, bulkheads, partitions, and door protection (NOTE: When shipped by motor, rate includes free transportation of dunnage and pallets when minimum weight per vehicle is assessed. When shipped by rail, rate also includes free transportation of dunnage not in excess of 2,000 pounds. Weight in excess of 2,000 pounds will be charged at the rate for commodity shipped.)"
+    ],
+    [
+     "131",
+     "Use alternate route only when initial carrier cannot provide equipment and service is to best advantage of the Government, or when there is not sufficient tonnage to meet minimum weight requirements of the lowest-rated carrier and use of higher alternate carrier will result in lower transportation charges."
+    ],
+    [
+     "133",
+     "Tender as a volume shipment. Comply with Para C.4., DTR Part II CH 206."
+    ],
+    [
+     "134",
+     "FREIGHT, all Kinds rate (s) apply. Comply with MFTRP current version and subsequent updates."
+    ],
+    [
+     "140",
+     "Notify consignee to pick up shipment at destination point shown on BL."
+    ],
+    [
+     "141",
+     "Load entire shipment on [number of vehicles or cars as provided in route order]. If unable to comply, withhold shipment and notify SDDC routing office."
+    ],
+    [
+     "142",
+     "Annotate BL: \"Armed Guard Surveillance requested. Signature and Tally Record (DD Form 1907) furnished to carrier.\""
+    ],
+    [
+     "143",
+     "Annotate BL: \"DOD Constant Surveillance Service requested. Signature and Tally Record (DD Form 1907) furnished to carrier.\" Contact DTTS Hotline (800) 826-0794 to obtain safe haven or refuge instructions in the event of a civil disaster, natural disaster, carrier strike or other emergency.\""
+    ],
+    [
+     "146",
+     "Transmit REPSHIP to consignee same day shipment is moved."
+    ],
+    [
+     "147",
+     "Forward REPSHIP to CONUS water terminal and Water Clearance Authority. REPSHIP format is prescribed in DTR CH 204"
+    ],
+    [
+     "150",
+     "Advance approval required by the Transportation Facilities Guide has been obtained from consignee for this shipment."
+    ],
+    [
+     "152",
+     "To assure availability of equipment to handle heavy lift cargo, see appropriate Transportation Facilities Guide."
+    ],
+    [
+     "153",
+     "If rocket motors are shipped in a propulsive state, route order is valid only if shipment is approved by the cognizant military authority designated in the following: a. ATA Hazardous Materials Tariff, ATA 111 series, b. 49 CFR."
+    ],
+    [
+     "155",
+     "Shipment must comply with all requirements of: a. ATA Hazardous Materials Tariff ATA 111 series; b. Bureau of Explosives Tariff, BOE-6000 series; c. 49 CFR, Parts 100-177."
+    ],
+    [
+     "156",
+     "Annotate the BL: with the total quantity and weight of MILVAN restraining bars."
+    ],
+    [
+     "158",
+     "[Name of carrier(s) as provided in Route Order] is/are disadvantaged/woman-owned and is/are considered service and cost competitive on this standing route order. Shipper will establish a goal of offering this/these carrier(s) up to 25 percent of the tonnage. This is a goal, not a quota. The amount of traffic offered will depend upon carrier capability and length of time competitive, which may preclude the ability to handle as much as 25 percent of the tonnage."
+    ],
+    [
+     "160",
+     "Annotate BL: \"Drivers entering Piketon Annex, Defense Depot Columbus, Ohio will be requested to wear a radiation monitoring device, solely as a precautionary measure.\""
+    ],
+    [
+     "161",
+     "When ordering carrier equipment to pickup shipments consigned to Piketon Annex, Defense Depot, Columbus, Ohio notify carrier that delivering driver will be requested to wear a radiation-monitoring device, solely as a precautionary measure."
+    ],
+    [
+     "162",
+     "Freight All Kinds (FAK)-DOD Unique Number 999912."
+    ],
+    [
+     "163",
+     "Instruction:Freight All Kinds (FAK)-DOD Unique Number 999912 Sub No. 1."
+    ],
+    [
+     "164",
+     "Freight All Kinds (FAK) - DOD Unique Number 999913."
+    ],
+    [
+     "165",
+     "Freight All Kinds (FAK)-DOD Unique Number 99913 Sub No. 1."
+    ],
+    [
+     "200",
+     "Request Military Traffic Expediting Service (MTX) call SDDC Intransit Visibility Office at commercial 757-878-7455 or DSN 826-7455 and provide shipment information and rail car initials and numbers."
+    ],
+    [
+     "203",
+     "If rail shipment is over 11 feet wide and/or over 15 feet high from top of rail car, shipper is to obtain Railway Line Clearance Number from the carrier and note it on the front of the BL."
+    ],
+    [
+     "204",
+     "Shipper will request the carrier to provide rail armed guard surveillance Service (ARG)."
+    ],
+    [
+     "205",
+     "Annotate BL: \"Rail Armed Guard Surveillance Service (ARG) Requested.\""
+    ],
+    [
+     "206",
+     "Emergency Response Information for this shipment must appear on the front of the BL or shipping paper."
+    ],
+    [
+     "207",
+     "Annotate BL: \"a. Rail Inspection Service\"(RIS) requested. b. In case of any Rail incidents call DTTS 1-800-826-0794 c. Provide the SDDC Rail Operation Center Comm.: 757-878-7455, DSN: 826-7455 with name of consignee and its duty and 24-hour non-duty telephone numbers, shipment information and rail car initials. After duty hours call 757-878-8141 number.\""
+    ],
+    [
+     "209",
+     "Annotate BL: \"Delivery carrier must notify consignee [name of consignee with duty and 24-hour non-duty telephone numbers] immediately when rail car(s) delivered.\""
+    ],
+    [
+     "211",
+     "When only the two lower decks are utilized of a tri-level car furnished in lieu of bi-level car ordered, annotate BL: \"Bi-level car ordered by shipper and tri-level car furnished by carrier.\""
+    ],
+    [
+     "212",
+     "If applicable, standard railcar substitution is to be provided in accordance with MFTRP-10, Item 480."
+    ],
+    [
+     "216",
+     "Describe all items as \"Military impedimenta\" on BL and cite tender authority as provided in Route Order. The BL must show car number and weight of lading for each car used and the separate dunnage weight for each car. Army Tractor Tanks [including USMC tanks]; tractors, artillery towing, crawler type; and tractors, tracked, utility vehicles must be separately identified and described on the same BL."
+    ],
+    [
+     "217",
+     "Describe all items as \"Military impedimenta\" on all BL except for Army tractor tanks (including USMC tanks); tractors, artillery towing, crawler type; and tractors, tracked, utility vehicles. These exceptions may be separately identified and described on the same BL. Cite tender authorities on BL as provided. BL must show car number and weight of lading for each car as well as the separate dunnage weight for each car."
+    ],
+    [
+     "220",
+     "Bi-level rail cars restricted for loading of powered vehicle units only."
+    ],
+    [
+     "225",
+     "Annotate BL: \"Tendered as carload shipment.\""
+    ],
+    [
+     "229",
+     "When moving locomotives and/ or locomotive cranes over 80 tons, annotate BL: \"Move in tow and limit speed to 50 miles per hour.\""
+    ],
+    [
+     "233",
+     "Notify carrier of a. Date of shipment. b. Loaded dimensions. c. Clearance file number. d. Route. e. BL number. f. Any special conditions affecting clearance route."
+    ],
+    [
+     "242",
+     "Annotate BL: \"Consignee to comply with paragraph Q.7, DTR Part II, CH 202. \""
+    ],
+    [
+     "244",
+     "Rate includes unloading at ramp of delivering line-haul carrier."
+    ],
+    [
+     "246",
+     "Prior to release of shipment, obtain receiving approval from consignee for rail shipment as required by the transportation facilities guide."
+    ],
+    [
+     "263",
+     "Item 850 (Average Agreement). Freight Tariff PHJ 6004-N, or reissues thereof, will not apply."
+    ],
+    [
+     "268",
+     "Rail Demurrage charges are shown in carriers tender, Section F, accessorial code DEM."
+    ],
+    [
+     "271",
+     "Allow space in doorway of car for heater frames as follows: 2' x 4' space for Fairbanks area (Fort Wainwright, Eielson AFB and Fort Greely) and 2' x 2' space for Anchorage area (Fort Richardson, Elmendorf AFB and Kulis ANG). Pallet boards and/or side racks must be in place to assure proper circulation of heated air."
+    ],
+    [
+     "272",
+     "a. Prior to ordering equipment, the shipper will contact CN Aquatrain, 1150 Station Street, Vancouver, British Columbia, V6A2X7, telephone 604 665-4360 or 4205, facsimile 604 665-4362, telex no. 045-3196, to request a space permit and furnish the following information: (1) Origin, (2) Consignee, (3) Destination, (4) Commodity, (5) Weight, (6) Proposed shipping date, (7) Dimensions, if high and/or wide load. b. The shipper will notify origin rail carrier of the permit number when order is placed for empty cars. The permit number will be annotated by the shipper in the \"description of articles\" block of the BL. As soon as rail cars are loaded, the shipper will notify CN Aquatrain of: (1) Car number, (2) Date shipped, (3) Complete-Routing, (4) Permit number"
+    ],
+    [
+     "275",
+     "Placard trailer: \"Do not hump.\""
+    ],
+    [
+     "304",
+     "Rates apply on shipments, which move in an open top van."
+    ],
+    [
+     "306",
+     "Order refrigerated equipment only."
+    ],
+    [
+     "307",
+     "Do not order refrigerated equipment."
+    ],
+    [
+     "308",
+     "Annotate BL: \"Loading and unloading performed by carrier.\""
+    ],
+    [
+     "309",
+     "Rate includes all over-dimensional charges."
+    ],
+    [
+     "310",
+     "When shipments are described as FAK, and it is evident or probable that the motor carrier will use toll tunnel facilities, annotate BL: \"No explosives or dangerous articles are contained in this shipment.\""
+    ],
+    [
+     "311",
+     "Annotate BL: \"[Quantity of carrier equipment ordered] units of equipment of [size of carriers equipment ordered in feet] ft. of loading space ordered; [quantity of equipment furnished by carrier] units of equipment of [size of equipment furnished by carrier in feet] ft. of loading space furnished.\""
+    ],
+    [
+     "313",
+     "Consignee has restricted receiving hours. Consult Transportation Facilities Guide for specific information."
+    ],
+    [
+     "314",
+     "Annotate BL: \"Emergency response information for this motor shipment is indexed by UN number and is located in the Department of Transportation Emergency Response Guidebook (DOT ERG current version).\""
+    ],
+    [
+     "315",
+     "Comply with all provisions of Para O., CH 205. Issue separate BL for each vehicle in exclusive use."
+    ],
+    [
+     "316",
+     "Annotate BL:\"This certifies that filled containers were transported by the same carrier that is transporting these empty containers.\""
+    ],
+    [
+     "318",
+     "Annotate BL: \"This certifies that the same carrier delivered filled containers and is transporting these empty containers. The destination of these empty containers is the same as the origin of the filled containers.\""
+    ],
+    [
+     "319",
+     "Annotate BL: \"Use of low-boy trailer or special equipment is authorized.\""
+    ],
+    [
+     "320",
+     "Annotate BL: \"This shipment moves as a backhaul subject to special discount.\""
+    ],
+    [
+     "321",
+     "Annotate BL: \"Single drive-away service.\""
+    ],
+    [
+     "322",
+     "Annotate BL: \"Combination drive-away service.\""
+    ],
+    [
+     "323",
+     "When vehicles move in combination of drive-away service, Annotate BL: \"Carrier is to disconnect driveshaft of towed vehicle at origin and reconnect at destination.\""
+    ],
+    [
+     "327",
+     "List on each BL the date and name (type) trailer ordered, plus date and name [type] trailer furnished; for example, flatbed, lowbed, extendable low bed, tiltable jig, gooseneck, etc."
+    ],
+    [
+     "330",
+     "Order and load on drop-frame trailer. Annotate BL: \"Drop-frame trailer not exceeding 39 inches from ground level ordered.\""
+    ],
+    [
+     "331",
+     "Annotate BL: \"Carrier is responsible for providing the consignee with adequate Intransit delivery notification for all AA&E shipments. At a minimum, the carrier will contact the consignee during consignee- designated hours one working day in advance of anticipated AA&E shipment delivery and when updates or changes to the delivery schedule occur. For shipments that fall within a same day delivery radius, the carrier will contact the consignee within one hour of shipment pick-up and provide an estimated time of delivery.\""
+    ],
+    [
+     "332",
+     "On BL for shipments of over-dimensional freight by specialized carrier, enter height of material from ground and width of material after loaded on carrier equipment. On BL covering overweight shipments, show length, width, and height including the loaded shipment weight and weight of carrier equipment."
+    ],
+    [
+     "334",
+     "Annotate DD Form 651 (Carrier's Report of Vehicle Damage or Breakdown) \"Vehicle must be delivered with a minimum amount of fuel in tank, but not less than 1/8 of a tank.\""
+    ],
+    [
+     "337",
+     "Annotate BL: \"Satellite motor surveillance service (SNS) requested. In event of system failure, driver must immediately notify the motor carriers dispatcher who will immediately notify DTTS at 1- (800) 826-0794. The driver must subsequently provide DTTS a telephonic location/status report every two hours, with a final telephonic report upon delivery at destination.\""
+    ],
+    [
+     "338",
+     "Motor surveillance service (MVS) requested but satellite motor surveillance (SNS) being substituted (at the MVS rate) at carrier request. In the event of system failure, driver must immediately notify DTTS at 1-(800)-826-0794. The driver must subsequently provide DTTS a telephonic location/status report every two (2) hours, with a telephonic report upon delivery at destination."
+    ],
+    [
+     "339",
+     "Annotate BL: \"Dromedary service requested.\""
+    ],
+    [
+     "341",
+     "Annotate BL: \"Tendered as LTL shipment.\""
+    ],
+    [
+     "342",
+     "When shipments require transportation protective service, or when shipments of ammunition and/or explosives are routed by motor, consignor will: a. Consult consignee TFG record to determine hours delivery will be accepted; b. Annotate BL with the hours consignee will accept delivery."
+    ],
+    [
+     "343",
+     "Annotate BL: \"Air-ride tractor and trailer combination requested and furnished.\""
+    ],
+    [
+     "344",
+     "Annotate BL: \"Air-ride trailer requested and furnished.\""
+    ],
+    [
+     "345",
+     "Annotate BL: \"Air-ride tractor requested and furnished.\""
+    ],
+    [
+     "346",
+     "Annotate BL: \"Motor surveillance service (MVS) requested. Driver must call DTTS at 1-(800) 826-0794 before departing origin activity and every two (2) hours thereafter to furnish shipment location/status. A final call must be made upon delivery at destination.\""
+    ],
+    [
+     "347",
+     "Enter seal number in block 24 of BL and Annotate BL: \"Exclusive use of vehicle, dromedary, or 410 dromedary (as applicable), requested by the government. Do not break seals except in case of emergency or upon prior authority of the consignor or consignee. If broken for emergency reasons apply carrier seals as soon as possible and immediately notify the consignor and the consignee. [Show name of consignor and consignee with duty and 24-hour non-duty telephone numbers.]\""
+    ],
+    [
+     "348",
+     "Annotate BL: \"If shipper seal(s) are applied, carrier may remove seal(s) and replace with equivalent seal(s). If seals are broken in emergencies, notify consignor [show name of consignor with duty and 24-hour non-duty telephone numbers] as soon as possible. Carrier must annotate seal changes on BL.\""
+    ],
+    [
+     "350",
+     "Annotate BL: \"Expedited service requested.\""
+    ],
+    [
+     "351",
+     "Carrier is approved to trip lease. Trip lease carriers must be DOD approved."
+    ],
+    [
+     "352",
+     "furnish SDDC routing Office with tractor (truck) and trailer number(s), date of departure, and BL number."
+    ],
+    [
+     "353",
+     "Route Order valid only when permit authorities have approved carrier request for permit(s). Prior to release of shipment, carrier must advise the Transportation Officer, by facsimile that the permit(s) application has been approved and must sign a statement to that effect. Annotate BL: \"Carrier has obtained all necessary permits. If permit(s) are not obtainable, withhold shipment and notify the SDDC Operations Center.\""
+    ],
+    [
+     "354",
+     "Do not order lowboy trailers."
+    ],
+    [
+     "355",
+     "This shipment is subject to capacity load rules. The shipper shall annotate the BL with the number of each vehicle loaded to capacity, and whether any additional vehicle carrying less than a capacity load was used. Not more than one vehicle per shipment may be loaded to less than full visible capacity. The vehicle loaded to less than full capacity will be assessed charges as if it were a separate shipment."
+    ],
+    [
+     "356",
+     "Pickup carrier represents a shipper agent, shipper association, or a freight forwarder. These carriers are not required to have documentation showing such affiliation, therefore, do not ask driver for copy of trip-lease permanent lease."
+    ],
+    [
+     "357",
+     "Shipper to verify DOD Driver ID requirements."
+    ],
+    [
+     "358",
+     "Divide tonnage as equally as possible among carriers shown, consistent with their ability to furnish equipment of size and type most advantageous to the government."
+    ],
+    [
+     "360",
+     "Carrier to supply motive power for towaway service."
+    ],
+    [
+     "363",
+     "Use local cartage carrier, if cheaper."
+    ],
+    [
+     "364",
+     "Annotate BL: \"Car Carrier Service requested and furnished.\""
+    ],
+    [
+     "366",
+     "Annotate BL: \"Temperature control van service requested and furnished. Temperature to be maintained at [required temperature in Fahrenheit degrees].\""
+    ],
+    [
+     "367",
+     "When ordering equipment, notify carrier that shipment must not be transported in trip-leased equipment. Annotate BL: \"This shipment must not be transported in trip-leased equipment.\""
+    ],
+    [
+     "368",
+     "Shipments subject to minimum weight formula and charges. Annotate BL: ''The density of this shipment is 15 pounds or greater per cubic foot.\""
+    ],
+    [
+     "369",
+     "This shipment requires state permits. Accessorial charges will be assessed if shipment is in the carrier's possession during a weekend. Unless delivery requirements dictate otherwise, tender shipment to carrier to avoid weekend accessorial charges."
+    ],
+    [
+     "370",
+     "Carrier will assess accessorial charges for holding shipments during a weekend. Unless delivery requirements dictate otherwise, tender shipment to carrier to allow pre-lodging Monday through Thursday only."
+    ],
+    [
+     "371",
+     "Rates apply only on shipments, which move in a 30', or less closed van."
+    ],
+    [
+     "372",
+     "Rates apply only on shipments, which move in a 40', or less closed van."
+    ],
+    [
+     "373",
+     "Rates apply on shipments which move in a closed van over 40'."
+    ],
+    [
+     "374",
+     "Rates apply only on shipments, which move in a 30' or less flatbed."
+    ],
+    [
+     "375",
+     "Rates apply only on shipments which move in a 40' or less flatbed"
+    ],
+    [
+     "376",
+     "Rates apply only on shipments which move in a flatbed over 40'."
+    ],
+    [
+     "386",
+     "If unable to reduce width of the vehicle to 8 feet, 6 inches, additional charge of [Amount of cents per mile per movement as furnished in Route Order] cents per mile per movement will be assessed by carrier, plus cost of state or local permits."
+    ],
+    [
+     "395",
+     "US Citizenship requirement. Driver must be a US citizen and provide proof."
+    ],
+    [
+     "405",
+     "Annotate BL: \"Fuel Adjustment\" [enter adjustment amount]."
+    ],
+    [
+     "418",
+     "Annotate BL: \"Declared value fifty cents per pound.\""
+    ],
+    [
+     "419",
+     "Annotate BL: \"Ferry mileage: [number of ferry miles as provided in Route Order] miles.\""
+    ],
+    [
+     "435",
+     "Each shipment of hazardous materials must be packed, marked, loaded, stowed, secured and unloaded in accordance with the applicable rules and special instructions in 49 CFR Parts 172 through 178."
+    ],
+    [
+     "436",
+     "Provide full instructions on special handling procedures and precautions necessary for safe shipment, including a completed DD Form 836 or other written statement containing the same information. The aircraft commander will also be instructed on the DD Form 836 that accidents, seal breakage, and delays exceeding 6 hours will be reported immediately by automated means to the consignor or consignee. The report must include all pertinent information. Provide qualified personnel to supervise the loading and unloading of each shipment."
+    ],
+    [
+     "438",
+     "Shipper will schedule movement to ensure arrival at destination during normal working hours and will notify consignee by telephone of the estimated arrival time of aircraft as soon as information is available."
+    ],
+    [
+     "440",
+     "Annotate BL: \"I certify that this aircraft is equipped for Instrument Flight Rules (IFR) operation [signature of pilot].\""
+    ],
+    [
+     "442",
+     "When shipments of sensitive material are routed by air taxi, consignor will: a. Notify carrier of pending move and record date, time and individual contacted, b. Advise consignee of estimated time shipment can be picked up, c. Tender each shipment on a separate BL, d. Document and report all carrier failures to provide pick-up service as scheduled unless additional time has been agreed to by shipper."
+    ],
+    [
+     "443",
+     "This Route Order is issued for explosive cargo only. Material other than explosives that is designated as \"hazardous\" may not be included. If a hazardous shipment other than explosives, such as Class A poison, chemicals, or radioactive material, must be transported via air taxi, the air taxi commercial operator must obtain: a. Special waiver from the local FAA General Aviation District Officer. b. FAA waiver prior to acceptance of the shipment for airlift."
+    ],
+    [
+     "444",
+     "Notify Air Mobility Command (AMC), DSN 576-4343/3061 Commercial (618)-256-4343/3061 of all pending flights of hazardous or explosive material shipments by air taxi operators. Notification will include the following: a. Name of carrier(s), b. Name of origin airport. (1) Time and date of scheduled departure, (2) Name and telephone number of ground service operator/shipper, c. Name of destination airport (1) Time and date of scheduled arrival, (2) Name and telephone number of ground/operator receiver, d. Information in paragraphs b and c above is also required for any scheduled stops en route for partial loading/unloading service."
+    ],
+    [
+     "446",
+     "Ensure all aircraft transporting hazardous/explosive material are staffed with IFR qualified pilot in command and co-pilot. Also, insure that only aircraft identified on the SDDC approved list are used to transport hazardous/explosive material. Report any service failures."
+    ],
+    [
+     "447",
+     "Advise Water Clearance Authority (WCA) by priority message or telephone of the serial number of the container used for loading each TCN assigned by the releaser."
+    ],
+    [
+     "448",
+     "Annotate BL: \"Emergency response information for this air shipment is indexed by UN number and is located in the International Civil Aviation Organization Emergency Response Guidance for Aircraft Incidents Involving Dangerous Goods.\""
+    ],
+    [
+     "449",
+     "Annotate BL: \"Emergency response information for this water shipment is indexed by UN number and is located in the emergency procedures for ships carrying dangerous goods and the medical first aid guide.\""
+    ],
+    [
+     "450",
+     "Annotate BL: \"Signature and tally record service (675) requested.\""
+    ],
+    [
+     "451",
+     "Annotate BL: \"International Air shipment requires Constant Surveillance Service (CIS) from pickup to delivery. Signature and Tally Record (DD Form 1907) or carrier's equivalent required. Carrier furnished Courier name: [Enter Name of Courier]. Shipper verified Couriers clearance via Defense Information Security System (DISS) prior to shipment pickup.\""
+    ]
+   ]
+  },
+  "equipmentTypes": {
+   "table": "V_TRAN_EQU_TY",
+   "columns": [
+    "TRNSPRTN_EQPMN2_CD",
+    "TRNSPRTN_EQPMN2_TX"
+   ],
+   "rows": [
+    [
+     "8X",
+     "Pipeline"
+    ],
+    [
+     "A10",
+     "410 Dromedary, 102\" L x 75 1/2\" H x 92\" W, 410 cubic feet"
+    ],
+    [
+     "A11",
+     "Van, air ride, 45 ft or 48 ft, padded, equipped with electric hydraulic powered crane loading unloading system or hydraulic powered"
+    ],
+    [
+     "A16",
+     "Special Dromedary with MRO"
+    ],
+    [
+     "A18",
+     "Propeller Trailer"
+    ],
+    [
+     "A20",
+     "Motor vehicle transport trailer"
+    ],
+    [
+     "A30",
+     "Removable gooseneck"
+    ],
+    [
+     "A40",
+     "Flat bed trailer, hot shot, 40 ft and over"
+    ],
+    [
+     "A5",
+     "Tractor, air ride"
+    ],
+    [
+     "A50",
+     "Van, closed, padded/logistics type, freight only, w/air ride suspension, 40 ft and over"
+    ],
+    [
+     "A6",
+     "Tractor, other than air ride"
+    ],
+    [
+     "A7",
+     "Flat bed, 30 feet and less, hooked in tandem as one unit"
+    ],
+    [
+     "A8",
+     "Van, air ride, w/temperature and humidity control"
+    ],
+    [
+     "A9",
+     "Van, closed, padded, w/air ride suspension 2nd & 3rd proviso only"
+    ],
+    [
+     "AA1",
+     "Van, closed air ride, 30 ft and less"
+    ],
+    [
+     "AA2",
+     "Van, closed air ride, 31-40 ft"
+    ],
+    [
+     "AA3",
+     "Van, closed air ride, over 40 ft"
+    ],
+    [
+     "AB0",
+     "Lowboy, level deck, 10 axles and over"
+    ],
+    [
+     "AB2",
+     "Lowboy, level deck, 2 axles"
+    ],
+    [
+     "AB3",
+     "Lowboy, level deck, 3 axles"
+    ],
+    [
+     "AB4",
+     "Lowboy, level deck, 4 axles"
+    ],
+    [
+     "AB5",
+     "Lowboy, level deck, 5 axles"
+    ],
+    [
+     "AB6",
+     "Lowboy, double drop, air ride, w/outriggers, 3 axles"
+    ],
+    [
+     "AB7",
+     "Lowboy, level deck, 7 axles"
+    ],
+    [
+     "AB9",
+     "Lowboy, level deck, 9 axles"
+    ],
+    [
+     "AC2",
+     "Expandable low bed trailer, 2 axles"
+    ],
+    [
+     "AC3",
+     "Expandable low bed trailer, 3 axles"
+    ],
+    [
+     "AC4",
+     "Expandable low bed trailer, 4 axles"
+    ],
+    [
+     "AD",
+     "Regular Dromedary"
+    ],
+    [
+     "AD6",
+     "Dromedary with Mechanical Restraining Device (MRD)"
+    ],
+    [
+     "AE0",
+     "Lowboy, double drop, 10 axles and over"
+    ],
+    [
+     "AE2",
+     "Lowboy, double drop, 2 axles"
+    ],
+    [
+     "AE3",
+     "Lowboy, double drop, 3 axles"
+    ],
+    [
+     "AE4",
+     "Lowboy, double drop, 4 axles"
+    ],
+    [
+     "AE5",
+     "Lowboy, double drop, 5 axles"
+    ],
+    [
+     "AE6",
+     "Lowboy, double drop, w/outriggers, 3 axles"
+    ],
+    [
+     "AE7",
+     "Lowboy, double drop, 7 axles"
+    ],
+    [
+     "AE9",
+     "Lowboy, double drop, 9 axles"
+    ],
+    [
+     "AF1",
+     "Flat bed, 30 ft and less"
+    ],
+    [
+     "AF2",
+     "Flat bed, 31-40 ft"
+    ],
+    [
+     "AF3",
+     "Flat bed, over 40 ft"
+    ],
+    [
+     "AF4",
+     "Flat bed w/Conestoga trailers 30 ft and less"
+    ],
+    [
+     "AF5",
+     "Flat bed w/Conestoga trailers 31-40 ft"
+    ],
+    [
+     "AF6",
+     "Flat bed w/Conestoga trailers over 40 ft"
+    ],
+    [
+     "AG1",
+     "Van, open, 30 ft and less"
+    ],
+    [
+     "AG2",
+     "Van, open, 31-40 ft"
+    ],
+    [
+     "AG3",
+     "Van, open, over 40 ft"
+    ],
+    [
+     "AG4",
+     "Tautliner Van w/Tarps, 30' or less"
+    ],
+    [
+     "AG5",
+     "Tautliner Van w/Tarps, 31' to 40'"
+    ],
+    [
+     "AG6",
+     "Tautliner Van w/Tarps, over 40'"
+    ],
+    [
+     "AH2",
+     "Drop frame trailer, drop/step deck, 2 axles"
+    ],
+    [
+     "AH3",
+     "Drop frame trailer, drop/step deck, 3 axles"
+    ],
+    [
+     "AI2",
+     "Drop frame trailer, drop/step deck, air ride, 2 axles"
+    ],
+    [
+     "AI3",
+     "Drop frame trailer, drop/step deck, air ride, 3 axles"
+    ],
+    [
+     "AJ0",
+     "Lowboy, level deck, air ride, 10 axles and over"
+    ],
+    [
+     "AJ2",
+     "Lowboy, level deck, air ride, 2 axles"
+    ],
+    [
+     "AJ3",
+     "Lowboy, level deck, air ride, 3 axles"
+    ],
+    [
+     "AJ4",
+     "Lowboy, level deck, air ride, 4 axles"
+    ],
+    [
+     "AJ5",
+     "Lowboy, level deck, air ride, 5 axles"
+    ],
+    [
+     "AJ6",
+     "Lowboy, level deck, air ride, w/outriggers, 3 axles"
+    ],
+    [
+     "AJ7",
+     "Lowboy, level deck, air ride, 7 axles"
+    ],
+    [
+     "AJ9",
+     "Lowboy, level deck, air ride, 9 axles"
+    ],
+    [
+     "AK",
+     "Van, refrigerated, perishable food"
+    ],
+    [
+     "AL2",
+     "Extendable flat bed trailer, 2 axles"
+    ],
+    [
+     "AL3",
+     "Extendable flat bed trailer, 3 axles"
+    ],
+    [
+     "AL4",
+     "Extendable flat bed trailer, 4 axles"
+    ],
+    [
+     "AM0",
+     "Lowboy, double drop, air ride, 10 axles and over"
+    ],
+    [
+     "AM2",
+     "Lowboy, double drop, air ride, 2 axles"
+    ],
+    [
+     "AM3",
+     "Lowboy, double drop, air ride, 3 axles"
+    ],
+    [
+     "AM4",
+     "Lowboy, double drop, air ride, 4 axles"
+    ],
+    [
+     "AM5",
+     "Lowboy, double drop, air ride, 5 axles"
+    ],
+    [
+     "AM6",
+     "Lowboy, double drop, air ride, w/outriggers, 3 axles"
+    ],
+    [
+     "AM7",
+     "Lowboy, double drop, air ride, 7 axles"
+    ],
+    [
+     "AM9",
+     "Lowboy, double drop, air ride, 9 axles"
+    ],
+    [
+     "AN",
+     "Adjustable tilt bed trailer"
+    ],
+    [
+     "AO",
+     "Driveaway/Truckaway"
+    ],
+    [
+     "AO1",
+     "Straight truck, enclosed van, 12 ft, 5,000 lb, maximum cargo capacity"
+    ],
+    [
+     "AO2",
+     "Straight truck, enclosed van, 20 ft, 13,000 lb, maximum cargo capacity"
+    ],
+    [
+     "AO3",
+     "Straight truck, enclosed van, air ride, 12 ft, 5,000 lb, maximum cargo capacity"
+    ],
+    [
+     "AO4",
+     "Straight truck, enclosed van, air ride, 20 ft, 13,000 lb, maximum cargo capacity"
+    ],
+    [
+     "AO5",
+     "Straight truck, enclosed van, 20 ft, 13,000 lb, maximum cargo capacity, padded/logistics type, w/ air ride suspension"
+    ],
+    [
+     "AO6",
+     "Pickup truck, with cap, 18 ft. long, 500 lbs maximum cargo capacity"
+    ],
+    [
+     "AO7",
+     "Econo van, 17 ft long, 2,000 lbs maximum cargo capacity"
+    ],
+    [
+     "AO8",
+     "Dump trailer, 28 ft long, 2 axle, hydraulic powered lift"
+    ],
+    [
+     "AP",
+     "Aft steering unit"
+    ],
+    [
+     "AQ0",
+     "Removable Gooseneck, 10 Axles and Over"
+    ],
+    [
+     "AQ3",
+     "Removable Gooseneck, 3 Axles"
+    ],
+    [
+     "AQ4",
+     "Removable Gooseneck, 4 Axles"
+    ],
+    [
+     "AQ5",
+     "Removable Gooseneck, 5 Axles"
+    ],
+    [
+     "AQ6",
+     "Removable Gooseneck, 6 Axles"
+    ],
+    [
+     "AQ7",
+     "Removable Gooseneck, 7 Axles"
+    ],
+    [
+     "AQ8",
+     "Removable Gooseneck, 8 Axles"
+    ],
+    [
+     "AQ9",
+     "Removable Gooseneck, 9 Axles"
+    ],
+    [
+     "AR",
+     "Van, refrigerated, other"
+    ],
+    [
+     "AS",
+     "Livestock transporter"
+    ],
+    [
+     "AT1",
+     "Tank, 5001-8000 gallons"
+    ],
+    [
+     "AT2",
+     "Tank, over 8000 gallons"
+    ],
+    [
+     "AU",
+     "Container, shipper owned, environmental, temperature and humidity controlled"
+    ],
+    [
+     "AV1",
+     "Van, closed, 30 ft and less"
+    ],
+    [
+     "AV2",
+     "Van, closed, 31-40 ft"
+    ],
+    [
+     "AV3",
+     "Van, closed, over 40 ft"
+    ],
+    [
+     "AV4",
+     "Van, closed, Rollerbed, 40 ft, fixed rollers"
+    ],
+    [
+     "AV5",
+     "Van, closed, Rollerbed, 40 ft, retractable rollers"
+    ],
+    [
+     "AV6",
+     "Van, closed, Rollerbed, 45 ft and over, fixed rollers"
+    ],
+    [
+     "AV7",
+     "Van, closed, Rollerbed, 45 ft and over, retractable rollers"
+    ],
+    [
+     "AV8",
+     "Van, closed, 45 to 48 ft, 12' 4\" high"
+    ],
+    [
+     "AW0",
+     "Expandable Removable Gooseneck, 10 Axles and Over"
+    ],
+    [
+     "AW2",
+     "Expandable Removable Gooseneck, 2 Axles"
+    ],
+    [
+     "AW3",
+     "Expandable Removable Gooseneck, 3 Axles"
+    ],
+    [
+     "AW4",
+     "Expandable Removable Gooseneck, 4 Axles"
+    ],
+    [
+     "AW5",
+     "Expandable Removable Gooseneck, 5 Axles"
+    ],
+    [
+     "AW6",
+     "Expandable Removable Gooseneck, 6 Axles"
+    ],
+    [
+     "AW7",
+     "Expandable Removable Gooseneck, 7 Axles"
+    ],
+    [
+     "AW8",
+     "Expandable Removable Gooseneck, 8 Axles"
+    ],
+    [
+     "AW9",
+     "Expandable Removable Gooseneck, 9 Axles"
+    ],
+    [
+     "AX",
+     "Flat bed, all lengths (twist lock)"
+    ],
+    [
+     "AX0",
+     "Jig Trailer, 10 Axles and Over"
+    ],
+    [
+     "AX2",
+     "Jig Trailer, 2 Axles"
+    ],
+    [
+     "AX3",
+     "Jig Trailer, 3 Axles"
+    ],
+    [
+     "AX4",
+     "Jig Trailer, 4 Axles"
+    ],
+    [
+     "AX5",
+     "Jig Trailer, 5 Axles"
+    ],
+    [
+     "AX6",
+     "Jig Trailer, 6 Axles"
+    ],
+    [
+     "AX7",
+     "Jig Trailer, 7 Axles"
+    ],
+    [
+     "AX8",
+     "Jig Trailer, 8 Axles"
+    ],
+    [
+     "AX9",
+     "Jig Trailer, 9 Axles"
+    ],
+    [
+     "AY1",
+     "Van, closed, 30 ft and less, double type single unit"
+    ],
+    [
+     "AY2",
+     "Van, closed, 30 ft and less, hooked in tandem as one unit"
+    ],
+    [
+     "AZ1",
+     "Flat bed, air ride, 30 ft and less"
+    ],
+    [
+     "AZ2",
+     "Flat bed, air ride, 31-40 ft"
+    ],
+    [
+     "AZ3",
+     "Flat bed, air ride, over 40 ft"
+    ],
+    [
+     "EE",
+     "Bus"
+    ],
+    [
+     "KA",
+     "Box, automobile"
+    ],
+    [
+     "KB1",
+     "Flat, bilevel, not enclosed"
+    ],
+    [
+     "KB2",
+     "Flat, bilevel, enclosed"
+    ],
+    [
+     "KC",
+     "Box, nuclear waste, DODX w/racks permanently affixed"
+    ],
+    [
+     "KD",
+     "Gondola, drop ends"
+    ],
+    [
+     "KE",
+     "Box, end door"
+    ],
+    [
+     "KF1",
+     "Flat, any other type, not over 70'"
+    ],
+    [
+     "KF2",
+     "Flat, any other type, over 70' but not over 90'"
+    ],
+    [
+     "KG1",
+     "Gondola, any other type, 52' hi capacity"
+    ],
+    [
+     "KG2",
+     "Gondola, any other type, 65' hi capacity"
+    ],
+    [
+     "KH1",
+     "Hopper open-top, 80 tons and less"
+    ],
+    [
+     "KH2",
+     "Hopper open-top, 100 tons, 2000 cubic feet"
+    ],
+    [
+     "KH3",
+     "Hopper, closed-top, 70 tons, 2000 cubic feet"
+    ],
+    [
+     "KH4",
+     "Hopper, closed top, 100 tons, 2929 cubic feet"
+    ],
+    [
+     "KH5",
+     "Hopper, closed-top, 100 tons, 4000 cubic feet"
+    ],
+    [
+     "KH6",
+     "Hopper, closed-top, 100 tons, 4600 cubic feet"
+    ],
+    [
+     "KK1",
+     "Refrigerator, perishable foods, not over 53' mechanical"
+    ],
+    [
+     "KK2",
+     "Refrigerator, perishable foods, over 53', but not over 61' mechanical"
+    ],
+    [
+     "KL1",
+     "Flat, trilevel, not enclosed"
+    ],
+    [
+     "KL2",
+     "Flat, trilevel, enclosed"
+    ],
+    [
+     "KO1",
+     "Box, any other type, not over 52' 6\""
+    ],
+    [
+     "KO2",
+     "Box, any other type, over 52' 6\", but not over 60' 9\""
+    ],
+    [
+     "KO3",
+     "Box, any other type, over 60' 9\""
+    ],
+    [
+     "KP",
+     "Box, damage prevention type"
+    ],
+    [
+     "KR1",
+     "Refrigerator, any other type, not over 53' mechanical"
+    ],
+    [
+     "KR2",
+     "Refrigerator, any other type, over 53', but not over 65' mechanical"
+    ],
+    [
+     "KS",
+     "Stock"
+    ],
+    [
+     "KT1",
+     "Tank, 10,000 gallons"
+    ],
+    [
+     "KT2",
+     "Tank, 20,000 gallons"
+    ],
+    [
+     "KT3",
+     "Tank, 30,000 gallons"
+    ],
+    [
+     "KU",
+     "Caboose, DODX armed guard"
+    ],
+    [
+     "KW1",
+     "TOFC car"
+    ],
+    [
+     "KW2",
+     "COFC car"
+    ],
+    [
+     "KX",
+     "Box, missile, DODX w/refrigeration"
+    ],
+    [
+     "KY",
+     "Flat, heavy duty"
+    ],
+    [
+     "KZ1",
+     "Flat, DODX, not over 60'"
+    ],
+    [
+     "KZ2",
+     "Flat, DODX, over 60'"
+    ],
+    [
+     "KZ3",
+     "Locomotive under own power, on own wheels"
+    ],
+    [
+     "KZ4",
+     "Locomotive not under own power, on own wheels"
+    ],
+    [
+     "KZ5",
+     "Locomotive not under own power, not on own wheels"
+    ],
+    [
+     "MF",
+     "Freight Forwarder (Surface)"
+    ],
+    [
+     "QA1",
+     "Non MILVAN, 20 feet and less"
+    ],
+    [
+     "QA2",
+     "Non MILVAN, 24 feet"
+    ],
+    [
+     "QA3",
+     "Non MILVAN, 27 feet"
+    ],
+    [
+     "QA4",
+     "Non MILVAN, 35 feet"
+    ],
+    [
+     "QA5",
+     "Non MILVAN, 40 feet"
+    ],
+    [
+     "QA6",
+     "Non MILVAN, 45 feet and over"
+    ],
+    [
+     "QM",
+     "MILVAN"
+    ],
+    [
+     "QQ",
+     "Freight (Other than Freight Forwarder)"
+    ],
+    [
+     "QU",
+     "Taxi"
+    ],
+    [
+     "SS",
+     "Charter"
+    ],
+    [
+     "TT",
+     "Freight Forwarder"
+    ],
+    [
+     "WA",
+     "Steamship"
+    ],
+    [
+     "WE",
+     "Covered Barge"
+    ],
+    [
+     "WG",
+     "Cylinder Tank Barge"
+    ],
+    [
+     "WI",
+     "Flush Deck Oil Barge"
+    ],
+    [
+     "WK",
+     "Liquid Covered Barge"
+    ],
+    [
+     "WM",
+     "Open Barge"
+    ],
+    [
+     "WP",
+     "Special Auto Barge"
+    ]
+   ]
+  },
+  "freightServiceAgencies": {
+   "table": "V_D_FRGHT_LDNG_BL_SRVC_AGNCY_CD",
+   "columns": [
+    "FRGT_LDNG_BL_SRV_AGNCY_CD",
+    "FRGT_LDNG_BL_SRV_AGNCY_TX"
+   ],
+   "rows": [
+    [
+     "A",
+     "Army"
+    ],
+    [
+     "B",
+     "Defense Mapping Agency"
+    ],
+    [
+     "F",
+     "Air Force"
+    ],
+    [
+     "M",
+     "Marine Corps"
+    ],
+    [
+     "N",
+     "Navy"
+    ],
+    [
+     "P",
+     "Coast Guard"
+    ],
+    [
+     "S",
+     "Defense Logistics Agency"
+    ],
+    [
+     "U",
+     "GSA"
+    ],
+    [
+     "W",
+     "Army and AF Exchange"
+    ],
+    [
+     "X",
+     "Multi-Service"
+    ],
+    [
+     "Y",
+     "Non DoD - except Coast Guard"
+    ]
+   ]
+  },
+  "lowCostNotUsedReasons": {
+   "table": "V_D_FRGHT_LDNG_BL4_CD",
+   "columns": [
+    "FRGHT_LDNG_BL_CD",
+    "FRGHT_LDNG_BL_TX"
+   ],
+   "rows": [
+    [
+     "N1",
+     "Excusable Refusal: When the TSP declines a non-Automation of Transportation Request (ATR) shipment within 1 hour of offer, or if a TSP declines any Freight All Kinds (FAK) shipment that is to be picked up in less than 24 hours or any TPS shipment that has to be picked up in less than 48 hours. It is also used for ATR shipments when shipping activities fail to contact a TSP for shipment award within 1 hour of offer closing. For shipping activities using the auto-award process in ATR, the system may not generate an automatic notification to TSPs indicating whether or not they were awarded the load. However, immediately after the offer's closing, the screen in ATR will change the status to \"Awarded\" for TSPs that have been automatically awarded the load. It is the TSP's responsibility to monitor their shipment offer status."
+    ],
+    [
+     "N2",
+     "TSP Unreachable: An example is when the TSP fails to answer the phone (or the phone number or e-mail is wrong or returned as undeliverable) for tendered, non-ATR shipments. Shippers will allow a reasonable number of rings when attempting to contact TSPs via phone."
+    ],
+    [
+     "N3",
+     "Low Cost Not Used in Order to Use Carrier Onsite: Example includes a TSP that just unloaded freight at an installation and is available to take an outbound load. This is for loads departing origin within the next 24 hours only; reporter must enter a valid explanation in the \"Remarks\" block when using this code."
+    ],
+    [
+     "N4",
+     "Traffic Distribution: Example includes if a shipper had two or more loads going from the same origin to the same destination on the same day. The shipper distributes the two or more loads among two or more TSPs. Reporter must enter a valid explanation in the \"Remarks\" block when using this code."
+    ],
+    [
+     "N5",
+     "Required Small Business Selection: When small business selection is a requirement in a contract."
+    ],
+    [
+     "N6",
+     "Contract Requires Specific Requested Mode: When a contract requires a specific mode/equipment."
+    ],
+    [
+     "N7",
+     "Lower Cost TSP Not Used Due To Past Performance: Loss/Damage: When a shipper has documented proof (via a TDR, CPM incident, or other acceptable documentation) of previous loss or damage by a specific TSP."
+    ],
+    [
+     "N8",
+     "Lower Cost TSP Not Used Due To Past Performance: Transit Time: When a shipper has documented proof (via a TDR, CPM incident, or other acceptable documentation) of a TSP that either has exceeded standard transit times as stated in the DTR Chapter 202, Tables 202-3/202-4 (DoD Standard Transit Time Guide), or delivered after the required delivery date (RDD). (NOTE: Standard transit time is the default; if a shipper decides to put an RDD on a bill of lading (BL) that exceeds standard transit time, the Standard Transit Time Guide overrules that.)"
+    ],
+    [
+     "N9",
+     "Lower Cost TSP Not Used Due To Past Performance: No-Shows: When a shipper has documented proof (via a TDR, CPM incident, or other acceptable documentation) of previous no-shows by a specific TSP."
+    ],
+    [
+     "NA",
+     "Lower Cost TSP Not Used Due To Past Performance: Mechanical Failures: When a shipper has documented proof (via a TDR, CPM incident, or other acceptable documentation) of trends in mechanical breakdowns of the same vehicle/piece of equipment by a specific TSP."
+    ],
+    [
+     "NB",
+     "Lower Cost TSP Not Used Due To Past Performance: Other: When the non-selection reason is not covered in the codes above or below."
+    ],
+    [
+     "NC",
+     "Carrier Not Used Due To Multi-Equipment Requirement: When the same TSP must haul a combination load and more than one BL with the same origin and destination is used. Examples include AA&E or shipments requiring segregation provisions IAW the 49 CFR and/or DoD regulations, or other TPS shipments that would necessitate the combination of more than one type of equipment."
+    ],
+    [
+     "ND",
+     "Low Cost Carrier Not Used Due To Mission Requirements/Convenience of the Government: When a situation dictates a specific TSP must be selected for the shipment. Reporter must enter a valid explanation in the \"Remarks\" block when using this code. Contact SDDC for further guidance."
+    ]
+   ]
+  },
+  "ladingBillSpecialServices": {
+   "table": "V_LDNG_BL_SPCL_SRV",
+   "columns": [
+    "LDNG_BL_SPCL_SRV_CD",
+    "LDNG_BL_SPCL_SRV_TX"
+   ],
+   "rows": [
+    [
+     "A0010",
+     "Alterations"
+    ],
+    [
+     "A0020",
+     "Anneal/Heat (Steel or Glass Treatment)"
+    ],
+    [
+     "A0030",
+     "Art Work"
+    ],
+    [
+     "AC",
+     "Acid (Battery)"
+    ],
+    [
+     "AD",
+     "Accept at Destination"
+    ],
+    [
+     "AF",
+     "Affidavit"
+    ],
+    [
+     "AG",
+     "Aircraft On Ground (AOG)"
+    ],
+    [
+     "AM",
+     "Administration"
+    ],
+    [
+     "AO",
+     "Accept at Origin"
+    ],
+    [
+     "B0020",
+     "Black Lung Tax"
+    ],
+    [
+     "B0040",
+     "Burning"
+    ],
+    [
+     "BH",
+     "Buyer Hand Carry"
+    ],
+    [
+     "BI",
+     "Bill and Hold"
+    ],
+    [
+     "BOP",
+     "Bop Sheet"
+    ],
+    [
+     "C0012",
+     "Capping"
+    ],
+    [
+     "C0032",
+     "Coating (Dip, Rustproof, EDP)"
+    ],
+    [
+     "C0036",
+     "Certificate of Conformance"
+    ],
+    [
+     "C0038",
+     "Certificate of Origin"
+    ],
+    [
+     "C1",
+     "Shipper Load and Count"
+    ],
+    [
+     "C2",
+     "Carrier Load and Count"
+    ],
+    [
+     "CA",
+     "Cataloging Services"
+    ],
+    [
+     "CC",
+     "Carrier Unload"
+    ],
+    [
+     "CD",
+     "COD Request"
+    ],
+    [
+     "CH",
+     "Cut and Parallel"
+    ],
+    [
+     "CI",
+     "Cut"
+    ],
+    [
+     "CM",
+     "Continuous Movement"
+    ],
+    [
+     "CN",
+     "Combination Performance and Non-performance"
+    ],
+    [
+     "CO",
+     "Cooperative Unloading"
+    ],
+    [
+     "CS",
+     "Cigarette Stamping"
+    ],
+    [
+     "CT",
+     "Count and Recount"
+    ],
+    [
+     "CU",
+     "Consignee Unload"
+    ],
+    [
+     "CY",
+     "Carry-in Service"
+    ],
+    [
+     "CZ",
+     "Cable Pressurization"
+    ],
+    [
+     "D0020",
+     "Determined Freight"
+    ],
+    [
+     "D0024",
+     "Layout/Design"
+    ],
+    [
+     "D0031",
+     "Driver Assisted Unloading"
+    ],
+    [
+     "D0032",
+     "Driver Assisted Loading"
+    ],
+    [
+     "D1",
+     "One - Day Service"
+    ],
+    [
+     "D2",
+     "Two - Day Service"
+    ],
+    [
+     "DA",
+     "Delivery Acknowledgment"
+    ],
+    [
+     "DE",
+     "De-Installation"
+    ],
+    [
+     "DH",
+     "Drop and Hook Receiving"
+    ],
+    [
+     "DI",
+     "Die Service Charge"
+    ],
+    [
+     "DL",
+     "Delivery"
+    ],
+    [
+     "DS",
+     "Designated Supplier Inspection"
+    ],
+    [
+     "DV",
+     "Declared Value"
+    ],
+    [
+     "E0030",
+     "Exclusive use"
+    ],
+    [
+     "EG",
+     "Engraving"
+    ],
+    [
+     "EM",
+     "Emergency Service"
+    ],
+    [
+     "EN",
+     "Enclosure"
+    ],
+    [
+     "ER",
+     "Equipment Manufacturer Restoration Audit"
+    ],
+    [
+     "EU",
+     "Exclusive Use Of Equipment"
+    ],
+    [
+     "EX",
+     "Expedited Service"
+    ],
+    [
+     "F1",
+     "Full Service"
+    ],
+    [
+     "FG",
+     "Free Goods"
+    ],
+    [
+     "FS",
+     "Floor Stock Protection"
+    ],
+    [
+     "G0010",
+     "Grinding"
+    ],
+    [
+     "G0052",
+     "Government Inspection"
+    ],
+    [
+     "GI",
+     "Grouped Items"
+    ],
+    [
+     "GP",
+     "Gas Pressure"
+    ],
+    [
+     "GU",
+     "Guaranteed Inspection Technical Service"
+    ],
+    [
+     "H1",
+     "Temperature Protection"
+    ],
+    [
+     "HC",
+     "Handling Service"
+    ],
+    [
+     "HH",
+     "Hointins and Hauling"
+    ],
+    [
+     "HS",
+     "Hauling and Hoisting"
+    ],
+    [
+     "I0012",
+     "Installation"
+    ],
+    [
+     "I0013",
+     "Installation & Warranty"
+    ],
+    [
+     "I0021",
+     "Inspection"
+    ],
+    [
+     "I0022",
+     "Identification"
+    ],
+    [
+     "IC",
+     "Inside Cable Connectors"
+    ],
+    [
+     "ID",
+     "Inside Delivery"
+    ],
+    [
+     "IG",
+     "Invoice with Goods"
+    ],
+    [
+     "IK",
+     "Insurance Provided by Lessee"
+    ],
+    [
+     "IL",
+     "Insurance Provided by Lessor"
+    ],
+    [
+     "IM",
+     "Inspect at Destination"
+    ],
+    [
+     "IN",
+     "Insurance"
+    ],
+    [
+     "IO",
+     "Inspect at Origin"
+    ],
+    [
+     "IP",
+     "In-stock Merchandise"
+    ],
+    [
+     "IQ",
+     "Interim Use Permitted at Special Rate"
+    ],
+    [
+     "IR",
+     "Installation and Training"
+    ],
+    [
+     "IS",
+     "Invoice Services"
+    ],
+    [
+     "IT",
+     "In Transit Price Protection"
+    ],
+    [
+     "KO",
+     "Koshering"
+    ],
+    [
+     "L1",
+     "Shipper Load, Carrier Count"
+    ],
+    [
+     "LA",
+     "Labeling"
+    ],
+    [
+     "LL",
+     "Loading Service"
+    ],
+    [
+     "LS",
+     "Lease Shortfall Consideration"
+    ],
+    [
+     "M0010",
+     "Memo Returnable Container"
+    ],
+    [
+     "M0042",
+     "Mounting"
+    ],
+    [
+     "MI",
+     "Mail Invoice"
+    ],
+    [
+     "ML",
+     "Mail Invoice to Each Location"
+    ],
+    [
+     "MNTAN",
+     "Annual Maintenance"
+    ],
+    [
+     "MNTMN",
+     "Monthly Maintenance"
+    ],
+    [
+     "MNTON",
+     "One-Time Maintenance"
+    ],
+    [
+     "N0020",
+     "Non-returnable Containers"
+    ],
+    [
+     "N0021",
+     "Non-Returnable"
+    ],
+    [
+     "N0032",
+     "Notarized Affidavit"
+    ],
+    [
+     "NC",
+     "Notify Consignee Before Delivery"
+    ],
+    [
+     "OA",
+     "Outside Cable Connectors"
+    ],
+    [
+     "ON",
+     "On-site Service"
+    ],
+    [
+     "OP",
+     "Oversized Package"
+    ],
+    [
+     "P0012",
+     "Painting (Primer or Finish)"
+    ],
+    [
+     "P0014",
+     "Phosphatizing (Steel Treatment)"
+    ],
+    [
+     "P0016",
+     "Pickle and Oil"
+    ],
+    [
+     "P0018",
+     "Plating"
+    ],
+    [
+     "P0022",
+     "Preparation"
+    ],
+    [
+     "PA",
+     "Pack Invoice with Shipment"
+    ],
+    [
+     "PB",
+     "Previous Billing"
+    ],
+    [
+     "PC",
+     "Packaging Service"
+    ],
+    [
+     "PE",
+     "Pulling Eyes"
+    ],
+    [
+     "PF",
+     "Proof & Composition"
+    ],
+    [
+     "PL",
+     "Palletizing"
+    ],
+    [
+     "PLI",
+     "Pilot Inspection"
+    ],
+    [
+     "PM",
+     "Perpetual Movement"
+    ],
+    [
+     "PO",
+     "Purchase Option"
+    ],
+    [
+     "PP",
+     "Progress Payment Requirement"
+    ],
+    [
+     "PSF",
+     "Pickup Service Furnished"
+    ],
+    [
+     "R0072",
+     "Repair"
+    ],
+    [
+     "R0076",
+     "Returnable Container"
+    ],
+    [
+     "R0077",
+     "Returnable"
+    ],
+    [
+     "R0110",
+     "Rework"
+    ],
+    [
+     "RD",
+     "Residential Delivery"
+    ],
+    [
+     "RE",
+     "Recall Service"
+    ],
+    [
+     "RM",
+     "Roundtrip Movement"
+    ],
+    [
+     "RP",
+     "Return Parts to Customer"
+    ],
+    [
+     "S0014",
+     "Shearing"
+    ],
+    [
+     "S0016",
+     "Shotblasting"
+    ],
+    [
+     "S0022",
+     "Sleeving"
+    ],
+    [
+     "S0024",
+     "Ship to Stock Quality Audit"
+    ],
+    [
+     "S0050",
+     "Special Packaging"
+    ],
+    [
+     "S0052",
+     "Stamping"
+    ],
+    [
+     "S0054",
+     "Source Inspection"
+    ],
+    [
+     "S0056",
+     "Strapping"
+    ],
+    [
+     "S0080",
+     "Supplemental Items"
+    ],
+    [
+     "S1",
+     "Shipper Load, Consignee Unload"
+    ],
+    [
+     "S2",
+     "Slip Sheet, Truck"
+    ],
+    [
+     "S3",
+     "Seller Hand Carry"
+    ],
+    [
+     "SD",
+     "Shrinkage Allowance"
+    ],
+    [
+     "SG",
+     "Same - Day Service"
+    ],
+    [
+     "SH",
+     "Special Handling Service"
+    ],
+    [
+     "SJ",
+     "Subject To Tax On Resale"
+    ],
+    [
+     "SLP",
+     "Slip Sheet"
+    ],
+    [
+     "SPI",
+     "Specification Review"
+    ],
+    [
+     "SR",
+     "Slip Sheet, Rail"
+    ],
+    [
+     "SS",
+     "Tax Liability - One Time"
+    ],
+    [
+     "ST",
+     "Tax Liability - Amortized"
+    ],
+    [
+     "SU",
+     "Set-up"
+    ],
+    [
+     "SV",
+     "Service Center"
+    ],
+    [
+     "SW",
+     "Swell"
+    ],
+    [
+     "T0070",
+     "Tools for Printing"
+    ],
+    [
+     "T1",
+     "Onetime Tooling"
+    ],
+    [
+     "TC",
+     "Ticketing Service"
+    ],
+    [
+     "TE",
+     "Tendered as Truckload"
+    ],
+    [
+     "TH",
+     "Technology Exchange"
+    ],
+    [
+     "TM",
+     "Consecutive Movement"
+    ],
+    [
+     "TO",
+     "Tooling"
+    ],
+    [
+     "UN",
+     "Unitized"
+    ],
+    [
+     "US",
+     "USDA Inspected, Stamping Certification"
+    ],
+    [
+     "V1",
+     "Drop Yard"
+    ],
+    [
+     "V2",
+     "Drop Dock"
+    ],
+    [
+     "W0010",
+     "Warranties"
+    ],
+    [
+     "WC",
+     "Will Call"
+    ],
+    [
+     "WH",
+     "Warehousing"
+    ],
+    [
+     "X0010",
+     "Combine All Same Day Shipment"
+    ],
+    [
+     "XP",
+     "Expanded Service"
+    ],
+    [
+     "XX",
+     "Third Party Pallets"
+    ],
+    [
+     "YY",
+     "Split Pickup"
+    ],
+    [
+     "ZZ",
+     "Mutually Defined"
+    ]
+   ]
+  },
+  "measureUnits": {
+   "table": "V_MSR_UN",
+   "columns": [
+    "MSR_NT_CD",
+    "MSR_NT_TX"
+   ],
+   "rows": [
+    [
+     "AR",
+     "Suppository"
+    ],
+    [
+     "AV",
+     "Capsule"
+    ],
+    [
+     "B7",
+     "Cycle"
+    ],
+    [
+     "BF",
+     "Board Foot"
+    ],
+    [
+     "BQ",
+     "Briquet"
+    ],
+    [
+     "CC",
+     "Cubic Centimeter"
+    ],
+    [
+     "CD",
+     "Cubic Yard"
+    ],
+    [
+     "CF",
+     "Cubic Foot"
+    ],
+    [
+     "CG",
+     "Centigram"
+    ],
+    [
+     "CI",
+     "Cubic Inch"
+    ],
+    [
+     "CM",
+     "Centimeter"
+    ],
+    [
+     "CU",
+     "Curie"
+    ],
+    [
+     "CZ",
+     "Cubic Meter"
+    ],
+    [
+     "DC",
+     "Decagram"
+    ],
+    [
+     "DE",
+     "Decimeter"
+    ],
+    [
+     "DG",
+     "Decigram"
+    ],
+    [
+     "DL",
+     "Deciliter"
+    ],
+    [
+     "DM",
+     "Dram"
+    ],
+    [
+     "DW",
+     "Pennyweight"
+    ],
+    [
+     "DZ",
+     "Dozen"
+    ],
+    [
+     "EA",
+     "Each"
+    ],
+    [
+     "EX",
+     "Exposure"
+    ],
+    [
+     "FD",
+     "Fold"
+    ],
+    [
+     "FG",
+     "Transdermal System"
+    ],
+    [
+     "FO",
+     "Fluid Ounce"
+    ],
+    [
+     "FR",
+     "Frame"
+    ],
+    [
+     "FT",
+     "Foot"
+    ],
+    [
+     "GG",
+     "Great Gross"
+    ],
+    [
+     "GI",
+     "Gill"
+    ],
+    [
+     "GL",
+     "Gallon"
+    ],
+    [
+     "GM",
+     "Gram"
+    ],
+    [
+     "GN",
+     "Grain"
+    ],
+    [
+     "GR",
+     "Gross"
+    ],
+    [
+     "HD",
+     "Hundred"
+    ],
+    [
+     "HF",
+     "Hundred Feet"
+    ],
+    [
+     "HP",
+     "Hundred Pounds"
+    ],
+    [
+     "HS",
+     "Hundred Square Feet"
+    ],
+    [
+     "HW",
+     "Hundred Weight"
+    ],
+    [
+     "HY",
+     "Hundred Yards"
+    ],
+    [
+     "IN",
+     "Inch"
+    ],
+    [
+     "KG",
+     "Kilogram"
+    ],
+    [
+     "KM",
+     "Kilometer"
+    ],
+    [
+     "KR",
+     "Carat"
+    ],
+    [
+     "KT",
+     "Kit"
+    ],
+    [
+     "LB",
+     "Pound"
+    ],
+    [
+     "LF",
+     "Linear Foot"
+    ],
+    [
+     "LI",
+     "Liter"
+    ],
+    [
+     "MC",
+     "Thousand Cubic Ft"
+    ],
+    [
+     "MF",
+     "Thousand Feet"
+    ],
+    [
+     "MG",
+     "Milligram"
+    ],
+    [
+     "MI",
+     "Mile"
+    ],
+    [
+     "ML",
+     "Milliliter"
+    ],
+    [
+     "MM",
+     "Millimeter"
+    ],
+    [
+     "MR",
+     "Meter"
+    ],
+    [
+     "MX",
+     "Thousand"
+    ],
+    [
+     "OZ",
+     "Ounce"
+    ],
+    [
+     "PI",
+     "Pillow"
+    ],
+    [
+     "PR",
+     "Pair"
+    ],
+    [
+     "PT",
+     "Pint"
+    ],
+    [
+     "PX",
+     "Pellet"
+    ],
+    [
+     "QT",
+     "Quart"
+    ],
+    [
+     "RA",
+     "Ration"
+    ],
+    [
+     "RD",
+     "Round"
+    ],
+    [
+     "RM",
+     "Ream"
+    ],
+    [
+     "RX",
+     "Thousand Rounds"
+    ],
+    [
+     "SE",
+     "Set"
+    ],
+    [
+     "SF",
+     "Square Foot"
+    ],
+    [
+     "SH",
+     "Sheet"
+    ],
+    [
+     "SI",
+     "Square Inch"
+    ],
+    [
+     "SK",
+     "Skein"
+    ],
+    [
+     "SM",
+     "Square Meter"
+    ],
+    [
+     "SO",
+     "Shot"
+    ],
+    [
+     "SQ",
+     "Square"
+    ],
+    [
+     "SY",
+     "Square Yard"
+    ],
+    [
+     "SZ",
+     "Syringe"
+    ],
+    [
+     "TN",
+     "Ton (2,000 lb)"
+    ],
+    [
+     "TO",
+     "Troy Ounce"
+    ],
+    [
+     "TT",
+     "Tablet"
+    ],
+    [
+     "US",
+     "U.S.P. Unit"
+    ],
+    [
+     "YD",
+     "Yard"
+    ]
+   ]
+  },
+  "gblocs": {
+   "table": "V_GBLOC_DOM",
+   "columns": [
+    "GBLOC_CD",
+    "GBLOC_TX",
+    "DD_ACTVTY_ADRS_ID"
+   ],
+   "rows": [
+    [
+     "AAAJ",
+     "USPFO MAINE (W12L3Z)",
+     "W12L3Z"
+    ],
+    [
+     "AAFL",
+     "101 ARW MAINE ANG (FB6181)",
+     "FB6181"
+    ],
+    [
+     "AANF",
+     "SUPSHIP CONV REPAIR (N62786)",
+     "N62786"
+    ],
+    [
+     "AANL",
+     "NAS BRUNSWICK (N60087)",
+     "N60087"
+    ],
+    [
+     "AANY",
+     "NCTAMSLANT DET CUTLER (N63038)",
+     "N63038"
+    ],
+    [
+     "AAPS",
+     "CGB SOUTH PORTLAND (Z36212)",
+     "Z36212"
+    ],
+    [
+     "ADAJ",
+     "USPFO NEW HAMPSHIRE (W14KUL)",
+     "W14KUL"
+    ],
+    [
+     "ADAV",
+     "USACE COLD REG RESEACH&ENGR LAB (W14GQK)",
+     "W14GQK"
+    ],
+    [
+     "ADNF",
+     "PORTSMOUTH NAV SHIPYARD (N39040)",
+     "N39040"
+    ],
+    [
+     "AEFL",
+     "157 ARW NH ANG (FB6291)",
+     "FB6291"
+    ],
+    [
+     "AGAG",
+     "INTEGRATED MATERIAL MGT CTR NATICK (W58HZ1)",
+     "W58HZ1"
+    ],
+    [
+     "AGAP",
+     "USACE NEW ENGLAND DIST (W13G86)",
+     "W13G86"
+    ],
+    [
+     "AGAT",
+     "DEVENS RES FORCES TNG ACT (W13G9B)",
+     "W13G9B"
+    ],
+    [
+     "AGAV",
+     "USAR SOLDIER SYS CMD (W13PPH)",
+     "W13PPH"
+    ],
+    [
+     "AGFL",
+     "66LS HANSCOM AFB (FB2835)",
+     "FB2835"
+    ],
+    [
+     "AGPC",
+     "US COAST GUARD BASE",
+     "Z31120"
+    ],
+    [
+     "AGSK",
+     "DCMA BOSTON (S2206A)",
+     "S2206A"
+    ],
+    [
+     "AHFL",
+     "439 LSS WESTOVER ARB (FB6606)",
+     "FB6606"
+    ],
+    [
+     "AHSK",
+     "DCMA EAST (S2202A)",
+     "S2202A"
+    ],
+    [
+     "AIAJ",
+     "USPFO MASSACHUSETTS (W13N92/W13N94/W13A8L/W13PBQ/W13PBR/W90GW0)",
+     "W13N92"
+    ],
+    [
+     "AIFL",
+     "102FW MA ANG OTIS AFB (FB6202)",
+     "FB6202"
+    ],
+    [
+     "AKFL",
+     "104FW MA ANG (FB6201)",
+     "FB6201"
+    ],
+    [
+     "ALAJ",
+     "USPFO RHODE ISLAND (W912LD)",
+     "W912LD"
+    ],
+    [
+     "ALFL",
+     "143AW RI ANG (FB6391)",
+     "FB6391"
+    ],
+    [
+     "ALNT",
+     "NAV STA NEWPORT (N32411)",
+     "N32411"
+    ],
+    [
+     "AMAJ",
+     "USPFO CONNECTICUT (W11M93)",
+     "W11M93"
+    ],
+    [
+     "AMNC",
+     "PRIORITY MATERIAL DETACHMENT GROTON(V45918)",
+     "V45918"
+    ],
+    [
+     "AMNF",
+     "SUPSHIP CONV REPAIR (N62789)",
+     "N62789"
+    ],
+    [
+     "AMNS",
+     "NSB NEW LONDON (N00129)",
+     "N00129"
+    ],
+    [
+     "AMPT",
+     "USCG ACADEMY NEW LONDON (Z60100)",
+     "Z60100"
+    ],
+    [
+     "AMSK",
+     "DCMA HARDFORD (S0701A)",
+     "S0701A"
+    ],
+    [
+     "ANAF",
+     "1109TH AVCRAD USPFO CT (W11M91)",
+     "W11M91"
+    ],
+    [
+     "ANFL",
+     "103 FW CONNECTICUT ANG (FB6071)",
+     "FB6071"
+    ],
+    [
+     "ANNC",
+     "NEW LONDON (N4971A)",
+     "N4971A"
+    ],
+    [
+     "AOAC",
+     "USAG FORT MONMOUTH (W15T8R)",
+     "W15T8R"
+    ],
+    [
+     "AOAT",
+     "FT DIX (W15A9U)",
+     "W15A9U"
+    ],
+    [
+     "AOAZ",
+     "PM Battle Command (W80YBY)",
+     "W80YBY"
+    ],
+    [
+     "AOFL",
+     "177FW NJ ANG EGG HARBOR (FB6303)",
+     "FB6303"
+    ],
+    [
+     "AONF",
+     "FISC NORFOLK DET EARLE (N39826)",
+     "N39826"
+    ],
+    [
+     "AONL",
+     "NAV AIR ENGR STA (N68335)",
+     "N68335"
+    ],
+    [
+     "AONQ",
+     "NMC DET EARLE(N60478)",
+     "N60478"
+    ],
+    [
+     "AONZ",
+     "Naval Air Warfare Center Weapons Division c/o Lockheed Martin (N00019)",
+     "N00019"
+    ],
+    [
+     "AOSK",
+     "DCMA SPRINGFIELD (S3101A)",
+     "S3101A"
+    ],
+    [
+     "APAC",
+     "99th Regional Support Command, Fort Dix, NJ (W81Y6F)",
+     "W81Y6F"
+    ],
+    [
+     "APAJ",
+     "USPFO NEW JERSEY (W15MCC)",
+     "W15MCC"
+    ],
+    [
+     "APAK",
+     "PM WIN-T (W15P62)",
+     "W15P62"
+    ],
+    [
+     "APAM",
+     "USALRCCTR PICATINNY TRANSPORTATION BBP/CCP(W905JV)",
+     "W905JV"
+    ],
+    [
+     "APNV",
+     "AEGIS TECHNICAL REPRESENTATIVE (N39029)",
+     "N39029"
+    ],
+    [
+     "AQFL",
+     "305 APS (FB4484)",
+     "FB4484"
+    ],
+    [
+     "ARFL",
+     "108ARW NJ ANG (FB6302)",
+     "FB6302"
+    ],
+    [
+     "ASAJ",
+     "USPFO DELAWARE (W81J8X)",
+     "W81J8X"
+    ],
+    [
+     "ASFL",
+     "436 TRNS (FB4497)",
+     "FB4497"
+    ],
+    [
+     "ATFL",
+     "146 AW DE ANG (FB6081)",
+     "FB6081"
+    ],
+    [
+     "BAAB",
+     "FORENSIC TOXICOLOGY DRUG TESTING LAB (W91YTZ)",
+     "W91YTZ"
+    ],
+    [
+     "BAAC",
+     "MILITARY PERSONNEL DIVISION (W23A7C)",
+     "W23A7C"
+    ],
+    [
+     "BAAJ",
+     "USPFO MARYLAND (W23R7B)",
+     "W23R7B"
+    ],
+    [
+     "BAAP",
+     "USACE BALTIMORE DIST (W81W3G)",
+     "W81W3G"
+    ],
+    [
+     "BAAT",
+     "FT GEORGE G MEADE (W23A9F)",
+     "W23A9F"
+    ],
+    [
+     "BAAV",
+     "ABERDEEN PG (W23AUU)",
+     "W23AUU"
+    ],
+    [
+     "BAAW",
+     "ABER PROV GRD (W81MJR)",
+     "W81MJR"
+    ],
+    [
+     "BAFQ",
+     "AF PUB DIST CTR BALTIMORE (FY7495)",
+     "FY7495"
+    ],
+    [
+     "BANL",
+     "FISC NORFOLK DET NAF ANDREWS AFB (N00166)",
+     "N00166"
+    ],
+    [
+     "BANM",
+     "NSWC INDIAN HEAD DIV (N00174)",
+     "N00174"
+    ],
+    [
+     "BANT",
+     "NAVAL ACADEMY (N00161)",
+     "N00161"
+    ],
+    [
+     "BAPF",
+     "USCG ENG LOG CEN BALTIMORE",
+     "Z52000"
+    ],
+    [
+     "BASK",
+     "DCMA BALTIMORE (S2101A)",
+     "S2101A"
+    ],
+    [
+     "BAWQ",
+     "HHS Supply Service Center",
+     "753239"
+    ],
+    [
+     "BBAC",
+     "ARMY ACIC (W51940)",
+     "W51940"
+    ],
+    [
+     "BBAV",
+     "USAG FT DETRICK (W23G1M)",
+     "W23G1M"
+    ],
+    [
+     "BBFL",
+     "89 TRNS (FB4425/FB7054)",
+     "FB4425"
+    ],
+    [
+     "BBNV",
+     "NWSC CARDEROCK DIV (N00167)",
+     "N00167"
+    ],
+    [
+     "BBWQ",
+     "HHS / ASPR MSC - Logistics",
+     "753334"
+    ],
+    [
+     "BCAQ",
+     "US Army Research Laboratory",
+     "W813LT"
+    ],
+    [
+     "BCAV",
+     "ARMY RESEARCH LAB (W81PA4)",
+     "W81PA4"
+    ],
+    [
+     "BCAY",
+     "US Army Aberdeen Test Center(W81C5M)",
+     "W81C5M"
+    ],
+    [
+     "BCAZ",
+     "USAG FT DETRICK (W23J51)",
+     "W23J51"
+    ],
+    [
+     "BCNV",
+     "NAS PATUXENT RIVER (N00421)",
+     "N00421"
+    ],
+    [
+     "BDAV",
+     "FT DETRICK - USAMMA 1 (W25MWY)",
+     "W25MWY"
+    ],
+    [
+     "BDAZ",
+     "FT DETRICK - USAMMA 2 (W80DLM)",
+     "W80DLM"
+    ],
+    [
+     "BDFL",
+     "175 LS MD ANG (FB6191)",
+     "FB6191"
+    ],
+    [
+     "BDWZ",
+     "NATL SECURITY AGCY (H98230)",
+     "H98230"
+    ],
+    [
+     "BEAB",
+     "WALTER REED AR MED CTR (W74MYG)",
+     "W74MYG"
+    ],
+    [
+     "BEAP",
+     "USACE WASHDC CIVIL WORKS (96311M)",
+     "96311M"
+    ],
+    [
+     "BEAV",
+     "INFORMATION TECHNOLOGY AGENCY - PENTAGON (ITA-PT) (W90A9L)",
+     "W90A9L"
+    ],
+    [
+     "BEBU",
+     "NAT IMAGERY&MAPPING AGY (HM0027)",
+     "HM0027"
+    ],
+    [
+     "BEFK",
+     "11TH LRS BOLLING AFB (FB7054)",
+     "FB7054"
+    ],
+    [
+     "BEFL",
+     "113FW DC ANG (FB6511)",
+     "FB6511"
+    ],
+    [
+     "BEMC",
+     "MC BARRACKS WASH (M54900)",
+     "M54900"
+    ],
+    [
+     "BEMK",
+     "HQBN HQ USMC (M54004)",
+     "M54004"
+    ],
+    [
+     "BENK",
+     "FISC NORF DET WASHINGTON (N00171)",
+     "N00171"
+    ],
+    [
+     "BENV",
+     "NAV RESEARCH LAB (N00173)",
+     "N00173"
+    ],
+    [
+     "BEUM",
+     "Missile Defense Agency(HQ0006)",
+     "HQ0006"
+    ],
+    [
+     "BEVZ",
+     "GSA CENTRAL OFFICE (4732AF)",
+     "4732AF"
+    ],
+    [
+     "BFAJ",
+     "USPFO DIST OF COLUMBIA (W81KJK)",
+     "W81KJK"
+    ],
+    [
+     "BFMK",
+     "HQ USMC NAVY ANNEX (M95425)",
+     "M95425"
+    ],
+    [
+     "BGAD",
+     "RAPID SHIPPING FORCE (W91VUW)",
+     "W91VUW"
+    ],
+    [
+     "BGAG",
+     "HQSDDC (W81GYE)",
+     "W81GYE"
+    ],
+    [
+     "BGAM",
+     "RADFORD AAP (W26H0Q)",
+     "W26H0Q"
+    ],
+    [
+     "BGAP",
+     "DOL FT BELVOIR (W26AAT)",
+     "W26AAT"
+    ],
+    [
+     "BGAQ",
+     "JOINT BASE LANGLEY-EUSTIS",
+     "W564LT"
+    ],
+    [
+     "BGAX",
+     "PM NIGHT VISION RSTA STAGING FACILITY (W91C73)",
+     "W91C73"
+    ],
+    [
+     "BGAY",
+     "ARMY BROADCASTING SERVICE (W81LR2)",
+     "W81LR2"
+    ],
+    [
+     "BGML",
+     "MCAF QUANTICO (V55616)",
+     "V55616"
+    ],
+    [
+     "BGMT",
+     "MCB QUANTICO (M93025)",
+     "M93025"
+    ],
+    [
+     "BGNB",
+     "NAV MED CTR (N00183)",
+     "N00183"
+    ],
+    [
+     "BGNC",
+     "FISC NORFOLK (N00189) (PP ONLY)",
+     "N00189"
+    ],
+    [
+     "BGNF",
+     "SUPSHIP CONV REPAIR (N62793)",
+     "N62793"
+    ],
+    [
+     "BGNL",
+     "SUBMARINE BASE NEW LONDON (N60191)",
+     "N60191"
+    ],
+    [
+     "BGNP",
+     "SPAWARSYSCEN CHAS DET (N65580)",
+     "N65580"
+    ],
+    [
+     "BGNQ",
+     "CENTER FOR SURFACE COMBAT SYSTEMS (N3596A)",
+     "N3596A"
+    ],
+    [
+     "BGNV",
+     "NAVSURWPNCEN (N00178)",
+     "N00178"
+    ],
+    [
+     "BGNZ",
+     "NAV SEA STAGING FAC (N69110)",
+     "N69110"
+    ],
+    [
+     "BGPC",
+     "U.S. Coast Guard Base Portsmouth",
+     "Z31040"
+    ],
+    [
+     "BGPK",
+     "5TH CG DIST PORTSMOUTH (Z71105)",
+     "Z71105"
+    ],
+    [
+     "BGPY",
+     "CG RES TRNG CTR YORKTOWN (Z63100)",
+     "Z63100"
+    ],
+    [
+     "BGSK",
+     "DEFENSE ENERGY SUPPORT CENTER/BID (SP0600)",
+     "SP0600"
+    ],
+    [
+     "BGSQ",
+     "DLA Defense National Stockpile Center (SC0800)",
+     "SC0800"
+    ],
+    [
+     "BGSS",
+     "DLA DISTRIBUTION Portsmouth(SW3270)",
+     "SW3270"
+    ],
+    [
+     "BGSU",
+     "DLA DEF DIST MAPPING ACT (SW3141)",
+     "SW3141"
+    ],
+    [
+     "BGSZ",
+     "DLA Document Services, Mechanicsburg, PA (SA4705)",
+     "SA4705"
+    ],
+    [
+     "BGUQ",
+     "DIA OFFICE OF LOGISTICS AND ENGR (HHP440)",
+     "HHP440"
+    ],
+    [
+     "BHAJ",
+     "USPFO VIRGINIA (W26L8F/W26L8J))",
+     "W26L8F"
+    ],
+    [
+     "BHAK",
+     "Project Manager Soldier Protection and Individual Equipment, 10170 Beach Road, Bldg. 325(W912H7)",
+     "W912H7"
+    ],
+    [
+     "BHAP",
+     "USACE NORFOLK DIST (W26GLG)",
+     "W26GLG"
+    ],
+    [
+     "BHAQ",
+     "FT LEE (W26HBK)",
+     "W26HBK"
+    ],
+    [
+     "BHAT",
+     "FT A P HILL (W26DJ2)",
+     "W26DJ2"
+    ],
+    [
+     "BHAV",
+     "Geospatial Research Laboratory (W9132V)",
+     "W9132V"
+    ],
+    [
+     "BHAY",
+     "2ND MI Center (National Ground Intelligence Center) (W26MT9)",
+     "W26MT9"
+    ],
+    [
+     "BHAZ",
+     "PM RESERVE COMPONENT AUTO SYSTEMS (W81JLH)",
+     "W81JLH"
+    ],
+    [
+     "BHDC",
+     "DOD Transport Support Team (HLO579)",
+     "HL0579"
+    ],
+    [
+     "BHDK",
+     "HQ DEFENSE THREAT REDUCTION AGENCY (HD3660)",
+     "HD3660"
+    ],
+    [
+     "BHFL",
+     "1 TRNS (FB4800)",
+     "FB4800"
+    ],
+    [
+     "BHNC",
+     "NOLSC NORFOLK (N3581A)",
+     "N3581A"
+    ],
+    [
+     "BHNF",
+     "FISC NORFOLK DET NSY (N42158)",
+     "N42158"
+    ],
+    [
+     "BHNK",
+     "Combat Direction Systems Activity",
+     "N63273"
+    ],
+    [
+     "BHNL",
+     "REGIONAL SUPPLY OFFICE NAS NORFOLK (N00188)",
+     "N00188"
+    ],
+    [
+     "BHNM",
+     "NMC DET YORKTOWN (N00109)",
+     "N00109"
+    ],
+    [
+     "BHNQ",
+     "FISC CHEATHAM ANNEX (N60138)",
+     "N60138"
+    ],
+    [
+     "BHPK",
+     "USCG MLC ATLANTIC NORFOLK (Z75130)",
+     "Z75130"
+    ],
+    [
+     "BHSQ",
+     "DEF LOGISTICS AGCY (SA4716)",
+     "SA4716"
+    ],
+    [
+     "BHVZ",
+     "DEFENSE COMMISSARY AGENCY HQ (HQCWH6)",
+     "HQCWH6"
+    ],
+    [
+     "BIAQ",
+     "PROJECT MGR SOLDIER EQUIP (W91231)",
+     "W91231"
+    ],
+    [
+     "BIAT",
+     "FT MONROE (W26HBL)",
+     "W26HBL"
+    ],
+    [
+     "BIAV",
+     "PEO-EIS Biometrics(W81FUJ)",
+     "W81FUJ"
+    ],
+    [
+     "BIAY",
+     "Defense Media Activity",
+     "HQ0516"
+    ],
+    [
+     "BIFL",
+     "192 FD VIRGINIA ANG (FB6461)",
+     "FB6461"
+    ],
+    [
+     "BING",
+     "U. S. COAST GUARD, DIRECTOR OF OPERATIONAL LOGISTICS",
+     "Z31000"
+    ],
+    [
+     "BINP",
+     "NAVY ENGR LOGISTICS OFF (N41756)",
+     "N41756"
+    ],
+    [
+     "BINQ",
+     "FISC NORFOLK (SP MATL CD304)(N0538A)",
+     "N0538A"
+    ],
+    [
+     "BINV",
+     "NAVAL SPECIAL WARFARE DEVELOPMENT GROUP (V47898)",
+     "V47898"
+    ],
+    [
+     "BIPK",
+     "USCG FINANCE CENTER (Z51800)",
+     "Z51800"
+    ],
+    [
+     "BISQ",
+     "DEF DIST DEP NORFOLK (SW3117)",
+     "SW3117"
+    ],
+    [
+     "BIWZ",
+     "DECA (HQCAAB)",
+     "HQCAAB"
+    ],
+    [
+     "BJAC",
+     "Product Director, Transportation Information Systems (PD TIS) (W91X2K)",
+     "W91X2K"
+    ],
+    [
+     "BJAP",
+     "USACE TRANS ATLANTIC DIV (W26WKS)",
+     "W26WKS"
+    ],
+    [
+     "BJAT",
+     "FT STORY (W80X7U)",
+     "W80X7U"
+    ],
+    [
+     "BJAV",
+     "PEO EIS(W26W9D)",
+     "W26W9D"
+    ],
+    [
+     "BJAZ",
+     "MISSION STOCK RECORD ACTIVITY (W81GNX)",
+     "W81GNX"
+    ],
+    [
+     "BJNB",
+     "FLEET HOSPITAL SUP OFFICE (N68610)",
+     "N68610"
+    ],
+    [
+     "BJNC",
+     "Military Sealift Command",
+     "N32205"
+    ],
+    [
+     "BJNM",
+     "NMC DET SEWELLS PT (N30300)",
+     "N30300"
+    ],
+    [
+     "BJNO",
+     "PRIORITY MATERIAL OFFICE DE, NORFOLK VA (N45919)",
+     "N45919"
+    ],
+    [
+     "BJNP",
+     "MID-ATLANTIC REGIONAL MAINTENANCE CENTER (MARMC) (N40025)",
+     "N40025"
+    ],
+    [
+     "BJNQ",
+     "ISSOT NORFOLK (N44932)",
+     "N44932"
+    ],
+    [
+     "BJNS",
+     "NAVAL SPECIAL WARFARE GP TWO LOGISTICS AND SUPPORT UNIT (V0031A)",
+     "V0031A"
+    ],
+    [
+     "BJNT",
+     "NAVAL OPHTHALMIC SUPPORT AND TRAINING ACTIVITY",
+     "N63439"
+    ],
+    [
+     "BJNZ",
+     "NAVAIRTERM NORFOLK (N45627)",
+     "N45627"
+    ],
+    [
+     "BJSQ",
+     "DEF DIST DEPOT RICHMOND (SW0400)",
+     "SW0400"
+    ],
+    [
+     "BJSZ",
+     "DLA Norfolk Naval Shipyard (SA51M1)",
+     "SA51M1"
+    ],
+    [
+     "BKAH",
+     "597TH USAR TRANS TML GP (W36QLP)",
+     "W36QLP"
+    ],
+    [
+     "BKAJ",
+     "USPFO NORTH CAROLINA (W81KDP)",
+     "W81KDP"
+    ],
+    [
+     "BKAP",
+     "USACE WILMINGTON DIST (W81LJ8)",
+     "W81LJ8"
+    ],
+    [
+     "BKAS",
+     "ITO, Fort Bragg, NC",
+     "W90KNQ"
+    ],
+    [
+     "BKFL",
+     "145 AW NC ANG (FB6331)",
+     "FB6331"
+    ],
+    [
+     "BKMC",
+     "MARINE CORPS FORCES SPECIAL OPERATIONS COMMAND(MARSOC)(M20970)",
+     "M20970"
+    ],
+    [
+     "BKML",
+     "MCAS CHERRY POINT (M00146)",
+     "M00146"
+    ],
+    [
+     "BKMT",
+     "MCB CAMP LEJEUNE (M31000)",
+     "M31000"
+    ],
+    [
+     "BKPF",
+     "USCG AIR SUP CEN (Z50100)",
+     "Z50100"
+    ],
+    [
+     "BKPL",
+     "CGAS ELIZABETH CITY (Z20130)",
+     "Z20130"
+    ],
+    [
+     "BKPS",
+     "CGB FT MACON (Z36234)",
+     "Z36234"
+    ],
+    [
+     "BLFL",
+     "43 WG (FB4488)",
+     "FB4488"
+    ],
+    [
+     "BMFL",
+     "4 TRNS (FB4809)",
+     "FB4809"
+    ],
+    [
+     "BMML",
+     "MCAS NEW RIVER (M02020)",
+     "M02020"
+    ],
+    [
+     "BNMI",
+     "MC COMM CO HQSVC BN (M83264)",
+     "M83264"
+    ],
+    [
+     "BOMI",
+     "MC 4TH SUPPLY BN 4TH FSSG (M29065)",
+     "M29065"
+    ],
+    [
+     "BPSQ",
+     "DEF DIST DEP CHERRY POINT (SW3113)",
+     "SW3113"
+    ],
+    [
+     "BQAJ",
+     "USPFO WEST VIRGINIA (W27L9C/W27L9J)",
+     "W27L9C"
+    ],
+    [
+     "BQAP",
+     "USACE HUNTINGTON DIST (W81F8E)",
+     "W81F8E"
+    ],
+    [
+     "BQFL",
+     "130 AW WV ANG (FB6481)",
+     "FB6481"
+    ],
+    [
+     "BRFL",
+     "167 AW WV ANG (FB6482)",
+     "FB6482"
+    ],
+    [
+     "BRVA",
+     "UNICOR FEDERAL PRISON INDUSTRIES GILMER (153457)",
+     "153457"
+    ],
+    [
+     "CAAC",
+     "USA COMBAT GP ASIA (W81X89)",
+     "W81X89"
+    ],
+    [
+     "CAAH",
+     "841ST USAR TRANS BN (W37QLQ)",
+     "W37QLQ"
+    ],
+    [
+     "CAAJ",
+     "USPFO SOUTH CAROLINA (W37U1D)",
+     "W37U1D"
+    ],
+    [
+     "CAAM",
+     "AMMUNITION SUPPLY POINT (W37GEU)",
+     "W37GEU"
+    ],
+    [
+     "CAAP",
+     "USACE CHARLESTON DIST (W81D4A)",
+     "W81D4A"
+    ],
+    [
+     "CAAT",
+     "FT JACKSON (W37R7A)",
+     "W37R7A"
+    ],
+    [
+     "CAFL",
+     "437 APS (FB4418)",
+     "FB4418"
+    ],
+    [
+     "CAML",
+     "MCAS BEAUFORT (M02030)",
+     "M02030"
+    ],
+    [
+     "CAMT",
+     "MC RECRUIT DEP (M00263)",
+     "M00263"
+    ],
+    [
+     "CANM",
+     "NMC DET CHARLESTON (N00193)",
+     "N00193"
+    ],
+    [
+     "CANQ",
+     "FISC NORF DET CHARLESTON(N39825)(PP ONLY)",
+     "N39825"
+    ],
+    [
+     "CANX",
+     "SPAWAR SYSCEN N CHARLESTON (N65236)",
+     "N65236"
+    ],
+    [
+     "CASC",
+     "DLA DISTRIBUTION PARRIS ISLAND SC(SW3263)",
+     "SW3263"
+    ],
+    [
+     "CAUA",
+     "UNICOR FEDERAL PRISON INDUSTRIES BENNETTSVILLE (154670)",
+     "154670"
+    ],
+    [
+     "CBFL",
+     "169 FG SC ANG (FB6401)",
+     "FB6401"
+    ],
+    [
+     "CBSC",
+     "DLA DISTRIBUTION FORT JACKSON(SW3264)",
+     "SW3264"
+    ],
+    [
+     "CDFQ",
+     "AFCENT A4RV (FB4866)",
+     "FB4866"
+    ],
+    [
+     "CEAC",
+     "81st Regional Support Command",
+     "W904GZ"
+    ],
+    [
+     "CEFL",
+     "20 TRNS SHAW AFB (FB4803)",
+     "FB4803"
+    ],
+    [
+     "CENF",
+     "FISC JAX DET CHARLESTON DET (N39825)",
+     "N39825"
+    ],
+    [
+     "CFAB",
+     "3D Medical Deployment Support Command(W56KHM)",
+     "W56KHM"
+    ],
+    [
+     "CFAI",
+     "U.S. ARMY RESERVE COMMAND (W81PNH)",
+     "W81PNH"
+    ],
+    [
+     "CFAJ",
+     "USPFO GA (W33QW7/W33MNC/W33MNG)",
+     "W33QW7"
+    ],
+    [
+     "CFAK",
+     "FT MCPHERSON/FT GILLEM (W33FRS/W33NYU)",
+     "W33FRS"
+    ],
+    [
+     "CFAP",
+     "USACE SOUTH ATLANTIC DIV (W80YH2)",
+     "W80YH2"
+    ],
+    [
+     "CFAT",
+     "FT BENNING (W33APT)",
+     "W33APT"
+    ],
+    [
+     "CFFQ",
+     "78 ABW (FB2065)",
+     "FB2065"
+    ],
+    [
+     "CFFY",
+     "CRTC SAVANNAH GA ANG (FB6103)",
+     "FB6103"
+    ],
+    [
+     "CFFZ",
+     "116 BW GA ANG (FB6101)",
+     "FB6101"
+    ],
+    [
+     "CFMQ",
+     "MC LOGISTICS BASE ALBANY (M67004)(PP ONLY)",
+     "M67004"
+    ],
+    [
+     "CFNC",
+     "PRIORITY MATR OFFICE DET KINGS BAY(N40415)",
+     "N40415"
+    ],
+    [
+     "CFNF",
+     "TRIDENT REFIT FAC (N44466)",
+     "N44466"
+    ],
+    [
+     "CFSC",
+     "DLA DISTRIBUTION FORT BENNING(SW3261)",
+     "SW3261"
+    ],
+    [
+     "CFSK",
+     "DCMA ATLANTA (S1103A)",
+     "S1103A"
+    ],
+    [
+     "CFSQ",
+     "DEF DIST DEP ALBANY (SW3121)",
+     "SW3121"
+    ],
+    [
+     "CFUQ",
+     "GENERAL SERVICES ADMIN ATLANTA (GA0003)",
+     "GA0003"
+    ],
+    [
+     "CGAL",
+     "HUNTER ARMY AF (W33JYG)",
+     "W33JYG"
+    ],
+    [
+     "CGAP",
+     "USACE SAVANNAH DIST (W33SJG)",
+     "W33SJG"
+    ],
+    [
+     "CGAT",
+     "FT GORDON (W33M8U)",
+     "W33M8U"
+    ],
+    [
+     "CGNT",
+     "NAV SUPPLY CORPS SCHOOL (N62741)",
+     "N62741"
+    ],
+    [
+     "CHAD",
+     "DOL, TRANSPORTATION DIVISION, DEPLOYMENT OPERATIONS BRANCH (W917E2)",
+     "W917E2"
+    ],
+    [
+     "CHAQ",
+     "MATERIAL CONTROL BRANCH, DOL (W33NYN)",
+     "W33NYN"
+    ],
+    [
+     "CHAT",
+     "FT STEWART (W33GGZ)",
+     "W33GGZ"
+    ],
+    [
+     "CHNL",
+     "NAS ATLANTA (N00196)",
+     "N00196"
+    ],
+    [
+     "CIFL",
+     "165 LG GA ANG (FB6703)",
+     "FB6703"
+    ],
+    [
+     "CIFZ",
+     "AFLCMC/WLMI (C-17 FMS)",
+     "EB1233"
+    ],
+    [
+     "CJFL",
+     "GEORGIA ANG (FB6102)",
+     "FB6102"
+    ],
+    [
+     "CKFL",
+     "347 TRNS (FB4830)",
+     "FB4830"
+    ],
+    [
+     "CKSQ",
+     "DEF DIST DEP WARNER ROBINS (SW3119/FD2060)",
+     "SW3119"
+    ],
+    [
+     "CLAH",
+     "954TH TRANS CO (W32QLR)",
+     "W32QLR"
+    ],
+    [
+     "CLAJ",
+     "USPFO FL (W32MUV/W32RRX)",
+     "W32MUV"
+    ],
+    [
+     "CLAP",
+     "USACE JACKSONVILLE DIST (W32RY2)",
+     "W32RY2"
+    ],
+    [
+     "CLAS",
+     "MSDDC 832ND TRANS BATTALION (W81FER)",
+     "W81FER"
+    ],
+    [
+     "CLAZ",
+     "HQs, 143RD Expeditionary Support Command (W32DNL)",
+     "W32DNL"
+    ],
+    [
+     "CLFY",
+     "16 TRNS/LGTTH (FB4417)",
+     "FB4417"
+    ],
+    [
+     "CLFZ",
+     "125 AW FL ANG (FB6091)",
+     "FB6091"
+    ],
+    [
+     "CLMC",
+     "BLOUNT ISLAND PORT (M92502)",
+     "M92502"
+    ],
+    [
+     "CLNC",
+     "PRIORITY MATR OFFICE DET MAYPORT(N50070)",
+     "N50070"
+    ],
+    [
+     "CLNM",
+     "Naval Ordnance Test Unit, Cape Canaveral, FL (N62841)",
+     "N62841"
+    ],
+    [
+     "CLPK",
+     "7TH CG DIST MIAMI (Z71107)",
+     "Z71107"
+    ],
+    [
+     "CLPS",
+     "US Coast Guard Base Miami",
+     "Z31020"
+    ],
+    [
+     "CLSK",
+     "DCMA ORLANDO (S1002A)",
+     "S1002A"
+    ],
+    [
+     "CLSU",
+     "DLA Document Services-Jacksonville Regional Office",
+     "SA7042"
+    ],
+    [
+     "CMAZ",
+     "US Army Logistics Readiness Center-Miami",
+     "W90JYM"
+    ],
+    [
+     "CMFL",
+     "45 TRNS (FB2520)",
+     "FB2520"
+    ],
+    [
+     "CMMI",
+     "MC C CO 8TH TANK BN (M21405)",
+     "M21405"
+    ],
+    [
+     "CMMZ",
+     "US MARINE FORCES SOUTH, SUPPLY G4, 9301 NW 33RD STREET (MX2000)",
+     "MX2000"
+    ],
+    [
+     "CMNL",
+     "NAS JACKSONVILLE (N00207)",
+     "N00207"
+    ],
+    [
+     "CNFL",
+     "482 LSS LGS (FB6648)",
+     "FB6648"
+    ],
+    [
+     "CNHM",
+     "SPECIAL OPERATION COMMAND-SOUTH (W589VX)",
+     "W589VX"
+    ],
+    [
+     "CONT",
+     "NAS PENSACOLA (N00204)",
+     "N00204"
+    ],
+    [
+     "CONV",
+     "NAVSURFWARCEN (N61008)",
+     "N61008"
+    ],
+    [
+     "CPFL",
+     "325 LSS (FB4819)",
+     "FB4819"
+    ],
+    [
+     "CPMI",
+     "MC 4TH ANGLICO MARINE FOR RES (M21628)",
+     "M21628"
+    ],
+    [
+     "CPNT",
+     "NAVAIRWARCENTRASYSDIV (N61339)",
+     "N61339"
+    ],
+    [
+     "CQNL",
+     "NAS KEY WEST (N00213)",
+     "N00213"
+    ],
+    [
+     "CRAJ",
+     "Florida National Guard Counterdrug Program(W32MU2)",
+     "W32MU2"
+    ],
+    [
+     "CRNM",
+     "NMC Det Jacksonville",
+     "N61166"
+    ],
+    [
+     "CRSQ",
+     "DEF DIST DEP JACKSONVILLE (SW3122/N45928/N68836)",
+     "SW3122"
+    ],
+    [
+     "CSFL",
+     "6 TRNS (FB4814)",
+     "FB4814"
+    ],
+    [
+     "CSNM",
+     "NMC Det Key West",
+     "N61167"
+    ],
+    [
+     "CTFL",
+     "96 LGS (FB2823)",
+     "FB2823"
+    ],
+    [
+     "CTNM",
+     "NMC Det Jacksonville Component Pensacola",
+     "N61169"
+    ],
+    [
+     "CUNM",
+     "NAVY MUNITIONS COMMAND DET MAYPORT (N61045)",
+     "N61045"
+    ],
+    [
+     "CVFZ",
+     "ITT Corporation",
+     "EY1450"
+    ],
+    [
+     "CVNM",
+     "Navy Munitions Command Detachment Mayport Component Panama City",
+     "N61170"
+    ],
+    [
+     "CVNZ",
+     "NAV TASK FORCE 43 NAV STA (N3326A)",
+     "N3326A"
+    ],
+    [
+     "CVSZ",
+     "DLA Document Services-Pensacola Regional Office",
+     "SA7039"
+    ],
+    [
+     "DAAJ",
+     "USPFO VERMONT (W81KBL)",
+     "W81KBL"
+    ],
+    [
+     "DAFL",
+     "159 FW VERMONT ANG (FB6451)",
+     "FB6451"
+    ],
+    [
+     "DBAC",
+     "OFFICIAL MAIL & DISTRIB CNTR DOIM (W16BEJ)",
+     "W16BEJ"
+    ],
+    [
+     "DBAJ",
+     "USPFO NY (W16DDS)",
+     "W16DDS"
+    ],
+    [
+     "DBAM",
+     "WATERVLIET ARS (W16H1F)",
+     "W16H1F"
+    ],
+    [
+     "DBAP",
+     "USACE BUFFALO DIST (W81EU6)",
+     "W81EU6"
+    ],
+    [
+     "DBAQ",
+     "FT HAMILTON ARMY BASE (W16JGF)",
+     "W16JGF"
+    ],
+    [
+     "DBAT",
+     "DOL FT DRUM (W16BEU)",
+     "W16BEU"
+    ],
+    [
+     "DBFV",
+     "AFRL ROME LAB (FB2812)",
+     "FB2812"
+    ],
+    [
+     "DBNK",
+     "NAVAL SUPPORT UNIT (N68317)",
+     "N68317"
+    ],
+    [
+     "DBNM",
+     "NAV UNDERSEA WARFARE CEN DET SENECA LAKE (N41917)",
+     "N41917"
+    ],
+    [
+     "DBSK",
+     "DCMA LONG ISLAND (S3309A)",
+     "S3309A"
+    ],
+    [
+     "DCAP",
+     "USACE NEW YORK DIST (W16R0E)",
+     "W16R0E"
+    ],
+    [
+     "DCAT",
+     "MILITARY ACADEMY WEST PT (W91FFL)",
+     "W91FFL"
+    ],
+    [
+     "DDAP",
+     "USACE N ATLANTIC DIV (W81GJN)",
+     "W81GJN"
+    ],
+    [
+     "DDFL",
+     "107 ARW NEW YORK ANG (FB6321)",
+     "FB6321"
+    ],
+    [
+     "DEFL",
+     "914TH AW (FB6670)",
+     "FB6670"
+    ],
+    [
+     "DHAM",
+     "DHA MEDICAL LOGISTICS (HT0041)",
+     "HT0041"
+    ],
+    [
+     "DHFL",
+     "109 AW NY ANG (FB6323)",
+     "FB6323"
+    ],
+    [
+     "DJFL",
+     "174 FW NY ANG (FB6324)",
+     "FB6324"
+    ],
+    [
+     "DKFL",
+     "106 RW NY ANG (FB6325)",
+     "FB6325"
+    ],
+    [
+     "DLFL",
+     "105AW NY ANG STEWART ANGB (FB6322)",
+     "FB6322"
+    ],
+    [
+     "DLMC",
+     "6th COMMUNICATION BATTALION (M21680)",
+     "M21680"
+    ],
+    [
+     "DLMQ",
+     "2nd BN 25th MARINE REGIMENT, 4th MARINE DIVISION (M14220)",
+     "M14220"
+    ],
+    [
+     "DMAB",
+     "USA MEDICAL MATERIEL AGENCY(W25ATS)",
+     "W25AT5"
+    ],
+    [
+     "DMAC",
+     "CHARLES E KELLY SPT FAC (W903D6)",
+     "W903D6"
+    ],
+    [
+     "DMAJ",
+     "USPFO PENNSYLVANIA (W25KYQ)",
+     "W25KYQ"
+    ],
+    [
+     "DMAP",
+     "USACE PHILADELPHIA DIST (W25PHS)",
+     "W25PHS"
+    ],
+    [
+     "DMAQ",
+     "LETTERKENNY MUNITIONS CTR (W25G1R)",
+     "W25G1R"
+    ],
+    [
+     "DMAS",
+     "ITO LETTERKENNY ARMY DEPOT (W90CGJ)",
+     "W90CGJ"
+    ],
+    [
+     "DMAT",
+     "CARLISLE BARRACKS (W25BDT)",
+     "W25BDT"
+    ],
+    [
+     "DMAV",
+     "U.S. ARMY TMDE SUPPORT REGION 1 (W81NMC)",
+     "W81NMC"
+    ],
+    [
+     "DMAY",
+     "USA Communications Security Division (COMSEC)(W90CGG)",
+     "W90CGG"
+    ],
+    [
+     "DMFL",
+     "911 AW (FB6712)",
+     "FB6712"
+    ],
+    [
+     "DMMI",
+     "MC COMM CO DET 2 H&S BN (M71007)",
+     "M71007"
+    ],
+    [
+     "DMNH",
+     "Naval Inventory Control Point (NICP), Mechanicsburg, PA (N44629)",
+     "N44629"
+    ],
+    [
+     "DMNL",
+     "NAS JRB WILLOW GROVE (N00158)",
+     "N00158"
+    ],
+    [
+     "DMNQ",
+     "NAVAL INVENTORY CONTROL PT (N47304)",
+     "N47304"
+    ],
+    [
+     "DMSC",
+     "DEF PER SUP CTR (SW0100)",
+     "SW0100"
+    ],
+    [
+     "DMSK",
+     "DCMA PHILADEPHIA (S3915A)",
+     "S3915A"
+    ],
+    [
+     "DMSU",
+     "DLA Document Services-Philadelphia Regional Office",
+     "SA7004"
+    ],
+    [
+     "DMVZ",
+     "NAVAL REACTORS OFFICE PITTSBURGH (N64169)",
+     "N64169"
+    ],
+    [
+     "DNAP",
+     "USACE PITTSBURGH DIST (W81ET4)",
+     "W81ET4"
+    ],
+    [
+     "DNFL",
+     "171 ARW PA ANG PITTSBURGH IT(FB6381)",
+     "FB6381"
+    ],
+    [
+     "DNMI",
+     "MC MARINE WING SUPPORT SQDN 474 DET A (M01199)",
+     "M01199"
+    ],
+    [
+     "DNNV",
+     "SPA WAR SAN DIEGO, DET PHILA PA (N68592)",
+     "N68592"
+    ],
+    [
+     "DNSK",
+     "DCMA PITTSBURGH (S3911A)",
+     "S3911A"
+    ],
+    [
+     "DNSQ",
+     "DEF INDUSTRIAL SUP CTR (SC0500)",
+     "SC0500"
+    ],
+    [
+     "DOAQ",
+     "TOBYHANNA AD (W25G1V)(PP ONLY)",
+     "W25G1V"
+    ],
+    [
+     "DOFL",
+     "193 SOW PA ANG (FB6383)",
+     "FB6383"
+    ],
+    [
+     "DOSC",
+     "Pendergrass Distribution Center Army 3PL 596 Bonnie Valentine Way (SC0150)",
+     "SC3103"
+    ],
+    [
+     "DOSK",
+     "DCMA PHILADELPHIA-READING (S3912A)",
+     "S3912A"
+    ],
+    [
+     "DOSQ",
+     "DEF DEP SUSQYHANNA (SW3100/SW3124)",
+     "SW3100"
+    ],
+    [
+     "DOSZ",
+     "DEFENSE DISTRIBUTION CENTER DPMS SUBSISTANCE SUPPORT (SC3105)",
+     "SC3105"
+    ],
+    [
+     "DPAM",
+     "SCRANTON AAP (W25H0U)",
+     "W25H0U"
+    ],
+    [
+     "DPNQ",
+     "NAVAL SEA LOGISTICS CENTER CODE 63111 OM&S 5450 Carlisle Pike BLDG 209 (N36204)",
+     "N36204"
+    ],
+    [
+     "DPNV",
+     "NAVSHIPSYSENGSTAT NAVSURFWARCEN (N65540)",
+     "N65540"
+    ],
+    [
+     "DPSQ",
+     "DEF DIST DEP TOBYHANNA (SW3114/W25G1W/W905MD)",
+     "SW3114"
+    ],
+    [
+     "DQFL",
+     "111 FW PA ANG (FB6382)",
+     "FB6382"
+    ],
+    [
+     "DRAI",
+     "1185TH USA TTBDE (W25PR4)",
+     "W25PR4"
+    ],
+    [
+     "DRAX",
+     "United States Security Assistance Command (USASAC) (W25P02)",
+     "W25P02"
+    ],
+    [
+     "EAFY",
+     "127 WG MICHIGAN ANG (FB6221)",
+     "FB6221"
+    ],
+    [
+     "EASC",
+     "DEFENSE REUTILIZATION & MARKETING SVC (SP4400)",
+     "SP4400"
+    ],
+    [
+     "EASQ",
+     "DEF LOGISTICS SERVICE CTR (SB4201)",
+     "SB4201"
+    ],
+    [
+     "EASZ",
+     "DLA DISPOSITION SERVICES (SC4400)",
+     "SC4400"
+    ],
+    [
+     "EBAP",
+     "USACE DETROIT DIST (W56MES)",
+     "W56MES"
+    ],
+    [
+     "ECAJ",
+     "USPFO MICHIGAN (W56LS9/W56R69/W56D5E)",
+     "W56LS9"
+    ],
+    [
+     "ECAK",
+     "ARMY TANK AUTO CMD (W56HZY)",
+     "W56HZY"
+    ],
+    [
+     "ECFL",
+     "CTRC ALPENS MI ANG (FB6223)",
+     "FB6223"
+    ],
+    [
+     "EDFL",
+     "110 LS MI ANG (FB6222)",
+     "FB6222"
+    ],
+    [
+     "EIAJ",
+     "USPFO OHIO(W24MBT/W24L9M/W24MBS/W24TJ6)",
+     "W24MBT"
+    ],
+    [
+     "EIAP",
+     "USACE OH RIVER DIV (W24G87)",
+     "W24G87"
+    ],
+    [
+     "EIDK",
+     "DFAS NAVY CLEVELAND (HQ0103)",
+     "HQ0103"
+    ],
+    [
+     "EIMI",
+     "MC 3RD BN 25TH MARINES (M14230)",
+     "M14230"
+    ],
+    [
+     "EIOK",
+     "FAS Office of General Supplies 2450 Business Park Drive (GA0004)",
+     "GA0004"
+    ],
+    [
+     "EIPK",
+     "US Coast Guard Base",
+     "Z31050"
+    ],
+    [
+     "EISQ",
+     "DRMS, Long Term Storage Facility (SXH465)",
+     "SXH465"
+    ],
+    [
+     "EKSK",
+     "DCMA DAYTON (S3605A)",
+     "S3605A"
+    ],
+    [
+     "ELFL",
+     "88TH TRNS (FB2300)",
+     "FB2300"
+    ],
+    [
+     "ELSK",
+     "DCMA CLEVELAND (S3603A)",
+     "S3603A"
+    ],
+    [
+     "EMFL",
+     "179 AW OH ANG (FB6353)",
+     "FB6353"
+    ],
+    [
+     "ENFL",
+     "121 ARW RICKENBACKER ANGB (FB5356)",
+     "FB6356"
+    ],
+    [
+     "EPFL",
+     "178 LRS/LGTT, Ohio ANG (FB6352)",
+     "FB6352"
+    ],
+    [
+     "EQFL",
+     "180 FW OH ANG (FB6355)",
+     "FB6355"
+    ],
+    [
+     "ERFL",
+     "910 LG YOUNGSTOWN-VIENNA (FB6656)",
+     "FB6656"
+    ],
+    [
+     "FAAC",
+     "AVIATION LOGISTICS MANAGEMENT DIV (W813G1)",
+     "W813G1"
+    ],
+    [
+     "FAAM",
+     "FT KNOX (W22PL1)",
+     "W22PL1"
+    ],
+    [
+     "FAAP",
+     "USACE LOUISVILLE DIST (W22W9K)",
+     "W22W9K"
+    ],
+    [
+     "FAAQ",
+     "BLUEGRASS AD (W22P1H, H92224)",
+     "W22P1H"
+    ],
+    [
+     "FAAT",
+     "FT CAMPBELL AAF (W34GNA)",
+     "W34GNA"
+    ],
+    [
+     "FAAV",
+     "HQ 160TH SOAR(A) (W80NTL)",
+     "W80NTL"
+    ],
+    [
+     "FAAZ",
+     "INSTALLATION SUPPLY DIVISION (W34XC5)",
+     "W34XC5"
+    ],
+    [
+     "FANM",
+     "Naval Surface Warfare Center IH Det Picatinny, NJ",
+     "N38634"
+    ],
+    [
+     "FASC",
+     "DLA DISTRIBUTION LEXINGTON KY",
+     "SW3273"
+    ],
+    [
+     "FBAC",
+     "KENTUCKY LOGISTICS OPERATIONS CEN NG MATERIAL MANAGEMENT CEN (W90JFF)",
+     "W90JFF"
+    ],
+    [
+     "FBAJ",
+     "USPFO KENTUCKY (W81K70)",
+     "W81K70"
+    ],
+    [
+     "FBFL",
+     "123 AW KENTUCKY ANG (FB6161)",
+     "FB6161"
+    ],
+    [
+     "FCAC",
+     "ACCESSIONS SUPPORT BDE (W73RGS)",
+     "W73RGS"
+    ],
+    [
+     "FCAI",
+     "11TH Aviation Command (W908ZY)",
+     "W908ZY"
+    ],
+    [
+     "FDAJ",
+     "USPFO TENNESSEE (W38NCE)",
+     "W38NCE"
+    ],
+    [
+     "FDAM",
+     "HOLSTON AAP (W80YA8)",
+     "W80YA8"
+    ],
+    [
+     "FDAP",
+     "USACE MEMPHIS DIST (W38XGR)",
+     "W38XGR"
+    ],
+    [
+     "FDFL",
+     "134 ARW MCGHEE TYSON ANGB (FB6423)",
+     "FB6423"
+    ],
+    [
+     "FDFV",
+     "ARNOLD ENGR DEV CTR (FB2804)",
+     "FB2804"
+    ],
+    [
+     "FDMI",
+     "MC M BATTERY 4TH BN 14TH MARINES (M14345)",
+     "M14345"
+    ],
+    [
+     "FDNT",
+     "NSA MEMPHIS (N00639)",
+     "N00639"
+    ],
+    [
+     "FEAM",
+     "MILAN AAP (W38H0N)",
+     "W38H0N"
+    ],
+    [
+     "FEAP",
+     "USACE ENGR DIST NASHVILLE (W38XDD)",
+     "W38XDD"
+    ],
+    [
+     "FEFL",
+     "164 AW TN ANG (FB6422)",
+     "FB6422"
+    ],
+    [
+     "FFFL",
+     "118 LS TN ANG (FB6421)",
+     "FB6421"
+    ],
+    [
+     "FGAI",
+     "PR HQ 81 REG SPT CMD (W8129J)",
+     "W8129J"
+    ],
+    [
+     "FGAJ",
+     "USPFO ALABAMA (W31LPY)",
+     "W31LPY"
+    ],
+    [
+     "FGAP",
+     "USACE MOLILE DIST (W31XNJ)",
+     "W31XNJ"
+    ],
+    [
+     "FGAQ",
+     "ANNISTON AD (W31G1Z)",
+     "W31G1Z"
+    ],
+    [
+     "FGAV",
+     "PEO AIR SPACE AND MSL DEF JLENS PRO OF (W91EUN)",
+     "W91EUN"
+    ],
+    [
+     "FGFL",
+     "117 ARW AL ANG (FB6011)",
+     "FB6011"
+    ],
+    [
+     "FGMI",
+     "MC 4TH SCAMP (M14008)",
+     "M14008"
+    ],
+    [
+     "FHAT",
+     "FT RUCKER (W31R4Z)",
+     "W31R4Z"
+    ],
+    [
+     "FHMI",
+     "MC BATTERY B 1ST BN 14TH MARINES (M14340)",
+     "M14340"
+    ],
+    [
+     "FIAC",
+     "USA TMDE ACTIVITY REDSTONE ARS (W81PYR)",
+     "W81PYR"
+    ],
+    [
+     "FIAM",
+     "REDSTONE ARS (W908RX/W81UHH)",
+     "W908RX"
+    ],
+    [
+     "FIAP",
+     "USACE HUNTSVILLE SUP CTR (W31RY0)",
+     "W31RY0"
+    ],
+    [
+     "FIAR",
+     "USA REDSTONE TRANSPORTATION OFFICE (W90BWX)",
+     "W90BWX"
+    ],
+    [
+     "FIAV",
+     "TMDE-PM OFFICE OF THE PRODUCT MGR TMDE (W80KQR)",
+     "W80KQR"
+    ],
+    [
+     "FIAZ",
+     "HQ AVIATION AND MISSILE COMMAND (W31G3H)",
+     "W31G3H"
+    ],
+    [
+     "FJFL",
+     "187 FW AL ANG (FB6012)",
+     "FB6012"
+    ],
+    [
+     "FKAC",
+     "USA TMDE 2 REDSTONE ARS (W804EM)",
+     "W804EM"
+    ],
+    [
+     "FKFL",
+     "42 TRNS (FB3300)",
+     "FB3300"
+    ],
+    [
+     "FLSQ",
+     "DEF DIST DEP ANNISTON (SW3120)",
+     "SW3120"
+    ],
+    [
+     "FMAJ",
+     "USPFO MISSISSIPPI CP SHELBY (W35KT6)",
+     "W35KT6"
+    ],
+    [
+     "FMAM",
+     "MISSISSIPPI AAP (W80KLB)",
+     "W80KLB"
+    ],
+    [
+     "FMAP",
+     "USACE MISSISSIPPI VALLEY DIV (W90CF5)",
+     "W90CF5"
+    ],
+    [
+     "FMAS",
+     "USACE WATERWAYS EXPER STA (W81EWF)",
+     "W81EWF"
+    ],
+    [
+     "FMAZ",
+     "412th Theater Engineer Command, Vicksburg, MS (W90LJC)",
+     "W90LJC"
+    ],
+    [
+     "FMFL",
+     "81 TRNS (FB3010)",
+     "FB3010"
+    ],
+    [
+     "FMMI",
+     "MC E BATTERY 2ND BN 14TH MARINES (M14604)",
+     "M14604"
+    ],
+    [
+     "FMNF",
+     "SUPSHIP CONV REPAIR (N62795)",
+     "N62795"
+    ],
+    [
+     "FMNM",
+     "NMC Det. New Orleans Component Meridian",
+     "N50243"
+    ],
+    [
+     "FMNT",
+     "NAV CONSTRUCTION BN CD GULFPORT(N62604)",
+     "N62604"
+    ],
+    [
+     "FMNU",
+     "NAV OCEANOGRAPHIC OFC (N62306)",
+     "N62306"
+    ],
+    [
+     "FNAJ",
+     "DOL USPFO MISSISSIPPI (W35KT5/W35PWX)",
+     "W35KT5"
+    ],
+    [
+     "FNAP",
+     "USACE VICKSBURG DIST (W807PM)",
+     "W807PM"
+    ],
+    [
+     "FNFL",
+     "14 LS (FB3022)",
+     "FB3022"
+    ],
+    [
+     "FNNT",
+     "NAS MERIDIAN (N63043)",
+     "N63043"
+    ],
+    [
+     "FOFL",
+     "172 AW MS ANG (FB6242)",
+     "FB6242"
+    ],
+    [
+     "FPFL",
+     "MS ANG CRTC (FB6243)",
+     "FB6243"
+    ],
+    [
+     "FQFL",
+     "186 ARW MS ANG (FB6241)",
+     "FB6241"
+    ],
+    [
+     "FQNQ",
+     "NAVSUP FLC GULFPORT (N6694N)",
+     "N6694N"
+    ],
+    [
+     "FQSQ",
+     "DLA Distribution Gulfport",
+     "SW310M"
+    ],
+    [
+     "FRAM",
+     "LOUISIANA AAP (W42H0M)",
+     "W42H0M"
+    ],
+    [
+     "FRAP",
+     "USACE NEW ORLEANS DIST (W42HEM)",
+     "W42HEM"
+    ],
+    [
+     "FRMI",
+     "MARINE FORCES RESERVE TMO",
+     "M20016"
+    ],
+    [
+     "FRNM",
+     "NMC Detachment New Orleans",
+     "N61164"
+    ],
+    [
+     "FRNQ",
+     "NAV SPT ACTY NEW ORLEANS (N00205)",
+     "N00205"
+    ],
+    [
+     "FSAC",
+     "DOIM FT POLK (W42CXD)",
+     "W42CXD"
+    ],
+    [
+     "FSAJ",
+     "USPFO LOUISIANA (W42BJ2)",
+     "W42BJ2"
+    ],
+    [
+     "FSAT",
+     "FT POLK (W42CXA)",
+     "W42CXA"
+    ],
+    [
+     "FSFL",
+     "2 TRNS (FB4608)",
+     "FB4608"
+    ],
+    [
+     "FSMI",
+     "MC POW PLT HQ CO 23RD MARINES (M74016)",
+     "M74016"
+    ],
+    [
+     "FSNT",
+     "NAVSUP FLT LOG CTR NOLA (N40308)",
+     "N40308"
+    ],
+    [
+     "FSPS",
+     "US Coast Guard Base",
+     "Z31070"
+    ],
+    [
+     "FTMI",
+     "MC H&S CO 3RD BN 23RD MARINES (M14131)",
+     "M14131"
+    ],
+    [
+     "FUFL",
+     "159 FW LOUISIANA ANG (FB6171)",
+     "FB6171"
+    ],
+    [
+     "FUMI",
+     "HQBN MARFORCES (M26382)",
+     "M26382"
+    ],
+    [
+     "GAAJ",
+     "USPFO MINNESOTA (W57LVB)",
+     "W57LVB"
+    ],
+    [
+     "GAAM",
+     "TWIN CITIES AAP (W91BUY)",
+     "W91BUY"
+    ],
+    [
+     "GAAP",
+     "USACE ST PAUL DIST (W81G67)",
+     "W81G67"
+    ],
+    [
+     "GASK",
+     "DCMA TWIN CITIES (S2401A)",
+     "S2401A"
+    ],
+    [
+     "GBFL",
+     "148 FW MN ANG (FB6232)",
+     "FB6232"
+    ],
+    [
+     "GCFL",
+     "934 LG (FB6633)",
+     "FB6633"
+    ],
+    [
+     "GDFL",
+     "133 AW MN ANG (FB6231)",
+     "FB6231"
+    ],
+    [
+     "GEAJ",
+     "USPFO WI CP DOUGLAS (W5CK4Y)",
+     "W5CK4Y"
+    ],
+    [
+     "GEAS",
+     "FT MCCOY (W5CQRF)",
+     "W5CQRF"
+    ],
+    [
+     "GEAZ",
+     "88TH Regional Support Command",
+     "W919H3"
+    ],
+    [
+     "GEFL",
+     "CRTC VOLK FLD WI ANG (FB6493)",
+     "FB6493"
+    ],
+    [
+     "GFFL",
+     "115FW WI ANG TRUAX FLD (FB6492)",
+     "FB6492"
+    ],
+    [
+     "GFMI",
+     "MC G CO 2ND BN 24TH MARINES (M14175)",
+     "M14175"
+    ],
+    [
+     "GHFL",
+     "128 ARW WI ANG (FB6491)",
+     "FB6491"
+    ],
+    [
+     "GIAJ",
+     "USPFO IOWA CAMP DODGE (W81JM8)",
+     "W81JM8"
+    ],
+    [
+     "GIAM",
+     "IOWA AAP (W54H0G)",
+     "W54H0G"
+    ],
+    [
+     "GIFL",
+     "132 FW IOWA ANG (FB6141)",
+     "FB6141"
+    ],
+    [
+     "GJFL",
+     "185 FW IOWA ANG (FB6142)",
+     "FB6142"
+    ],
+    [
+     "GKFL",
+     "375 TRNS (FB4407)",
+     "FB4407"
+    ],
+    [
+     "GKWP",
+     "416TH THEATER ENGINEER COMMAND",
+     "W90T7E"
+    ],
+    [
+     "GLAJ",
+     "USPFO ILLINOIS (W52JUD)",
+     "W52JUD"
+    ],
+    [
+     "GLAM",
+     "Rock Island Arsenal",
+     "W52H1C"
+    ],
+    [
+     "GLAP",
+     "USACE CHICAGO DIST (W81G66)",
+     "W81G66"
+    ],
+    [
+     "GLFD",
+     "128 LG OHARE IAP ARS (FB6618)",
+     "FB6618"
+    ],
+    [
+     "GLFL",
+     "126 ARW IL ANG (FB6121)",
+     "FB6121"
+    ],
+    [
+     "GLNT",
+     "NAVAL STATION GREAT LAKES (N00128)",
+     "N00128"
+    ],
+    [
+     "GMAC",
+     "US ARMY FIELD SUPPORT COMMAND (W90XN7)",
+     "W90XN7"
+    ],
+    [
+     "GMAK",
+     "USA Joint Munitions Command",
+     "W81YWB"
+    ],
+    [
+     "GMAP",
+     "USACE ROCK ISLAND DIST (W52X0X)",
+     "W52X0X"
+    ],
+    [
+     "GMFL",
+     "182 AW ILLINOIS ANG (FB6122)",
+     "FB6122"
+    ],
+    [
+     "GMNZ",
+     "NAV AIR SYSTEMS COM DET (N47078)",
+     "N47078"
+    ],
+    [
+     "GMSK",
+     "DCMA CHICAGO (S1403A/S5001A)",
+     "S1403A"
+    ],
+    [
+     "GNAP",
+     "USACE CONSTRUCTION ENGR RSCH LAB (W52EU2)",
+     "W52EU2"
+    ],
+    [
+     "GNFL",
+     "183 FW IL ANG (FB6123)",
+     "FB6123"
+    ],
+    [
+     "GOAD",
+     "Camp Atterbury Joint Maneuver Training Center (W91WU7)",
+     "W91WU7"
+    ],
+    [
+     "GOAM",
+     "INDIANA AAP (W53H0F)",
+     "W53H0F"
+    ],
+    [
+     "GOCO",
+     "PROJECT MANAGEMENT OFFICE STRYKER BRIGADE COMBAT TEAM (W5872U)",
+     "W5872U"
+    ],
+    [
+     "GONM",
+     "NSWC CRANE, INDIANA (N00164)",
+     "N00164"
+    ],
+    [
+     "GOSC",
+     "DLA DISTRIBUTION GREAT LAKES RECRUIT TRAINING COMMAND 2601 (SW3262)",
+     "SW3262"
+    ],
+    [
+     "GOSK",
+     "DCMA INDIANAPOLIS (S1501A)",
+     "S1501A"
+    ],
+    [
+     "GPAJ",
+     "USPFO INDIANA (W53P1L/W53T0A)",
+     "W53P1L"
+    ],
+    [
+     "GPAM",
+     "NEWPORT CHEMICAL DEPOT (W91CP7)",
+     "W91CP7"
+    ],
+    [
+     "GPFL",
+     "122 FW INDIANA ANG (FB6132)",
+     "FB6132"
+    ],
+    [
+     "GQFH",
+     "USNORTHCOM Joint Movement Team MAILING ADDRESS: Clark St., Bldg 3",
+     "FA1417"
+    ],
+    [
+     "GQFL",
+     "434 LSS (FB4654)",
+     "FB4654"
+    ],
+    [
+     "GRAM",
+     "CRANE ARMY AMMO ACT (W53XMD)",
+     "W53XMD"
+    ],
+    [
+     "GRFL",
+     "181 FW INDIANA ANG (FB6131)",
+     "FB6131"
+    ],
+    [
+     "GSAJ",
+     "USPFO MISSOURI (W58MYQ)",
+     "W58MYQ"
+    ],
+    [
+     "GSAM",
+     "LAKE CITY AAP (W58H0J)",
+     "W58H0J"
+    ],
+    [
+     "GSAP",
+     "USACE KANSAS CITY DIST (W58XUW)",
+     "W58XUW"
+    ],
+    [
+     "GSAQ",
+     "ARMY PUB DIST CTR (W58WKT)",
+     "W58WKT"
+    ],
+    [
+     "GSAT",
+     "FT LEONARD WOOD (W58QRC)",
+     "W58QRC"
+    ],
+    [
+     "GSPK",
+     "U.S. COAST GUARD BSU DET ST LOUIS",
+     "Z31080"
+    ],
+    [
+     "GSSC",
+     "DLA DISTRIBUTION FT LEONARD WOOD",
+     "SW3267"
+    ],
+    [
+     "GTAK",
+     "USA RESERVE ADMINCTR (W81CM6)",
+     "W81CM6"
+    ],
+    [
+     "GTAP",
+     "USACE ST LOUIS DIST (W81C8X)",
+     "W81C8X"
+    ],
+    [
+     "GTFL",
+     "509 LG (FB4625)",
+     "FB4625"
+    ],
+    [
+     "GUAJ",
+     "MISSOURI ANG (W81PNC)",
+     "W81PNC"
+    ],
+    [
+     "GUBU",
+     "NAT IMAGERY&MAPPING AGY (HM0001)",
+     "HM0001"
+    ],
+    [
+     "GUFL",
+     "113 FW MO ANG (FB6251)",
+     "FB6251"
+    ],
+    [
+     "GUSK",
+     "DEFENSE CONTARCT MANAGEMENT AGENCY ST LOUIS (S2605A)",
+     "S2605A"
+    ],
+    [
+     "GVFL",
+     "139 AW MO ANG (FB6252)",
+     "FB6252"
+    ],
+    [
+     "HAAB",
+     "William Beaumont Army Medical CTR(W45NSV)",
+     "W45NSV"
+    ],
+    [
+     "HAAE",
+     "FT BLISS (W45QQ9)",
+     "W45QQ9"
+    ],
+    [
+     "HAAH",
+     "842D TRANS BN (W917GC)",
+     "W917GC"
+    ],
+    [
+     "HAAJ",
+     "USPFO TX (W81JTH/W45K1R/W45K1Q)",
+     "W81JTH"
+    ],
+    [
+     "HAAM",
+     "LONGHORN AAP (W908YF)",
+     "W908YF"
+    ],
+    [
+     "HAAX",
+     "204TH MILITARY INTEL BAT (W800YG)",
+     "W800YG"
+    ],
+    [
+     "HAAZ",
+     "HQ, HHC, MCP G4 MOBOPS, Ft. Sam Houston, TX (W90QKP)",
+     "W90QKP"
+    ],
+    [
+     "HAFB",
+     "USAF MEDICAL LOGISTICS OFF (FM9133)",
+     "FM9133"
+    ],
+    [
+     "HAFK",
+     "37 TRNS (FB3047)",
+     "FB3047"
+    ],
+    [
+     "HAFQ",
+     "645 AESS/LG",
+     "FX2369"
+    ],
+    [
+     "HAFT",
+     "301 FW (FB6675)",
+     "FB6675"
+    ],
+    [
+     "HANM",
+     "NMC Det. Fort Worth Component, Corpus Christi (N50244)",
+     "N50244"
+    ],
+    [
+     "HASC",
+     "DCMA Special Programs South",
+     "S4802A"
+    ],
+    [
+     "HBAK",
+     "USACE SOUTHWEST DIV (W81G68)",
+     "W81G68"
+    ],
+    [
+     "HBAQ",
+     "RED RIVER AD (W45G19)",
+     "W45G19"
+    ],
+    [
+     "HBAT",
+     "FT HOOD (W45QRE)",
+     "W45QRE"
+    ],
+    [
+     "HBFL",
+     "7 TRNS (FB4661)",
+     "FB4661"
+    ],
+    [
+     "HBFY",
+     "147 LS TX ANG (FB6433)",
+     "FB6433"
+    ],
+    [
+     "HBMI",
+     "MC ORD MAINT CO 4TH MAINT BN (M84272)",
+     "M84272"
+    ],
+    [
+     "HBNL",
+     "NAS JRB FT WORTH (N83447)",
+     "N83447"
+    ],
+    [
+     "HBNM",
+     "NMC Detachment Fort Worth",
+     "N61163"
+    ],
+    [
+     "HBNT",
+     "FISC JAX DET SOUTH TX, CORPUS CHRISTI (N00216)",
+     "N00216"
+    ],
+    [
+     "HBSC",
+     "DLA DISTRIBUTION LACKLAND TEXAS(SW3260)",
+     "SW3260"
+    ],
+    [
+     "HBSK",
+     "DCMA SAN ANTONIO (S4404A)",
+     "S4404A"
+    ],
+    [
+     "HBSQ",
+     "DEF DIST DEP RED RIVER",
+     "SW3227"
+    ],
+    [
+     "HCAH",
+     "842ND TRANSPORTATION BATTALION (W81HL8)",
+     "W81HL8"
+    ],
+    [
+     "HCAK",
+     "USACE ENGR DIST FORT WORTH (W45XMA)",
+     "W45XMA"
+    ],
+    [
+     "HCAQ",
+     "CP STANLEY STORAGE ACTY (W45PVM)",
+     "W45PVM"
+    ],
+    [
+     "HCMI",
+     "MC 1ST BN 23RD MARINES (M84220)",
+     "M84220"
+    ],
+    [
+     "HCNM",
+     "NMC Det Ft. Worth Component Kingsville",
+     "N50245"
+    ],
+    [
+     "HCNT",
+     "NAS KINGSVILLE (N60241)",
+     "N60241"
+    ],
+    [
+     "HCSQ",
+     "DEF ENERGY SUP CTR (SJ0630)",
+     "SJ0630"
+    ],
+    [
+     "HDAK",
+     "USACE GALVESTON DIST (W45VAK)",
+     "W45VAK"
+    ],
+    [
+     "HDFB",
+     "CRYPTOLOGIC SYSTEMS GP (FB7033)",
+     "FB7033"
+    ],
+    [
+     "HDSK",
+     "DCMA DALLAS (S4402A)",
+     "S4402A"
+    ],
+    [
+     "HEAK",
+     "FT SAM HOUSTON (W45QQ7)",
+     "W45QQ7"
+    ],
+    [
+     "HEFL",
+     "47 FTW (FB3099)",
+     "FB3099"
+    ],
+    [
+     "HEFS",
+     "Joint Base San Antonio",
+     "FA3072"
+    ],
+    [
+     "HEFY",
+     "149 FW TX ANG (FB6432)",
+     "FB6432"
+    ],
+    [
+     "HESQ",
+     "DEF ENERGY SUP CEN MISSILE FUELS (SC0600)",
+     "SC0600"
+    ],
+    [
+     "HFAZ",
+     "807TH MOSC, 709 W. Simonds Road",
+     "W90R17"
+    ],
+    [
+     "HFUK",
+     "ARMY AIRFORCE EXCHANGE SERVICE AAFES (HXYAAA)",
+     "HXYAAA"
+    ],
+    [
+     "HHFL",
+     "136FW TX ANG (FB6431)",
+     "FB6431"
+    ],
+    [
+     "HKFL",
+     "17 LS (FB3030)",
+     "FB3030"
+    ],
+    [
+     "HLFL",
+     "70 LS (FB2857)",
+     "FB2857"
+    ],
+    [
+     "HLUQ",
+     "HHS ASST SEC ASPR/EMER MGMT, (0ME) DIVISION OF LOGISTICS MSC TX(7591LR)",
+     "7591LR"
+    ],
+    [
+     "HMFL",
+     "12 TRNS RANDOLPH AFB (FB3089)",
+     "FB3089"
+    ],
+    [
+     "HNFL",
+     "82 LG (FB3020)",
+     "FB3020"
+    ],
+    [
+     "HNNC",
+     "FISC JAX DET INGLESIDE (N47903)",
+     "N47903"
+    ],
+    [
+     "HNSQ",
+     "DEF DIST DEP CORPUS CHRISTI (SW3222)",
+     "SW3222"
+    ],
+    [
+     "HNUW",
+     "NGA DEPOSITORY (HM0083)",
+     "HM0083"
+    ],
+    [
+     "HOAM",
+     "MCALLESTER AAP (W44XMF)",
+     "W44XMF"
+    ],
+    [
+     "HOAP",
+     "USACE TULSA DIST (W44XGQ)",
+     "W44XGQ"
+    ],
+    [
+     "HOAT",
+     "FT SILL (W44QQ8)",
+     "W44QQ8"
+    ],
+    [
+     "HOFL",
+     "97 TRNS (FB4419)",
+     "FB4419"
+    ],
+    [
+     "HOSC",
+     "DLA DISTRIBUTION FORT SILL(SW3265)",
+     "SW3265"
+    ],
+    [
+     "HOSQ",
+     "DEF DIST DEP OKLAHOMA CITY (SW3211)",
+     "SW3211"
+    ],
+    [
+     "HPAJ",
+     "USPFO OKLAHOMA (W44AAY)",
+     "W44AAY"
+    ],
+    [
+     "HPFL",
+     "71 LS (FB3029)",
+     "FB3029"
+    ],
+    [
+     "HPSQ",
+     "DLA Document Services-Oklahoma City Regional Office",
+     "SA7036"
+    ],
+    [
+     "HQFL",
+     "137 LS OK ANG (FB6562)",
+     "FB6562"
+    ],
+    [
+     "HQSQ",
+     "DLA Document Services-Norfolk Regional Office",
+     "SA7031"
+    ],
+    [
+     "HRFL",
+     "138 FW OK ANG (FB6563)",
+     "FB6563"
+    ],
+    [
+     "HRMI",
+     "MC TOW TRAINING CO (M84259)",
+     "M84259"
+    ],
+    [
+     "HRSQ",
+     "DLA Document Services - Pearl Harbor Regional Office",
+     "SA7081"
+    ],
+    [
+     "HSAJ",
+     "USPFO AR CP ROBINSON (W41RAA)",
+     "W41RAA"
+    ],
+    [
+     "HSAM",
+     "PINE BLUFF ARS (W41G27)",
+     "W41G27"
+    ],
+    [
+     "HSAP",
+     "USACE LITTLE ROCK DIST (W41XDE)",
+     "W41XDE"
+    ],
+    [
+     "HTFL",
+     "188FG ARKANSAS ANG (FB6032)",
+     "FB6032"
+    ],
+    [
+     "HUFL",
+     "189 AW AR ANG (FB6031)",
+     "FB6031"
+    ],
+    [
+     "HVFL",
+     "314 TRNS (FB4460)",
+     "FB4460"
+    ],
+    [
+     "IGDK",
+     "AM EMBASSY HARARE (HHAZ2Z)",
+     "HHAZ2Z"
+    ],
+    [
+     "JAAJ",
+     "USPFO NEVADA (W65KUC)",
+     "W65KUC"
+    ],
+    [
+     "JAAM",
+     "HAWTHORNE AD (W65XZ2)",
+     "W65XZ2"
+    ],
+    [
+     "JADV",
+     "NEVADA TEST SITE (HD1006)",
+     "HD1006"
+    ],
+    [
+     "JAFL",
+     "99 LRS/LGR/OLA (FB4817)",
+     "FB4817"
+    ],
+    [
+     "JANL",
+     "NAS FALLON (N60495)",
+     "N60495"
+    ],
+    [
+     "JCFL",
+     "99 TRNS (FB4852)",
+     "FB4852"
+    ],
+    [
+     "JDFL",
+     "152 RG NEVADA ANG (FB6281)",
+     "FB6281"
+    ],
+    [
+     "JEAH",
+     "833RD TRANS BN (W68P4C)",
+     "W68P4C"
+    ],
+    [
+     "JEAJ",
+     "USPFO WA CP MURRAY (W68N9X)",
+     "W68N9X"
+    ],
+    [
+     "JEAP",
+     "USACE WALLA WALLA DIST (W68SBV)",
+     "W68SBV"
+    ],
+    [
+     "JEFS",
+     "194th LRS DISTRIBUTION(FB6476)",
+     "FB6476"
+    ],
+    [
+     "JEMI",
+     "MC B CO 4TH TANK BN (M21443)",
+     "M21443"
+    ],
+    [
+     "JENF",
+     "NAV SHIPYARD PUGET SOUND (N00251)",
+     "N00251"
+    ],
+    [
+     "JENL",
+     "NAS WHIDBEY ISLAND (N00620)",
+     "N00620"
+    ],
+    [
+     "JENM",
+     "NUWC DET SAN DIEGO, NSLC SITE NORTH ISLAND, BLDG 1293 (N00253)",
+     "N00253"
+    ],
+    [
+     "JENZ",
+     "NAV PRIORITY MATERIAL OFFICE (N00441)",
+     "N00441"
+    ],
+    [
+     "JEPC",
+     "USCG ISC SEATTLE",
+     "Z31010"
+    ],
+    [
+     "JEPK",
+     "13TH CG DIST SEATTLE (Z71113)",
+     "Z71113"
+    ],
+    [
+     "JESK",
+     "DCMA SEATTLE (S4801A)",
+     "S4801A"
+    ],
+    [
+     "JESQ",
+     "DEF DIST DEP PUGET SOUND (SW3216)",
+     "SW3216"
+    ],
+    [
+     "JESU",
+     "DLA Document Services-Bangor Regional Office",
+     "SA7065"
+    ],
+    [
+     "JFAT",
+     "FT LEWIS (W68P4L)",
+     "W68P4L"
+    ],
+    [
+     "JFNQ",
+     "FISC PUGET SOUND DET EVERETT (N48439)",
+     "N48439"
+    ],
+    [
+     "JFSC",
+     "PUGET SOUND NAVAL SHIPYARD EBS (N50284)",
+     "N50284"
+    ],
+    [
+     "JFSQ",
+     "Defense Distribution Center Puget Sound- Everett",
+     "SW3237"
+    ],
+    [
+     "JGFL",
+     "192 TRNS (FB4620)",
+     "FB4620"
+    ],
+    [
+     "JGNM",
+     "NMC DET INDIAN ISLAND (N48537)",
+     "N48537"
+    ],
+    [
+     "JGNQ",
+     "READY RESOURCE MATERIAL WHSE SSNN (N47527)",
+     "N47527"
+    ],
+    [
+     "JGSC",
+     "PUGET SOUND NAVAL SHIPYARD NWCF (N50795)",
+     "N50795"
+    ],
+    [
+     "JHFL",
+     "141 LS WASHINGTON ANG (FB6471)",
+     "FB6471"
+    ],
+    [
+     "JIFL",
+     "62 APS (FB4479)",
+     "FB4479"
+    ],
+    [
+     "JINF",
+     "Strategic Systems Program Supply Department (N32256)",
+     "N32256"
+    ],
+    [
+     "JISQ",
+     "DLA Puget Sound Naval Shipyard and IMF (SA54M2)",
+     "SA54M2"
+    ],
+    [
+     "JJAP",
+     "USACE SEATTLE DIST (W68MD9)",
+     "W68MD9"
+    ],
+    [
+     "JKAJ",
+     "USPFO IDAHO (W63KQW)",
+     "W63KQW"
+    ],
+    [
+     "JKFL",
+     "124 FW ANG (FB6112)",
+     "FB6112"
+    ],
+    [
+     "JLFL",
+     "366 TRNS (FB4897)",
+     "FB4897"
+    ],
+    [
+     "JMAJ",
+     "USPFO MONTANA (W81JKX)",
+     "W81JKX"
+    ],
+    [
+     "JNFL",
+     "341 TRNS (FB4626)",
+     "FB4626"
+    ],
+    [
+     "JOFL",
+     "120 FW MT ANG (FB6261)",
+     "FB6261"
+    ],
+    [
+     "JQFE",
+     "90 TRNS (FB4613)",
+     "FB4613"
+    ],
+    [
+     "JQFL",
+     "153 AW WY ANG (FB6501)",
+     "FB6501"
+    ],
+    [
+     "JRAJ",
+     "USPFO WYOMING (W5DK51/W5DK52)",
+     "W5DK51"
+    ],
+    [
+     "JSAJ",
+     "USPFO NORTH DAKOTA (W81J62/W5ALXV)",
+     "W81J62"
+    ],
+    [
+     "JSFL",
+     "119 FW ND ANG (FB6341)",
+     "FB6341"
+    ],
+    [
+     "JTFL",
+     "319 TRNS (FB4659)",
+     "FB4659"
+    ],
+    [
+     "JUFL",
+     "5 TRNS (FB4528)",
+     "FB4528"
+    ],
+    [
+     "JVFL",
+     "28 BW (FB4690)",
+     "FB4690"
+    ],
+    [
+     "JWAJ",
+     "USPFO SD (W81LBJ)",
+     "W81LBJ"
+    ],
+    [
+     "JWFL",
+     "11 FW SD ANG (FB6411)",
+     "FB6411"
+    ],
+    [
+     "KAAI",
+     "HHD 96THREGIONAL READINESS CMD (W90W84)",
+     "W90W84"
+    ],
+    [
+     "KAAJ",
+     "USPFO UTAH (W67K2Q)",
+     "W67K2Q"
+    ],
+    [
+     "KAAV",
+     "DUGWAY PG (W67HY8)",
+     "W67HY8"
+    ],
+    [
+     "KAAZ",
+     "807TH MDSC, MCP (W90R17)",
+     "W90R17"
+    ],
+    [
+     "KAFL",
+     "15 ARW UTAH ANG (FB6441)",
+     "FB6441"
+    ],
+    [
+     "KAFQ",
+     "75 ABW (FB2029)",
+     "FB2029"
+    ],
+    [
+     "KASQ",
+     "DEF DIST DEP OGDEN (SW3400)",
+     "SW3400"
+    ],
+    [
+     "KBAQ",
+     "TOOELE AD (W67G23)",
+     "W67G23"
+    ],
+    [
+     "KBAZ",
+     "Joint & Special Troops Support Command (W901HD)",
+     "W901HD"
+    ],
+    [
+     "KBSQ",
+     "DEF DIST DEP HILL AFB (SW3210)",
+     "SW3210"
+    ],
+    [
+     "KCSC",
+     "DCMA THIOKOL (S4503A)",
+     "S4503A"
+    ],
+    [
+     "KDAJ",
+     "DOL USPFO ARIZONA (W61LP3)",
+     "W61LQA"
+    ],
+    [
+     "KDAK",
+     "INTEL CTR & FT HUACHUCA (W61DEL)",
+     "W61DEL"
+    ],
+    [
+     "KDAQ",
+     "NAVAJO AD (W80T6L)",
+     "W80T6L"
+    ],
+    [
+     "KDAV",
+     "YUMA PG (W905MY)",
+     "W905MY"
+    ],
+    [
+     "KDFT",
+     "162 FW ARIZONA ANG (FB6022)",
+     "FB6022"
+    ],
+    [
+     "KDML",
+     "MCAS YUMA (M62974)",
+     "M62974"
+    ],
+    [
+     "KDSK",
+     "DCMA PHOENIX (S0302A)",
+     "S0302A"
+    ],
+    [
+     "KEFL",
+     "56 TRNS (FB4887)",
+     "FB4887"
+    ],
+    [
+     "KFFL",
+     "161 ARG ARIZONA ANG (FB6021)",
+     "FB6021"
+    ],
+    [
+     "KGFL",
+     "355 SUPS LGS (FB4877)",
+     "FB4877"
+    ],
+    [
+     "KHUW",
+     "NGA GILA BEND SECURE STORAGE SITE (HM0080)",
+     "HM0080"
+    ],
+    [
+     "KIAJ",
+     "USPFO COLORADO (W81LJT)",
+     "W81LJT"
+    ],
+    [
+     "KIAM",
+     "ROCKY MTN ARS (W91PPC)",
+     "W9199C"
+    ],
+    [
+     "KIAQ",
+     "PUEBLO CHEMICAL DEPOT (W91CRA)",
+     "W91CRA"
+    ],
+    [
+     "KIAT",
+     "FT CARSON (W51HUN)",
+     "W51HUN"
+    ],
+    [
+     "KIDK",
+     "DFAS DENVER CTR (HQ0107)",
+     "HQ0107"
+    ],
+    [
+     "KIFL",
+     "140 LS CO ANG BUCKLEY ANGB (FB6061)",
+     "FB6061"
+    ],
+    [
+     "KISK",
+     "DCMA DENVER (S0602A)",
+     "S0602A"
+    ],
+    [
+     "KJFL",
+     "10 ABW AIR FORCE ACADEMY (FB7000)",
+     "FB7000"
+    ],
+    [
+     "KKAK",
+     "US ARMY SPACE and MISSILE DEFENSE COMMAND (W81EUD)",
+     "W81EUD"
+    ],
+    [
+     "KKFJ",
+     "460LRS/LGRD BUCKLEY AFB (FY2555)",
+     "FY2555"
+    ],
+    [
+     "KKFL",
+     "21 LSS (FB2500)",
+     "FB2500"
+    ],
+    [
+     "KLAC",
+     "USA TMDE SPT RGN 3 WHITE SANDS MISSILE RANGE (W81NME)",
+     "W81NME"
+    ],
+    [
+     "KLAE",
+     "WHITE SANDS MSL RANGE (W903RS)",
+     "W903RS"
+    ],
+    [
+     "KLAJ",
+     "USPFO NEW MEXICO (W43MYP)",
+     "W43MYP"
+    ],
+    [
+     "KLAP",
+     "USACE ALBUQUERQUE DIST (W81G69)",
+     "W81G69"
+    ],
+    [
+     "KLFC",
+     "635 Materiel Maintenance Support Squadron(FB4802)",
+     "FB4802"
+    ],
+    [
+     "KLFV",
+     "337 ABW (FB4469)",
+     "FB4469"
+    ],
+    [
+     "KLNC",
+     "NSWC DET WS CODE WSD04 (N61762)",
+     "N61762"
+    ],
+    [
+     "KMFL",
+     "150 LS NM ANG (FB6311)",
+     "FB6311"
+    ],
+    [
+     "KMUZ",
+     "DOE/NNSA(897581)",
+     "897581"
+    ],
+    [
+     "KNFL",
+     "27 TRNS (FB4855)",
+     "FB4855"
+    ],
+    [
+     "KOAJ",
+     "USPFO KANSAS (W81K4N)",
+     "W81K4N"
+    ],
+    [
+     "KOAT",
+     "FT RILEY (W81FG8)",
+     "W81FG8"
+    ],
+    [
+     "KOFL",
+     "22 TRNS (FB4621)",
+     "FB4621"
+    ],
+    [
+     "KOFZ",
+     "190 ARW KS ANG FORBES FIELD (FB6152)",
+     "FB6152"
+    ],
+    [
+     "KOSK",
+     "DCMA WICHITA (S1701A)",
+     "S1701A"
+    ],
+    [
+     "KPAT",
+     "FT LEAVENWORTH (W55QRB/W55C6G)",
+     "W55QRB"
+    ],
+    [
+     "KPFL",
+     "184LS (FB6151)",
+     "FB6151"
+    ],
+    [
+     "KQAJ",
+     "USPFO NEBRASKA (W59TYJ)",
+     "W59TYJ"
+    ],
+    [
+     "KQAM",
+     "CORNHUSKER AAP (W91BU0)",
+     "W91BU0"
+    ],
+    [
+     "KQFL",
+     "155 ARW NE ANG (FB6271)",
+     "FB6271"
+    ],
+    [
+     "KRAP",
+     "US ARMY CORPS OF ENGINEERS OMAHA DISTRICT (W59XQG)",
+     "W59XQG"
+    ],
+    [
+     "KRFL",
+     "55 TRNS (FB4600)",
+     "FB4600"
+    ],
+    [
+     "LAAP",
+     "USACE PORTLAND DIST (W81THP/W66QKZ)",
+     "W81THP"
+    ],
+    [
+     "LAFL",
+     "173 FW OR ANG KINGSLEY FLD (FB6372)",
+     "FB6372"
+    ],
+    [
+     "LBAJ",
+     "USPFO OR (W66MRS)",
+     "W66MRS"
+    ],
+    [
+     "LCFL",
+     "142 FW OR ANG (FB6371)",
+     "FB6371"
+    ],
+    [
+     "LDAB",
+     "USA MEDICAL MATERIEL AGENCY(W62SEV)",
+     "W62SEV"
+    ],
+    [
+     "LDAF",
+     "63D RSC Moffett Field, CA (W90XCV)",
+     "W90XCV"
+    ],
+    [
+     "LDAK",
+     "USACE LOS ANGELES DIST (W81EYN)",
+     "W81EYN"
+    ],
+    [
+     "LDAM",
+     "RIVERBANK AAP (W62H0T)",
+     "W62H0T"
+    ],
+    [
+     "LDAP",
+     "USACE SAN FRANCISCO DIST (W62A2B)",
+     "W62A2B"
+    ],
+    [
+     "LDAQ",
+     "SIERRA AD (W62G2X)",
+     "W62G2X"
+    ],
+    [
+     "LDFK",
+     "61 ABG LOS ANGELES AFB (FB2816)",
+     "FB2816"
+    ],
+    [
+     "LDFL",
+     "60 APS (FB4427/N44399)",
+     "N44399"
+    ],
+    [
+     "LDMI",
+     "MC 1ST BTO CO 4TH LSB 4TH FSSG (M87247)",
+     "M87247"
+    ],
+    [
+     "LDMQ",
+     "MCLB BARSTOW (M62204)",
+     "M62204"
+    ],
+    [
+     "LDMT",
+     "MC MT WARFARE TRNG CTR (M33610)",
+     "M33610"
+    ],
+    [
+     "LDNP",
+     "NAVSUP FLC PORT HUENEME (N6693N)",
+     "N6693N"
+    ],
+    [
+     "LDNY",
+     "Commander Naval Surface Forces Pacific - RRAM",
+     "N53824"
+    ],
+    [
+     "LDNZ",
+     "NAVAL UNDERSEA WARFARE CENTER DETACHMENT SAN DIEGO(N32090)",
+     ""
+    ],
+    [
+     "LDPL",
+     "CGAS SAN FRANCISCO (Z20180)",
+     "Z20180"
+    ],
+    [
+     "LDSC",
+     "DLA DISTRIBUTION PORT HUENEME",
+     "SW3251"
+    ],
+    [
+     "LEAK",
+     "USACE SACRAMENTO DIST (W62N6M)",
+     "W62N6M"
+    ],
+    [
+     "LEFL",
+     "144 FW CA ANG (FB6044)",
+     "FB6044"
+    ],
+    [
+     "LEFS",
+     "21 SOPS ONIZUKA AS (FY2503)",
+     "FY2503"
+    ],
+    [
+     "LENB",
+     "NAVAL HOSPITAL CAMP PENDLETON",
+     "N68094"
+    ],
+    [
+     "LEND",
+     "Naval Special Warfare Command",
+     "N00074"
+    ],
+    [
+     "LENL",
+     "NAV AIR FAC (N60042)",
+     "N60042"
+    ],
+    [
+     "LENM",
+     "NMC DET SEAL BEACH FALLBROOK (N47618)",
+     "N47618"
+    ],
+    [
+     "LENV",
+     "NAVWPNSCEN CHINA LAKE (N60530)",
+     "N60530"
+    ],
+    [
+     "LEPK",
+     "U.S. COAST GUARD BASE ALAMEDA",
+     "Z31090"
+    ],
+    [
+     "LESC",
+     "DLA DISTRIBUTION SAN DIEGO MCRD WRR(SW3266)",
+     "SW3266"
+    ],
+    [
+     "LESK",
+     "DCMA SANTA ANA (S0513A)",
+     "S0513A"
+    ],
+    [
+     "LFAH",
+     "834TH TRANS BN (W62P4E)",
+     "W62P4E"
+    ],
+    [
+     "LFFL",
+     "129 LS CALIFORNIA ANG (FB6041)",
+     "FB6041"
+    ],
+    [
+     "LFMT",
+     "MCB CAMP PENDLETON (M00681)",
+     "M00681"
+    ],
+    [
+     "LFNC",
+     "PRIORITY MATERIAL DETACHMENT TRAVIS FAIRFIELD, CA (N44454)",
+     "N44454"
+    ],
+    [
+     "LFNT",
+     "NAV POST GRAD SCHOOL (N62271)",
+     "N62271"
+    ],
+    [
+     "LFNV",
+     "NSWC FISC CORONA (N64267)",
+     "N64267"
+    ],
+    [
+     "LFPS",
+     "US COAST GUARD BASE",
+     "Z31100"
+    ],
+    [
+     "LGAJ",
+     "1106TH AVCRAD USPFO CA (W62M5P)",
+     "W62M5P"
+    ],
+    [
+     "LGFL",
+     "30 TRNS (FB4610)",
+     "FB4610"
+    ],
+    [
+     "LGMT",
+     "MC RECRUIT DEP (M34000)",
+     "M34000"
+    ],
+    [
+     "LGNL",
+     "NAS LEMOORE (N40319)",
+     "N40319"
+    ],
+    [
+     "LGNV",
+     "SPAWAR SYSCEN (N66001)",
+     "N66001"
+    ],
+    [
+     "LGNZ",
+     "PRIORITY MATERIAL OFFICE DET SAN DIEGO (N46575)",
+     "N46575"
+    ],
+    [
+     "LGUQ",
+     "HHS ASST SEC ASPR/EMER MGMT, (0ME) DIVISION OF LOGISTICS MSC CA(757M77)",
+     "757M77"
+    ],
+    [
+     "LHAP",
+     "USACE SOUTH PACIFIC DIV (W81F6W)",
+     "W81F6W"
+    ],
+    [
+     "LHAT",
+     "DLIFLC (W62R65)",
+     "W62R65"
+    ],
+    [
+     "LHMI",
+     "MC HQ BATTERY 5TH BN 14TH MARINES (M14640)",
+     "M14640"
+    ],
+    [
+     "LHNM",
+     "NMC DET SEAL BEACH (N47615)",
+     "N47615"
+    ],
+    [
+     "LIFL",
+     "9 TRNS (FB4686)",
+     "FB4686"
+    ],
+    [
+     "LINF",
+     "NMC DET POINT LOMA (N44943)",
+     "N44943"
+    ],
+    [
+     "LISQ",
+     "DEF DIST DEP BARSTOW (SW3215)",
+     "SW3215"
+    ],
+    [
+     "LJML",
+     "MC AIR STA MIRAMAR (M67865)",
+     "M67865"
+    ],
+    [
+     "LJNC",
+     "NAV VERTICAL LAUNCH SYS SUPPORT FACILITY (N47273)",
+     "N47273"
+    ],
+    [
+     "LJNL",
+     "NAVAIRWPNSTA (N63126)",
+     "N63126"
+    ],
+    [
+     "LJSK",
+     "DCMA SAN DIEGO (S0514A)",
+     "S0514A"
+    ],
+    [
+     "LKAJ",
+     "USPFO CALIFORNIA (W62M49/W62M5P)",
+     "W62M49"
+    ],
+    [
+     "LKAT",
+     "NATIONAL TRAINING CENTER (W80S4X)",
+     "W80S4X"
+    ],
+    [
+     "LKFL",
+     "163 ARW CA ANG (FB6042)",
+     "FB6042"
+    ],
+    [
+     "LKNQ",
+     "NAVAL AIR STATION NORTH ISLAND (N00246)",
+     "N00246"
+    ],
+    [
+     "LKSK",
+     "DCMA SAN FRANCISCO (S0507A)",
+     "S0507A"
+    ],
+    [
+     "LLSK",
+     "DCMA VAN NUYS (S0512A)",
+     "S0512A"
+    ],
+    [
+     "LMFL",
+     "452 LSS (FB4664)",
+     "FB4664"
+    ],
+    [
+     "LMNQ",
+     "NAVY REG PLAN EQ OFC (N66857)",
+     "N66857"
+    ],
+    [
+     "LMSQ",
+     "DEF ENERGY SUP CTR-LOS ANGELES (SJ0606)",
+     "SJ0606"
+    ],
+    [
+     "LNFL",
+     "95 TRNS (FB2805)",
+     "FB2805"
+    ],
+    [
+     "LNSQ",
+     "DEF DIST DEP SAN DIEGO (SW3218/SW3205)",
+     "SW3218"
+    ],
+    [
+     "LOSQ",
+     "DEF DIST DEP SAN JOAQUIN (SW3224/SW3200/SW3225/W62G2T/W62N2A)",
+     "SW3224"
+    ],
+    [
+     "LPFC",
+     "DEFENSE MICROELECTRONICS ACTIVITY (HL0006)",
+     "HL0006"
+    ],
+    [
+     "LQNQ",
+     "FISC ATAC NAS NORTH ISL (N46433)",
+     "N46433"
+    ],
+    [
+     "LRNF",
+     "MILITARY SEALIFT COMMAND PACIFIC (N40443)",
+     "N40443"
+    ],
+    [
+     "LSFL",
+     "146 AW CHANNEL ISL CA ANG STA (FB6043)",
+     "FB6043"
+    ],
+    [
+     "LUAQ",
+     "79th SSC",
+     "W813GU"
+    ],
+    [
+     "LUNC",
+     "NAVSUP FLC San Diego (N00244)",
+     "N00244"
+    ],
+    [
+     "LUNK",
+     "NAVSURFWARCEN DIV (N63394)",
+     "N63394"
+    ],
+    [
+     "LUNQ",
+     "FISC San Diego Detachment Seal Beach",
+     "N31564"
+    ],
+    [
+     "MAAJ",
+     "USPFO ALASKA CP DENAL (WC1JTW)",
+     "WC1JTW"
+    ],
+    [
+     "MAAP",
+     "USACE ALASKA DIST (WC1JUW)",
+     "WC1JUW"
+    ],
+    [
+     "MAAS",
+     "FT RICHARDSON (WC1JTH)",
+     "WC1JTH"
+    ],
+    [
+     "MAAT",
+     "FT GREELY (WC1JUR)",
+     "WC1JUR"
+    ],
+    [
+     "MAFL",
+     "354 LGS (FB5004)",
+     "FB5004"
+    ],
+    [
+     "MAPL",
+     "CGAS SITKA (Z20280)",
+     "Z20280"
+    ],
+    [
+     "MAPS",
+     "US Coast Guard Base Kodiak(Z31140) BLDG 26",
+     "Z31140"
+    ],
+    [
+     "MASQ",
+     "DEF ENERGY SUP CTR-ANCHORAGE (SJ0628)",
+     "SJ0628"
+    ],
+    [
+     "MBAT",
+     "FT WAINWRIGHT (WC1JH5)",
+     "WC1JH5"
+    ],
+    [
+     "MBFC",
+     "DEF COURIER SERVICE STA ANCHORAGE ( FY4401)",
+     "FY4401"
+    ],
+    [
+     "MBFL",
+     "3LG (FB5000)",
+     "FB5000"
+    ],
+    [
+     "MBPS",
+     "US COAST GUARD BASE",
+     "Z31130"
+    ],
+    [
+     "MCAT",
+     "599th TRANSPORTATION GP, ALASKA DETACHMENT (W90FQE)",
+     "W90FQE"
+    ],
+    [
+     "MKFK",
+     "168 ARW ALASKA ANG (FB6521)",
+     "FB6521"
+    ],
+    [
+     "MKFL",
+     "176LS KULIS ANGB (FB6520)",
+     "FB6520"
+    ],
+    [
+     "MKFZ",
+     "733 LRS/LGRT, 8517 20th Street JBER, AK 99506-2401 (FA5030)",
+     "FA5030"
+    ],
+    [
+     "MLAP",
+     "USACE PACIFIC OCEAN DIV (W90WMT)",
+     "W90WMT"
+    ],
+    [
+     "MLNC",
+     "PRIORITY MATR OFFICE PEARL HARBOR",
+     "N44700"
+    ],
+    [
+     "MLNQ",
+     "FISC PEARL HARBOR (N00604/M00318) (PP ONLY)",
+     "N00604"
+    ],
+    [
+     "MLNV",
+     "SPAWAR SYSTEMS CENTER DETACHMENT PACIFIC (N62676)",
+     "N62676"
+    ],
+    [
+     "MLPS",
+     "US Coast Guard Base",
+     "Z31060"
+    ],
+    [
+     "MLSQ",
+     "DEF DEPOT PEARL HARBOR (SW3144)",
+     "SW3144"
+    ],
+    [
+     "MMAJ",
+     "USPFO HAWAII (W81KK5)",
+     "W81KK5"
+    ],
+    [
+     "MMAK",
+     "USAPAC, DCS G4",
+     "W907CD"
+    ],
+    [
+     "MMAL",
+     "MARINE AVIATION LOGISTIC SQ MALS 24 (R09124)",
+     "R09124"
+    ],
+    [
+     "MMAP",
+     "USACE HONOLULU DIST (WX3JR9)",
+     "WX3JR9"
+    ],
+    [
+     "MMFL",
+     "15ABW (FB5260)",
+     "FB5260"
+    ],
+    [
+     "MONC",
+     "NAVAL SPECIAL WARFARE GROUP THREE (R55638)",
+     "R55638"
+    ],
+    [
+     "MPAC",
+     "9th Mission Support Command",
+     "WX3JQT"
+    ],
+    [
+     "MPAZ",
+     "Logistics Readiness Center (LRC) Hawaii",
+     "WX3JPR"
+    ],
+    [
+     "MZAC",
+     "USAR Theater Support Group, DOL",
+     "W5K9V2"
+    ],
+    [
+     "NJDK",
+     "USDAO AM EMBASSY OTTAWA (HHAC2C)",
+     "HHAC2C"
+    ],
+    [
+     "NJSK",
+     "DCMA AMERICAS OTTAWA (SCN01A)",
+     "SCN01A"
+    ],
+    [
+     "OANV",
+     "NAV UNDERSEA WARFARE CTR DET BAHAMAS AUTEC ANDROS ISLAND (N63821)",
+     "N63821"
+    ],
+    [
+     "OKNQ",
+     "NAV STA GUANTANAMO BAY (N60514)",
+     "N60514"
+    ],
+    [
+     "ORAJ",
+     "USPFO PR (WF3SCY/W81K59)",
+     "WF3SCY"
+    ],
+    [
+     "ORAK",
+     "Fort Buchanan, Puerto Rico Activity Name, Chrisman Road, BLDG 152, Welcome Center Fort Buchanan, Puerto Rico(W90KS2)",
+     "W90KS2"
+    ],
+    [
+     "OSAC",
+     "SDDC 832D TRANS BN PR DET",
+     "W915Q3"
+    ],
+    [
+     "OSAJ",
+     "USPFO VI ARNG (WF3APY)",
+     "WF3APY"
+    ],
+    [
+     "OSFX",
+     "156 LS PR ANG MUNIZ (FB6540)",
+     "FB6540"
+    ],
+    [
+     "PBAC",
+     "SDDC DETACHMENT GUAM (W81AD4)",
+     "W81AD4"
+    ],
+    [
+     "PBFL",
+     "36TRNS ANDERSEN AFB (FB5240)",
+     "FB5240"
+    ],
+    [
+     "PBNH",
+     "MSC SHIP SUPPORT UNIT GUAM (N40446)",
+     "N40446"
+    ],
+    [
+     "PBNQ",
+     "FISC Yokosuka Det (N40333)",
+     "N40333"
+    ],
+    [
+     "PBNZ",
+     "PRIORITY MATR OFFICE DET GUAM(N50072)",
+     "N50072"
+    ],
+    [
+     "PBSC",
+     "DEFENSE DISTRIBUTION DEPOT GUAM (SW3147)",
+     "SW3147"
+    ],
+    [
+     "QEAH",
+     "836TH USAR TRANS BN YOKOHAMA (WT5SZR)",
+     "WT5SZR"
+    ],
+    [
+     "QEAP",
+     "USACE JAPAN DIST CAMP ZAMA (WT5J02)",
+     "WT5J02"
+    ],
+    [
+     "QEAZ",
+     "PACIFIC STARS & STRIPES, TOKYO (WT5LE0)",
+     "WT5LE0"
+    ],
+    [
+     "QEFL",
+     "35TRNS MISAWA AB (FB5205)",
+     "FB5205"
+    ],
+    [
+     "QEML",
+     "MCAS IWAKUNI (M62613)",
+     "M62613"
+    ],
+    [
+     "QENC",
+     "PRIORITY MATR OFFICE DET YOKOSUKA",
+     "N3657A"
+    ],
+    [
+     "QENL",
+     "NAVSUP FLCY (Fleet Logistics Center Yokosuka)Detachment Atsugi (N40342)",
+     "N62507"
+    ],
+    [
+     "QESQ",
+     "DEF DIST YOKOSUKA (SW3142)",
+     "SW3142"
+    ],
+    [
+     "QFAC",
+     "CAMP ZAMA (WT5SZP)",
+     "WT5SZP"
+    ],
+    [
+     "QFFL",
+     "374 TRNS YOKOTA AB (FB5209)",
+     "FB5209"
+    ],
+    [
+     "QFNC",
+     "NAVSUP FLCY (Fleet Logistics Center Yokosuka) Detachment Misawa (N68212)",
+     "N68212"
+    ],
+    [
+     "QFNQ",
+     "FISC YOKOSUKA DETACHMENT OKINAWA (N32434)",
+     "N32434"
+    ],
+    [
+     "QFSQ",
+     "DDYJ Detachment Okinawa, Japan (SW3180)",
+     "SW3180"
+    ],
+    [
+     "QGME",
+     "COMBINED ARMS TRAINING CENTER CAMP FUJI (M30229)",
+     "M30229"
+    ],
+    [
+     "QGNL",
+     "Navy Overseas Air Cargo Terminal, Yokota Japan (N63419)",
+     "N63419"
+    ],
+    [
+     "QGNQ",
+     "FISC, Misawa Japan (N61032)",
+     "N61032"
+    ],
+    [
+     "QGSQ",
+     "DD YOKOSUKA DET SASEBO (SW3143)",
+     "SW3143"
+    ],
+    [
+     "QIAH",
+     "835TH TRANS BN OKINAWA (WT6JHX)",
+     "WT6JHX"
+    ],
+    [
+     "QIFL",
+     "18 TRNS KADENA AB OKINAWA (FB5270)",
+     "FB5270"
+    ],
+    [
+     "QIMS",
+     "CAMP S D BUTLER, OKINAWA (M20220)",
+     "M20220"
+    ],
+    [
+     "QJSS",
+     "DLA DISTRIBUTION IWAKUNI, BLDG. 1645, MISUMI-CHO 2 CHOME YAMAGUCHI-KEN, IWAKUNI, JAPAN(SW3259)",
+     "SW3259"
+    ],
+    [
+     "QKNB",
+     "U.S. Naval Hospital Okinawa",
+     "N68470"
+    ],
+    [
+     "QKSK",
+     "DCMA PACIFIC NAF ATSUGI (SJP11A/SKR08A)",
+     "SJP11A"
+    ],
+    [
+     "QLAC",
+     "20TH SUPGP TEAGU (WT4KC1)",
+     "WT4KC1"
+    ],
+    [
+     "QLAP",
+     "USACE FAR EAST DIST SEOUL (WT4KCL)",
+     "WT4KCL"
+    ],
+    [
+     "QLAQ",
+     "USA MAT SPT CEN KOREA (W90DGP)",
+     "W90DGP"
+    ],
+    [
+     "QLAZ",
+     "403D AFSB, LRC KURE PIER 6 (WT5JZX)",
+     "WT5JZX"
+    ],
+    [
+     "QLSC",
+     "DEFENSE DISTRIBUTION DEPOT KOREA (SW3105)",
+     "SW3105"
+    ],
+    [
+     "QLSQ",
+     "DLA DISTRIBUTION BUSAN KOREA(SW3279)",
+     "SW3279"
+    ],
+    [
+     "QMAC",
+     "W61R USA MED MATERIAL CTR (WT4J8S)",
+     "WT4J8S"
+    ],
+    [
+     "QMFL",
+     "8FW KUSAN AB (FB5284/FE5284)",
+     "FB5284"
+    ],
+    [
+     "QNAK",
+     "501ST CSG TONGDUCHON (WT4KDJ)",
+     "WT4KDJ"
+    ],
+    [
+     "QNFL",
+     "51 TRNS OSAN AB (FB5294)",
+     "FB5294"
+    ],
+    [
+     "QXAK",
+     "34TH SPT GP SEOUL (W81LYE)",
+     "W81LYE"
+    ],
+    [
+     "QZAQ",
+     "US Army TMDE Region Pacific(W906KC)",
+     "W906KC"
+    ],
+    [
+     "RCDK",
+     "USDAO AM EMBASSAY JAKARTA (HHAQ2Q)",
+     "HHAQ2Q"
+    ],
+    [
+     "REFL",
+     "ANG DET 13 CHRISTCHURCH (FB6543)",
+     "FB6543"
+    ],
+    [
+     "RFDF",
+     "USDAO AM EMBASSY MANILA (FY4184)",
+     "FY4184"
+    ],
+    [
+     "RHDO",
+     "AM EMBASSY, PHNOM PENH (HHACBC)",
+     "HHACBC"
+    ],
+    [
+     "RINL",
+     "FISC DET SINGAPORE (N68047)",
+     "N68047"
+    ],
+    [
+     "RLAB",
+     "United States Army Medical Materiel Center - South West Asia(W91R2L)",
+     "W91R2L"
+    ],
+    [
+     "RPNY",
+     "FISC Yokosuka DIEGO GARCIA (N40344)",
+     "N40344"
+    ],
+    [
+     "SDAC",
+     "GDR/LG FREEDOM COMPOUND",
+     "W90SVR"
+    ],
+    [
+     "SDFC",
+     "JOINT BASE BALAD, IRAQ",
+     "FB5860"
+    ],
+    [
+     "SDFD",
+     "407th AEG/ELRS/LGRDC, IRAQ",
+     "FB5832"
+    ],
+    [
+     "SDFL",
+     "AL ASAD AB JSOAC-C TRAFFIC MANAGEMENT OFFICE(FB5799)",
+     "FB5799"
+    ],
+    [
+     "SDFQ",
+     "TMO, KIRKUK RAB FOB WARRIOR IRAQ",
+     "FB5833"
+    ],
+    [
+     "SDFZ",
+     "SATHER AIR BASE, BAGHDAD INTERNATIONAL AIRPORT, IRAQ",
+     "FB5834"
+    ],
+    [
+     "SFFC",
+     "379 EXPEDITIONARY LOGISTICS READINESS SQUADRON/LGRDDC, QATAR",
+     "FB4804"
+    ],
+    [
+     "SFFQ",
+     "64 ESS/LRF, Saudi Arabia (FB5816)",
+     "FB5816"
+    ],
+    [
+     "SGAC",
+     "SDDC's 831st Transportation Battalion(W90B55)",
+     "W90B55"
+    ],
+    [
+     "SGNC",
+     "PRIORITY MATR OFFICE BAHRAIN",
+     "N50073"
+    ],
+    [
+     "SGNK",
+     "NAV ADMIN SUPP UNIT SWA BAHRAIN (N63005)",
+     "N63005"
+    ],
+    [
+     "SGNS",
+     "NAVSUP FLC BAHRAIN (N40339)",
+     "N40339"
+    ],
+    [
+     "SGSC",
+     "DLA Distribution Bahrain(SW3183)",
+     "SW3183"
+    ],
+    [
+     "SHSQ",
+     "DCMA SOUTHERN EUROPE, ISRAEL (SSR01A)",
+     "SSR01A"
+    ],
+    [
+     "SLAZ",
+     "CAMP ARIFJAN ASP/TSA",
+     "W81P6D"
+    ],
+    [
+     "SLFZ",
+     "386 ELRS/LGRD ALI AL SALEM AB KUWAIT",
+     "FB5820"
+    ],
+    [
+     "SLSC",
+     "DEFENSE DISTRIBUTION DEPOT KUWAIT (SW3109)",
+     "SW3109"
+    ],
+    [
+     "SLWZ",
+     "Surface Tender In the CENTCOM Region (STCR), Kuwait",
+     "W918T5"
+    ],
+    [
+     "SOAB",
+     "Medical Logistic Company, Bagram, Afghanistan (W91DCK)",
+     "W91DCK"
+    ],
+    [
+     "SOAC",
+     "484TH Med Log Kandahar Afghanistan (W90UTT)",
+     "W90UTT"
+    ],
+    [
+     "SOAF",
+     "1st TSC, APO AE 09356(W90XGV)",
+     "W90XGV"
+    ],
+    [
+     "SOAZ",
+     "311th ESC, Kandahar Afghanistan",
+     "W56VEK"
+    ],
+    [
+     "SOSQ",
+     "DLA Distribution Kandahar Afghanistan(SW3720)",
+     "SW3172"
+    ],
+    [
+     "SPDK",
+     "USDAO, AM EMBASSY COLOMBO (HHAS7S)",
+     "HHAS7S"
+    ],
+    [
+     "SUFQ",
+     "376 ELRS/LGRD, MANAS AB, KYRGYZSTAN",
+     "FB5804"
+    ],
+    [
+     "SWFL",
+     "376 ELRS 1 AERIAL PORT WAY PRINCE SULTAN AB (FB4863)",
+     "FB4863"
+    ],
+    [
+     "SXFL",
+     "405 AEG/ELRS, Thumrait AB, Oman (FB4668)",
+     "FB4668"
+    ],
+    [
+     "SXSQ",
+     "DLA DISTRIBUTION SALALAH THUMRAIT AB, OMAN(SW3156)",
+     "SW3156"
+    ],
+    [
+     "TADK",
+     "AM EMBASSY, ADDIS ABABA (HHAE4E)",
+     "HHAE4E"
+    ],
+    [
+     "TAFZ",
+     "380 ELRS/LGRD AL DHAFRA AB, UNITED ARAB EMIRATES",
+     "FB4811"
+    ],
+    [
+     "TANS",
+     "USN CAMP LEMONNIER (N3379A)",
+     "N3379A"
+    ],
+    [
+     "TASC",
+     "DLA DISTRIBUTION DJIBOUTI MPC(SW310W, SW311T AND SW311M)",
+     "SW311T"
+    ],
+    [
+     "TJFC",
+     "USAF EAB DEPLOYED LGRDDC (FB5462)",
+     "FB5462"
+    ],
+    [
+     "TJFZ",
+     "USAF EAB LGRDDC (FB5461)",
+     "FB5461"
+    ],
+    [
+     "UAFC",
+     "FY6327 401 AEG DET 1 TMO AFAF, LARISSA MILITARY AIRPORT",
+     "FY6327"
+    ],
+    [
+     "UANA",
+     "NAVSUPPACT SOUDA BAY (N66691)",
+     "N66691"
+    ],
+    [
+     "UCAK",
+     "USAR 14 TH TRANS BN VICENZA (W81GYA)",
+     "W81GYA"
+    ],
+    [
+     "UCFS",
+     "31 AW AVIANO AB (FB5682)",
+     "FB5682"
+    ],
+    [
+     "UCNQ",
+     "NAVSUPPACT NAPLES (N62588)",
+     "N62588"
+    ],
+    [
+     "UCSC",
+     "DEFENSE DISTRIBUTION DEPOT SIGONELLA ITALY (SW3170)",
+     "SW3170"
+    ],
+    [
+     "UCSQ",
+     "DLA Distribution Det, Naples Italy(SW310H)",
+     "SW310H"
+    ],
+    [
+     "UDAK",
+     "22D AREA SP TM LIVORNO LEGHORN (W90YHJ)",
+     "W90YHJ"
+    ],
+    [
+     "UDNQ",
+     "NVSUP FLCSI SITE CROMBIE (N0094F)",
+     "N0094F"
+    ],
+    [
+     "UMAZ",
+     "US Army Africa, Unit #31401, Box 5, APO AE 09630",
+     "W9051F"
+    ],
+    [
+     "UMNC",
+     "PRIORITY MATR OFFICE DET SIGONELLA(N50071",
+     "N50071"
+    ],
+    [
+     "UMNL",
+     "US NAV AIR STA SIGONELLA SICILY (N62995)",
+     "N62995"
+    ],
+    [
+     "UNFL",
+     "496 ABS MORON AB (FB5575)",
+     "FB5575"
+    ],
+    [
+     "UNNL",
+     "NAVSTA ROTA (N62863)",
+     "N62863"
+    ],
+    [
+     "UNSQ",
+     "DLA DIST. DET. ROTA SPAIN",
+     "SW310J"
+    ],
+    [
+     "UQAZ",
+     "39 TRNS INCIRLIK AB, ADANA (FB5685)",
+     "FB5685"
+    ],
+    [
+     "UWFL",
+     "1ERS/TMO RAF Akrotiri, Cyprus",
+     "FB4524"
+    ],
+    [
+     "VDNC",
+     "NAVAL SUPPORT ACTIVITY REDZIKOWO (N62592)",
+     "N62592"
+    ],
+    [
+     "VHAK",
+     "539TH TRANS GP ROTTERDAM (WK3FQY)",
+     "WK3FQY"
+    ],
+    [
+     "VIFC",
+     "426ABS, STAVANGER CITY (FY8243)",
+     "FY8243"
+    ],
+    [
+     "VJFC",
+     "426ABS OA-L OSLO (FY8242)",
+     "FY8242"
+    ],
+    [
+     "VPNC",
+     "NAVAL SUPPORT FACILITY DEVESELU (N34906)",
+     "N34906"
+    ],
+    [
+     "WAAB",
+     "USAR MED MAT CTR EUR PIRMASENS (WK4FV1,WK4FDK)",
+     "WK4FV1"
+    ],
+    [
+     "WASK",
+     "DCMA GERMANY WIESBADEN (SGR18A)",
+     "SGR18A"
+    ],
+    [
+     "WASQ",
+     "DEF DIST DEPOT EUROPE GERMERSHEIM (SWE300)",
+     "SWE300"
+    ],
+    [
+     "WBAK",
+     "USAR 39 TH TRANS BN KAISERSLAUTERN (WK4NWF)",
+     "WK4NWF"
+    ],
+    [
+     "WBAT",
+     "USARMY 16 SUST BDE (W51HYE)",
+     "W51HYE"
+    ],
+    [
+     "WFFL",
+     "52 FW TMO SPANGDAHLEM (FB5621)",
+     "FB5621"
+    ],
+    [
+     "WGAP",
+     "USACE EUROPE DIST WIESBADEN (WK4SF6)",
+     "WK4SF6"
+    ],
+    [
+     "WKFS",
+     "86 TRNS RAMSTEIN AB (FB5612/FB5607)",
+     "FB5612"
+    ],
+    [
+     "XAAQ",
+     "LRC-Aviation 0012 AV HHC SSA ILLESHEIM AIR DSSA AWCF SSF STORCK BARRACKS BLDG 6503 ILLESEIM DE 91471 GERMANY (WK4F8T)",
+     "WK4F8T"
+    ],
+    [
+     "XBBQ",
+     "LRC-AVIATION 0012 AV HHC SSA KATTERBACH KASERNE SSA BLDG 9007 AWCF SSF ANSBACH DE 91522 (WK4GF3)",
+     "WK4GF3"
+    ],
+    [
+     "YAFC",
+     "65 TRNS LAJES FIELD TERCIERA ISL AZORES (FB4486)",
+     "FB4486"
+    ],
+    [
+     "YBFL",
+     "423 ABS RAF ALCONBERY (FY5643)",
+     "FY5643"
+    ],
+    [
+     "YBSK",
+     "DCMA UK LOUDWATER (SUK12A)",
+     "SUK12A"
+    ],
+    [
+     "YCFC",
+     "100 LG LGS RAF MILDENHALL (FB5518)",
+     "FB5518"
+    ],
+    [
+     "YEFC",
+     "48 LG LAKENHEATH (FB5587)",
+     "FB5587"
+    ],
+    [
+     "YGFC",
+     "424 ABS RAF FAIRFORD (FB5505)",
+     "FB5505"
+    ],
+    [
+     "YMFC",
+     "422 ABS RAF CROUGHTON (FY5499)",
+     "FY5499"
+    ],
+    [
+     "YSNC",
+     "NAVSUP FLCSI DET KEFLAVIK (N4082B)",
+     "N4082B"
+    ],
+    [
+     "ZGFA",
+     "EOS FOL/DET 7, Base Aerea Eloy Alfaro Edificio 235",
+     "FB4860"
+    ],
+    [
+     "ZJUK",
+     "AMERICAN EMBASSY MONTEVIDEO, GS0, URUGUAY (WG4LK4)",
+     "WG4LK4"
+    ],
+    [
+     "ZQFZ",
+     "EOS FOL/DET 5, Aeropuerto International Hato",
+     "FB4540"
+    ]
+   ]
+  },
+  "airManifestReferences": {
+   "table": "V_D_AR_MNFST_RFRNC_CD",
+   "columns": [
+    "AR_MNFST_RFRNC_CD",
+    "AR_MNFST_RFRNC_TX"
+   ],
+   "rows": [
+    [
+     "AA",
+     "1st manifest"
+    ],
+    [
+     "AB",
+     "2d manifest"
+    ],
+    [
+     "AC",
+     "3rd manifest"
+    ],
+    [
+     "AD",
+     "4th manifest"
+    ],
+    [
+     "AE",
+     "5th manifest"
+    ],
+    [
+     "AF",
+     "6th manifest"
+    ],
+    [
+     "AG",
+     "7th manifest"
+    ],
+    [
+     "AH",
+     "8th manifest"
+    ],
+    [
+     "AJ",
+     "9th manifest"
+    ],
+    [
+     "AK",
+     "10th manifest"
+    ],
+    [
+     "AL",
+     "11th manifest"
+    ],
+    [
+     "AM",
+     "12th manifest"
+    ],
+    [
+     "AN",
+     "13th manifest"
+    ],
+    [
+     "AP",
+     "14th manifest"
+    ],
+    [
+     "AQ",
+     "15th manifest"
+    ],
+    [
+     "AR",
+     "16th manifest"
+    ],
+    [
+     "AS",
+     "17th manifest"
+    ],
+    [
+     "AT",
+     "18th manifest"
+    ],
+    [
+     "AU",
+     "19th manifest"
+    ],
+    [
+     "AV",
+     "20th manifest"
+    ],
+    [
+     "AW",
+     "21st manifest"
+    ],
+    [
+     "AX",
+     "22nd manifest"
+    ],
+    [
+     "AY",
+     "23rd manifest"
+    ],
+    [
+     "AZ",
+     "24th manifest"
+    ],
+    [
+     "BA",
+     "25th manifest"
+    ],
+    [
+     "BB",
+     "26th manifest"
+    ],
+    [
+     "BC",
+     "27th manifest"
+    ],
+    [
+     "BD",
+     "28th manifest"
+    ],
+    [
+     "BE",
+     "29th manifest"
+    ],
+    [
+     "BF",
+     "30th manifest"
+    ],
+    [
+     "BG",
+     "31st manifest"
+    ],
+    [
+     "BH",
+     "32nd manifest"
+    ],
+    [
+     "BJ",
+     "33rd manifest"
+    ],
+    [
+     "BK",
+     "34th manifest"
+    ],
+    [
+     "BL",
+     "35th manifest"
+    ],
+    [
+     "BM",
+     "36th manifest"
+    ],
+    [
+     "BN",
+     "37th manifest"
+    ],
+    [
+     "BP",
+     "38th manifest"
+    ],
+    [
+     "BQ",
+     "39th manifest"
+    ],
+    [
+     "BR",
+     "40th manifest"
+    ],
+    [
+     "BS",
+     "41st manifest"
+    ],
+    [
+     "BT",
+     "42nd manifest"
+    ],
+    [
+     "BU",
+     "43rd manifest"
+    ],
+    [
+     "BV",
+     "44th manifest"
+    ],
+    [
+     "BW",
+     "45th manifest"
+    ],
+    [
+     "BX",
+     "46th manifest"
+    ],
+    [
+     "BY",
+     "47th manifest"
+    ],
+    [
+     "BZ",
+     "48th manifest"
+    ],
+    [
+     "CA",
+     "49th manifest"
+    ],
+    [
+     "CB",
+     "50th manifest"
+    ],
+    [
+     "CC",
+     "51st manifest"
+    ],
+    [
+     "CD",
+     "52nd manifest"
+    ],
+    [
+     "CE",
+     "53rd manifest"
+    ],
+    [
+     "CF",
+     "54th manifest"
+    ],
+    [
+     "CG",
+     "55th manifest"
+    ],
+    [
+     "CH",
+     "56th manifest"
+    ],
+    [
+     "CJ",
+     "57th manifest"
+    ],
+    [
+     "CK",
+     "58th manifest"
+    ],
+    [
+     "CL",
+     "59th manifest"
+    ],
+    [
+     "CM",
+     "60th manifest"
+    ],
+    [
+     "CN",
+     "61st manifest"
+    ],
+    [
+     "CP",
+     "62nd manifest"
+    ],
+    [
+     "CQ",
+     "63rd manifest"
+    ],
+    [
+     "CR",
+     "64th manifest"
+    ],
+    [
+     "CS",
+     "65th manifest"
+    ],
+    [
+     "CT",
+     "66th manifest"
+    ],
+    [
+     "CU",
+     "67th manifest"
+    ],
+    [
+     "CV",
+     "68th manifest"
+    ],
+    [
+     "CW",
+     "69th manifest"
+    ],
+    [
+     "CX",
+     "70th manifest"
+    ],
+    [
+     "CY",
+     "71st manifest"
+    ],
+    [
+     "CZ",
+     "72nd manifest"
+    ],
+    [
+     "DA",
+     "73rd manifest"
+    ],
+    [
+     "DB",
+     "74th manifest"
+    ],
+    [
+     "DC",
+     "75th manifest"
+    ],
+    [
+     "DD",
+     "76th manifest"
+    ],
+    [
+     "DE",
+     "77th manifest"
+    ],
+    [
+     "DF",
+     "78th manifest"
+    ],
+    [
+     "DG",
+     "79th manifest"
+    ],
+    [
+     "DH",
+     "80th manifest"
+    ],
+    [
+     "DJ",
+     "81st manifest"
+    ],
+    [
+     "DK",
+     "82nd manifest"
+    ],
+    [
+     "DL",
+     "83rd manifest"
+    ],
+    [
+     "DM",
+     "84th manifest"
+    ],
+    [
+     "DN",
+     "85th manifest"
+    ],
+    [
+     "DP",
+     "86th manifest"
+    ],
+    [
+     "DQ",
+     "87th manifest"
+    ],
+    [
+     "DR",
+     "88th manifest"
+    ],
+    [
+     "DS",
+     "89th manifest"
+    ],
+    [
+     "DT",
+     "90th manifest"
+    ],
+    [
+     "DU",
+     "91st manifest"
+    ],
+    [
+     "DV",
+     "92nd manifest"
+    ],
+    [
+     "DW",
+     "93rd manifest"
+    ],
+    [
+     "DX",
+     "94th manifest"
+    ],
+    [
+     "DY",
+     "95th manifest"
+    ],
+    [
+     "DZ",
+     "96th manifest"
+    ],
+    [
+     "EA",
+     "97th manifest"
+    ],
+    [
+     "EB",
+     "98th manifest"
+    ],
+    [
+     "EC",
+     "99th manifest"
+    ],
+    [
+     "ED",
+     "100th manifest"
+    ],
+    [
+     "EE",
+     "101st manifest"
+    ],
+    [
+     "EF",
+     "102nd manifest"
+    ],
+    [
+     "EG",
+     "103rd manifest"
+    ],
+    [
+     "EH",
+     "104th manifest"
+    ],
+    [
+     "EJ",
+     "105th manifest"
+    ],
+    [
+     "EK",
+     "106th manifest"
+    ],
+    [
+     "EL",
+     "107th manifest"
+    ],
+    [
+     "EM",
+     "108th manifest"
+    ],
+    [
+     "EN",
+     "109th manifest"
+    ],
+    [
+     "EP",
+     "110th manifest"
+    ],
+    [
+     "EQ",
+     "111th manifest"
+    ],
+    [
+     "ER",
+     "112th manifest"
+    ],
+    [
+     "ES",
+     "113rd manifest"
+    ],
+    [
+     "ET",
+     "114th manifest"
+    ],
+    [
+     "EU",
+     "115th manifest"
+    ],
+    [
+     "EV",
+     "116th manifest"
+    ],
+    [
+     "EW",
+     "117th manifest"
+    ],
+    [
+     "EX",
+     "118th manifest"
+    ],
+    [
+     "EY",
+     "119th manifest"
+    ],
+    [
+     "EZ",
+     "120th manifest"
+    ],
+    [
+     "FA",
+     "121st manifest"
+    ],
+    [
+     "FB",
+     "122nd manifest"
+    ],
+    [
+     "FC",
+     "123rd manifest"
+    ],
+    [
+     "FD",
+     "124th manifest"
+    ],
+    [
+     "FE",
+     "125th manifest"
+    ],
+    [
+     "FF",
+     "126th manifest"
+    ],
+    [
+     "FG",
+     "127th manifest"
+    ],
+    [
+     "FH",
+     "128th manifest"
+    ],
+    [
+     "FJ",
+     "129th manifest"
+    ],
+    [
+     "FK",
+     "130th manifest"
+    ],
+    [
+     "FL",
+     "131st manifest"
+    ],
+    [
+     "FM",
+     "132nd manifest"
+    ],
+    [
+     "FN",
+     "133rd manifest"
+    ],
+    [
+     "FP",
+     "134th manifest"
+    ],
+    [
+     "FQ",
+     "135th manifest"
+    ],
+    [
+     "FR",
+     "136th manifest"
+    ],
+    [
+     "FS",
+     "137th manifest"
+    ],
+    [
+     "FT",
+     "138th manifest"
+    ],
+    [
+     "FU",
+     "139th manifest"
+    ],
+    [
+     "FV",
+     "140th manifest"
+    ],
+    [
+     "FW",
+     "141st manifest"
+    ],
+    [
+     "FX",
+     "142nd manifest"
+    ],
+    [
+     "FY",
+     "143rd manifest"
+    ],
+    [
+     "FZ",
+     "144th manifest"
+    ],
+    [
+     "GA",
+     "145th manifest"
+    ],
+    [
+     "GB",
+     "146th manifest"
+    ],
+    [
+     "GC",
+     "147th manifest"
+    ],
+    [
+     "GD",
+     "148th manifest"
+    ],
+    [
+     "GE",
+     "149th manifest"
+    ],
+    [
+     "GF",
+     "150th manifest"
+    ],
+    [
+     "GG",
+     "151st manifest"
+    ],
+    [
+     "GH",
+     "152nd manifest"
+    ],
+    [
+     "GJ",
+     "153rd manifest"
+    ],
+    [
+     "GK",
+     "154th manifest"
+    ],
+    [
+     "GL",
+     "155th manifest"
+    ],
+    [
+     "GM",
+     "156th manifest"
+    ],
+    [
+     "GN",
+     "157th manifest"
+    ],
+    [
+     "GP",
+     "158th manifest"
+    ],
+    [
+     "GQ",
+     "159th manifest"
+    ],
+    [
+     "GR",
+     "160th manifest"
+    ],
+    [
+     "GS",
+     "161st manifest"
+    ],
+    [
+     "GT",
+     "162nd manifest"
+    ],
+    [
+     "GU",
+     "163rd manifest"
+    ],
+    [
+     "GV",
+     "164th manifest"
+    ],
+    [
+     "GW",
+     "165th manifest"
+    ],
+    [
+     "GX",
+     "166th manifest"
+    ],
+    [
+     "GY",
+     "167th manifest"
+    ],
+    [
+     "GZ",
+     "168th manifest"
+    ],
+    [
+     "HA",
+     "169th manifest"
+    ],
+    [
+     "HB",
+     "170th manifest"
+    ],
+    [
+     "HC",
+     "171st manifest"
+    ],
+    [
+     "HD",
+     "172nd manifest"
+    ],
+    [
+     "HE",
+     "173rd manifest"
+    ],
+    [
+     "HF",
+     "174th manifest"
+    ],
+    [
+     "HG",
+     "175th manifest"
+    ],
+    [
+     "HH",
+     "176th manifest"
+    ],
+    [
+     "HJ",
+     "177th manifest"
+    ],
+    [
+     "HK",
+     "178th manifest"
+    ],
+    [
+     "HL",
+     "179th manifest"
+    ],
+    [
+     "HM",
+     "180th manifest"
+    ],
+    [
+     "HN",
+     "181st manifest"
+    ],
+    [
+     "HP",
+     "182nd manifest"
+    ],
+    [
+     "HQ",
+     "183rd manifest"
+    ],
+    [
+     "HR",
+     "184th manifest"
+    ],
+    [
+     "HS",
+     "185th manifest"
+    ],
+    [
+     "HT",
+     "186th manifest"
+    ],
+    [
+     "HU",
+     "187th manifest"
+    ],
+    [
+     "HV",
+     "188th manifest"
+    ],
+    [
+     "HW",
+     "189th manifest"
+    ],
+    [
+     "HX",
+     "190th manifest"
+    ],
+    [
+     "HY",
+     "191st manifest"
+    ],
+    [
+     "HZ",
+     "192nd manifest"
+    ],
+    [
+     "JA",
+     "193rd manifest"
+    ],
+    [
+     "JB",
+     "194th manifest"
+    ],
+    [
+     "JC",
+     "195th manifest"
+    ],
+    [
+     "JD",
+     "196th manifest"
+    ],
+    [
+     "JE",
+     "197th manifest"
+    ],
+    [
+     "JF",
+     "198th manifest"
+    ],
+    [
+     "JG",
+     "199th manifest"
+    ],
+    [
+     "JH",
+     "200th manifest"
+    ],
+    [
+     "JJ",
+     "201st manifest"
+    ],
+    [
+     "JK",
+     "202nd manifest"
+    ],
+    [
+     "JL",
+     "203rd manifest"
+    ],
+    [
+     "JM",
+     "204th manifest"
+    ],
+    [
+     "JN",
+     "205th manifest"
+    ],
+    [
+     "JP",
+     "206th manifest"
+    ],
+    [
+     "JQ",
+     "207th manifest"
+    ],
+    [
+     "JR",
+     "208th manifest"
+    ],
+    [
+     "JS",
+     "209th manifest"
+    ],
+    [
+     "JT",
+     "210th manifest"
+    ],
+    [
+     "JU",
+     "211th manifest"
+    ],
+    [
+     "JV",
+     "212th manifest"
+    ],
+    [
+     "JW",
+     "213th manifest"
+    ],
+    [
+     "JX",
+     "214th manifest"
+    ],
+    [
+     "JY",
+     "215th manifest"
+    ],
+    [
+     "JZ",
+     "216th manifest"
+    ],
+    [
+     "KA",
+     "217th manifest"
+    ],
+    [
+     "KB",
+     "218th manifest"
+    ],
+    [
+     "KC",
+     "219th manifest"
+    ],
+    [
+     "KD",
+     "220th manifest"
+    ],
+    [
+     "KE",
+     "221st manifest"
+    ],
+    [
+     "KF",
+     "222nd manifest"
+    ],
+    [
+     "KG",
+     "223rd manifest"
+    ],
+    [
+     "KH",
+     "224th manifest"
+    ],
+    [
+     "KJ",
+     "225th manifest"
+    ],
+    [
+     "KK",
+     "226th manifest"
+    ],
+    [
+     "KL",
+     "227th manifest"
+    ],
+    [
+     "KM",
+     "228th manifest"
+    ],
+    [
+     "KN",
+     "229th manifest"
+    ],
+    [
+     "KP",
+     "230th manifest"
+    ],
+    [
+     "KQ",
+     "231st manifest"
+    ],
+    [
+     "KR",
+     "234th manifest"
+    ],
+    [
+     "KS",
+     "233rd manifest"
+    ],
+    [
+     "KT",
+     "234th manifest"
+    ],
+    [
+     "KU",
+     "235th manifest"
+    ],
+    [
+     "KV",
+     "236th manifest"
+    ],
+    [
+     "KW",
+     "237th manifest"
+    ],
+    [
+     "KX",
+     "238th manifest"
+    ],
+    [
+     "KY",
+     "239th manifest"
+    ],
+    [
+     "KZ",
+     "240th manifest"
+    ],
+    [
+     "LA",
+     "241st manifest"
+    ],
+    [
+     "LB",
+     "242nd manifest"
+    ],
+    [
+     "LC",
+     "243rd manifest"
+    ],
+    [
+     "LD",
+     "244th manifest"
+    ],
+    [
+     "LE",
+     "245th manifest"
+    ],
+    [
+     "LF",
+     "246th manifest"
+    ],
+    [
+     "LG",
+     "247th manifest"
+    ],
+    [
+     "LH",
+     "248th manifest"
+    ],
+    [
+     "LJ",
+     "249th manifest"
+    ],
+    [
+     "LK",
+     "250th manifest"
+    ],
+    [
+     "LL",
+     "251st manifest"
+    ],
+    [
+     "LM",
+     "252nd manifest"
+    ],
+    [
+     "LN",
+     "253rd manifest"
+    ],
+    [
+     "LP",
+     "254th manifest"
+    ],
+    [
+     "LQ",
+     "255th manifest"
+    ],
+    [
+     "LR",
+     "256th manifest"
+    ],
+    [
+     "LS",
+     "257th manifest"
+    ],
+    [
+     "LT",
+     "258th manifest"
+    ],
+    [
+     "LU",
+     "259th manifest"
+    ],
+    [
+     "LV",
+     "260th manifest"
+    ],
+    [
+     "LW",
+     "261st manifest"
+    ],
+    [
+     "LX",
+     "262nd manifest"
+    ],
+    [
+     "LY",
+     "263rd manifest"
+    ],
+    [
+     "LZ",
+     "264th manifest"
+    ],
+    [
+     "MA",
+     "265th manifest"
+    ],
+    [
+     "MB",
+     "266th manifest"
+    ],
+    [
+     "MC",
+     "267th manifest"
+    ],
+    [
+     "MD",
+     "268th manifest"
+    ],
+    [
+     "ME",
+     "269th manifest"
+    ],
+    [
+     "MF",
+     "270th manifest"
+    ],
+    [
+     "MG",
+     "271st manifest"
+    ],
+    [
+     "MH",
+     "272nd manifest"
+    ],
+    [
+     "MJ",
+     "273rd manifest"
+    ],
+    [
+     "MK",
+     "274th manifest"
+    ],
+    [
+     "ML",
+     "275th manifest"
+    ],
+    [
+     "MM",
+     "276th manifest"
+    ],
+    [
+     "MN",
+     "277th manifest"
+    ],
+    [
+     "MP",
+     "278th manifest"
+    ],
+    [
+     "MQ",
+     "279th manifest"
+    ],
+    [
+     "MR",
+     "280th manifest"
+    ],
+    [
+     "MS",
+     "281st manifest"
+    ],
+    [
+     "MT",
+     "282nd manifest"
+    ],
+    [
+     "MU",
+     "283rd manifest"
+    ],
+    [
+     "MV",
+     "284th manifest"
+    ],
+    [
+     "MW",
+     "285th manifest"
+    ],
+    [
+     "MX",
+     "286th manifest"
+    ],
+    [
+     "MY",
+     "287th manifest"
+    ],
+    [
+     "MZ",
+     "288th manifest"
+    ],
+    [
+     "NA",
+     "289th manifest"
+    ],
+    [
+     "NB",
+     "290th manifest"
+    ],
+    [
+     "NC",
+     "291st manifest"
+    ],
+    [
+     "ND",
+     "292nd manifest"
+    ],
+    [
+     "NE",
+     "293rd manifest"
+    ],
+    [
+     "NF",
+     "294th manifest"
+    ],
+    [
+     "NG",
+     "295th manifest"
+    ],
+    [
+     "NH",
+     "296th manifest"
+    ],
+    [
+     "NJ",
+     "297th manifest"
+    ],
+    [
+     "NK",
+     "298th manifest"
+    ],
+    [
+     "NL",
+     "299th manifest"
+    ],
+    [
+     "NM",
+     "300th manifest"
+    ],
+    [
+     "NN",
+     "301st manifest"
+    ],
+    [
+     "NP",
+     "302nd manifest"
+    ],
+    [
+     "NQ",
+     "303rd manifest"
+    ],
+    [
+     "NR",
+     "304th manifest"
+    ],
+    [
+     "NS",
+     "305th manifest"
+    ],
+    [
+     "NT",
+     "306th manifest"
+    ],
+    [
+     "NU",
+     "307th manifest"
+    ],
+    [
+     "NV",
+     "308th manifest"
+    ],
+    [
+     "NW",
+     "309th manifest"
+    ],
+    [
+     "NX",
+     "310th manifest"
+    ],
+    [
+     "NY",
+     "311th manifest"
+    ],
+    [
+     "NZ",
+     "312th manifest"
+    ],
+    [
+     "PA",
+     "313th manifest"
+    ],
+    [
+     "PB",
+     "314th manifest"
+    ],
+    [
+     "PC",
+     "315th manifest"
+    ],
+    [
+     "PD",
+     "316th manifest"
+    ],
+    [
+     "PE",
+     "317th manifest"
+    ],
+    [
+     "PF",
+     "318th manifest"
+    ],
+    [
+     "PG",
+     "319th manifest"
+    ],
+    [
+     "PH",
+     "320th manifest"
+    ],
+    [
+     "PJ",
+     "321st manifest"
+    ],
+    [
+     "PK",
+     "322nd manifest"
+    ],
+    [
+     "PL",
+     "323rd manifest"
+    ],
+    [
+     "PM",
+     "324th manifest"
+    ],
+    [
+     "PN",
+     "325th manifest"
+    ],
+    [
+     "PP",
+     "326th manifest"
+    ],
+    [
+     "PQ",
+     "327th manifest"
+    ],
+    [
+     "PR",
+     "328th manifest"
+    ],
+    [
+     "PS",
+     "329th manifest"
+    ],
+    [
+     "PT",
+     "330th manifest"
+    ],
+    [
+     "PU",
+     "331st manifest"
+    ],
+    [
+     "PV",
+     "332nd manifest"
+    ],
+    [
+     "PW",
+     "333rd manifest"
+    ],
+    [
+     "PX",
+     "334th manifest"
+    ],
+    [
+     "PY",
+     "335th manifest"
+    ],
+    [
+     "PZ",
+     "336th manifest"
+    ],
+    [
+     "QA",
+     "337th manifest"
+    ],
+    [
+     "QB",
+     "338th manifest"
+    ],
+    [
+     "QC",
+     "339th manifest"
+    ],
+    [
+     "QD",
+     "340th manifest"
+    ],
+    [
+     "QE",
+     "341st manifest"
+    ],
+    [
+     "QF",
+     "342nd manifest"
+    ],
+    [
+     "QG",
+     "343rd manifest"
+    ],
+    [
+     "QH",
+     "344th manifest"
+    ],
+    [
+     "QJ",
+     "345th manifest"
+    ],
+    [
+     "QK",
+     "346th manifest"
+    ],
+    [
+     "QL",
+     "347th manifest"
+    ],
+    [
+     "QM",
+     "348th manifest"
+    ],
+    [
+     "QN",
+     "349th manifest"
+    ],
+    [
+     "QP",
+     "350th manifest"
+    ],
+    [
+     "QQ",
+     "351st manifest"
+    ],
+    [
+     "QR",
+     "352nd manifest"
+    ],
+    [
+     "QS",
+     "353rd manifest"
+    ],
+    [
+     "QT",
+     "354th manifest"
+    ],
+    [
+     "QU",
+     "355th manifest"
+    ],
+    [
+     "QV",
+     "356th manifest"
+    ],
+    [
+     "QW",
+     "357th manifest"
+    ],
+    [
+     "QX",
+     "358th manifest"
+    ],
+    [
+     "QY",
+     "359th manifest"
+    ],
+    [
+     "QZ",
+     "360th manifest"
+    ],
+    [
+     "RA",
+     "361st manifest"
+    ],
+    [
+     "RB",
+     "362nd manifest"
+    ],
+    [
+     "RC",
+     "363rd manifest"
+    ],
+    [
+     "RD",
+     "364th manifest"
+    ],
+    [
+     "RE",
+     "365th manifest"
+    ],
+    [
+     "RF",
+     "366th manifest"
+    ],
+    [
+     "RG",
+     "367th manifest"
+    ],
+    [
+     "RH",
+     "368th manifest"
+    ],
+    [
+     "RJ",
+     "369th manifest"
+    ],
+    [
+     "RK",
+     "370th manifest"
+    ],
+    [
+     "RL",
+     "371st manifest"
+    ],
+    [
+     "RM",
+     "372nd manifest"
+    ],
+    [
+     "RN",
+     "373rd manifest"
+    ],
+    [
+     "RP",
+     "374th manifest"
+    ],
+    [
+     "RQ",
+     "375th manifest"
+    ],
+    [
+     "RR",
+     "376th manifest"
+    ],
+    [
+     "RS",
+     "377th manifest"
+    ],
+    [
+     "RT",
+     "378th manifest"
+    ],
+    [
+     "RU",
+     "379th manifest"
+    ],
+    [
+     "RV",
+     "380th manifest"
+    ],
+    [
+     "RW",
+     "381st manifest"
+    ],
+    [
+     "RX",
+     "382nd manifest"
+    ],
+    [
+     "RY",
+     "383rd manifest"
+    ],
+    [
+     "RZ",
+     "384th manifest"
+    ],
+    [
+     "SA",
+     "385th manifest"
+    ],
+    [
+     "SB",
+     "386th manifest"
+    ],
+    [
+     "SC",
+     "387th manifest"
+    ],
+    [
+     "SD",
+     "388th manifest"
+    ],
+    [
+     "SE",
+     "389th manifest"
+    ],
+    [
+     "SF",
+     "390th manifest"
+    ],
+    [
+     "SG",
+     "391st manifest"
+    ],
+    [
+     "SH",
+     "392nd manifest"
+    ],
+    [
+     "SJ",
+     "393rd manifest"
+    ],
+    [
+     "SK",
+     "394th manifest"
+    ],
+    [
+     "SL",
+     "395th manifest"
+    ],
+    [
+     "SM",
+     "396th manifest"
+    ],
+    [
+     "SN",
+     "397th manifest"
+    ],
+    [
+     "SP",
+     "398th manifest"
+    ],
+    [
+     "SQ",
+     "399th manifest"
+    ],
+    [
+     "SR",
+     "400th manifest"
+    ],
+    [
+     "SS",
+     "401st manifest"
+    ],
+    [
+     "ST",
+     "402nd manifest"
+    ],
+    [
+     "SU",
+     "403rd manifest"
+    ],
+    [
+     "SV",
+     "404th manifest"
+    ],
+    [
+     "SW",
+     "405th manifest"
+    ],
+    [
+     "SX",
+     "406th manifest"
+    ],
+    [
+     "SY",
+     "407th manifest"
+    ],
+    [
+     "SZ",
+     "408th manifest"
+    ],
+    [
+     "TA",
+     "409th manifest"
+    ],
+    [
+     "TB",
+     "410th manifest"
+    ],
+    [
+     "TC",
+     "411th manifest"
+    ],
+    [
+     "TD",
+     "412th manifest"
+    ],
+    [
+     "TE",
+     "413th manifest"
+    ],
+    [
+     "TF",
+     "414th manifest"
+    ],
+    [
+     "TG",
+     "415th manifest"
+    ],
+    [
+     "TH",
+     "416th manifest"
+    ],
+    [
+     "TJ",
+     "417th manifest"
+    ],
+    [
+     "TK",
+     "418th manifest"
+    ],
+    [
+     "TL",
+     "419th manifest"
+    ],
+    [
+     "TM",
+     "420th manifest"
+    ],
+    [
+     "TN",
+     "421st manifest"
+    ],
+    [
+     "TP",
+     "422nd manifest"
+    ],
+    [
+     "TQ",
+     "423rd manifest"
+    ],
+    [
+     "TR",
+     "424th manifest"
+    ],
+    [
+     "TS",
+     "425th manifest"
+    ],
+    [
+     "TT",
+     "426th manifest"
+    ],
+    [
+     "TU",
+     "427th manifest"
+    ],
+    [
+     "TV",
+     "428th manifest"
+    ],
+    [
+     "TW",
+     "429th manifest"
+    ],
+    [
+     "TX",
+     "430th manifest"
+    ],
+    [
+     "TY",
+     "431st manifest"
+    ],
+    [
+     "TZ",
+     "432nd manifest"
+    ],
+    [
+     "UA",
+     "433rd manifest"
+    ],
+    [
+     "UB",
+     "434th manifest"
+    ],
+    [
+     "UC",
+     "435th manifest"
+    ],
+    [
+     "UD",
+     "436th manifest"
+    ],
+    [
+     "UE",
+     "437th manifest"
+    ],
+    [
+     "UF",
+     "438th manifest"
+    ],
+    [
+     "UG",
+     "439th manifest"
+    ],
+    [
+     "UH",
+     "440th manifest"
+    ],
+    [
+     "UJ",
+     "441st manifest"
+    ],
+    [
+     "UK",
+     "442nd manifest"
+    ],
+    [
+     "UL",
+     "443rd manifest"
+    ],
+    [
+     "UM",
+     "444th manifest"
+    ],
+    [
+     "UN",
+     "445th manifest"
+    ],
+    [
+     "UP",
+     "446th manifest"
+    ],
+    [
+     "UQ",
+     "447th manifest"
+    ],
+    [
+     "UR",
+     "448th manifest"
+    ],
+    [
+     "US",
+     "449th manifest"
+    ],
+    [
+     "UT",
+     "450th manifest"
+    ],
+    [
+     "UU",
+     "451st manifest"
+    ],
+    [
+     "UV",
+     "452nd manifest"
+    ],
+    [
+     "UW",
+     "453rd manifest"
+    ],
+    [
+     "UX",
+     "454th manifest"
+    ],
+    [
+     "UY",
+     "455th manifest"
+    ],
+    [
+     "UZ",
+     "456th manifest"
+    ],
+    [
+     "VA",
+     "457th manifest"
+    ],
+    [
+     "VB",
+     "458th manifest"
+    ],
+    [
+     "VC",
+     "459th manifest"
+    ],
+    [
+     "VD",
+     "460th manifest"
+    ],
+    [
+     "VE",
+     "461st manifest"
+    ],
+    [
+     "VF",
+     "462nd manifest"
+    ],
+    [
+     "VG",
+     "463rd manifest"
+    ],
+    [
+     "VH",
+     "464th manifest"
+    ],
+    [
+     "VJ",
+     "465th manifest"
+    ],
+    [
+     "VK",
+     "466th manifest"
+    ],
+    [
+     "VL",
+     "467th manifest"
+    ],
+    [
+     "VM",
+     "468th manifest"
+    ],
+    [
+     "VN",
+     "469th manifest"
+    ],
+    [
+     "VP",
+     "470th manifest"
+    ],
+    [
+     "VQ",
+     "471st manifest"
+    ],
+    [
+     "VR",
+     "472nd manifest"
+    ],
+    [
+     "VS",
+     "473rd manifest"
+    ],
+    [
+     "VT",
+     "474th manifest"
+    ],
+    [
+     "VU",
+     "475th manifest"
+    ],
+    [
+     "VV",
+     "476th manifest"
+    ],
+    [
+     "VW",
+     "477th manifest"
+    ],
+    [
+     "VX",
+     "478th manifest"
+    ],
+    [
+     "VY",
+     "479th manifest"
+    ],
+    [
+     "VZ",
+     "480th manifest"
+    ],
+    [
+     "WA",
+     "481st manifest"
+    ],
+    [
+     "WB",
+     "482nd manifest"
+    ],
+    [
+     "WC",
+     "483rd manifest"
+    ],
+    [
+     "WD",
+     "484th manifest"
+    ],
+    [
+     "WE",
+     "485th manifest"
+    ],
+    [
+     "WF",
+     "486th manifest"
+    ],
+    [
+     "WG",
+     "487th manifest"
+    ],
+    [
+     "WH",
+     "488th manifest"
+    ],
+    [
+     "WJ",
+     "489th manifest"
+    ],
+    [
+     "WK",
+     "490th manifest"
+    ],
+    [
+     "WL",
+     "491st manifest"
+    ],
+    [
+     "WM",
+     "492nd manifest"
+    ],
+    [
+     "WN",
+     "493rd manifest"
+    ],
+    [
+     "WP",
+     "494th manifest"
+    ],
+    [
+     "WQ",
+     "495th manifest"
+    ],
+    [
+     "WR",
+     "496th manifest"
+    ],
+    [
+     "WS",
+     "497th manifest"
+    ],
+    [
+     "WT",
+     "498th manifest"
+    ],
+    [
+     "WU",
+     "499th manifest"
+    ],
+    [
+     "WV",
+     "500th manifest"
+    ],
+    [
+     "WW",
+     "501st manifest"
+    ],
+    [
+     "WX",
+     "502nd manifest"
+    ],
+    [
+     "WY",
+     "503rd manifest"
+    ],
+    [
+     "WZ",
+     "504th manifest"
+    ],
+    [
+     "XA",
+     "505th manifest"
+    ],
+    [
+     "XB",
+     "506th manifest"
+    ],
+    [
+     "XC",
+     "507th manifest"
+    ],
+    [
+     "XD",
+     "508th manifest"
+    ],
+    [
+     "XE",
+     "509th manifest"
+    ],
+    [
+     "XF",
+     "510th manifest"
+    ],
+    [
+     "XG",
+     "511th manifest"
+    ],
+    [
+     "XH",
+     "512th manifest"
+    ],
+    [
+     "XJ",
+     "513th manifest"
+    ],
+    [
+     "XK",
+     "514th manifest"
+    ],
+    [
+     "XL",
+     "515th manifest"
+    ],
+    [
+     "XM",
+     "516th manifest"
+    ],
+    [
+     "XN",
+     "517th manifest"
+    ],
+    [
+     "XP",
+     "518th manifest"
+    ],
+    [
+     "XQ",
+     "519th manifest"
+    ],
+    [
+     "XR",
+     "520th manifest"
+    ],
+    [
+     "XS",
+     "521st manifest"
+    ],
+    [
+     "XT",
+     "522nd manifest"
+    ],
+    [
+     "XU",
+     "523rd manifest"
+    ],
+    [
+     "XV",
+     "524th manifest"
+    ],
+    [
+     "XW",
+     "525th manifest"
+    ],
+    [
+     "XX",
+     "526th manifest"
+    ],
+    [
+     "XY",
+     "527th manifest"
+    ],
+    [
+     "XZ",
+     "528th manifest"
+    ],
+    [
+     "YA",
+     "529th manifest"
+    ],
+    [
+     "YB",
+     "530th manifest"
+    ],
+    [
+     "YC",
+     "531st manifest"
+    ],
+    [
+     "YD",
+     "532nd manifest"
+    ],
+    [
+     "YE",
+     "533rd manifest"
+    ],
+    [
+     "YF",
+     "534th manifest"
+    ],
+    [
+     "YG",
+     "535th manifest"
+    ],
+    [
+     "YH",
+     "536th manifest"
+    ],
+    [
+     "YJ",
+     "537th manifest"
+    ],
+    [
+     "YK",
+     "538th manifest"
+    ],
+    [
+     "YL",
+     "539th manifest"
+    ],
+    [
+     "YM",
+     "540th manifest"
+    ],
+    [
+     "YN",
+     "541st manifest"
+    ],
+    [
+     "YP",
+     "542nd manifest"
+    ],
+    [
+     "YQ",
+     "543rd manifest"
+    ],
+    [
+     "YR",
+     "544th manifest"
+    ],
+    [
+     "YS",
+     "545th manifest"
+    ],
+    [
+     "YT",
+     "546th manifest"
+    ],
+    [
+     "YU",
+     "547th manifest"
+    ],
+    [
+     "YV",
+     "548th manifest"
+    ],
+    [
+     "YW",
+     "549th manifest"
+    ],
+    [
+     "YX",
+     "550th manifest"
+    ],
+    [
+     "YY",
+     "551st manifest"
+    ],
+    [
+     "YZ",
+     "552nd manifest"
+    ],
+    [
+     "ZA",
+     "553rd manifest"
+    ],
+    [
+     "ZB",
+     "554th manifest"
+    ],
+    [
+     "ZC",
+     "555th manifest"
+    ],
+    [
+     "ZD",
+     "556th manifest"
+    ],
+    [
+     "ZE",
+     "557th manifest"
+    ],
+    [
+     "ZF",
+     "558th manifest"
+    ],
+    [
+     "ZG",
+     "559th manifest"
+    ],
+    [
+     "ZH",
+     "560th manifest"
+    ],
+    [
+     "ZJ",
+     "561st manifest"
+    ],
+    [
+     "ZK",
+     "562nd manifest"
+    ],
+    [
+     "ZL",
+     "563rd manifest"
+    ],
+    [
+     "ZM",
+     "564th manifest"
+    ],
+    [
+     "ZN",
+     "565th manifest"
+    ],
+    [
+     "ZP",
+     "566th manifest"
+    ],
+    [
+     "ZQ",
+     "567th manifest"
+    ],
+    [
+     "ZR",
+     "568th manifest"
+    ],
+    [
+     "ZS",
+     "569th manifest"
+    ],
+    [
+     "ZT",
+     "570th manifest"
+    ],
+    [
+     "ZU",
+     "571st manifest"
+    ],
+    [
+     "ZV",
+     "572nd manifest"
+    ],
+    [
+     "ZW",
+     "573rd manifest"
+    ],
+    [
+     "ZX",
+     "574th manifest"
+    ],
+    [
+     "ZY",
+     "575th manifest"
+    ],
+    [
+     "ZZ",
+     "576th manifest"
+    ]
+   ]
+  },
+  "routeOrderServices": {
+   "table": "V_D_DMSTC_RTE_ORDR_MIL_SVC_CD",
+   "columns": [
+    "DMSTC_RTE_ORDR_MIL_SVC_CD",
+    "DMSTC_RTE_ORDR_MIL_SVC_TX"
+   ],
+   "rows": [
+    [
+     "A",
+     "ARMY"
+    ],
+    [
+     "B",
+     "NATIONAL GEOSPATIAL-INTELLIGENCE AGENCY"
+    ],
+    [
+     "D",
+     "ANY SERVICE"
+    ],
+    [
+     "F",
+     "AIR FORCE"
+    ],
+    [
+     "M",
+     "MARINE"
+    ],
+    [
+     "N",
+     "NAVY"
+    ],
+    [
+     "P",
+     "COAST GUARD"
+    ],
+    [
+     "S",
+     "DEFENSE LOGISTICS AGENCY"
+    ],
+    [
+     "U",
+     "GSA"
+    ],
+    [
+     "W",
+     "ARMY/AIR FORCE EXCHANGE SERVICE"
+    ],
+    [
+     "Y",
+     "NON-DOD (EXCEPT COAST GUARD)"
+    ]
+   ]
+  },
+  "transportationMethods": {
+   "table": "V_TRAN_MD",
+   "columns": [
+    "TRNSPRTN_MD_CD",
+    "TRNSPRTN_MD_TX"
+   ],
+   "rows": [
+    [
+     "1",
+     "Third Party Pooling Move (Truckload/Less Than Truckload)"
+    ],
+    [
+     "2",
+     "Government watercraft, barge or lighter"
+    ],
+    [
+     "3",
+     "Ocean (Roll on - Roll off)"
+    ],
+    [
+     "4",
+     "Defense Courier Service"
+    ],
+    [
+     "5",
+     "Surface, small package carrier"
+    ],
+    [
+     "6",
+     "Military Official Mail (MOM)"
+    ],
+    [
+     "7",
+     "Express mail"
+    ],
+    [
+     "8",
+     "Pipeline"
+    ],
+    [
+     "9",
+     "Local Delivery"
+    ],
+    [
+     "A",
+     "Motor, truckload"
+    ],
+    [
+     "B",
+     "Motor, less than truckload"
+    ],
+    [
+     "C",
+     "Van (unpacked, uncrated personal or Government property)"
+    ],
+    [
+     "D",
+     "Driveaway, Truckaway, Towaway"
+    ],
+    [
+     "E",
+     "Bus"
+    ],
+    [
+     "F",
+     "Air Mobility Command (AMC) Channel and Special Assignment Airlift Mission"
+    ],
+    [
+     "G",
+     "Surface parcel post"
+    ],
+    [
+     "H",
+     "Air parcel post"
+    ],
+    [
+     "I",
+     "Government trucks, for shipment outside local delivery area"
+    ],
+    [
+     "J",
+     "Air, small package carrier"
+    ],
+    [
+     "K",
+     "Rail, carload"
+    ],
+    [
+     "L",
+     "Intermodal (Piggyback)"
+    ],
+    [
+     "M",
+     "Surface Freight Forwarder"
+    ],
+    [
+     "N",
+     "Shipper Agent"
+    ],
+    [
+     "O",
+     "Organic military air (including aircraft of foreign governments)"
+    ],
+    [
+     "P",
+     "Through Government Bill of Lading (TGBL)"
+    ],
+    [
+     "Q",
+     "Commercial Air freight"
+    ],
+    [
+     "R",
+     "Shipper Agent (Truck)"
+    ],
+    [
+     "S",
+     "Scheduled truck service (applies to contract carriage, Federal Acquisition Regulation-based contract routings, and/or scheduled service)"
+    ],
+    [
+     "T",
+     "Air Freight Forwarder"
+    ],
+    [
+     "U",
+     "Intermodal (Personal Property)"
+    ],
+    [
+     "V",
+     "Commercial/Government-Owned/Leased Shipping Container (SEAVAN)"
+    ],
+    [
+     "W",
+     "Water, river, lake, coastal (commercial)"
+    ],
+    [
+     "X",
+     "Bearer, walk-thru (customer pickup of materiel)"
+    ],
+    [
+     "Y",
+     "Shipper Association"
+    ],
+    [
+     "Z",
+     "Military Sealift Command (MSC), Controlled, Contract, or Arranged Space"
+    ]
+   ]
+  },
+  "holdCodes": {
+   "table": "V_D_CGO_LD_UNT_TY",
+   "columns": [
+    "CRG_LD_UNT_TYP_CD",
+    "CLUNTTY_DESC_TX"
+   ],
+   "rows": [
+    [
+     "A",
+     "Shipment unit held for consolidation."
+    ],
+    [
+     "B",
+     "Awaiting carrier equipment."
+    ],
+    [
+     "C",
+     "Awaiting export/domestic traffic release."
+    ],
+    [
+     "D",
+     "Delay due to diversion to surface resulting from challenge by air clearance activity."
+    ],
+    [
+     "E",
+     "Delay resulting from challenge by air clearance activity for which no diversion to surface occurs and materiel was shipped by air."
+    ],
+    [
+     "F",
+     "Embargo."
+    ],
+    [
+     "G",
+     "Strikes, riots, civil commotion."
+    ],
+    [
+     "H",
+     "Acts of God."
+    ],
+    [
+     "J",
+     "Shipment delayed to process customer cancellation request(s)."
+    ],
+    [
+     "K",
+     "Diversion to surface movement due to characteristics of materiel that preclude air shipment; for example, size, weight, or hazard classification."
+    ],
+    [
+     "L",
+     "Delay requested and/or concurred in by consignee."
+    ],
+    [
+     "M",
+     "Delay to comply with delivery dates at Continental United States (CONUS) destinations/outloading terminal."
+    ],
+    [
+     "N",
+     "Delay due to diversion to air (requisition priority upgraded)."
+    ],
+    [
+     "O",
+     "Reserved."
+    ],
+    [
+     "R",
+     "DLA Disposition Services receipt-in-place property held pending disposition and shipping instructions."
+    ],
+    [
+     "S",
+     "Invalid or missing Transportation Account Code (TAC)."
+    ],
+    [
+     "T",
+     "Reserved."
+    ],
+    [
+     "U",
+     "Reserved."
+    ],
+    [
+     "V",
+     "Reserved."
+    ],
+    [
+     "W",
+     "Wood Packing Material (WPM) remediation/decontamination."
+    ],
+    [
+     "X",
+     "DLA Disposition Services Field Office redistribution order held pending release (inventory on hold; not available for alternate use)."
+    ],
+    [
+     "Y",
+     "Reserved."
+    ],
+    [
+     "Z",
+     "Holding action of less than 24 hours from date materiel is available for shipment."
+    ]
+   ]
+  },
+  "typePacks": {
+   "table": "V_TYPE_PACK",
+   "columns": [
+    "TYPE_PACK_CD",
+    "TYPE_PACK_TX"
+   ],
+   "rows": [
+    [
+     "A3",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by military shipping activity."
+    ],
+    [
+     "A4",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by vendor."
+    ],
+    [
+     "A5",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by contract shipment consolidation facility."
+    ],
+    [
+     "AA",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to capacity by ocean carrier."
+    ],
+    [
+     "AB",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to capacity by military terminal."
+    ],
+    [
+     "AC",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to capacity by military shipping activity."
+    ],
+    [
+     "AD",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to capacity by vendor."
+    ],
+    [
+     "AE",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to capacity by contract shipment consolidation facility."
+    ],
+    [
+     "AF",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by military shipping activity, loading to capacity completed by contract shipment consolidation facility."
+    ],
+    [
+     "AL",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by military shipping activity, loading completed by military terminal."
+    ],
+    [
+     "AM",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by vendor, loading completed by military terminal."
+    ],
+    [
+     "AN",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by contract shipment consolidation facility, loading completed by military terminal."
+    ],
+    [
+     "AP",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity with military cargo by ocean carrier, commingled with commercial cargo in accordance with the SDDC Container Agreement and Rate Guide."
+    ],
+    [
+     "AT",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by military shipping activity, loading completed by ocean carrier."
+    ],
+    [
+     "AU",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by vendor, loading completed by ocean carrier."
+    ],
+    [
+     "AV",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by contract shipment consolidation facility, loading completed by ocean carrier."
+    ],
+    [
+     "AW",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) loaded to less than capacity by vendor, loading completed by contract shipment consolidation facility."
+    ],
+    [
+     "AZ",
+     "SDDC leased/controlled SEAVAN or MILVAN (SDDCVAN) empty MILVAN or SEAVAN"
+    ],
+    [
+     "BD",
+     "Bundle"
+    ],
+    [
+     "BE",
+     "Bale"
+    ],
+    [
+     "BG",
+     "Bag, burlap or cloth"
+    ],
+    [
+     "BL",
+     "Barrel"
+    ],
+    [
+     "BS",
+     "Basket"
+    ],
+    [
+     "BX",
+     "Box"
+    ],
+    [
+     "CA",
+     "Cabinet"
+    ],
+    [
+     "CB",
+     "Carboy"
+    ],
+    [
+     "CC",
+     "HHG Containers, wood"
+    ],
+    [
+     "CL",
+     "Coil"
+    ],
+    [
+     "CM",
+     "Container, MAC-ISO, It. wgt. 8x8x20 foot air"
+    ],
+    [
+     "CN",
+     "Can"
+    ],
+    [
+     "CO",
+     "Container, other than CC, CM, CU, CW, MW, MX"
+    ],
+    [
+     "CR",
+     "Crate"
+    ],
+    [
+     "CS",
+     "Case"
+    ],
+    [
+     "CT",
+     "Carton"
+    ],
+    [
+     "CU",
+     "Container, Navy cargo transporter"
+    ],
+    [
+     "CW",
+     "Container, commercial highway lift"
+    ],
+    [
+     "CY",
+     "Cylinder"
+    ],
+    [
+     "DB",
+     "Duffel Bag"
+    ],
+    [
+     "DR",
+     "Drum"
+    ],
+    [
+     "EC",
+     "Engine Container"
+    ],
+    [
+     "ED",
+     "Engine cradle or dolly"
+    ],
+    [
+     "EN",
+     "Envelope"
+    ],
+    [
+     "FK",
+     "Footlocker (Trunk)"
+    ],
+    [
+     "HA",
+     "Hamper"
+    ],
+    [
+     "KE",
+     "Keg"
+    ],
+    [
+     "LP",
+     "463L Air Pallet"
+    ],
+    [
+     "LS",
+     "Loose, not packed"
+    ],
+    [
+     "MW",
+     "Multiwall container secured to warehouse plt"
+    ],
+    [
+     "MX",
+     "Mixed"
+    ],
+    [
+     "PC",
+     "Piece"
+    ],
+    [
+     "PL",
+     "Pail"
+    ],
+    [
+     "PT",
+     "Palletized unit load other than code MW"
+    ],
+    [
+     "RL",
+     "Reel"
+    ],
+    [
+     "RO",
+     "Roll"
+    ],
+    [
+     "RT",
+     "RORO (roll-off, roll on)"
+    ],
+    [
+     "SA",
+     "Sack, paper"
+    ],
+    [
+     "SB",
+     "Skid, box"
+    ],
+    [
+     "SD",
+     "Skid"
+    ],
+    [
+     "SH",
+     "Sheet"
+    ],
+    [
+     "SL",
+     "Spool"
+    ],
+    [
+     "SW",
+     "Suitcase"
+    ],
+    [
+     "TB",
+     "Tub"
+    ],
+    [
+     "TC",
+     "Tank Car"
+    ],
+    [
+     "TK",
+     "TRUCK"
+    ],
+    [
+     "TT",
+     "Tank Truck"
+    ],
+    [
+     "TU",
+     "Tube"
+    ],
+    [
+     "UX",
+     "Unitized (use RT for unitized cargo on RORO)"
+    ],
+    [
+     "VC",
+     "VAN CHASSIS"
+    ],
+    [
+     "VE",
+     "Vehicle"
+    ],
+    [
+     "VO",
+     "Vehicle in operating condition"
+    ],
+    [
+     "VS",
+     "SEAVAN - TOTE"
+    ],
+    [
+     "WR",
+     "Wrapped"
+    ],
+    [
+     "X0",
+     "CONEX SN 00001-99999"
+    ],
+    [
+     "X1",
+     "CONEX SN 100000 - 199999"
+    ],
+    [
+     "X2",
+     "CONEX SN 200000 - 299999"
+    ],
+    [
+     "X3",
+     "CONEX SN 300000 - 399999"
+    ],
+    [
+     "X4",
+     "CONEX SN 400000 - 499999"
+    ],
+    [
+     "X5",
+     "CONEX SN 500000 - 599999"
+    ],
+    [
+     "X6",
+     "CONEX SN 600000 - 699999"
+    ],
+    [
+     "X7",
+     "CONEX SN 700000 - 799999"
+    ],
+    [
+     "X8",
+     "CONEX SN 800000 - 899999"
+    ],
+    [
+     "X9",
+     "CONEX SN 900000 - 999999"
+    ],
+    [
+     "Y3",
+     "MILVAN loaded to less than capacity by military shipping activity."
+    ],
+    [
+     "Y4",
+     "MILVAN loaded to less than capacity by vendor."
+    ],
+    [
+     "Y5",
+     "MILVAN loaded to less than capacity by contract shipment consolidation facility."
+    ],
+    [
+     "YA",
+     "MILVAN loaded to capacity by ocean carrier."
+    ],
+    [
+     "YB",
+     "MILVAN loaded to capacity by military terminal."
+    ],
+    [
+     "YC",
+     "MILVAN loaded to capacity by military shipping activity."
+    ],
+    [
+     "YD",
+     "MILVAN loaded to capacity by vendor"
+    ],
+    [
+     "YE",
+     "MILVAN loaded to capacity by contract shipment consolidation facility."
+    ],
+    [
+     "YF",
+     "MILVAN loaded to less than capacity by military shipping activity, loading to capacity completed by contract shipment consolidation facility."
+    ],
+    [
+     "YL",
+     "MILVAN loaded to less than capacity by military shipping activity, loading completed by military terminal."
+    ],
+    [
+     "YM",
+     "MILVAN loaded to less than capacity by vendor, loading completed by military terminal."
+    ],
+    [
+     "YN",
+     "MILVAN loaded to less than capacity by contract shipment consolidation facility, loading completed by military terminal."
+    ],
+    [
+     "YP",
+     "MILVAN loaded to less than capacity with military cargo by ocean carrier, commingled with commercial cargo in accordance with the SDDC Container Agreement and Rate Guide."
+    ],
+    [
+     "YT",
+     "MILVAN loaded to less than capacity by military shipping activity, loading completed by ocean carrier."
+    ],
+    [
+     "YU",
+     "MILVAN loaded to less than capacity by vendor, loading completed by ocean carrier."
+    ],
+    [
+     "YV",
+     "MILVAN loaded to less than capacity by contract shipment consolidation facility, loading completed by ocean carrier."
+    ],
+    [
+     "YW",
+     "MILVAN loaded to less than capacity by vendor, loading completed by contract shipment consolidation facility."
+    ],
+    [
+     "YZ",
+     "MILVAN empty MILVAN or SEAVAN."
+    ],
+    [
+     "Z3",
+     "SEAVAN loaded to less than capacity by military shipping activity."
+    ],
+    [
+     "Z4",
+     "SEAVAN loaded to less than capacity by vendor."
+    ],
+    [
+     "Z5",
+     "SEAVAN loaded to less than capacity by contract shipment consolidation facility."
+    ],
+    [
+     "ZA",
+     "SEAVAN loaded to capacity by ocean carrier."
+    ],
+    [
+     "ZB",
+     "SEAVAN loaded to capacity by military terminal."
+    ],
+    [
+     "ZC",
+     "SEAVAN loaded to capacity by military shipping activity."
+    ],
+    [
+     "ZD",
+     "SEAVAN loaded to capacity by vendor."
+    ],
+    [
+     "ZE",
+     "SEAVAN loaded to capacity by contract shipment consolidation facility."
+    ],
+    [
+     "ZF",
+     "SEAVAN loaded to less than capacity by military shipping activity, loading to capacity completed by contract shipment consolidation facility."
+    ],
+    [
+     "ZL",
+     "SEAVAN loaded to less than capacity by military shipping activity, loading completed by military terminal."
+    ],
+    [
+     "ZM",
+     "SEAVAN loaded to less than capacity by vendor, loading completed by military terminal."
+    ],
+    [
+     "ZN",
+     "SEAVAN loaded to less than capacity by contract shipment consolidation facility, loading completed by military terminal."
+    ],
+    [
+     "ZP",
+     "SEAVAN loaded to less than capacity with military cargo by ocean carrier, commingled with commercial cargo in accordance with the SDDC Container Agreement and Rate Guide."
+    ],
+    [
+     "ZT",
+     "SEAVAN loaded to less than capacity by military shipping activity, loading completed by ocean carrier."
+    ],
+    [
+     "ZU",
+     "SEAVAN loaeded to less than capacity by vendor, loading completed by ocean carrier."
+    ],
+    [
+     "ZV",
+     "SEAVAN loaded to less than capacity by contract shipment consolidation facility, loading completed by ocean carrier."
+    ],
+    [
+     "ZW",
+     "SEAVAN loaded to less than capacity by vendor, loading completed by contract shipment consolidation facility."
+    ],
+    [
+     "ZZ",
+     "SEAVAN empty MILVAN or SEAVAN"
+    ]
+   ]
+  }
+ }
+}

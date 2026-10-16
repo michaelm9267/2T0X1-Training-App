@@ -54,7 +54,7 @@ const stored = () =>
   JSON.parse(screen.getByLabelText("Stored CMOS").textContent);
 function assign() {
   userEvent.click(
-    screen.getByRole("button", { name: "Assign TCNs or Aggregates" }),
+    screen.getByRole("button", { name: /^Assign TCNs( or |\/)Aggregates$/ }),
   );
   const d = within(screen.getByRole("dialog", { name: "Assign TCNs" }));
   for (const c of d.getAllByRole("checkbox")) userEvent.click(c);
@@ -141,9 +141,9 @@ test("CBL preserves incomplete RINs and conveyances then checks final print and 
       name: "New",
     }),
   );
-  const rin = within(screen.getByRole("dialog", { name: "RINs detail" }));
-  fill("RIN", "unfinished", rin);
-  userEvent.click(rin.getByRole("button", { name: "Save and Close" }));
+  const rin = within(screen.getByRole("dialog", { name: "BOL RIN" }));
+  userEvent.selectOptions(rin.getByLabelText("RIN Nbr"), "101");
+  userEvent.click(rin.getByRole("button", { name: "Save" }));
   userEvent.click(screen.getByRole("tab", { name: "Conveyances" }));
   userEvent.click(
     within(screen.getByRole("tabpanel", { name: "Conveyances" })).getByRole(
@@ -154,6 +154,7 @@ test("CBL preserves incomplete RINs and conveyances then checks final print and 
   const c = within(screen.getByRole("dialog", { name: "Conveyances detail" }));
   fill("Equip Type Ordered", "AV1", c);
   userEvent.click(c.getByRole("button", { name: "Save and Close" }));
+  userEvent.click(screen.getByRole("tab", { name: "TCNs" }));
   userEvent.click(screen.getByRole("button", { name: "Save", exact: true }));
   userEvent.click(screen.getByRole("button", { name: "Edit", exact: true }));
   expect(screen.getByRole("status")).toHaveTextContent("Passed Edits");
