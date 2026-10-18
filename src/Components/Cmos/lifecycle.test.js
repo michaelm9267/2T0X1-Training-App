@@ -27,6 +27,10 @@ function ready() {
     tcn: "TRN001",
     description: "Training box",
     milMode: "J",
+    nmfc: "999913",
+    rdd: "999",
+    nsn: "NNSN",
+    ciic: "U",
     origin: "F00001",
     destination: "F00002",
     tac: "TRN1",
@@ -102,7 +106,7 @@ test("split moves hazardous ownership with its physical piece and projects the a
   s = deriveShipment(s, parent.id, "Split", [piece.id]);
   const child = s.selection.shipments;
   s = saveRecord(
-    editRecord(s, "shipments", child, { tcn: "TRN-SPLIT" }),
+    editRecord(s, "shipments", child, { tcn: "TRN-SPLIT", nsn: "NNSN", ciic: "U", commoditySH: "AZ", poe: "ANC", pod: "FAI", tac: "TRN1", eta: "1", airDim: "A" }),
     "shipments",
     child,
   );

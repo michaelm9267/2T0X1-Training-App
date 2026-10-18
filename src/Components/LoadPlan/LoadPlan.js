@@ -27,7 +27,7 @@ export default function LoadPlan({ pieces, plan, onChange }) {
     setSpot(drag.key, { station: Math.round(at.x - drag.dx), lateral: Math.round(at.y - drag.dy) });
   };
   return <section className="load-plan" aria-labelledby="load-plan-title">
-    <div className="training-heading"><span className="eyebrow">{test ? 'Test' : 'Guided practice'} · Chalk 001C · C-17</span><h2 id="load-plan-title">Load plan</h2>
+    <div className="training-heading"><span className="eyebrow">{test ? 'Test' : 'Guided practice'} · Chalk 001 · C-17</span><h2 id="load-plan-title">Load plan</h2>
       <p className="muted">Place every piece that passed JI on the C-17 cargo floor and keep the combined center of balance in range. Forward is at the left.</p></div>
     {!test && <p className="reference-note">Simplified training limits, not from TO 1C-17A-9: cargo floor {FLOOR.length} × {FLOOR.width} in (ramp is the last {FLOOR.ramp} in), allowable cabin load {ACL.toLocaleString()} lb, combined CB between stations {CB_RANGE[0]} and {CB_RANGE[1]} in. Stations are measured aft of the forward cargo compartment bulkhead. See DTR Part III Appendix V.</p>}
     <div className="load-floor-wrap">

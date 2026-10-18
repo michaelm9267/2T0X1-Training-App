@@ -1,3 +1,4 @@
+import { JBER_CONSIGNOR } from '../jberConsignor';
 import { DODAAC_INFO } from '../CargoWindow/workflow';
 import { LOWER_48_DODAACS, OCONUS_DODAACS, ALASKA_DODAACS } from '../Outbound/dodaacs';
 import { ORIGINS } from '../Outbound/outboundData';
@@ -22,17 +23,18 @@ export const CBL_DODAACS = Object.fromEntries([
 ].map(([dodaac, info]) => {
   const { city, state, zip } = splitCity(info.city);
   const domestic = STATES.has(state) && !['GU', 'PR'].includes(state);
-  return [dodaac, { name: info.unit, address1: info.address, address2: '', city, state: domestic ? state : '', country: domestic ? 'US' : state, zip }];
+  return [dodaac, { name: info.unit, address1: info.address, address2: info.address2 || '', phone: info.phone || '', city, state: domestic ? state : '', country: domestic ? 'US' : state, zip }];
 }));
 // Address block fields filled from a DODAAC entry; SPLC and GBLOC stay with the trainee.
 export function addressPatch(prefix, dodaac) {
   const info = CBL_DODAACS[String(dodaac || '').trim().toUpperCase()];
   const gbloc = prefix === 'consignee' ? gblocForDodaac(dodaac) : '';
   if (!info) return gbloc ? { gbloc } : {};
-  return { ...(gbloc ? { gbloc } : {}), [`${prefix}Name`]: info.name, [`${prefix}Address1`]: info.address1, [`${prefix}Address2`]: info.address2, [`${prefix}City`]: info.city, [`${prefix}Country`]: info.country, [`${prefix}State`]: info.state, [`${prefix}Zip`]: info.zip };
+  return { ...(gbloc ? { gbloc } : {}), [`${prefix}Name`]: info.name, [`${prefix}Address1`]: info.address1, [`${prefix}Address2`]: info.address2, [`${prefix}City`]: info.city, [`${prefix}Country`]: info.country, [`${prefix}State`]: info.state, [`${prefix}Zip`]: info.zip, [`${prefix}PhoneNumber`]: info.phone };
 }
 export function cblDefaults(origin) {
-  return { ...BILL_TO, billType: 'TP - Third Party Pays', currency: 'USD', deliveryDateType: 'Required', typeRate: '1', nbrOfClsTls: '1', serviceAgency: 'F', shipperDodaac: origin || '', ...addressPatch('shipper', origin) };
+  const consignor = origin || JBER_CONSIGNOR.dodaac;
+  return { ...BILL_TO, billType: 'TP - Third Party Pays', currency: 'USD', deliveryDateType: 'Required', typeRate: '1', nbrOfClsTls: '1', serviceAgency: 'F', originDodaac: consignor, ...addressPatch('origin', consignor), shipperDodaac: consignor, ...addressPatch('shipper', consignor) };
 }
 
 const samples = [

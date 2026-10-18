@@ -38,6 +38,19 @@ export const emptyCdfCmos = () => ({
   mistakes: [],
   feedback: "",
 });
+// The rules CMOS itself enforces on a manifest header. CMOS never sees the mission paperwork.
+export function headerFormatErrors(draft) {
+  const errors = [];
+  if (!/^[A-Za-z0-9]{9,12}$/.test(draft.mission || ""))
+    errors.push(
+      err("mission", "Mission must contain 9–12 letters and numbers."),
+    );
+  if (!/^\d{3}$/.test(String(draft.chalk || "").trim()) || String(draft.chalk).trim() === "000")
+    errors.push(err("chalk", "Chalk must be 001 - 999."));
+  if (!["Yes", "No"].includes(draft.complete))
+    errors.push(err("complete", "Select Complete Yes or No."));
+  return errors;
+}
 export function validateHeader(draft, context) {
   const expected = missionForSession(context),
     errors = [];

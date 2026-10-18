@@ -131,3 +131,12 @@ test('ammunition training paperwork uses AFMAN packaging and the Class 1 emergen
   expect(record.page2.packingPara).toBe('A5.12.');
   expect(record.page2.emergencyContact).toBe('+1 (703) 695-4695 / +1 (703) 695-4696');
 });
+
+test.each(['H - Hazardous material', 'A - Ammunition/explosives', 'O - Other'])(
+  'selecting %s enables T-9 and None clears it', indicator => {
+    const selected = setHazardIndicator(createExercise(), indicator, false);
+    expect(selected.state.manifestDraft).toMatchObject({ hazmat: indicator, t9Required: true });
+    const cleared = setHazardIndicator(selected.state, 'N - Non-hazardous', true);
+    expect(cleared.state.manifestDraft.t9Required).toBe(false);
+  }
+);

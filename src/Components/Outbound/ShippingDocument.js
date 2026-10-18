@@ -78,7 +78,7 @@ function Form1348({ doc, shipment, received, packing }) {
       <div className="f1348-top">
         <CardLine doc={doc} />
         <div className="f1348-cell f1348-total"><small>1. TOTAL PRICE</small><div className="f1348-money"><small>DOLLARS</small><small>CTS</small><b>{dollars}</b><b>{cents}</b></div></div>
-        <Cell n="2" label="SHIP FROM" className="f1348-ship">{origin.dodaac}</Cell>
+        <Cell n="2" label="SHIP FROM" className="f1348-ship">{origin.cmosDodaac}</Cell>
         <Cell n="3" label="SHIP TO" className="f1348-ship">{doc.shipTo}</Cell>
         <Cell n="4" label="MARK FOR" className="f1348-markfor">{doc.delivery?.name}</Cell>
       </div>
@@ -145,7 +145,7 @@ function Form1149({ doc, shipment, received, packing }) {
       <p className="f1149-return">PLEASE DO NOT RETURN YOUR FORM TO THIS ADDRESS. RETURN COMPLETED FORM TO THE ADDRESS IN ITEM 2.</p>
       <div className="f1149-head">
         <div className="f1149-left">
-          <B n="1" label="FROM: (Include ZIP Code)" className="f1149-tall"><b>{origin.dodaac}</b><b>{origin.unit}</b><b>{origin.address}</b><b>{origin.city}</b></B>
+          <B n="1" label="FROM: (Include ZIP Code)" className="f1149-tall"><b>{origin.cmosDodaac}</b><b>{origin.unit}</b><b>{origin.address}</b>{origin.address2 && <b>{origin.address2}</b>}<b>{origin.city}</b>{origin.phone && <b>PH {origin.phone}</b>}</B>
           <B n="2" label="TO: (Include ZIP Code)" className="f1149-tall">{info ? <><b>{doc.shipTo}</b><b>{info.unit}</b><b>{info.address}</b><b>{info.city}</b></> : doc.delivery && [NO_DODAAC, ...deliveryLines(doc.delivery)].map(line => <b key={line}>{line}</b>)}</B>
           <B n="3" label="SHIP TO - MARK FOR" className="f1149-tall">{doc.delivery ? deliveryLines(doc.delivery).map(line => <b key={line}>{line}</b>) : info && <><b>{doc.shipTo}</b><b>MARK FOR: SUPPLY / RECEIVING</b></>}</B>
         </div>

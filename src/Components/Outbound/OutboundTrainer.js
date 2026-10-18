@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { publishSave } from '../../cloudBridge';
 import ProcessPanel from '../ProcessPanel/ProcessPanel';
 import { FREQUENT_LINKS } from '../ProcessPanel/frequentLinks';
 import SessionBar from '../Session/SessionBar';
@@ -25,7 +26,7 @@ import './outbound.css';
 // section at a time on its own shipment, leaving the queue as it was. Test mode takes the trainee's
 // rank and name, and finishing the test locks the queue and opens a printable grading sheet. Saved in
 // this browser separately from the CDF session.
-const STORAGE_KEY = 'outbound-trainer-session';
+export const STORAGE_KEY = 'outbound-trainer-session';
 const VERSION = 5;
 // Outbound keeps every frequent link except DTR Part III, which covers deployments.
 const OUTBOUND_LINKS = FREQUENT_LINKS.filter(group => !group.group.includes('Part III'));
@@ -60,7 +61,7 @@ export default function OutboundTrainer() {
   const [cmosRequest,setCmosRequest]=useState(0),[sessionNotice,setSessionNotice]=useState(''),[storageError,setStorageError]=useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const closeSheet = useCallback(() => setSheetOpen(false), []);
-  useEffect(() => { try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));setStorageError(false); } catch { setStorageError(true); } }, [session]);
+  useEffect(() => { publishSave('outbound', session); try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));setStorageError(false); } catch { setStorageError(true); } }, [session]);
   const practicing = session.mode === 'practice' && Boolean(session.practice);
   const shipment = practicing ? session.practice.shipment : session.shipments.find(item => item.key === session.selected);
   const exercise = practicing ? session.practice.exercise : session.exercises[shipment.key];
@@ -148,12 +149,12 @@ export default function OutboundTrainer() {
         <label>Practice section <select value={session.practice.section} onChange={event => startPractice(event.target.value)}>{OUTBOUND_STEPS.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}</select></label>
         <button type="button" onClick={() => startPractice(session.practice.section)}>New practice shipment</button>
       </div> : <div className="shipment-bar">
-        <label title={started ? 'Start a new session to change the origin' : undefined}>Shipping from <select value={session.origin} disabled={started} onChange={event => newSession(event.target.value)}>{Object.values(ORIGINS).map(origin => <option key={origin.id} value={origin.id}>{origin.name} ({origin.dodaac})</option>)}</select></label>
+        <label title={started ? 'Start a new session to change the origin' : undefined}>Shipping from <select value={session.origin} disabled={started} onChange={event => newSession(event.target.value)}>{Object.values(ORIGINS).map(origin => <option key={origin.id} value={origin.id}>{origin.name} ({origin.cmosDodaac})</option>)}</select></label>
         <label>Customer <select value={shipment.key} onChange={event => selectCustomer(event.target.value)}>{session.shipments.map(item => <option key={item.key} value={item.key}>Customer {item.serial} · {ITEMS[item.itemId].nomenclature.toLowerCase()}{shipmentComplete(item, session.exercises[item.key]) ? ' (shipped)' : ''}</option>)}</select></label>
         <button type="button" disabled={finished} onClick={() => { setSession(current=>{const exercise=createOutboundExercise();return {...current,stepId:'receive',exercises:{...current.exercises,[current.selected]:exercise},sharedCmos:current.sharedCmos?resetOutboundShipment(current.sharedCmos,current.selected,current.shipments.find(s=>s.key===current.selected),exercise):undefined};}); setBenchVersion(version => version + 1); }}>Reset this shipment</button>
       </div>}
       {finished && !practicing && <p className="reference-note" role="status">Test finished. The work is locked; open the grading sheet to review or print it. Start a new session for the next trainee.</p>}
-      <p className="simulation-note">Training shipments from the {ORIGINS[session.origin].name} TMO ({ORIGINS[session.origin].dodaac}) · Fictional NSNs, part numbers and TACs; consignee DoDAACs from the CMOS DoDAAC table · Mil Mode rules are shown in Shipment planning (guided and practice modes).</p>
+      <p className="simulation-note">Training shipments from the {ORIGINS[session.origin].name} TMO ({ORIGINS[session.origin].cmosDodaac}) · Fictional NSNs, part numbers and TACs; consignee DoDAACs from the CMOS DoDAAC table · Mil Mode rules are shown in Shipment planning (guided and practice modes).</p>
       <div className="simulation-layout">
         <OutboundCargoWindow key={`${shipment.key}-${benchVersion}`} shipment={shipment} exercise={exercise} onInspect={onInspect} onMeasure={onMeasure} onWeigh={onWeigh} onApplyLabel={actions.applyLabel} />
         <OutboundPanel cmosRequest={cmosRequest} cmosStore={migrateOutboundCmos(practicing?{shipments:[session.practice.shipment],exercises:{[session.practice.shipment.key]:session.practice.exercise},selected:session.practice.shipment.key,sharedCmos:session.practice.sharedCmos}:session)} cmosContext={{storageError,finished:Boolean(session.testFinishedAt)&&!practicing,shipments:practicing?[session.practice.shipment]:session.shipments,documents:(practicing?[session.practice.shipment]:session.shipments).map(item=>{const ex=practicing?session.practice.exercise:session.exercises[item.key];return {id:'source-'+item.key,title:`DD ${item.document} · Customer ${item.serial}`,render:()=> <DocumentBody shipment={item} doc={presentedDocument(item,ex.returned)} received={ex.custodyAccepted} packing={ex.forms.annotation?.accepted?ex.forms.annotation.draft:null}/>};})}} step={step} shipment={shipment} exercise={exercise} actions={actions} packages={packages} onSelectStep={setStep} hasNextCustomer={Boolean(nextCustomer)} onNextCustomer={() => nextCustomer && selectCustomer(nextCustomer.key)}

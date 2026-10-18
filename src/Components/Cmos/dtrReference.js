@@ -14,6 +14,8 @@ export const GBLOCS = table('gblocs').map(([code, name]) => [code, name]);
 export const AIR_MANIFEST_REFERENCES = table('airManifestReferences');
 export const ROUTE_ORDER_SERVICES = table('routeOrderServices');
 export const TYPE_PACK_CODES = table('typePacks');
+// Shipment unit special handling (route order service) codes.
+export const SHIPMENT_SERVICE_CODES = table('serviceCodes');
 
 const gblocByDodaac = Object.fromEntries(table('gblocs').filter(row => row[2]).map(([code, , dodaac]) => [dodaac, code]));
 export const gblocForDodaac = dodaac => gblocByDodaac[String(dodaac || '').trim().toUpperCase()] || '';

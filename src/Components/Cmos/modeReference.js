@@ -44,3 +44,10 @@ export const MODE_REFERENCE = modes;
 export const MIL_EDI_REFERENCE = modes.map(([mil, description], i) => [mil, ediCodes[i], description]);
 export const ediForMilMode = value => MIL_EDI_REFERENCE.find(([mil]) => mil === String(value).trim().toUpperCase())?.[1] || '';
 
+
+// NMFC/UFC is required for commercial modes (and 9). Government and military modes do not use it.
+export const NO_NMFC_MODES = ['F', 'O', 'Z', '2', '4', '6', '8', 'I', 'X'];
+export const requiresNmfc = milMode => {
+  const mode = String(milMode || '').trim().toUpperCase();
+  return Boolean(mode) && !NO_NMFC_MODES.includes(mode);
+};

@@ -1,3 +1,4 @@
+import { JBER_CONSIGNOR, JBER_CITY_LINE } from '../jberConsignor';
 import { LOWER_48_DODAACS, OCONUS_DODAACS, ALASKA_DODAACS } from './dodaacs';
 
 // Training catalog for the Outbound (Traffic Management) trainer. NSNs, part numbers and TACs are
@@ -187,7 +188,7 @@ export const wrongMarkings = shipment => ['hazmat', ...(WOOD_CONTAINERS.includes
 // Shipping origins. Each session ships from one TMO: JBER in Alaska or Travis AFB in the lower 48.
 // dodaac is the consignor on the shipping document; cmosDodaac is the CMOS login and POE DoDAAC.
 export const ORIGINS = {
-  jber: { id: 'jber', name: 'JBER, AK', dodaac: 'FB5000', cmosDodaac: 'FA5030', unit: '673 LRS / TMO (LGRDF)', address: '8517 20TH ST', city: 'JBER, AK 99506', port: 'EDF', alaska: true },
+  jber: { id: 'jber', name: 'JBER, AK', dodaac: 'FB5000', cmosDodaac: JBER_CONSIGNOR.dodaac, unit: JBER_CONSIGNOR.unit, address: JBER_CONSIGNOR.address1, address2: JBER_CONSIGNOR.address2, city: JBER_CITY_LINE, phone: JBER_CONSIGNOR.phone, port: JBER_CONSIGNOR.port, alaska: true },
   travis: { id: 'travis', name: 'Travis AFB, CA', dodaac: 'FB4427', cmosDodaac: 'FB4427', unit: '60 LRS / TMO (LGRDF)', address: '510 PERIMETER RD BLDG 977', city: 'TRAVIS AFB, CA 94535', port: 'SUU', alaska: false },
 };
 export const originOf = shipment => ORIGINS[shipment.origin] || ORIGINS.jber;
@@ -205,7 +206,7 @@ export const conusFor = origin => Object.keys(CONUS).filter(code => code !== ori
 export const OVERSEAS = OCONUS_DODAACS;
 export const consignee = dodaac => CONUS[dodaac] || OVERSEAS[dodaac] || ALASKA_DODAACS[dodaac] || null;
 export const isOverseas = dodaac => Boolean(OVERSEAS[dodaac]);
-export const ALL_DODAACS = [...new Set([...Object.values(ORIGINS).map(origin => origin.dodaac), ...Object.keys(CONUS), ...Object.keys(OVERSEAS)])].sort();
+export const ALL_DODAACS = [...new Set([...Object.values(ORIGINS).flatMap(origin => [origin.dodaac, origin.cmosDodaac]), ...Object.keys(CONUS), ...Object.keys(OVERSEAS)])].sort();
 export const AERIAL_PORTS = [...new Set(['EDF', 'SUU', 'TCM', ...Object.values(OVERSEAS).map(info => info.port)])].sort();
 // Commercial repair vendors in the lower 48. They have no DoDAAC, so a DD 1149 to one carries the
 // address in the clear and CMOS takes it on the Ultimate Consignee tab. Fictional names.

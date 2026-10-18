@@ -162,7 +162,7 @@ export default function OutboundPanel({ step, shipment, exercise, actions, packa
 
     {['surface', 'amc'].includes(step.id) && exercise.forms[step.id]?.accepted && !exercise.labels?.msl && <p className="reference-note" role="status">{exercise.printed?.msl ? 'Apply the MSL to the box with the bench\'s Labels tool.' : 'Print the MSL from the CMOS Shipment Planning Pieces tab, then apply it to the box with the bench\'s Labels tool.'}</p>}
 
-    {cmosPage && <CmosWorkspace store={cmosStore} onChange={actions.sharedCmos} initialPage={cmosPage} onClose={closeCmos} context={{...cmosContext,course:'outbound',activeAssetKey:shipment.key,sourceOrigin:origin.dodaac,origin:origin.cmosDodaac,documents:[{id:'source',title:paper.title,render:paper.render},...(cmosContext.documents||[])]}}/>}
+    {cmosPage && <CmosWorkspace store={cmosStore} onChange={actions.sharedCmos} initialPage={cmosPage} onClose={closeCmos} context={{...cmosContext,course:'outbound',activeAssetKey:shipment.key,sourceOrigin:origin.cmosDodaac,origin:origin.cmosDodaac,documents:[{id:'source',title:paper.title,render:paper.render},...(cmosContext.documents||[])]}}/>}
 
     {practice && <PracticeCard practice={practice} shipment={shipment} exercise={exercise} />}
 

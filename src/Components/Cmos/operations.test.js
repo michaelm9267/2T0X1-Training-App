@@ -21,6 +21,10 @@ function ready() {
     tcn: "TRN001",
     description: "Training box",
     milMode: "J",
+    nmfc: "999913",
+    rdd: "999",
+    nsn: "NNSN",
+    ciic: "U",
     origin: "F00001",
     destination: "F00002",
     tac: "TRN1",
@@ -121,8 +125,10 @@ test("clearing hazardous indicator removes pending and saved DG records without 
     lots: [{ id: "lot-1", roundCount: "unknown" }],
   });
   s = saveRecord(s, "hazards", "hazards-1");
+  s = editRecord(s, "shipments", "shipments-1", { t9Required: true });
   s = clearHazards(s, "shipments-1");
   expect(Object.keys(s.hazards)).toHaveLength(0);
+  expect(s.shipments["shipments-1"].draft.t9Required).toBe(false);
   expect(s.shipments["shipments-1"].draft.hazmat).toBe("N - Not hazardous");
 });
 test("fund validation reports simulated result without changing the TAC or discarding input", () => {

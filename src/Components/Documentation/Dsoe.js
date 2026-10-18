@@ -80,7 +80,7 @@ export default function Dsoe({ increments, pieceCount = increments.length, onPie
         <h4 className="recap-title">Schedule Processing Recap Report</h4>
         <div className="recap-fields">
           <Field label="Schedule">TR001</Field><Field label="RST">{stamp(date, 0, -7)}</Field><Field label="As Of Date">{stamp(date, 6 * 60, -1)}</Field><Field label="Change #">0</Field>
-          <Field label="Chalk">001C</Field><Field label="Mode">C17</Field><Field label="Mission Number">{missionForSession({destination}).mission}</Field><span />
+          <Field label="Chalk">001</Field><Field label="Mode">C17</Field><Field label="Mission Number">{missionForSession({destination}).mission}</Field><span />
           <Field label="Parking" /><Field label="Tail Number" /><span /><span />
           <Field label="ETA">{stamp(date, time.arrival)}</Field><Field label="ETD">{etd}</Field><Field label="ATD" /><span />
           <Field label="Origin">{`${ORIGIN} · ${origin.unit} · ${origin.city}`}</Field><Field label="APOE">{origin.port}</Field><Field label="Destination">{`${destination} · ${dest.unit} · ${dest.city}`}</Field><Field label="APOD">{dest.port}</Field>

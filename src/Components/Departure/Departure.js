@@ -18,7 +18,7 @@ export default function Departure({ state, departureAt, onChange, ready, waiting
   const weight = manifestPieces.reduce((sum, { record }) => sum + Number(record.weight), 0);
   const released = Boolean(state.releasedAt);
   return <section className="departure" aria-labelledby="departure-title">
-    <div className="training-heading"><span className="eyebrow">{test ? 'Test' : 'Guided practice'} · Chalk 001C · C-17</span><h2 id="departure-title">Aircraft departure</h2>
+    <div className="training-heading"><span className="eyebrow">{test ? 'Test' : 'Guided practice'} · Chalk 001 · C-17</span><h2 id="departure-title">Aircraft departure</h2>
       <p className="muted">Set the aircraft departure, then release the manifest. The manifest must be released within {RELEASE_WINDOW_MINUTES} minutes of departure.</p></div>
     <div className="departure-card">
       <div className="departure-route">

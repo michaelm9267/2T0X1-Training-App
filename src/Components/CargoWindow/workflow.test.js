@@ -46,10 +46,10 @@ test('manifest accepts matching prepared asset; JI needs separate fresh checks; 
  let {s,e}=preparedPallet();
  expect(getTasks(s,'incheck',e).every(t=>t.complete)).toBe(true);
  e=saveManifest(s,e,true);
- expect(getTasks(s,'manifest',e)[0].complete).toBe(true);
- expect(getTasks(s,'manifest',e)[1]).toMatchObject({id:'msl',complete:false});
+ expect(getTasks(s,'manifest',e).find(t=>t.id==='manifest-entry').complete).toBe(true);
+ expect(getTasks(s,'manifest',e).find(t=>t.id==='msl')).toMatchObject({id:'msl',complete:false});
  e={...e,mslApplied:true};
- expect(getTasks(s,'manifest',e).every(t=>t.complete)).toBe(true);
+ expect(getTasks(s,'manifest',e).filter(t=>!t.guideOnly).every(t=>t.complete)).toBe(true);
  expect(getTasks(s,'ji',e).every(t=>t.complete)).toBe(false);
  e.jiInspected=s.findings.map(f=>f.id);
  e.jiDocumentsViewed=paperwork(s).map(d=>d.id);
@@ -58,7 +58,7 @@ test('manifest accepts matching prepared asset; JI needs separate fresh checks; 
  e.jiVerified=getTasks(s,'ji',e).map(t=>t.id);
  expect(getTasks(s,'ji',e).every(t=>t.complete)).toBe(true);
  delete e.notebookEntries.gross;
- expect(getTasks(s,'manifest',e)[0].complete).toBe(false);
+ expect(getTasks(s,'manifest',e).find(t=>t.id==='manifest-entry').complete).toBe(false);
  expect(getTasks(s,'ji',e).every(t=>t.complete)).toBe(false);
 });
 test('manifest mismatch prevents acceptance despite complete preparation',()=>{
@@ -120,10 +120,10 @@ test('precheck starts with the DSOE and cannot finish or manifest without it',()
  expect(saveManifest(s,noDsoe,true).manifestFeedback).toBe('Complete Precheck and Incheck before accepting the manifest.');
 });
 
-test('every increment ships from FB5000 through EDF to FB5294 through OSN',()=>{
+test('every increment ships from FA5030 through EDF to FB5294 through OSN',()=>{
  for(const s of scenarios) {
   const v=Object.fromEntries(manifestFields(s).map(f=>[f.id,f.expected]));
-  expect([v.origin,v.apoe,v.destination,v.apod]).toEqual(['FB5000','EDF','FB5294','OSN']);
+  expect([v.origin,v.apoe,v.destination,v.apod]).toEqual(['FA5030','EDF','FB5294','OSN']);
   const moved=Object.fromEntries(manifestFields({...s,destination:'FB5612'}).map(f=>[f.id,f.expected]));
   expect([moved.destination,moved.apod]).toEqual(['FB5612','RMS']);
  }

@@ -1,5 +1,5 @@
 import { ITEMS, ORIGINS, AERIAL_PORTS, originOf, isOverseas } from './outboundData';
-import { HAZ_INDICATORS } from '../CargoWindow/workflow';
+import { HAZ_INDICATORS, isHazardousIndicator } from '../CargoWindow/workflow';
 import { shipmentTp, DOCUMENT_DAY, julian } from './outboundShipments';
 import { MIL_MODES, stepForMode, podFor } from './outboundLogic';
 
@@ -89,7 +89,7 @@ export function planningFields(shipment, draft = {}) {
     tac: { title: 'TAC', expected: shipment.tac, advance: true },
     nsn: { title: 'NSN', expected: shipment.nsn, advance: true, required: true },
     partNo: { title: 'Part No/AIN', expected: item.partNumber, advance: true },
-    consignor: { title: 'Consignor', expected: origin.dodaac, preset: true, required: true },
+    consignor: { title: 'Consignor', expected: origin.cmosDodaac, preset: true, required: true },
     poe: { title: 'POE', expected: origin.port, options: AERIAL_PORTS, required: amc },
     poeDodaac: { title: 'POE DODAAC', expected: origin.cmosDodaac, required: amc },
     // A consignee with no DoDAAC takes the sponsoring Service code, F00000 for the Air Force
@@ -138,7 +138,7 @@ export function newRecord(shipment, e) {
 export const discardRecord = e => e.cmos.record?.saved ? e : setCmos(e, { record: null });
 
 const updateRecord = (e, change) => e.cmos.record && !e.cmos.record.saved ? setCmos(e, { record: change(e.cmos.record) }) : e;
-export const editRecord = (e, field, value) => updateRecord(e, record => ({ ...record, draft: { ...record.draft, [field]: value } }));
+export const editRecord = (e, field, value) => updateRecord(e, record => ({ ...record, draft: { ...record.draft, [field]: value, ...(field === 'hazInd' ? { t9: isHazardousIndicator(value) } : {}) } }));
 export const addPiece = e => updateRecord(e, record => ({ ...record, pieces: [...record.pieces, { weight: '', typePack: '', length: '', width: '', height: '' }] }));
 export const editPiece = (e, index, field, value) => updateRecord(e, record => ({ ...record, pieces: record.pieces.map((piece, i) => i === index ? { ...piece, [field]: value } : piece) }));
 export const deletePieces = e => updateRecord(e, record => ({ ...record, pieces: [] }));

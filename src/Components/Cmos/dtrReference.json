@@ -1,6 +1,6 @@
 {
  "source": "DTEB Transportation Reference Data, https://www.business.ustranscom.mil/cmd/associated/dteb/files/refdata/",
- "retrieved": "2026-10-15",
+ "retrieved": "2026-10-18",
  "tables": {
   "routeInstructionNotes": {
    "table": "V_RTE_INSTR_NT",
@@ -10183,6 +10183,2119 @@
     [
      "ZZ",
      "SEAVAN empty MILVAN or SEAVAN"
+    ]
+   ]
+  },
+  "serviceCodes": {
+   "table": "V_SHPMNT_UNT_SPL_HNDL_CD_DOM",
+   "columns": [
+    "SHPMNT_UNT_SPL_HNDL_CD",
+    "SHPMNT_UNT_SPL_HNDL_TX"
+   ],
+   "rows": [
+    [
+     "045",
+     "Advanced Fee"
+    ],
+    [
+     "15",
+     "Speed Restricted to 15 Miles per Hour"
+    ],
+    [
+     "170",
+     "Certificate of Origin"
+    ],
+    [
+     "25",
+     "Speed Restricted to 25 Miles per Hour"
+    ],
+    [
+     "35",
+     "Speed Restricted to 35 Miles per Hour"
+    ],
+    [
+     "45",
+     "Speed Restricted to 45 Miles per Hour"
+    ],
+    [
+     "510",
+     "Offshore - Alaska/Hawaii Service"
+    ],
+    [
+     "520",
+     "Oversized Premium"
+    ],
+    [
+     "550",
+     "Preparation of Air Waybill - Origin"
+    ],
+    [
+     "555",
+     "Preparation of Canadian Customs Invoice"
+    ],
+    [
+     "565",
+     "Preparation of Export Entry"
+    ],
+    [
+     "570",
+     "Preparation of Insurance Certificate"
+    ],
+    [
+     "585",
+     "Preparation of U.S. Export Documentation"
+    ],
+    [
+     "665",
+     "Saturday Delivery"
+    ],
+    [
+     "670",
+     "Saturday Pick-Up"
+    ],
+    [
+     "675",
+     "Security Signature Service"
+    ],
+    [
+     "761",
+     "Written Proof of Delivery"
+    ],
+    [
+     "A1M",
+     "Aggregate 1000"
+    ],
+    [
+     "A3M",
+     "Aggregate 3000"
+    ],
+    [
+     "A5M",
+     "Aggregate 5000"
+    ],
+    [
+     "AAS",
+     "Attendants Accompanying - Rail service for government or contractor personnel accompanying freight shipments on freight trains"
+    ],
+    [
+     "AB",
+     "Car is Air Brake Controlled"
+    ],
+    [
+     "ADL",
+     "Advance Loading Service for advanced loading of bulk fuel"
+    ],
+    [
+     "AFN",
+     "Aircraft Furnished and Not Used"
+    ],
+    [
+     "AGG",
+     "Aggregate Tender Discount"
+    ],
+    [
+     "AGS",
+     "Armed Guard Service"
+    ],
+    [
+     "AIB",
+     "Additional Injection/Blending Service for providing additional pipeline injection/blending service"
+    ],
+    [
+     "AK",
+     "Attachment - Auto Keys"
+    ],
+    [
+     "ALP",
+     "Port Changes"
+    ],
+    [
+     "ALT",
+     "Use of Alternate Terminal"
+    ],
+    [
+     "AMM",
+     "A.M. Delivery Requirement"
+    ],
+    [
+     "ANC",
+     "Anchoring and Unanchoring The additional service charge or order for a transportation carrier to perform unanchoring services on a mobile home at one location and anchoring services at another location after transportation has been performed"
+    ],
+    [
+     "APD",
+     "Additional Copy of Shipping Papers For Proof of Delivery"
+    ],
+    [
+     "APL",
+     "Appliance Servicing The additional service charge or order for a transportation carrier to service used household goods appliances by securing the item in such a nammer that it withstand handling and transportation"
+    ],
+    [
+     "ARC",
+     "Air Conditioning Disconnect and Connect. The additional service charge or order for a transportation carrier to disconnect an air conditioning unit attached to a mobile home and reconnecting the air conditioner after transportation from one location to another has been performed."
+    ],
+    [
+     "ARG",
+     "Rail Armed Guard Service"
+    ],
+    [
+     "ARR",
+     "Air Ride Tractor Service"
+    ],
+    [
+     "ART",
+     "Air Ride Truck Service"
+    ],
+    [
+     "ASY",
+     "Assembly Service Requested"
+    ],
+    [
+     "AT",
+     "Attachment to Move with car"
+    ],
+    [
+     "AUX",
+     "Auxiliary Service The additional service charge or order for a transportation carrier to provide exclusive use of a vehicle as part of the movement of a household goods shipment"
+    ],
+    [
+     "AV",
+     "Annual Volume"
+    ],
+    [
+     "AW",
+     "Attachments - Advance Only Waybill"
+    ],
+    [
+     "BA",
+     "Clearinghouse Balance"
+    ],
+    [
+     "BCP",
+     "Bypass Consolidation Point"
+    ],
+    [
+     "BKA",
+     "Bulky Article The additional service charge or order for a transportation carrier to service motorcycles, tractors, riding lawn mowers, privately owned vehicles, and other personal effects of unusual size or nature by securing the item in such a manner that will withstand handling and transportation."
+    ],
+    [
+     "BL",
+     "Blowable Load"
+    ],
+    [
+     "BLK",
+     "Blocking and Bracing"
+    ],
+    [
+     "BLS",
+     "Blind Shipment Shipper's name inserted in place of the manufacturer's name on the shipping papers"
+    ],
+    [
+     "BN",
+     "If Bad Ordered Notify Shipper"
+    ],
+    [
+     "BNS",
+     "Bolster Load, Do Not Switch"
+    ],
+    [
+     "BOX",
+     "Boxing Service - Dry Bulk Carrier responsible for transferring product into boxes at the point of delivery"
+    ],
+    [
+     "BU2",
+     "Bunker Adjustment - 20 Foot Container"
+    ],
+    [
+     "BU4",
+     "Bunker Adjustment - 40 Foot Container"
+    ],
+    [
+     "BUA",
+     "Bunker Adjustment"
+    ],
+    [
+     "BW",
+     "Bill Shipper For Weigh Charge"
+    ],
+    [
+     "CA2",
+     "Currency Adjustment - 20 Foot Container"
+    ],
+    [
+     "CA4",
+     "Currency Adjustment - 40 Foot Container"
+    ],
+    [
+     "CAR",
+     "ROEE Car or Pick-Up Truck"
+    ],
+    [
+     "CC",
+     "Container, Consolidator Load Full container"
+    ],
+    [
+     "CCB",
+     "Convert Commercial Bill of Lading (BOL) to Government BOL"
+    ],
+    [
+     "CCH",
+     "Certification"
+    ],
+    [
+     "CCS",
+     "Carrier Caboose Service for carrier-furnished caboose"
+    ],
+    [
+     "CD",
+     "Attachment - Customer's Document"
+    ],
+    [
+     "CDD",
+     "Corrosion Additive Service"
+    ],
+    [
+     "CE",
+     "Cleared for Export"
+    ],
+    [
+     "CF",
+     "Container, Factory Load Full container, not to be opened for consolidation"
+    ],
+    [
+     "CFC",
+     "Customs Fees - Container Level"
+    ],
+    [
+     "CFL",
+     "Customs Fees - Lift Level"
+    ],
+    [
+     "CGC",
+     "Carrier Guard Car Service Rail service for each carrier guard car used by attendants accompanying freight shipments"
+    ],
+    [
+     "CGR",
+     "Return Carrier Guard Car Service Rail service when an unoccupied guard car is returned to a location other than the original shipping point"
+    ],
+    [
+     "CGT",
+     "Cargo Taxes"
+    ],
+    [
+     "CH",
+     "Carrier"
+    ],
+    [
+     "CHN",
+     "Chain and Binders Motor service when more than eight sets are required to secure a shipment to flat bed equipment"
+    ],
+    [
+     "CI",
+     "Customs Inspection"
+    ],
+    [
+     "CIP",
+     "Commercial Invoice Preparation"
+    ],
+    [
+     "CIS",
+     "Constant Surveillance"
+    ],
+    [
+     "CLN",
+     "Cleaning"
+    ],
+    [
+     "CLS",
+     "Class Rates Applied"
+    ],
+    [
+     "CM",
+     "Attachment - Cotton Manifest"
+    ],
+    [
+     "CMD",
+     "Comb. Rates over Detroit"
+    ],
+    [
+     "CNL",
+     "Consolidation and Line Haul"
+    ],
+    [
+     "CNS",
+     "Consolidation"
+    ],
+    [
+     "CO",
+     "No Marshalling Required for Hazardous Materials"
+    ],
+    [
+     "CON",
+     "Contract Rates Apply"
+    ],
+    [
+     "COR",
+     "Certification That the Newsprint Winding Cores Being Returned Empty Were Received Filled by Rail Freight Service"
+    ],
+    [
+     "COU",
+     "Consignee Unload"
+    ],
+    [
+     "COV",
+     "Courier, Overnight"
+    ],
+    [
+     "CPC",
+     "Copilot Service"
+    ],
+    [
+     "CPM",
+     "Customs Papers Mailed"
+    ],
+    [
+     "CR",
+     "Circus Ramp Only (TOFC Van)"
+    ],
+    [
+     "CRL",
+     "Container Lease"
+    ],
+    [
+     "CSD",
+     "Courier, Same Day"
+    ],
+    [
+     "CSP",
+     "Government Caboose Service for carrier-furnished caboose for use by government personnel"
+    ],
+    [
+     "CTL",
+     "Controlled Atmosphere"
+    ],
+    [
+     "CTM",
+     "Container Mounting Carrier mounts container onto chassis"
+    ],
+    [
+     "CTR",
+     "Circuitous Routing"
+    ],
+    [
+     "CUF",
+     "Currency Adjustment - Break Bulk"
+    ],
+    [
+     "CW",
+     "Bill Consignee for Weigh Charges"
+    ],
+    [
+     "CX",
+     "Top Load Only"
+    ],
+    [
+     "CY",
+     "Certification that this Shipment is for Recycling as Defined in Applicable Tariffs Containing Such Provisions"
+    ],
+    [
+     "DA",
+     "Dangerous"
+    ],
+    [
+     "DBL",
+     "Double Wide Separate and Reassemble. The additional service charge or order for a transportation carrier to separate each unit of a double-wide mobile home and prepare for movement and reassemble the double-wide mobile home after transportation from one location to another has been performed."
+    ],
+    [
+     "DBP",
+     "Delivery of Fuel From Barge to Pipeline"
+    ],
+    [
+     "DCS",
+     "DOD Constant Surveillance Service"
+    ],
+    [
+     "DDN",
+     "Dual Driver with National Agency Check A type of security service where a carrier must allow the government to perform a National Agency Check (NAC) on all personnel involved in a government shipment"
+    ],
+    [
+     "DDP",
+     "Dual Driver Protective Service"
+    ],
+    [
+     "DDS",
+     "Direct Delivery"
+    ],
+    [
+     "DDZ",
+     "Drayage at Port of Debarkation (Rate Zone)"
+    ],
+    [
+     "DE",
+     "Demurrage"
+    ],
+    [
+     "DEL",
+     "Delivery Service"
+    ],
+    [
+     "DEP",
+     "Detention of Conveying Equipment and the Power Unit May be ordered by consignee at time of loading"
+    ],
+    [
+     "DET",
+     "Detention of Conveying Equipment Excluding the Power Unit May be ordered at time of loading"
+    ],
+    [
+     "DEZ",
+     "Drayage at Port of Embarkation (Rate Zone)"
+    ],
+    [
+     "DFD",
+     "Keep From Freezing Percent Differential"
+    ],
+    [
+     "DFM",
+     "410 Dromedary with Mechanical Restraining Devices A service where the carrier furnishes a 410 cubic foot dromedary which is equipped with properly installed mechanical restraints and devices for the blocking and bracing of freight"
+    ],
+    [
+     "DFS",
+     "410 Dromedary Demountable 410 cu. ft. shipping container that can be fastened to the chassis of a truck, tractor, or flat bed"
+    ],
+    [
+     "DIS",
+     "Distribution Service Requested"
+    ],
+    [
+     "DLP",
+     "Delivery of Fuel From Rail Tank Car to Pipeline"
+    ],
+    [
+     "DLR",
+     "Notify Shipper Immediately If Shipment Is Delayed En Route"
+    ],
+    [
+     "DM",
+     "Domestic"
+    ],
+    [
+     "DN",
+     "Shipper Authorization Required for Diversion or Consignment"
+    ],
+    [
+     "DNC",
+     "Do Not Couple to Other Diaphragm Cars"
+    ],
+    [
+     "DNF",
+     "Do Not Freeze Specifies that the temperature of a shipment must not go below the freezing point during transit"
+    ],
+    [
+     "DNT",
+     "Do Not Couple to Tank Cars"
+    ],
+    [
+     "DOC",
+     "Documentation - Special Carrier creates special shipper documentation"
+    ],
+    [
+     "DOV",
+     "Container Diversion"
+    ],
+    [
+     "DPB",
+     "Delivery of Fuel From Pipeline to Barge"
+    ],
+    [
+     "DPD",
+     "Drayage at Port of Debarkation"
+    ],
+    [
+     "DPE",
+     "Drayage at Port of Embarkation"
+    ],
+    [
+     "DPL",
+     "Delivery of Fuel From Pipeline to Rail Tank Car"
+    ],
+    [
+     "DPT",
+     "Delivery of Fuel From Pipeline to Tank Truck or Trailer"
+    ],
+    [
+     "DPU",
+     "Detention with Power Units (30 minute periods)"
+    ],
+    [
+     "DR",
+     "Drop Yard"
+    ],
+    [
+     "DRO",
+     "Drop-Off Delivery"
+    ],
+    [
+     "DRU",
+     "Drumming Service Carrier responsible for transferring product into drums at the point of delivery"
+    ],
+    [
+     "DS",
+     "Delivery Only on Surrender of Written Order"
+    ],
+    [
+     "DSK",
+     "Do Not Couple to Double Shelf Couples"
+    ],
+    [
+     "DSM",
+     "Dromedary with Mechanical Restraining Devices A service where the carrier furnishes a regular size dromedary which is equipped with properly installed mechanical restraints and devices for the blocking and bracing of freight"
+    ],
+    [
+     "DSR",
+     "Dromedary Service Requested"
+    ],
+    [
+     "DSV",
+     "Door Side Vanning The cargo is to be placed in the container adjacent to the door"
+    ],
+    [
+     "DT",
+     "Dead in Tow"
+    ],
+    [
+     "DTB",
+     "Labor Associated with Detention of Conveying Equipment May be ordered by shipper at time of loading"
+    ],
+    [
+     "DTP",
+     "Delivery of Fuel From Tank Truck or Trailer to Pipeline"
+    ],
+    [
+     "DTV",
+     "Detention (Vehicle) Rail service when rail owned/leased trailers/containers on flat cars are detained for loading/unloading"
+    ],
+    [
+     "DU",
+     "Do Not Uncouple"
+    ],
+    [
+     "DV",
+     "Equipment"
+    ],
+    [
+     "DW",
+     "Destination Weights Apply"
+    ],
+    [
+     "DWP",
+     "Detention With Power Units (60 minute periods)"
+    ],
+    [
+     "EAX",
+     "Extra Axles The additional service charge or order for a transportation carrier to install and rent an axle with wheels, tires and brakes required for the transportation of a mobile home"
+    ],
+    [
+     "ECR",
+     "Escort/Courier Service"
+    ],
+    [
+     "ECS",
+     "Empty Railcar Ordered But Not Used"
+    ],
+    [
+     "ED",
+     "Excessive Dimensions Equipment exceeds operating restrictions but is not considered high/wide in interline movement"
+    ],
+    [
+     "EDD",
+     "Equipment Hose at Destination Service for supplying special hose equipment for dispatching bulk fuel at destination"
+    ],
+    [
+     "EDO",
+     "Equipment Hose at Origin Service for supplying special hose equipment for dispatching bulk fuel at origin"
+    ],
+    [
+     "EE",
+     "Electronic Equipment Transfer"
+    ],
+    [
+     "EED",
+     "Exclusive Use Charge when vehicle furnished is devoted exclusively to transportation of a shipment without breaking of seals"
+    ],
+    [
+     "EL",
+     "Environmental Control Limits The items contained in the shipment are subject to environmental controls whose limits are specified in the contract"
+    ],
+    [
+     "ELS",
+     "Extra Lights Motor service when a state agency requires extra lights be placed on an over dimensional shipment"
+    ],
+    [
+     "EMR",
+     "Emergency Service Carrier provides special services in case of emergency"
+    ],
+    [
+     "EMT",
+     "Empty Movement Motor service when empty movement of equipment is required"
+    ],
+    [
+     "END",
+     "Endorsement"
+    ],
+    [
+     "EP",
+     "Expedite"
+    ],
+    [
+     "ER",
+     "Return Empty Via Reverse Route"
+    ],
+    [
+     "ERS",
+     "Empty Return Motor service when empty equipment is returned from the destination to point of origin"
+    ],
+    [
+     "ERT",
+     "Satisfactory Service Standards"
+    ],
+    [
+     "EV",
+     "Damages Incurred if Shipment Fails to Meet Vessel Loading"
+    ],
+    [
+     "EW",
+     "Excessive Weight"
+    ],
+    [
+     "EX",
+     "Explosive Flammable Gas"
+    ],
+    [
+     "EXC",
+     "Exclusive Use of Vehicle"
+    ],
+    [
+     "EXD",
+     "Extra Driver"
+    ],
+    [
+     "EXL",
+     "Extra Length Surcharge"
+    ],
+    [
+     "EXO",
+     "Export Preparation Carrier must prepare shipment for export"
+    ],
+    [
+     "EXP",
+     "Expedited Rates Applied"
+    ],
+    [
+     "EXQ",
+     "Expedited Service Motor service for the immediate dispatch of equipment in continuous line-haul service to meet delivery schedules"
+    ],
+    [
+     "EXT",
+     "Extra Labor Carrier must supply additional labor"
+    ],
+    [
+     "EXU",
+     "Exclusive Use of Vehicle Damaged"
+    ],
+    [
+     "EXZ",
+     "Expand Remove and Install. The additional service charge or order for a transportation carrier to prepare, separate, and seal an expando room attached to a mobile home prior to movement and secure the room at destination after the transportation from one location to another has been performed."
+    ],
+    [
+     "EZE",
+     "Roadway Easy Rates Applied"
+    ],
+    [
+     "FA",
+     "Face \"A-end\" to Head of Train"
+    ],
+    [
+     "FAK",
+     "Barge Freight All Kinds Service"
+    ],
+    [
+     "FAS",
+     "Firearms"
+    ],
+    [
+     "FB",
+     "Face \"B-end\" to Head of Train"
+    ],
+    [
+     "FC",
+     "Moving Under \"For Furtherance Instructions\" and May Be Delivered"
+    ],
+    [
+     "FCS",
+     "Furnishing Chassis Rail service when chassis are furnished by carrier to effect pickup or delivery of containers on flat cars"
+    ],
+    [
+     "FD",
+     "Full Service"
+    ],
+    [
+     "FFC",
+     "Fuel Filters Furnished by Carrier"
+    ],
+    [
+     "FFS",
+     "Fuel Filters Furnished by Shipper"
+    ],
+    [
+     "FG",
+     "Flammable Gas"
+    ],
+    [
+     "FL",
+     "Flammable"
+    ],
+    [
+     "FLS",
+     "Flatrack Surcharge"
+    ],
+    [
+     "FP",
+     "Flammable Poison Gas"
+    ],
+    [
+     "FPT",
+     "For Processing in Transit"
+    ],
+    [
+     "FR",
+     "Fragile - Handle with Care"
+    ],
+    [
+     "FRZ",
+     "Accepted by Carrier at Owner's Risk of Freezing"
+    ],
+    [
+     "FS",
+     "Nontransit Flat Shipment"
+    ],
+    [
+     "FST",
+     "For Storage in Transit"
+    ],
+    [
+     "FTR",
+     "Filtration Service - Service for providing pipeline filtration service"
+    ],
+    [
+     "GI",
+     "Grain Inspection"
+    ],
+    [
+     "GMS",
+     "Garment Surcharge"
+    ],
+    [
+     "GOC",
+     "Government-Owned Containers Empty Government Owned Container PMR Per Mile Rates Apply Expedited Delivery - Additional Mile Over 599 FB Face B-end to Head of Train Tank Container Clean and Empty"
+    ],
+    [
+     "GSP",
+     "Government Guard Car - Service for carrier-furnished guard car for use by government personnel"
+    ],
+    [
+     "GSS",
+     "Greater Security Service"
+    ],
+    [
+     "HAL",
+     "Hold at Location"
+    ],
+    [
+     "HAN",
+     "Handling"
+    ],
+    [
+     "HBR",
+     "Hand Brakes at Each End Must Be Released"
+    ],
+    [
+     "HDH",
+     "Shipment Holdover for Holidays - Shipments may be held over on holidays for delivery the following normal workday morning when requested by the shipper; applicable for perishable subsistence"
+    ],
+    [
+     "HDW",
+     "Shipment Holdover for Weekends - Friday pickups may be held over for Monday morning delivery when requested by the shipper for the convenience of the consignee; applicable for perishable subsistence"
+    ],
+    [
+     "HE",
+     "Head End Car"
+    ],
+    [
+     "HEA",
+     "Heat in Transit Carrier required to keep product heated during transit"
+    ],
+    [
+     "HES",
+     "Heat-Special Carrier required to keep product heated during transit in accordance with special instructions provided"
+    ],
+    [
+     "HET",
+     "Heat With Steam - Carrier required to keep product heated with steam during transit"
+    ],
+    [
+     "HH",
+     "Household"
+    ],
+    [
+     "HM",
+     "Endorsed as Hazardous Material"
+    ],
+    [
+     "HMA",
+     "Accessible Hazardous Material"
+    ],
+    [
+     "HMI",
+     "Inaccessible Hazardous Material"
+    ],
+    [
+     "HO",
+     "Hold for Orders"
+    ],
+    [
+     "HOL",
+     "Sunday or Holiday Pickup or Delivery"
+    ],
+    [
+     "HOR",
+     "24 Hour Availability - Loading and unloading site is open 24 hours a day"
+    ],
+    [
+     "HOS",
+     "Hose"
+    ],
+    [
+     "HOX",
+     "Special Hose"
+    ],
+    [
+     "HP",
+     "Heated Prior to Loading"
+    ],
+    [
+     "HQT",
+     "High Cube Trailer Rates"
+    ],
+    [
+     "HR",
+     "Home for Repair"
+    ],
+    [
+     "HRS",
+     "Heater or Refrigeration - Rail service when shipments of commodities require protective service from the heat or cold"
+    ],
+    [
+     "HT",
+     "Heat"
+    ],
+    [
+     "HTI",
+     "Hitch Installation"
+    ],
+    [
+     "HV",
+     "High Value Load"
+    ],
+    [
+     "HW",
+     "High Wide Load"
+    ],
+    [
+     "HZC",
+     "Hazardous Materials Surcharge"
+    ],
+    [
+     "HZD",
+     "Hazardous Cargo On Deck"
+    ],
+    [
+     "IB",
+     "In-bond"
+    ],
+    [
+     "IC",
+     "Ice"
+    ],
+    [
+     "ID",
+     "Shipment to be Inspected at Destination and Disposition Instructions will be Furnished"
+    ],
+    [
+     "IDC",
+     "Idler Car"
+    ],
+    [
+     "IDL",
+     "Inside Delivery"
+    ],
+    [
+     "IIH",
+     "Icing Inhibitor Service"
+    ],
+    [
+     "IM",
+     "Interoffice Move"
+    ],
+    [
+     "IMP",
+     "Impactographs - Motor service when impactographs are provided at the request of the shipper or consignee"
+    ],
+    [
+     "IMS",
+     "Intermodal Shipment Service"
+    ],
+    [
+     "INT",
+     "Intra-Plant Move - Carrier requested to provide equipment and labor for intra-plant work"
+    ],
+    [
+     "IP",
+     "Import Shipment"
+    ],
+    [
+     "IPU",
+     "Inside Pickup"
+    ],
+    [
+     "IR",
+     "Rail Incentive Rate"
+    ],
+    [
+     "IS",
+     "Surveillance Service"
+    ],
+    [
+     "ITS",
+     "Interline Transfer Service"
+    ],
+    [
+     "JIT",
+     "Just-In-Time (JIT)"
+    ],
+    [
+     "JLX",
+     "Joint Line Exception"
+    ],
+    [
+     "JS",
+     "Junction Settlement Account"
+    ],
+    [
+     "KEG",
+     "Certification that the Containers Being Returned Empty Were Received Filled by Rail Freight Service"
+    ],
+    [
+     "KMD",
+     "Keep Material Dry"
+    ],
+    [
+     "LAB",
+     "Labor Disturbance - Labor disturbance at plant"
+    ],
+    [
+     "LAY",
+     "Layover - Carrier equipment and driver required to layover"
+    ],
+    [
+     "LB",
+     "Land Bridge (Import/Export)"
+    ],
+    [
+     "LBL",
+     "Apply a Uniform Code - Council/International Article Numbering Association (UCC/EAN) Serial Shipping Container Label to the Shipping Containers"
+    ],
+    [
+     "LBR",
+     "Light Bar Service"
+    ],
+    [
+     "LBT",
+     "Low Boy Trailer/Flat Bed"
+    ],
+    [
+     "LC",
+     "Car Trip Leased to Consignee"
+    ],
+    [
+     "LC2",
+     "Land Currency Adjustment Factor 20 Foot Container"
+    ],
+    [
+     "LC4",
+     "Land Currency Adjustment - 40 Foot Container"
+    ],
+    [
+     "LCL",
+     "Percent Differential - Less Than Container"
+    ],
+    [
+     "LD",
+     "Loading Devices"
+    ],
+    [
+     "LEC",
+     "Less Than Container"
+    ],
+    [
+     "LF",
+     "Loaded to Full Visible Capacity"
+    ],
+    [
+     "LFD",
+     "Linehaul from Port of Debarkation"
+    ],
+    [
+     "LHS",
+     "Linehaul Service - The additional service charge or order for a transportation carrier to provide special linehaul services; i.e. to or from a temporary storage site, for used household goods not included in the normal transportation from origin to destination locations."
+    ],
+    [
+     "LIE",
+     "Liability of Carrier"
+    ],
+    [
+     "LMD",
+     "Liner Terms at Port of Debarkation"
+    ],
+    [
+     "LME",
+     "Liner Terms at Port of Embarkation"
+    ],
+    [
+     "LN",
+     "Less Than Container, Consolidator Load"
+    ],
+    [
+     "LP",
+     "Protect Lowest Through Rate"
+    ],
+    [
+     "LPD",
+     "Linehaul Percent Differential"
+    ],
+    [
+     "LR",
+     "Less Than Container, Factory Load"
+    ],
+    [
+     "LS",
+     "Local Service Only"
+    ],
+    [
+     "LT",
+     "Less Than Full Carload"
+    ],
+    [
+     "LTE",
+     "Linehaul To Port of Embarkation"
+    ],
+    [
+     "LTT",
+     "Less Than Truckload"
+    ],
+    [
+     "LYC",
+     "Layover Service"
+    ],
+    [
+     "MAT",
+     "Modified Atmosphere"
+    ],
+    [
+     "MC",
+     "Person in Charge of Car"
+    ],
+    [
+     "MEN",
+     "Escort Service with Overnight Subsistence - Motor service when movement hour restrictions require an escort vehicle driver or flagmen to stay overnight"
+    ],
+    [
+     "MES",
+     "Escort"
+    ],
+    [
+     "MET",
+     "Escort Services (Telephone) - Motor service when shipper/consignee requests that vehicles be equipped with mobile telephones or two-way radios"
+    ],
+    [
+     "MF",
+     "Cleared for Border Crossing"
+    ],
+    [
+     "MIN",
+     "Insulated"
+    ],
+    [
+     "MNS",
+     "Motor Surveillance Service"
+    ],
+    [
+     "MOT",
+     "Other"
+    ],
+    [
+     "MP",
+     "Multiple Pickup"
+    ],
+    [
+     "MR",
+     "Mechanical Refrigeration"
+    ],
+    [
+     "MRF",
+     "Refrigerated"
+    ],
+    [
+     "MSS",
+     "Motor Surveillance Service"
+    ],
+    [
+     "MTE",
+     "Military Traffic Expediting Service"
+    ],
+    [
+     "MVS",
+     "Special Motor Surveillance - Motor security service which provides shipper with extraordinary visibility of their shipments in transit"
+    ],
+    [
+     "NC",
+     "Notify Consignee Before Delivery"
+    ],
+    [
+     "ND",
+     "Do Not Divert"
+    ],
+    [
+     "NE",
+     "No Special Entrainment Required"
+    ],
+    [
+     "NH",
+     "Do Not Hump"
+    ],
+    [
+     "NHC",
+     "Do not Hump or Hump into"
+    ],
+    [
+     "NHL",
+     "Do Not Use Helper Locomotive to Push"
+    ],
+    [
+     "NI",
+     "New Equipment First Transborder Movement"
+    ],
+    [
+     "NP",
+     "Do Not Pool"
+    ],
+    [
+     "NPR",
+     "No Placards Required"
+    ],
+    [
+     "NS",
+     "Notify Shipper Before Reconsignment"
+    ],
+    [
+     "NSV",
+     "Nose Side Vanning - The cargo is to be placed in the container at the end furthest from the door"
+    ],
+    [
+     "NT",
+     "Do Not Transfer Contents"
+    ],
+    [
+     "NW",
+     "In Case Of Fire Do Not Use Water"
+    ],
+    [
+     "NX",
+     "Not for Export"
+    ],
+    [
+     "OAH",
+     "Stow Away from Heat - The container is to be stowed away from any source of heat"
+    ],
+    [
+     "OBL",
+     "Block Stowage"
+    ],
+    [
+     "OCA",
+     "Cargo Aboard"
+    ],
+    [
+     "OCL",
+     "Carrier Load and Consignee Unload"
+    ],
+    [
+     "OCN",
+     "Over Height Container"
+    ],
+    [
+     "OCS",
+     "Completing Shipment"
+    ],
+    [
+     "OCV",
+     "Delivery Verification Not Required"
+    ],
+    [
+     "ODI",
+     "Stow with Doors Facing Inward - The container is to be stowed with the doors facing towards the midline of the vessel"
+    ],
+    [
+     "OEH",
+     "Exempt Commodity"
+    ],
+    [
+     "OFH",
+     "In Front of House Stowage - The container is to be stowed on deck forward of the superstructure of the vessel"
+    ],
+    [
+     "OFU",
+     "Fumigation - The additional service charge or order for a transportation carrier to fumigate a household goods shipment that is insect infested"
+    ],
+    [
+     "OHC",
+     "Harmless"
+    ],
+    [
+     "OIL",
+     "Oil Field Service - Special services required to deliver freight at oil field site"
+    ],
+    [
+     "ONC",
+     "Use No Hooks"
+    ],
+    [
+     "ONS",
+     "Not Restricted Cargo"
+    ],
+    [
+     "OOB",
+     "Cargo on Board Certification Required"
+    ],
+    [
+     "OOD",
+     "On Deck Stowage"
+    ],
+    [
+     "OOL",
+     "Carrier Load and Carrier Unload"
+    ],
+    [
+     "OPR",
+     "Perishable"
+    ],
+    [
+     "OPT",
+     "Partial Shipment"
+    ],
+    [
+     "OS",
+     "Commodity Loaded Less Than or Equal To the Car Ordered"
+    ],
+    [
+     "OSB",
+     "Stow Below Deck"
+    ],
+    [
+     "OST",
+     "Stow Between Decks"
+    ],
+    [
+     "OTC",
+     "Temperature Control"
+    ],
+    [
+     "OTD",
+     "Time of Delivery and Signature Required"
+    ],
+    [
+     "OTH",
+     "On Top In-hatch Stowage - The container is to be stowed as the topmost container of those stowed within a hatch"
+    ],
+    [
+     "OTO",
+     "On Top On-deck Stowage - The container is to be stowed as the topmost container of those stowed on-deck"
+    ],
+    [
+     "OTS",
+     "Total Shipment"
+    ],
+    [
+     "OUC",
+     "Under Container On-deck Stowage - The container is to be stowed below another container on the deck of the vessel"
+    ],
+    [
+     "OUW",
+     "Below Water Line Stowage - The container is to be stowed below the waterline of the vessel"
+    ],
+    [
+     "OV",
+     "Overweight"
+    ],
+    [
+     "OVR",
+     "Overflow"
+    ],
+    [
+     "OWC",
+     "Over Width Container"
+    ],
+    [
+     "OWR",
+     "One Way Rates Applied"
+    ],
+    [
+     "PAJ",
+     "Pumping Equipment"
+    ],
+    [
+     "PAV",
+     "Pickup of Shipments on Saturday, Sunday, and/or Holidays Requiring Absolute Next Day Delivery"
+    ],
+    [
+     "PB",
+     "Perishable in Box Car"
+    ],
+    [
+     "PD",
+     "Privately Controlled Private Equipment Subject to Demurrage"
+    ],
+    [
+     "PDS",
+     "Pickup and Delivery From Storage in Transit - The additional service charge or order for a transportation carrier to pickup a household goods shipment at, or deliver to a temporary storage facility"
+    ],
+    [
+     "PDY",
+     "Pickup and Delivery Beyond Service Area"
+    ],
+    [
+     "PER",
+     "Special Permits - Carrier required to provide special permits in order to move freight"
+    ],
+    [
+     "PFH",
+     "Protect from Heat"
+    ],
+    [
+     "PG",
+     "Poisonous Gas"
+    ],
+    [
+     "PHR",
+     "Per Hour Rates Applied"
+    ],
+    [
+     "PI",
+     "Iced Prior to Loading"
+    ],
+    [
+     "PIR",
+     "Pier Time - Carrier required to wait at pier for loading or unloading"
+    ],
+    [
+     "PMM",
+     "P.M. Delivery Requirement"
+    ],
+    [
+     "PMR",
+     "Per Mile Rates Apply"
+    ],
+    [
+     "PMS",
+     "Pickup of Shipments Requiring Same Day Delivery Service"
+    ],
+    [
+     "PMT",
+     "Pickup of Shipments Requiring Same Day Delivery Service and/or Delivery at a Specified Time"
+    ],
+    [
+     "POC",
+     "Piano/Organ Carry - The additional service charge or order for a transportation carrier to provide special handling and transportation for a piano or organ as part of a household goods shipment"
+    ],
+    [
+     "PPD",
+     "Pickup and Delivery Service for Perishables"
+    ],
+    [
+     "PRL",
+     "Prelodge - Motor service for hand delivery of shipping documents 24 hours or more prior to the delivery of a shipment(s)"
+    ],
+    [
+     "PRT",
+     "Stuffing Charge"
+    ],
+    [
+     "PS",
+     "Product Protection Service"
+    ],
+    [
+     "PSG",
+     "Protective Service Security with Armed Guards - Motor service for Protective Security Service when shipper requires one or both cleared drivers be armed"
+    ],
+    [
+     "PSS",
+     "Protective Security Service"
+    ],
+    [
+     "PTS",
+     "Protective Tarp for Security Purposes"
+    ],
+    [
+     "PUC",
+     "Pickup"
+    ],
+    [
+     "PUD",
+     "Pickup and Delivery"
+    ],
+    [
+     "PUK",
+     "Pack and Unpack - The additional service charge or order for a transportation carrier to provide packing services at the origin location and unpacking services at destination site; including labor, packing material, and containers; as part of a household goods shipment"
+    ],
+    [
+     "PUP",
+     "Pup Trailer Rates Apply"
+    ],
+    [
+     "PVB",
+     "Bonded Privately Owned Vehicle"
+    ],
+    [
+     "PVD",
+     "Detention of Privately Owned Vehicle"
+    ],
+    [
+     "PVI",
+     "Inoperable Privately Owned Vehicle"
+    ],
+    [
+     "PVL",
+     "Loading/Unloading of Privately Owned Vehicle"
+    ],
+    [
+     "PVP",
+     "Private Owned Vehicle Processing"
+    ],
+    [
+     "PVS",
+     "Stop-offs for Privately Owned Vehicle Shipment"
+    ],
+    [
+     "PVT",
+     "Privately Owned Vehicle in Truckaway Service"
+    ],
+    [
+     "PW",
+     "Attachment - Prepaid Waybill"
+    ],
+    [
+     "PYS",
+     "Priority Service"
+    ],
+    [
+     "RA",
+     "Return Authorization"
+    ],
+    [
+     "RB",
+     "Render Bill for Charges"
+    ],
+    [
+     "RC",
+     "Railroad Controlled Private Equipment - Subject to Demurrage Equipment subject to paragraph #1 of tariff RPS6004 item 765 - allowing private equipment to be subject to demurrage when authorized by equipment owner"
+    ],
+    [
+     "RCC",
+     "Reconsignment - Change in destination, route, etc., that requires a change in billing or an additional movement of the shipment"
+    ],
+    [
+     "RCL",
+     "Redelivery - Motor service when, through fault of the consignee, delivery cannot be made and has to be redelivered at a later date"
+    ],
+    [
+     "RDH",
+     "Railhead Handling"
+    ],
+    [
+     "RDR",
+     "Roadrailer Service"
+    ],
+    [
+     "REP",
+     "Respotting"
+    ],
+    [
+     "RES",
+     "Residential Delivery"
+    ],
+    [
+     "RFM",
+     "Reefer Maintenance"
+    ],
+    [
+     "RIE",
+     "Released Value Charge in Excess of Carrier Maximum Liability"
+    ],
+    [
+     "RLS",
+     "Relocation of Vehicle - Motor service when carrier is requested to move a vehicle from one platform doorway or shipping room to another"
+    ],
+    [
+     "RM",
+     "Radioactive Material"
+    ],
+    [
+     "RMC",
+     "Return of Empty Container"
+    ],
+    [
+     "RMP",
+     "Return Movement of Pallet"
+    ],
+    [
+     "RMS",
+     "Rail Surveillance - Rail security service performed by rail carriers in the movement of Government unclassified sensitive cargo"
+    ],
+    [
+     "RO",
+     "Rush Order"
+    ],
+    [
+     "RPD",
+     "Reefer Cargo Percent Differential"
+    ],
+    [
+     "RR",
+     "Rear Rider Operational restrictions require equipment to be run on the rear of a train only"
+    ],
+    [
+     "RRR",
+     "Round Trip Service"
+    ],
+    [
+     "RS",
+     "Inspect Hourly if Car Stopped"
+    ],
+    [
+     "RSP",
+     "Reshipment - The additional service charge or order for a transportation carrier to prepare a household goods shipment for onward movement when the shipment is diverted to a new destination location"
+    ],
+    [
+     "RSS",
+     "Restricted Speeds - Service when the unusual nature of the shipment requires the carrier to operate at speeds below its normal limits"
+    ],
+    [
+     "RSV",
+     "Reservations - Shipper may reserve space in a vehicle for second and third Proviso commodities moving via Household Goods motor carriers only"
+    ],
+    [
+     "RT",
+     "Record for Transit"
+    ],
+    [
+     "RWR",
+     "Reweight Requested"
+    ],
+    [
+     "SAS",
+     "Shipment Holdover on Weekends"
+    ],
+    [
+     "SAT",
+     "Saturday Pickup or Delivery"
+    ],
+    [
+     "SB",
+     "Shipper Load/Carrier Count"
+    ],
+    [
+     "SC",
+     "Shove to Rest and Cover"
+    ],
+    [
+     "SCC",
+     "Special Containers - The additional service charge or order for a transportation carrier to use specially constructed containers for oversized or fragile items as part of a household goods shipment"
+    ],
+    [
+     "SCL",
+     "Shipper Load and Consignee Unload"
+    ],
+    [
+     "SD",
+     "Subject to Special Detention Rules/Charges"
+    ],
+    [
+     "SDL",
+     "Split Delivery"
+    ],
+    [
+     "SDS",
+     "Special Dromedary Service - Demountable shipping container (special sizes) that can be fastened to the chassis of a truck, tractor, or flat bed"
+    ],
+    [
+     "SE",
+     "Attachment - Shipper's Export Document"
+    ],
+    [
+     "SEC",
+     "Special Equipment Charge"
+    ],
+    [
+     "SED",
+     "Shipper Export Declaration Required"
+    ],
+    [
+     "SEE",
+     "Stairs, Elevator, Excess Carry - The additional service charge or order for a transportation carrier to use stairs, elevators, or long carry as part of the origin or destination services on a household goods shipment"
+    ],
+    [
+     "SER",
+     "Service Charge Applies"
+    ],
+    [
+     "SEV",
+     "Security Escort Vehicle Service"
+    ],
+    [
+     "SFB",
+     "Single Factor Origination/Destination"
+    ],
+    [
+     "SFD",
+     "Single Factor Origination/Port of Debarkation"
+    ],
+    [
+     "SFE",
+     "Single Factor Port of Embarkation/Destination"
+    ],
+    [
+     "SFT",
+     "Special Train Movement - Rail service when a special train is necessary due to excessive dimensions, weight, or safety of the shipment"
+    ],
+    [
+     "SGL",
+     "Single Shipment"
+    ],
+    [
+     "SH",
+     "Shiftable Load"
+    ],
+    [
+     "SHH",
+     "Shipment Holdover on Holidays"
+    ],
+    [
+     "SHL",
+     "Shipper Load"
+    ],
+    [
+     "SHW",
+     "Shipment Holdover on Weekdays"
+    ],
+    [
+     "SI",
+     "Ship to Cross Dock or Pool"
+    ],
+    [
+     "SK",
+     "Requires Shelf Couplers"
+    ],
+    [
+     "SKT",
+     "Skirting and Unskirting - The additional service charge or order for a transportation carrier to remove skirting from the mobile home prior to movement and reinstalling the skirting at destination after the transportation from one location to another has been performed"
+    ],
+    [
+     "SLC",
+     "Shipper Load and Count"
+    ],
+    [
+     "SM",
+     "Attachment - Shipper's Manifest"
+    ],
+    [
+     "SMP",
+     "Small Package"
+    ],
+    [
+     "SMS",
+     "Satellite Surveillance Service"
+    ],
+    [
+     "SNM",
+     "Transmit a Ship Notice/Manifest Transaction Set"
+    ],
+    [
+     "SNS",
+     "Satellite Surveillance Service"
+    ],
+    [
+     "SNT",
+     "Shipment from Non-Temp Storage - The additional service charge or order for a transportation carrier to perform pickup and inspection of household goods from a long term storage facility"
+    ],
+    [
+     "SOC",
+     "Stop-off Service for stop-off in transit to complete loading or to partially unload a shipment"
+    ],
+    [
+     "SOL",
+     "Shipper Load and Carrier Unload"
+    ],
+    [
+     "SP",
+     "Attachment - Shipper's Packing Instructions"
+    ],
+    [
+     "SPC",
+     "Special Permit"
+    ],
+    [
+     "SPR",
+     "Spreader Service - Carrier responsible for spreading product at point of delivery"
+    ],
+    [
+     "SPT",
+     "Spot for Storage - No Shipment - Carrier required to provide a trailer for shipper although no shipment is available for assignment"
+    ],
+    [
+     "SPU",
+     "Split Pickup - Service for pickup/delivery of articles in a single shipment at more than one place within the origin/destination"
+    ],
+    [
+     "SR",
+     "Speed Restricted"
+    ],
+    [
+     "SRG",
+     "Storage - Service for freight held in carrier's possession beyond free time for any reason not the fault of the carrier"
+    ],
+    [
+     "SRS",
+     "Surveying Routes - Service when, because of the unusual size or weight of the shipment, a survey of the route is required for its safety"
+    ],
+    [
+     "SSC",
+     "Stripping, Sorting and Consolidation"
+    ],
+    [
+     "SSN",
+     "Substitute Service Not to be Used"
+    ],
+    [
+     "SSU",
+     "Pole Lashing Equipment (PLE) Surcharge"
+    ],
+    [
+     "ST",
+     "Stack Train"
+    ],
+    [
+     "STA",
+     "Conductivity/Anti-static Additive"
+    ],
+    [
+     "STD",
+     "Stop-off at Destination"
+    ],
+    [
+     "STO",
+     "Stowage"
+    ],
+    [
+     "STP",
+     "Stop-off at Origination"
+    ],
+    [
+     "STR",
+     "Signature and Tally Record"
+    ],
+    [
+     "SUA",
+     "Spot for Unloading from A End Car is to be spotted for unloading of vehicles from the A end of the autorack"
+    ],
+    [
+     "SUB",
+     "Spot for Unloading from B Brake End Car is to be spotted for unloading of vehicles from the \"B\" (brake) end of the autorack"
+    ],
+    [
+     "SUP",
+     "Supervisor Requested - Carrier must provide a person to supervise loading or unloading"
+    ],
+    [
+     "SVS",
+     "Storage of Vehicles - Service for vehicles trailer or flat car held by carrier, beyond the free time allowed, for any reason not the fault of the carrier"
+    ],
+    [
+     "SW",
+     "Stretch Wrap - A high-tensile film, stretched and wrapped repeatedly around a unitized load to secure and maintain unit integrity."
+    ],
+    [
+     "TA",
+     "Cars Temporarily Articulated"
+    ],
+    [
+     "TC",
+     "Trailer, Consolidator Load Full trailer"
+    ],
+    [
+     "TDC",
+     "Truckload-Double Operator-Common Carrier"
+    ],
+    [
+     "TDP",
+     "Truckload-Double Operator-Padded Van"
+    ],
+    [
+     "TER",
+     "Terminal Handling Charges"
+    ],
+    [
+     "TF",
+     "Trailer, Factory Load Full trailer, not to be opened for consolidation"
+    ],
+    [
+     "TLS",
+     "Tendered As Truckload (Truckload Service Requested)"
+    ],
+    [
+     "TMS",
+     "Multi-Tank Surveillance Service - Service for security service performed by railroads applicable when two M1 tanks are loaded on a rail car"
+    ],
+    [
+     "TMV",
+     "Tendering of Multiple Vehicles"
+    ],
+    [
+     "TN",
+     "Turn Car"
+    ],
+    [
+     "TOF",
+     "Trailer On Flat Car"
+    ],
+    [
+     "TPS",
+     "Third Party Service - The additional service charge or order for a transportation carrier to obtain independent contractors or companies to perform certain services on a household goods shipment that are not covered under an existing commercial or military tariff and the carrier is entitled to recover expenses or costs"
+    ],
+    [
+     "TRA",
+     "Tractor Only - Carrier required to provide tractor only"
+    ],
+    [
+     "TRK",
+     "Truck Rates Applicable"
+    ],
+    [
+     "TRL",
+     "Trailer Preparation Special - Carrier required to prepare the trailer in accordance with special shipper requirements"
+    ],
+    [
+     "TRM",
+     "Termination - The additional service charge or order for a transportation carrier to terminate the movement of a household goods shipment at origin or enroute to a destination location"
+    ],
+    [
+     "TRN",
+     "Transfer Product - Carrier required to provide labor and equipment to transfer product"
+    ],
+    [
+     "TRP",
+     "Tire Repair and Replace - The additional service charge or order for a transportation carrier to repair or replace military member-owned tires and/or tubes used on a mobile home"
+    ],
+    [
+     "TRS",
+     "Trade Show"
+    ],
+    [
+     "TRT",
+     "Tractor and Trailer - Carrier required to provide tractor and trailer only"
+    ],
+    [
+     "TS",
+     "Transit Shipment"
+    ],
+    [
+     "TSC",
+     "Truckload-Single Operator-Common Carrier"
+    ],
+    [
+     "TSP",
+     "Truckload-Single Operator-Padded Van"
+    ],
+    [
+     "TSS",
+     "Tank Surveillance Service"
+    ],
+    [
+     "TT",
+     "Team Track Delivery"
+    ],
+    [
+     "TV",
+     "Time Volume Rates Only"
+    ],
+    [
+     "UB",
+     "Unload At Bumper (Circus Ramp)"
+    ],
+    [
+     "UFC",
+     "Under Carriage Furnished By Carrier"
+    ],
+    [
+     "UI",
+     "Unitized"
+    ],
+    [
+     "UL",
+     "Unload from Left Side of Car Left side of car determined by facing the \"B\" (brake) end of car"
+    ],
+    [
+     "UN",
+     "Unload as Placarded"
+    ],
+    [
+     "UP",
+     "Unprotected Perishable"
+    ],
+    [
+     "UPK",
+     "Unpacking - The additional service charge or order for a transportation carrier to perform unpacking services on an unaccompanied baggage shipment that are not covered under the carrier filed transportation rate"
+    ],
+    [
+     "UR",
+     "Unload from Right Side of Car Right side of car determined by facing the \"B\" (brake) end of car"
+    ],
+    [
+     "URC",
+     "Unloading or Reloading - Service when carrier is required to perform loading/unloading of a shipment unassisted by shipper/consignee"
+    ],
+    [
+     "US",
+     "Shipper Certifies Gross Weight Under 240,000 Pounds"
+    ],
+    [
+     "UTL",
+     "Utilities Disconnect and Connect - The additional service charge or order for a transportation carrier to disconnect utilities attached to a mobile home prior to movement and reconnect utilities at destination after transportation from one location to another has been performed"
+    ],
+    [
+     "VAC",
+     "Vacuum Service Carrier required to provide vacuum service"
+    ],
+    [
+     "VAN",
+     "ROEE Van Type Truck"
+    ],
+    [
+     "VCL",
+     "Van Cleaning"
+    ],
+    [
+     "VFN",
+     "Vehicles Furnished But Not Used - A vehicle is delivered to the shipper, but is not used"
+    ],
+    [
+     "VIS",
+     "Vehicles Inoperable - Applies when a vehicle cannot be driven under its own power onto the carrier's conveying equipment"
+    ],
+    [
+     "VN",
+     "Verification Weigh"
+    ],
+    [
+     "VSO",
+     "Stop-off Delivery of Personal Vehicles"
+    ],
+    [
+     "VT",
+     "Ventilation Instructions"
+    ],
+    [
+     "VTS",
+     "Vehicles in Truckaway - Service when vehicles, before loading in truckaway service, exceed 64\" in height measured from ground to top of vehicle"
+    ],
+    [
+     "WB",
+     "Wide-Body Pickup Truck (Applies to Finished Vehicle Loading)"
+    ],
+    [
+     "WBB",
+     "Wharfage - Breakbulk"
+    ],
+    [
+     "WCT",
+     "Wharfage - Container"
+    ],
+    [
+     "WD",
+     "Waived Inspection - Set Direct"
+    ],
+    [
+     "WDS",
+     "Waterfront Delivery Service for waterfront delivery of bulk fuel"
+    ],
+    [
+     "WE",
+     "Weigh Empty"
+    ],
+    [
+     "WFG",
+     "Wharfage"
+    ],
+    [
+     "WH",
+     "Attachments - High Wide Notice"
+    ],
+    [
+     "WI",
+     "Waive Inspection"
+    ],
+    [
+     "WM",
+     "Manifest Must Accompany Waybill"
+    ],
+    [
+     "WO",
+     "Weigh to Check for Overload"
+    ],
+    [
+     "WRB",
+     "War Risk Crew Bonus"
+    ],
+    [
+     "WRI",
+     "War Risk Insurance"
+    ],
+    [
+     "WTV",
+     "Weight Verification - Service for weight verification when the difference between billed weight and actual weight is less than 5 percent"
+    ],
+    [
+     "WW",
+     "Waste Water"
+    ],
+    [
+     "XP",
+     "Export"
+    ],
+    [
+     "XT",
+     "Cross Town"
+    ],
+    [
+     "ZZZ",
+     "Mutually Defined"
     ]
    ]
   }

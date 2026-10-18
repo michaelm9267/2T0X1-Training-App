@@ -18,10 +18,11 @@ function openHazard() {
 test('DG2 uses the JBER shipper default and typing a UN number fills its AFMAN data', () => {
   let dg = openHazard();
   userEvent.click(dg.getByRole('tab', { name: 'Page 2' }));
-  expect(dg.getByLabelText('Shipper Name')).toHaveValue('FB5000 773 LRS LGRT');
-  expect(dg.getByLabelText('Address 1')).toHaveValue('5257 Gibson Ave');
+  expect(dg.getByLabelText('Shipper Name')).toHaveValue('FA5030 773 LRS LGRT');
+  expect(dg.getByLabelText('Address 1')).toHaveValue('GPC ONLY SHIP TO');
+  expect(dg.getByLabelText('Address 2')).toHaveValue('5257 FINLETTER AVE');
   expect(dg.getByLabelText('Base/City')).toHaveValue('JBER');
-  expect(dg.getByLabelText('Zip')).toHaveValue('99505');
+  expect(dg.getByLabelText('Zip')).toHaveValue('99506');
   fireEvent.change(dg.getByLabelText('Metric Hazmat Qty/UOM'), { target: { value: '15' } });
   fireEvent.change(dg.getByLabelText('UN/NA ID Nbr'), { target: { value: 'un1001' } });
   expect(dg.getByLabelText('UN Class/Div Nbr')).toHaveValue('2.1');
@@ -46,7 +47,7 @@ test('emergency lookup lists AFMAN contacts by hazard and saves the selected con
   userEvent.click(lookup.getByRole('radio', { name: 'Select class1' }));
   userEvent.click(lookup.getByRole('button', { name: 'Select', exact: true }));
   expect(dg.getByLabelText('Emergency Contact')).toHaveValue('+1 (703) 695-4695 / +1 (703) 695-4696');
-  expect(dg.getByLabelText('Shipper Name')).toHaveValue('FB5000 773 LRS LGRT');
+  expect(dg.getByLabelText('Shipper Name')).toHaveValue('FA5030 773 LRS LGRT');
 });
 test('UN lookup selects a specific variant instead of guessing the class for aerosols', () => {
   const dg = openHazard();
@@ -85,13 +86,13 @@ test('DG2 grid copies and deletes individual records and prints the saved declar
   userEvent.click(panel.getByRole('button', { name: 'Print DG' }));
   const document = within(screen.getByRole('dialog', { name: 'DG2 Dangerous Goods Declaration' }));
   expect(document.getByText('ACETYLENE, DISSOLVED')).toBeInTheDocument();
-  expect(document.getByText('FB5000 773 LRS LGRT')).toBeInTheDocument();
+  expect(document.getByText('FA5030 773 LRS LGRT')).toBeInTheDocument();
 });
 
 test('Page 2 quantity magnifiers show separate hazard UOM lists and save their selected units', () => {
   let dg = openHazard();
   userEvent.click(dg.getByRole('tab', { name: 'Page 2' }));
-  expect(dg.getByLabelText('Phone Nbr')).toHaveValue('907-552-2131');
+  expect(dg.getByLabelText('Phone Nbr')).toHaveValue('9075522131');
   fireEvent.change(dg.getByLabelText('B/L Hazmat Qty/UOM'), { target: { value: '25' } });
   fireEvent.change(dg.getByLabelText('Metric Hazmat Qty/UOM'), { target: { value: '12' } });
   userEvent.click(dg.getByRole('button', { name: 'Look up B/L UOM' }));
@@ -117,5 +118,5 @@ test('Page 2 quantity magnifiers show separate hazard UOM lists and save their s
   userEvent.click(dg.getByRole('tab', { name: 'Page 2' }));
   expect(dg.getByLabelText('B/L UOM')).toHaveValue('PN');
   expect(dg.getByLabelText('Metric UOM')).toHaveValue('KG');
-  expect(dg.getByLabelText('Phone Nbr')).toHaveValue('907-552-2131');
+  expect(dg.getByLabelText('Phone Nbr')).toHaveValue('9075522131');
 });

@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import useModalDialog from '../Training/useModalDialog';
+import { PaperworkButton } from '../Cmos/PaperworkWindow';
+import { cmosUser } from '../../currentUser';
 
 // CMOS browser window for the Outbound trainer: logo bar, login line, the Cargo Management menu,
 // and the current page. The customer's shipping document can be docked beside the screen.
@@ -38,7 +40,7 @@ export default function CmosWindow({ origin, page, title, onNavigate, onClose, p
           <div className="cmos-logo"><CmosLogo /><span>Cargo Movement Operations System</span></div>
           <div className="cmos-app-top">
             <div className="cmos-toplinks"><span>Dashboard</span><span>Date/Time</span><span>Intelink</span><span>Contact</span><button type="button" onClick={onClose}>Logout</button></div>
-            <p>Logged in as TRAINEE at DODAAC: {origin.cmosDodaac}</p>
+            <p>Logged in as {cmosUser()} at DODAAC: {origin.cmosDodaac}</p>
           </div>
           <button type="button" className="cmos-app-close" aria-label="Close CMOS" onClick={onClose}>×</button>
         </header>
@@ -56,6 +58,7 @@ export default function CmosWindow({ origin, page, title, onNavigate, onClose, p
           <div className="cmos-app-main">
             <div className="cmos-page-head">
               <h2 className="cmos-page-title">{title}</h2>
+              <PaperworkButton />
               {paper && <button type="button" className="cmos-paper-toggle" aria-pressed={paperOpen} onClick={() => setPaperOpen(open => !open)}>{paperOpen ? `Hide ${paper.title}` : `Show ${paper.title}`}</button>}
             </div>
             {children}

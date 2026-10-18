@@ -1,4 +1,4 @@
-import { openSelectedPlanningTcn } from './Components/Cmos/planningTestHelpers';
+import { openSelectedPlanningTcn, fillAirData } from './Components/Cmos/planningTestHelpers';
 import {missionForSession} from './Components/CdfCmos/trainingData';
 import { render, screen, within, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -294,7 +294,7 @@ test('prepared pallet manifests but JI waits for the deployment load plan',()=>{
  expect(within(schedule).queryByText(/E100/)).not.toBeInTheDocument();
  expect(within(dsoe).getByText('Schedule Processing Recap Report')).toBeInTheDocument();
  expect(within(dsoe).getAllByRole('row',{name:/^Increment E/})).toHaveLength(6);
- for(const text of ['EDF','OSN',/^FB5000 · 673 LRS LGRM/,/^FB5294 · 51 LRS LGRDDC/]) expect(within(dsoe).getAllByText(text).length).toBeGreaterThan(0);
+ for(const text of ['EDF','OSN',/^FA5030 · 773 LRS LGRT/,/^FB5294 · 51 LRS LGRDDC/]) expect(within(dsoe).getAllByText(text).length).toBeGreaterThan(0);
  userEvent.click(within(dsoe).getByRole('button',{name:'Close DSOE'}));
  expect(within(steps).getByText('Reviewed')).toBeInTheDocument();
  expect(screen.getByRole('group',{name:'Review the DSOE'})).toHaveTextContent('Complete');
@@ -325,8 +325,8 @@ test('prepared pallet manifests but JI waits for the deployment load plan',()=>{
  userEvent.click(screen.getByRole('button',{name:'Search'}));userEvent.click(screen.getByRole('button',{name:'Select F00001$$E100300XX'}));
  userEvent.click(screen.getByRole('button',{name:'Incheck'}));openSelectedPlanningTcn();
  const planning=within(screen.getByRole('dialog',{name:'CMOS Shipment Planning'}));
- for(const [label,value]of [['TCN','F00001$$E100300XX'],['Nomen','Palletized general supplies'],['Consignor','FB5000'],['Consignee','FB5294'],['POE','EDF'],['POD','OSN']])fireEvent.change(planning.getByLabelText(label),{target:{value}});
- userEvent.click(planning.getByRole('button',{name:'New piece'}));const piece=within(screen.getByRole('dialog',{name:'Piece Information'}));for(const [label,value]of [['Length','108'],['Width','88'],['Height','72'],['Weight','4800'],['Type Pack','PC']])fireEvent.change(piece.getByLabelText(label),{target:{value}});userEvent.click(piece.getByRole('button',{name:'Save and Close'}));userEvent.click(planning.getByRole('button',{name:'Save',exact:true}));userEvent.click(planning.getByRole('button',{name:'Edit TCN'}));expect(planning.getByRole('status')).toHaveTextContent('Passed Edits');
+ for(const [label,value]of [['TCN','F00001$$E100300XX'],['Nomen','Palletized general supplies'],['Consignor','FA5030'],['Consignee','FB5294'],['POE','EDF'],['POD','OSN']])fireEvent.change(planning.getByLabelText(label),{target:{value}});
+ userEvent.click(planning.getByRole('button',{name:'New piece'}));const piece=within(screen.getByRole('dialog',{name:'Piece Information'}));for(const [label,value]of [['Length','108'],['Width','88'],['Height','72'],['Weight','4800'],['Type Pack','PC']])fireEvent.change(piece.getByLabelText(label),{target:{value}});userEvent.click(piece.getByRole('button',{name:'Save and Close'}));fillAirData(planning);userEvent.click(planning.getByRole('button',{name:'Save',exact:true}));userEvent.click(planning.getByRole('button',{name:'Edit TCN'}));expect(planning.getByRole('status')).toHaveTextContent('Passed Edits');
  userEvent.click(screen.getByRole('button',{name:'Air Manifest',exact:true}));userEvent.click(screen.getByRole('button',{name:'New Cargo Manifest',exact:true}));const air=within(screen.getByRole('dialog',{name:'CMOS Air Manifest'})),mission=missionForSession({destination:'FB5294'});
  for(const [key,label]of [['mission','Mission'],['dsoeId','DSOE ID'],['chalk','Chalk'],['pod','POD'],['destination','Destination']])fireEvent.change(air.getByLabelText(label),{target:{value:mission[key]}});userEvent.click(air.getByRole('button',{name:'Save',exact:true}));userEvent.click(air.getByRole('button',{name:'Unassigned Pallets'}));const assign=within(screen.getByRole('dialog',{name:'Assign TCNs'}));userEvent.click(assign.getByRole('checkbox',{name:'Assign F00001$$E100300XX'}));userEvent.click(assign.getByRole('button',{name:'Assign',exact:true}));userEvent.click(assign.getByRole('button',{name:'Close',exact:true}));userEvent.click(air.getByRole('button',{name:'Save',exact:true}));userEvent.click(screen.getByRole('button',{name:'Close CMOS'}));
  const card=screen.getByRole('region',{name:'Cargo manifest'});expect(within(card).getByText('F00001$$E100300XX')).toBeInTheDocument();

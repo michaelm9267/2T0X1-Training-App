@@ -212,9 +212,8 @@
   margin: 0;
 }
 .shared-msl {
-  border: 2px solid #111;
-  margin: 20px 0;
-  padding: 15px;
+  max-width: 560px;
+  margin: 20px auto;
 }
 .training-watermark {
   color: #666;
@@ -300,6 +299,9 @@
   }
   .shared-msl {
     break-inside: avoid;
+  }
+  .shared-msl + .shared-msl {
+    break-before: page;
   }
   .shared-document-window {
     width: 100%;
@@ -953,3 +955,408 @@ section.cmos-app .shared-dg2-list .shared-table td button { font: 12px Arial, sa
 .shared-cbl-rin footer { display: flex; justify-content: flex-end; gap: 3px; margin-top: 8px; }
 .shared-cbl-rin footer button { font-weight: bold; padding: 2px 8px; border-radius: 0; }
 .shared-cbl-rin input, .shared-cbl-rin textarea, .shared-cbl-rin select { text-align: left; }
+
+/* Paperwork in its own browser window (PaperworkWindow). */
+.cmos-paperwork-button { padding: 2px 8px; border: 1px solid #7a8fa3; border-radius: 3px; background: #eef3f8; color: #1f3b57; font: 12px Arial, sans-serif; cursor: pointer; white-space: nowrap; }
+.cmos-paperwork-button:hover { background: #dde8f2; }
+.cdf-dialog-actions { display: inline-flex; align-items: center; gap: 6px; }
+body.paperwork-window-body { margin: 0; padding: 0; overflow: auto; }
+.paperwork-window { min-height: 100vh; box-sizing: border-box; }
+.paperwork-window-bar { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 8px 12px; background: #e7eff6; border-bottom: 1px solid #aabccb; color: #111; font: 13px Arial, sans-serif; }
+.paperwork-window-bar label { display: flex; align-items: center; gap: 6px; flex: 1 1 260px; min-width: 0; }
+.paperwork-window-bar select { flex: 1; min-width: 0; max-width: 520px; font: inherit; }
+.paperwork-window-sheet { margin: 12px; max-width: none; }
+@media print {
+  .paperwork-window-bar { display: none; }
+  .paperwork-window-sheet { margin: 0; box-shadow: none; }
+}
+
+/* Air Commodity and Special Handling Lookup: two code lists side by side. */
+.shared-commodity-overlay .cdf-dialog { width: 1040px; }
+.shared-commodity-value { display: flex; align-items: center; gap: 8px; padding: 4px 6px 10px; font-weight: 700; color: #5a4a10; }
+.shared-commodity-value input { width: 48px; height: 20px; background: #e8ebf2; border: 1px solid #a8b2bf; }
+.shared-commodity-panes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0; }
+.shared-commodity-pane .shared-reference-scroll { max-height: min(260px, 45vh); }
+.shared-commodity-pane .shared-reference-scroll th:first-child { width: 42px; }
+.shared-commodity-pane .shared-reference-scroll tbody tr:nth-child(even) { background: #eef1f6; }
+.shared-commodity-pane .shared-reference-scroll tbody tr[aria-selected="true"] { background: #a8b4c8; }
+
+/* T-9 Misc tab and its entry dialog. */
+.shared-t9-list { border: 1px solid #b8bcc6; background: #fff; }
+.shared-t9-list .shared-toolbar { margin: 0; gap: 1px; padding: 2px; border-bottom: 1px solid #bbb; }
+section.cmos-app .shared-t9-list .shared-toolbar button { font: 700 12px Arial, sans-serif; padding: 1px 9px; border-radius: 0; }
+.shared-t9-scroll { min-height: 190px; background: #f5f5f3; }
+.shared-t9-scroll table { width: 100%; }
+.shared-t9-scroll thead input { width: 100%; box-sizing: border-box; }
+.shared-t9-scroll thead tr:last-child th { background: #6fa6ec; color: #000; font-weight: 700; text-align: left; }
+.shared-t9-scroll tbody td { color: #1d3a8a; font-weight: 700; text-align: left; cursor: pointer; }
+.shared-t9-scroll tbody tr[aria-selected="true"] { background: #a8b4c8; }
+.shared-t9-scroll p { margin: 0; padding: 2px; font-size: 12px; }
+.cdf-dialog-overlay.shared-t9-overlay { z-index: 1210; }
+.shared-t9-overlay .cdf-dialog { width: 540px; max-width: calc(100vw - 24px); }
+.shared-t9-entry { padding: 6px 10px 4px; }
+.shared-t9-entry label { display: flex; align-items: center; gap: 6px; font-weight: 700; min-height: 70px; align-items: flex-start; }
+.shared-t9-entry input { width: 26ch; font-family: inherit; }
+.shared-t9-entry input.shared-invalid { border-color: #c00; background: #fff3f3; }
+.shared-t9-entry .shared-required { color: #c00; }
+.shared-t9-entry footer { display: flex; justify-content: flex-end; gap: 4px; padding-top: 6px; }
+
+/* Required-field marker and Edit TCN results. */
+.shared-required-mark { color: #c00; font-weight: 700; }
+.shared-edit-failed strong { display: inline-flex; gap: 6px; align-items: center; }
+.shared-edit-failed strong > span { display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; background: #d33; color: #fff; font-size: 10px; }
+.cdf-dialog-overlay.shared-consistency-overlay { z-index: 1210; }
+.shared-consistency-overlay .cdf-dialog { width: 520px; max-width: calc(100vw - 24px); }
+.shared-consistency { padding: 4px 14px 8px; font: 15px "Times New Roman", serif; }
+.shared-consistency ul { list-style: none; margin: 0; padding: 0; }
+.shared-consistency li, .shared-consistency p { margin: 0 0 14px; }
+.shared-consistency footer { display: flex; justify-content: flex-end; font-family: Arial, sans-serif; }
+.shared-indicators [data-field="determinationNbr"] { flex: 1.6; }
+.shared-indicators [data-field="determinationNbr"] > span:first-child { flex-basis: auto; }
+.shared-indicators [data-field="usml"] > span:first-child, .shared-indicators [data-field="determinationNbr"] > span:first-child { color: #7a5c12; }
+.shared-indicators .shared-protective-service input[readonly], .shared-indicators .shared-control input[readonly], .shared-indicators .shared-control select:disabled { background: #e6e8ee; color: #666; }
+
+/* EEI / DEMIL / USML / Determination NBR line: each item keeps its natural width on one line, and
+   the left column grows to fit it instead of squeezing the fields over each other. */
+.shared-indicators { grid-template-columns: minmax(355px, max-content) 350px; }
+.shared-indicators .shared-indicator-row:has([data-field="eei"]) > .shared-fields { gap: 0; flex-wrap: nowrap; }
+.shared-indicators [data-field="eei"],
+.shared-indicators [data-field="demil"],
+.shared-indicators [data-field="usml"],
+.shared-indicators [data-field="determinationNbr"] { flex: 0 0 auto; }
+.shared-indicators [data-field="eei"] .shared-control { flex: 0 0 12px; }
+.shared-indicators [data-field="demil"] { margin-left: 22px; }
+.shared-indicators [data-field="usml"] { margin-left: 24px; }
+.shared-indicators [data-field="determinationNbr"] { margin-left: 30px; }
+.shared-indicators [data-field="demil"] > span:first-child,
+.shared-indicators [data-field="usml"] > span:first-child,
+.shared-indicators [data-field="determinationNbr"] > span:first-child { flex: 0 0 auto; white-space: nowrap; font-weight: 700; }
+.shared-indicators [data-field="demil"] .shared-control,
+.shared-indicators [data-field="usml"] .shared-control,
+.shared-indicators [data-field="determinationNbr"] .shared-control { flex: 0 0 auto; display: flex; align-items: center; gap: 2px; }
+.shared-indicators [data-field="demil"] .shared-control input { width: 28px; }
+.shared-indicators [data-field="usml"] .shared-control input { width: 22px; }
+.shared-indicators [data-field="determinationNbr"] .shared-control input { width: 105px; }
+.shared-indicators .shared-control button { border: 0; background: none; padding: 0; min-width: 14px; height: 18px; color: #588ca9; cursor: pointer; }
+.shared-indicators .shared-control button:disabled { color: #aab4c2; cursor: default; }
+@media (max-width: 1050px) { .shared-indicators { grid-template-columns: minmax(0, max-content) minmax(0, 350px); } }
+@media (max-width: 760px) {
+  .shared-indicators { grid-template-columns: minmax(0, 1fr); }
+  .shared-indicators .shared-indicator-row:has([data-field="eei"]) > .shared-fields { flex-wrap: wrap; row-gap: 4px; }
+}
+.shared-consistency section, .shared-consistency ul + p { margin-bottom: 26px; }
+
+/* Air Schedule (Common In/Out). */
+.shared-schedule { font: 12px Arial, sans-serif; }
+.shared-schedule-search { display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; gap: 4px 6px; padding: 10px 0; background: linear-gradient(#eef2f7, #fff 40%); }
+.shared-schedule-search > label { text-align: right; font-weight: 700; }
+.shared-schedule-search input { height: 20px; width: 120px; box-sizing: border-box; margin-right: 6px; }
+.shared-schedule-search select { height: 20px; margin-right: 4px; }
+.shared-schedule-search-buttons { grid-column: 2; display: flex; gap: 2px; }
+.shared-schedule-search p { grid-column: 1 / -1; text-align: center; margin: 6px 0 0; }
+.shared-schedule-grid { width: min(1000px, 100%); margin: 0 auto; border: 1px solid #b8bcc6; background: #fff; }
+.shared-schedule-grid .shared-toolbar { margin: 0; gap: 2px; padding: 2px 6px; background: #f2f2f5; }
+.shared-schedule-grid .shared-table-scroll { max-height: 52vh; min-height: 200px; }
+.shared-schedule-grid .shared-table { margin: 0; width: 100%; }
+.shared-schedule-grid .shared-table th { background: #6fa6ec; color: #000; font-size: 12px; }
+.shared-schedule-grid .shared-air-filters th { background: #eef0f4; }
+.shared-schedule-grid td { font-size: 12px; text-align: center; }
+.shared-schedule-grid td:first-child { text-align: left; }
+.shared-schedule-overlay .cdf-dialog { width: 1220px; max-width: calc(100vw - 24px); }
+.shared-schedule-form { padding: 4px 10px; font: 12px Arial, sans-serif; }
+.shared-schedule-columns { display: grid; grid-template-columns: 250px 300px minmax(280px, 1fr); gap: 10px 24px; }
+.shared-schedule-field { display: flex; align-items: center; gap: 4px; margin: 3px 0; }
+.shared-schedule-field > label, .shared-schedule-label { flex: 0 0 120px; text-align: right; font-weight: 700; }
+.shared-schedule-columns > div:nth-child(2) .shared-schedule-field > label { flex-basis: 140px; }
+.shared-schedule-columns > div:nth-child(3) .shared-schedule-field > label, .shared-schedule-columns > div:nth-child(3) .shared-schedule-label { flex-basis: 60px; align-self: flex-start; }
+.shared-schedule-system { color: #7a5c12; }
+.shared-schedule-control { display: flex; align-items: center; gap: 3px; }
+.shared-schedule-control input, .shared-schedule-control select { height: 21px; box-sizing: border-box; border: 1px solid #bcbcc4; padding: 0 3px; font: 12px Arial, sans-serif; }
+.shared-schedule-control input[readonly], .shared-schedule-control input:disabled { background: #e6e8ee; color: #666; }
+.shared-schedule-field[data-field="routings"] input { width: 42px; }
+.shared-schedule-field textarea { width: 260px; height: 56px; box-sizing: border-box; font: 12px Arial, sans-serif; }
+.shared-schedule-lookup { border: 0; background: none; padding: 0; min-width: 14px; color: #588ca9; cursor: pointer; }
+.shared-schedule-lookup:disabled { color: #aab4c2; cursor: default; }
+.shared-schedule-note { margin: 0 0 6px; color: #555; font-style: italic; }
+.shared-schedule-errors { margin: 8px 0 0; padding: 6px 10px 6px 24px; background: #fff3f3; border: 1px solid #e3a5a5; color: #a00; }
+.shared-schedule-form footer { display: flex; justify-content: flex-end; gap: 4px; padding-top: 40px; }
+.shared-terminal-lookup .shared-reference-scroll th:first-child { width: auto; }
+.shared-terminal-lookup .shared-reference-scroll th:not(:first-child) { width: 60px; }
+.shared-edit-ok strong::before { content: "✓ "; color: #2e7d32; }
+@media (max-width: 900px) { .shared-schedule-columns { grid-template-columns: 1fr; } .shared-schedule-search { grid-template-columns: 1fr; } .shared-schedule-search > label { text-align: left; } .shared-schedule-search-buttons { grid-column: 1; } }
+section.cmos-app .shared-schedule-grid td { color: #222; }
+section.cmos-app .shared-schedule-grid tbody tr:nth-child(even) { background: #f4f5f8; }
+section.cmos-app .shared-schedule-grid .shared-air-manifest-link { border: 0; background: none; padding: 0; color: #1d4f91; font: 12px Arial, sans-serif; cursor: pointer; text-align: left; box-shadow: none; }
+section.cmos-app .shared-schedule-grid .shared-air-manifest-link:hover { text-decoration: underline; }
+section.cmos-app .shared-schedule-lookup { border: 0; background: none; padding: 0; min-width: 14px; box-shadow: none; color: #588ca9; }
+section.cmos-app .shared-schedule-lookup:disabled { color: #aab4c2; }
+
+/* Deployment Parameters (Deployment menu). */
+.shared-deployment { font: 12px Arial, sans-serif; padding-top: 24px; background: linear-gradient(#fff, #fff 20px, #eef2f7 21px, #fff 44px); }
+.shared-deployment-grid { width: min(1000px, 100%); margin: 0 auto; border: 1px solid #b8bcc6; background: #fff; }
+.shared-deployment-grid .shared-toolbar { margin: 0; gap: 2px; padding: 2px 6px; background: #f2f2f5; }
+.shared-deployment-grid .shared-table-scroll { max-height: 52vh; }
+.shared-deployment-grid .shared-table { margin: 0; width: 100%; }
+.shared-deployment-grid .shared-table th { background: #6fa6ec; color: #000; font-size: 12px; white-space: normal; }
+.shared-deployment-grid .shared-air-filters th { background: #eef0f4; }
+section.cmos-app .shared-deployment-grid td { color: #222; font-size: 12px; text-align: center; }
+section.cmos-app .shared-deployment-grid .shared-air-manifest-link { border: 0; background: none; padding: 0; color: #1d4f91; font: 700 12px Arial, sans-serif; cursor: pointer; box-shadow: none; }
+.shared-deployment-overlay .cdf-dialog { width: 880px; max-width: calc(100vw - 24px); }
+.shared-deployment-form { padding: 4px 10px; font: 12px Arial, sans-serif; }
+.shared-deployment-columns { display: grid; grid-template-columns: 290px 240px 290px; gap: 0 12px; }
+.shared-deployment-columns .shared-field { display: flex; justify-content: flex-start; align-items: center; gap: 4px; margin: 3px 0; font: 12px Arial, sans-serif; }
+.shared-deployment-columns .shared-field > span:first-child { flex: 0 0 120px; text-align: right; font-weight: 700; }
+.shared-deployment-columns > :nth-child(2) .shared-field > span:first-child { flex-basis: 90px; }
+.shared-deployment-columns [data-field="localMajcomExercise"] > span:first-child { color: #7a5c12; }
+.shared-deployment-columns .shared-control { display: flex; align-items: center; gap: 2px; }
+.shared-deployment-columns .shared-control input, .shared-deployment-columns .shared-control select { height: 21px; box-sizing: border-box; border: 1px solid #bcbcc4; padding: 0 3px; font: 12px Arial, sans-serif; }
+.shared-deployment-columns .shared-control input { width: 70px; }
+.shared-deployment-columns [data-field="milMode"] input, .shared-deployment-columns [data-field="eta"] input, .shared-deployment-columns [data-field="exportMode"] input,
+.shared-deployment-columns [data-field="localMajcomExercise"] input { width: 24px; }
+.shared-deployment-columns [data-field="ediMode"] input, .shared-deployment-columns [data-field="poe"] input { width: 36px; }
+.shared-deployment-columns [data-field="pod"] input, .shared-deployment-columns [data-field="tac"] input, .shared-deployment-columns [data-field="projectCode"] input { width: 44px; }
+.shared-deployment-columns [data-field="adviceNumber"] input { width: 96px; }
+.shared-deployment-columns [data-field="deploymentExercise"] select { width: 106px; }
+.shared-deployment-columns [data-field="atcmdReq"] select { width: 132px; }
+.shared-deployment-columns .shared-control input[readonly] { background: #e6e8ee; }
+section.cmos-app .shared-deployment-columns .shared-control button { border: 0; background: none; padding: 0; min-width: 14px; box-shadow: none; color: #588ca9; }
+.shared-deployment-form footer { display: grid; grid-template-columns: auto 1fr auto auto auto; gap: 4px; padding-top: 40px; }
+.shared-deployment-terminate { margin-left: 360px; }
+@media (max-width: 900px) { .shared-deployment-columns { grid-template-columns: 1fr; } .shared-deployment-terminate { margin-left: 0; } }
+.shared-deployment-columns .shared-fields { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.shared-deployment-columns .shared-field { flex: none; min-width: 0; }
+.shared-deployment-columns .shared-control { flex: none; min-width: 0; }
+.shared-deployment-columns .shared-control input, .shared-deployment-columns .shared-control select { flex: none; min-width: 0; }
+.shared-deployment-grid .shared-table { table-layout: auto; }
+.shared-deployment-grid .shared-table th { min-width: 0; padding: 2px 3px; }
+.shared-deployment-grid thead input { width: 100%; min-width: 24px; box-sizing: border-box; }
+
+/* Routings (Route Orders). */
+.shared-routing-list { font: 12px Arial, sans-serif; }
+.shared-routing-grid { width: min(1280px, 100%); }
+.shared-routing-grid td { text-align: left !important; }
+.shared-route-order { font: 12px Arial, sans-serif; padding: 4px 8px; }
+.shared-route-field { display: inline-flex; align-items: center; gap: 4px; margin: 2px 8px 2px 0; }
+.shared-route-field > label { font-weight: 700; white-space: nowrap; }
+.shared-route-system { color: #7a5c12; }
+.shared-route-field input, .shared-route-field select { height: 21px; box-sizing: border-box; border: 1px solid #bcbcc4; padding: 0 3px; font: 12px Arial, sans-serif; }
+.shared-route-field input[readonly], .shared-route-field input:disabled, .shared-route-field select:disabled { background: #e6e8ee; color: #666; }
+.shared-route-flag input { height: 12px; width: 12px; margin: 0; }
+section.cmos-app .shared-route-lookup { border: 0; background: none; padding: 0; min-width: 14px; box-shadow: none; color: #588ca9; cursor: pointer; }
+.shared-route-top { display: grid; grid-template-columns: minmax(360px, 1.2fr) 1fr 1fr; gap: 4px 16px; }
+.shared-route-flags > div { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+.shared-route-types { display: flex; flex-direction: column; align-items: flex-end; }
+.shared-route-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; padding-left: 36px; }
+.shared-route-row [data-field="smallBusinessNotes"] { flex: 1; }
+.shared-route-row [data-field="smallBusinessNotes"] input { width: 100% !important; }
+.shared-route-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 16px; }
+.shared-route-grid3 > div { display: flex; flex-direction: column; align-items: flex-end; }
+.shared-route-grid2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0 16px; }
+.shared-route-stack { display: flex; flex-direction: column; align-items: flex-start; padding-left: 230px; }
+.shared-route-right { align-items: flex-end; padding-left: 0; }
+.shared-route-windows { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0; }
+.shared-route-windows fieldset { border: 1px solid #b8c3d4; border-radius: 6px 6px 0 0; box-shadow: inset 0 3px 0 #d6deea; padding: 2px 8px 6px; display: flex; justify-content: space-between; flex-wrap: wrap; }
+.shared-route-windows legend { margin: 0 auto; padding: 0 6px; font-weight: 700; color: #1d3a6a; }
+.shared-route-center { display: flex; flex-direction: column; align-items: center; }
+.shared-route-center > div { display: flex; flex-wrap: wrap; justify-content: center; }
+.shared-route-warning { margin: 0 0 4px; font-weight: 700; }
+.shared-route-flags-inline { display: inline-flex; }
+.shared-route-tabs { display: flex; gap: 2px; margin-top: 10px; }
+section.cmos-app .shared-route-tabs button { border: 1px solid #b8c3d4; border-bottom: 0; border-radius: 8px 8px 0 0; background: linear-gradient(#f3f6fa, #dce4ef); padding: 3px 18px; font: 12px Arial, sans-serif; }
+section.cmos-app .shared-route-tabs button[aria-selected="true"] { background: #fff; font-weight: 700; }
+.shared-route-panel { border: 1px solid #b8c3d4; background: #fff; min-height: 180px; padding: 4px; }
+.shared-route-panel .shared-toolbar { margin: 0; gap: 2px; padding: 2px; }
+.shared-route-panel .shared-table th { background: #6fa6ec; color: #000; font-size: 12px; }
+section.cmos-app .shared-route-panel td { color: #222; }
+.shared-route-actions { justify-content: flex-end; margin-top: 10px; }
+@media (max-width: 1100px) { .shared-route-top, .shared-route-grid3, .shared-route-grid2, .shared-route-windows { grid-template-columns: 1fr; } .shared-route-stack { padding-left: 0; } .shared-route-flags > div, .shared-route-types, .shared-route-grid3 > div { align-items: flex-start; justify-content: flex-start; } }
+.shared-route-field[data-field="routeOrderType"] select, .shared-route-field[data-field="requestType"] select, .shared-route-field[data-field="routeId"] select,
+.shared-route-field[data-field="requestStatus"] select { width: 46px; }
+.shared-route-field[data-field="svcAgencyCode"] select { width: 38px; }
+.shared-route-field[data-field="atrHours"] select { width: 52px; }
+.shared-route-field[data-field="airSvcType"] select, .shared-route-field[data-field="airSvcLevel"] select { width: 52px; }
+.shared-route-field[data-field="shipmentId"] input { width: 112px !important; }
+
+/* CMOS date picker. */
+.cmos-date-field { position: relative; display: inline-flex; align-items: center; gap: 2px; }
+.cmos-date-field input { height: 21px; box-sizing: border-box; border: 1px solid #bcbcc4; padding: 0 3px; font: 12px Arial, sans-serif; }
+.cmos-date-field input[readonly], .cmos-date-field input:disabled { background: #e6e8ee; color: #666; }
+section.cmos-app .cmos-date-button { border: 0; background: none; padding: 0 1px; min-width: 18px; box-shadow: none; cursor: pointer; line-height: 0; }
+section.cmos-app .cmos-date-button:disabled { opacity: .45; cursor: default; }
+.cmos-date-popup { position: absolute; top: 24px; left: 0; z-index: 1300; width: 214px; padding: 6px; background: #fff; border: 1px solid #8e969d; box-shadow: 0 6px 16px rgb(0 0 0 / 22%); font: 12px Arial, sans-serif; color: #222; }
+.cmos-date-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+section.cmos-app .cmos-date-head button { border: 1px solid #c3c8d1; background: #f3f5f8; padding: 0 7px; font-size: 14px; }
+.cmos-date-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; }
+.cmos-date-weekday { font-weight: 700; color: #555; }
+section.cmos-app .cmos-date-grid button { border: 1px solid transparent; background: #f6f7fa; padding: 2px 0; font: 12px Arial, sans-serif; }
+section.cmos-app .cmos-date-grid button:hover { border-color: #6fa6ec; }
+section.cmos-app .cmos-date-grid button.is-chosen { background: #6fa6ec; color: #000; font-weight: 700; }
+.cmos-date-time { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 6px; font-weight: 700; }
+.cmos-date-time input { width: 56px; height: 21px; box-sizing: border-box; border: 1px solid #bcbcc4; font: 12px Arial, sans-serif; text-align: center; }
+.cmos-date-time input.is-invalid { border-color: #c00; background: #fff3f3; }
+.cmos-date-foot { display: flex; justify-content: space-between; margin-top: 6px; }
+.shared-date-range { display: inline-flex; gap: 8px; }
+.shared-route-hint { flex-basis: 100%; margin: 0 0 4px; text-align: center; color: #1d3a6a; font-size: 11px; }
+.shared-route-assign-overlay .cdf-dialog { width: 1360px; max-width: calc(100vw - 24px); }
+.shared-route-assign { padding: 0 6px 6px; font: 12px Arial, sans-serif; }
+.shared-route-assign .shared-table-scroll { max-height: 55vh; }
+section.cmos-app .shared-route-assign td, .shared-route-assign td { color: #222; text-align: left; }
+.shared-route-assign-row { cursor: pointer; }
+.shared-route-assign-row:hover, .shared-route-assign-row:focus { background: #dbe8fb; outline: none; }
+.shared-route-assign footer { display: flex; justify-content: flex-end; padding-top: 6px; }
+.shared-route-cell { width: 44px; height: 19px; box-sizing: border-box; border: 1px solid #bcbcc4; background: #e6e8ee; color: #444; font: 12px Arial, sans-serif; padding: 0 3px; }
+.shared-route-cell-edit { width: 100%; min-width: 60px; background: #fff; color: #222; }
+.shared-route-inline { display: inline-flex; align-items: center; gap: 2px; }
+.shared-route-panel tbody tr[aria-selected="true"] { background: #c5d6f0; }
+.shared-route-panel tbody tr { cursor: default; }
+.shared-route-stops td { white-space: nowrap; max-width: 140px; overflow: hidden; text-overflow: ellipsis; }
+.shared-route-loadplan { display: grid; grid-template-columns: minmax(0, 560px) 1fr; gap: 24px; align-items: start; }
+.shared-route-loadplan-form { padding-top: 10px; }
+.shared-route-loadplan-fields { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 8px; }
+.shared-route-loadplan-form .shared-toolbar { gap: 4px; }
+@media (max-width: 900px) { .shared-route-loadplan { grid-template-columns: 1fr; } }
+.shared-route-count { display: flex; justify-content: space-between; }
+.shared-route-assign-row[aria-selected="true"] { background: #a8b4c8 !important; }
+.shared-route-notice strong { display: inline-flex; align-items: center; gap: 6px; }
+.shared-route-notice strong > span { display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; font-size: 10px; color: #fff; background: #2a6bbf; font-style: italic; }
+.shared-route-notice.is-error strong > span { background: #d33; font-style: normal; }
+.shared-route-notice.is-ok strong > span { background: #2e7d32; font-style: normal; }
+.cdf-dialog-overlay.shared-route-equipment-overlay { z-index: 1250; }
+.shared-route-equipment-overlay .cdf-dialog { width: 300px; max-width: calc(100vw - 24px); }
+.shared-route-equipment { padding: 0 8px 6px; font: 12px Arial, sans-serif; }
+.shared-route-equipment > p { margin: 0 0 18px; }
+.shared-route-equipment footer { display: flex; justify-content: flex-end; gap: 4px; padding-top: 6px; }
+
+/* Plain CMOS pop-ups (Equipment, New Equipment): title only, white rounded box with shadow. */
+.cdf-dialog-bare { border-radius: 6px; box-shadow: 0 4px 14px rgb(0 0 0 / 35%); background: #f2f2f2; }
+.cdf-dialog-bare > header { padding: 6px 8px 2px; background: none; border: 0; }
+.cdf-dialog-bare > header h3 { margin: 0; font: 700 18px Arial, sans-serif; color: #111; }
+.shared-route-equipment-overlay .cdf-dialog { width: 375px; }
+.shared-route-new-equipment .cdf-dialog { width: 185px; }
+.shared-route-equipment .shared-route-equipment-group { margin: 2px 0 34px; font-weight: 700; }
+.shared-route-equipment .shared-route-panel { min-height: 0; padding: 0; border-color: #9aa3ad; }
+.shared-route-equipment .shared-toolbar { border-bottom: 1px solid #c3c8d1; padding: 2px 2px 2px 18px; }
+.shared-route-equipment .shared-table-scroll { min-height: 0; }
+.shared-route-equipment .shared-table th { background: #6fa6ec; text-align: left; font-weight: 700; }
+.shared-route-equipment .shared-table-scroll p { margin: 0; padding: 1px 2px; }
+.shared-route-new-equipment .shared-route-equipment { padding: 4px 8px 8px; }
+.shared-route-new-equipment .shared-route-field label { font-weight: 700; }
+.shared-route-new-equipment footer { justify-content: center; padding-top: 8px; }
+/* Equip Load Plan table: plain rows with cell lines; the Fully Loaded box is display only. */
+.shared-route-loadplan .shared-table td { border: 1px solid #c3c8d1; }
+.shared-route-loadplan .shared-table tbody tr[aria-selected="false"] { background: #fff; }
+.shared-route-display-check { pointer-events: none; accent-color: #555; }
+.shared-route-value { font-weight: 400; margin-left: 8px; }
+.shared-route-loadplan-fields { gap: 4px 36px; }
+.shared-route-new-equipment .cdf-dialog { width: 205px; }
+.shared-route-new-equipment footer { flex-wrap: nowrap; }
+.cdf-dialog-overlay.shared-route-new-equipment { background: rgb(225 225 225 / 55%); }
+.shared-route-service-overlay .cdf-dialog { width: 565px; }
+.shared-route-new-service .cdf-dialog { width: 325px; }
+.cdf-dialog-overlay.shared-route-new-service { background: rgb(225 225 225 / 55%); }
+.shared-route-service-form { display: grid; gap: 4px; padding-top: 6px; }
+.shared-route-service-form .shared-route-field { margin: 0; }
+.shared-route-service-form .shared-route-field > label { flex: 0 0 130px; text-align: right; }
+.shared-route-service-form footer { justify-content: flex-end; }
+.cdf-dialog-bare.cdf-dialog { padding-bottom: 4px; }
+.shared-route-service-form .shared-route-field > label { flex-basis: 128px; }
+.shared-route-new-service .cdf-dialog { width: 330px; overflow: hidden; }
+
+/* ATR simulation, SCAC window, Response tab. */
+.cdf-dialog-overlay.shared-atr-overlay { z-index: 1400; display: grid; place-items: center; background: rgb(60 60 60 / 35%); }
+.shared-atr-sim { width: 340px; padding: 4px 14px 12px; font: 13px Arial, sans-serif; }
+.shared-atr-sim p { margin: 8px 0; }
+.shared-atr-bar { height: 12px; border: 1px solid #8e969d; background: #fff; }
+.shared-atr-bar span { display: block; height: 100%; background: #6fa6ec; transition: width .9s linear; }
+.shared-route-scac-overlay .cdf-dialog { width: 1360px; max-width: calc(100vw - 24px); }
+.shared-route-empty-toolbar { min-height: 22px; }
+.shared-route-scac-overlay .shared-table td { border: 1px solid #c3c8d1; white-space: nowrap; }
+.shared-route-scac-overlay .shared-table tbody tr { cursor: pointer; }
+.shared-route-scac-overlay select { width: 46px; }
+.shared-route-center-cell { text-align: center; }
+
+/* Route Order Request Summary report. */
+.route-report { font: 12px Arial, sans-serif; color: #111; }
+.route-report-page { position: relative; padding: 10px 14px 40px; border-bottom: 1px dashed #aaa; margin-bottom: 18px; break-after: page; }
+.route-report-title { text-align: right; border-bottom: 2px solid #111; margin-bottom: 8px; }
+.route-report-title h2 { margin: 0; font: italic 700 30px Arial, sans-serif; }
+.route-report-title p { margin: 0 0 4px; font-style: italic; font-weight: 700; color: #555; }
+.route-report p { margin: 2px 0; }
+.route-report-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 16px; }
+.route-report-grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; margin: 6px 0; }
+.route-report dl { display: grid; grid-template-columns: auto 1fr; gap: 1px 10px; margin: 4px 0; }
+.route-report dt { font-weight: 700; }
+.route-report dd { margin: 0; }
+.route-report-band { margin: 6px 0; padding: 2px 6px; background: #666; color: #fff; text-align: center; font-size: 14px; }
+.route-report-band.small { max-width: 620px; margin-left: 140px; text-align: left; font-size: 12px; }
+.route-report-log { width: 80%; margin: 0 auto 6px; border-collapse: collapse; }
+.route-report-log th { text-align: left; text-decoration: underline; }
+.route-report-log td, .route-report-log th { padding: 1px 6px; }
+.route-report-line { border-top: 1px solid #111; padding-top: 3px; }
+.route-report-indent { margin-left: 150px !important; }
+.route-report-center { text-align: center; }
+.route-report-rins { display: grid; grid-template-columns: repeat(2, 260px); gap: 1px; }
+.route-report-svc { border-collapse: collapse; } .route-report-svc th { text-decoration: underline; padding-right: 30px; text-align: left; }
+.route-report-footer { position: absolute; left: 14px; right: 14px; bottom: 8px; display: flex; justify-content: space-between; border-top: 2px solid #555; padding-top: 3px; font-style: italic; font-weight: 700; color: #444; }
+.route-report table, .route-report th, .route-report td { color: #111 !important; background: none !important; border: 0 !important; font: 12px Arial, sans-serif; }
+.route-report th { font-weight: 700; }
+
+/* CBL Commodities, Service Codes, Via SCAC and Rail tabs. */
+.shared-cbl-cell { height: 20px; box-sizing: border-box; border: 1px solid #bcbcc4; font: 12px Arial, sans-serif; padding: 0 3px; }
+.shared-cbl-cell[readonly], .shared-cbl-cell:disabled { background: #e3e5ec; color: #666; }
+.shared-cbl-center { text-align: center; }
+.shared-cbl-commodities .shared-table th { text-align: center; }
+.shared-cbl-commodities .shared-table td { border: 1px solid #c3c8d1; }
+.shared-cbl-empty-toolbar { min-height: 22px; }
+.shared-cbl-link-text { color: #1d4f91; font-weight: 700; }
+.shared-cbl-rail { font: 12px Arial, sans-serif; padding: 4px 8px 10px; }
+.shared-cbl-rail-block { display: grid; grid-template-columns: 170px 1fr; gap: 0 10px; margin-bottom: 10px; }
+.shared-cbl-rail-title h4 { margin: 0 0 2px; font-size: 16px; }
+.shared-cbl-rail-lines > div { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px; margin: 2px 0; }
+.shared-cbl-rail-field { display: inline-flex; align-items: center; gap: 4px; }
+.shared-cbl-rail-field label { font-weight: 700; white-space: nowrap; }
+.shared-cbl-rail-lines .shared-cbl-rail-field:first-child label { min-width: 52px; text-align: right; }
+.shared-cbl-rail-field input { height: 20px; box-sizing: border-box; border: 1px solid #bcbcc4; padding: 0 3px; font: 12px Arial, sans-serif; }
+.shared-cbl-rail-field input[readonly] { background: #e3e5ec; color: #666; }
+.shared-cbl-rail-empty { display: grid; grid-template-columns: 1fr 310px; gap: 12px; margin: 6px 0 0 170px; max-width: 920px; border: 1px solid #b8bcc6; border-radius: 6px; box-shadow: 0 2px 6px rgb(0 0 0 / 15%); }
+.shared-cbl-rail-empty legend { font-weight: 700; }
+.shared-cbl-rail-empty-fields { display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.shared-cbl-rail-grid { width: 100%; }
+.shared-cbl-rail-grid th { background: #6fa6ec; text-align: center; }
+.shared-cbl-rail-grid td { border: 1px solid #c3c8d1; height: 16px; }
+@media (max-width: 900px) { .shared-cbl-rail-block, .shared-cbl-rail-empty { grid-template-columns: 1fr; margin-left: 0; } }
+.shared-cbl-service-dialog .cdf-dialog { width: 340px; }
+section.cmos-app .shared-cbl-rail-field .shared-route-lookup { margin-left: -2px; }
+
+/* Print BOL dialog. */
+.shared-print-bol-overlay .cdf-dialog { width: 335px; }
+.shared-print-bol { display: grid; gap: 6px; padding: 4px 10px 8px; font: 12px Arial, sans-serif; }
+.shared-print-bol > label, .shared-print-bol fieldset { display: flex; align-items: center; gap: 6px; font-weight: 700; margin: 0; padding: 0; border: 0; }
+.shared-print-bol fieldset legend { float: left; padding: 0; margin-right: 6px; }
+.shared-print-bol fieldset label { font-weight: 400; display: inline-flex; gap: 3px; }
+.shared-print-bol footer { display: flex; justify-content: flex-end; gap: 4px; }
+
+/* Commercial Bill of Lading print. */
+.shared-print-bol input:not([type="radio"]), .shared-print-bol select { height: 21px; box-sizing: border-box; background: #fff !important; color: #111 !important; border: 1px solid #8e969d; border-radius: 2px; font: 12px Arial, sans-serif; padding: 0 3px; }
+.shared-print-bol input[type="radio"] { accent-color: #2a6bbf; margin: 0 2px 0 0; }
+.shared-print-bol .cmos-date-button { border: 0 !important; background: none !important; padding: 0 1px; min-width: 18px; box-shadow: none; }
+.shared-print-bol > label { white-space: nowrap; }
+.shared-print-bol footer button { min-width: 44px; }
+/* CBL Conveyance dialog */
+.shared-cnv-overlay .cdf-dialog { width: min(920px, 96vw); }
+.shared-cnv { padding: 10px 14px; font: 12px Arial, sans-serif; background: #eef0f4; }
+.shared-cnv-top, .shared-cnv-equip { display: grid; grid-template-columns: 1fr 1fr auto; gap: 4px 24px; }
+.shared-cnv-equip { grid-template-columns: 1fr 1fr; margin-top: 10px; }
+.shared-cnv-col { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.shared-cnv-col > .shared-cnv-field:not(.shared-cnv-pair *) { margin-right: 0; }
+.shared-cnv-pair { display: inline-flex; }
+.shared-cnv-loaded { display: flex; gap: 4px; align-items: flex-start; font-weight: 700; padding-top: 18px; }
+.shared-cnv-weights { display: flex; justify-content: space-between; margin-top: 14px; }
+.shared-cnv-seals { margin: 16px auto 0; width: 280px; border: 1px solid #c3c7d0; border-radius: 4px; background: #fff; box-shadow: 1px 1px 3px rgba(0,0,0,.2); text-align: center; padding: 6px 12px 12px; }
+.shared-cnv-seals legend { font-weight: 700; text-align: left; padding: 0 2px; }
+.shared-cnv-seals > label { display: block; font-weight: 700; color: #1d3a6b; }
+.shared-cnv-seals table { margin: 10px auto 0; width: 200px; }
+.shared-cnv-seals th:last-child { background: #6fa8f2; }
+.shared-cnv-seals td input { width: 140px; height: 18px; box-sizing: border-box; }
+.shared-cnv footer { display: flex; justify-content: flex-end; gap: 4px; margin-top: 16px; }
+.bol-center-block { display: block; text-align: center; }

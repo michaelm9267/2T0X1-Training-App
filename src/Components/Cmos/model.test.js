@@ -14,6 +14,10 @@ const newShipment = () =>
   createRecord(createCmosStore(), "shipments", {
     tcn: "TRN001",
     milMode: "J",
+    nmfc: "999913",
+    rdd: "999",
+    nsn: "NNSN",
+    ciic: "U",
     description: "Training box",
     origin: "F00001",
     destination: "F00002",
@@ -137,4 +141,15 @@ test("equipment changes invalidate the route check and print readiness", () => {
   });
   expect(s.routings["routings-1"].check).toBeNull();
   expect(s.routings["routings-1"].printRevision).toBeNull();
+});
+
+test("chalks must be 001 - 999 on manifests and bills", () => {
+  const { validChalk, CHALK_FORMAT_ERROR, validationErrors } = require("./model");
+  for (const good of ["001", "014", "999"]) expect(validChalk(good)).toBe(true);
+  for (const bad of ["000", "1", "01", "1000", "001C", "ABC"]) expect(validChalk(bad)).toBe(false);
+  let s = createRecord(createCmosStore(), "truckManifests", { dsoeId: "D1", chalk: "1C", conveyanceMode: "9", equipmentType: "TF" });
+  s = saveRecord(s, "truckManifests", "truckManifests-1");
+  expect(validationErrors(s, "truckManifests", "truckManifests-1")).toContain(CHALK_FORMAT_ERROR);
+  s = saveRecord(editRecord(s, "truckManifests", "truckManifests-1", { chalk: "001" }), "truckManifests", "truckManifests-1");
+  expect(validationErrors(s, "truckManifests", "truckManifests-1")).not.toContain(CHALK_FORMAT_ERROR);
 });

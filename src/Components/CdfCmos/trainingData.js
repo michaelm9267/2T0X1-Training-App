@@ -28,7 +28,7 @@ export function missionForSession(session) {
   return {
     mission: "TRNC17001",
     dsoeId: "TRN01",
-    chalk: "001C",
+    chalk: "001",
     pod: DODAAC_INFO[destination]?.port || "",
     destination: DODAAC_INFO[destination]?.city || destination,
     complete: "No",
@@ -103,7 +103,7 @@ export function hazardRequirements(scenario) {
       imperialUom: "LB",
       quantityType: "NET",
       packagingUnits: "1",
-      aircraft: "Cargo aircraft only",
+      aircraft: referenceDraft?.page2.aircraft || "",
       emergencyContact: emergencyContactsFor({ division: template.division })[0].number,
     },
     hazardCode: scenario.ammo ? "1.4S" : template.division,

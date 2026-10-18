@@ -1,6 +1,8 @@
 import { useCallback, useRef, useState } from "react";
 import useModalDialog from "../Training/useModalDialog";
-export function Dialog({ title, onClose, children, wide = false, overlayClassName = "", heading = title }) {
+import { PaperworkButton } from "../Cmos/PaperworkWindow";
+// `bare` draws a plain CMOS title bar (no Paperwork or × buttons); Escape still closes it.
+export function Dialog({ title, onClose, children, wide = false, overlayClassName = "", heading = title, bare = false }) {
   const ref = useRef(null),
     callback = useRef(onClose);
   callback.current = onClose;
@@ -9,7 +11,7 @@ export function Dialog({ title, onClose, children, wide = false, overlayClassNam
   return (
     <div className={`cdf-dialog-overlay ${overlayClassName}`}>
       <section
-        className={`cdf-dialog ${wide ? "cdf-dialog-wide" : ""}`}
+        className={`cdf-dialog ${wide ? "cdf-dialog-wide" : ""} ${bare ? "cdf-dialog-bare" : ""}`}
         role="dialog"
         aria-modal="true"
         aria-label={title}
@@ -18,9 +20,12 @@ export function Dialog({ title, onClose, children, wide = false, overlayClassNam
       >
         <header>
           <h3>{heading}</h3>
-          <button type="button" aria-label={`Close ${title}`} onClick={close}>
-            ×
-          </button>
+          {!bare && <span className="cdf-dialog-actions">
+            <PaperworkButton />
+            <button type="button" aria-label={`Close ${title}`} onClick={close}>
+              ×
+            </button>
+          </span>}
         </header>
         {children}
       </section>

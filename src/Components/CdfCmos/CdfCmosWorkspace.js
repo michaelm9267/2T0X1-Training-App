@@ -1,17 +1,10 @@
 import CmosWorkspace from "../Cmos/CmosWorkspace";
-import {
-  migrateCdfCmos,
-  projectCdf,
-  legacyCdfRecord,
-  assetKeysFor,
-} from "../Cmos/courseAdapters";
-import { validateShipment } from "./shipmentLogic";
-import { validateHeader } from "./manifestLogic";
+import { migrateCdfCmos, projectCdf } from "../Cmos/courseAdapters";
+import { headerFormatErrors } from "./manifestLogic";
 import { releaseAirShipment } from "./releaseLogic";
 import { ORIGIN, paperwork } from "../CargoWindow/workflow";
 import { withDocumentErrors } from "../CargoWindow/discrepancies";
 import { DocumentBody } from "../Documentation/PaperworkDocument";
-import { isStageComplete } from "../CargoWindow/exercise";
 import { missionForSession } from "./trainingData";
 import "./cdf-cmos.css";
 export default function CdfCmosWorkspace({
@@ -35,6 +28,12 @@ export default function CdfCmosWorkspace({
   const context = {
     storageError: session.storageError,
     course: "cdf",
+    adviceNumbers: [["TRN1", "", "", "01Oct2025", "30Sep2027"]],
+    // The deployment's DSOE, offered first in the Air Schedule DSOE lookup.
+    dsoes: (() => {
+      const mission = missionForSession(session);
+      return [[mission.dsoeId, mission.chalk, mission.pod, "D", "A"]];
+    })(),
     activeAssetKey: session.scenarioId,
     origin: ORIGIN,
     finished: Boolean(session.finished || session.test?.finishedAt),
@@ -75,33 +74,10 @@ export default function CdfCmosWorkspace({
         })),
       ),
     ],
-    validateShipment: (d, id, store) => {
-      const key = d.assetKey || assetKeysFor(store, store.shipments[id])[0];
-      if (!session.shipments[key]) return [];
-      const record = legacyCdfRecord(store, store.shipments[id], true);
-      const scenario = {
-        ...session.shipments[key],
-        destination: session.destination,
-      };
-      return [
-        ...validateShipment(record, scenario).map((e) => e.message),
-        ...["precheck", "incheck"]
-          .filter(
-            (stage) =>
-              !isStageComplete(scenario, stage, session.exercises[key]),
-          )
-          .map(
-            (stage) =>
-              `Complete physical ${stage} before passing shipment checks.`,
-          ),
-      ];
-    },
+    // CMOS checks only what is entered in CMOS; it never compares entries with the paperwork.
     validateMovement: (kind, r) =>
       kind === "airManifests"
-        ? validateHeader(
-            { ...r.saved, number: r.saved?.manifestNumber },
-            session,
-          ).map((e) => e.message)
+        ? headerFormatErrors(r.saved || {}).map((e) => e.message)
         : [],
     releaseErrors: (kind, r, next) => {
       if (kind !== "airManifests") return [];

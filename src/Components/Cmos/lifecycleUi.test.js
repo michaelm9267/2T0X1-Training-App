@@ -35,8 +35,10 @@ test("CBL print options retain their original target across navigation", () => {
     screen.getByRole("button", { name: "Shipment Planning", exact: true }),
   );
   const options = within(
-    screen.getByRole("dialog", { name: "Print Commercial Bill of Lading" }),
+    screen.getByRole("dialog", { name: "Print BOL" }),
   );
+  // An unchecked bill prints a draft.
+  userEvent.selectOptions(options.getByLabelText("Print Option"), "D");
   userEvent.click(options.getByRole("button", { name: "OK" }));
   expect(
     screen.getByRole("dialog", {

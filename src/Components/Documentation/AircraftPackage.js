@@ -30,7 +30,7 @@ export default function AircraftPackage({ pieces, manifest, plan, departureAt, r
 
       <section className="package-page" aria-label="Package cover sheet">
         <p className="paper-banner">FOR TRAINING USE ONLY</p>
-        <header className="paper-header"><div><strong>Aircraft Commander Paperwork Package</strong><span>Mission {manifest?.mission || 'JTRN0001'} · Chalk {manifest?.chalk || '001C'} · C-17</span></div><span className="paper-form">{outstanding.length ? 'DRAFT — NOT READY' : 'READY FOR AIRCREW'}</span></header>
+        <header className="paper-header"><div><strong>Aircraft Commander Paperwork Package</strong><span>Mission {manifest?.mission || 'JTRN0001'} · Chalk {manifest?.chalk || '001'} · C-17</span></div><span className="paper-form">{outstanding.length ? 'DRAFT — NOT READY' : 'READY FOR AIRCREW'}</span></header>
         <div className="paper-boxes">
           {[['APOE', `${DODAAC_INFO[ORIGIN].port} · ${ORIGIN}`], ['APOD', `${DODAAC_INFO[destination]?.port} · ${destination}`], ['Aircraft departure', departure ? formatTime(departure) : '—'], ['Manifest released', releasedAt ? formatTime(new Date(releasedAt)) : 'Not released'],
             ['Pieces', pieces.length], ['Total weight (lb)', weight.toLocaleString()], ['Hazardous pieces', hazardous], ['Combined CB (in)', cb === null ? '—' : cb.toFixed(1)]].map(([k, v]) => <div key={k}><small>{k}</small><span>{v}</span></div>)}
@@ -50,7 +50,7 @@ export default function AircraftPackage({ pieces, manifest, plan, departureAt, r
 
       <section className="package-page" aria-label="Load plan">
         <p className="paper-banner">FOR TRAINING USE ONLY</p>
-        <header className="paper-header"><div><strong>Load Plan</strong><span>C-17 · Chalk 001C · simplified training limits</span></div><span className="paper-form">{plan.accepted ? 'ACCEPTED' : 'NOT ACCEPTED'}</span></header>
+        <header className="paper-header"><div><strong>Load Plan</strong><span>C-17 · Chalk 001 · simplified training limits</span></div><span className="paper-form">{plan.accepted ? 'ACCEPTED' : 'NOT ACCEPTED'}</span></header>
         <div className="paper-table"><table>
           <thead><tr><th>Piece</th><th>TCN</th><th>Weight (lb)</th><th>Forward edge station (in)</th><th>Lateral offset (in)</th><th>Piece CB station (in)</th></tr></thead>
           <tbody>{loadPieces.map((piece, index) => { const spot = plan.placements[piece.key]; return <tr key={piece.key}>

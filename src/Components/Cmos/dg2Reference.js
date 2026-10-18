@@ -1,3 +1,4 @@
+import { JBER_CONSIGNOR } from '../jberConsignor';
 import { UN_NUMBERS } from '../Documentation/unNumbers';
 import catalog from './afmanDg2Catalog.json';
 
@@ -5,7 +6,10 @@ export const AFMAN_REFERENCE = {
   title: 'AFMAN 24-604 · 6 June 2025',
   url: 'https://static.e-publishing.af.mil/production/1/af_a4/publication/afman24-604/afman24-604.pdf',
 };
-export const JBER_SHIPPER = { shipper: 'FB5000 773 LRS LGRT', address1: '5257 Gibson Ave', address2: '', city: 'JBER', country: 'US', state: 'AK', zip: '99505', phone: '907-552-2131' };
+export const JBER_SHIPPER = {
+  shipper: `${JBER_CONSIGNOR.dodaac} ${JBER_CONSIGNOR.unit}`,
+  ...Object.fromEntries(['address1', 'address2', 'city', 'country', 'state', 'zip', 'phone'].map(key => [key, JBER_CONSIGNOR[key]])),
+};
 export const dg2Defaults = (draft = {}) => ({
   ...draft, templateType: draft.templateType || 'DG',
   page1: { ...draft.page1 }, page2: { ...JBER_SHIPPER, ...draft.page2 }, lots: draft.lots || [],

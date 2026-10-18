@@ -1,4 +1,4 @@
-import { openSelectedPlanningTcn } from '../Cmos/planningTestHelpers';
+import { openSelectedPlanningTcn, fillAirData } from '../Cmos/planningTestHelpers';
 import {render,screen,within,fireEvent} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Harness} from './testHarness';
@@ -9,3 +9,34 @@ test('DG2 template lookup supplies declaration fields after unrestricted header 
 test('nested Escape closes lookup without closing CMOS',()=>{render(<Harness/>);open();userEvent.click(screen.getByRole('button',{name:'Look up MIL Mode'}));userEvent.keyboard('{Escape}');expect(screen.queryByRole('dialog',{name:'MIL/EDI Mode Code Lookup'})).not.toBeInTheDocument();expect(screen.getByRole('dialog',{name:'CMOS Shipment Planning'})).toBeInTheDocument();});
 test('a new ammunition lot keeps one identity across repeated incomplete saves',()=>{const initial=newPracticeSession({section:'manifest',cargo:'ammunition',random:()=>.2});render(<Harness initial={initial}/>);open();userEvent.click(screen.getByRole('tab',{name:'Indicators'}));userEvent.selectOptions(screen.getByLabelText('Hazardous/Ammunition Ind'),'A - Ammunition/explosives');userEvent.click(screen.getByRole('tab',{name:'DG2'}));userEvent.click(within(screen.getByRole('tabpanel',{name:'DG2'})).getByRole('button',{name:'New'}));const dg=within(screen.getByRole('dialog',{name:'Hazardous TCN'}));userEvent.click(dg.getByRole('tab',{name:'Hazard Cargo'}));userEvent.click(dg.getByRole('button',{name:'New lot'}));fireEvent.change(dg.getByLabelText('Round Count'),{target:{value:'unknown'}});userEvent.click(dg.getByRole('button',{name:'Save lot'}));userEvent.click(dg.getByRole('button',{name:'Save',exact:true}));expect(dg.getAllByRole('group',{name:'Ammo Information · lot-1'})).toHaveLength(1);expect(dg.getByLabelText('Round Count')).toHaveValue('UNKNOWN');});
 test('new hazardous records permit detail entry and Save and Close with missing headers',()=>{render(<Harness/>);open();userEvent.click(screen.getByRole('tab',{name:'Indicators'}));userEvent.selectOptions(screen.getByLabelText('Hazardous/Ammunition Ind'),'O - Other hazardous');userEvent.click(screen.getByRole('tab',{name:'DG2'}));userEvent.click(within(screen.getByRole('tabpanel',{name:'DG2'})).getByRole('button',{name:'New'}));const dg=within(screen.getByRole('dialog',{name:'Hazardous TCN'}));userEvent.click(dg.getByRole('tab',{name:'Page 2'}));fireEvent.change(dg.getByLabelText('Metric Hazmat Qty/UOM'),{target:{value:'unfinished'}});userEvent.click(dg.getByRole('button',{name:'Save and Close'}));expect(screen.queryByRole('dialog',{name:'Hazardous TCN'})).not.toBeInTheDocument();expect(screen.getByRole('tabpanel',{name:'DG2'})).toHaveTextContent('1 row(s) found.');});
+
+test('opening a resumed CDF shipment fills the blank Consignor with FA5030', () => {
+  const initial = newPracticeSession({ section: 'manifest', random: () => .2 });
+  const key = initial.scenarioId;
+  initial.exercises[key].manifestDraft = { ...initial.exercises[key].manifestDraft, tcn: 'RESUMED-JBER', origin: '' };
+  render(<Harness initial={initial} />);
+  userEvent.click(screen.getByRole('button', { name: 'Open TCN RESUMED-JBER' }));
+  expect(screen.getByLabelText('Consignor')).toHaveValue('FA5030');
+  userEvent.click(screen.getByRole('button', { name: 'Save', exact: true }));
+  userEvent.click(screen.getByRole('button', { name: 'Close', exact: true }));
+  userEvent.click(screen.getByRole('button', { name: 'Open TCN RESUMED-JBER' }));
+  expect(screen.getByLabelText('Consignor')).toHaveValue('FA5030');
+});
+
+test('Edit TCN checks only CMOS entries, never the shipment paperwork', () => {
+  const initial = newPracticeSession({ section: 'manifest', random: () => .2 });
+  render(<Harness initial={initial} />);
+  open();
+  for (const [label, value] of [['TCN', 'NOT-ON-PAPERWORK'], ['MIL Mode', 'F'], ['Consignee', 'ZZZZZZ'], ['Nomen', 'WRONG ITEM'], ['CIIC', 'U']])
+    fireEvent.change(screen.getByLabelText(label), { target: { value } });
+  userEvent.click(screen.getByRole('button', { name: 'New piece' }));
+  const piece = within(screen.getByRole('dialog', { name: 'Piece Information' }));
+  for (const [label, value] of [['Weight', '1'], ['Length', '1'], ['Width', '1'], ['Height', '1'], ['Type Pack', 'PC']])
+    fireEvent.change(piece.getByLabelText(label), { target: { value } });
+  userEvent.click(piece.getByRole('button', { name: 'Save and Close' }));
+  fillAirData();
+  userEvent.click(screen.getByRole('button', { name: 'Save', exact: true }));
+  userEvent.click(screen.getByRole('button', { name: 'Edit TCN' }));
+  expect(screen.queryByRole('dialog', { name: 'Consistency Check Results' })).not.toBeInTheDocument();
+  expect(within(screen.getByRole('dialog', { name: /^CMOS/ })).getByRole('status')).toHaveTextContent('Passed Edits');
+});

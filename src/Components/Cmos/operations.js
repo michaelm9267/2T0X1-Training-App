@@ -31,6 +31,7 @@ export function clearHazards(store, id) {
     if (r.draft.shipmentId === id) next = deleteRecord(next, "hazards", r.id);
   return editRecord(next, "shipments", id, {
     hazmat: "N - Not hazardous",
+    t9Required: false,
     dangerGoods13872Required: false,
   });
 }
@@ -42,8 +43,7 @@ export function getQuote(store, id) {
   for (const f of ["weight", "length", "width", "height"])
     if (!(Number(d[f]) > 0)) errors.push(`${f} must be greater than zero.`);
   if (d.quoteTab === "Freight Rate Quotes") {
-    if (!d.originSplc || !d.destinationSplc)
-      errors.push("Origin and destination SPLCs are required.");
+    // SPLCs are optional for now (no licensed SPLC data in the app).
     if (!d.nmfcUfc) errors.push("NMFC/UFC is required.");
   } else if (!d.originZip || !d.destinationZip)
     errors.push("Origin and destination ZIP codes are required.");
@@ -177,6 +177,8 @@ export function generateDocument(
     details,
     printed: options.printed !== false,
     totals: totals(store, ids, true),
+    ...(options.printOptions ? { printOptions: options.printOptions } : {}),
+    issuedAt: new Date().toISOString(),
   });
   const docId = next.selection.documents;
   next = saveRecord(next, "documents", docId);

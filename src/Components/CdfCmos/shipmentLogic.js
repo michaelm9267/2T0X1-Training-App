@@ -264,6 +264,7 @@ export function setHazardIndicator(
     manifestDraft: {
       ...exercise.manifestDraft,
       hazmat: indicator,
+      t9Required: isHazardousIndicator(indicator),
       ...(!isHazardousIndicator(indicator)
         ? { hazardRecords: [], t9Required: false, t9Remarks: "" }
         : {}),

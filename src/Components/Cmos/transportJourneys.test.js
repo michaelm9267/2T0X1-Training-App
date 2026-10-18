@@ -19,7 +19,12 @@ function readyStore() {
       origin: "F00001",
       destination: "F00002",
       milMode: "B",
+      nmfc: "999913",
+      rdd: "999",
+      nsn: "NNSN",
+      ciic: "U",
       tac: "TRN1",
+      routing: true,
     });
     s = createRecord(s, "pieces", {
       shipmentId: `shipments-${i}`,
@@ -62,32 +67,26 @@ function assign() {
   userEvent.click(d.getByRole("button", { name: "Close", exact: true }));
 }
 test.each(["cdf", "outbound"])(
-  "%s routes multi-TCN cargo with equipment then sends and retries a request",
+  "%s builds a route order for multi-TCN cargo, saves it and prints the route report",
   (course) => {
     render(<Harness page="routing" course={course} />);
     userEvent.click(screen.getByRole("button", { name: "New", exact: true }));
-    assign();
+    // New opens straight onto Assign TCNs/Aggregates: select the TCNs, then Assign.
+    const picker = within(screen.getByRole("dialog", { name: "Assign TCNs/Aggregates" }));
+    userEvent.click(picker.getByRole("row", { name: "Assign TRN001" }));
+    userEvent.click(picker.getByRole("row", { name: "Assign TRN002" }));
+    userEvent.click(picker.getByRole("button", { name: "Assign", exact: true }));
+    expect(picker.getByText("No data to display.")).toBeInTheDocument();
+    userEvent.click(picker.getByRole("button", { name: "Close" }));
+    expect(screen.getByLabelText("Shipment ID").value).toMatch(/^MKFZ1\d{4}0001$/);
+    expect(screen.getByLabelText("TCNs Assigned")).toHaveValue("Y");
+    expect(screen.getByLabelText("Total Weight")).toHaveValue("30");
     userEvent.click(screen.getByRole("button", { name: "Copy TCN Data" }));
-    fill("Pickup Earliest (Eastern Time)", "2026-10-14T08:00");
-    fill("Delivery Latest (Eastern Time)", "2026-10-16T14:00");
-    userEvent.click(screen.getByRole("tab", { name: "Equip Load Plan" }));
-    userEvent.click(
-      within(
-        screen.getByRole("tabpanel", { name: "Equip Load Plan" }),
-      ).getByRole("button", { name: "New" }),
-    );
-    const e = within(
-      screen.getByRole("dialog", { name: "Equip Load Plan detail" }),
-    );
-    fill("Equipment Type", "AV1", e);
-    userEvent.click(e.getByRole("button", { name: "Save and Close" }));
+    expect(screen.getByLabelText("Dest DODAAC")).toHaveValue("F00002");
+    userEvent.selectOptions(screen.getByLabelText("ATR Carrier Response Hours"), "0.25");
+    fill("Pickup Earliest", "14Oct2030/0800");
+    fill("Delivery Latest", "16Oct2030/1400");
     userEvent.click(screen.getByRole("button", { name: "Save", exact: true }));
-    userEvent.click(screen.getByRole("button", { name: "Edit Data" }));
-    expect(screen.getByRole("status")).toHaveTextContent("Passed Edits");
-    userEvent.click(screen.getByRole("button", { name: "Send Request" }));
-    expect(stored().routings["routings-1"].result.state).toBe("pending");
-    userEvent.click(screen.getByRole("button", { name: "Status Request" }));
-    expect(stored().routings["routings-1"].result.state).toBe("success");
     expect(stored().routings["routings-1"].saved.shipmentIds).toHaveLength(2);
     userEvent.click(screen.getByRole("button", { name: "Print Route Report" }));
     expect(
@@ -151,18 +150,18 @@ test("CBL preserves incomplete RINs and conveyances then checks final print and 
       { name: "New" },
     ),
   );
-  const c = within(screen.getByRole("dialog", { name: "Conveyances detail" }));
+  const c = within(screen.getByRole("dialog", { name: "Conveyance" }));
+  fill("Primary Eq Nbr", "NONE", c);
   fill("Equip Type Ordered", "AV1", c);
+  fill("Equip Type Furnished", "AV1", c);
   userEvent.click(c.getByRole("button", { name: "Save and Close" }));
   userEvent.click(screen.getByRole("tab", { name: "TCNs" }));
   userEvent.click(screen.getByRole("button", { name: "Save", exact: true }));
   userEvent.click(screen.getByRole("button", { name: "Edit", exact: true }));
   expect(screen.getByRole("status")).toHaveTextContent("Passed Edits");
   userEvent.click(screen.getByRole("button", { name: "Print", exact: true }));
-  const p = within(
-    screen.getByRole("dialog", { name: "Print Commercial Bill of Lading" }),
-  );
-  userEvent.selectOptions(p.getByLabelText("Print version"), "Final");
+  const p = within(screen.getByRole("dialog", { name: "Print BOL" }));
+  expect(p.getByLabelText("Print Option")).toHaveValue("F");
   userEvent.click(p.getByRole("button", { name: "OK" }));
   expect(
     screen.getByRole("dialog", {
@@ -170,7 +169,6 @@ test("CBL preserves incomplete RINs and conveyances then checks final print and 
       exact: true,
     }),
   ).toHaveTextContent("TRN002");
-  userEvent.click(p.getByRole("button", { name: "Close", exact: true }));
   userEvent.click(screen.getByRole("button", { name: "Release", exact: true }));
   const r = within(
     screen.getByRole("dialog", { name: "Release Commercial Bill of Lading" }),

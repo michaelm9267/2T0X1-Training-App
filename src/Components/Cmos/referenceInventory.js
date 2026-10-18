@@ -1,4 +1,5 @@
 import { SECURITY_CLASSES, CARGO_TYPES } from "./planningReferences";
+import { AIR_DIM_CODES } from "./commodityReference";
 // Field inventory from the supplied CMOS guides; page references describe evidence, not live instructions.
 const slug = (s) =>
   s
@@ -23,6 +24,7 @@ const describedSelect = (label, id, entries) => ({
   ...select(label, id, entries.map(([code]) => code)),
   optionLabels: Object.fromEntries(entries.map(([code, description]) => [code, `${code} - ${description}`])),
 });
+const req = (f) => ({ ...f, required: true });
 const flag = (label, id) => field(label, id || slug(label), "checkbox");
 const addr = (prefix) =>
   fs(
@@ -41,6 +43,8 @@ const addr = (prefix) =>
       field(`${prefix} ${l}`, slug(prefix) + l.replace(/[^a-zA-Z0-9]/g, "")),
     ),
   );
+// Chalk numbers are three digits, 001 through 999.
+const CHALK = { ...field("Chalk", "chalk"), placeholder: "001", help: "Chalk: 001 - 999" };
 const saveActions = ["Save", "Save and Close", "Delete", "Close"];
 export const planningColumns = fs(
   field("TCN", "tcn"),
@@ -52,7 +56,7 @@ export const planningColumns = fs(
   "TAC",
   "Movement Document",
   "DSOE ID",
-  "Chalk",
+  CHALK,
   field("Consignee DODAAC", "destination"),
   field("POD", "pod"),
   "MIL Mode",
@@ -76,16 +80,16 @@ export const planningHeader = [
     "Pal ID",
     "DSOE ID",
   ),
-  fs(field("Doc Nbr", "docNbr"), "Mov Doc", "Chalk", "Plan ID"),
-  fs(field("TCN", "tcn"), "TTAN", "ULN"),
+  fs(field("Doc Nbr", "docNbr"), "Mov Doc", CHALK, "Plan ID"),
+  fs(req(field("TCN", "tcn")), "TTAN", "ULN"),
   fs("Lead TCN", "TTN", "UIC"),
 ];
 export const planningMain = [
   fs(
-    "Prime DIC",
+    { ...field("Prime DIC", "primeDic"), readOnly: true, lookup: false, help: "Built by CMOS from the type of shipment" },
     field("Line Items/Quantity", "lineItems"),
     field("Nomen", "description"),
-    field("MIL Mode", "milMode"),
+    req(field("MIL Mode", "milMode")),
     "EDI Mode",
     "Exp Mode",
     field("NMFC/UFC", "nmfc"),
@@ -100,14 +104,14 @@ export const planningMain = [
   fs(
     "Total Cost",
     "CAGE",
-    field("NSN", "nsn"),
+    req(field("NSN", "nsn")),
     "Part No/AIN",
-    field("Consignor", "origin"),
+    req(field("Consignor", "origin")),
     field("POE", "poe"),
     "POE DODAAC",
     field("Consignee", "destination"),
     field("POD", "pod"),
-    "CIIC",
+    req(field("CIIC")),
     describedSelect("Sec Class", "secClass", SECURITY_CLASSES),
     describedSelect("Type Cargo", "typeCargo", CARGO_TYPES),
     field("RDD", "rdd"),
@@ -154,26 +158,31 @@ const indicators = fs(
   flag("MICAP Shipment"),
   flag("REPSHIP Required", "repship"),
   field("Protective Service Ind", "protectiveService"),
-  select("Type ATCMD Required", "atcmdType", ["A", "W", "N"]),
+  describedSelect("Type ATCMD Required", "atcmdType", [["A", "Air Clearance"], ["W", "WPS Shipments"]]),
   flag("Electronic Export Information", "eei"),
-  "DEMIL",
+  field("DEMIL", "demil"),
   flag("Routing"),
   flag("Weapons Shipment"),
   flag("ETRR Ind"),
   flag("Equipment Sys Ind"),
   "Commodity S/H",
   flag("Danger Goods/1387-2 Required"),
-  { ...select("Consolidation Ind/Supply Ind", "consolidationInd", ["N", "Y"]), optionLabels: { N: "N - Not Part Of A Consolidation", Y: "Y - Part Of A Consolidation" } },
-  flag("Supply Ind", "supplyInd"),
+  // CMOS fills the consolidation and supply indicators itself; both are greyed out.
+  { ...select("Consolidation Ind/Supply Ind", "consolidationInd", ["N", "Y"]), optionLabels: { N: "N - Not Part Of A Consolidation", Y: "Y - Part Of A Consolidation" }, readOnly: true },
+  { ...flag("Supply Ind", "supplyInd"), readOnly: true },
   flag("DD Form 1907 Required", "dd1907"),
   flag("Dunnage Required"),
-  select("Armed Forces Courier Ind", "courierInd", ["N", "Y"]),
+  describedSelect("Armed Forces Courier Ind", "courierInd", [
+    ["9", "Courier Transfer Station (CTS) and POE are collocated"],
+    ["X", "Courier Transfer Station (CTS) and POE are not collocated"],
+    ["N", "Not an ARFCOS shipment"],
+  ]),
   flag("Mail Shipment"),
-  field("USML", "usml"),
-  flag("GATES Ind"),
+  { ...field("USML", "usml"), readOnly: true, lookup: false },
+  { ...field("Determination NBR", "determinationNbr"), readOnly: true, lookup: false },
   flag("Vet Inspectable Container"),
   flag("Serialized Shipment"),
-  select("Air Dim", "airDim", ["Y", "N"]),
+  describedSelect("Air Dim", "airDim", AIR_DIM_CODES),
 );
 const shipmentActions = [
   "First",
@@ -296,6 +305,10 @@ export const collections = {
   ),
 };
 export const screens = {
+  // Drawn by DeploymentParametersScreen.
+  deployment: { title: "Deployment Parameters", kind: "deployments", source: "", pages: [], header: [], main: [], tabs: {}, actions: [] },
+  // Drawn by AirScheduleScreen.
+  schedule: { title: "Air Schedule", kind: "missions", source: "", pages: [], header: [], main: [], tabs: {}, actions: [] },
   planning: {
     title: "Shipment Planning",
     kind: "shipments",
@@ -320,13 +333,8 @@ export const screens = {
       ),
       Indicators: indicators,
       DG2: fs("Piece", "Template ID", "Template Type", "Certifier"),
-      "T-9 Misc": fs(
-        field("T-9 Remarks", "t9Remarks"),
-        "Special Handling",
-        "Unit Name",
-        "POC",
-        "Phone Nbr",
-      ),
+      // Drawn by T9MiscTab as a list of 26-character entries.
+      "T-9 Misc": [],
       "Shipment Status": fs(
         "Action",
         "Action Date",
@@ -349,7 +357,7 @@ export const screens = {
       "Manifest Number",
       field("Mission", "mission"),
       "DSOE ID",
-      "Chalk",
+      CHALK,
       field("POD", "pod"),
       "Destination",
       "Flight Number",
@@ -394,7 +402,7 @@ export const screens = {
       "Convoy Nbr",
       select("Equipment Owner", "equipmentOwner", ["G", "C"]),
       select("Mode", "conveyanceMode", ["9", "B", "3"]),
-      "Chalk",
+      CHALK,
       "TMR Number",
       "Status",
       "Total Weight",
@@ -405,7 +413,7 @@ export const screens = {
         "Status",
         "TCN",
         "DSOE ID",
-        "Chalk",
+        CHALK,
         "Consignee",
         "POE",
         "Hold Code",
@@ -531,7 +539,7 @@ export const screens = {
         "Over Dimensions",
         "Haz Ind",
         "DSOE ID",
-        "Chalk",
+        CHALK,
         "Pieces",
         "TCN Weight",
       ),
@@ -742,7 +750,7 @@ export const screens = {
         "MIL Mode",
         "EDI Mode",
         "DSOE ID",
-        "Chalk",
+        CHALK,
         "Nbr of CLS/TLS",
         "Vessel Name",
         "IRCS",

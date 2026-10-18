@@ -12,7 +12,8 @@ test('HAZDEC follows the DAF Form 7507 layout with shipment values', () => {
   expect(within(form).getByText(values.tcn)).toBeInTheDocument();
   expect(within(form).getByRole('cell', { name: 'UN3528' })).toBeInTheDocument();
   expect(within(form).getByRole('cell', { name: 'MACHINERY, INTERNAL COMBUSTION, FLAMMABLE LIQUID POWERED' })).toBeInTheDocument();
-  expect(within(form).getByText('PASSENGER AND CARGO AIRCRAFT')).toHaveClass('hz-deleted');
+  expect(within(form).getByText('PASSENGER AND CARGO AIRCRAFT')).not.toHaveClass('hz-deleted');
+  expect(within(form).getByText('CARGO AIRCRAFT ONLY')).toHaveClass('hz-deleted');
   expect(within(form).getByText('RADIOACTIVE')).toHaveClass('hz-deleted');
   expect(within(form).getByText(/DAF FORM 7507/)).toBeInTheDocument();
 });
@@ -53,4 +54,29 @@ test.each([
   for (const statement of statements) expect(within(form).getByText(statement)).toBeInTheDocument();
   expect(within(form).getByText(`1 unpackaged × ${Math.round(scenario.weight * 0.45359237).toLocaleString()} kg`)).toBeInTheDocument();
   expect(within(form).queryByText(/\blb\b/)).not.toBeInTheDocument();
+});
+
+// AFMAN 24-604 (6 June 2025), Tables A4.1 and A4.2: these entries are P5.
+test.each(['rolling-stock', 'three-axle', 'mj1-jammer', 'age-generator', 'isu-90'])(
+  '%s retains passenger and cargo aircraft under P5', scenarioId => {
+    render(<PaperworkDocument scenario={scenarios.find(item => item.id === scenarioId)} document={{ id: 'hazdec', title: 'HAZDEC' }} onClose={() => {}} />);
+    expect(screen.getByText('PASSENGER AND CARGO AIRCRAFT')).not.toHaveClass('hz-deleted');
+    expect(screen.getByText('CARGO AIRCRAFT ONLY')).toHaveClass('hz-deleted');
+  }
+);
+
+test('UN0012 ammunition uses the AFMAN packing paragraph and explosives emergency contact', () => {
+  const scenario = { ...scenarios.find(item => item.id === 'rolling-stock'), ammo: true, hazdecError: null };
+  render(<PaperworkDocument scenario={scenario} document={{ id: 'hazdec', title: 'HAZDEC' }} onClose={() => {}} />);
+  expect(screen.getByRole('cell', { name: 'A5.12' })).toBeInTheDocument();
+  expect(screen.getByText(/703.*695-4695/, { selector: '.hz-emergency .hz-inline' })).toBeInTheDocument();
+  expect(screen.getByText('CARGO AIRCRAFT ONLY')).toHaveClass('hz-deleted');
+});
+
+test('HAZDEC prints the complete JBER consignor and shipper phone', () => {
+  render(<PaperworkDocument scenario={scenarios.find(item => item.id === 'age-generator')} document={{ id: 'hazdec', title: 'HAZDEC' }} onClose={() => {}} />);
+  const shipper = screen.getByText('SHIPPER', { exact: true }).parentElement;
+  for (const line of ['FA5030 773 LRS LGRT', 'GPC ONLY SHIP TO', '5257 FINLETTER AVE', 'JBER, AK 99506', '9075522131']) {
+    expect(within(shipper).getByText(line)).toBeInTheDocument();
+  }
 });

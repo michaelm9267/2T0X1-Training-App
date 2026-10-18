@@ -1,7 +1,7 @@
 import { dg2Defaults, applyDg2Template, unMatches, emergencyContactsFor } from './dg2Reference';
 
 test('new DG2 declarations use the JBER address without replacing existing shipper details', () => {
-  expect(dg2Defaults().page2).toMatchObject({ shipper: 'FB5000 773 LRS LGRT', address1: '5257 Gibson Ave', address2: '', city: 'JBER', country: 'US', state: 'AK', zip: '99505' });
+  expect(dg2Defaults().page2).toMatchObject({ shipper: 'FA5030 773 LRS LGRT', address1: 'GPC ONLY SHIP TO', address2: '5257 FINLETTER AVE', city: 'JBER', country: 'US', state: 'AK', zip: '99506' });
   expect(dg2Defaults({ page2: { shipper: 'CUSTOM SHIPPER', address1: '' } }).page2).toMatchObject({ shipper: 'CUSTOM SHIPPER', address1: '', city: 'JBER' });
 });
 
@@ -42,6 +42,6 @@ test('changing UN clears the old template, flags and contact while retaining shi
 });
 
 test('DG2 defaults the shipper phone while preserving a phone entered by the user', () => {
-  expect(dg2Defaults().page2.phone).toBe('907-552-2131');
+  expect(dg2Defaults().page2.phone).toBe('9075522131');
   expect(dg2Defaults({ page2: { phone: '907-555-0100' } }).page2.phone).toBe('907-555-0100');
 });

@@ -1,8 +1,10 @@
+import { JBER_CONSIGNOR, JBER_CITY_LINE } from '../jberConsignor';
 import { hazardRequirements } from '../CdfCmos/trainingData';
 import FloatingWindow from '../Session/FloatingWindow';
 import { manifestFields, tcnUln, tcnIncrement, DODAAC_INFO, ORIGIN } from '../CargoWindow/workflow';
 import { findUnNumber } from './unNumbers';
 import AttlaCertification from './AttlaCertification';
+import { DG2_CATALOG, emergencyContactsFor } from '../Cmos/dg2Reference';
 import { WRONG_UN } from '../CargoWindow/discrepancies';
 
 // Fictional training facsimiles of the increment monitor's paperwork packet. Every value comes
@@ -13,8 +15,7 @@ function documentDate(scenario) {
   const date = new Date(Date.UTC(2026, 0, day));
   return `${String(date.getUTCDate()).padStart(2, '0')} ${MONTHS[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
 }
-const SHIPPER = `${ORIGIN} · ${DODAAC_INFO[ORIGIN].unit}`;
-const EMERGENCY = '(555) 010-0199 (FICTIONAL)';
+const SHIPPER = `${ORIGIN} ${DODAAC_INFO[ORIGIN].unit}`;
 
 // Declared contents per shipment. The ISU's marked chemical package is deliberately absent.
 function packingContents(scenario) {
@@ -39,7 +40,7 @@ export const HANDLING_STATEMENTS = {
 const LB_TO_KG = 0.45359237;
 // Every quantity on the HAZDEC is metric.
 function declaredHazards(scenario, weight) {
-  if (scenario.ammo) return [{ un:'UN0012', quantity:'1 crate × 15 kg N.E.W.', instruction:'TRAINING PACKING INSTRUCTION', authorization:'', handling:['Fictional ammunition lot TRN-001, DODIC A059, 100 rounds.'] }];
+  if (scenario.ammo) return [{ un:'UN0012', quantity:'1 crate × 15 kg N.E.W.', instruction:'A5.12', authorization:'', handling:['Fictional ammunition lot TRN-001, DODIC A059, 100 rounds.'] }];
   if (scenario.id === 'isu-90') return [{ un: 'UN1950', quantity: '1 fibreboard box × 12 kg', instruction: 'A6.2', authorization: '', handling: ['Aerosols packed in crate 2 inside the ISU.'] }];
   const un = scenario.kind === 'generator' ? 'UN3528' : 'UN3166';
   const name = scenario.kind === 'generator' ? 'MACHINERY, INTERNAL COMBUSTION, FLAMMABLE LIQUID POWERED' : undefined;
@@ -100,6 +101,13 @@ function PackingList({ scenario, values }) {
 function Hazdec({ scenario, values }) {
   // A HAZDEC error shows a transposed UN number beside the correct shipping name, or no signature.
   const rows = declaredHazards(scenario, scenario.paperworkWeight ?? values.weight).map(row => ({ ...row, shown: scenario.hazdecError === 'un' ? WRONG_UN[row.un] || row.un : row.un }));
+  // Match the declared shipping-name variant, not just the UN number (Table A4.1).
+  const provisions = rows.map(row => DG2_CATALOG.find(entry =>
+    entry.unId === row.un && !entry.forbidden && !entry.referenceOnly &&
+    entry.name.split(/\s+or\s+/i).some(name => name.toUpperCase() === (row.name || findUnNumber(row.un)?.names[0]).toUpperCase())
+  )?.specialProvisions || '');
+  const passengerPermitted = provisions.every(value => /\bP5\b/.test(value) && !/\bP[1-4]\b/.test(value));
+  const emergency = [...new Set(rows.flatMap(row => emergencyContactsFor({ division: findUnNumber(row.un)?.division }).map(contact => contact.number)))].join(' / ');
   const unsigned = scenario.hazdecError === 'signature';
   const struck = text => <span className="hz-option hz-deleted">{text}</span>;
   const kept = text => <span className="hz-option">{text}</span>;
@@ -108,8 +116,8 @@ function Hazdec({ scenario, values }) {
     <div className="hz-row hz-split">
       <div className="hz-cell">
         <small>SHIPPER</small>
-        <p className="hz-value">{SHIPPER}</p>{/* Key 1 */}
-        <small>PHONE NUMBER: <span className="hz-inline">{EMERGENCY}</span></small>
+        <p className="hz-value">{[SHIPPER, JBER_CONSIGNOR.address1, JBER_CONSIGNOR.address2, JBER_CITY_LINE].map(line => <span className="hz-handling-line" key={line}>{line}</span>)}</p>{/* Key 1 */}
+        <small>PHONE NUMBER: <span className="hz-inline">{JBER_CONSIGNOR.phone}</span></small>
       </div>
       <div className="hz-cell">
         <small>AIR WAYBILL NO. <span className="hz-inline">N/A</span></small>{/* Key 3 */}
@@ -128,7 +136,7 @@ function Hazdec({ scenario, values }) {
         <small className="hz-cell hz-heading">TRANSPORTATION DETAILS</small>
         <div className="hz-limits">
           <div className="hz-cell"><small>THIS SHIPMENT IS WITHIN THE LIMITATIONS PRESCRIBED FOR:</small><small>(DELETE NON-APPLICABLE)</small>
-            <div className="hz-options">{struck('PASSENGER AND CARGO AIRCRAFT')}{kept('CARGO AIRCRAFT ONLY')}</div>{/* Key 7 */}
+            <div className="hz-options">{(passengerPermitted ? kept : struck)('PASSENGER AND CARGO AIRCRAFT')}{(passengerPermitted ? struck : kept)('CARGO AIRCRAFT ONLY')}</div>{/* Key 7 */}
           </div>
           <div className="hz-cell"><small>AIRPORT OF DEPARTURE:</small><p className="hz-value hz-center">{values.apoe}</p></div>{/* Key 8 */}
         </div>
@@ -160,7 +168,7 @@ function Hazdec({ scenario, values }) {
     <div className="hz-row hz-cell hz-handling">
       <small>ADDITIONAL HANDLING INFORMATION</small>
       <p className="hz-value">{rows.flatMap(row => row.handling).map((line, i) => <span key={i} className="hz-handling-line">{line}</span>)}</p>{/* Key 19 */}
-      <small className="hz-emergency">EMERGENCY TELEPHONE NUMBER: <span className="hz-inline">1-800-851-8061 / 1-804-279-3131</span></small>
+      <small className="hz-emergency">EMERGENCY TELEPHONE NUMBER: <span className="hz-inline">{emergency}</span></small>
     </div>
     <div className="hz-row hz-split hz-last">
       <p className="hz-cell hz-declaration">I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked, and labeled/placarded, and are in all respects in proper condition for transport according to applicable international and national government regulations. I declare that all of the applicable air transport requirements have been met.</p>

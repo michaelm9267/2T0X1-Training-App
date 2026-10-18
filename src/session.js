@@ -6,10 +6,11 @@ import { DESTINATIONS, randomDestination } from './Components/CargoWindow/workfl
 import { emptyPlan } from './Components/LoadPlan/loadPlanLogic';
 import { emptyDeparture } from './Components/Departure/departureLogic';
 import { scenarios } from './Components/CargoWindow/scenarios';
+import { publishSave } from './cloudBridge';
 
 // The training session, saved in this browser so a refresh or closed tab resumes where the
 // trainee left off. A new session (or a scenario code) replaces it.
-const STORAGE_KEY = 'cdf-trainer-session';
+export const STORAGE_KEY = 'cdf-trainer-session';
 const VERSION = 1;
 
 export function normalizeSession(saved) {
@@ -77,6 +78,7 @@ export function importSession(text) {
 }
 
 export function saveSession(session) {
+  publishSave('cdf', session);
   try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session)); return true; } catch { return false; }
 }
 

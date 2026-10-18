@@ -13,7 +13,9 @@ export default function TrainingGuide({ onClose }) {
         <li>Precheck the document packet and identify missing or incorrect paperwork.</li>
         <li>Incheck the cargo: inspect, measure, weigh, calculate CB when required, and apply markings.</li>
         <li>Open CMOS → Shipment Planning, search the TCN, enter verified readings, complete applicable DG2 details, and save.</li>
-        <li>In CMOS → Air Manifest, create and save the manifest. Assign pallets through Unassigned Pallets and loose cargo through Assign TCNs, then apply each MSL. Run Edit Check and open both print displays before accepting the load plan.</li>
+        <li>In CMOS → Deployment → Deployment Parameters, set the DSOE's parameters (DSOE ID, Deployment / Exercise, MIL Mode, Consignor and the shared shipment values) and save.</li>
+        <li>In CMOS → Common In/Out → Air Schedule, build the mission from the DSOE (mission number, DSOE ID, chalk, AC Type and routings) and save it.</li>
+        <li>In CMOS → Air Manifest, create and save the manifest, choosing the Air Schedule mission. Assign pallets through Unassigned Pallets and loose cargo through Assign TCNs, then apply each MSL. Run Edit Check and open both print displays before accepting the load plan.</li>
         <li>Perform a fresh JI for airworthiness after the deployment load plan is accepted.</li>
         <li>In CMOS Air Manifest, select Release, enter the flight number and departure, and release within the exercise’s 30-minute window.</li>
         <li>Open the after-action report to review decisions, misses, references, and elapsed time.</li>

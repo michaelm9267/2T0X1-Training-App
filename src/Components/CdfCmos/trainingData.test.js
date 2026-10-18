@@ -28,3 +28,12 @@ test("ammunition paperwork contains certifier and lot answers", () => {
     roundCount: "100",
   });
 });
+
+test.each(['age-generator', 'rolling-stock', 'isu-90'])('%s CMOS source uses the JBER consignor and P5 aircraft permission', id => {
+  const record = hazardRequirements(scenarios.find(s => s.id === id)).records[0];
+  expect(record.page2).toMatchObject({
+    shipper: 'FA5030 773 LRS LGRT', address1: 'GPC ONLY SHIP TO',
+    address2: '5257 FINLETTER AVE', city: 'JBER', state: 'AK', zip: '99506',
+    phone: '9075522131', aircraft: 'Passenger and cargo aircraft',
+  });
+});

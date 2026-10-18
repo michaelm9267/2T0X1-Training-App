@@ -25,6 +25,7 @@ TABLES = {
     'transportationMethods': ('V_TRAN_MD', 0, 2, None),
     'holdCodes': ('V_D_CGO_LD_UNT_TY', 0, 1, None),
     'typePacks': ('V_TYPE_PACK', 0, 6, None),
+    'serviceCodes': ('V_SHPMNT_UNT_SPL_HNDL_CD_DOM', 0, 1, None),
 }
 
 def fetch(table):

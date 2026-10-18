@@ -39,7 +39,7 @@ test('inchecking another TCN opens nothing and records no mistake; the right one
   expect(wrong.cmos.record).toBeNull();
   expect(wrong.mistakes).toHaveLength(0);
   const right = incheckTcn(shipment, e, shipment.tcn);
-  expect(right.cmos.record.draft).toMatchObject({ tcn: shipment.tcn, nsn: shipment.nsn, consignee: shipment.dodaac, tac: shipment.tac, consignor: 'FB5000', secClass: 'U', primeDic: 'TX1' });
+  expect(right.cmos.record.draft).toMatchObject({ tcn: shipment.tcn, nsn: shipment.nsn, consignee: shipment.dodaac, tac: shipment.tac, consignor: 'FA5030', secClass: 'U', primeDic: 'TX1' });
   expect(right.cmos.record.draft.milMode).toBeUndefined();
   // POE and POD are left for the trainee; they are needed only for Mil Mode 9.
   expect(right.cmos.record.draft.poe).toBeUndefined();
@@ -185,4 +185,22 @@ test('nothing on the record is graded: changed entries and indicators still save
   expect(saved.cmos.record.saved).toBe(true);
   expect(saved.mistakes).toHaveLength(0);
   expect(listRows(shipment, saved).find(row => row.customer)).toMatchObject({ tac: 'ZZZZ', priority: '1', weight: 1 });
+});
+
+test.each(['H - Hazardous material', 'A - Ammunition/explosives', 'O - Other'])(
+  'selecting %s enables outbound T-9 and None clears it', indicator => {
+    const shipment = createShipment({ random: seeded(6), target: 'J', advance: true });
+    const state = incheckTcn(shipment, packed(shipment), shipment.tcn);
+    const selected = editRecord(state, 'hazInd', indicator);
+    expect(selected.cmos.record.draft).toMatchObject({ hazInd: indicator, t9: true });
+    expect(editRecord(selected, 'hazInd', 'N - Non-hazardous').cmos.record.draft.t9).toBe(false);
+  }
+);
+
+test('new outbound records default Consignor to FA5030 and leave Consignee editable', () => {
+  const shipment = createShipment({ random: seeded(8), target: 'J', advance: false });
+  const state = newRecord(shipment, packed(shipment));
+  expect(state.cmos.record.draft.consignor).toBe('FA5030');
+  expect(state.cmos.record.draft.consignee).toBeUndefined();
+  expect(editRecord(state, 'consignee', 'FB5294').cmos.record.draft.consignee).toBe('FB5294');
 });

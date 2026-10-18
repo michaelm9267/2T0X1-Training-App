@@ -4,6 +4,8 @@ import { TYPE_PACK_CODES } from '../Cmos/dtrReference';
 import { MIL_MODES } from './outboundLogic';
 import { OutboundMsl, PrintPreview } from './OutboundPrintouts';
 import DateField from './DateField';
+import CommodityLookup from '../Cmos/CommodityLookup';
+import { AIR_DIM_OPTIONS, AIR_DIM_LABELS } from '../Cmos/commodityReference';
 import { listRows, searchRows, planningFields, chosenMode, pieceCube, savePlanning, canExpressShip, activeTcn, tabOf, UC_FIELDS } from './cmosLogic';
 
 // CMOS Shipment Planning: the list of TCNs (Incheck an advance record, or New), and the record
@@ -74,6 +76,7 @@ function PlanningList({ shipment, exercise, actions, onOpen }) {
 function PlanningRecord({ shipment, exercise, actions, onClose, onExprShip }) {
   const test = useTestMode();
   const [lookup, setLookup] = useState(false);
+  const [commodityLookup, setCommodityLookup] = useState(false);
   const [tab, setTab] = useState('pieces');
   const [chosen, setChosen] = useState([]);
   const [printing, setPrinting] = useState(null);
@@ -83,12 +86,12 @@ function PlanningRecord({ shipment, exercise, actions, onClose, onExprShip }) {
   const amc = chosenMode(record.draft) === '9';
   const value = id => record.draft[id] ?? '';
   const invalid = id => !test && record.errors?.includes(id);
-  const control = (id, { width, options } = {}) => {
+  const control = (id, { width, options, optionLabels } = {}) => {
     const props = { id: `sp-${id}`, className: invalid(id) ? 'cmos-invalid' : undefined, style: width ? { width } : undefined };
     const choices = options || fields[id]?.options;
     if (fields[id]?.date) return <DateField id={`sp-${id}`} format={fields[id].date} className={props.className} width={width} readOnly={locked} value={value(id)} onChange={next => actions.editRecord(id, next)} />;
     return choices
-      ? <select {...props} disabled={locked} value={value(id)} onChange={event => actions.editRecord(id, event.target.value)}><option value=""></option>{choices.map(option => <option key={option} value={option}>{option}</option>)}</select>
+      ? <select {...props} disabled={locked} value={value(id)} onChange={event => actions.editRecord(id, event.target.value)}><option value=""></option>{choices.map(option => <option key={option} value={option}>{optionLabels?.[option] || option}</option>)}</select>
       : <input {...props} readOnly={locked} value={value(id)} onChange={event => actions.editRecord(id, event.target.value)} />;
   };
   // Called as a function, not rendered as a component, so inputs keep focus while typing.
@@ -163,7 +166,8 @@ function PlanningRecord({ shipment, exercise, actions, onClose, onExprShip }) {
         {F({ id: 'typeAtcmd', label: 'Type ATCMD Required', options: ['A', 'B', 'C', 'D'], width: '3.5em' })}
         <span className="cmos-f-pair">{check('eei', 'Electronic Export Information')}{F({ id: 'demil', label: 'DEMIL', width: '2.5em' })}{F({ id: 'usml', label: 'USML', width: '2.5em' })}{F({ id: 'determination', label: 'Determination NBR', width: '8em' })}</span>
         {check('routing', 'Routing')}{check('weapons', 'Weapons Shipment')}{check('etrrInd', 'ETRR Ind')}{check('equipSys', 'Equipment Sys Ind')}
-        {F({ id: 'commodity', label: 'Commodity S/H', width: '4em' })}
+        <span className="cmos-f"><label htmlFor="sp-commodity">Commodity S/H</label>{control('commodity', { width: '4em' })}<button type="button" className="cmos-lookup" aria-label="Look up Commodity S/H codes" disabled={locked} onClick={() => setCommodityLookup(true)}>⌕</button></span>
+        {commodityLookup && <CommodityLookup value={value('commodity')} onSelect={code => actions.editRecord('commodity', code)} onClose={() => setCommodityLookup(false)} />}
       </div>
       <div className="cmos-col">
         {check('dg1387', 'Danger Goods/1387-2 Required')}
@@ -171,7 +175,7 @@ function PlanningRecord({ shipment, exercise, actions, onClose, onExprShip }) {
         {check('dd1907', 'DD Form 1907 Required')}{check('dunnage', 'Dunnage Required')}
         {F({ id: 'courier', label: 'Armed Forces Courier Ind', options: ['Y', 'N'], width: '3.5em' })}
         {check('mail', 'Mail Shipment')}{check('vet', 'Vet Inspectable Container')}{check('serialized', 'Serialized Shipment')}
-        {F({ id: 'airDim', label: 'Air Dim', options: ['Y', 'N'], width: '3.5em' })}
+        {F({ id: 'airDim', label: 'Air Dim', options: AIR_DIM_OPTIONS, optionLabels: AIR_DIM_LABELS, width: '3.5em' })}
       </div>
     </div>}
     {tab === 'pieces' && <div className="cmos-panel" role="tabpanel" aria-label="Pieces">

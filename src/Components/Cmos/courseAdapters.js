@@ -367,6 +367,13 @@ export function projectCdf(store, session) {
     for (const [key, e] of Object.entries(exercises))
       exercises[key] = { ...e, manifestAccepted: false };
   }
+  // The guided Manifest step asks for the mission to be built in Air Schedule first.
+  const missionScheduled = Object.values(store.missions || {}).some(
+    (m) => m.saved && (m.saved.statusCode || "O") === "O",
+  );
+  const deploymentSet = Object.values(store.deployments || {}).some((r) => r.saved && !r.terminated);
+  for (const [key, e] of Object.entries(exercises))
+    exercises[key] = { ...e, missionScheduled, deploymentSet };
   return { exercises, state };
 }
 export function projectOutbound(store, exercises) {

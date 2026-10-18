@@ -5,6 +5,8 @@ import DateField from "../Outbound/DateField";
 import { MODE_REFERENCE, MIL_EDI_REFERENCE } from "./modeReference";
 import { CIIC_REFERENCE, HOLD_CODE_REFERENCE } from "./planningReferences";
 import ReferenceLookup from "./ReferenceLookup";
+import CommodityLookup from "./CommodityLookup";
+import { COMMODITY_CODES, DEMIL_CODES } from "./commodityReference";
 import { AIR_MANIFEST_REFERENCES, EQUIPMENT_TYPES, TYPE_PACK_CODES, GBLOCS, MEASURE_UNITS, RIN_CODES, ROUTE_ORDER_SERVICES, SPECIAL_SERVICES } from "./dtrReference";
 export { Dialog };
 export const lookupValues = (f) => {
@@ -23,6 +25,8 @@ export const lookupValues = (f) => {
       ["UPSQ", "UPS Freight"],
       ["TRNC", "Training Motor Carrier"],
     ];
+  if (f.id === "commoditySH") return COMMODITY_CODES;
+  if (f.id === "demil") return DEMIL_CODES;
   if (f.id === "rin") return RIN_CODES;
   if (/equipment|equipType/i.test(f.id)) return EQUIPMENT_TYPES;
   if (f.id === "svcCode") return SPECIAL_SERVICES;
@@ -79,7 +83,7 @@ export function Fields({
             key={f.id}
             data-field={f.id}
           >
-            <span>{label}</span>
+            <span>{f.required && <span className="shared-required-mark" aria-hidden="true">* </span>}{label}</span>
             <span className="shared-control">
               {f.type === "checkbox" ? (
                 <input
@@ -87,7 +91,7 @@ export function Fields({
                   aria-label={name}
                   checked={Boolean(value)}
                   disabled={
-                    locked ||
+                    locked || f.readOnly ||
                     (f.id === "repship" &&
                       "$12345689ABCDEFGHKLO".includes(
                         String(values?.ciic || ""),
@@ -167,9 +171,12 @@ export function Lookup({ field, rows, onSelect, onClose }) {
   const reference = {
     ciic: { title: "CIIC Lookup", columns: ["CIIC", "Description"] },
     holdCode: { title: "Hold Code Lookup", columns: ["Code", "Description"] },
+    demil: { title: "DEMIL Lookup", columns: ["DEMIL", "Description"] },
+    adviceNumber: { title: "Advice Number Lookup", columns: ["Advice Number", "Fund Identifier", "SDN", "Effective Date", "Expiration Date"] },
     milMode: { title: "MIL/EDI Mode Code Lookup", columns: ["MIL Mode", "EDI Mode", "Description"] },
     ediMode: { title: "MIL/EDI Mode Code Lookup", columns: ["MIL Mode", "EDI Mode", "Description"], valueIndex: 1 },
   }[field.id];
+  if (field.id === "commoditySH") return <CommodityLookup onSelect={onSelect} onClose={onClose} />;
   if (reference) return <ReferenceLookup {...reference} rows={rows} onSelect={onSelect} onClose={onClose} />;
   return (
     <Dialog title={`${field.label} lookup`} onClose={onClose} overlayClassName="shared-lookup-overlay">

@@ -1,0 +1,56 @@
+rules_version = '2';
+
+// Transit IQ: only people on the instructor-maintained allow-list can use the database.
+// allowlist/{email}: document ID is the lowercase email; field role is "trainee", "instructor" or "demo".
+// Trainees read and write only their own data; instructors can also read every trainee's data.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null && request.auth.token.email != null;
+    }
+    function email() {
+      return request.auth.token.email.lower();
+    }
+    function entry() {
+      return /databases/$(database)/documents/allowlist/$(email());
+    }
+    function allowed() {
+      return signedIn() && exists(entry());
+    }
+    function instructor() {
+      return allowed() && get(entry()).data.role == 'instructor';
+    }
+    function owner(uid) {
+      return allowed() && request.auth.uid == uid;
+    }
+    // Demo (showcase) accounts are shared, so they never save to the cloud.
+    function writer(uid) {
+      return owner(uid) && get(entry()).data.role in ['trainee', 'instructor'];
+    }
+
+    // Managed only in the Firebase console. A user may read their own entry (to learn their role);
+    // instructors may read the whole list.
+    match /allowlist/{address} {
+      allow read: if signedIn() && (address == email() || instructor());
+      allow write: if false;
+    }
+
+    match /users/{uid} {
+      allow read: if owner(uid) || instructor();
+      allow write: if writer(uid);
+
+      // One saved session per course.
+      match /sessions/{course} {
+        allow read: if owner(uid) || instructor();
+        allow write: if writer(uid) && course in ['cdf', 'outbound'];
+
+        // The simulated CMOS database, kept apart so neither document nears the 1 MiB limit.
+        match /cmos/{doc} {
+          allow read: if owner(uid) || instructor();
+          allow write: if writer(uid);
+        }
+      }
+    }
+    // Anything not matched above is denied by default.
+  }
+}

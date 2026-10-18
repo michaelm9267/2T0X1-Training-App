@@ -53,7 +53,8 @@ test('MILSTRIP Edit Check requires a document number', () => {
   start('M - MILSTRIP');
   userEvent.click(screen.getByRole('button', { name: 'Save', exact: true }));
   userEvent.click(screen.getByRole('button', { name: 'Edit TCN', exact: true }));
-  expect(screen.getByRole('status')).toHaveTextContent('Required: docNbr');
+  expect(screen.getByRole('status')).toHaveTextContent('Edit TCN Failed');
+  expect(screen.getByRole('dialog', { name: 'Consistency Check Results' })).toHaveTextContent('Required: docNbr');
 });
 
 test('saving immediately after document entry persists the generated TCN', () => {

@@ -1,6 +1,10 @@
+import { cmosUser } from "../../currentUser";
+import { requiresNmfc } from "./modeReference";
+import { departMission } from "./airScheduleLogic";
+import { routingErrors } from "./routingLogic";
 import { eligibleForAirManifest, airAssignmentIds, refreshAirManifestSample } from "./airManifestLogic";
 import { documentType } from "./tcnCreation";
-import { parseCmosDate, parseEasternDateTime } from "./dateLogic";
+import { parseCmosDate } from "./dateLogic";
 // Serializable shared CMOS records. Saving is deliberately independent of checking.
 export const KINDS = [
   "shipments",
@@ -13,6 +17,8 @@ export const KINDS = [
   "express",
   "quotes",
   "documents",
+  "missions",
+  "deployments",
 ];
 const clone = (x) => JSON.parse(JSON.stringify(x));
 export const createCmosStore = () => ({
@@ -155,7 +161,7 @@ export function saveRecord(store, kind, id) {
             revision: r.revision + 1,
             status: "Saved",
             date: new Date().toISOString(),
-            user: "TRAINEE",
+            user: cmosUser(),
           },
         ]
       : store.history,
@@ -188,13 +194,58 @@ const required = {
   shipments: ["tcn", "description", "milMode", "origin", "destination", "tac"],
   pieces: ["shipmentId", "weight", "length", "width", "height", "typePack"],
   hazards: ["shipmentId", "piece", "templateId", "certifier"],
-  routings: ["requestType", "atrHours", "pickupEarliest", "deliveryLatest"],
+  routings: ["atrHours"],
   airManifests: ["mission", "dsoeId", "chalk", "pod", "destination"],
   truckManifests: ["dsoeId", "chalk", "conveyanceMode", "equipmentType"],
   bills: ["scac", "currency", "estimatedCharges"],
   express: ["scac", "service", "shipDate", "packageType"],
   quotes: [],
 };
+// The fields marked * on Shipment Planning.
+export const PLANNING_REQUIRED = [["tcn", "TCN"], ["milMode", "MIL Mode"], ["origin", "Consignor"], ["nsn", "NSN"], ["ciic", "CIIC"]];
+// NMFC/UFC joins them for commercial modes.
+export const planningRequired = (draft) =>
+  requiresNmfc(draft?.milMode) ? [...PLANNING_REQUIRED, ["nmfc", "NMFC/UFC"]] : PLANNING_REQUIRED;
+export const missingRequired = (draft) =>
+  planningRequired(draft).filter(([field]) => !String(draft?.[field] ?? "").trim()).map(([, label]) => label);
+// Edit TCN for MIL Mode F (AMC channel air) checks the air data the Air Manifest needs, in the
+// order CMOS lists it under Consistency Check Results.
+export const MISSING_PREFIX = "Missing: ";
+export function airConsistencyMissing(store, id) {
+  const d = data(store.shipments?.[id], true);
+  const t = totals(store, [id], true);
+  const blank = (field) => !String(d[field] ?? "").trim();
+  return [
+    blank("destination") && blank("ucName") && "Consignee data (Name or DODAAC is required)",
+    blank("commoditySH") && "Commodity/Special Handling Code",
+    blank("poe") && "POE",
+    blank("pod") && "POD",
+    blank("tac") && "TAC",
+    blank("eta") && "ETA CODE",
+    blank("airDim") && "Air Dimension Code",
+    !(t.weight > 0) && "Weight",
+    !(t.cube > 0) && "Cube",
+    !t.pieces && "Piece data",
+  ].filter(Boolean);
+}
+// Edit TCN for commercial modes and 9 (see requiresNmfc): what SPE/SMALP shipping needs.
+export function commercialConsistencyMissing(store, id) {
+  const d = data(store.shipments?.[id], true);
+  const blank = (field) => !String(d[field] ?? "").trim();
+  return [
+    blank("rdd") && "RDD (Required for SPE/SMALP)",
+    blank("destination") && blank("ucName") && "Consignee data (Name or DODAAC is required)",
+    blank("description") && "Nomenclature",
+    !piecesFor(store, [id], true).length && "Piece data",
+  ].filter(Boolean);
+}
+// Hazardous shipments without a DG2 template, and T-9 shipments without miscellaneous lines,
+// are reported in their own sections of Consistency Check Results.
+// Chalks are three digits, 001 through 999.
+export const validChalk = (value) => /^\d{3}$/.test(String(value ?? "").trim()) && String(value).trim() !== "000";
+export const CHALK_FORMAT_ERROR = "Chalk must be 001 - 999.";
+export const DG2_TEMPLATE_MISSING = "Missing DG/-2 TEMPLATE ID";
+export const T9_MISC_MISSING = "No miscellaneous data found";
 export function validationErrors(store, kind, id, context = {}) {
   const r = store[kind]?.[id],
     d = data(r, true),
@@ -202,26 +253,42 @@ export function validationErrors(store, kind, id, context = {}) {
   if (!r?.saved) errors.push("Save this record before running a check.");
   if (r && JSON.stringify(r.draft) !== JSON.stringify(r.saved))
     errors.push("Save your changes before running a check.");
-  for (const field of required[kind] || [])
-    if (!String(d[field] ?? "").trim()) errors.push(`Required: ${field}`);
+  const airMode = kind === "shipments" && eligibleForAirManifest(r);
+  const commercialMode = kind === "shipments" && requiresNmfc(d.milMode);
+  // Blank * fields lead the Consistency Check Results list for every mode.
+  if (kind === "shipments") errors.push(...missingRequired(d).map((label) => MISSING_PREFIX + label));
+  if (airMode) {
+    errors.push(...airConsistencyMissing(store, id).map((m) => MISSING_PREFIX + m));
+  } else if (commercialMode) {
+    errors.push(...commercialConsistencyMissing(store, id).map((m) => MISSING_PREFIX + m));
+  } else {
+    const starred = kind === "shipments" ? PLANNING_REQUIRED.map(([field]) => field) : [];
+    for (const field of required[kind] || [])
+      if (!starred.includes(field) && !String(d[field] ?? "").trim()) errors.push(`Required: ${field}`);
+  }
+  if (["airManifests", "truckManifests", "bills"].includes(kind) && String(d.chalk ?? "").trim() && !validChalk(d.chalk))
+    errors.push(CHALK_FORMAT_ERROR);
   if (kind === "pieces")
     for (const f of ["weight", "length", "width", "height"])
       if (!(Number(d[f]) > 0)) errors.push(`${f} must be greater than zero.`);
   if (kind === "shipments") {
     if (documentType(d.docType) === "M" && !String(d.docNbr || "").trim()) errors.push("Required: docNbr");
-    if (!piecesFor(store, [id], true).length)
-      errors.push("At least one saved piece is required.");
-    for (const p of piecesFor(store, [id], true))
-      errors.push(...validationErrors(store, "pieces", p.id));
-    if (["A", "W"].includes(d.atcmdType) && !d.t9Remarks)
-      errors.push("T-9 remarks are required.");
+    if (!airMode && !commercialMode) {
+      if (!piecesFor(store, [id], true).length)
+        errors.push("At least one saved piece is required.");
+      for (const p of piecesFor(store, [id], true))
+        errors.push(...validationErrors(store, "pieces", p.id));
+    }
+    const t9Lines = (d.t9Entries || []).length || String(d.t9Remarks || "").trim();
+    if ((d.t9Required || ["A", "W"].includes(d.atcmdType)) && !t9Lines)
+      errors.push(T9_MISC_MISSING);
     if (d.hazmat && !d.hazmat.startsWith("N")) {
       const hs = Object.values(store.hazards).filter(
         (h) => h.saved?.shipmentId === id,
       );
-      if (!hs.length) errors.push("DG2 hazardous data is required.");
+      if (!hs.some((h) => String(h.saved.templateId || "").trim())) errors.push(DG2_TEMPLATE_MISSING);
       hs.forEach((h) =>
-        errors.push(...validationErrors(store, "hazards", h.id)),
+        errors.push(...validationErrors(store, "hazards", h.id).filter((e) => e !== "Required: templateId")),
       );
     }
     const duplicate = Object.values(store.shipments).some(
@@ -258,32 +325,8 @@ export function validationErrors(store, kind, id, context = {}) {
   }
   if (kind === "hazards" && !d.page2?.properShippingName)
     errors.push("Proper shipping name is required.");
-  if (kind === "routings") {
-    if (
-      !Object.values(store.documents).some(
-        (x) =>
-          x.saved?.ownerId === id &&
-          x.saved.collection === "Equip Load Plan" &&
-          String(x.saved.equipmentType || "").trim() &&
-          JSON.stringify(x.draft) === JSON.stringify(x.saved),
-      )
-    )
-      errors.push("Add equipment to the load plan.");
-    for (const f of [
-      "pickupEarliest",
-      "pickupLatest",
-      "deliveryEarliest",
-      "deliveryLatest",
-    ])
-      if (d[f] && parseEasternDateTime(d[f]) === null)
-        errors.push(`${f} must be a valid Eastern date/time.`);
-    const pickup = parseEasternDateTime(d.pickupEarliest),
-      delivery = parseEasternDateTime(d.deliveryLatest);
-    if (pickup !== null && delivery !== null && pickup > delivery)
-      errors.push("Pickup must precede delivery.");
-    if (!(Number(d.atrHours) > 0))
-      errors.push("ATR carrier response hours must be greater than zero.");
-  }
+  // Route orders: the same rules Save applies on the Routings screen.
+  if (kind === "routings") errors.push(...routingErrors(d));
   if (kind === "express" && d.quoteId) {
     const q = store.quotes[d.quoteId];
     if (
@@ -332,7 +375,7 @@ export function checkRecord(store, kind, id, context = {}) {
         status: errors.length ? "Edits failed" : "Passed Edits",
         errors,
         date: new Date().toISOString(),
-        user: "TRAINEE",
+        user: cmosUser(),
       },
     ],
   };
@@ -557,6 +600,10 @@ export function transition(store, kind, id, action, context = {}) {
     store: {
       ...store,
       [kind]: { ...store[kind], [id]: changed },
+      // Releasing an Air Manifest records the mission's actual departure in Air Schedule.
+      ...(action === "Release" && kind === "airManifests"
+        ? { missions: departMission(store.missions, r.draft.mission, releaseDetails.departureAt) }
+        : {}),
       history: [
         ...store.history,
         {
@@ -566,7 +613,7 @@ export function transition(store, kind, id, action, context = {}) {
           revision: r.revision,
           status,
           date: new Date().toISOString(),
-          user: "TRAINEE",
+          user: cmosUser(),
         },
       ],
     },

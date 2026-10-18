@@ -1,5 +1,5 @@
 import FloatingWindow from '../Session/FloatingWindow';
-import { Barcode, Pdf417 } from '../Documentation/MilitaryShippingLabel';
+import { Barcode, MslLabel, dodaacLines } from '../Documentation/MilitaryShippingLabel';
 import { ITEMS, consignee, originOf } from './outboundData';
 import { DOCUMENT_DAY, julian } from './outboundShipments';
 import { MIL_MODES } from './outboundLogic';
@@ -19,11 +19,20 @@ export function PrintPreview({ title, onClose, wide, children }) {
 
 // Where the piece goes: the Ultimate Consignee address when the trainee entered one, otherwise the
 // address on file for the consignee DoDAAC they entered.
+function consigneeLines(draft, dodaac) {
+  const uc = String(draft.ucName ?? '').trim();
+  const lines = uc
+    ? [`${dodaac}  ${uc}`, draft.ucPhone && `CP ${draft.ucPhone}`, draft.ucAddress, draft.ucAddress2, [draft.ucCity, draft.ucState, draft.ucZip].filter(Boolean).join(' '), draft.ucCountry]
+    : dodaacLines(dodaac);
+  return [...lines, draft.markFor && `MARK FOR: ${draft.markFor}`].filter(Boolean);
+}
 function shipTo(draft) {
   if (String(draft.ucName ?? '').trim()) return { name: draft.ucName, lines: [draft.ucAddress, draft.ucAddress2, [draft.ucCity, draft.ucState, draft.ucZip].filter(Boolean).join(' '), draft.ucCountry].filter(Boolean), phone: draft.ucPhone };
   const info = consignee(String(draft.consignee ?? '').trim().toUpperCase());
   return info ? { name: info.unit, lines: [info.address, info.city] } : { name: '', lines: [] };
 }
+// What the label prints under TAC for each MIL mode.
+const MIL_MODE_SHORT = { F: 'AMC', 9: 'AMC' };
 
 export function OutboundMsl({ shipment, exercise, index }) {
   const record = exercise.cmos.record;
@@ -31,37 +40,14 @@ export function OutboundMsl({ shipment, exercise, index }) {
   const piece = record.pieces[index];
   const tcn = activeTcn(shipment, exercise);
   const from = originOf(shipment);
-  const to = shipTo(d);
   const dodaac = String(d.consignee ?? '').toUpperCase();
-  return <div className="msl" aria-label={`Military shipping label, piece ${index + 1} of ${record.pieces.length}`}>
-    <div className="msl-tcn"><small>TCN</small><strong>{tcn}</strong><Barcode text={tcn} height={50} /></div>
-    <div className="msl-from-row">
-      <div className="msl-from"><small>From</small> <b>{d.consignor}</b><p>{from.unit}<br />{from.address}<br />{from.city}</p></div>
-      <div className="msl-tac"><small>TAC/Type Service/Postage</small><b>{d.tac}</b><b>{(MIL_MODES[d.milMode] || '').toUpperCase()}</b></div>
-    </div>
-    <div className="msl-grid">
-      <div className="msl-piece"><small>Piece</small> <b>{index + 1}</b> <small>Of</small> <b>{record.pieces.length}</b><Barcode text={`${index + 1}${record.pieces.length}${tcn.slice(-5)}`} height={60} className="msl-piece-code" /></div>
-      <div className="msl-box"><small>Weight(lb.)</small><b>{piece.weight}</b></div>
-      <div className="msl-box"><small>Date Shipped</small><b>{julian(DOCUMENT_DAY)}</b></div>
-      <div className="msl-box msl-rdd"><small>RDD</small><b>{d.rdd}</b></div>
-      <div className="msl-box"><small>Cube (ft.)</small><b>{pieceCube(piece)}</b></div>
-      <div className="msl-box"><small>Project</small><b>{d.proj}</b></div>
-      <div className="msl-priority"><small>Priority</small><span>{d.tp}</span></div>
-    </div>
-    <div className="msl-shipto"><div><small>Ship To/POE</small><span className="msl-port">{d.poe || dodaac}</span></div><p className="msl-note">FOR TRAINING USE ONLY<br />Fictional label — not for shipment</p></div>
-    <div className="msl-lower">
-      <div className="msl-left">
-        <div><small>POD</small><span className="msl-port">{d.pod}</span></div>
-        <div><small>FMS Case</small><b>{d.fms}</b></div>
-        <div />
-      </div>
-      <div className="msl-data"><small>MSL, Supply, and TCMD Data</small><Pdf417 text={`${tcn}${dodaac}${piece.weight}${index}`} /></div>
-    </div>
-    <div className="msl-consignee">
-      <div><strong>{dodaac}</strong>{dodaac && <Barcode text={dodaac} height={44} />}</div>
-      <div><small>Ultimate Consignee / Mark for Consignee</small><p>{to.name}{to.lines.map(line => <span key={line}><br />{line}</span>)}{dodaac && <><br />DoDAAC {dodaac}</>}{d.markFor && <><br />MARK FOR: {d.markFor}</>}</p></div>
-    </div>
-  </div>;
+  const consignor = String(d.consignor || from.cmosDodaac).toUpperCase();
+  return <MslLabel label={`Military shipping label, piece ${index + 1} of ${record.pieces.length}`} d={{
+    tcn, from: consignor, fromLines: dodaacLines(consignor), tac: d.tac, service: MIL_MODE_SHORT[d.milMode] || (MIL_MODES[d.milMode] || '').toUpperCase(),
+    piece: index + 1, of: record.pieces.length, weight: piece.weight, cube: pieceCube(piece), shipped: julian(DOCUMENT_DAY),
+    rdd: d.rdd, project: d.proj, priority: d.tp, poe: d.poe || dodaac, shipToLines: d.poe ? dodaacLines(d.poeDodaac || from.cmosDodaac) : consigneeLines(d, dodaac),
+    pod: d.pod, fmsCase: d.fms, consignee: dodaac, consigneeLines: consigneeLines(d, dodaac),
+  }} />;
 }
 
 export function CarrierLabel({ shipment, exercise }) {
@@ -74,7 +60,7 @@ export function CarrierLabel({ shipment, exercise }) {
   return <div className="carrier-label" aria-label="Carrier shipping label">
     <div className="carrier-label-head"><strong>{draft.scac}</strong><span>{(draft.service || '').toUpperCase()}</span><span>{draft.domInt}</span></div>
     <div className="carrier-label-row">
-      <div><small>ORIGIN</small><p>{from.unit}<br />{from.address}<br />{from.city}</p></div>
+      <div><small>ORIGIN</small><p>{from.unit}<br />{from.address}<br />{from.address2 && <>{from.address2}<br /></>}{from.city}</p></div>
       <div><small>SHIP DATE</small><p>{result.closed}</p><small>ACT WGT</small><p>{weight} LB</p><small>DIMS</small><p>{piece.length}×{piece.width}×{piece.height} IN</p></div>
     </div>
     <div className="carrier-label-to"><small>TO</small><p><b>{to.name}</b>{to.lines.map(line => <span key={line}><br />{line}</span>)}{to.phone && <><br />{to.phone}</>}</p><p className="carrier-label-city">{draft.destCity}</p></div>
@@ -95,7 +81,7 @@ export function CommercialInvoice({ shipment, exercise }) {
     <h4>COMMERCIAL INVOICE</h4>
     <dl className="invoice-grid">
       <dt>Date</dt><dd>{result.closed}</dd><dt>Carrier / Tracking</dt><dd>{draft.scac} {result.tracking}</dd>
-      <dt>Shipper</dt><dd>{from.unit}, {from.address}, {from.city}</dd>
+      <dt>Shipper</dt><dd>{[from.unit, from.address, from.address2, from.city].filter(Boolean).join(', ')}</dd>
       <dt>Consignee</dt><dd>{[to.name, ...to.lines].join(', ')}</dd>
       <dt>Reference (TCN)</dt><dd>{activeTcn(shipment, exercise)}</dd><dt>Bill to / TAC</dt><dd>{draft.billTo || 'Shipper'} · {record.draft.tac}</dd>
       <dt>Reason for export</dt><dd>U.S. GOVERNMENT MATERIEL — NOT FOR RESALE</dd>
@@ -115,7 +101,7 @@ export function PickupReport({ origin, scac, closed, pu, packages }) {
   const totals = packages.reduce((sum, p) => ({ pieces: sum.pieces + p.pieces, weight: sum.weight + p.weight }), { pieces: 0, weight: 0 });
   return <div className="pickup-report" aria-label={`Pickup report ${scac}`}>
     <h4>SMALL PACKAGE EXPRESS PICKUP REPORT</h4>
-    <p>{origin.unit} · {origin.address}, {origin.city} · DODAAC {origin.cmosDodaac}</p>
+    <p>{origin.unit} · {[origin.address, origin.address2, origin.city].filter(Boolean).join(', ')} · DODAAC {origin.cmosDodaac}</p>
     <p><strong>SCAC:</strong> {scac} &nbsp; <strong>Closed date:</strong> {closed || 'ALL'} &nbsp; <strong>P/U location:</strong> {pu || 'ALL'}</p>
     <table className="manifest-table">
       <thead><tr>{['TCN', 'Tracking number', 'Service', 'D/I', 'Pieces', 'Weight (lb)', 'Consignee', 'Dest city', 'Closed'].map(title => <th key={title} scope="col">{title}</th>)}</tr></thead>

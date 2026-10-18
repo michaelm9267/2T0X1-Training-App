@@ -1,3 +1,4 @@
+import { JBER_CONSIGNOR, JBER_CITY_LINE } from '../jberConsignor';
 import { screenATTLA, packingListRequired, letterApplies } from './transportability';
 import { recordMistake } from './mistakes';
 export function paperwork(scenario) {
@@ -31,7 +32,7 @@ export function requestCopies(scenario,e,id,amount) {
 // DoDAACs from the DoDAAC address file (FA5030 access list), offered in the CMOS-style manifest
 // dropdowns. Each pairs with its aerial port: the APOD for overseas units, the APOE for CONUS ports.
 export const DODAAC_INFO={
-  FB5000:{port:'EDF',unit:'673 LRS LGRM',address:'5257 FINLETTER AVE',city:'JBER, AK 99506'},
+  [JBER_CONSIGNOR.dodaac]:{port:JBER_CONSIGNOR.port,unit:JBER_CONSIGNOR.unit,address:JBER_CONSIGNOR.address1,address2:JBER_CONSIGNOR.address2,city:JBER_CITY_LINE,phone:JBER_CONSIGNOR.phone},
   FB5294:{port:'OSN',unit:'51 LRS LGRDDC',address:'OSAN AB BLDG 824 SINJANG DONG',city:'PYEONGTAEK CITY, KR 17759'},
   FB5284:{port:'KUZ',unit:'8 LRS LGRD',address:'KUNSAN AB BLDG 823 RCVG SECT',city:'GUNSAN CITY, KR 54164'},
   FB5270:{port:'DNA',unit:'18 LRS LGRDDC',address:'KADENA AB BLDG 794 DOUGLAS BLVD',city:'KADENA AB OKINAWA, JP 904 0200'},
@@ -50,7 +51,7 @@ export const DODAAC_PORTS=Object.fromEntries(Object.entries(DODAAC_INFO).map(([d
 export const DODAACS=Object.keys(DODAAC_PORTS).sort();
 // Every increment in the deployment moves from JBER (EDF) to one overseas destination, chosen
 // for each deployment from these units. DESTINATION is the default when none is set.
-export const ORIGIN='FB5000';
+export const ORIGIN=JBER_CONSIGNOR.dodaac;
 export const DESTINATIONS=['FB5294','FB5284','FB5270','FB5209','FB5205','FB5240','FB5260','FB5612','FB5587'];
 export const DESTINATION='FB5294';
 export const randomDestination=(random=Math.random)=>DESTINATIONS[Math.floor(random()*DESTINATIONS.length)];

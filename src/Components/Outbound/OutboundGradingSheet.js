@@ -5,7 +5,7 @@ import { MISTAKE_STEP, gradeOutbound } from './outboundGrading';
 // The outbound grading sheet: trainee, final score, and what went wrong on each customer.
 export default function OutboundGradingSheet({ trainee, origin, shipments, exercises, finishedAt, onClose }) {
   const { customers, final, mistakePoints } = gradeOutbound(shipments, exercises);
-  return <GradingSheet heading="Outbound Training Grading Sheet" subtitle={`${origin.unit} · ${origin.name} (${origin.dodaac})`} trainee={trainee} finishedAt={finishedAt} final={final} onClose={onClose}
+  return <GradingSheet heading="Outbound Training Grading Sheet" subtitle={`${origin.unit} · ${origin.name} (${origin.cmosDodaac})`} trainee={trainee} finishedAt={finishedAt} final={final} onClose={onClose}
     boxes={[['Customers shipped', `${customers.filter(c => c.complete).length} of ${customers.length}`]]}
     scoringNote={`Each customer starts at 100. Each mistake costs ${mistakePoints} points. A customer not shipped when the test was finished scores 0. The final score averages all ${customers.length} customers. CMOS entries are not graded; the evaluator reviews them with the trainee.`}
     columns={['Customer', 'Item', 'Document', 'TCN', 'Mil Mode', 'Status', 'Mistakes', 'Score']}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AIR_MANIFEST_COLUMNS, AIR_MANIFEST_SAMPLES, eligibleForAirManifest, availableForAirManifest, airAssignmentIds } from './airManifestLogic';
 import { field } from './referenceInventory';
+import { manifestMissions } from './airScheduleLogic';
 import { Dialog } from './controls';
 import { assignShipments, editRecord, totals } from './model';
 
@@ -41,7 +42,7 @@ export default function AirManifestScreen({ store, record, opened, locked, openM
   const columns = cargoTab === 'Assigned Pallets' ? palletColumns : looseColumns;
   const rows = cargo.filter(row => Object.entries(cargoFilters).every(([key, value]) => contains(row[key], value)));
   const header = [
-    [field('Manifest', 'manifestNumber'), { ...field('Mission', 'mission'), lookup: all.filter(r => r.draft.mission).map(r => [r.draft.mission, `${r.draft.pod} ${r.draft.destination}`]) }, field('DSOE ID', 'dsoeId'), field('Chalk', 'chalk'), field('POD', 'pod'), { ...field('Destination', 'destination'), lookup: false }],
+    [field('Manifest', 'manifestNumber'), { ...field('Mission', 'mission'), lookup: manifestMissions(store).map(m => [m.missionNumber, [m.dsoeId && `DSOE ${m.dsoeId}`, m.chalk && `CHALK ${m.chalk}`, m.routings?.filter(Boolean).join('-')].filter(Boolean).join(' · ')]) }, field('DSOE ID', 'dsoeId'), { ...field('Chalk', 'chalk'), placeholder: '001', help: 'Chalk: 001 - 999' }, field('POD', 'pod'), { ...field('Destination', 'destination'), lookup: false }],
     [{ ...field('Mode', 'mode'), lookup: [['F', 'AIR MOBILITY COMMAND (AMC) CHANNEL AND SPECIAL ASSIGNMENT']] }, field('Weight', 'weight'), field('Cube', 'cube'), field('Ref ID', 'refId'), field('Complete', 'complete', 'select', ['Yes', 'No']), field('Remarks', 'remarks')],
   ];
   const figures = shipmentIds.length ? total : { weight: draft.weight || 0, cube: draft.cube || 0 };

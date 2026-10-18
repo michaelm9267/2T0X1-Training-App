@@ -1,15 +1,23 @@
 import AirManifestScreen from "./AirManifestScreen";
+import AirScheduleScreen from "./AirScheduleScreen";
+import CmosDateField from "./CmosDateField";
+import { formatScheduleDate } from "./airScheduleLogic";
+import RoutingScreen from "./RoutingScreen";
+import { routingDefaults, ROUTING_SAMPLES } from "./routingLogic";
+import { cmosUser } from "../../currentUser";
+import DeploymentParametersScreen from "./DeploymentParametersScreen";
+import { planningDefaults } from "./deploymentLogic";
 import CommercialBolScreen from "./CommercialBolScreen";
-import { CBL_SAMPLES, cblDefaults, fillFromShipments, nextCblNumber } from "./cblLogic";
-import { rinTextFor } from "./dtrReference";
+import { CBL_SAMPLES, cblDefaults, fillFromShipments, nextCblNumber, addressPatch } from "./cblLogic";
+import { rinTextFor, gblocForDodaac } from "./dtrReference";
 import { AIR_MANIFEST_SAMPLES, availableForAirManifest, nextAirManifestNumber, airManifestCounterKey } from "./airManifestLogic";
 import { PLANNING_STATUS_GROUPS, planningStatus, planningStatusLabel, isPlanningViewOnly, incheckedStatus, incheckPlanningRecord } from "./planningStatuses";
 import { documentTcn, documentType, nonMilstripTcn } from "./tcnCreation";
-import { ediForMilMode } from "./modeReference";
+import { ediForMilMode, requiresNmfc } from "./modeReference";
 import HazardousTcn from "./HazardousTcn";
-import { isHazardousIndicator } from "../CargoWindow/workflow";
+import { isHazardousIndicator, ORIGIN } from "../CargoWindow/workflow";
 import DetailTabs from "./DetailTabs";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import FloatingWindow from "../Session/FloatingWindow";
 import CmosWindow from "../Outbound/CmosWindow";
 import {
@@ -34,6 +42,9 @@ import {
   totals,
   piecesFor,
   currentCheck,
+  MISSING_PREFIX,
+  DG2_TEMPLATE_MISSING,
+  T9_MISC_MISSING,
 } from "./model";
 import {
   getQuote,
@@ -47,7 +58,9 @@ import {
 } from "./operations";
 import { parseCmosDate } from "./dateLogic";
 import { Fields, Lookup, EntryDialog, Dialog } from "./controls";
-import DocumentManager from "./DocumentManager";
+import { derivePrimeDic } from "./primeDic";
+import DocumentManager, { DocumentContent } from "./DocumentManager";
+import PaperworkWindow, { PaperworkContext, openPaperworkWindow } from "./PaperworkWindow";
 import "./cmos.css";
 // Normalize before individual field handlers read the entry, including modal fields.
 function uppercaseEntry(event) {
@@ -67,6 +80,8 @@ function CmosDocumentation({ collapsed, children }) {
 }
 export const CMOS_PAGES = {
   "Shipment Planning": "planning",
+  "Air Schedule": "schedule",
+  "Deployment Parameters": "deployment",
   "Air Manifest": "air",
   "Commercial BOL": "cbl",
   "Truck Manifest": "truck",
@@ -99,7 +114,7 @@ const planningTraffic = Array.from({ length: 36 }, (_, i) => {
       description: ["FIBER USER MANUAL", "AIRCRAFT REPAIR PARTS", "GROUND SUPPORT EQUIPMENT", "COMMUNICATIONS EQUIPMENT", "TOOL KIT, GENERAL PURPOSE", "ADMINISTRATIVE SUPPLIES"][i % 6],
       totalCost: String([100, 285, 12450, 3750, 1850, 75][i % 6]) + ".00",
       nsn: `761001${String(4820100 + i).padStart(7, "0")}`, partNoAin: `TRN-${String(i + 1).padStart(4, "0")}`,
-      origin: "FB5000", ciic: "U", secClass: "U", typeCargo: "Z", hazmat: "N - Not hazardous",
+      origin: ORIGIN, ciic: "U", secClass: "U", typeCargo: "Z", hazmat: "N - Not hazardous",
       tac: ["F8R4", "F7C8", "F2RS", "", "F9GD"][i % 5],
       destination: dodaac, pod: i % 6 === 0 ? "SUU" : "", milMode: i % 6 === 0 ? "9" : "1",
       tp: String(i % 3 + 1), rdd: i % 3 === 0 ? "999" : "N1A", pieces: String(i % 4 + 1),
@@ -126,7 +141,7 @@ const LIST_FIRST = ["planning", "air", "cbl"];
 const defaults = {
   shipments: {
     docType: "N - Non-MILSTRIP",
-    primeDIC: "TX1",
+    primeDic: "TX1",
     ediMode: "AF",
     secClass: "U",
     tp: "3",
@@ -159,10 +174,13 @@ export default function CmosWorkspace({
     [lookup, setLookup] = useState(null),
     [entry, setEntry] = useState(null),
     [confirm, setConfirm] = useState(null),
+    [consistency, setConsistency] = useState(null),
     [assignment, setAssignment] = useState(false),
     [assignIds, setAssignIds] = useState([]),
     [assignQuery, setAssignQuery] = useState(""),
     [docs, setDocs] = useState([]),
+    [paperworkWin, setPaperworkWin] = useState(null),
+    [paperworkId, setPaperworkId] = useState(""),
     [documentId, setDocumentId] = useState(context.documents?.[0]?.id || ""),
     [printDialog, setPrintDialog] = useState(false),
     [docTitles, setDocTitles] = useState(["Carrier label"]),
@@ -203,7 +221,7 @@ export default function CmosWorkspace({
     id = context.finished
       ? viewSelection[kind] || store.selection?.[kind]
       : store.selection?.[kind],
-    record = store[kind]?.[id] || (page === "air" ? AIR_MANIFEST_SAMPLES.find(r => r.id === id) : page === "cbl" ? CBL_SAMPLES.find(r => r.id === id) : undefined),
+    record = store[kind]?.[id] || (page === "air" ? AIR_MANIFEST_SAMPLES.find(r => r.id === id) : page === "cbl" ? CBL_SAMPLES.find(r => r.id === id) : page === "routing" ? ROUTING_SAMPLES.find(r => r.id === id) : undefined),
     draft = data(record),
     locked = Boolean(context.finished || (page === "planning" && opened && isPlanningViewOnly(record)));
   const visibleTabs = Object.keys(definition.tabs).filter(t =>
@@ -217,6 +235,24 @@ export default function CmosWorkspace({
   const viewDocument = (did) => {
     setDocs((prev) => [...new Set([...prev, did])]);
   };
+  // The separate paperwork window. It closes with CMOS.
+  const openPaperwork = (did) => {
+    const win = openPaperworkWindow();
+    if (!win) {
+      setMessage("The browser blocked the paperwork window. Allow pop-ups for this site, or use View documentation.");
+      if (did) viewDocument(did);
+      return;
+    }
+    if (did) {
+      setPaperworkId(did);
+      setDocs((prev) => prev.filter((x) => x !== did));
+    }
+    setPaperworkWin(win);
+  };
+  const closePaperwork = useCallback(() => setPaperworkWin(null), []);
+  const paperworkRef = useRef(null);
+  paperworkRef.current = paperworkWin;
+  useEffect(() => () => paperworkRef.current?.close(), []);
   const change = (next) => {
     if (!locked) onChange(next);
   };
@@ -232,6 +268,7 @@ export default function CmosWorkspace({
   };
   const edit = (key, value) => {
     let patch = { [key]: value };
+    if (kind === "shipments" && key === "hazmat") patch.t9Required = isHazardousIndicator(value);
     if (kind === "shipments" && key === "docType" && value !== draft.docType) {
       const type = documentType(value);
       if (["N", "I"].includes(type)) patch.docNbr = "";
@@ -249,7 +286,19 @@ export default function CmosWorkspace({
         "$12345689ABCDEFGHKLO".includes(value) && value.length === 1;
       patch.repship = forced ? true : Boolean(draft.repship);
     }
+    // A DSOE with Deployment Parameters fills this shipment's blank fields.
+    if (kind === "shipments" && key === "dsoeId") Object.assign(patch, planningDefaults(store, value, draft));
     if (key === "protectiveService") patch.dd1907 = Boolean(value);
+    // Picking an Air Schedule mission fills the manifest's DSOE ID and Chalk.
+    if (kind === "airManifests" && key === "mission") {
+      const mission = Object.values(store.missions || {}).find(m => m.saved && String(m.saved.missionNumber).toUpperCase() === String(value).trim().toUpperCase());
+      if (mission) {
+        if (mission.saved.dsoeId) patch.dsoeId = mission.saved.dsoeId;
+        if (mission.saved.chalk) patch.chalk = mission.saved.chalk;
+      }
+    }
+    // CMOS builds the Prime DIC from the shipment, so it follows every change to it.
+    if (kind === "shipments") patch.primeDic = derivePrimeDic({ ...draft, ...patch });
     if (
       kind === "shipments" &&
       key === "hazmat" &&
@@ -264,17 +313,21 @@ export default function CmosWorkspace({
     }
     change(editRecord(store, kind, id, patch));
   };
-  const go = (next) => {
+  // `open` goes straight to the selected record (e.g. Routings B/L → its Commercial BOL).
+  const go = (next, { open = false } = {}) => {
     setPage(next);
     setTab(Object.keys(screens[next].tabs)[0]);
-    setOpened(!LIST_FIRST.includes(next));
+    setOpened(open || !LIST_FIRST.includes(next));
     setEntry(null);
     setSelected([]);
     setMessage("");
   };
   const choose = (id) => {
     if (locked) setViewSelection((prev) => ({ ...prev, [kind]: id }));
-    else change({ ...store, selection: { ...store.selection, [kind]: id } });
+    else {
+      const next = page === "planning" ? preparePlanningRecords([id]) : store;
+      change({ ...next, selection: { ...next.selection, [kind]: id } });
+    }
     setSelected([id]);
     if (page === "planning" && !opened) setPlanningSelection([id]);
     if (page !== "planning") setOpened(true);
@@ -295,6 +348,12 @@ export default function CmosWorkspace({
         delete header.cube;
         next = createRecord(next, "shipments", header, sample.id);
         next = { ...next, shipments: { ...next.shipments, [selectedId]: { ...next.shipments[selectedId], inchecked: sample.inchecked, ...(sample.statusCode ? { statusCode: sample.statusCode } : {}) } } };
+      }
+      const existing = next.shipments[selectedId];
+      if (existing && !String(existing.draft.origin || "").trim()) {
+        next = editRecord(next, "shipments", selectedId, {
+          origin: context.sourceOrigin || context.origin || ORIGIN,
+        });
       }
       if (incheck && next.shipments[selectedId])
         next = { ...next, shipments: { ...next.shipments, [selectedId]: incheckPlanningRecord(next.shipments[selectedId]) } };
@@ -327,10 +386,12 @@ export default function CmosWorkspace({
             tcn,
             docNbr: "",
             assetKey: context.activeAssetKey || null,
-            origin: context.sourceOrigin || context.origin || "",
+            origin: context.sourceOrigin || context.origin || ORIGIN,
           }
         : {}),
+      ...(["truckManifests", "routings"].includes(kind) ? { originDODAAC: context.origin || ORIGIN, origin: context.origin || ORIGIN, ...addressPatch("origin", context.origin || ORIGIN) } : {}),
       ...(kind === "bills" ? { ...cblDefaults(context.origin || "FA5030"), movementDocNbr } : {}),
+      ...(kind === "routings" ? routingDefaults(store, { gbloc: gblocForDodaac(context.origin || ORIGIN) || "MKFZ", origin: context.origin || ORIGIN, requester: cmosUser(), now: context.now ? new Date(context.now) : new Date() }) : {}),
       ...(kind === "express" ? { shipmentId: store.selection?.shipments } : {}),
       ...(kind === "quotes" ? { quoteTab: tab } : {}),
       ...(["airManifests", "truckManifests"].includes(kind)
@@ -370,6 +431,20 @@ export default function CmosWorkspace({
     const next = checkRecord(store, kind, id, context);
     change(next);
     const c = next[kind][id]?.check;
+    if (kind === "shipments" && c && !c.passed) {
+      // CMOS reports a failed Edit TCN in the status area and lists what is missing in a
+      // separate Consistency Check Results window.
+      setMessage(<span className="shared-edit-failed"><strong><span aria-hidden="true">✕</span> Edit TCN Failed</strong><br />TCN Failed Edit Checks</span>);
+      setConsistency({
+        tcn: next[kind][id].saved?.tcn || next[kind][id].draft.tcn || "",
+        placement: next[kind][id].saved?.palId ? "pallet" : "loose",
+        missing: c.errors.filter((e) => e.startsWith(MISSING_PREFIX)).map((e) => e.slice(MISSING_PREFIX.length)),
+        dg2: c.errors.includes(DG2_TEMPLATE_MISSING),
+        misc: c.errors.includes(T9_MISC_MISSING),
+        other: c.errors.filter((e) => !e.startsWith(MISSING_PREFIX) && e !== DG2_TEMPLATE_MISSING && e !== T9_MISC_MISSING),
+      });
+      return;
+    }
     setMessage(
       c?.passed
         ? "Passed Edits"
@@ -626,8 +701,12 @@ export default function CmosWorkspace({
     if (name === "Print Route Report") return print("Route report");
     if (name === "Print") {
       if (page === "cbl") {
-        setDocTitles(["Draft"]);
-        setPrintDialog({ page, kind, id });
+        setDocTitles(["Final"]);
+        // Print options, not bill fields (editing the bill would void its edit check). Estimated
+        // Pickup Date starts from the route order's earliest pickup, else today.
+        const route = Object.values(store.routings || {}).find((r) => Object.values(r.draft.equipGroups || {}).some((g) => g.cblId === id));
+        const pickup = draft.estimatedPickupDate || String(route?.draft.pickupEarliest || "").split("/")[0] || formatScheduleDate(context.now ? new Date(context.now) : new Date());
+        setPrintDialog({ page, kind, id, customs: "No", estimatedPickupDate: pickup });
       } else print("Rate quote");
     }
   }
@@ -653,6 +732,7 @@ export default function CmosWorkspace({
   const linked = store.shipments[draft.shipmentId]?.draft || {};
   const shown = {
     ...draft,
+    ...(kind === "shipments" && record ? { primeDic: derivePrimeDic(draft), consolidationInd: draft.consolidationInd || "N", courierInd: draft.courierInd || "N" } : {}),
     status: page === "planning" && record ? planningStatusLabel(record) : record?.status,
     totalWeight: String(total.weight),
     totalCube: total.cube.toFixed(1),
@@ -769,7 +849,8 @@ export default function CmosWorkspace({
   );
   const renderPlanningColumn = (fields, rows) => rows.map((ids, i) => (
     <div className="shared-detail-field-row" key={i}>
-      {renderFields(ids.map(id => fields.find(f => f.id === id)).filter(Boolean))}
+      {renderFields(ids.map(id => fields.find(f => f.id === id)).filter(Boolean)
+        .map(f => f.id === "nmfc" && requiresNmfc(draft.milMode) ? { ...f, required: true } : f))}
       {ids.includes("acctClass") && <button disabled={locked} onClick={() => {
         const next = createRecord(store, "documents", { ownerId: id, ownerKind: kind, collection: "Accounting" });
         change(next);
@@ -853,6 +934,7 @@ export default function CmosWorkspace({
     ),
   );
   return (
+    <PaperworkContext.Provider value={openPaperwork}>
     <div className="cmos-input-scope" onChangeCapture={uppercaseEntry}>
       <CmosWindow
         origin={{ cmosDodaac: "FA5030" }}
@@ -891,6 +973,9 @@ export default function CmosWorkspace({
               onClick={() => viewDocument(documentId)}
             >
               View documentation
+            </button>
+            <button type="button" onClick={() => openPaperwork(documentId)}>
+              Open in new window
             </button>
             <span>
               Training simulation ·{" "}
@@ -953,7 +1038,18 @@ export default function CmosWorkspace({
               </aside>
             )}
             <div>
-              {page === "air" ? <AirManifestScreen
+              {page === "deployment" ? <DeploymentParametersScreen store={store} change={change} locked={Boolean(context.finished)} setMessage={setMessage} adviceNumbers={context.adviceNumbers} />
+              : page === "schedule" ? <AirScheduleScreen store={store} change={change} locked={Boolean(context.finished)} setMessage={setMessage} dsoes={context.dsoes} />
+              : page === "routing" ? <RoutingScreen
+                {...{ store, record, opened, locked, edit, change, action, setMessage, renderFields, newCollection, go }}
+                now={context.now}
+                newRouting={() => newRecord()}
+                openRouting={row => {
+                  change({ ...store, selection: { ...store.selection, routings: row.id } });
+                  setOpened(true); setSelected([]);
+                }}
+              />
+              : page === "air" ? <AirManifestScreen
                 {...{ store, record, opened, locked, renderFields, total, selected, setSelected, change, setMessage, action }}
                 newManifest={newRecord}
                 openManifest={row => {
@@ -1269,7 +1365,21 @@ export default function CmosWorkspace({
           if (!locked) apply(markDocumentPrinted(store, did));
         }}
         onClose={(did) => setDocs((prev) => prev.filter((x) => x !== did))}
+        onPopOut={openPaperwork}
       />
+      {paperworkWin && (
+        <PaperworkWindow
+          win={paperworkWin}
+          documents={documents}
+          selectedId={paperworkId}
+          onSelect={setPaperworkId}
+          renderDocument={(did) => <DocumentContent id={did} documents={context.documents || []} store={{ ...store, documents: { ...store.documents, ...previewDocuments } }} />}
+          onPrint={(did) => {
+            if (!locked && store.documents[did] && !(context.documents || []).some((d) => d.id === did)) apply(markDocumentPrinted(store, did));
+          }}
+          onClose={closePaperwork}
+        />
+      )}
       {lookup && (
         <Lookup
           field={lookup.f}
@@ -1391,7 +1501,7 @@ export default function CmosWorkspace({
                 if (kind === "bills") next = editRecord(next, kind, id, fillFromShipments(next, next.bills[id].draft));
                 change(next);
                 setAssignIds([]);
-                setMessage(`TCNs assigned. Save the ${kind === "bills" ? "bill of lading" : "manifest"}.`);
+                setMessage(`TCNs assigned. Save the ${kind === "bills" ? "bill of lading" : kind === "routings" ? "route order" : "manifest"}.`);
               }}
             >
               Assign
@@ -1400,7 +1510,25 @@ export default function CmosWorkspace({
           </footer>
         </Dialog>
       )}
-      {printDialog && (
+      {printDialog && printDialog.page === "cbl" && (() => {
+        const setOption = (patch) => setPrintDialog((current) => ({ ...current, ...patch }));
+        // Print BOL: F - Final or D - Draft, Customs, and the estimated pickup date.
+        return <Dialog title="Print BOL" bare onClose={() => setPrintDialog(false)} overlayClassName="shared-print-bol-overlay">
+          <div className="shared-print-bol">
+            <label>Print Option:<select aria-label="Print Option" value={docTitles[0] === "Final" ? "F" : "D"} onChange={(e) => setDocTitles([e.target.value === "F" ? "Final" : "Draft"])}>
+              <option value="F">F - Final</option><option value="D">D - Draft</option></select></label>
+            <fieldset><legend>Customs:</legend>
+              {["Yes", "No"].map((v) => <label key={v}><input type="radio" name="bol-customs" aria-label={`Customs ${v}`} checked={printDialog.customs === v} onChange={() => setOption({ customs: v })} /> {v}</label>)}
+            </fieldset>
+            <label>Estimated Pickup Date:<CmosDateField label="Estimated Pickup Date" width="130px" value={printDialog.estimatedPickupDate || ""} onChange={(v) => setOption({ estimatedPickupDate: v })} /></label>
+            <footer>
+              <button onClick={() => { printFor(printDialog.kind, printDialog.id, "Commercial Bill of Lading", docTitles[0] === "Final" ? "Final" : "Draft", { printOptions: { customs: printDialog.customs, estimatedPickupDate: printDialog.estimatedPickupDate } }); setPrintDialog(false); }}>OK</button>
+              <button onClick={() => setPrintDialog(false)}>Cancel</button>
+            </footer>
+          </div>
+        </Dialog>;
+      })()}
+      {printDialog && printDialog.page !== "cbl" && (
         <FloatingWindow
           className="paper-sheet shared-print-options"
           title={
@@ -1621,6 +1749,30 @@ export default function CmosWorkspace({
           <button onClick={() => setRelease(false)}>Close</button>
         </Dialog>
       )}
+      {consistency && (
+        <Dialog title="Consistency Check Results" onClose={() => setConsistency(null)} overlayClassName="shared-consistency-overlay">
+          <div className="shared-consistency">
+            {consistency.missing.length > 0 && <>
+              <p>TCN '{consistency.tcn}' ({consistency.placement}) is missing:</p>
+              <ul aria-label="Missing data">{consistency.missing.map((m) => <li key={m}>{m}</li>)}</ul>
+              <p>Use Shipment Planning to enter data.</p>
+            </>}
+            {consistency.dg2 && <section aria-label="Hazardous data">
+              <p>TCN '{consistency.tcn}' ({consistency.placement}) is missing DG/-2 TEMPLATE ID.</p>
+              <p>Use Hazardous TCNs to enter data.</p>
+            </section>}
+            {consistency.misc && <section aria-label="Miscellaneous data">
+              <p>No miscellaneous data found for TCN '{consistency.tcn}'</p>
+              <p>Use Shipment Planning to enter data.</p>
+            </section>}
+            {consistency.other.length > 0 && <>
+              <ul aria-label="Other edit errors">{consistency.other.map((m) => <li key={m}>{m}</li>)}</ul>
+              <p>Use Shipment Planning to enter data.</p>
+            </>}
+            <footer><button onClick={() => setConsistency(null)}>Close</button></footer>
+          </div>
+        </Dialog>
+      )}
       {confirm && (
         <Dialog title={confirm.title} onClose={() => setConfirm(null)}>
           <p>This removes the selected data and invalidates related checks.</p>
@@ -1636,5 +1788,6 @@ export default function CmosWorkspace({
         </Dialog>
       )}
     </div>
+    </PaperworkContext.Provider>
   );
 }

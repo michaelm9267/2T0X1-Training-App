@@ -1,4 +1,5 @@
 import Dg2List from "./Dg2List";
+import T9MiscTab from "./T9MiscTab";
 import { generateDocument } from "./operations";
 import { collections, pieceFields } from "./referenceInventory";
 import {
@@ -53,14 +54,14 @@ export default function DetailTabs({
     const fields = definition.tabs[tab];
     const protective = String(draft.protectiveService || "").padEnd(4, " ").split("");
     const rows = [
-      [["hazmat"], ["t9Required"], ["micapShipment"], ["repship"], ["protectiveService"], ["atcmdType"], ["eei", "demil", "usml"], ["routing"], ["weaponsShipment"], ["etrrInd"], ["equipmentSysInd"], ["commoditySH"]],
-      [["dangerGoods13872Required"], ["consolidationInd", "supplyInd"], ["dd1907"], ["dunnageRequired"], ["courierInd"], ["mailShipment"], ["gatesInd"], ["vetInspectableContainer"], ["serializedShipment"], ["airDim"]],
+      [["hazmat"], ["t9Required"], ["micapShipment"], ["repship"], ["protectiveService"], ["atcmdType"], ["eei", "demil", "usml", "determinationNbr"], ["routing"], ["weaponsShipment"], ["etrrInd"], ["equipmentSysInd"], ["commoditySH"]],
+      [["dangerGoods13872Required"], ["consolidationInd", "supplyInd"], ["dd1907"], ["dunnageRequired"], ["courierInd"], ["mailShipment"], ["vetInspectableContainer"], ["serializedShipment"], ["airDim"]],
     ];
     return <div className="shared-indicators">
       {rows.map((column, i) => <div className="shared-indicator-column" key={i}>
         {column.map((ids, n) => <div className="shared-indicator-row" key={n}>
           {ids[0] === "protectiveService" ? <div className="shared-protective-service"><span>Protective Service Ind</span>
-            {[0, 1, 2, 3].map(index => <input key={index} aria-label={`Protective Service Ind ${index + 1}`} maxLength={1} disabled={locked} value={protective[index].trim()} onChange={e => {
+            {[0, 1, 2, 3].map(index => <input key={index} aria-label={`Protective Service Ind ${index + 1}`} maxLength={1} disabled={locked} readOnly={index > 0} value={protective[index].trim()} onChange={e => {
               const next = [...protective]; next[index] = e.target.value || " "; edit("protectiveService", next.join("").trimEnd());
             }} />)}
           </div> : renderFields(ids.map(id => fields.find(f => f.id === id)).filter(Boolean))}
@@ -179,6 +180,8 @@ export default function DetailTabs({
         </div>
       </>
     );
+  if (page === "planning" && tab === "T-9 Misc")
+    return <T9MiscTab key={id} {...{ store, id, draft, locked, change }} />;
   if (page === "planning" && tab === "DG2")
     return <Dg2List key={id} store={store} shipmentId={id} {...{ locked, change, openEntry, setHazTab, setConfirm, setMessage, apply }} />;
   if (["TCNs", "TCNs Assigned", "Pallets"].includes(tab)) {
