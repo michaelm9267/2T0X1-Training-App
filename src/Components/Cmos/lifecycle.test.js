@@ -34,6 +34,8 @@ function ready() {
     origin: "F00001",
     destination: "F00002",
     tac: "TRN1",
+    // Funds already validated (Val Funds → TGET → LOA Val Status P), so the shipment can be rated.
+    loa: "P",
   });
   s = createRecord(s, "pieces", {
     shipmentId: "shipments-1",

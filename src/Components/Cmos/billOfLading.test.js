@@ -78,3 +78,27 @@ test('item continuation pages hold two shipments and carry the bill issue date',
   expect(pages[4]).toHaveTextContent('TCN-4');
   for (const page of pages.slice(1)) expect(page.querySelector('.bol-cont-meta')).toHaveTextContent('18-OCT-2026');
 });
+
+test('RINs with Print RIN checked print at the top of page 2, under the HAZMAT certifier', () => {
+  const rin = (code, printRin, description) => ({ ownerId: 'bills-1', ownerKind: 'bills', collection: 'RINs', rin: code, printRin, description });
+  render(<BillOfLadingDocument store={{}} d={doc({ movementDocNbr: 'MKFZ700036', scac: 'LTIA', hazardousCert: 'THIS IS TO CERTIFY THAT THE HEREIN NAMED MATERIALS ARE PROPERLY CLASSIFIED', certifyingPerson: 'LT Nicholas King, HAZMAT Certifier' }, {
+    details: [rin('111', 'Y', 'Annotate BL: "Shipper to load and consignee to unload." Does not apply to tow away shipments.'), rin('101', 'Y', 'CMOS BL only. Annotate BL: "This US Government shipment is subject to the terms and conditions listed in 41 CFR 102-117, Transportation Management, and 41 CFR 102-118, Transportation Payment and Audit."'), rin('HOL', 'N', 'Not printed')],
+  })} />);
+  const page2 = screen.getByRole('region', { name: 'BOL continuation page 2' });
+  const text = page2.textContent;
+  expect(text).toContain('(111) SHIPPER TO LOAD AND CONSIGNEE TO UNLOAD.');
+  expect(text).toContain('(101) THIS US GOVERNMENT SHIPMENT IS SUBJECT TO THE TERMS AND CONDITIONS LISTED IN 41 CFR 102-117, TRANSPORTATION MANAGEMENT, AND 41 CFR 102-118, TRANSPORTATION PAYMENT AND AUDIT.');
+  expect(text).not.toContain('(HOL)');
+  expect(text).not.toContain('ANNOTATE BL');
+  expect(text.indexOf('CERTIFIER: LT NICHOLAS KING')).toBeLessThan(text.indexOf('(111)'));
+  expect(text.indexOf('(101)')).toBeLessThan(text.indexOf('SHIPMENT TOTALS'));
+});
+
+test('without a HAZMAT certifier, printed RINs lead page 2', () => {
+  render(<BillOfLadingDocument store={{}} d={doc({ movementDocNbr: 'MKFZ700037', scac: 'LTIA' }, {
+    details: [{ ownerId: 'bills-1', collection: 'RINs', rin: '111', printRin: 'Y', description: 'Annotate BL: "Shipper to load and consignee to unload."' }],
+  })} />);
+  const text = screen.getByRole('region', { name: 'BOL continuation page 2' }).textContent;
+  expect(text.indexOf('(111) SHIPPER TO LOAD AND CONSIGNEE TO UNLOAD.')).toBeGreaterThan(-1);
+  expect(text.indexOf('(111)')).toBeLessThan(text.indexOf('SHIPMENT TOTALS'));
+});

@@ -101,7 +101,7 @@ test('Send Request rates any choices, Cancel clears the rating, and both labels 
   const rated = sendRequest(shipment, fillSpe(e, 'Priority Overnight', 'INT'));
   expect(rated.spe.rated).toBe(true);
   expect(rated.mistakes).toHaveLength(0);
-  expect(rated.spe.result.tracking).toMatch(/^\d{12}$/);
+  expect(rated.spe.result.tracking).toMatch(/^\d{15}$/);
   expect(editExpress(rated, 'service', 'Ground').spe.draft.service).toBe('Priority Overnight');
   expect(closedPackage(shipment, rated)).toMatchObject({ scac: 'FDEG', service: 'Priority Overnight', pieces: 1, weight: shipment.packed.weight });
   expect(shipmentComplete(shipment, rated)).toBe(false);

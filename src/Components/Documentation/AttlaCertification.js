@@ -1,3 +1,4 @@
+import RegulationLink from '../Regulations/RegulationLink';
 import { ATTLA_LETTERS, ATTLA_OFFICE } from './attlaLetters';
 
 // Renders an ATTLA Internal Air Transport Certification letter in the layout of the original.
@@ -30,7 +31,7 @@ export default function AttlaCertification({ doc }) {
   const letter = ATTLA_LETTERS[doc];
   const fileNumber = letter.fields.find(([label]) => label === 'File Number')[1];
   return <div className="attla-letter">
-    <p className="attla-file">File Number {fileNumber}</p>
+    <p className="attla-file"><span>File Number {fileNumber}</span><span className="no-print"> · <RegulationLink citationId={`attla.${doc}.weights`}>Issued letter · weight conditions</RegulationLink>{doc === 'fmtv' && <> · <RegulationLink citationId="attla.fmtv.table2">Table 2 · model ratings</RegulationLink></>}{doc === 'isu' && <RegulationLink citationId="attla.isu.conditions">Issued letter · conditions</RegulationLink>}</span></p>
     <header className="attla-masthead">
       <span className="attla-seal" aria-hidden="true">DEPARTMENT OF THE AIR FORCE</span>
       <div><strong>Internal Air Transport Certification</strong>{ATTLA_OFFICE.map(line => <span key={line}>{line}</span>)}</div>

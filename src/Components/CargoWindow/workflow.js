@@ -1,4 +1,5 @@
 import { JBER_CONSIGNOR, JBER_CITY_LINE } from '../jberConsignor';
+import { TABLE_APODS, TABLE_APOES } from '../Outbound/dodaacs';
 import { screenATTLA, packingListRequired, letterApplies } from './transportability';
 import { recordMistake } from './mistakes';
 export function paperwork(scenario) {
@@ -26,7 +27,7 @@ export function requestCopies(scenario,e,id,amount) {
   const needed=document.required?Math.max(0,document.minimum-available):0;
   if(needed===0) return {...e,documentFeedback:{...e.documentFeedback,[id]:document.required?`No additional copies are needed; ${available} on hand meets the ${document.minimum} required.`:'This document is not required for this shipment.'}};
   const feedback=count<needed?`Received ${count}. Still short ${needed-count} ${needed-count===1?'copy':'copies'}.`:count>needed?`Received ${count}, but only ${needed} ${needed===1?'was':'were'} needed. Recount and verify.`:`Received ${count} ${count===1?'copy':'copies'}. Recount and verify.`;
-  const next={...e,documentCopies:{...e.documentCopies,[id]:available+count},documentsVerified:{...e.documentsVerified,[id]:false},documentFeedback:{...e.documentFeedback,[id]:feedback},manifestAccepted:false,jiVerified:[]};
+  const next={...e,documentCopies:{...e.documentCopies,[id]:available+count},documentsVerified:{...e.documentsVerified,[id]:false},documentFeedback:{...e.documentFeedback,[id]:feedback},manifestAccepted:false,jiVerified:[],jiMarks:{}};
   return count===needed?next:recordMistake(next,'paperwork',`Requested ${count} ${document.title} ${count===1?'copy':'copies'} when ${needed} ${needed===1?'was':'were'} needed`,'DTR Part III App O K.2.d(1)–(2)');
 }
 // DoDAACs from the DoDAAC address file (FA5030 access list), offered in the CMOS-style manifest
@@ -56,6 +57,9 @@ export const DESTINATIONS=['FB5294','FB5284','FB5270','FB5209','FB5205','FB5240'
 export const DESTINATION='FB5294';
 export const randomDestination=(random=Math.random)=>DESTINATIONS[Math.floor(random()*DESTINATIONS.length)];
 export const AERIAL_PORTS=[...new Set(Object.values(DODAAC_PORTS))].sort();
+// APOE and APOD lists: these ports plus every APOE and APOD in the CMOS DoDAAC table.
+export const APOE_PORTS=[...new Set([...AERIAL_PORTS,...TABLE_APOES])].sort();
+export const APOD_PORTS=[...new Set([...AERIAL_PORTS,...TABLE_APODS])].sort();
 export const HAZ_INDICATORS=['N - Non-hazardous','H - Hazardous material','A - Ammunition/explosives','O - Other'];
 export const isHazardousIndicator=value=>Boolean(value) && !String(value).startsWith('N');
 // Increment-format TCN (17 characters), as in CMOS for Doc Type I - Increment:
@@ -72,9 +76,9 @@ export function manifestFields(scenario) {
     {id:'description',title:'Nomenclature',expected:scenario.subtitle},
     {id:'pieces',title:'Piece count',expected:1},
     {id:'origin',title:'Origin DoDAAC',expected:ORIGIN,options:DODAACS},
-    {id:'apoe',title:'APOE',expected:DODAAC_PORTS[ORIGIN],options:AERIAL_PORTS},
+    {id:'apoe',title:'APOE',expected:DODAAC_PORTS[ORIGIN],options:APOE_PORTS},
     {id:'destination',title:'Destination DoDAAC',expected:destination,options:DODAACS},
-    {id:'apod',title:'APOD',expected:DODAAC_PORTS[destination],options:AERIAL_PORTS},
+    {id:'apod',title:'APOD',expected:DODAAC_PORTS[destination],options:APOD_PORTS},
     ...['length','width','height','weight'].map(id=>({id,title:id==='weight'?'Gross weight (lb)':`${id[0].toUpperCase()+id.slice(1)} (in)`,expected:scenario[id]})),
     {id:'hazmat',title:'Hazardous/Ammunition Ind',expected:scenario.ammo?'A - Ammunition/explosives':paperwork(scenario).some(d=>d.id==='hazdec' && d.required)?'H - Hazardous material':'N - Non-hazardous',options:HAZ_INDICATORS},
   ];
@@ -108,7 +112,7 @@ export const manifestTab=id=>MANIFEST_TABS[id];
 // Removing the piece unlocks its entries and withdraws the MSL and any JI progress.
 export function removeFromManifest(e) {
   if(!e.manifestAccepted) return e;
-  return {...e,manifestAccepted:false,mslApplied:false,manifestRecord:null,manifestErrors:[],manifestFeedback:'Piece removed from the manifest. Correct the entries and add it again.',jiVerified:[],jiInspected:[],jiDocumentsViewed:[],jiMeasurements:[],jiWeights:{},jiSides:[],jiTerminals:{}};
+  return {...e,manifestAccepted:false,mslApplied:false,manifestRecord:null,manifestErrors:[],manifestFeedback:'Piece removed from the manifest. Correct the entries and add it again.',jiVerified:[],jiMarks:{},jiInspected:[],jiDocumentsViewed:[],jiMeasurements:[],jiWeights:{},jiSides:[],jiTerminals:{}};
 }
 export function saveManifest(scenario,e,incheckComplete=false) {
   if (e.manifestAccepted) return e;

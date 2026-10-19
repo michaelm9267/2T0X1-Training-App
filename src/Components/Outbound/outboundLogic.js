@@ -1,5 +1,5 @@
 import { recordMistake } from '../CargoWindow/mistakes';
-import { ITEMS, CONTAINERS, MARKINGS, requiredMarkings, wrongMarkings, isOverseas, consignee, destinationOf, originOf, ALL_DODAACS, AERIAL_PORTS, TYPE_PACKS, typePackFor } from './outboundData';
+import { ITEMS, CONTAINERS, MARKINGS, requiredMarkings, wrongMarkings, isOverseas, consignee, destinationOf, originOf, ALL_DODAACS, APOE_PORTS, APOD_PORTS, TYPE_PACKS, typePackFor } from './outboundData';
 import { presentedDocument, shipmentTp, DISCREPANCIES } from './outboundShipments';
 
 export const OUTBOUND_STEPS = [
@@ -72,7 +72,7 @@ export function acceptCustody(shipment, e) {
   // MILSTRIP 1348-1A needs no in-checker signature; CMOS sends the digital signature (DAFGM para 2.2.1.2).
   return { ...e, custodyAccepted: true, receiptFeedback: shipment.document === '1149'
     ? 'Custody accepted. You signed block 18 (Checked By) on the DD 1149.'
-    : 'Custody accepted. No signature goes on the 1348-1A; CMOS sends the digital signature when you incheck it.' };
+    : 'Custody accepted. The packer signed block 22 (Received By) and dated block 23 with the pack date on the DD 1348-1A.' };
 }
 
 // ---- Step 2: pack and mark ----
@@ -122,8 +122,8 @@ export function formFields(shipment, formId) {
     { id: 'tac', title: 'TAC (billing)', expected: shipment.tac },
   ];
   if (formId === 'amc') return [
-    { id: 'apoe', title: 'POE', expected: origin.port, options: AERIAL_PORTS, hint: `${origin.name} ships through aerial port ${origin.port}.` },
-    { id: 'apod', title: 'POD', expected: podFor(shipment), options: AERIAL_PORTS, hint: "The consignee's aerial port of debarkation." },
+    { id: 'apoe', title: 'POE', expected: origin.port, options: APOE_PORTS, hint: `${origin.name} ships through aerial port ${origin.port}.` },
+    { id: 'apod', title: 'POD', expected: podFor(shipment), options: APOD_PORTS, hint: "The consignee's aerial port of debarkation." },
     { id: 'tp', title: 'Transportation priority', expected: tp, options: ['TP1', 'TP2', 'TP3'] },
     { id: 'weight', title: 'Weight (lb)', expected: p.weight, numeric: true },
     { id: 'cube', title: 'Cube (ft³)', expected: cube(p), numeric: true, tolerance: .1, hint: 'L × W × H ÷ 1,728, to one decimal.' },

@@ -1,9 +1,10 @@
+import { CodeReference } from '../Regulations/RegulationHelp';
 import { useState } from 'react';
 import { Dialog } from '../CdfCmos/controls';
 
 // Rows are tracked by position, so a code may appear on several rows (e.g. one DSOE with
 // several chalks). onSelect receives the value column and the whole row.
-export default function ReferenceLookup({ title, columns, rows, valueIndex = 0, onSelect, onClose }) {
+export default function ReferenceLookup({ title, columns, rows, valueIndex = 0, sourceTable, onSelect, onClose }) {
   const [filters, setFilters] = useState(columns.map(() => ''));
   const [selected, setSelected] = useState(null);
   const matches = rows.map((row, index) => ({ row, index }))
@@ -23,7 +24,7 @@ export default function ReferenceLookup({ title, columns, rows, valueIndex = 0, 
         <tbody>{matches.map(({ row, index }) => <tr key={index} aria-label={row.filter(v => v !== '').join(' ')} aria-selected={selected === index} tabIndex={0} onClick={() => setSelected(index)} onDoubleClick={() => select(row)} onKeyDown={event => {
           if (event.key === 'Enter') { event.preventDefault(); select(row); }
           else if (event.key === ' ') { event.preventDefault(); setSelected(index); }
-        }}>{row.map((value, i) => <td key={i} title={value}>{i === 0 && <input className="shared-reference-radio" type="radio" aria-label={`Select ${row[0]}`} checked={selected === index} onChange={() => setSelected(index)} />}{value}</td>)}</tr>)}</tbody>
+        }}>{row.map((value, i) => <td key={i} title={value}>{i === 0 && <input className="shared-reference-radio" type="radio" aria-label={`Select ${row[0]}`} checked={selected === index} onChange={() => setSelected(index)} />}{i === columns.length - 1 && sourceTable ? <CodeReference table={sourceTable} code={row[0]}>{value}</CodeReference> : value}</td>)}</tr>)}</tbody>
       </table></div>
       <div className="shared-reference-count">{matches.length} row(s) found.</div>
       <footer><button disabled={selected === null} onClick={() => select(rows[selected])}>Select</button><button onClick={onClose}>Close</button></footer>

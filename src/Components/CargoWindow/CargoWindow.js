@@ -125,7 +125,7 @@ export default function CargoWindow({ scenario, onRecordMeasurement, onRecordWei
     <div className="scene-header"><div><span className="eyebrow">Virtual cargo bay</span><h3>{scenario.subtitle}</h3><p className="scene-tcn">TCN <strong>{tcn}</strong></p></div><span className="sample-badge">Simulated shipment</span></div>
     <div className="scene-toolbar">
       <div className="tool-group" aria-label="Cargo tools">
-        {[['tape', 'Tape measure'], ['scale', 'Scale'], ['inspect', 'Inspect'], ...(scenario.axles ? [['label', 'Labeling tape']] : [])].map(([id, title]) => <button key={id} type="button" aria-pressed={tool === id} onClick={() => { setTool(id); clear(); }}>{title}</button>)}
+        {[['tape', 'Tape measure'], ['scale', 'Scale'], ['inspect', 'Inspect'], ...(scenario.axles && stage !== 'ji' ? [['label', 'Labeling tape']] : [])].map(([id, title]) => <button key={id} type="button" aria-pressed={tool === id} onClick={() => { setTool(id); clear(); }}>{title}</button>)}
       </div>
       <label>Cargo view <select value={view} onChange={event => { setView(event.target.value); clear(); }}><option value="side">Side</option><option value="front">Front</option><option value="perspective">3D perspective</option></select></label>
     </div>
@@ -161,7 +161,7 @@ export default function CargoWindow({ scenario, onRecordMeasurement, onRecordWei
       {tool === 'scale' && <div className="action-row"><button type="button" onClick={() => weigh('gross', 'Whole piece', scenario.weight)}>Weigh whole piece</button>{scenario.axles?.map((axle,index) => <button key={axle.id} type="button" onClick={() => weigh(axle.id, `W${index+1} (${axleCode(scenario,index)})`, axle.weight)}>Weigh {`W${index+1} (${axleCode(scenario,index)})`}</button>)}</div>}
       {tool === 'label' && scenario.axles && <LabelingTape side={side} setSide={setSide} draft={labelDraft} setDraft={setLabelDraft} scenario={scenario} view={view} onApply={onPlaceLabel} onRemove={onRemoveLabel} labels={exercise.tapeLabels.filter(label => label.side === side)} feedback={exercise.labelFeedback} />}
       {tool === 'inspect' && <>
-        <p className="tool-hint">Choose a component to inspect. Record your finding in the stage checklist.</p>
+        <p className="tool-hint">Choose a component to inspect. Record your finding {stage === 'ji' ? 'on the DD Form 2133' : 'in the stage checklist'}.</p>
         {stage==='ji' && scenario.axles && <div className="action-row">{['left','right'].map(vehicleSide=><button key={vehicleSide} type="button" onClick={()=>{setView('side');setSide(vehicleSide);onInspectMarkings(vehicleSide);}}>Inspect {vehicleSide} tape markings</button>)}</div>}
         <div className="inspection-points">{visibleFindings.map(finding => <button type="button" key={finding.id} onClick={() => inspect(finding.id)}>Inspect {finding.title}</button>)}</div>
         {scenario.contents && !doorsOpen && <p className="tool-hint">Open the ISU doors to inspect all internal contents.</p>}

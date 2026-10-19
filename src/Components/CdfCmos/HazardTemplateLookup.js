@@ -1,3 +1,4 @@
+import { HazardReference } from '../Regulations/RegulationHelp';
 import { useState } from "react";
 import { trainingTemplates } from "./trainingData";
 import { Dialog, Field } from "./controls";
@@ -36,7 +37,7 @@ export default function HazardTemplateLookup({ onSelect, onClose }) {
                 </td>
                 <td>1</td>
                 <td>{t.templateType}</td>
-                <td>{t.name}</td>
+                <td><HazardReference un={t.unId} name={t.name}>{t.name}</HazardReference></td>
               </tr>
             ))}
           </tbody>

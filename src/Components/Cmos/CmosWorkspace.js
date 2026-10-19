@@ -1,5 +1,21 @@
+import RegulationHelp from '../Regulations/RegulationHelp';
+import { wholeCube } from "./model";
+import { cmosPageClaims } from '../Regulations/claims';
 import AirManifestScreen from "./AirManifestScreen";
 import AirScheduleScreen from "./AirScheduleScreen";
+import ReleaseAirShipment from "./ReleaseAirShipment";
+import CblRelease from "./CblRelease";
+import PalletsScreen from "./PalletsScreen";
+import { carrierAccount, servicesFor } from "./trackingNumbers";
+import SmallPackageScreen from "./SmallPackageScreen";
+import SpeDocuments from "./SpeDocuments";
+import TruckManifestScreen from "./TruckManifestScreen";
+import TruckRelease from "./TruckRelease";
+import { nextTruckManifestNumber, truckAddress, TRUCK_SAMPLES } from "./truckManifestLogic";
+import { movementDocumentFor } from "./model";
+import { money } from "./money";
+import { closedLabel } from "./SpePrints";
+import TgetAdapter from "./TgetAdapter";
 import CmosDateField from "./CmosDateField";
 import { formatScheduleDate } from "./airScheduleLogic";
 import RoutingScreen from "./RoutingScreen";
@@ -18,7 +34,6 @@ import HazardousTcn from "./HazardousTcn";
 import { isHazardousIndicator, ORIGIN } from "../CargoWindow/workflow";
 import DetailTabs from "./DetailTabs";
 import { useState, useEffect, useRef, useCallback } from "react";
-import FloatingWindow from "../Session/FloatingWindow";
 import CmosWindow from "../Outbound/CmosWindow";
 import {
   screens,
@@ -45,18 +60,17 @@ import {
   MISSING_PREFIX,
   DG2_TEMPLATE_MISSING,
   T9_MISC_MISSING,
+  prevalidateLoa,
 } from "./model";
 import {
   getQuote,
   assignQuote,
-  retrieveExpressDocuments,
   closeoutCarrier,
   generateDocument,
   validateFunds,
   clearHazards,
   markDocumentPrinted,
 } from "./operations";
-import { parseCmosDate } from "./dateLogic";
 import { Fields, Lookup, EntryDialog, Dialog } from "./controls";
 import { derivePrimeDic } from "./primeDic";
 import DocumentManager, { DocumentContent } from "./DocumentManager";
@@ -83,6 +97,7 @@ export const CMOS_PAGES = {
   "Air Schedule": "schedule",
   "Deployment Parameters": "deployment",
   "Air Manifest": "air",
+  Pallets: "pallets",
   "Commercial BOL": "cbl",
   "Truck Manifest": "truck",
   Routings: "routing",
@@ -151,7 +166,7 @@ const defaults = {
   truckManifests: { equipmentOwner: "G", conveyanceMode: "9" },
   routings: { requestType: "OR", routeId: "RG", atrHours: "24" },
   bills: { currency: "USD" },
-  express: { packageType: "Package", domInt: "DOM" },
+  express: {},
   quotes: { quoteType: "SPE Domestic", packageType: "Package" },
 };
 export default function CmosWorkspace({
@@ -176,6 +191,8 @@ export default function CmosWorkspace({
     [confirm, setConfirm] = useState(null),
     [consistency, setConsistency] = useState(null),
     [assignment, setAssignment] = useState(false),
+    // The TGET Adapter window started by Val Funds: { id, tcn, tac, minimized }.
+    [tget, setTget] = useState(null),
     [assignIds, setAssignIds] = useState([]),
     [assignQuery, setAssignQuery] = useState(""),
     [docs, setDocs] = useState([]),
@@ -221,7 +238,7 @@ export default function CmosWorkspace({
     id = context.finished
       ? viewSelection[kind] || store.selection?.[kind]
       : store.selection?.[kind],
-    record = store[kind]?.[id] || (page === "air" ? AIR_MANIFEST_SAMPLES.find(r => r.id === id) : page === "cbl" ? CBL_SAMPLES.find(r => r.id === id) : page === "routing" ? ROUTING_SAMPLES.find(r => r.id === id) : undefined),
+    record = store[kind]?.[id] || (page === "air" ? AIR_MANIFEST_SAMPLES.find(r => r.id === id) : page === "truck" ? TRUCK_SAMPLES.find(r => r.id === id) : page === "cbl" ? CBL_SAMPLES.find(r => r.id === id) : page === "routing" ? ROUTING_SAMPLES.find(r => r.id === id) : undefined),
     draft = data(record),
     locked = Boolean(context.finished || (page === "planning" && opened && isPlanningViewOnly(record)));
   const visibleTabs = Object.keys(definition.tabs).filter(t =>
@@ -269,6 +286,12 @@ export default function CmosWorkspace({
   const edit = (key, value) => {
     let patch = { [key]: value };
     if (kind === "shipments" && key === "hazmat") patch.t9Required = isHazardousIndicator(value);
+    // A new TAC has not been validated: Val Funds must run again before rating.
+    if (kind === "shipments" && key === "tac" && value !== draft.tac) patch.loa = "";
+    // SPE: choosing a SCAC bills prepaid (PP) to the installation's account with that carrier.
+    // A service the new carrier does not offer is cleared.
+    if (kind === "express" && key === "scac") Object.assign(patch, { billTo: value ? "PP" : "", carrierAcctNbr: carrierAccount(value),
+      ...(servicesFor(value).some(([code]) => code === draft.service) ? {} : { service: "" }) });
     if (kind === "shipments" && key === "docType" && value !== draft.docType) {
       const type = documentType(value);
       if (["N", "I"].includes(type)) patch.docNbr = "";
@@ -389,14 +412,16 @@ export default function CmosWorkspace({
             origin: context.sourceOrigin || context.origin || ORIGIN,
           }
         : {}),
-      ...(["truckManifests", "routings"].includes(kind) ? { originDODAAC: context.origin || ORIGIN, origin: context.origin || ORIGIN, ...addressPatch("origin", context.origin || ORIGIN) } : {}),
+      ...(kind === "routings" ? { originDODAAC: context.origin || ORIGIN, origin: context.origin || ORIGIN, ...addressPatch("origin", context.origin || ORIGIN) } : {}),
+      // Truck Manifest: origin and shipper default to the consignor; DSN phone type as CMOS shows.
+      ...(kind === "truckManifests" ? { originDODAAC: context.origin || ORIGIN, origin: context.origin || ORIGIN, ...truckAddress("origin", context.origin || ORIGIN), shipperDODAAC: context.origin || ORIGIN, ...truckAddress("shipper", context.origin || ORIGIN), destinationPhoneType: "DSN" } : {}),
       ...(kind === "bills" ? { ...cblDefaults(context.origin || "FA5030"), movementDocNbr } : {}),
       ...(kind === "routings" ? routingDefaults(store, { gbloc: gblocForDodaac(context.origin || ORIGIN) || "MKFZ", origin: context.origin || ORIGIN, requester: cmosUser(), now: context.now ? new Date(context.now) : new Date() }) : {}),
       ...(kind === "express" ? { shipmentId: store.selection?.shipments } : {}),
       ...(kind === "quotes" ? { quoteTab: tab } : {}),
       ...(["airManifests", "truckManifests"].includes(kind)
         ? {
-            manifestNumber: kind === "airManifests" ? manifestNumber : `TRN-TM-${Object.keys(store[kind]).length + 1}`,
+            manifestNumber: kind === "airManifests" ? manifestNumber : nextTruckManifestNumber(store) || `TRN-TM-${Object.keys(store[kind]).length + 1}`,
             ...(kind === "airManifests" ? { mode: "F", manifestType: typeof manifestType === "string" ? manifestType : "Cargo" } : {}),
           }
         : {}),
@@ -627,6 +652,12 @@ export default function CmosWorkspace({
       );
       return;
     }
+    if (name === "Validate Funds" && kind === "express") {
+      // SPE Validate Funds runs TGET for the TCN's shipment; rating needs its LOA Val Status P.
+      const shipment = store.shipments[draft.shipmentId];
+      if (!shipment) return setMessage("Select a TCN before validating funds.");
+      return setTget({ id: shipment.id, tcn: shipment.draft.tcn || "", tac: shipment.draft.tac || "", minimized: false });
+    }
     if (name === "Validate Funds") return apply(validateFunds(store, kind, id));
     if (name === "Get Quote")
       return apply(
@@ -679,8 +710,9 @@ export default function CmosWorkspace({
       );
       return;
     }
+    // Send Request saves the current entries first; the trainee does not have to Save.
     if (name === "Send Request")
-      return apply(transition(store, kind, id, name, context));
+      return apply(transition(kind === "express" ? saveRecord(store, kind, id) : store, kind, id, name, context));
     if (name === "Status Request")
       return apply(transition(store, kind, id, name, context));
     if (name === "Cancel")
@@ -689,6 +721,7 @@ export default function CmosWorkspace({
       return apply(transition(store, kind, id, "Abort", context));
     if (name === "Release") {
       setRelease(true);
+      setMessage("");
       return;
     }
     if (name === "Export") {
@@ -732,10 +765,12 @@ export default function CmosWorkspace({
   const linked = store.shipments[draft.shipmentId]?.draft || {};
   const shown = {
     ...draft,
+    // Mov Doc: the TCN's movement document (SPE tracking, CBL, truck or air manifest number).
+    ...(kind === "shipments" && record && movementDocumentFor(store, id) ? { movDoc: movementDocumentFor(store, id) } : {}),
     ...(kind === "shipments" && record ? { primeDic: derivePrimeDic(draft), consolidationInd: draft.consolidationInd || "N", courierInd: draft.courierInd || "N" } : {}),
     status: page === "planning" && record ? planningStatusLabel(record) : record?.status,
     totalWeight: String(total.weight),
-    totalCube: total.cube.toFixed(1),
+    totalCube: String(wholeCube(total.cube)),
     ...(page === "spe"
       ? {
           tcn: linked.tcn || "",
@@ -743,22 +778,25 @@ export default function CmosWorkspace({
           nomenclature: linked.description || "",
           pieces: String(total.pieces),
           weight: String(total.weight),
-          cube: total.cube.toFixed(1),
+          cube: String(wholeCube(total.cube)),
           milMode: linked.milMode || "",
           ediMode: linked.ediMode || "",
           hazardous: linked.hazmat || "",
           movementDocNumber: record?.result?.tracking || "",
-          estimatedCharges: record?.result?.charges || "",
+          estimatedCharges: money(record?.result?.charges, "$.00"),
           trackingNumber: record?.result?.tracking || "",
           ratedWeight: String(record?.result?.ratedWeight || ""),
           gfmId: record?.result?.gfmId || "",
           maxTransitDays: record?.result?.transitDays || "",
           closedReleasedDate:
-            record?.status === "Closed out" ? draft.shipDate || "" : "",
+            record?.status === "Closed out" && record.result?.closedAt ? closedLabel(record.result.closedAt) : "",
         }
       : {}),
   };
   const readOnlyIds = [
+    // LOA Val Status is filled by TGET (Val Funds).
+    ...(page === "planning" ? ["loa"] : []),
+    ...(page === "planning" && record && movementDocumentFor(store, id) ? ["movDoc"] : []),
     "status",
     "totalWeight",
     "totalCube",
@@ -856,20 +894,9 @@ export default function CmosWorkspace({
         change(next);
         openEntry("documents", next.selection.documents, "Accounting detail", collections.Accounting);
       }}>Edit Acct Cl</button>}
-      {ids.includes("loa") && <button disabled={locked} onClick={() => apply(validateFunds(store, kind, id))}>Val Funds</button>}
+      {ids.includes("loa") && <button disabled={locked} onClick={() => kind === "shipments" ? setTget({ id, tcn: draft.tcn || "", tac: draft.tac || "", minimized: false }) : apply(validateFunds(store, kind, id))}>Val Funds</button>}
     </div>
   ));
-  const expressRows = Object.values(store.express).filter((r) => {
-    const tcn = store.shipments[r.draft.shipmentId]?.draft.tcn || "";
-    return (
-      match(tcn, search.speTcn) &&
-      match(r.draft.scac, search.speScac) &&
-      (!search.startDate ||
-        parseCmosDate(r.draft.shipDate) >= parseCmosDate(search.startDate)) &&
-      (!search.endDate ||
-        parseCmosDate(r.draft.shipDate) <= parseCmosDate(search.endDate))
-    );
-  });
   const rowTable = (rows, fields, editRow, checkbox = false) => (
     <div className="shared-table-scroll">
       <table className="shared-table">
@@ -923,9 +950,10 @@ export default function CmosWorkspace({
     change(editRecord(store, "hazards", entry.id, { [key]: v }));
   const planningRow = (r) => ({
     ...r.draft,
-    ...(!r.sample ? totals(store, [r.id]) : {}),
+    ...(!r.sample ? (({ cube, ...t }) => ({ ...t, cube: wholeCube(cube) }))(totals(store, [r.id])) : {}),
     docType: (r.draft.docType || "N").slice(0, 1),
     status: planningStatus(r),
+    movementDocument: (!r.sample && movementDocumentFor(store, r.id)) || r.draft.movementDocument || "",
   });
   const trafficRows = planningTraffic.filter(r => !store.shipments[r.id] && !Object.values(store.shipments).some(s => s.draft.tcn === r.draft.tcn));
   const headerRows = [...Object.values(store.shipments), ...trafficRows].filter((r) =>
@@ -951,6 +979,7 @@ export default function CmosWorkspace({
               tab; export the session to keep a copy.
             </p>
           )}
+          <RegulationHelp claims={cmosPageClaims(page)} assumptions={['CMOS interface steps, example dates, manifest assignments, and local release gates are simulated. Code sources apply to the selected code and do not validate every field in a shipment.']} />
           <CmosDocumentation collapsed={["air", "cbl"].includes(page)}>
           <div className="shared-document-bar">
             <label>
@@ -983,62 +1012,11 @@ export default function CmosWorkspace({
             </span>
           </div>
           </CmosDocumentation>
-          <div className={page === "spe" ? "shared-spe-layout" : ""}>
-            {page === "spe" && (
-              <aside className="shared-spe-query">
-                <Fields
-                  fields={[
-                    field("Start Date", "startDate"),
-                    field("End Date", "endDate"),
-                    field("Search TCN", "speTcn"),
-                    field("Search SCAC", "speScac"),
-                  ]}
-                  values={queries}
-                  onEdit={(k, v) => setQueries({ ...queries, [k]: v })}
-                />
-                <div className="shared-toolbar">
-                  <button onClick={() => setSearch(queries)}>Search</button>
-                  <button
-                    onClick={() => {
-                      setQueries({});
-                      setSearch({});
-                    }}
-                  >
-                    Clear
-                  </button>
-                </div>
-                <div className="shared-table-scroll">
-                  <table className="shared-table">
-                    <thead>
-                      <tr>
-                        <th>TCN</th>
-                        <th>SCAC</th>
-                        <th>Tracking</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {expressRows.map((r) => (
-                        <tr key={r.id}>
-                          <td>
-                            <button onClick={() => choose(r.id)}>
-                              {store.shipments[r.draft.shipmentId]?.draft.tcn ||
-                                r.id}
-                            </button>
-                          </td>
-                          <td>{r.draft.scac}</td>
-                          <td>{r.result?.tracking}</td>
-                          <td>{r.status}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <p>{expressRows.length} row(s) found.</p>
-                </div>
-              </aside>
-            )}
+          <div>
             <div>
               {page === "deployment" ? <DeploymentParametersScreen store={store} change={change} locked={Boolean(context.finished)} setMessage={setMessage} adviceNumbers={context.adviceNumbers} />
+              : page === "spe" ? <SmallPackageScreen {...{ store, record, locked, change, setMessage, action, renderFields, shown, context }} />
+              : page === "pallets" ? <PalletsScreen store={store} change={change} locked={Boolean(context.finished)} openShipPlan={id => { go("planning"); openPlanningTcn({ id }); }} />
               : page === "schedule" ? <AirScheduleScreen store={store} change={change} locked={Boolean(context.finished)} setMessage={setMessage} dsoes={context.dsoes} />
               : page === "routing" ? <RoutingScreen
                 {...{ store, record, opened, locked, edit, change, action, setMessage, renderFields, newCollection, go }}
@@ -1051,6 +1029,7 @@ export default function CmosWorkspace({
               />
               : page === "air" ? <AirManifestScreen
                 {...{ store, record, opened, locked, renderFields, total, selected, setSelected, change, setMessage, action }}
+                openShipPlan={id => { go("planning"); openPlanningTcn({ id }); }}
                 newManifest={newRecord}
                 openManifest={row => {
                   if (!row) return;
@@ -1059,7 +1038,17 @@ export default function CmosWorkspace({
                   else change({ ...store, selection: { ...store.selection, airManifests: row.id } });
                   setOpened(true); setSelected([]);
                 }}
-                showAssignment={category => { setAssignment(category); setAssignIds([]); setAssignQuery(""); }}
+              /> : page === "truck" ? <TruckManifestScreen
+                {...{ store, record, opened, locked, renderFields, change, edit, action }}
+                renderTab={detailTabs}
+                newManifest={newRecord}
+                openManifest={row => {
+                  if (!row) return;
+                  if (locked) setViewSelection(prev => ({ ...prev, truckManifests: row.id }));
+                  else if (!store.truckManifests[row.id]) change(createRecord(store, "truckManifests", row.draft, row.id));
+                  else change({ ...store, selection: { ...store.selection, truckManifests: row.id } });
+                  setOpened(true); setSelected([]);
+                }}
               /> : page === "cbl" ? <CommercialBolScreen
                 {...{ store, record, opened, locked, renderFields, change, edit, action, setAssignment, setAssignIds, openEntry, collectionRows, newCollection, print, setMessage }}
                 renderTab={detailTabs}
@@ -1304,7 +1293,7 @@ export default function CmosWorkspace({
                           ? "Passed current check"
                           : "Check required"}
                         {["air", "truck", "cbl", "routing"].includes(page) &&
-                          ` · Pieces ${total.pieces} · Weight ${total.weight} · Cube ${total.cube.toFixed(1)}`}
+                          ` · Pieces ${total.pieces} · Weight ${total.weight} · Cube ${wholeCube(total.cube)}`}
                       </p>
                       <div className="shared-toolbar shared-bottom">
                         {definition.actions
@@ -1529,117 +1518,8 @@ export default function CmosWorkspace({
         </Dialog>;
       })()}
       {printDialog && printDialog.page !== "cbl" && (
-        <FloatingWindow
-          className="paper-sheet shared-print-options"
-          title={
-            printDialog.page === "cbl"
-              ? "Print Commercial Bill of Lading"
-              : "Print Small Package Express Documents"
-          }
-          onClose={() => setPrintDialog(false)}
-        >
-          {printDialog.page === "cbl" ? (
-            <>
-              <label>
-                Print version
-                <select
-                  aria-label="Print version"
-                  value={docTitles[0] || "Draft"}
-                  onChange={(e) => setDocTitles([e.target.value])}
-                >
-                  <option>Draft</option>
-                  <option>Final</option>
-                </select>
-              </label>
-              <Fields
-                fields={[field("Estimated Pickup Date", "estimatedPickupDate")]}
-                values={store[printDialog.kind]?.[printDialog.id]?.draft || {}}
-                locked={locked}
-                onEdit={(key, value) =>
-                  change(
-                    editRecord(store, printDialog.kind, printDialog.id, {
-                      [key]: value,
-                    }),
-                  )
-                }
-              />
-              <button
-                onClick={() => {
-                  printFor(
-                    printDialog.kind,
-                    printDialog.id,
-                    "Commercial Bill of Lading",
-                    docTitles[0] === "Final" ? "Final" : "Draft",
-                  );
-                }}
-              >
-                OK
-              </button>
-            </>
-          ) : (
-            <>
-              {["Carrier label", "Commercial invoice", "Shipment receipt"].map(
-                (title) => (
-                  <label key={title}>
-                    <input
-                      type="checkbox"
-                      checked={docTitles.includes(title)}
-                      onChange={(e) =>
-                        setDocTitles((prev) =>
-                          e.target.checked
-                            ? [...prev, title]
-                            : prev.filter((x) => x !== title),
-                        )
-                      }
-                    />
-                    {title}
-                  </label>
-                ),
-              )}
-              <button
-                disabled={locked}
-                onClick={() =>
-                  apply(
-                    retrieveExpressDocuments(store, printDialog.id, docTitles),
-                  )
-                }
-              >
-                Retrieve
-              </button>
-              <h4>Available documents</h4>
-              {Object.values(store.documents)
-                .filter(
-                  (d) => d.saved?.ownerId === printDialog.id && d.saved.title,
-                )
-                .map((d) => (
-                  <button
-                    key={d.id}
-                    onClick={() => {
-                      if (!locked) apply(markDocumentPrinted(store, d.id));
-                      viewDocument(d.id);
-                    }}
-                  >
-                    Print {d.saved.title}
-                  </button>
-                ))}
-              <button
-                onClick={() => {
-                  setCloseScac(
-                    store[printDialog.kind]?.[printDialog.id]?.draft.scac || "",
-                  );
-                  setCloseDate(
-                    store[printDialog.kind]?.[printDialog.id]?.draft.shipDate ||
-                      "",
-                  );
-                  setCloseout(true);
-                }}
-              >
-                Pickup Report
-              </button>
-            </>
-          )}
-          <button onClick={() => setPrintDialog(false)}>Close</button>
-        </FloatingWindow>
+        <SpeDocuments store={store} locked={locked} current={printDialog.id} now={context.now} origin={context.origin || ORIGIN} change={change}
+          viewDocument={viewDocument} onClose={() => setPrintDialog(false)} />
       )}
       {closeout && (
         <Dialog
@@ -1680,7 +1560,37 @@ export default function CmosWorkspace({
           <button onClick={() => setCloseout(false)}>Close</button>
         </Dialog>
       )}
-      {release && (
+      {release && page === "air" && (
+        <ReleaseAirShipment store={store} record={record} locked={locked} message={message}
+          onEdit={(key, value) => change({ ...store, [kind]: { ...store[kind], [id]: { ...record, releaseDraft: { ...record.releaseDraft, [key]: value } } } })}
+          onRelease={releaseDetails => {
+            const result = transition(store, kind, id, "Release", { ...context, releaseDetails });
+            apply(result);
+            if (result.outcome.status === "success") setRelease(false);
+          }}
+          onClose={() => setRelease(false)} />
+      )}
+      {release && page === "cbl" && (
+        <CblRelease record={record} locked={locked} message={message}
+          onEdit={(key, value) => change({ ...store, [kind]: { ...store[kind], [id]: { ...record, releaseDraft: { ...record.releaseDraft, [key]: value } } } })}
+          onRelease={releaseDetails => {
+            const result = transition(store, kind, id, "Release", { ...context, releaseDetails });
+            apply(result);
+            if (result.outcome.status === "success") setRelease(false);
+          }}
+          onClose={() => setRelease(false)} />
+      )}
+      {release && page === "truck" && (
+        <TruckRelease record={record} locked={locked} message={message}
+          onEdit={(key, value) => change({ ...store, [kind]: { ...store[kind], [id]: { ...record, releaseDraft: { ...record.releaseDraft, [key]: value } } } })}
+          onRelease={releaseDetails => {
+            const result = transition(store, kind, id, "Release", { ...context, releaseDetails });
+            apply(result);
+            if (result.outcome.status === "success") setRelease(false);
+          }}
+          onClose={() => setRelease(false)} />
+      )}
+      {release && !["air", "cbl", "truck"].includes(page) && (
         <Dialog
           title={`Release ${definition.title}`}
           onClose={() => setRelease(false)}
@@ -1692,7 +1602,7 @@ export default function CmosWorkspace({
                   field("Estimated Delivery Date", "deliveryDate"),
                 ]
               : [
-                  field("Departure Date/Time", "departureAt"),
+                  field("Departure Date/Time", "departureAt", "departure"),
                   field("Flight Nbr", "flightNumber"),
                 ],
             { ...draft, ...record?.releaseDraft },
@@ -1712,7 +1622,7 @@ export default function CmosWorkspace({
             Save preserves incomplete departure data. Release performs
             operational checks.
             {context.course === "cdf" && page === "air"
-              ? " CDF requires JI, accepted load plan, and the 30-minute training departure window."
+              ? " CDF requires JI, accepted load plan, and release within 30 minutes following departure."
               : ""}
           </p>
           <button
@@ -1773,6 +1683,17 @@ export default function CmosWorkspace({
           </div>
         </Dialog>
       )}
+      {tget && <div hidden={tget.minimized || undefined}>
+        <TgetAdapter tcn={tget.tcn} tac={tget.tac}
+          onComplete={() => {
+            const result = prevalidateLoa(store, tget.id);
+            if (result.ok) change(result.store);
+            setMessage(result.ok ? <span>Funds validated for {tget.tcn}. LOA Val Status P.</span> : result.message);
+            if (tget.minimized) setTget(null);
+            return { ok: result.ok, details: result.ok ? "LOA prevalidated. Funds available (training)." : result.message };
+          }}
+          onClose={running => running ? setTget(current => current && { ...current, minimized: true }) : setTget(null)} />
+      </div>}
       {confirm && (
         <Dialog title={confirm.title} onClose={() => setConfirm(null)}>
           <p>This removes the selected data and invalidates related checks.</p>

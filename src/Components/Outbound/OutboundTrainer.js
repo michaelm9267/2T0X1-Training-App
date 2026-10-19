@@ -1,3 +1,4 @@
+import RegulationScope from '../Regulations/RegulationScope';
 import { useCallback, useEffect, useState } from 'react';
 import { publishSave } from '../../cloudBridge';
 import ProcessPanel from '../ProcessPanel/ProcessPanel';
@@ -37,6 +38,12 @@ export function newOutboundSession({ random, mode = 'guided', origin = 'jber' } 
   return { version: VERSION, origin, shipments, exercises: Object.fromEntries(shipments.map(shipment => [shipment.key, createOutboundExercise()])), selected: shipments[0].key, stepId: 'receive', mode,
     practice: mode === 'practice' ? newPractice({ random, origin }) : null, trainee: emptyTest().trainee, testFinishedAt: null };
 }
+// Sessions saved before DD 1149 advance records dropped the Document Number (a Non-MILSTRIP
+// shipment is known by its TCN) lose the number from any record not yet saved.
+const without1149DocNumbers = (store, shipments) => ({ ...store, shipments: Object.fromEntries(Object.entries(store.shipments).map(([id, r]) => {
+  const shipment = shipments.find(item => item.key === r.draft.assetKey);
+  return [id, shipment?.document === '1149' && !r.saved && r.draft.docNbr ? { ...r, draft: { ...r.draft, docNbr: '' } } : r];
+})) });
 // Sessions saved before DD 1149 requisition numbers took an X in position 11 get it on load.
 const with1149Number = shipment => shipment.document === '1149' && shipment.documentNumber[10] !== 'X'
   ? { ...shipment, documentNumber: `${shipment.documentNumber.slice(0, 10)}X${shipment.documentNumber.slice(-3)}` } : shipment;
@@ -47,7 +54,7 @@ export function normalizeOutboundSession(saved) {
       && saved.shipments.some(shipment => shipment.key === saved.selected);
     if (!valid) return null;
     const practice = saved.practice?.section && saved.practice.shipment && ITEMS[saved.practice.shipment.itemId] && saved.practice.exercise?.cmos ? saved.practice : null;
-    return { ...saved, version:VERSION, ...(saved.sharedCmos?{sharedCmos:normalizeCmosStore(saved.sharedCmos)}:{}), shipments: saved.shipments.map(with1149Number), practice: practice || (saved.mode === 'practice' ? newPractice({ origin: saved.origin }) : null), trainee: saved.trainee || emptyTest().trainee };
+    return { ...saved, version:VERSION, ...(saved.sharedCmos?{sharedCmos:without1149DocNumbers(normalizeCmosStore(saved.sharedCmos),saved.shipments)}:{}), shipments: saved.shipments.map(with1149Number), practice: practice || (saved.mode === 'practice' ? newPractice({ origin: saved.origin }) : null), trainee: saved.trainee || emptyTest().trainee };
   } catch { return null; }
 }
 
@@ -137,7 +144,7 @@ export default function OutboundTrainer() {
   const newSession = origin => { setSession(newOutboundSession({ mode: session.mode, origin })); setSheetOpen(false); setBenchVersion(version => version + 1); };
   const finished = Boolean(session.testFinishedAt);
 
-  return <ModeContext.Provider value={session.mode}>
+  return <ModeContext.Provider value={session.mode}><RegulationScope assessmentActive={session.mode === 'test' && !session.testFinishedAt}>
     <ProcessPanel title="Outbound Process" label="Outbound process steps" links={OUTBOUND_LINKS} steps={OUTBOUND_STEPS} selectedStepId={step.id} onSelectStep={practicing ? next => startPractice(next.id) : setStep} completedStages={completed} lockedSteps={locks} />
     <main className="training-workspace outbound-workspace">
       <SessionBar mode={session.mode} modes={OUTBOUND_MODES} testNote="Test mode: hints and explanations are hidden. Finish the test for the grading sheet." onModeChange={changeMode} onNewSession={() => newSession(session.origin)} tools={[["CMOS workspace",()=>setCmosRequest(n=>n+1)]]} onExport={()=>{const url=URL.createObjectURL(new Blob([exportOutboundSession(session)],{type:'application/json'}));const link=document.createElement('a');link.href=url;link.download='transit-iq-outbound-session.json';link.click();URL.revokeObjectURL(url);}} onImport={text=>{const loaded=importOutboundSession(text);if(loaded){setSession(loaded);setSessionNotice('Outbound session imported.');setBenchVersion(n=>n+1);}else setSessionNotice('This file is not a valid Outbound session; current work was retained.');}} />
@@ -161,5 +168,5 @@ export default function OutboundTrainer() {
           practice={practicing ? { section: session.practice.section, onAgain: () => startPractice(session.practice.section) } : null} />
       </div>
     </main>
-  </ModeContext.Provider>;
+  </RegulationScope></ModeContext.Provider>;
 }

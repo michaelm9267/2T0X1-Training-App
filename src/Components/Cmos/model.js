@@ -1,6 +1,7 @@
 import { cmosUser } from "../../currentUser";
+import { gfmId, trackingNumber } from "./trackingNumbers";
 import { requiresNmfc } from "./modeReference";
-import { departMission } from "./airScheduleLogic";
+import { departMission, validDateTime } from "./airScheduleLogic";
 import { routingErrors } from "./routingLogic";
 import { eligibleForAirManifest, airAssignmentIds, refreshAirManifestSample } from "./airManifestLogic";
 import { documentType } from "./tcnCreation";
@@ -19,6 +20,7 @@ export const KINDS = [
   "documents",
   "missions",
   "deployments",
+  "pallets",
 ];
 const clone = (x) => JSON.parse(JSON.stringify(x));
 export const createCmosStore = () => ({
@@ -36,6 +38,25 @@ export const currentCheck = (r) =>
     r.check.revision === r.revision &&
     JSON.stringify(r.draft) === JSON.stringify(r.saved),
   );
+// Val Funds sends the TCN's TAC to TGET to prevalidate the line of accounting; a validated TCN shows
+// LOA Val Status P. Funds must be validated before the shipment is rated (SPE request, rate quote).
+export const fundsValidated = (store, id) => String(store.shipments?.[id]?.draft?.loa || '').trim().toUpperCase() === "P";
+export const FUNDS_REQUIRED = (tcn) => `Validate funds for TCN ${tcn || ""} before rating: in Shipment Planning, click Val Funds and let TGET finish.`.replace("TCN  ", "TCN ");
+export function prevalidateLoa(store, id) {
+  const r = store.shipments?.[id];
+  if (!r) return { store, ok: false, message: "Select a TCN." };
+  if (!String(r.draft.tac || "").trim()) return { store, ok: false, message: "TAC is required to validate funds." };
+  const mark = (data) => (data ? { ...data, loa: "P" } : data);
+  return { ok: true, message: "Funds validated. LOA Val Status P.",
+    store: { ...store, shipments: { ...store.shipments, [id]: { ...r, draft: mark(r.draft), saved: mark(r.saved) } } } };
+}
+// Edit Check / Edit TCN / Edit Data are tools that list what is still missing; they are never a
+// required step. A record is ready when it has nothing such a check would report.
+export const shipmentReady = (store, id) => {
+  const r = store.shipments?.[id];
+  if (r?.legacyAccepted && JSON.stringify(r.draft) === JSON.stringify(r.saved)) return true;
+  return Boolean(r?.saved) && validationErrors(store, "shipments", id).length === 0;
+};
 export function createRecord(store, kind, draft = {}, id) {
   if (!KINDS.includes(kind)) return store;
   let n = Math.max(1, store.counters?.[kind] || 1);
@@ -196,11 +217,18 @@ const required = {
   hazards: ["shipmentId", "piece", "templateId", "certifier"],
   routings: ["atrHours"],
   airManifests: ["mission", "dsoeId", "chalk", "pod", "destination"],
-  truckManifests: ["dsoeId", "chalk", "conveyanceMode", "equipmentType"],
+  // The fields marked * on Truck Manifest (DSOE ID and Chalk are optional there).
+  truckManifests: ["conveyanceMode", "destinationDODAAC", "originDODAAC", "pickUpDate", "equipmentType", "truckSerialBumperNumber", "motorCarrierName"],
   bills: ["scac", "currency", "estimatedCharges"],
-  express: ["scac", "service", "shipDate", "packageType"],
+  express: ["scac", "service", "shipDate"],
   quotes: [],
 };
+// CMOS shows cube in whole cubic feet, rounded to the nearest; any cube above zero shows at least 1.
+export const wholeCube = (value) => { const n = Number(value) || 0; return n > 0 ? Math.max(1, Math.round(n)) : 0; };
+export const pieceCubeFeet = (p = {}) => wholeCube((Number(p.length) || 0) * (Number(p.width) || 0) * (Number(p.height) || 0) / 1728);
+// Screen labels for required fields that are not named by their id.
+const REQUIRED_LABELS = { conveyanceMode: "Mode", destinationDODAAC: "Destination DODAAC", originDODAAC: "Origin DODAAC", pickUpDate: "Pick Up Date",
+  equipmentType: "Equipment Type", truckSerialBumperNumber: "Truck Serial/Bumper Number", motorCarrierName: "Motor Carrier Name" };
 // The fields marked * on Shipment Planning.
 export const PLANNING_REQUIRED = [["tcn", "TCN"], ["milMode", "MIL Mode"], ["origin", "Consignor"], ["nsn", "NSN"], ["ciic", "CIIC"]];
 // NMFC/UFC joins them for commercial modes.
@@ -246,6 +274,8 @@ export const validChalk = (value) => /^\d{3}$/.test(String(value ?? "").trim()) 
 export const CHALK_FORMAT_ERROR = "Chalk must be 001 - 999.";
 export const DG2_TEMPLATE_MISSING = "Missing DG/-2 TEMPLATE ID";
 export const T9_MISC_MISSING = "No miscellaneous data found";
+// DOM/INT is stored as D or I (older records may hold DOM/INT).
+export const isInternational = value => String(value || "").trim().toUpperCase().startsWith("I");
 export function validationErrors(store, kind, id, context = {}) {
   const r = store[kind]?.[id],
     d = data(r, true),
@@ -264,7 +294,7 @@ export function validationErrors(store, kind, id, context = {}) {
   } else {
     const starred = kind === "shipments" ? PLANNING_REQUIRED.map(([field]) => field) : [];
     for (const field of required[kind] || [])
-      if (!starred.includes(field) && !String(d[field] ?? "").trim()) errors.push(`Required: ${field}`);
+      if (!starred.includes(field) && !String(d[field] ?? "").trim()) errors.push(`Required: ${REQUIRED_LABELS[field] || field}`);
   }
   if (["airManifests", "truckManifests", "bills"].includes(kind) && String(d.chalk ?? "").trim() && !validChalk(d.chalk))
     errors.push(CHALK_FORMAT_ERROR);
@@ -310,16 +340,9 @@ export function validationErrors(store, kind, id, context = {}) {
     }
     ids.forEach((sid) => {
       if (kind === "airManifests" && !eligibleForAirManifest(store.shipments[sid])) errors.push(`Shipment ${store.shipments[sid]?.draft.tcn || sid} must have MIL Mode F in Shipment Planning for Air Manifest assignment.`);
-      if (
-        !currentCheck(store.shipments[sid]) &&
-        !(
-          store.shipments[sid]?.legacyAccepted &&
-          JSON.stringify(store.shipments[sid].draft) ===
-            JSON.stringify(store.shipments[sid].saved)
-        )
-      )
+      if (!shipmentReady(store, sid))
         errors.push(
-          `Shipment ${store.shipments[sid]?.draft.tcn || sid} requires a current Edit TCN check.`,
+          `Shipment ${store.shipments[sid]?.draft.tcn || sid} is missing required Shipment Planning data. Use Edit TCN on it to see what is missing.`,
         );
     });
   }
@@ -338,10 +361,10 @@ export function validationErrors(store, kind, id, context = {}) {
   }
   if (kind === "express" && d.shipDate && parseCmosDate(d.shipDate) === null)
     errors.push("Shipment date must be a valid CMOS date.");
-  if (kind === "express" && d.domInt === "INT")
+  if (kind === "express" && isInternational(d.domInt))
     for (const f of ["shipmentValue", "harmonizedCode"])
       if (!d[f]) errors.push(`International shipment requires ${f}.`);
-  if (kind === "express" && d.domInt === "INT" && !d.itn && !d.eeiExemptionCode)
+  if (kind === "express" && isInternational(d.domInt) && !d.itn && !d.eeiExemptionCode)
     errors.push(
       "Enter ITN or an EEI exemption code for this international shipment.",
     );
@@ -469,6 +492,38 @@ export function deleteRecord(store, kind, id) {
   next.selection = { ...next.selection, [kind]: null };
   return next;
 }
+// A TCN released in any form (a released CBL, Truck Manifest, or Air Manifest, or a closed-out Small
+// Package Express shipment) is assigned to history: Shipment Planning shows it as CT. Reopening,
+// cancelling, aborting, or unreleasing the movement takes it out of history again.
+export function releasedShipmentIds(store) {
+  const movements = ["bills", "truckManifests", "airManifests"].flatMap((k) => Object.values(store[k] || {}))
+    .filter((r) => r.status === "Released")
+    .flatMap((r) => r.saved?.shipmentIds || r.draft.shipmentIds || []);
+  const express = Object.values(store.express || {}).filter((r) => r.status === "Closed out").map((r) => r.draft.shipmentId);
+  return new Set([...movements, ...express].filter(Boolean));
+}
+// The TCN's movement document, as Shipment Planning lists it: the tracking number once the Small
+// Package Express shipment is rated, the Commercial BOL number (modes A, B and Q), or the truck or
+// air manifest number. Aborted and cancelled documents no longer count.
+export function movementDocumentFor(store, sid) {
+  const express = Object.values(store.express || {}).find((r) => r.draft.shipmentId === sid && r.result?.state === "success" && r.result.tracking);
+  if (express) return express.result.tracking;
+  const on = (kind) => Object.values(store[kind] || {}).find((r) => !["Aborted", "Cancelled"].includes(r.status) && (r.saved?.shipmentIds || r.draft.shipmentIds || []).includes(sid));
+  const bill = on("bills");
+  if (bill) return bill.draft.movementDocNbr || "";
+  const manifest = on("truckManifests") || on("airManifests");
+  return manifest?.draft.manifestNumber || "";
+}
+export function syncReleasedTcns(store) {
+  const ids = releasedShipmentIds(store);
+  let changed = false;
+  const shipments = Object.fromEntries(Object.entries(store.shipments || {}).map(([sid, r]) => {
+    if (Boolean(r.releasedCt) === ids.has(sid)) return [sid, r];
+    changed = true;
+    return [sid, { ...r, releasedCt: ids.has(sid) }];
+  }));
+  return changed ? { ...store, shipments } : store;
+}
 export function transition(store, kind, id, action, context = {}) {
   const r = store[kind]?.[id];
   if (!r)
@@ -480,18 +535,21 @@ export function transition(store, kind, id, action, context = {}) {
   const releaseDetails = { ...r.releaseDetails, ...context.releaseDetails };
   const operationalDraft = { ...r.draft, ...releaseDetails };
   if (["Release", "Send Request", "Final Print"].includes(action)) {
-    if (!currentCheck(r))
-      errors.push("Run a successful current edit check first.");
     errors.push(...validationErrors(store, kind, id, context));
   }
+  if (action === "Send Request" && kind === "express" && r.draft.shipmentId && !fundsValidated(store, r.draft.shipmentId))
+    errors.push(FUNDS_REQUIRED(store.shipments[r.draft.shipmentId]?.draft.tcn));
   if (action === "Release") {
     if (!operationalDraft.departureAt && kind !== "bills")
       errors.push("Enter departure date/time.");
-    if (
-      kind === "bills" &&
-      (!operationalDraft.waybill || !operationalDraft.deliveryDate)
-    )
-      errors.push("Waybill and estimated delivery date are required.");
+    // Release Air Shipment also requires the estimated delivery, after the departure.
+    if (kind === "airManifests" && !operationalDraft.edd) errors.push("Enter EDD.");
+    else if (kind === "airManifests" && operationalDraft.departureAt && operationalDraft.edd < operationalDraft.departureAt)
+      errors.push("EDD must be after the departure date/time.");
+    // Release (Commercial BOL): Departure Date is required (ddMmmyyyy/HHmm); the carrier/waybill
+    // number and estimated delivery date are optional.
+    if (kind === "bills" && !validDateTime(releaseDetails.departureDate))
+      errors.push("Departure Date is required: enter ddMmmyyyy/HHmm (e.g. 18Oct2026/1956).");
     if (
       ["airManifests", "truckManifests", "bills"].includes(kind) &&
       (r.printRevision !== r.revision ||
@@ -532,14 +590,15 @@ export function transition(store, kind, id, action, context = {}) {
     result = {
       ...result,
       state: context.simulateFailure ? "failed" : "success",
-      tracking: `TRN${id.replace(/\D/g, "").padStart(12, "0")}`,
+      tracking: trackingNumber(d.scac, store.shipments[d.shipmentId]?.draft.tcn || id, d.service),
       charges: (
         totals(store, d.shipmentIds || [d.shipmentId], true).weight * 0.85 +
         12
       ).toFixed(2),
-      ratedWeight: totals(store, d.shipmentIds || [d.shipmentId], true).weight,
-      gfmId: `TRN-GFM-${id}`,
-      transitDays: "2",
+      ratedWeight: Number(totals(store, d.shipmentIds || [d.shipmentId], true).weight).toFixed(2),
+      // CMOS's 8-digit GFM ID; Max Transit Days comes back blank from the carrier.
+      gfmId: gfmId(store.shipments[d.shipmentId]?.draft.tcn || id),
+      transitDays: "",
     };
     if (result.state === "failed") status = "Communication lost";
   }
@@ -562,6 +621,7 @@ export function transition(store, kind, id, action, context = {}) {
         },
       };
     status = "Closed out";
+    result = { ...result, closedAt: context.closedAt || new Date().toISOString() };
   }
   const changed = {
     ...r,
@@ -597,7 +657,7 @@ export function transition(store, kind, id, action, context = {}) {
     ...(action === "Retrieve" ? { retrieved: true } : {}),
   };
   return {
-    store: {
+    store: syncReleasedTcns({
       ...store,
       [kind]: { ...store[kind], [id]: changed },
       // Releasing an Air Manifest records the mission's actual departure in Air Schedule.
@@ -616,7 +676,7 @@ export function transition(store, kind, id, action, context = {}) {
           user: cmosUser(),
         },
       ],
-    },
+    }),
     outcome: { status: "success", messages: [`${action}: ${status}`] },
   };
 }
@@ -754,7 +814,7 @@ export function normalizeCmosStore(raw) {
           : [],
       }))
     : [];
-  return next;
+  return syncReleasedTcns(next);
 }
 
 const scalars = (x) =>

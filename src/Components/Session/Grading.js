@@ -1,3 +1,5 @@
+import RegulationScope from '../Regulations/RegulationScope';
+import { RegulationReference } from '../Regulations/RegulationHelp';
 import { useState } from 'react';
 import FloatingWindow from './FloatingWindow';
 
@@ -35,7 +37,7 @@ export function TraineeBar({ trainee = {}, finishedAt, onChange, onFinish, onOpe
 // The printable grading sheet. rows fill the summary table under columns; each section lists
 // what was wrong on one item (or the whole deployment), with the step and reference.
 export function GradingSheet({ heading, subtitle, trainee, finishedAt, final, boxes = [], scoringNote, columns, rows, sections, onClose }) {
-  return <FloatingWindow title="Grading sheet" onClose={onClose} className="paper-sheet print-manifest grading-sheet" printable>
+  return <RegulationScope view="review"><FloatingWindow title="Grading sheet" onClose={onClose} className="paper-sheet print-manifest grading-sheet" printable>
     <p className="paper-banner">FOR TRAINING USE ONLY</p>
     <header className="paper-header"><div><strong>{heading}</strong><span>{subtitle} · Test mode</span></div><span className="paper-form">Final score {final} / 100</span></header>
     <div className="paper-boxes">
@@ -51,11 +53,11 @@ export function GradingSheet({ heading, subtitle, trainee, finishedAt, final, bo
       {section.note && <p className="grading-incomplete">{section.note}</p>}
       <div className="paper-table"><table>
         <thead><tr><th>What was wrong</th><th>Step</th><th>Reference</th></tr></thead>
-        <tbody>{section.mistakes.length ? section.mistakes.map((m, i) => <tr key={i}><td>{m.detail}</td><td>{m.step}</td><td>{m.reference}</td></tr>) : <tr><td colSpan="3">No mistakes recorded.</td></tr>}</tbody>
+        <tbody>{section.mistakes.length ? section.mistakes.map((m, i) => <tr key={i}><td>{m.detail}</td><td>{m.step}</td><td><RegulationReference reference={m.reference} /></td></tr>) : <tr><td colSpan="3">No mistakes recorded.</td></tr>}</tbody>
       </table></div>
     </section>)}
     <div className="paper-boxes grading-signatures">
       {['Trainee signature', 'Evaluator signature', 'Date'].map(k => <div key={k}><small>{k}</small><span /></div>)}
     </div>
-  </FloatingWindow>;
+  </FloatingWindow></RegulationScope>;
 }

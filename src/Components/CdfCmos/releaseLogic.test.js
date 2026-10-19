@@ -8,7 +8,7 @@ const setup = () => {
     random: () => 0.4,
   });
   const now = new Date("2026-10-13T18:00:00");
-  const departureAt = toLocalInput(new Date(now.getTime() + 10 * 60000));
+  const departureAt = toLocalInput(new Date(now.getTime() - 10 * 60000));
   return {
     ...session,
     now,
@@ -17,12 +17,12 @@ const setup = () => {
     pieceKeys: Object.keys(session.shipments).slice(0, session.pieceCount),
   };
 };
-test("release requires current checks and print tasks", () => {
+test("release requires the print tasks; running Edit Check is optional", () => {
   const c = setup(),
     details = { departureAt: c.departureAt, flightNumber: "TRN001" };
   expect(
     releaseAirShipment({ ...c.cdfCmos, checkedRevision: null }, details, c).ok,
-  ).toBe(false);
+  ).toBe(true);
   expect(
     releaseAirShipment({ ...c.cdfCmos, pullSheetRevision: null }, details, c)
       .ok,
@@ -42,7 +42,7 @@ test("release uses existing time window and all JI", () => {
       c,
     ).ok,
   ).toBe(false);
-  c.exercises[c.pieceKeys[0]].jiVerified = [];
+  c.exercises[c.pieceKeys[0]].jiMarks = {};
   expect(releaseAirShipment(c.cdfCmos, details, c).ok).toBe(false);
 });
 test("saved change blocks release while draft changes preserve it; finished tests lock", () => {

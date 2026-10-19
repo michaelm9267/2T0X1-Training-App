@@ -1,3 +1,4 @@
+import RegulationHelp from '../Regulations/RegulationHelp';
 import { useState } from "react";
 import { Dialog, Field } from "./controls";
 import { releaseAirShipment } from "./releaseLogic";
@@ -27,6 +28,7 @@ export default function ReleaseAirShipment({
   };
   return (
     <Dialog title="Release Air Shipment" onClose={onClose} wide>
+    <RegulationHelp claims={['documents.load', 'loadPlan.actualWeight', 'departure.finalPlan']} assumptions={['The simulation release sequence and local timing gate are training workflow rules.']} />
       <div className="cdf-fields">
         <Field label="Mission" value={state.manifest?.mission} readOnly />
         <Field
@@ -80,8 +82,8 @@ export default function ReleaseAirShipment({
         </fieldset>
       </div>
       <p>
-        Training rule: release the manifest within 30 minutes of aircraft
-        departure.
+        Training rule: release the manifest within 30 minutes following
+        aircraft departure.
       </p>
       <p role="status">{feedback}</p>
       <footer>

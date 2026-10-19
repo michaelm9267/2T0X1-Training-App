@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { wholeCube } from './model';
+import { isMoneyField, money } from './money';
 import { Dialog, Lookup, lookupValues } from './controls';
 import CmosDateField from './CmosDateField';
-import { assignShipments, createRecord, editRecord, saveRecord, totals, currentCheck } from './model';
+import { assignShipments, createRecord, editRecord, saveRecord, totals, validationErrors } from './model';
 import { screens } from './referenceInventory';
 import { parseScheduleDate } from './airScheduleLogic';
 import {
@@ -9,10 +11,10 @@ import {
   routingErrors, routingRow,
 } from './routingLogic';
 import ReferenceLookup from './ReferenceLookup';
-import { EQUIPMENT_TYPE_ROWS, SERVICE_CODES, serviceCodeInfo, copyTcnData, routingCheckErrors, isSent, passedEditData, sendRequest, statusRequest, receiveResponses, setGroupResponse, awardRoute, routeToBill } from './routingRequest';
+import { EQUIPMENT_TYPE_ROWS, SERVICE_CODES, serviceCodeInfo, copyTcnData, routingCheckErrors, isSent, sendRequest, statusRequest, receiveResponses, setGroupResponse, awardRoute, routeToBill } from './routingRequest';
 import { RSN_CODES, assignmentErrors } from './routingResponse';
 import { cblDefaults, nextCblNumber, fillFromShipments } from './cblLogic';
-import { equipmentGroups, stopOffs, tcnStops, billOfLading, groupOf } from './routingEquipment';
+import { equipmentGroups, stopOffs, tcnStops, groupOf } from './routingEquipment';
 import { MIL_EDI_REFERENCE } from './modeReference';
 
 const contains = (value, query) => !query || String(value || '').toUpperCase().includes(String(query).toUpperCase().replace(/%/g, ''));
@@ -26,12 +28,13 @@ const STOP_EDITABLE = ['stopType', 'dateTime', 'poc', 'phone'];
 const ASSIGN_COLUMNS = [['tcn', 'TCN'], ['milMode', 'MIL Mode'], ['ediMode', 'EDI Mode'], ['origin', 'Consignor DODAAC'], ['destination', 'Consignee DODAAC'],
   ['dsoeId', 'DSOE_ID'], ['chalk', 'CHALK'], ['ovrDm', 'Ovr Dm'], ['hazInd', 'Haz Ind'], ['adviceNbr', 'Advice Number'], ['acctClass', 'Acct Class'], ['totalCost', 'Cost'], ['tac', 'TAC']];
 
-// TCNs a route order can take: finished in Shipment Planning (saved with a current, passing Edit
-// TCN), Routing indicator checked, not trans priority 4, and not already on a route order.
+// TCNs a route order can take: saved in Shipment Planning with every required field filled (the
+// record has nothing Edit Check would report), Routing indicator checked, not trans priority 4, and
+// not already on a route order.
 export function routingCandidates(store) {
   const taken = new Set(Object.values(store.routings || {}).flatMap((r) => r.draft.shipmentIds || []));
-  return Object.values(store.shipments || {}).filter((r) => r.saved && currentCheck(r) && r.saved.routing
-    && String(r.saved.tp || '').trim() !== '4' && !taken.has(r.id));
+  return Object.values(store.shipments || {}).filter((r) => r.saved?.routing && !r.sample
+    && String(r.saved.tp || '').trim() !== '4' && !taken.has(r.id) && !validationErrors(store, 'shipments', r.id).length);
 }
 
 function AssignTcns({ store, record, onClose, change, setMessage, onShipPlan }) {
@@ -63,7 +66,7 @@ function AssignTcns({ store, record, onClose, change, setMessage, onShipPlan }) 
           <tbody>{rows.map((row) => <tr key={row.id} className="shared-route-assign-row" tabIndex={0} aria-label={`Assign ${row.tcn}`} aria-selected={picked.includes(row.id)}
             onClick={() => setPicked((p) => (p.includes(row.id) ? p.filter((x) => x !== row.id) : [...p, row.id]))}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }}>
-            {ASSIGN_COLUMNS.map(([key]) => <td key={key}>{row[key] ?? ''}</td>)}
+            {ASSIGN_COLUMNS.map(([key]) => <td key={key}>{isMoneyField(key) ? money(row[key]) : row[key] ?? ''}</td>)}
           </tr>)}</tbody>
         </table>{!rows.length && <p>No data to display.</p>}</div>
         <div className="shared-piece-count shared-route-count"><span>Rows Selected{picked.length}</span><span>{rows.length} row(s) found.</span></div>
@@ -172,7 +175,7 @@ function RouteOrder({ store, record, locked, sample, edit, change, action, setMe
         <div className="shared-route-totals">
           <span className="shared-route-field"><label className="shared-route-system">TCNs Assigned:</label><input aria-label="TCNs Assigned" readOnly value={ids.length ? 'Y' : 'N'} style={{ width: '24px' }} /></span>
           <span className="shared-route-field"><label className="shared-route-system">Total Weight:</label><input aria-label="Total Weight" readOnly value={total.weight} style={{ width: '72px' }} /></span>
-          <span className="shared-route-field"><label className="shared-route-system">Total Cube:</label><input aria-label="Total Cube" readOnly value={total.cube.toFixed(0)} style={{ width: '72px' }} /></span>
+          <span className="shared-route-field"><label className="shared-route-system">Total Cube:</label><input aria-label="Total Cube" readOnly value={wholeCube(total.cube)} style={{ width: '72px' }} /></span>
         </div>
       </div>
       <div className="shared-route-stack shared-route-right">
@@ -212,11 +215,11 @@ function RouteOrder({ store, record, locked, sample, edit, change, action, setMe
         <div className="shared-table-scroll"><table className="shared-table">
           <thead><tr><th><span className="visually-hidden">Select</span></th>{TCN_COLUMNS.map(([key, label]) => <th key={key} scope="col">{label}</th>)}</tr></thead>
           <tbody>{ids.map((sid) => { const s = store.shipments[sid]?.draft || {}; const t = totals(store, [sid]); const group = groupOf(d, sid);
-            const row = { ...s, ...tcnStops(store, d, sid), equipGroupId: group, bl: groups.find((g) => g.group === group)?.bl || billOfLading(d, group), pieces: t.pieces, weight: t.weight, hazInd: String(s.hazmat || '').slice(0, 1) };
+            const row = { ...s, ...tcnStops(store, d, sid), equipGroupId: group, bl: groups.find((g) => g.group === group)?.bl || '', pieces: t.pieces, weight: t.weight, hazInd: String(s.hazmat || '').slice(0, 1) };
             return <tr key={sid}><td><input type="checkbox" aria-label={`Select ${s.tcn || sid}`} checked={chosen.includes(sid)} onChange={(e) => setChosen((c) => (e.target.checked ? [...c, sid] : c.filter((x) => x !== sid)))} /></td>
               {TCN_COLUMNS.map(([key]) => <td key={key}>{['equipGroupId', 'stopLd', 'stopUl'].includes(key)
                 ? <input className="shared-route-cell" aria-label={`${s.tcn} ${key === 'equipGroupId' ? 'Equip Group ID' : key === 'stopLd' ? 'Stop Ld' : 'Stop UL'}`} readOnly value={row[key]} />
-                : row[key] ?? ''}</td>)}</tr>; })}</tbody>
+                : isMoneyField(key) ? money(row[key]) : row[key] ?? ''}</td>)}</tr>; })}</tbody>
         </table>{!ids.length && <p>No data to display.</p>}</div>
         <div className="shared-piece-count">{ids.length} row(s) found.</div>
       </>}
@@ -324,7 +327,7 @@ function RouteOrder({ store, record, locked, sample, edit, change, action, setMe
           <thead><tr>{['Equip Group', 'DSOE ID', 'Chalk', 'Assigned SCAC', 'Tender', 'B/L', 'Award Status'].map((label) => <th key={label} scope="col">{label}</th>)}</tr></thead>
           <tbody>{groups.map((g) => { const carrier = g.carriers.find((c) => c.scac === g.assignedScac);
             return <tr key={g.group} aria-selected={responseGroup === g.group} onClick={() => setResponseGroup(g.group)}>
-              <td>{g.group}</td><td>{g.dsoeId}</td><td>{g.chalk}</td><td>{g.assignedScac}</td><td>{carrier?.tender || ''}</td><td>{g.cblId ? g.bl : ''}</td><td>{g.awardStatus}</td>
+              <td>{g.group}</td><td>{g.dsoeId}</td><td>{g.chalk}</td><td>{g.assignedScac}</td><td>{carrier?.tender || ''}</td><td>{g.bl}</td><td>{g.awardStatus}</td>
             </tr>; })}</tbody>
         </table>{!groups.length && <p>No data to display.</p>}</div>
         <div className="shared-piece-count">{groups.length} row(s) found.</div>
@@ -346,7 +349,10 @@ function RouteOrder({ store, record, locked, sample, edit, change, action, setMe
         }}>Status Request</button>
         : <>
           <button type="button" disabled={readOnly} onClick={() => {
-            if (!passedEditData(record)) { setMessage(<Notice kind="error" title="Error" lines={['Run Edit Data and pass the edits before sending the request.']} />); return; }
+            // Edit Data is optional: Send Request applies the same checks itself.
+            if (!record.saved || JSON.stringify(record.draft) !== JSON.stringify(record.saved)) { setMessage(<Notice kind="error" title="Error" lines={['Save the route order before sending the request.']} />); return; }
+            const missing = routingCheckErrors(store, d, nowDate());
+            if (missing.length) { setMessage(<Notice kind="error" title="Error" lines={missing} />); return; }
             const next = sendRequest(store, record.id, nowDate());
             change(next);
             setMessage(<Notice kind="ok" title="Transaction Successfully Processed" lines={['Request sent to GFM and forwarded to ATR.']} />);
@@ -412,7 +418,6 @@ function AtrSimulation({ remaining, onTick }) {
 function ScacDialog({ group, readOnly, onChange, onClose }) {
   const [errors, setErrors] = useState([]);
   const columns = ['Assigned', 'SCAC', 'Total Cost', 'Max Days', 'Tender', 'EQ Type', 'NMFC/UFC', 'RSN', 'Cumulative Weight', 'Conveyances Avail', 'Conveyances Used', 'Trans Mode'];
-  const money = (n) => `$${Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   const toggle = (scac) => {
     if (readOnly) return;
     if (group.assignedScac === scac) { setErrors([]); onChange({ assignedScac: '' }); return; }

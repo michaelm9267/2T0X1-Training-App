@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CargoWindow from './CargoWindow';
 import { scenarios } from './scenarios';
+import { cargoModel, ISU_COMBINATION } from './cargoModels';
 
 function setup(scenario = scenarios[0], stage = 'incheck') {
   const props = { scenario, stage, onRecordMeasurement: jest.fn(), onRecordWeight: jest.fn(), onInspect: jest.fn(), onPlaceLabel: jest.fn(), onRemoveLabel: jest.fn() };
@@ -102,4 +103,13 @@ test('mouse tape placement passes physical coordinates and the selected vehicle 
   userEvent.selectOptions(screen.getByLabelText('Cargo view'), 'perspective');
   fireEvent.click(svg,{clientX:72,clientY:80});
   expect(props.onPlaceLabel).toHaveBeenCalledTimes(1);
+});
+
+test('ISU door locks show the combination tape unless access is the discrepancy', () => {
+  const isu = scenarios.find(item => item.id === 'isu-90');
+  const parts = scenario => cargoModel(scenario, { doorsOpen: false }).filter(part => part.value === ISU_COMBINATION);
+  expect(parts(isu)).toHaveLength(2);
+  const locked = { ...isu, findings: isu.findings.map(f => f.id === 'access' ? { ...f, correct: 'unsatisfactory' } : f) };
+  expect(parts(locked)).toHaveLength(0);
+  expect(isu.findings.find(f => f.id === 'access').observation).toMatch(/combination written on tape directly above the lock/);
 });

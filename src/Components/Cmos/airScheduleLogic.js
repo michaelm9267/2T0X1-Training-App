@@ -1,4 +1,5 @@
 import { DODAAC_INFO } from '../CargoWindow/workflow';
+import { TABLE_APODS } from '../Outbound/dodaacs';
 
 // CMOS Common In/Out → Air Schedule: the missions (aircraft) that deployment cargo is manifested
 // onto. A mission is built here first; the Air Manifest then picks it up by mission number.
@@ -17,14 +18,20 @@ export const AC_TYPES = [
   ['L100', 'L100', '', 'C'], ['MD11', 'MD11', '', ''],
 ];
 
-// APOD Terminals Lookup, limited to the aerial ports this app's deployments use
+// APOD Terminals Lookup: the aerial ports this app's deployments use and every APOD in the DoDAAC table
 // (Terminal Name, Terminal, Type, TRDM).
 const TERMINAL_NAMES = {
   EDF: 'ELMENDORF AFB (JBER)', OSN: 'OSAN AB', KUZ: 'KUNSAN AB', DNA: 'KADENA AB', OKO: 'YOKOTA AB',
   MSJ: 'MISAWA AB', UAM: 'ANDERSEN AFB', HIK: 'HICKAM AFB (JBPHH)', RMS: 'RAMSTEIN AB', MHZ: 'RAF MILDENHALL',
   DOV: 'DOVER AFB', CHS: 'CHARLESTON AFB', SUU: 'TRAVIS AFB', TCM: 'MCCHORD FLD (JBLM)',
+  // APODs from the CMOS DoDAAC table.
+  '3OR': 'AL ASAD AB', ADA: 'INCIRLIK AB', AJY: 'AGADEZ AB 201', AKH: 'PRINCE SULTAN AB', AKT: 'RAF AKROTIRI', AVB: 'AVIANO AB',
+  AZ3: 'FAIRBANKS', CTS: 'CHITOSE AB', DHF: 'AL DHAFRA AB', DLG: 'DILLINGHAM', EIL: 'EIELSON AFB', HC1: 'BALEDOGLE',
+  IGL: 'CIGLI AB', IUD: 'AL UDEID AB', KEZ: 'ALI AL SALEM AB', KTM: 'TRIBHUVAN INTL', KWI: 'KUWAIT INTL', LGS: 'LAJES FIELD',
+  NIM: 'NIAMEY AB', NKW: 'DIEGO GARCIA', O1R: 'APO AE 09357', PLA: 'SOTO CANO AB', RTA: 'NAVSTA ROTA', SJU: 'SAN JUAN',
+  SQX: 'MUWAFFAQ SALTI AB', VDA: 'OVDA AB',
 };
-export const TERMINALS = [...new Set(Object.values(DODAAC_INFO).map((info) => info.port).filter(Boolean))]
+export const TERMINALS = [...new Set([...Object.values(DODAAC_INFO).map((info) => info.port), ...TABLE_APODS].filter(Boolean))]
   .map((port) => [TERMINAL_NAMES[port] || port, port, 'A', 'Y'])
   .sort((a, b) => a[0].localeCompare(b[0]));
 

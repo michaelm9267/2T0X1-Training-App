@@ -113,8 +113,10 @@ export function createShipment({ random = Math.random, origin = 'jber', target, 
     nsn: `${item.fsc}-${niin(random)}`, serialNumber: item.ui === 'EA' && quantity === 1 ? `SN${between(random, 10000, 99999)}` : null,
     documentNumber, tcn: document === '1149' ? tcn1149(from, pick(random, TCN_SERIALS)) : `${documentNumber}XXX`, rdd,
     tac: pick(random, TACS), projectCode: pick(random, ['   ', '3AF', '9GF']), targetMode: spec.mode, discrepancy: flaw,
-    // Whether supply already sent CMOS an advance record (status 00) for this TCN.
-    advance: advance ?? random() < .5,
+    // Whether supply already sent CMOS an advance record (status 00) for this TCN. A DD 1149 is
+    // generated in a system that feeds CMOS, so it always arrives as one; createQueue picks the one
+    // DD 1348-1A the trainee builds from scratch.
+    advance: advance ?? true,
     container: correctContainer(item, quantity),
     packed: { length: size.length, width: size.width, height: size.height, weight: Math.round(item.unitWeight * quantity + size.tare) },
   };
@@ -122,7 +124,7 @@ export function createShipment({ random = Math.random, origin = 'jber', target, 
 
 export function createQueue({ random = Math.random, origin = 'jber' } = {}) {
   const seen=new Set();
-  return shuffle(random, ORIGIN_TARGETS[origin]).map((target,index)=>{
+  const queue=shuffle(random, ORIGIN_TARGETS[origin]).map((target,index)=>{
     let shipment=createShipment({random,origin,target,serial:index+1});
     if(seen.has(shipment.tcn)){
       if(shipment.document==='1149')shipment={...shipment,tcn:tcn1149(ORIGINS[origin],TCN_SERIALS.find(serial=>!seen.has(tcn1149(ORIGINS[origin],serial))))};
@@ -130,6 +132,10 @@ export function createQueue({ random = Math.random, origin = 'jber' } = {}) {
     }
     seen.add(shipment.tcn);return shipment;
   });
+  // One DD 1348-1A per session has no advance record, so the trainee builds it in CMOS from scratch.
+  const milstrip=queue.filter(shipment=>shipment.document==='1348-1A');
+  const scratch=milstrip.length?milstrip[Math.floor(random()*milstrip.length)].key:null;
+  return queue.map(shipment=>shipment.document==='1348-1A'?{...shipment,advance:shipment.key!==scratch}:shipment);
 }
 
 // The shipping document as the customer presents it. Until the trainee returns it for correction,
@@ -140,6 +146,8 @@ export function presentedDocument(shipment, corrected = false) {
   return {
     type: shipment.document,
     documentNumber: shipment.documentNumber,
+    // A DD 1149 is identified by its TCN: block 6 carries the TCN, not a MILSTRIP document number.
+    tcn: shipment.tcn,
     nsn: flaw === 'nsn' ? `${shipment.nsn.slice(0, -4)}${String((Number(shipment.nsn.slice(-4)) + 731) % 10000).padStart(4, '0')}` : shipment.nsn,
     nomenclature: item.nomenclature, partNumber: item.partNumber, ui: item.ui, unitPrice: item.unitPrice, unitWeight: item.unitWeight,
     quantity: flaw === 'quantity' ? shipment.quantity + (shipment.quantity > 3 ? -2 : 1) : shipment.quantity,

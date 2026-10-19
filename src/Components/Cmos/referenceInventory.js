@@ -99,7 +99,7 @@ export const planningMain = [
     "Advice Nbr",
     "Acct Class",
     "SDN/MORD",
-    select("LOA Val Status", "loa", ["U", "V", "E"]),
+    select("LOA Val Status", "loa", ["P", "U", "V", "E"]),
   ),
   fs(
     "Total Cost",
@@ -309,6 +309,8 @@ export const screens = {
   deployment: { title: "Deployment Parameters", kind: "deployments", source: "", pages: [], header: [], main: [], tabs: {}, actions: [] },
   // Drawn by AirScheduleScreen.
   schedule: { title: "Air Schedule", kind: "missions", source: "", pages: [], header: [], main: [], tabs: {}, actions: [] },
+  // Drawn by PalletsScreen.
+  pallets: { title: "Pallets", kind: "pallets", source: "", pages: [], header: [], main: [], tabs: {}, actions: [] },
   planning: {
     title: "Shipment Planning",
     kind: "shipments",
@@ -410,7 +412,6 @@ export const screens = {
     ),
     tabs: {
       "TCNs Assigned": fs(
-        "Status",
         "TCN",
         "DSOE ID",
         CHALK,
@@ -647,14 +648,15 @@ export const screens = {
         "Export License",
       ),
       "Hold At Location-3": fs(
-        "Location Name",
-        "Address 1",
-        "Address 2",
-        "City",
-        "Country",
-        "State",
-        "Zip",
-        "Phone Number",
+        field("POC Name", "holdPocName"),
+        field("POC Phone", "holdPocPhone"),
+        field("Address", "holdAddress"),
+        field("Address 2", "holdAddress2"),
+        field("City", "holdCity"),
+        field("Country Code", "holdCountry"),
+        field("State/Province", "holdState"),
+        field("ZIP", "holdZip"),
+        field("Type", "holdType"),
       ),
     },
     actions: [

@@ -1,10 +1,12 @@
 import { expectedShipment, missionForSession, cargoKind, ammunitionFixture } from '../CdfCmos/trainingData';
 import { createAirManifest, assignCargo, editCheck, markPrinted } from '../CdfCmos/manifestLogic';
 import { newSession } from '../../session';
-import { createExercise, getTasks, isStageComplete } from './exercise';
+import { createExercise, isStageComplete } from './exercise';
 import { paperwork, verifyPaperwork, reviewHazdec, hazdecRequired, manifestFields, saveManifest } from './workflow';
 import { screenATTLA } from './transportability';
 import { placeTapeLabel } from './notebook';
+import { tapeScale } from './cargoModels';
+import { correctMarks } from './dd2133';
 import { calculateCB } from './centerOfBalance';
 import { axleLabels } from './axles';
 import { possibleDiscrepancies, withDocumentErrors } from './discrepancies';
@@ -30,6 +32,8 @@ export function completePrecheck(s, start) {
   return e;
 }
 
+// Trucks whose practice tape sits low on the body, just above the panel's lower edge, instead of mid-panel.
+const LOW_TAPE = ['rolling-stock', 'three-axle', 'age-generator'];
 const measure = (view, a, b) => ({ view, endpoints: [a, b], inches: Math.hypot(b.x - a.x, b.y - a.y) });
 export function completeIncheck(s, start) {
   const { length, width, height } = s;
@@ -43,15 +47,24 @@ export function completeIncheck(s, start) {
     ...(s.vehicleChecks ? { vehicleState: { positiveTaped: true, negativeTaped: true, fuelFraction: Math.min(s.vehicleChecks.fuelFraction, s.vehicleChecks.fuelLimit) }, terminalViewed: { positive: true, negative: true }, fuelViewed: true } : {}) };
   if (!s.axles) return e;
   e = { ...e, cbResult: calculateCB(s.axles.map(axle => ({ distance: axle.position, weight: axle.weight })), s.weight) };
-  // Tape goes where placeTapeLabel accepts it: on a body panel above each axle, and the CB T.
+  // Tape goes where placeTapeLabel accepts it: on a body panel directly above each axle, and the CB T
+  // at the CB, centred in the panel's height there, or low on it for LOW_TAPE trucks (nudged aft or
+  // forward only if the panel is cut away).
   for (const type of [...axleLabels(s).map(axle => axle.type), 'cb']) {
     const axle = axleLabels(s).find(item => item.type === type);
     const x0 = type === 'cb' ? e.cbResult.rounded : axle.position;
     const value = type === 'cb' ? e.cbResult.rounded : axle.weight;
     const before = e;
     const place = spot => placeTapeLabel(s, before, { side: 'left', type, ...spot, value: String(value), gross: String(s.weight) });
-    const spot = [0, -2, 2, -5, 5, -7, 7].flatMap(dx => Array.from({ length: Math.ceil(height) }, (_, y) => ({ x: x0 + dx, y }))).find(at => place(at).tapeLabels.some(label => label.type === type));
-    if (spot) e = { ...place(spot), labelFeedback: '' };
+    for (const dx of [0, -1, 1, -2, 2]) {
+      const fits = Array.from({ length: Math.ceil(height) * 2 + 1 }, (_, i) => ({ x: x0 + dx, y: i / 2 })).filter(at => place(at).tapeLabels.some(label => label.type === type));
+      if (!fits.length) continue;
+      // Low tape keeps its whole footprint on the panel: the axle strip's lower edge, or a small inset for the CB T's stem.
+      const low = fits[fits.length - 1].y - tapeScale(s) * (type === 'cb' ? 2 : 5);
+      const spot = LOW_TAPE.includes(s.id) ? fits.reduce((best, at) => Math.abs(at.y - low) < Math.abs(best.y - low) ? at : best) : fits[Math.floor(fits.length / 2)];
+      e = { ...place(spot), labelFeedback: '' };
+      break;
+    }
   }
   return e;
 }
@@ -64,7 +77,7 @@ export function completeManifest(s, start) {
 export function completeJI(s, start) {
   const e = { ...start, jiInspected: s.findings.map(f => f.id), jiDocumentsViewed: paperwork(s).map(d => d.id), jiMeasurements: start.measurements, jiWeights: start.weights,
     jiSides: s.axles ? ['left', 'right'] : [], jiTerminals: s.vehicleChecks ? { positive: true, negative: true } : {} };
-  return { ...e, jiVerified: getTasks(s, 'ji', e).map(task => task.id) };
+  return { ...e, jiMarks: correctMarks(s, e) };
 }
 
 const STAGE_STEPS = [['precheck', completePrecheck], ['incheck', completeIncheck], ['manifest', completeManifest]];
@@ -79,16 +92,20 @@ function forcedFor(section, slots) {
   return Object.fromEntries(slots.map(slot => [slot.key, Object.fromEntries(possibleDiscrepancies(slot.template).filter(([id]) => index >= 2 || id.startsWith('doc-')).map(([id]) => [id, false]))]));
 }
 
-export function newPracticeSession({ section = 'precheck', cargo = 'equipment', random = Math.random } = {}) {
+// The single piece to practice on: 'random', a scenario id, or 'ammunition' (an explosives pallet).
+export const practicePieces = () => [['random', 'Random equipment'], ...scenarios.map(item => [item.id, item.title]), ['ammunition', 'Ammunition / explosives pallet']];
+
+export function newPracticeSession({ section = 'precheck', cargo = 'equipment', piece = cargo === 'ammunition' ? 'ammunition' : 'random', random = Math.random } = {}) {
   const index = CDF_SECTIONS.indexOf(section);
   const deployment = DEPLOYMENT_SECTIONS.includes(section);
   const slots = scenarios.map(template => ({ key: template.id, template }));
   for (let tries = 0; ; tries += 1) {
     const base = newSession({ random, forced: forcedFor(section, slots), pieceCount: deployment ? scenarios.length : 1, mode: 'practice' });
-    // One piece of a random equipment type: move it to the front of the deployment.
-    const first = cargo==='ammunition' && !deployment ? '463l-pallet' : deployment ? scenarios[0].id : scenarios[Math.floor(random() * scenarios.length)].id;
+    // The chosen (or a random) piece: move it to the front of the deployment.
+    const ammunition = piece === 'ammunition' && !deployment;
+    const first = deployment ? scenarios[0].id : ammunition ? '463l-pallet' : scenarios.some(item => item.id === piece) ? piece : scenarios[Math.floor(random() * scenarios.length)].id;
     const shipments = { [first]: base.shipments[first], ...base.shipments };
-    if(cargo==='ammunition'&&!deployment)shipments[first]={...ammunitionFixture(),id:'463l-pallet',key:first,tcn:shipments[first].tcn};
+    if(ammunition)shipments[first]={...ammunitionFixture(),id:'463l-pallet',key:first,tcn:shipments[first].tcn};
     const keys = Object.keys(shipments).slice(0, base.pieceCount);
     const view = key => withDocumentErrors({ ...shipments[key], destination: base.destination }, base.exercises[key]);
     const exercises = { ...base.exercises };

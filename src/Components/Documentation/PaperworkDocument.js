@@ -1,3 +1,5 @@
+import RegulationHelp, { HazardReference } from '../Regulations/RegulationHelp';
+import RegulationLink from '../Regulations/RegulationLink';
 import { JBER_CONSIGNOR, JBER_CITY_LINE } from '../jberConsignor';
 import { hazardRequirements } from '../CdfCmos/trainingData';
 import FloatingWindow from '../Session/FloatingWindow';
@@ -6,6 +8,9 @@ import { findUnNumber } from './unNumbers';
 import AttlaCertification from './AttlaCertification';
 import { DG2_CATALOG, emergencyContactsFor } from '../Cmos/dg2Reference';
 import { WRONG_UN } from '../CargoWindow/discrepancies';
+import { pieceCB } from '../LoadPlan/loadPlanLogic';
+import './logmod-load-list.css';
+import './marshaling-placard.css';
 
 // Fictional training facsimiles of the increment monitor's paperwork packet. Every value comes
 // from the current shipment snapshot, so documents change with each reset.
@@ -17,19 +22,24 @@ function documentDate(scenario) {
 }
 const SHIPPER = `${ORIGIN} ${DODAAC_INFO[ORIGIN].unit}`;
 
-// Declared contents per shipment. The ISU's marked chemical package is deliberately absent.
-function packingContents(scenario) {
-  if (scenario.id === 'isu-90') return [
-    { box: 1, item: 'Crate, general supplies — office and admin', qty: 1, unit: 'BX' },
-    { box: 2, item: 'Crate, general supplies — aerosol paint, flammable (UN1950)', qty: 1, unit: 'BX' },
-    { box: 3, item: 'Crate, general supplies — cleaning and janitorial', qty: 1, unit: 'BX' },
-    { box: 4, item: 'Case, tool, general mechanic', qty: 1, unit: 'EA' },
-  ];
-  return [
-    { box: '1–4', item: 'Crate, general supplies — heavy (bottom tier)', qty: 4, unit: 'BX' },
-    { box: '5–12', item: 'Carton, general supplies — light (top tier)', qty: 8, unit: 'CT' },
-  ];
+// Fictional stock numbers and organization/shop codes, stable for each training asset.
+// These are simulated identifiers, not verified catalog records.
+const LOGMOD_ASSETS = {
+  'rolling-stock': { nsn: '2320-00-999-1001', orgShop: 'TRN/VEH' },
+  'isu-90': { nsn: '8145-00-999-1002', orgShop: 'TRN/SUP' },
+  '463l-pallet': { nsn: '1670-00-999-1003', orgShop: 'TRN/SUP' },
+  'three-axle': { nsn: '2320-00-999-1004', orgShop: 'TRN/VEH' },
+  'age-generator': { nsn: '1730-00-999-1005', orgShop: 'TRN/AGE' },
+  'mj1-jammer': { nsn: '1730-00-999-1006', orgShop: 'TRN/MUN' },
+};
+function logmodData(scenario) {
+  return {
+    ...(LOGMOD_ASSETS[scenario.id] || { nsn: '9999-00-999-1099', orgShop: 'TRN/LGRT' }),
+    // Use the same forward-datum balance as load planning, independent of document weight errors.
+    cb: Math.round(pieceCB(scenario)),
+  };
 }
+
 // HAZDEC additional handling statements (Key 19) for each vehicle's fuel and batteries.
 export const HANDLING_STATEMENTS = {
   'age-generator': ['UN1202, Diesel Fuel, 3, III, Fuel Drained to 500 ML or less.', 'UN2800, 1 Non-Spillable Batteries installed, Terminals Taped'],
@@ -54,47 +64,216 @@ function Header({ title, subtitle, form }) {
   </header>;
 }
 
-function Logmod({ scenario, values }) {
-  return <>
-    <Header title="LOGMOD · Cargo Increment Detail" subtitle="Deployment data — unit line number record" form="Training facsimile" />
-    <div className="paper-boxes">
-      {[['ULN', tcnUln(values.tcn)], ['UTC', 'TRN01'], ['Increment Nbr', tcnIncrement(values.tcn)], ['TCN', values.tcn], ['Prepared', documentDate(scenario)], ['Shipper', SHIPPER]].map(([k, v]) => <div key={k}><small>{k}</small><span>{v}</span></div>)}
-    </div>
-    <div className="paper-table"><table>
-      <thead><tr><th>Pcs</th><th>Description</th><th>L (in)</th><th>W (in)</th><th>H (in)</th><th>Weight (lb)</th><th>Cube (ft³)</th><th>Haz</th></tr></thead>
-      <tbody><tr><td>{values.pieces}</td><td>{values.description}</td><td>{values.length}</td><td>{values.width}</td><td>{values.height}</td><td>{scenario.paperworkWeight ?? values.weight}</td><td>{(values.length * values.width * values.height / 1728).toFixed(1)}</td><td>{values.hazmat.slice(0, 1)}</td></tr></tbody>
-    </table></div>
-    <div className="paper-boxes">
-      {[['Origin DoDAAC', values.origin], ['APOE', values.apoe], ['Destination DoDAAC', values.destination], ['APOD', values.apod], ['Hazardous/Ammunition Ind', values.hazmat], ['Configuration', scenario.attla?.configurationId]].map(([k, v]) => <div key={k}><small>{k}</small><span>{v}</span></div>)}
-    </div>
-  </>;
+// Report bands follow the supplied LOGMOD Execution Load List. Unmodeled fields stay blank.
+function LogmodBand({ fields, className = '' }) {
+  return <dl className={`logmod-band ${className}`}>{fields.map(([label, value]) =>
+    <div key={label}><dt>{label}</dt><dd>{value ?? '—'}</dd></div>
+  )}</dl>;
 }
 
-function LogmodPlacard({ scenario, values }) {
-  return <div className="logmod-placard">
-    <Header title="LOGMOD CARGO PLACARD" subtitle="Attach after validation by the Cargo Deployment Function" form="Training facsimile" />
-    <div className="placard-route"><span>{values.origin} / {values.apoe}</span><strong>TO</strong><span>{values.destination} / {values.apod}</span></div>
-    <h2>{values.description}</h2>
-    <div className="paper-boxes placard-boxes">
-      {[['TCN', values.tcn], ['ULN', tcnUln(values.tcn)], ['Increment', tcnIncrement(values.tcn)], ['Pieces', values.pieces], ['Weight', `${scenario.paperworkWeight ?? values.weight} LB`], ['Dimensions', `${values.length} × ${values.width} × ${values.height} IN`], ['Hazardous', values.hazmat], ['Prepared', documentDate(scenario)]].map(([key, value]) => <div key={key}><small>{key}</small><span>{value}</span></div>)}
-    </div>
-    <p className="placard-footer">FOR TRAINING USE ONLY · VERIFY AGAINST THE LOGMOD CARGO INCREMENT DETAIL</p>
+function Logmod({ scenario, values }) {
+  const asset = logmodData(scenario);
+  const weight = scenario.paperworkWeight ?? values.weight;
+  const hazardous = !values.hazmat.startsWith('N');
+  const hazards = hazardous ? declaredHazards(scenario, weight) : [];
+  const rolling = Boolean(scenario.axles);
+  const type = scenario.id === '463l-pallet' ? 'Pallet' : rolling ? 'Vehicle / equipment' : 'Container';
+  const hazardCodes = hazards.map(row => findUnNumber(row.un)?.division).filter(Boolean).join(', ');
+  const header = <>
+    <header className="logmod-heading"><p>TRAINING — {tcnUln(values.tcn)}</p><h2>Execution Load List</h2></header>
+    <LogmodBand className="logmod-plan" fields={[
+      ['SOE', '—'], ['Plan', 'CARGO'], ['UTC', 'TRN01'], ['ULN', tcnUln(values.tcn)], ['UTC Title', 'TRAINING CARGO'], ['TTAN', '—'],
+    ]} />
+    <LogmodBand className="logmod-increment" fields={[
+      ['Dep Ech', '—'], ['Inc Nbr', tcnIncrement(values.tcn)], ['Inc Title', values.description], ['Mvmt Pri', '—'],
+      ['Weight', weight], ['Length', values.length], ['Width', values.width], ['Height', values.height], ['Vent', '—'], ['TTN', '—'],
+    ]} />
+    <LogmodBand className="logmod-org" fields={[
+      ['Inc Prime UIC/Org', SHIPPER], ['Inc Prime FAC/FAC Title', '—'], ['CCC', '—'],
+      ['Hazard Codes', hazardCodes || '—'], ['SHI Codes', '—'], ['TCN', values.tcn],
+    ]} />
+    <LogmodBand fields={[
+      ['CB (in)', asset.cb], ['NSN', asset.nsn], ['Org/Shop', asset.orgShop],
+    ]} />
+  </>;
+  const footer = (page, total) => <footer className="logmod-footer"><span>TRAINING OPERATOR<br />Originating Office: {values.origin}</span><span>FOR TRAINING USE ONLY<br />{documentDate(scenario)}</span><span>Page {page} of {total}</span></footer>;
+  return <div className="logmod-report" tabIndex={0} role="region" aria-label="Execution load list">
+    <section className="logmod-page">
+      {header}
+      <table className="logmod-items" aria-label="Increment items">
+        <thead><tr>{['Item', 'CC', 'NSN', 'Type', 'Nomenclature', 'ASC', 'Org/Shop', 'Qty', 'Wgt', 'Lth', 'Wth', 'Hgt', 'CCC', 'Haz', 'SHI'].map(label => <th scope="col" key={label}>{label}</th>)}</tr></thead>
+        <tbody><tr><td>01</td><td>—</td><td>{asset.nsn}</td><td>—</td><td>{values.description}</td><td>—</td><td>{asset.orgShop}</td><td>{values.pieces}</td><td>{weight}</td><td>{values.length}</td><td>{values.width}</td><td>{values.height}</td><td>—</td><td>{hazardCodes || '—'}</td><td>—</td></tr></tbody>
+      </table>
+      <p className="logmod-note">Increment summary; item-level inventory is not supplied by this training scenario. NSN and Org/Shop are simulated. Weight in pounds; dimensions and CB in inches from the forward datum. 463L pallets and ISUs: CB 44 in (88 in side forward); other non-wheeled cargo uses midpoint CB. — = not supplied.</p>
+      <LogmodBand className="logmod-configuration" fields={[
+        ['Inc Type', type], ['C/B', asset.cb], ['Parking', '—'], ['Rolling', rolling ? 'Y' : 'N'], ['Sleeper', '—'],
+        ['Pallet Profile', '—'], ['Front Overhang', '—'], ['Rear Overhang', '—'],
+      ]} />
+      <LogmodBand fields={[
+        ['Origin DoDAAC', values.origin], ['APOE', values.apoe], ['Destination DoDAAC', values.destination], ['APOD', values.apod],
+        ['Configuration', scenario.attla?.configurationId], ['Cube (ft³)', (values.length * values.width * values.height / 1728).toFixed(1)],
+      ]} />
+      {footer(1, hazardous ? 2 : 1)}
+    </section>
+    {hazardous && <section className="logmod-page" aria-label="Hazardous cargo detail">
+      {header}
+      <LogmodBand fields={[
+        ['Nomenclature', values.description], ['Hazard Ind', values.hazmat.slice(0, 1)], ['Nr Pieces', values.pieces], ['DODAAC', values.origin],
+      ]} />
+      {hazards.map(row => <div className="logmod-hazard" key={row.un}>
+        <LogmodBand fields={[
+          ['UN NA ID', row.un], ['UN Class Div', findUnNumber(row.un)?.division],
+          ['Clear Text 1', row.name || findUnNumber(row.un)?.names[0]], ['Clear Text 2', row.instruction],
+        ]} />
+        <LogmodBand fields={[
+          ['Lot Number', scenario.ammo ? 'TRN-001' : '—'], ['Quantity', row.quantity], ['Remarks', row.handling.join(' · ') || '—'],
+        ]} />
+      </div>)}
+      {footer(2, 2)}
+    </section>}
   </div>;
 }
 
+// The source report prints two identical copies with the same numbered blocks.
+function MarshalingField({ label, value, className = '' }) {
+  return <div className={`marshaling-field ${className}`}><dt>{label}</dt><dd>{value ?? '\u00a0'}</dd></div>;
+}
+
+function LogmodPlacard({ scenario, values }) {
+  const asset = logmodData(scenario);
+  const increment = tcnIncrement(values.tcn);
+  const weight = scenario.paperworkWeight ?? values.weight;
+  return <div className="marshaling-report" role="region" aria-label="Marshaling placard sheet" tabIndex={0}>
+    {[1, 2].map(copy => <section className="marshaling-placard" key={copy} aria-label={`Deployment Marshaling Placard copy ${copy}`}>
+      <h2>Deployment Marshaling Placard</h2>
+      <dl className="marshaling-blocks">
+        <MarshalingField className="marshaling-tcn" label="1. Transportation Control" value={values.tcn} />
+        <div className="marshaling-origin-row">
+          <MarshalingField label="2. From" value={DODAAC_INFO[values.origin]?.unit || values.origin} />
+          <MarshalingField label="TTAN:" />
+          <MarshalingField label="TTN:" />
+          <div className="marshaling-dimensions">
+            <MarshalingField label="L" value={values.length} /><span aria-hidden="true">×</span>
+            <MarshalingField label="W" value={values.width} /><span aria-hidden="true">×</span>
+            <MarshalingField label="H" value={values.height} />
+            <MarshalingField label="CB" value={asset.cb} />
+          </div>
+        </div>
+        <div className="marshaling-movement-row">
+          <MarshalingField label="3. Trans Priority" />
+          <MarshalingField label="4. Date Shipped" />
+          <MarshalingField label="5. Piece Number" value="1" />
+          <MarshalingField label="6. Total Pieces" value={values.pieces} />
+          <MarshalingField label="7. Weight" value={Number(weight).toLocaleString('en-US')} />
+          <MarshalingField label="8. Cube" value={Math.round(values.length * values.width * values.height / 1728)} />
+          <MarshalingField label="9. Chalk" />
+        </div>
+        <div className="marshaling-unit-row">
+          <MarshalingField label="10. UNIT TYPE CODE (UTC)" value="TRN01" />
+          <MarshalingField label="11. UNIT LINE NUMBER (ULN)" value={tcnUln(values.tcn)} />
+        </div>
+        <MarshalingField className="marshaling-increment" label="12. DEPLOYMENT ECHELON/INCREMENT NUMBER" value={`${increment.slice(0, 1)} / ${increment.slice(1)}`} />
+        <MarshalingField className="marshaling-remarks" label="13. REMARKS" value={<><span>{values.description}</span><span>NSN: {asset.nsn} · Org/Shop: {asset.orgShop} (simulated)</span><span>{values.origin} / {values.apoe} → {values.destination} / {values.apod} · {values.hazmat}</span></>} />
+      </dl>
+    </section>)}
+    <p className="marshaling-note">FOR TRAINING USE ONLY · Weight: lb · Cube: ft³ · Dimensions and CB: in from the forward datum · 463L pallets and ISUs: CB 44 in (88 in side forward); other non-wheeled cargo uses midpoint CB · Unavailable fields are blank.</p>
+  </div>;
+}
+
+// LOGMOD Execution Material List (the packing list LOGMOD prints for an increment). Items are
+// grouped by owning FAC: A = item, C = container with its contents as S (suffix) rows. Line weights
+// add up to the increment weight. Hazard codes print without the division point (1.4S as 14S).
+const hazCode = division => String(division || '').replace('.', '');
+const nsnOf = nsn => nsn.replace(/-/g, '');
+const PALLET_BUILD = [
+  { cc: 'A', nsn: '1670008204896CT', nomen: '463L PALLET', qty: 1, wgt: 290, lth: 88, wth: 108, hgt: 3, ccc: 'J3D' },
+  { cc: 'A', nsn: '1670009694103CT', nomen: 'TOP NET, HCU-15/C', qty: 1, wgt: 21, lth: 1, wth: 1, hgt: 1, ccc: 'J3D' },
+  { cc: 'A', nsn: '1670009962780CT', nomen: 'SIDE NET, HCU-7/E', qty: 2, wgt: 22, lth: 1, wth: 1, hgt: 1, ccc: 'J3D' },
+  { cc: 'A', nsn: '5510005547760', nomen: 'DUNNAGE', qty: 3, wgt: 30, lth: 88, wth: 4, hgt: 4, ccc: 'J3D' },
+];
+// Split what is left of the increment weight across the containers, in whole pounds.
+const share = (total, parts) => parts.map((part, i) => i < parts.length - 1 ? Math.round(total * part) : total - parts.slice(0, -1).reduce((sum, p) => sum + Math.round(total * p), 0));
+function materialList(scenario, values, weight) {
+  const hazards = values.hazmat.startsWith('N') ? [] : declaredHazards(scenario, weight);
+  const division = un => findUnNumber(un)?.division;
+  const fac = (code, title) => `${tcnUln(values.tcn)}/TRN0001 ${code}/${title}`;
+  const number = (rows, start = 1) => { let item = start - 1; return rows.map(row => row.suf ? { ...row, item: String(item).padStart(2, '0') } : { ...row, item: String(++item).padStart(2, '0') }); };
+  if (scenario.ammo) {
+    const h = hazards[0];
+    return { hazards, type: 'Pallet', groups: [{ fac: fac('430000', 'SECURITY FORCES'), rows: number([
+      { cc: 'C', nsn: '13050SENSCRGO', nomen: 'SENSITIVE CARGO', qty: 1, wgt: weight, lth: values.length, wth: values.width, hgt: values.height, ccc: 'M3D', haz: hazCode(division(h.un)), shi: 'H,4' },
+      { suf: '001', cc: 'S', nsn: '1305999990012', nomen: 'CTG, 5.56MM BALL (TRAINING)', qty: 100, haz: hazCode(division(h.un)), shi: 'H,4' },
+    ]) }] };
+  }
+  if (scenario.id === '463l-pallet' || scenario.id === 'isu-90') {
+    const isu = scenario.id === 'isu-90';
+    const build = isu ? [{ cc: 'A', nsn: nsnOf(LOGMOD_ASSETS['isu-90'].nsn), nomen: 'CONTAINER, ISU-90', qty: 1, wgt: 1450, lth: values.length, wth: values.width, hgt: values.height, ccc: 'J3D' }, PALLET_BUILD[3]] : PALLET_BUILD;
+    const rest = weight - build.reduce((sum, row) => sum + row.wgt, 0);
+    const contents = isu
+      ? [['CRATE, GENERAL SUPPLIES', 'OFFICE AND ADMIN SUPPLIES', 1, '', .3], ['CRATE, GENERAL SUPPLIES', 'PAINT, AEROSOL, FLAMMABLE', 12, hazCode(division('UN1950')), .25], ['CRATE, GENERAL SUPPLIES', 'CLEANING AND JANITORIAL', 1, '', .3], ['CASE, TOOL', 'TOOL KIT, GENERAL MECHANIC', 1, '', .15]]
+      : [['CRATE, GENERAL SUPPLIES', 'GENERAL SUPPLIES, HEAVY', 4, '', .6], ['CARTON, GENERAL SUPPLIES', 'GENERAL SUPPLIES, LIGHT', 8, '', .4]];
+    const weights = share(rest, contents.map(row => row[4]));
+    const containers = contents.flatMap(([container, item, qty, haz], i) => [
+      { cc: 'C', nsn: `8115999${String(i + 1).padStart(4, '0')}`, nomen: container, qty: isu ? 1 : qty, wgt: weights[i], lth: isu ? 30 : 48, wth: isu ? 26 : 40, hgt: isu ? 26 : 24, ccc: 'J3D', haz },
+      { suf: '001', cc: 'S', nsn: `7510999${String(i + 1).padStart(4, '0')}`, nomen: item, qty: isu ? qty : qty * 6, haz },
+    ]);
+    return { hazards, type: isu ? 'Container' : 'Pallet', remarks: 'NOTE ITEM AND SUFFIX ITEM QUANTITIES', groups: [
+      { fac: fac('25B200', isu ? 'LOGISTICS READINESS' : 'MUNITIONS COMBAT PLANS & MOBIL'), rows: number(build) },
+      { fac: fac('430000', 'SUPPLY'), rows: number(containers, build.length + 1) },
+    ] };
+  }
+  // Vehicles and equipment ship as one item.
+  const h = hazards[0];
+  return { hazards, type: 'Rolling stock', remarks: (HANDLING_STATEMENTS[scenario.id] || []).join(' · '), groups: [{ fac: fac('42B100', 'VEHICLE MANAGEMENT'), rows: number([
+    { cc: 'A', nsn: nsnOf(logmodData(scenario).nsn), nomen: values.description.toUpperCase(), qty: 1, wgt: weight, lth: values.length, wth: values.width, hgt: values.height, ccc: 'L3D', haz: h ? hazCode(division(h.un)) : '', shi: 'G' },
+  ]) }] };
+}
+
 function PackingList({ scenario, values }) {
-  const rows = packingContents(scenario);
-  return <>
-    <Header title="Packing List" subtitle={`${values.description} · Piece 1 of ${values.pieces}`} form="DD Form 1750 · training facsimile" />
-    <div className="paper-boxes">
-      {[['Packed by', SHIPPER], ['TCN', values.tcn], ['Date packed', documentDate(scenario)], ['Ship to', `${values.destination} / ${values.apod}`], ['Gross weight (lb)', scenario.paperworkWeight ?? values.weight], ['Total boxes', rows.reduce((sum, row) => sum + row.qty, 0)]].map(([k, v]) => <div key={k}><small>{k}</small><span>{v}</span></div>)}
-    </div>
-    <div className="paper-table"><table>
-      <thead><tr><th>Box no.</th><th>Contents — stock number / nomenclature</th><th>Unit</th><th>Qty</th></tr></thead>
-      <tbody>{rows.map(row => <tr key={row.box}><td>{row.box}</td><td>{row.item}</td><td>{row.unit}</td><td>{row.qty}</td></tr>)}</tbody>
-    </table></div>
-    <p className="paper-sign">I certify that the material listed has been inspected and packed. — <em>Packer: TRAINING PACKER</em> · <em>Inspector: TRAINING INSPECTOR</em></p>
+  const weight = Number(scenario.paperworkWeight ?? values.weight);
+  const list = materialList(scenario, values, weight);
+  const rows = list.groups.flatMap(group => group.rows);
+  const codes = key => [...new Set(rows.map(row => row[key]).filter(Boolean).flatMap(code => code.split(',')))].join(',');
+  const cb = logmodData(scenario).cb;
+  const header = <>
+    <header className="logmod-heading"><p>{tcnUln(values.tcn)}TRN0001 - TRN01</p><h2>Execution Material List</h2></header>
+    <LogmodBand className="logmod-plan" fields={[['Schedule', 'TRN01'], ['Plan', 'CARGO'], ['UTC', 'TRN01'], ['ULN', tcnUln(values.tcn)], ['UTC Title', 'TRAINING CARGO'], ['', '']]} />
+    <LogmodBand className="logmod-increment" fields={[['Dep Ech', tcnIncrement(values.tcn).slice(0, 1)], ['Inc Nbr', tcnIncrement(values.tcn).slice(1)], ['Inc Title', values.description.toUpperCase()], ['', ''], ['Weight', weight], ['Length', values.length], ['Width', values.width], ['Height', values.height], ['Vent', 'N'], ['', '']]} />
+    <LogmodBand className="logmod-org" fields={[['Inc Prime UIC/Org', `${tcnUln(values.tcn)}/TRN0001`], ['Inc Prime FAC/FAC Title', list.groups[0].fac.split(' ').slice(1).join(' ')], ['', ''], ['Hazard Codes', codes('haz')], ['SHI Codes', codes('shi')], ['CCC', rows.find(row => row.cc !== 'S' && row.ccc !== 'J3D')?.ccc || 'J3D']]} />
   </>;
+  const pages = 2;
+  const footer = page => <footer className="logmod-footer"><span>TRAINING OPERATOR<br />Originating Office: {values.origin}</span><span>FOR TRAINING USE ONLY<br />{documentDate(scenario)}</span><span>Page {page} of {pages}</span></footer>;
+  const hazard = list.hazards[0];
+  return <div className="logmod-report" tabIndex={0} role="region" aria-label="Execution material list">
+    <section className="logmod-page">
+      {header}
+      {list.groups.map(group => <div key={group.fac}>
+        <h3 className="logmod-fac">{group.fac}</h3>
+        <table className="logmod-items logmod-material" aria-label={`Items · ${group.fac}`}>
+          <thead><tr>{['Item', 'Suf', 'CC', 'NSN', 'Nomenclature', 'ASC', 'Org/Shop', 'Qty', 'Wgt', 'Lth', 'Wth', 'Hgt', 'CCC', 'Haz', 'SHI'].map(label => <th scope="col" key={label}>{label}</th>)}</tr></thead>
+          <tbody>{group.rows.map(row => <tr key={`${row.item}-${row.suf || ''}`}>{[row.item, row.suf, row.cc, row.nsn, row.nomen, '', '', row.qty, row.wgt, row.lth, row.wth, row.hgt, row.ccc, row.haz, row.shi].map((cell, i) => <td key={i}>{cell ?? ''}</td>)}</tr>)}</tbody>
+        </table>
+      </div>)}
+      <LogmodBand className="logmod-configuration" fields={[['Inc Type', list.type], ['C/B', cb], ['Parking', 'N'], ['Rolling', scenario.axles ? 'Y' : 'N'], ['Sleeper', 'N']]} />
+      <LogmodBand className="logmod-configuration" fields={[['Pallet Profile', list.type === 'Pallet' ? 'A' : ''], ['Front Overhang', 0], ['Rear Overhang', 0]]} />
+      {hazard && <div className="logmod-hazard" aria-label="Hazardous cargo data">
+        <LogmodBand className="logmod-configuration" fields={[['Air Dim Code', 'Z'], ['Hazard Ind', values.hazmat.slice(0, 1)], ['T9 Ind', 'Y'], ['Comm/SH', scenario.ammo ? '33' : 'AZ'], ['DODAAC', values.origin], ['Type Pack', 'PT']]} />
+        <LogmodBand className="logmod-configuration" fields={[['Nomenclature', scenario.ammo ? 'AMMO' : values.description.toUpperCase().slice(0, 6)], ['BII Nr Pieces', ''], ['Nr Rounds', scenario.ammo ? '000100' : ''], ['UN Class Div', hazCode(findUnNumber(hazard.un)?.division)], ['UN NA ID', hazard.un], ['IMMDGC', ''], ['DODIC', scenario.ammo ? 'A059' : '']]} />
+        <LogmodBand className="logmod-configuration" fields={[['Clear Text 1', hazard.name || findUnNumber(hazard.un)?.names[0]], ['Clear Text 2', `CLASS ${hazCode(findUnNumber(hazard.un)?.division)} ${hazard.un}`], ['Clear Text 3', hazard.instruction]]} />
+        {scenario.ammo && <table className="logmod-items logmod-lots" aria-label="Lot data">
+          <thead><tr>{['Lot Number', 'Net Explosive', 'Pieces', 'Weight', 'Cube'].map(label => <th scope="col" key={label}>{label}</th>)}</tr></thead>
+          <tbody><tr><td>TRN-001</td><td>15</td><td>1</td><td>{weight}</td><td>{Math.round(values.length * values.width * values.height / 1728)}</td></tr></tbody>
+        </table>}
+      </div>}
+      {footer(1)}
+    </section>
+    <section className="logmod-page" aria-label="Remarks">
+      {header}
+      <h3 className="logmod-fac">Remarks</h3>
+      <p className="logmod-remarks">{list.remarks || ''}</p>
+      {footer(2)}
+    </section>
+  </div>;
 }
 
 // Laid out after DAF Form 7507 (20250131); the comments mark the form's numbered keys.
@@ -157,11 +336,11 @@ function Hazdec({ scenario, values }) {
       </thead>
       <tbody>{rows.map(row => { const entry = findUnNumber(row.un); return <tr key={row.un}>
         <td>{row.shown}</td>{/* Key 11 */}
-        <td>{row.name || entry?.names[0]}</td>{/* Key 12 */}
+        <td><HazardReference un={row.un} name={row.name || entry?.names[0]}>{row.name || entry?.names[0]}</HazardReference></td>{/* Key 12 */}
         <td>{entry?.division}{entry?.subsidiary ? ` (${entry.subsidiary})` : ''}</td>{/* Keys 13/14 */}
         <td>{entry?.packingGroup === 'N/A' ? '' : entry?.packingGroup}</td>{/* Key 15 */}
         <td>{row.quantity}</td>{/* Key 16 */}
-        <td>{row.instruction}</td>{/* Key 17 */}
+        <td><RegulationLink details={false} citationId={`afman604.${row.instruction}`}>{row.instruction}</RegulationLink></td>{/* Key 17 */}
         <td>{row.authorization}</td>{/* Key 18 */}
       </tr>; })}<tr className="hz-filler"><td /><td /><td /><td /><td /><td /><td /></tr></tbody>
     </table></div>
@@ -219,11 +398,11 @@ export function DocumentBody({ scenario, documentId }) {
   const Body = DOCUMENTS[documentId];
   // Real ATTLA letters are copies of the issued certification, not fictional facsimiles.
   const real = documentId === 'attla' && scenario.attla?.letter?.doc;
-  return <><p className="paper-banner">{real ? 'FOR TRAINING USE ONLY — COPY OF ISSUED ATTLA CERTIFICATION' : 'FOR TRAINING USE ONLY — FICTIONAL DOCUMENT'}</p><Body scenario={scenario} values={values} /></>;
+  return <><p className="paper-banner">{real ? 'FOR TRAINING USE ONLY — COPY OF ISSUED ATTLA CERTIFICATION' : 'FOR TRAINING USE ONLY — FICTIONAL DOCUMENT'}</p><Body scenario={scenario} values={values} /><RegulationHelp claims={documentId === 'hazdec' ? ['documents.hazdec', 'hazmat.classification', 'hazmat.passengers', 'hazmat.preparation', 'hazmat.declaration', 'hazmat.emergency'] : documentId === 'attla' ? ['documents.attla'] : documentId === 'logmod-placards' ? ['cargo.cb', 'cargo.weight', 'marshaling.preparation'] : ['documents.load', 'cargo.weight', 'cargo.cb']} assumptions={['Shipment identifiers, stock numbers, shop codes, dates, quantities and form values are simulated. Cargo midpoint CB is a model assumption.']} /></>;
 }
 
 export default function PaperworkDocument({ scenario, document, onClose }) {
-  return <FloatingWindow title={document.title} onClose={onClose} className="paper-sheet">
+  return <FloatingWindow title={document.title} onClose={onClose} className={`paper-sheet${['logmod', 'packing'].includes(document.id) ? ' logmod-sheet' : document.id === 'logmod-placards' ? ' marshaling-sheet' : ''}`}>
     <DocumentBody scenario={scenario} documentId={document.id} />
   </FloatingWindow>;
 }

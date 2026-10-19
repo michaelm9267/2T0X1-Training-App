@@ -13,7 +13,7 @@ test('resets choose which discrepancies are present, including none at all', () 
   expect(clean.findings.filter(f => f.correct === 'unsatisfactory')).toEqual([]);
   expect(clean.findings.find(f => f.id === 'nets').observation).toMatch(/serviceable/);
   const dirty = applyDiscrepancies(pallet, () => 0);
-  expect(dirty.findings.filter(f => f.correct === 'unsatisfactory').map(f => f.id).sort()).toEqual(['dunnage', 'nets', 'pallet-condition']);
+  expect(dirty.findings.filter(f => f.correct === 'unsatisfactory').map(f => f.id).sort()).toEqual(['clean', 'dunnage', 'nets', 'packets', 'pallet-condition']);
   expect(dirty.findings.find(f => f.id === 'pallet-condition').correction).toBeTruthy();
 });
 
@@ -31,7 +31,7 @@ test('vehicle battery and fuel follow the chosen discrepancies', () => {
 
 test('instructors can force discrepancies on or off', () => {
   const isu = byId('isu-90');
-  const forced = applyDiscrepancies(isu, () => 0, { 'loose-case': false, access: true, 'undeclared-hazmat': false, 'secured-crates': false, dunnage: false, 'doc-attla': false, 'doc-hazdec': false, 'doc-logmod': false });
+  const forced = applyDiscrepancies(isu, () => 0, { 'loose-case': false, access: true, packets: false, clean: false, 'undeclared-hazmat': false, 'secured-crates': false, dunnage: false, 'doc-attla': false, 'doc-hazdec': false, 'doc-logmod': false });
   expect(forced.findings.filter(f => f.correct === 'unsatisfactory').map(f => f.id)).toEqual(['access']);
   expect(forced.contents.find(c => c.id === 'loose-case').description).toMatch(/strapped/);
   expect(possibleDiscrepancies(isu).map(([id]) => id)).toEqual(expect.arrayContaining(['loose-case', 'access', 'doc-attla', 'doc-hazdec', 'doc-logmod']));
@@ -69,4 +69,14 @@ test('the start cart fuel is measured in millilitres against a 500 mL limit', ()
   expect(bad.vehicleChecks.fuelFraction).toBeGreaterThan(500);
   expect(bad.findings.find(f => f.id === 'fuel').correction).toBe('Simulate draining to 500 mL, reread the fuel level, then confirm correction.');
   expect(byId('rolling-stock').findings.find(f => f.id === 'fuel').observation).toMatch(/no more than ¼ tank/);
+});
+
+test('every piece can be missing its right-side document packet', () => {
+  for (const template of scenarios) {
+    expect(possibleDiscrepancies(template).map(([id]) => id)).toContain('packets');
+    const missing = applyDiscrepancies(template, () => .99, { packets: true }).findings.find(f => f.id === 'packets');
+    expect(missing).toMatchObject({ correct: 'unsatisfactory', stage: 'incheck' });
+    expect(missing.observation).toMatch(/no packet on the right side/);
+    expect(applyDiscrepancies(template, () => .99).findings.find(f => f.id === 'packets').observation).toMatch(/on each side of the piece/);
+  }
 });

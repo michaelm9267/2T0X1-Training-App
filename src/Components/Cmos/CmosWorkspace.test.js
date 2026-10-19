@@ -158,10 +158,72 @@ test("SPE shows linked shipment totals and tracks query results", () => {
     );
   }
   render(<SPE />);
-  expect(screen.getByLabelText("TCN")).toHaveValue("TRN001");
+  const detail = within(screen.getByRole("region", { name: "Small Package Express shipment" }));
+  expect(detail.getByText("TRN001")).toBeInTheDocument();
+  const list = within(screen.getByRole("region", { name: "Small Package Express TCNs" }));
+  expect(list.getAllByRole("columnheader").map((th) => th.textContent).filter(Boolean)).toEqual(["TCN", "B/L", "SCAC", "REL", "SVC", "Tracking Number", "D/I", "Closed/Release Date", "ERR"]);
+  expect(list.getByRole("button", { name: /TRN001/ })).toBeInTheDocument();
+  expect(screen.getAllByRole("button").map((b) => b.textContent).filter((t) => ["Web Tracking", "Closeout", "Print Express Docs", "Cancel", "Validate Funds", "Notices", "Ship Plan", "Send Request", "Edit", "Save"].includes(t)))
+    .toEqual(["Web Tracking", "Closeout", "Print Express Docs", "Cancel", "Validate Funds", "Notices", "Ship Plan", "Send Request", "Edit", "Save"]);
+  for (const label of ["Movement Doc Number", "Hazardous", "P/U Location", "Consignee", "MIL Mode", "EDI Mode", "UPC", "Nomenclature", "Pieces", "Cube", "SCAC", "DOM/INT", "Service", "Shipment Date", "Bill To", "Carrier Acct Nbr", "Dest City", "Remarks", "Broker Indicator", "Package Type", "Additional Handling", "Saturday", "Insured Value", "Sender Email", "Recipient Email", "Email Memo", "Booking Number", "Shipping Label", "Estimated Charges", "Rated Weight", "Tracking Number", "Closed/Released Date", "Max Transit Days", "GFM ID", "Error"])
+    expect(screen.getAllByLabelText(label).length).toBeGreaterThan(0);
+  expect(screen.getByLabelText("MIL Mode")).toHaveValue("J");
+  expect(within(screen.getByLabelText("Bill To")).getAllByRole("option").map((o) => o.textContent)).toEqual(["", "PP - Prepaid", "CD - Recipient pays", "TP - Third party"]);
+  userEvent.selectOptions(screen.getByLabelText("Bill To"), "PP");
+  expect(screen.getByLabelText("Bill To")).toHaveValue("PP");
+  expect(screen.getByText("Mil Mode")).toBeInTheDocument();
   expect(screen.getByLabelText("Weight")).toHaveValue("25");
   expect(screen.getByLabelText("Weight")).toHaveAttribute("readonly");
+  expect(screen.getByLabelText("Weight")).toHaveAttribute("title", "The weight of the cargo");
+  expect(within(screen.getByLabelText("DOM/INT")).getAllByRole("option").map((o) => o.textContent)).toEqual(["", "D - Domestic", "I - International"]);
+  expect(within(screen.getByLabelText("Shipping Label")).getAllByRole("option").map((o) => o.textContent)).toEqual(["", "Thermal", "Laser"]);
   expect(screen.getByLabelText("Start Date")).toBeEnabled();
+  userEvent.selectOptions(screen.getByLabelText("SCAC"), "FDE");
+  expect(screen.getByLabelText("Bill To")).toHaveValue("PP");
+  expect(screen.getByLabelText("Carrier Acct Nbr")).toHaveValue("487215036");
+  expect(within(screen.getByLabelText("Service")).getAllByRole("option").map((o) => o.textContent).slice(0, 3)).toEqual(["", "2M - S/2Day A.M.", "AM - S/First Overnight"]);
+  userEvent.selectOptions(screen.getByLabelText("Service"), "DO");
+  expect(within(screen.getByLabelText("Saturday")).getAllByRole("option").map((o) => o.textContent)).toEqual(["", "1 - None, Default", "2 - Pickup", "3 - Delivery"]);
+  userEvent.selectOptions(screen.getByLabelText("SCAC"), "UPSN");
+  expect(screen.getByLabelText("Carrier Acct Nbr")).toHaveValue("T8A4W2");
+  expect(screen.getByLabelText("Service")).toHaveValue("DO");
+  expect(screen.queryByRole("tab", { name: "Hold At Location-3" })).not.toBeInTheDocument();
+  userEvent.selectOptions(screen.getByLabelText("SCAC"), "FDEG");
+  expect(screen.getByLabelText("Service")).toHaveValue("");
+  expect(within(screen.getByLabelText("Service")).getAllByRole("option").map((o) => o.textContent)).toEqual(["", "DG - S/Domestic Ground Service"]);
+  userEvent.selectOptions(screen.getByLabelText("SCAC"), "FDE");
+  userEvent.click(screen.getByRole("tab", { name: "Hold At Location-3" }));
+  const hold = within(screen.getByRole("tabpanel", { name: "Hold At Location-3" }));
+  for (const label of ["POC Name", "POC Phone", "Address", "Address 2", "City", "Country Code", "State/Province", "ZIP"]) expect(hold.getByLabelText(label)).toBeInTheDocument();
+  expect(within(hold.getByLabelText("Hold At Location Type")).getAllByRole("option").map((o) => o.textContent)).toEqual(["", "FedEx Express Station", "FedEx Ground Terminal", "FedEx Office"]);
+});
+test("SPE DOM/INT follows the consignee DoDAAC country and Save does not send the carrier request", () => {
+  let s = createRecord(createCmosStore(), "shipments", { tcn: "TRN002", destination: "FB5284", milMode: "J" });
+  s = createRecord(s, "express", { shipmentId: "shipments-1" });
+  let latest = s;
+  function SPE() {
+    const [store, setStore] = useState(s);
+    return <CmosWorkspace store={store} onChange={(next) => { latest = next; setStore(next); }} initialPage="spe" context={{ course: "outbound" }} onClose={() => {}} />;
+  }
+  render(<SPE />);
+  expect(screen.getByLabelText("DOM/INT")).toHaveValue("I");
+  expect(screen.getByLabelText("DOM/INT")).toBeDisabled();
+  expect(screen.getByRole("tab", { name: "International Details" })).toBeInTheDocument();
+  userEvent.click(screen.getByRole("button", { name: "Save", exact: true }));
+  expect(latest.express["express-1"].saved.domInt).toBe("I");
+  expect(latest.express["express-1"].result?.tracking).toBeFalsy();
+});
+test("a rated SPE shipment greys its entries; Send Request and Save stop and Closeout opens", () => {
+  let s = createRecord(createCmosStore(), "shipments", { tcn: "TRN003", destination: "FB6501", milMode: "J" });
+  s = createRecord(s, "express", { shipmentId: "shipments-1", scac: "FDE", service: "2M", billTo: "PP" });
+  s = { ...s, express: { ...s.express, "express-1": { ...s.express["express-1"], saved: s.express["express-1"].draft, status: "Response received", result: { state: "success", tracking: "878837661728", ratedWeight: "25.00", gfmId: "10981440", charges: "35.51" } } } };
+  render(<CmosWorkspace store={s} onChange={() => {}} initialPage="spe" context={{ course: "outbound" }} onClose={() => {}} />);
+  expect(screen.getByLabelText("SCAC")).toBeDisabled();
+  expect(screen.getByLabelText("Service")).toBeDisabled();
+  expect(screen.getByLabelText("Remarks")).toHaveAttribute("readonly");
+  for (const name of ["Send Request", "Save", "Web Tracking"]) expect(screen.getByRole("button", { name, exact: true })).toBeDisabled();
+  expect(screen.getByRole("button", { name: "Closeout" })).toBeEnabled();
+  expect(screen.getByLabelText("Rated Weight")).toHaveValue("25.00");
 });
 test("print options remain nonmodal while the CMOS form stays editable", () => {
   let s = createRecord(createCmosStore(), "bills", {});
@@ -207,7 +269,7 @@ test("Save and Close returns a movement record to its list without losing raw da
   userEvent.click(screen.getByRole("button", { name: "Save and Close" }));
   expect(screen.queryByLabelText("Convoy Nbr")).not.toBeInTheDocument();
   userEvent.click(
-    screen.getByRole("button", { name: "Edit truckManifests-1" }),
+    screen.getByRole("button", { name: `Open manifest ${s.truckManifests["truckManifests-1"].draft.manifestNumber || "truckManifests-1"}` }),
   );
   expect(screen.getByLabelText("Convoy Nbr")).toHaveValue("PARTIAL");
 });
@@ -713,7 +775,7 @@ test.each(['cdf', 'outbound'])('%s new shipments default Consignor to FA5030 wit
   expect(block.getByLabelText('Name')).toHaveValue('');
 });
 
-test.each(['Truck Manifest', 'Routings'])('%s defaults its origin address to the FA5030 consignor', name => {
+test.each(['Routings'])('%s defaults its origin address to the FA5030 consignor', name => {
   render(<Harness origin={null} />);
   userEvent.click(screen.getByRole('button', { name, exact: true }));
   userEvent.click(screen.getByRole('button', { name: 'New', exact: true }));
@@ -744,4 +806,76 @@ test('switching existing records through the Record dropdown applies the Consign
   userEvent.click(screen.getByRole('button', { name: 'Open TCN FIRST' }));
   userEvent.selectOptions(screen.getByLabelText('Select record'), 'shipments-2');
   expect(screen.getByLabelText('Consignor')).toHaveValue('FA5030');
+});
+test("SPE, CBL and Truck Manifest field labels and sources carry no joint inspection citation", () => {
+  let s = createRecord(createCmosStore(), "shipments", { tcn: "TRN009", milMode: "J" });
+  s = createRecord(s, "pieces", { shipmentId: "shipments-1", weight: "25", length: "12", width: "12", height: "12" });
+  s = createRecord(s, "express", { shipmentId: "shipments-1" });
+  for (const page of ["spe", "cbl", "truck"]) {
+    const { unmount } = render(<CmosWorkspace store={s} onChange={() => {}} initialPage={page} context={{ course: "outbound" }} onClose={() => {}} />);
+    const hrefs = screen.queryAllByRole("link").map((a) => a.getAttribute("href") || "");
+    expect({ page, ji: hrefs.filter((h) => /dtr_part_iii_app_o/i.test(h)) }).toEqual({ page, ji: [] });
+    unmount();
+  }
+});
+test("Shipment Planning Mov Doc shows the TCN's movement document", () => {
+  let s = createRecord(createCmosStore(), "shipments", { tcn: "TRN010", milMode: "J", origin: "FA5030" });
+  s = createRecord(s, "express", { shipmentId: "shipments-1" });
+  s = { ...s, express: { ...s.express, "express-1": { ...s.express["express-1"], result: { state: "success", tracking: "878837661728" } } } };
+  s = createRecord(s, "shipments", { tcn: "TRN011", milMode: "A", origin: "FA5030" });
+  s = createRecord(s, "bills", { movementDocNbr: "MKFZ700044", shipmentIds: ["shipments-2"] });
+  function Planning() {
+    const [store, setStore] = useState(s);
+    return <CmosWorkspace store={store} onChange={setStore} initialPage="planning" context={{ course: "outbound" }} onClose={() => {}} />;
+  }
+  render(<Planning />);
+  expect(screen.getByRole("row", { name: /TRN010/ })).toHaveTextContent("878837661728");
+  expect(screen.getByRole("row", { name: /TRN011/ })).toHaveTextContent("MKFZ700044");
+  userEvent.click(screen.getByRole("button", { name: "Open TCN TRN010" }));
+  expect(screen.getByLabelText("Mov Doc")).toHaveValue("878837661728");
+  expect(screen.getByLabelText("Mov Doc")).toHaveAttribute("readonly");
+});
+
+test('Truck Manifest defaults its origin and shipper to the FA5030 consignor, as CMOS shows them', () => {
+  render(<Harness origin={null} />);
+  userEvent.click(screen.getByRole('button', { name: 'Truck Manifest', exact: true }));
+  userEvent.click(screen.getByRole('button', { name: 'New', exact: true }));
+  expect(screen.getByLabelText('Manifest Number')).toHaveValue('EDF6T60133');
+  userEvent.click(screen.getByRole('tab', { name: 'Addresses' }));
+  for (const who of ['Origin', 'Shipper'])
+    for (const [field, value] of [['DODAAC', 'FA5030'], ['Name', 'FA5030  773 LRS LGRT'], ['Address', 'GPC ONLY SHIP TO'], ['Address 2', '5257 FINLETTER AVE'], ['Base/City', 'JBER'], ['State', 'AK'], ['Zip', '99506'], ['Phone Nbr', '9075522131'], ['Phone Nbr Type', 'DSN']])
+      expect(screen.getByLabelText(`${who} ${field}`)).toHaveValue(value);
+});
+
+test('Truck Manifest list, tabs, emergency phone types, statements, and optional DSOE ID and Chalk', () => {
+  function Truck() {
+    const [store, setStore] = useState(createCmosStore());
+    return <CmosWorkspace store={store} onChange={setStore} initialPage="truck" context={{ course: 'outbound' }} onClose={() => {}} />;
+  }
+  render(<Truck />);
+  expect(screen.getAllByRole('columnheader').map(th => th.textContent).filter(Boolean)).toEqual(['Manifest', 'Consignee', 'Convoy Nbr', 'DSOE ID', 'Chalk', 'MIL Mode', 'EDI Mode', 'Dest State', 'Dest Country', 'Pieces', 'Weight', 'Release Date', 'Status']);
+  expect(within(screen.getByLabelText('Release Status')).getAllByRole('option').map(o => o.textContent)).toEqual(['All', 'Open', 'Released']);
+  expect(screen.getByText(/Default search returns Truck Manifests in Open status/)).toBeInTheDocument();
+  userEvent.click(screen.getByRole('button', { name: 'Open manifest EDF6T60103' }));
+  expect(screen.getAllByRole('tab').map(t => t.textContent)).toEqual(['TCNs Assigned', 'Addresses', 'Miscellaneous', 'Conveyance', 'Assign Statements']);
+  expect(screen.getByLabelText('DSOE ID')).not.toBeRequired();
+  expect(screen.getByLabelText('Status')).toHaveValue('00');
+  expect(screen.getByLabelText('Status description')).toHaveValue('Original');
+  expect(screen.getAllByRole('button').map(b => b.textContent).filter(t => ['First', 'Previous', 'Next', 'Last', 'Edit Check', 'Print Manifest', 'Export', 'Release', 'Abort Manifest', 'Save', 'Save and Close', 'Close'].includes(t)))
+    .toEqual(['First', 'Previous', 'Next', 'Last', 'Edit Check', 'Print Manifest', 'Export', 'Release', 'Abort Manifest', 'Save', 'Save and Close', 'Close']);
+  expect(screen.getByRole('button', { name: 'Abort Manifest' })).toBeDisabled();
+  userEvent.click(screen.getByRole('tab', { name: 'Miscellaneous' }));
+  expect(within(screen.getByLabelText('Emergency Phone Number Type 1')).getAllByRole('option').map(o => o.textContent)).toEqual(['', 'EMERGENCY COMMERCIAL', 'EMERGENCY DSN', 'EMERGENCY INTERNATIONAL']);
+  userEvent.click(screen.getByRole('tab', { name: 'Conveyance' }));
+  for (const label of ['Equipment Type', 'Truck Serial/Bumper Number', 'Trailer/Chassis Number', 'Reefer Compartment Ref Number', 'Temperature Control', 'Temp Scale', 'Motor Carrier Name', 'Vehicle Fully Loaded', 'Conveyance Seal Number 4'])
+    expect(screen.getByLabelText(label)).toBeInTheDocument();
+  userEvent.click(screen.getByRole('tab', { name: 'Assign Statements' }));
+  expect(screen.getByText('Hazardous Certification Statements Assigned')).toBeInTheDocument();
+  userEvent.click(screen.getByRole('button', { name: 'Assign Statement' }));
+  const pick = within(screen.getByRole('dialog', { name: 'Hazardous Certification Statements' }));
+  userEvent.click(pick.getByRole('checkbox', { name: 'Select statement 01' }));
+  userEvent.click(pick.getByRole('button', { name: 'Assign' }));
+  const panel = within(screen.getByRole('tabpanel', { name: 'Assign Statements' }));
+  expect(panel.getByRole('cell', { name: '01' })).toBeInTheDocument();
+  expect(panel.getByText('1 row(s) found.')).toBeInTheDocument();
 });

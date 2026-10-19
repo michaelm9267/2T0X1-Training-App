@@ -1,8 +1,10 @@
 import FloatingWindow from "../Session/FloatingWindow";
 import { Barcode, MslLabel, dodaacLines } from "../Documentation/MilitaryShippingLabel";
-import { data, totals, piecesFor } from "./model";
+import { data, totals, piecesFor, wholeCube } from "./model";
 import RouteReport from "./RouteReport";
 import BillOfLadingDocument from "./BillOfLadingDocument";
+import { CarrierLabel, CarrierPickupReport } from "./SpePrints";
+import TruckManifestDocument from "./TruckManifestDocument";
 // What a CMOS shipment and one of its pieces print on the DD Form 1387.
 function cmosMslData(s, piece, number, count) {
   const dodaac = String(s.destination || "").toUpperCase();
@@ -13,7 +15,7 @@ function cmosMslData(s, piece, number, count) {
   const cube = ((Number(piece.length) || 0) * (Number(piece.width) || 0) * (Number(piece.height) || 0)) / 1728;
   return {
     tcn: s.tcn, from: s.origin, fromLines: dodaacLines(s.origin), tac: s.tac, service: ["F", "9"].includes(s.milMode) ? "AMC" : s.milMode,
-    piece: number, of: count, weight: piece.weight, cube: cube ? Math.ceil(cube) : "", shipped: s.shipDate || "",
+    piece: number, of: count, weight: piece.weight, cube: cube ? wholeCube(cube) : "", shipped: s.shipDate || "",
     rdd: s.rdd, project: s.proj, priority: s.tp, poe: s.poe || dodaac, shipToLines: s.poe ? dodaacLines(s.poeDodaac) : consignee.filter(Boolean),
     pod: s.pod, fmsCase: s.fmsCaseNumber, consignee: dodaac, consigneeLines: [...consignee, s.markFor && `MARK FOR: ${s.markFor}`].filter(Boolean),
   };
@@ -25,6 +27,12 @@ export function GeneratedDocument({ document, store }) {
   const msl = d.title === "Military shipping label";
   if (d.title === "Commercial Bill of Lading" && d.ownerKind === "bills")
     return <div className="shared-document paper-sheet"><p className="training-watermark">FICTIONAL TRAINING DOCUMENT</p><BillOfLadingDocument d={d} store={store} /></div>;
+  if (d.title === "Truck manifest" && d.ownerKind === "truckManifests")
+    return <div className="shared-document paper-sheet"><p className="training-watermark">FICTIONAL TRAINING DOCUMENT</p><TruckManifestDocument d={d} /></div>;
+  if (d.title === "Carrier label" && d.ownerKind === "express")
+    return <div className="shared-document paper-sheet"><p className="training-watermark">FICTIONAL TRAINING DOCUMENT</p><CarrierLabel d={d} /></div>;
+  if (d.title === "Pickup report" && d.closedAt)
+    return <div className="shared-document paper-sheet"><p className="training-watermark">FICTIONAL TRAINING DOCUMENT</p><CarrierPickupReport d={d} origin={d.origin} /></div>;
   if (d.title === "Route report" && d.ownerKind === "routings")
     return <div className="shared-document paper-sheet"><p className="training-watermark">FICTIONAL TRAINING DOCUMENT</p><RouteReport d={d} store={store} /></div>;
   return (
@@ -75,7 +83,7 @@ export function GeneratedDocument({ document, store }) {
                   <td>{r?.saved?.description}</td>
                   <td>{t.pieces}</td>
                   <td>{t.weight}</td>
-                  <td>{(Number(t.cube) || 0).toFixed(1)}</td>
+                  <td>{wholeCube(t.cube)}</td>
                 </tr>
               );
             })}

@@ -1,3 +1,4 @@
+import RegulationHelp from '../Regulations/RegulationHelp';
 import { useState } from "react";
 import { Dialog, Field, useDiscard } from "./controls";
 export const LOT_FIELDS = [
@@ -56,6 +57,7 @@ export default function AmmoLotDialog({
   };
   return (
     <Dialog title="Ammo Information" onClose={discard.requestClose}>
+    <RegulationHelp claims={['hazmat.declaration', 'hazmat.emergency']} assumptions={['Fictional lot identifiers, round counts and net explosive quantities are exercise values.']} />
       <div className="cdf-fields">
         {LOT_FIELDS.map(([id, label, options]) => (
           <Field

@@ -1,3 +1,4 @@
+import { ClaimLink, RegulationReference } from '../Regulations/RegulationHelp';
 import { axleCode, axleLabels } from './axles';
 import { calculateCB } from './centerOfBalance';
 export const APPENDIX_P_URL = 'https://www.business.ustranscom.mil/dtr/part-iii/dtr_part_iii_app_p.pdf';
@@ -16,7 +17,7 @@ export default function CBWorksheet({ scenario, exercise, onCBCalculate }) {
     <h4>Center-of-balance worksheet</h4>
     <p>Uses recorded notebook entries: {axleLabels(scenario).map(axle => `${axle.weightId} (${axle.code}), ${axle.distanceId}`).join(', ')} and GWT. Every axle distance is measured from the same forward RDL.</p>
     <form onSubmit={calculate} noValidate>
-      <p className="cb-formula">CB = [{axleLabels(scenario).map(axle => `(${axle.distanceId} × ${axle.weightId})`).join(' + ')}] ÷ GWT</p>
+      <p className="cb-formula"><ClaimLink claimId="cargo.cb">CB = [{axleLabels(scenario).map(axle => `(${axle.distanceId} × ${axle.weightId})`).join(' + ')}] ÷ GWT</ClaimLink></p>
       <button className="primary-button" type="submit">Calculate CB</button>
     </form>
     {result?.error && <p className="cb-error" role="alert">{result.error}</p>}
@@ -27,7 +28,7 @@ export default function CBWorksheet({ scenario, exercise, onCBCalculate }) {
       <p>{matches ? 'Your entries match this training shipment.' : 'Your entries differ from this training shipment. Recheck your measured axle positions and scale readings.'}</p>
       <p className="reference-note">Round only the final CB to the nearest whole inch; a half inch rounds up. After determining CB, mark its position and gross weight on both sides of the vehicle.</p>
     </section>}
-    <a className="task-source" href={`${APPENDIX_P_URL}#page=2`} target="_blank" rel="noreferrer">Appendix P C.1–3 · III-P-2 · June 2016</a>
-    <p className="reference-note">Weigh with secondary cargo secured; changing the load requires reweighing and recomputing CB (Appendix P B.1). This worksheet practices the calculation, using simulated cargo values.</p>
+    <RegulationReference reference="DTR Part III Appendix P C.1–3">Appendix P C.1–3 · III-P-2 · June 2016</RegulationReference>
+    <p className="reference-note"><ClaimLink claimId="cargo.cbReweigh">Weigh with secondary cargo secured; changing the load requires reweighing and recomputing CB (Appendix P B.1).</ClaimLink> This worksheet practices the calculation, using simulated cargo values.</p>
   </div>;
 }

@@ -11,3 +11,11 @@
 .drill-sheet { display: grid; gap: 16px; }
 .drill-prompt { padding: 16px; border-radius: 8px; background: #0d1724; line-height: 1.6; }
 .drill-feedback { color: #efce8d; }
+
+.ji-list-block { margin-top: 16px; }
+.ji-list-block h3 { margin: 0 0 2px; }
+.ji-list-applies { margin: 0 0 8px; font-size: .85rem; opacity: .8; }
+.ji-list { display: grid; gap: 8px; margin: 0; }
+.ji-list dt { font-weight: 700; }
+.ji-list dd { margin: 2px 0 0; }
+.ji-list dd a { white-space: nowrap; }

@@ -1,6 +1,7 @@
 import { Barcode } from '../Documentation/MilitaryShippingLabel';
 import { gblocForDodaac } from './dtrReference';
 import { lookupValues } from './controls';
+import { rinTextFor } from './dtrReference';
 import { JBER_ISSUING_OFFICE } from '../jberConsignor';
 import './BillOfLadingDocument.css';
 
@@ -99,6 +100,14 @@ export default function BillOfLadingDocument({ d, store }) {
   const pages = 2 + itemPages.length;
   const certifier = String(s.certifyingPerson || '').trim().toUpperCase();
   const hazCert = String(s.hazardousCert || '').trim().toUpperCase();
+  // RINs with Print RIN checked print at the top of page 2, under any HAZMAT certification, as
+  // "(code) text" (e.g. "(111) SHIPPER TO LOAD AND CONSIGNEE TO UNLOAD.").
+  const rinRows = [...(d.details || []).filter((x) => x.collection === 'RINs'),
+    ...Object.values(store?.documents || {}).map((x) => x.saved || x.draft).filter((x) => x?.collection === 'RINs' && x.ownerId === d.ownerId && !x.saved)];
+  // The DTEB RIN text says what to annotate in quotes ('Annotate BL: "Shipper to load and consignee
+  // to unload." ...'); the BL prints that quoted annotation, or the whole text when there is none.
+  const annotation = (text) => (/"([^"]+)"/.exec(String(text || '')) || [])[1] || String(text || '');
+  const rins = [...new Map(rinRows.filter((x) => x.printRin === 'Y' && String(x.rin || '').trim()).map((x) => [x.rin, `(${x.rin}) ${annotation(x.description || rinTextFor(x.rin)).toUpperCase()}`])).values()];
   // Marks and annotations rows: one per accessorial service code, else the default stop/SCAC line.
   const svcRows = (s.serviceCodes || []).length
     ? s.serviceCodes.map((c) => ({ head: `${String(c.stop || '1').padStart(3, '0')}/NONE/${s.scac || ''}  ${c.code}`, seq: c.cnvSeqNbr || '1', text: `${c.type || ''} ${String(c.desc || '').toUpperCase()}`.trim(), charge: Number(c.charges || 0).toFixed(2) }))
@@ -177,9 +186,10 @@ export default function BillOfLadingDocument({ d, store }) {
       </div>
     </section>
     <Continuation s={s} issued={issued} waybill={s.waybill} page={2} origin={issuing} office={officeHead}>
-      {(remarks.length > 0 || hazCert || certifier) && <tr><td /><td /><td /><td>
+      {(remarks.length > 0 || hazCert || certifier || rins.length > 0) && <tr><td /><td /><td /><td>
         {hazCert && <p><b>{hazCert}</b></p>}
         {certifier && <p><b>CERTIFIER: {certifier}</b></p>}
+        {rins.length > 0 && <p className="bol-rins">{rins.map((rin, i) => <span key={rin}>{i > 0 && <br />}<b>{rin}</b></span>)}</p>}
         {remarks.length > 0 && <p>{remarks.map((r, i) => <span key={r}>{i > 0 && <br />}<b>{r}</b></span>)}</p>}
       </td><td /><td /><td /><td /></tr>}
       <tr><td /><td /><td /><td className="bol-totals-label"><b>SHIPMENT TOTALS:</b></td><td /><td /><td /><td /></tr>

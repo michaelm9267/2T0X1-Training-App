@@ -12298,6 +12298,184 @@
      "Mutually Defined"
     ]
    ]
+  },
+  "palletModuleTypes": {
+   "table": "V_D_PTUNT_MODU_TY_CD",
+   "columns": [
+    "PTUNT_MODU_TY_CD",
+    "PTUNT_MODU_TY_TX"
+   ],
+   "rows": [
+    [
+     "A",
+     "Non-Unitized Rolling Stock"
+    ],
+    [
+     "B",
+     "Pallet 61\"-84\" B-747 (PPS 1C, 2R, 3-6L, 18-21R), B-767 (PPS M11), KC-46 (PP 9C)"
+    ],
+    [
+     "C",
+     "Containerized, Skidded, or Loose Cargo"
+    ],
+    [
+     "D",
+     "Pallet Contoured for B-767 (PPS 2 L&R, 13 L&R), KC-10 (PPS 13L)"
+    ],
+    [
+     "E",
+     "Belly Pallet or Non-Stackable Commodity(s) Up to 60\" for B-747, MD-11, or B-777"
+    ],
+    [
+     "F",
+     "Pallet Contoured for MD-11 (PPS 2-14 L&R) and B-767 (PPS M1-M10 L&R)"
+    ],
+    [
+     "G",
+     "Pallet with a Propeller"
+    ],
+    [
+     "H",
+     "Ramp Pallet for C-130, L-100, MD-11 (PPS 18C)"
+    ],
+    [
+     "I",
+     "ISU Pallet (All Types)"
+    ],
+    [
+     "J",
+     "Pallet w/6\" Aisleway for C-130/L-100"
+    ],
+    [
+     "K",
+     "Pallet Contoured for KC-135 (PPS 1-6), KC-46 (PPS 1-8 L&R)"
+    ],
+    [
+     "L",
+     "Pallet 85\"-96\" for C-5 (PPS 3-34), C-17, C-130 (All, Except Wheel Well Positions and Ramp), B-747 (PPS 7-17 L, 22-33 R), B-777 (PP 16C), KC-46 (PPS 1-8C), MD-11 (PP 18C), AN-124 (PPS 1-36), IL-76 (All)"
+    ],
+    [
+     "M",
+     "Pallet 97\" & Up for C-5/C-17 Only"
+    ],
+    [
+     "N",
+     "Pallet Contoured for KC-10 (PPS 2-10 L&R), B-777 (PPS 1 L&R, 15 L&R)"
+    ],
+    [
+     "P",
+     "Pallet Contoured for KC-10 (PPS 1 L&R), MD-11 (PPS 1 L&R)"
+    ],
+    [
+     "Q",
+     "Pallet Contoured for KC-10 (PPS 11-12 L&R), MD-11 (PPS 15-17 L&R)"
+    ],
+    [
+     "R",
+     "Pallet for C-5 Ramp (14\" Aisleway PPS 1, 2, 35 & 36)"
+    ],
+    [
+     "S",
+     "Logistics Pallet Train (2\" Couplers)"
+    ],
+    [
+     "T",
+     "Logistics Pallet Train (1\" Couplers)"
+    ],
+    [
+     "U",
+     "ADS Pallet Train (1\" Couplers)"
+    ],
+    [
+     "V",
+     "T-1 for LGS Pallet"
+    ],
+    [
+     "W",
+     "T-1 for ADS Pallet"
+    ],
+    [
+     "X",
+     "Pallet Contoured for B757 Freighter or Combi (PPS 1-10), KC-46 (PP 10C)"
+    ],
+    [
+     "Y",
+     "ADS Pallet Train (2\" Couplers)"
+    ],
+    [
+     "Z",
+     "Pallet Contoured for B-777 (PPS 2-11 L&R, 12R, 13-14 L&R)"
+    ]
+   ]
+  },
+  "palletConfigurations": {
+   "table": "V_D_PLTZD_TRNSPRTN2_CD",
+   "columns": [
+    "PLTZD_TRNSPRTN2_CD",
+    "PLTZD_TRNSPRTN2_TX"
+   ],
+   "rows": [
+    [
+     "ADS",
+     "Aerial Delivery Rail System"
+    ],
+    [
+     "BC",
+     "Belly Cargo"
+    ],
+    [
+     "L",
+     "Left"
+    ],
+    [
+     "LGS",
+     "Logistics Rail System"
+    ],
+    [
+     "PC",
+     "Palletized Cargo"
+    ],
+    [
+     "PPS",
+     "Pallet Position"
+    ],
+    [
+     "R",
+     "Right"
+    ],
+    [
+     "RS",
+     "Rolling Stock"
+    ],
+    [
+     "SD",
+     "Skidded Cargo"
+    ],
+    [
+     "T2",
+     "2 Pallet Train"
+    ],
+    [
+     "T3",
+     "3 Pallet Train"
+    ],
+    [
+     "T4",
+     "4 Pallet Train"
+    ],
+    [
+     "T5",
+     "5 Pallet Train"
+    ],
+    [
+     "T6",
+     "6 Pallet Train"
+    ],
+    [
+     "T7",
+     "7 Pallet Train"
+    ]
+   ]
   }
  }
 }

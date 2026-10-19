@@ -173,7 +173,8 @@ test('route order tabs: equipment groups, stop offs, load plan and response foll
   expect(panel().getByLabelText('TRNEQUIP001XXX Equip Group ID')).toHaveValue('01');
   expect(panel().getByLabelText('TRNEQUIP001XXX Stop Ld')).toHaveValue('00');
   expect(panel().getByLabelText('TRNEQUIP001XXX Stop UL')).toHaveValue('99');
-  expect(panel().getByRole('cell', { name: 'MKFZ700001' })).toBeInTheDocument();
+  // No B/L until Create CBL generates the Commercial BOL.
+  expect(panel().queryByRole('cell', { name: /^MKFZ7\d{5}$/ })).not.toBeInTheDocument();
   userEvent.click(screen.getByRole('tab', { name: 'Equip Group Mode' }));
   expect(panel().getByLabelText('Equip group 01 EDI Mode')).toHaveValue('LT');
   userEvent.click(panel().getByRole('button', { name: 'Look up Equip group 01 EDI Mode' }));
@@ -285,7 +286,8 @@ test('Manage Routings guide, steps 11–28: assign, copy, equipment, Edit Data, 
   expect(panel().queryByRole('button', { name: 'Create CBL' })).not.toBeInTheDocument();
   for (const name of ['Update', 'B/L', 'Assign/Remove SCAC', 'Assign Lowest Cost SCAC']) expect(panel().getByRole('button', { name })).toBeInTheDocument();
   expect(panel().queryByRole('button', { name: 'Award' })).not.toBeInTheDocument();
-  expect(panel().getByRole('cell', { name: /^MKFZ7\d{5}$/ })).toBeInTheDocument();
+  // The B/L is the movement document number of the bill Create CBL made.
+  expect(panel().getByRole('cell', { name: bill.draft.movementDocNbr })).toBeInTheDocument();
   userEvent.click(panel().getByRole('button', { name: 'Assign/Remove SCAC' }));
   const scac = within(screen.getByRole('dialog', { name: 'SCAC' }));
   for (const column of ['Assigned', 'SCAC', 'Total Cost', 'Max Days', 'Tender', 'EQ Type', 'NMFC/UFC', 'RSN', 'Cumulative Weight', 'Conveyances Avail', 'Conveyances Used', 'Trans Mode'])
@@ -401,4 +403,42 @@ test('after Create CBL, Assign Lowest Cost SCAC assigns the cheapest carrier and
   userEvent.click(panel().getByRole('button', { name: 'B/L' }));
   expect(screen.getByRole('dialog', { name: 'CMOS Commercial Bill of Lading' })).toBeInTheDocument();
   expect(screen.getByLabelText('Movement Doc Nbr')).toHaveValue(Object.values(stored().bills)[0].draft.movementDocNbr);
+});
+
+test('a saved, complete TCN with Routing checked is offered to a route order without a separate Edit Check', () => {
+  const { saveRecord, editRecord } = require('./model');
+  const { routingCandidates } = require('./RoutingScreen');
+  const complete = { description: 'TRAINING BOX', origin: 'FA5030', destination: 'FB4497', milMode: 'B', ediMode: 'LT', nmfc: '137300', rdd: '999', nsn: 'NNSN', ciic: 'U', tac: 'TRN1', tp: '2' };
+  let store = createCmosStore();
+  for (const [tcn, extra] of [['TRNREADY01XXX', { routing: true }], ['TRNNOROUTE1XXX', { routing: false }], ['TRNMISSING1XXX', { routing: true, nsn: '' }]]) {
+    store = createRecord(store, 'shipments', { ...complete, tcn, ...extra });
+    const id = store.selection.shipments;
+    store = createRecord(store, 'pieces', { shipmentId: id, weight: '291', length: '48', width: '40', height: '59', typePack: 'PLT' });
+    store = saveRecord(store, 'pieces', store.selection.pieces);
+    store = saveRecord(store, 'shipments', id);
+  }
+  expect(routingCandidates(store).map(r => r.draft.tcn)).toEqual(['TRNREADY01XXX']);
+  // An unsaved change keeps it off until the record is saved again.
+  const ready = Object.values(store.shipments).find(r => r.draft.tcn === 'TRNREADY01XXX').id;
+  expect(routingCandidates(editRecord(store, 'shipments', ready, { tac: 'TRN2' }))).toHaveLength(0);
+  render(<Harness initialStore={store} />);
+  userEvent.click(screen.getByRole('button', { name: 'New' }));
+  const assign = within(screen.getByRole('dialog', { name: 'Assign TCNs/Aggregates' }));
+  expect(assign.getByRole('row', { name: 'Assign TRNREADY01XXX' })).toBeInTheDocument();
+  expect(assign.queryByRole('row', { name: 'Assign TRNNOROUTE1XXX' })).not.toBeInTheDocument();
+  expect(assign.queryByRole('row', { name: 'Assign TRNMISSING1XXX' })).not.toBeInTheDocument();
+});
+
+test('Edit TCN is a tool: a complete saved shipment manifests and releases without running it', () => {
+  const { saveRecord, transition, shipmentReady, createRecord: create } = require('./model');
+  let store = createCmosStore();
+  store = create(store, 'shipments', { tcn: 'TRNNOCHECK1XXX', description: 'TRAINING BOX', origin: 'FA5030', destination: 'FB4497', milMode: 'B', ediMode: 'LT', nmfc: '137300', rdd: '999', nsn: 'NNSN', ciic: 'U', tac: 'TRN1', tp: '2' });
+  store = create(store, 'pieces', { shipmentId: 'shipments-1', weight: '291', length: '48', width: '40', height: '59', typePack: 'PLT' });
+  store = saveRecord(saveRecord(store, 'pieces', 'pieces-1'), 'shipments', 'shipments-1');
+  expect(store.shipments['shipments-1'].check).toBeNull();
+  expect(shipmentReady(store, 'shipments-1')).toBe(true);
+  store = create(store, 'truckManifests', { manifestNumber: 'TRN-TM-1', shipmentIds: ['shipments-1'] });
+  store = saveRecord(store, 'truckManifests', 'truckManifests-1');
+  const messages = transition(store, 'truckManifests', 'truckManifests-1', 'Release', { releaseDetails: { departureAt: '2026-10-18T10:00' } }).outcome.messages || [];
+  expect(messages.join(' ')).not.toMatch(/edit check|Edit TCN/i);
 });

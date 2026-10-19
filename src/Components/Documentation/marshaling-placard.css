@@ -1,0 +1,43 @@
+article.floating-window.paper-sheet.marshaling-sheet { width: min(1100px, calc(100vw - 16px)); background: #fff; }
+.marshaling-report { overflow-x: auto; color: #000; background: #fff; }
+.marshaling-placard { min-width: 720px; border: 1px solid #000; margin: 0 0 34px; font: 14px/1.2 "Courier New", monospace; break-inside: avoid; }
+.marshaling-placard h2 { margin: 0; padding: 5px 8px; border-bottom: 1px solid #000; text-align: center; font: bold 20px/1.2 Arial, sans-serif; color: #000; }
+.marshaling-blocks { margin: 0; }
+.marshaling-field { min-width: 0; padding: 8px; box-sizing: border-box; }
+.marshaling-field dt { color: #000; font: inherit; }
+.marshaling-field dd { margin: 14px 0 0; color: #000; font-weight: 700; overflow-wrap: anywhere; }
+.marshaling-tcn dd { margin: 20px 8px 8px; font-size: clamp(30px, 3.8vw, 48px); line-height: 1.1; }
+.marshaling-origin-row, .marshaling-movement-row, .marshaling-unit-row { display: grid; border-top: 1px solid #000; }
+.marshaling-origin-row { grid-template-columns: 23fr 22fr 19fr 36fr; }
+.marshaling-origin-row > * + *, .marshaling-movement-row > * + *, .marshaling-unit-row > * + * { border-left: 1px solid #000; }
+.marshaling-origin-row > .marshaling-field dd { font-size: 18px; }
+.marshaling-dimensions { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr 1fr; align-items: end; text-align: center; }
+.marshaling-dimensions .marshaling-field { padding: 8px 3px; }
+.marshaling-dimensions .marshaling-field dd { font-size: 23px; }
+.marshaling-dimensions > span { padding-bottom: 8px; font-size: 18px; }
+.marshaling-movement-row { grid-template-columns: 11fr 11fr 13fr 11fr 9fr 9fr 36fr; }
+.marshaling-movement-row .marshaling-field { display: flex; flex-direction: column; justify-content: space-between; }
+.marshaling-movement-row dt { font-size: 12px; }
+.marshaling-movement-row dd { text-align: center; font-weight: 400; }
+.marshaling-unit-row { grid-template-columns: 1fr 1fr; }
+.marshaling-unit-row dd { font-size: 24px; }
+.marshaling-increment { border-top: 1px solid #000; }
+.marshaling-increment dd { margin: 24px 8px 8px; font-size: 54px; line-height: 1.1; }
+.marshaling-remarks { border-top: 1px solid #000; min-height: 78px; }
+.marshaling-remarks dd { margin-top: 8px; font-size: 12px; font-weight: 400; }
+.marshaling-remarks dd span { display: block; }
+.marshaling-note { min-width: 720px; margin: 0; font: 11px Arial, sans-serif; }
+@media print {
+  .marshaling-report { overflow: visible; }
+  .marshaling-placard, .marshaling-note { min-width: 0; }
+  .marshaling-placard { margin-bottom: 24px; font-size: 10px; }
+  .marshaling-placard h2 { font-size: 14px; }
+  .marshaling-field { padding: 5px; }
+  .marshaling-field dd { margin-top: 8px; }
+  .marshaling-tcn dd { font-size: 32px; margin: 14px 4px 4px; }
+  .marshaling-increment dd { font-size: 38px; margin: 14px 4px 4px; }
+  .marshaling-movement-row dt, .marshaling-remarks dd { font-size: 9px; }
+  .marshaling-unit-row dd, .marshaling-dimensions .marshaling-field dd { font-size: 16px; }
+  .marshaling-origin-row > .marshaling-field dd { font-size: 12px; }
+  .marshaling-remarks { min-height: 52px; }
+}

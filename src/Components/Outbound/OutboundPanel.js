@@ -1,3 +1,4 @@
+import RegulationHelp, { ClaimLink, RegulationReference } from '../Regulations/RegulationHelp';
 import { useCallback, useState, useEffect } from 'react';
 import CollapsibleCard from '../Documentation/CollapsibleCard';
 import SectionJump from '../Documentation/SectionJump';
@@ -78,12 +79,12 @@ export default function OutboundPanel({ step, shipment, exercise, actions, packa
   const doc = presentedDocument(shipment, exercise.returned);
   const packing = exercise.forms.annotation?.accepted ? exercise.forms.annotation.draft : null;
   const paper = { title: `DD ${shipment.document}`, render: () => <DocumentBody doc={doc} shipment={shipment} received={exercise.custodyAccepted} packing={packing} /> };
-  const openSmallPackage=()=>{const sid=Object.values(cmosStore.shipments).find(r=>r.draft.assetKey===shipment.key)?.id;const existing=Object.values(cmosStore.express).find(r=>r.draft.shipmentId===sid);if(sid){const next=existing?{...cmosStore,selection:{...cmosStore.selection,express:existing.id}}:createRecord(cmosStore,'express',{shipmentId:sid,packageType:'Box',domInt:usualDomInt(shipment)});actions.sharedCmos(next);}setCmosPage('spe');};
+  const openSmallPackage=()=>{const sid=Object.values(cmosStore.shipments).find(r=>r.draft.assetKey===shipment.key)?.id;const existing=Object.values(cmosStore.express).find(r=>r.draft.shipmentId===sid);if(sid){const next=existing?{...cmosStore,selection:{...cmosStore.selection,express:existing.id}}:createRecord(cmosStore,'express',{shipmentId:sid,domInt:usualDomInt(shipment).charAt(0)});actions.sharedCmos(next);}setCmosPage('spe');};
   const readings = exercise.packed ? [['Length', exercise.measured.length && `${shipment.packed.length} in`], ['Width', exercise.measured.width && `${shipment.packed.width} in`], ['Height', exercise.measured.height && `${shipment.packed.height} in`], ['Gross weight', exercise.weighed && `${shipment.packed.weight} lb`]] : [];
   const done = shipmentComplete(shipment, exercise);
   return <section className="documentation-panel" id="training-section" aria-labelledby="training-title">
     <div className="training-heading"><span className="eyebrow">{practice ? 'Practice · one section' : `${test ? 'Test' : 'Guided practice'} · Customer ${shipment.serial}`}</span><h2 id="training-title">{step.title}</h2><p className="muted">{STEP_SUMMARY[step.id]}</p></div>
-    <SectionJump resetKey={`${shipment.key}-${shipment.serial}-${step.id}`} />
+    <RegulationHelp claims={step.id === 'planning' ? ['outbound.tcn', 'outbound.consignee', 'outbound.priority', 'outbound.parcelLimits', 'outbound.msl'] : step.id === 'pack' ? ['outbound.marking', 'outbound.esd'] : step.id === 'surface' ? ['outbound.bol', 'outbound.funding'] : step.id === 'amc' ? ['outbound.tcmd', 'outbound.funding'] : ['outbound.receipt', 'outbound.signature', 'outbound.consignee', 'outbound.funding']} assumptions={['Container choices, carrier rates/services, local routing choices, advance-record rules and workflow grading are simulated. The cited DAFI edition is the government-archived 20 December 2023 copy; newer Air Force changes could not be checked at the blocked e-Publishing endpoint.']} /><SectionJump resetKey={`${shipment.key}-${shipment.serial}-${step.id}`} />
     {docOpen && <ShippingDocument doc={doc} shipment={shipment} received={exercise.custodyAccepted} packing={packing} onClose={closeDoc} />}
 
     <CollapsibleCard label="Shipping document" title="Shipping document" summary={<span>DD {shipment.document}{exercise.returned ? ' · corrected' : ''}</span>}>
@@ -99,10 +100,10 @@ export default function OutboundPanel({ step, shipment, exercise, actions, packa
         const complete = checkComplete(shipment, exercise, check.id);
         return <div className={`training-task ${complete ? 'task-complete' : ''}`} role="group" aria-label={check.title} key={check.id}>
           <div className="task-heading"><h4>{check.title}</h4><span>{complete ? (expected === 'unsatisfactory' ? 'Corrected' : 'Complete') : 'Pending'}</span></div>
-          {!test && <p>{CHECK_HINTS[check.id]}</p>}
+          {!test && <p><RegulationReference reference={check.reference}>{CHECK_HINTS[check.id]}</RegulationReference></p>}
           <div className="answer-options">{Object.entries(CHOICE_LABEL).map(([value, label]) => <button key={value} type="button" disabled={!checkReady(exercise, check) || exercise.custodyAccepted} aria-pressed={answer === value} onClick={() => actions.answer(check.id, value)}>{label}</button>)}</div>
           {answer && (test ? <div className="task-feedback"><strong>Decision recorded.</strong></div>
-            : <div className={`task-feedback ${answer === expected ? 'feedback-correct' : ''}`} aria-live="polite"><strong>{answer === expected ? 'Correct decision.' : 'Try again.'}</strong> {answer === expected && expected === 'unsatisfactory' && !exercise.returned ? 'Return the document to the customer for correction.' : ''} <span className="task-source">{check.reference}</span></div>)}
+            : <div className={`task-feedback ${answer === expected ? 'feedback-correct' : ''}`} aria-live="polite"><strong>{answer === expected ? 'Correct decision.' : 'Try again.'}</strong> {answer === expected && expected === 'unsatisfactory' && !exercise.returned ? 'Return the document to the customer for correction.' : ''} <span className="task-source"><RegulationReference reference={check.reference} /></span></div>)}
         </div>;
       })}</div>
       <div className="answer-options">
@@ -119,7 +120,7 @@ export default function OutboundPanel({ step, shipment, exercise, actions, packa
       </CollapsibleCard>
       <CollapsibleCard label="Markings" title="Markings" summary={<span>{exercise.markings.length} applied</span>}>
         <div className="container-options">{MARKINGS.map(marking => <button key={marking.id} type="button" aria-pressed={exercise.markings.includes(marking.id)} disabled={exercise.packed} onClick={() => actions.toggleMarking(marking.id)}>{marking.title}</button>)}</div>
-        {!test && <p className="reference-note">ESDS items carry the ESD caution label. The MIL-STD-129 address label is the MSL: print it from the CMOS Pieces tab after Shipment planning and apply it with the bench's Labels tool.</p>}
+        {!test && <p className="reference-note">ESDS items carry the ESD caution label. <ClaimLink claimId="outbound.marking">The MIL-STD-129 address label is the MSL:</ClaimLink> print it from the CMOS Pieces tab after Shipment planning and apply it with the bench's Labels tool.</p>}
         <div className="answer-options"><button type="button" className="primary-button" disabled={exercise.packed} onClick={actions.pack}>Pack and seal</button></div>
         {exercise.packFeedback && <p className="reference-note" role="status">{exercise.container ? judged(exercise.packFeedback, exercise.packed, test) : exercise.packFeedback}</p>}
       </CollapsibleCard>
@@ -135,17 +136,17 @@ export default function OutboundPanel({ step, shipment, exercise, actions, packa
       {exercise.cmos.record?.feedback && exercise.cmos.record.saved && <p className="reference-note" role="status">{exercise.cmos.record.feedback}</p>}
       {!test && <>
         <ol className="planning-rules">
-          <li>Search the list for the TCN{shipment.document === '1149' ? ` (a DD 1149 is not MILSTRIP: ${origin.cmosDodaac} + Julian date + X + 00# or 500-series number + XXX)` : ' (document number + XXX)'}. If it is there as an advance record (status 00), select it and click <strong>Incheck</strong>. If not, click <strong>New</strong> and build the record from the document{shipment.document === '1149' ? ', building the TCN with an unused number' : ''}.</li>
+          <li>Search the list for the TCN{shipment.document === '1149' ? ` (a DD 1149 is not MILSTRIP: ${origin.cmosDodaac} + Julian date + X + 00# or 500-series number + XXX)` : ' (document number + XXX)'}.{shipment.document === '1149' ? <> A DD 1149 comes from a system that feeds CMOS, so it is always there as an advance record (status 00): select it and click <strong>Incheck</strong>.</> : <> If it is there as an advance record (status 00), select it and click <strong>Incheck</strong>. If not, click <strong>New</strong> and build the record from the DD 1348-1A.</>}</li>
           <li>Check the prefilled data against the {shipment.document}. Every field can be changed. Enter NMFC/UFC (block 6 on a 1348-1A), CIIC (the PS code in block 9) and the Mil Mode you choose. For Mil Mode 9 also enter POE, POE DODAAC and POD; Modes J, 5 and B leave them blank. On the Indicators tab, set Hazardous/Ammunition Ind (N for non-hazardous) and check Routing for Mil Mode B.</li>
-          <li>If the piece goes to an address in the clear (a vendor with no DoDAAC, or a delivery address different from the consignee DoDAAC's), enter it on the Ultimate Consignee tab. With no DoDAAC, the Consignee is the non-specific DoDAAC F00000 (DAFI 24-602V2 para 2.3.3 · DTR Part II, Chapter 203, para B.2). Otherwise leave the tab empty.</li>
+          <li>If the piece goes to an address in the clear (a vendor with no DoDAAC, or a delivery address different from the consignee DoDAAC's), enter it on the Ultimate Consignee tab. <ClaimLink claimId="outbound.consignee">With no DoDAAC, the Consignee is the non-specific DoDAAC F00000 (DAFI 24-602V2 para 2.3.3 · DTR Part II, Chapter 203, para B.2).</ClaimLink> Otherwise leave the tab empty.</li>
           <li>On the Pieces tab, click New and enter weight, type pack and dimensions from the packing data you wrote on the document. Save.</li>
           <li>Print the MSL with Print All Pieces (or check pieces and Print Selected Pieces), then apply it to the box with the bench's Labels tool.</li>
         </ol>
         <p className="reference-note">Nothing in CMOS is graded; your trainer will review your entries and Mil Mode with you. Usual Mil Mode from {origin.name}:</p>
         <ul className="planning-rules">
           <li><strong>9 · AMC</strong>: overseas consignees, truck manifested to the aerial port{origin.alaska ? '; also routine (TP3) small parcels to the lower 48' : ''}.</li>
-          <li><strong>B · LTL</strong>: lower-48 pieces over small parcel limits: {smallParcelLimits(shipment).weight} lb from {origin.name} (DTR Part II, Chapter 202, para M.1: 150 lb within CONUS, 300 lb between CONUS and Alaska), or the carriers' {smallParcelLimits(shipment).lengthGirth} in length + 2 × (width + height).</li>
-          <li><strong>TP</strong> (DAFI 24-602V2 Table 2.1 · DTR Part II, Table 203-3): {shipment.document === '1149' ? 'a DD 1149 has no PD, so the RDD decides: 2 days out or less is TP1 (5 OCONUS), 8 days or less TP2 (21 OCONUS), later or blank TP3.' : 'PD 01–03 is TP1. PD 04–15 is TP2 with RDD 444, 555, 777, N__, E__, or a Julian RDD 8 days out or less (CONUS customer) or 21 days (OCONUS); otherwise TP3.'}</li>
+          <li><ClaimLink claimId="outbound.parcelLimits"><strong>B · LTL</strong></ClaimLink>: lower-48 pieces over small parcel limits: {smallParcelLimits(shipment).weight} lb from {origin.name} (DTR Part II, Chapter 202, para M.1: 150 lb within CONUS, 300 lb between CONUS and Alaska), or the carriers' {smallParcelLimits(shipment).lengthGirth} in length + 2 × (width + height).</li>
+          <li><ClaimLink claimId="outbound.priority"><strong>TP</strong> (DAFI 24-602V2 Table 2.1 · DTR Part II, Table 203-3)</ClaimLink>: {shipment.document === '1149' ? 'a DD 1149 has no PD, so the RDD decides: 2 days out or less is TP1 (5 OCONUS), 8 days or less TP2 (21 OCONUS), later or blank TP3.' : 'PD 01–03 is TP1. PD 04–15 is TP2 with RDD 444, 555, 777, N__, E__, or a Julian RDD 8 days out or less (CONUS customer) or 21 days (OCONUS); otherwise TP3.'}</li>
           {origin.alaska ? <li><strong>J · Air small parcel</strong>: TP1 and TP2 small parcels to the lower 48.</li>
             : <><li><strong>J · Air small parcel</strong>: TP1 small parcels.</li><li><strong>5 · Surface small parcel</strong>: TP2 and TP3 small parcels.</li></>}
         </ul>

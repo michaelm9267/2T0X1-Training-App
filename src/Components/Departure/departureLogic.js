@@ -1,9 +1,9 @@
 import { recordMistake } from '../CargoWindow/mistakes';
 
 // Aircraft departure and manifest release. The trainee sets the aircraft departure date and
-// time; the manifest may be released only within the 30 minutes before departure (training rule).
+// time; the manifest may be released only within the 30 minutes following departure (training rule).
 export const RELEASE_WINDOW_MINUTES = 30;
-const RULE = 'Training rule: release the manifest within 30 minutes of aircraft departure';
+const RULE = 'Training rule: release the manifest within 30 minutes following aircraft departure';
 
 export const emptyDeparture = () => ({ at: null, releasedAt: null, basis: null, feedback: '', mistakes: [] });
 
@@ -29,14 +29,14 @@ export function defaultDepartureAt(minutes, today = new Date()) {
 // When the release window opens and closes for a departure time.
 export function releaseWindow(departureAt) {
   const departure = parseLocal(departureAt);
-  return departure && { opens: new Date(departure.getTime() - RELEASE_WINDOW_MINUTES * 60000), closes: departure };
+  return departure && { opens: departure, closes: new Date(departure.getTime() + RELEASE_WINDOW_MINUTES * 60000) };
 }
 
 export function releaseCheck(departureAt, now) {
   const window = releaseWindow(departureAt);
   if (!window) return { ok: false, message: 'Set a valid aircraft departure date and time.' };
-  if (now < window.opens) return { ok: false, message: `Too early: the manifest can be released from ${formatTime(window.opens)}, within ${RELEASE_WINDOW_MINUTES} minutes of the ${formatTime(window.closes)} departure.` };
-  if (now > window.closes) return { ok: false, message: `The ${formatTime(window.closes)} departure time has passed. Update the aircraft departure time before releasing the manifest.` };
+  if (now < window.opens) return { ok: false, message: `Too early: release the manifest after the aircraft departs, from ${formatTime(window.opens)} until ${formatTime(window.closes)} (within ${RELEASE_WINDOW_MINUTES} minutes following departure).` };
+  if (now > window.closes) return { ok: false, message: `Too late: the release window closed at ${formatTime(window.closes)}, ${RELEASE_WINDOW_MINUTES} minutes after the ${formatTime(window.opens)} departure. Update the aircraft departure time before releasing the manifest.` };
   return { ok: true };
 }
 
@@ -46,8 +46,8 @@ export function releaseManifest(state, { departureAt, now, ready, basis }) {
   if (!ready) return { ...state, feedback: 'Every piece on the DSOE must pass JI before the manifest is released.' };
   const check = releaseCheck(departureAt, now);
   if (!check.ok) return recordMistake({ ...state, releasedAt: null, basis: null, feedback: check.message }, 'manifest release', check.message, RULE);
-  const minutes = Math.round((parseLocal(departureAt) - now) / 60000);
-  return { ...state, releasedAt: now.toISOString(), basis, feedback: `Manifest released at ${formatTime(now)}, ${minutes} minute${minutes === 1 ? '' : 's'} before the ${formatTime(parseLocal(departureAt))} departure.` };
+  const minutes = Math.round((now - parseLocal(departureAt)) / 60000);
+  return { ...state, releasedAt: now.toISOString(), basis, feedback: `Manifest released at ${formatTime(now)}, ${minutes} minute${minutes === 1 ? '' : 's'} after the ${formatTime(parseLocal(departureAt))} departure.` };
 }
 
 // A new departure time voids an earlier release.
@@ -58,3 +58,4 @@ export function reconcileRelease(state, basis) {
   if (!state.releasedAt || state.basis === basis) return state;
   return { ...state, releasedAt: null, basis: null, feedback: 'The manifest changed after it was released. Release it again.' };
 }
+

@@ -1,3 +1,4 @@
+import RegulationHelp from '../Regulations/RegulationHelp';
 import { useMemo, useRef, useState } from 'react';
 import { DODAAC_INFO, DESTINATIONS, tcnIncrement, tcnUln } from '../CargoWindow/workflow';
 import { calculateCB } from '../CargoWindow/centerOfBalance';
@@ -13,7 +14,7 @@ function makeDrill(topic, round) {
     const questions = [
       { prompt: 'An engine-powered asset arrives with 2 HAZDEC copies. How many additional copies are needed?', answer: '1', explanation: 'This exercise requires three HAZDEC copies for an engine-powered asset.' },
       { prompt: 'A vehicle fuel gauge reads ⅜ tank against this scenario’s ¼-tank target. Enter S for satisfactory or U for unsatisfactory.', answer: 'U', explanation: '⅜ exceeds the scenario target, so the condition is unsatisfactory.' },
-      { prompt: 'An ISU is locked and the deploying representative has no key. Enter S for satisfactory or U for unsatisfactory.', answer: 'U', explanation: 'The container must be accessible for inspection.' },
+      { prompt: 'An ISU door has a combination lock with no combination tape above it, and the deploying representative does not know the combination. Enter S for satisfactory or U for unsatisfactory.', answer: 'U', explanation: 'The container must be accessible for inspection.' },
     ];
     return questions[round % questions.length];
   }
@@ -35,6 +36,7 @@ export default function QuickDrills({ onClose }) {
     <article className="training-tool-sheet drill-sheet" role="dialog" aria-modal="true" aria-label="Quick drills" tabIndex={-1} ref={dialog}>
       <div className="training-tool-header"><strong>Quick drills</strong><button type="button" aria-label="Close quick drills" onClick={onClose}>×</button></div>
       <label>Drill topic<select aria-label="Drill topic" value={topic} onChange={event => reset(event.target.value)}><option value="cb">Center of balance</option><option value="tcn">TCN decoding</option><option value="dodaac">DoDAAC and port</option><option value="inspection">Appendix O inspection</option></select></label>
+      <RegulationHelp claims={topic === 'cb' ? ['cargo.cb', 'cargo.cbReweigh'] : topic === 'tcn' ? ['outbound.tcn'] : topic === 'inspection' ? ['cargo.access', 'documents.hazdec'] : []} assumptions={['Fictional routing destinations, example values, document copy counts, and selected fuel targets belong to the exercise.']} />
       <p className="drill-prompt">{drill.prompt}</p>
       <label>Your answer<input value={answer} onChange={event => { setAnswer(event.target.value); setFeedback(''); }} /></label>
       <div className="answer-options"><button type="button" className="primary-button" onClick={() => setFeedback(answer.trim() ? (answer.trim().toUpperCase() === drill.answer.toUpperCase() ? `Correct. ${drill.explanation}` : `Recheck your answer. ${drill.explanation}`) : 'Enter an answer before checking.')}>Check answer</button><button type="button" onClick={() => reset(topic)}>New question</button></div>

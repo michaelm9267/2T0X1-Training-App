@@ -2,6 +2,10 @@ import FloatingWindow from '../Session/FloatingWindow';
 import { ITEMS, originOf, consignee, isOverseas } from './outboundData';
 import { DOCUMENT_DAY, transportationPriority } from './outboundShipments';
 import { NO_DODAAC } from './cmosLogic';
+import { cmosUser } from '../../currentUser';
+
+// The packer's signature: the signed-in trainee, written in proper case.
+const signatureName = () => cmosUser().toLowerCase().replace(/\b[a-z]/g, ch => ch.toUpperCase());
 
 // Training facsimiles of the customer's shipping document: DD Form 1348-1A (Issue Release/Receipt
 // Document) or DD Form 1149 (Requisition and Invoice/Shipping Document). Values come from the
@@ -108,7 +112,8 @@ function Form1348({ doc, shipment, received, packing }) {
             <Cell n="18" label="TY CONT"><Ink>{packing?.typePack}</Ink></Cell><Cell n="19" label="NO CONT"><Ink>{packing?.containers}</Ink></Cell><Cell n="20" label="TOTAL WEIGHT">{packing ? <Ink>{packing.weight}</Ink> : Math.round(doc.unitWeight * doc.quantity)}</Cell><Cell n="21" label="TOTAL CUBE" />
           </div>
           <div className="f1348-row f1348-receipt">
-            <Cell n="22" label="RECEIVED BY" /><Cell n="23" label="DATE RECEIVED" />
+            {/* Once custody is accepted: the packer's signature and the date the cargo was packed. */}
+            <Cell n="22" label="RECEIVED BY">{received && <span className="doc-signature">{signatureName()}</span>}</Cell><Cell n="23" label="DATE RECEIVED">{received && <Ink>{julianDate}</Ink>}</Cell>
           </div>
           <div className="f1348-address">
             {info ? <><b>{doc.shipTo} &nbsp; {info.unit}</b><b>{info.address}</b><b>{info.city}</b></> : <b>&nbsp;</b>}
@@ -150,7 +155,7 @@ function Form1149({ doc, shipment, received, packing }) {
           <B n="3" label="SHIP TO - MARK FOR" className="f1149-tall">{doc.delivery ? deliveryLines(doc.delivery).map(line => <b key={line}>{line}</b>) : info && <><b>{doc.shipTo}</b><b>MARK FOR: SUPPLY / RECEIVING</b></>}</B>
         </div>
         <div className="f1149-right">
-          <div className="f1149-row f1149-r1"><B label="SHEET NO.">1</B><B label="NO. OF SHEETS">1</B><B n="5" label="REQUISITION DATE">{ymd(DOCUMENT_DAY)}</B><B n="6" label="REQUISITION NUMBER">{doc.documentNumber}</B></div>
+          <div className="f1149-row f1149-r1"><B label="SHEET NO.">1</B><B label="NO. OF SHEETS">1</B><B n="5" label="REQUISITION DATE">{ymd(DOCUMENT_DAY)}</B><B n="6" label="REQUISITION NUMBER">{doc.tcn}</B></div>
           <div className="f1149-row f1149-r2"><B n="7" label="DATE MATERIAL REQUIRED (YYYYMMDD)">{/^\d{3}$/.test(doc.rdd) && Number(doc.rdd) <= 366 ? ymd(Number(doc.rdd)) : doc.rdd}</B><B n="8" label="PRIORITY">{transportationPriority(doc.pd, doc.rdd, isOverseas(doc.shipTo), '1149').slice(2)}</B></div>
           <B n="9" label="AUTHORITY OR PURPOSE">{doc.condition === 'F' ? 'REPARABLE RETURN TO DEPOT' : 'SHIPMENT TO SUPPORTED UNIT'}{transportationPriority(doc.pd, doc.rdd, isOverseas(doc.shipTo), '1149') !== 'TP3' && <><br />EXPEDITE: SQ/CC JUSTIFICATION MEMO ATTACHED</>}</B>
           <div className="f1149-row f1149-r2"><B n="10" label="SIGNATURE">{doc.signed && <span className="doc-signature">J. Alvarez, MSgt</span>}</B><B n="11a" label="VOUCHER NUMBER & DATE (YYYYMMDD)" /></div>

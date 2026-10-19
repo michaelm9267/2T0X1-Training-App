@@ -1,5 +1,6 @@
 import { scenarios } from './scenarios';
 import { createExercise, getTasks } from './exercise';
+import { correctMarks } from './dd2133';
 import { paperwork, saveManifest, manifestFields, verifyPaperwork, requestCopies, removeFromManifest, reviewHazdec, DODAAC_PORTS, DESTINATIONS, DODAAC_INFO, randomDestination } from './workflow';
 
 test('precheck requires inspecting each applicable packet and correct counts',()=>{
@@ -55,7 +56,7 @@ test('manifest accepts matching prepared asset; JI needs separate fresh checks; 
  e.jiDocumentsViewed=paperwork(s).map(d=>d.id);
  e.jiMeasurements=e.measurements.map(m=>({...m,inches:Math.hypot(m.endpoints[1].x-m.endpoints[0].x,m.endpoints[1].y-m.endpoints[0].y)}));
  e.jiWeights={gross:{pounds:s.weight}};
- e.jiVerified=getTasks(s,'ji',e).map(t=>t.id);
+ e.jiMarks=correctMarks(s,e);
  expect(getTasks(s,'ji',e).every(t=>t.complete)).toBe(true);
  delete e.notebookEntries.gross;
  expect(getTasks(s,'manifest',e).find(t=>t.id==='manifest-entry').complete).toBe(false);

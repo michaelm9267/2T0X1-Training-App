@@ -8,8 +8,6 @@ export function releaseAirShipment(state, details, context) {
   const error = (message) => errors.push({ field: "release", message });
   if (context.finished) error("Finished tests are locked.");
   if (!state.manifest) error("Save an air manifest first.");
-  if (state.checkedRevision !== state.revision)
-    error("Run Edit Check for the current manifest.");
   if (
     state.pullSheetRevision !== state.revision ||
     state.manifestPrintRevision !== state.revision
@@ -45,7 +43,7 @@ export function releaseAirShipment(state, details, context) {
   if (!context.loadPlan.accepted || context.loadPlan.basis !== basis)
     error("Accept the current load plan before release.");
   if (!String(details.flightNumber || "").trim())
-    error("Flight Nbr is required for this exercise.");
+    error("Flight Nbr is required: enter it on the mission in Air Schedule.");
   if (errors.length) {
     const feedback = errors.map((e) => e.message).join(" ");
     return {

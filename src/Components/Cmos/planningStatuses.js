@@ -20,6 +20,8 @@ export const freightStatus = saved => {
   return AIR_MIL_MODES.includes(String(saved.milMode).trim().toUpperCase()) ? 'AT' : 'ST';
 };
 const recordedStatus = record => {
+  // Released on a movement document (see syncReleasedTcns): assigned to history.
+  if (record?.releasedCt) return 'CT';
   for (const value of [record?.statusCode, record?.status, record?.draft?.statusCode, record?.draft?.status, record?.saved?.statusCode, record?.saved?.status]) {
     const code = codeOf(value);
     if (code) return code;

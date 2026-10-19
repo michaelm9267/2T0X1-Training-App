@@ -8,19 +8,25 @@ export const FLOOR = { length: 1056, width: 216, ramp: 240 };
 export const CB_RANGE = [380, 620];
 export const ACL = 120000;
 
+// 463L pallets and ISUs (88 x 108 in base) load with the 88 in side fore and aft, two abreast across
+// the C-17 floor, so their CB is 44 in. Other pieces load lengthwise.
+export const palletized = piece => !piece.axles?.length && Math.min(piece.length, piece.width) === 88 && Math.max(piece.length, piece.width) === 108;
+export const foreAft = piece => palletized(piece) ? 88 : piece.length;
+export const across = piece => palletized(piece) ? 108 : piece.width;
+
 // A piece's own center of balance, in inches aft of its forward edge.
 export function pieceCB(piece) {
   if (piece.axles?.length) return piece.axles.reduce((sum, axle) => sum + axle.position * axle.weight, 0) / piece.weight;
-  return piece.length / 2;
+  return foreAft(piece) / 2;
 }
 
 // Next open spot: forward to aft along the centerline, with 12 in between pieces.
 export function autoPlace(piece, placements, pieces) {
-  const ends = Object.entries(placements).map(([key, spot]) => spot.station + (pieces.find(p => p.key === key)?.length || 0));
+  const ends = Object.entries(placements).map(([key, spot]) => spot.station + foreAft(pieces.find(p => p.key === key) || { length: 0 }));
   return { station: ends.length ? Math.max(...ends) + 12 : 24, lateral: 0 };
 }
 
-const box = (piece, spot) => ({ x0: spot.station, x1: spot.station + piece.length, y0: spot.lateral - piece.width / 2, y1: spot.lateral + piece.width / 2 });
+const box = (piece, spot) => ({ x0: spot.station, x1: spot.station + foreAft(piece), y0: spot.lateral - across(piece) / 2, y1: spot.lateral + across(piece) / 2 });
 
 // Problems with the plan as placed. ready lists pieces that passed JI; every listed piece must
 // be loaded for the plan to be complete.
@@ -62,10 +68,10 @@ export const planBasis = pieces => JSON.stringify(pieces.map(({ key, length, wid
 export function autoPlan(pieces) {
   const rows = (lanes) => {
     const lines = Array.from({ length: lanes }, () => ({ end: 0, keys: [] }));
-    [...pieces].sort((a, b) => b.length - a.length).forEach(piece => {
+    [...pieces].sort((a, b) => foreAft(b) - foreAft(a)).forEach(piece => {
       const line = lines.reduce((low, next) => next.end < low.end ? next : low);
       line.keys.push({ piece, station: line.end });
-      line.end += piece.length + 12;
+      line.end += foreAft(piece) + 12;
     });
     const lateral = i => lanes === 1 ? 0 : (i === 0 ? -1 : 1) * FLOOR.width / 4;
     return Object.fromEntries(lines.flatMap((line, i) => line.keys.map(({ piece, station }) => [piece.key, { station, lateral: lateral(i) }])));
@@ -73,7 +79,7 @@ export function autoPlan(pieces) {
   for (const lanes of [1, 2]) {
     const placements = rows(lanes);
     const { cb } = checkPlan(pieces, placements);
-    const end = Math.max(...pieces.map(piece => placements[piece.key].station + piece.length));
+    const end = Math.max(...pieces.map(piece => placements[piece.key].station + foreAft(piece)));
     const shift = Math.max(0, Math.min(FLOOR.length - end, Math.round((CB_RANGE[0] + CB_RANGE[1]) / 2 - cb)));
     const shifted = Object.fromEntries(Object.entries(placements).map(([key, spot]) => [key, { ...spot, station: spot.station + shift }]));
     if (!checkPlan(pieces, shifted).problems.length) return shifted;

@@ -1,4 +1,5 @@
 import Dg2List from "./Dg2List";
+import { pieceCubeFeet, wholeCube } from "./model";
 import T9MiscTab from "./T9MiscTab";
 import { generateDocument } from "./operations";
 import { collections, pieceFields } from "./referenceInventory";
@@ -73,7 +74,7 @@ export default function DetailTabs({
     return (
       <>
         <div className="shared-piece-totals">
-          {[["Total PCS", total.pieces], ["Total WT", total.weight], ["Total CU", total.cube.toFixed(1)]].map(([label, value]) =>
+          {[["Total PCS", total.pieces], ["Total WT", total.weight], ["Total CU", wholeCube(total.cube)]].map(([label, value]) =>
             <label key={label}>{label}<input aria-label={label} readOnly value={value} /></label>
           )}
         </div>
@@ -171,7 +172,7 @@ export default function DetailTabs({
                 {pieceFields.map(f => <td key={f.id}>{f.id === "number"
                   ? <button aria-label={`Edit piece ${p.draft.number || p.id}`} onClick={() => openEntry("pieces", p.id, "Piece Information", pieceFields)}>{p.draft.number || "1"}</button>
                   : f.id === "cube"
-                    ? ((Number(p.draft.length) || 0) * (Number(p.draft.width) || 0) * (Number(p.draft.height) || 0) / 1728).toFixed(1)
+                    ? pieceCubeFeet(p.draft)
                     : String(p.draft[f.id] ?? "")}</td>)}
               </tr>
             ))}</tbody>
@@ -272,8 +273,13 @@ export default function DetailTabs({
               Create AIT for TCN
             </button>
           )}
-          <button onClick={() => setSelected([])}>Clear</button>
-          <button onClick={() => go("planning")}>Ship Plan</button>
+          {page === "truck" ? <>
+            <button onClick={() => go("planning")}>Ship Plan</button>
+            <button onClick={() => setSelected([])}>Clear</button>
+          </> : <>
+            <button onClick={() => setSelected([])}>Clear</button>
+            <button onClick={() => go("planning")}>Ship Plan</button>
+          </>}
         </div>
         {rowTable(rows, definition.tabs[tab], () => {}, true)}
         {page === "truck" && (

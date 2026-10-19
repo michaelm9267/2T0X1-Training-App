@@ -328,7 +328,7 @@ test('prepared pallet manifests but JI waits for the deployment load plan',()=>{
  for(const [label,value]of [['TCN','F00001$$E100300XX'],['Nomen','Palletized general supplies'],['Consignor','FA5030'],['Consignee','FB5294'],['POE','EDF'],['POD','OSN']])fireEvent.change(planning.getByLabelText(label),{target:{value}});
  userEvent.click(planning.getByRole('button',{name:'New piece'}));const piece=within(screen.getByRole('dialog',{name:'Piece Information'}));for(const [label,value]of [['Length','108'],['Width','88'],['Height','72'],['Weight','4800'],['Type Pack','PC']])fireEvent.change(piece.getByLabelText(label),{target:{value}});userEvent.click(piece.getByRole('button',{name:'Save and Close'}));fillAirData(planning);userEvent.click(planning.getByRole('button',{name:'Save',exact:true}));userEvent.click(planning.getByRole('button',{name:'Edit TCN'}));expect(planning.getByRole('status')).toHaveTextContent('Passed Edits');
  userEvent.click(screen.getByRole('button',{name:'Air Manifest',exact:true}));userEvent.click(screen.getByRole('button',{name:'New Cargo Manifest',exact:true}));const air=within(screen.getByRole('dialog',{name:'CMOS Air Manifest'})),mission=missionForSession({destination:'FB5294'});
- for(const [key,label]of [['mission','Mission'],['dsoeId','DSOE ID'],['chalk','Chalk'],['pod','POD'],['destination','Destination']])fireEvent.change(air.getByLabelText(label),{target:{value:mission[key]}});userEvent.click(air.getByRole('button',{name:'Save',exact:true}));userEvent.click(air.getByRole('button',{name:'Unassigned Pallets'}));const assign=within(screen.getByRole('dialog',{name:'Assign TCNs'}));userEvent.click(assign.getByRole('checkbox',{name:'Assign F00001$$E100300XX'}));userEvent.click(assign.getByRole('button',{name:'Assign',exact:true}));userEvent.click(assign.getByRole('button',{name:'Close',exact:true}));userEvent.click(air.getByRole('button',{name:'Save',exact:true}));userEvent.click(screen.getByRole('button',{name:'Close CMOS'}));
+ for(const [key,label]of [['mission','Mission'],['dsoeId','DSOE ID'],['chalk','Chalk'],['pod','POD'],['destination','Destination']])fireEvent.change(air.getByLabelText(label),{target:{value:mission[key]}});userEvent.click(air.getByRole('button',{name:'Save',exact:true}));userEvent.click(air.getByRole('button',{name:'Unassigned Pallets'}));const assign=within(screen.getByRole('dialog',{name:/^Assign (Loose Cargo|Pallets) to Manifest/}));userEvent.click(assign.getByRole('checkbox',{name:/^Assign pallet .*F00001\$\$E100300XX/}));userEvent.click(assign.getByRole('button',{name:'Assign',exact:true}));userEvent.click(assign.getByRole('button',{name:'Close',exact:true}));userEvent.click(air.getByRole('button',{name:'Save',exact:true}));userEvent.click(screen.getByRole('button',{name:'Close CMOS'}));
  const card=screen.getByRole('region',{name:'Cargo manifest'});expect(within(card).getByText('F00001$$E100300XX')).toBeInTheDocument();
  userEvent.click(screen.getByRole('button',{name:'Apply MSL'}));expect(within(card).getByText('Applied')).toBeInTheDocument();expect(screen.getByRole('button',{name:'5. JI'})).toBeDisabled();
  userEvent.click(screen.getByRole('button',{name:'Aircraft paperwork package'}));const pkg=within(screen.getByRole('dialog',{name:'Aircraft commander paperwork package'}));expect(pkg.getByText('DRAFT — NOT READY')).toBeInTheDocument();expect(within(pkg.getByRole('region',{name:'Cargo manifest'})).getAllByText('F00001$$E100300XX').length).toBeGreaterThan(0);userEvent.click(pkg.getByRole('button',{name:'Close paperwork package'}));
@@ -605,4 +605,17 @@ test('CDF test mode takes the trainee name, locks the work when finished, and pr
   userEvent.click(within(sheet).getByRole('button', { name: 'Close Grading sheet' }));
   expect(screen.getByRole('button', { name: 'Reset this shipment' })).toBeDisabled();
   expect(within(trainee).getByLabelText('Last name')).toHaveAttribute('readonly');
+});
+
+test('the JI inspection list opens from the session tools and searches every DD 2133 item', () => {
+  render(<App />);
+  userEvent.click(screen.getByRole('button', { name: 'JI inspection list' }));
+  const list = within(screen.getByRole('dialog', { name: 'JI inspection list' }));
+  for (const block of ['Block 11 Documentation', 'Block 12 General requirements', 'Block 13 Vehicles/non-powered equipment', "Block 14 Pallets/pallet trains/ISU's", 'Block 15 Helicopters']) expect(list.getByRole('region', { name: block })).toBeInTheDocument();
+  expect(list.getByText(/Five drops|5\+ drops/)).toBeInTheDocument();
+  userEvent.type(list.getByLabelText('Search inspection items'), 'combination');
+  expect(list.getByText('Keys/Combinations (All Locks)', { exact: false })).toBeInTheDocument();
+  expect(list.queryByRole('region', { name: 'Block 13 Vehicles/non-powered equipment' })).not.toBeInTheDocument();
+  userEvent.click(list.getByRole('button', { name: 'Close JI inspection list' }));
+  expect(screen.queryByRole('dialog', { name: 'JI inspection list' })).not.toBeInTheDocument();
 });

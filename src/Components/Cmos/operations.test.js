@@ -28,6 +28,8 @@ function ready() {
     origin: "F00001",
     destination: "F00002",
     tac: "TRN1",
+    // Funds already validated (Val Funds → TGET → LOA Val Status P), so the shipment can be rated.
+    loa: "P",
   });
   s = createRecord(s, "pieces", {
     shipmentId: "shipments-1",
@@ -85,7 +87,7 @@ test("international request checks required details and returns simulated rating
   s = transition(s, "express", "express-1", "Send Request").store;
   expect(s.express["express-1"].result.state).toBe("pending");
   s = transition(s, "express", "express-1", "Status Request").store;
-  expect(s.express["express-1"].result.tracking).toBe("TRN000000000001");
+  expect(s.express["express-1"].result.tracking).toMatch(/^\d{12}$/); // FedEx Express format
   s = retrieveExpressDocuments(s, "express-1", ["Carrier label"]).store;
   expect(
     Object.values(s.documents).some((d) => d.draft.title === "Carrier label"),
@@ -114,7 +116,8 @@ test("multi-TCN CBL requires current checks and final printing before release", 
     "failed",
   );
   s = transition(s, "bills", "bills-1", "Final Print").store;
-  s = transition(s, "bills", "bills-1", "Release").store;
+  expect(transition(s, "bills", "bills-1", "Release").outcome.messages).toContain("Departure Date is required: enter ddMmmyyyy/HHmm (e.g. 18Oct2026/1956).");
+  s = transition(s, "bills", "bills-1", "Release", { releaseDetails: { departureDate: "18Oct2026/1956" } }).store;
   expect(s.bills["bills-1"].status).toBe("Released");
 });
 test("clearing hazardous indicator removes pending and saved DG records without blocking save", () => {
@@ -158,6 +161,7 @@ test("departure parameters do not invalidate an already checked and printed mani
     chalk: "001",
     conveyanceMode: "9",
     equipmentType: "AV1",
+    destinationDODAAC: "FB6520", originDODAAC: "FA5030", pickUpDate: "13OCT2026", truckSerialBumperNumber: "TMO", motorCarrierName: "773 LRS/LGRTC",
   });
   s = assignShipments(s, "truckManifests", "truckManifests-1", ["shipments-1"]);
   s = saveRecord(s, "truckManifests", "truckManifests-1");
@@ -187,4 +191,18 @@ test("quote results account for dimensional weight", () => {
   });
   s = getQuote(s, "quotes-1").store;
   expect(s.quotes["quotes-1"].result.rates[0].ratedWeight).toBe(100);
+});
+test("funds must be validated (LOA Val Status P) before an SPE request or a rate quote", () => {
+  const { prevalidateLoa, FUNDS_REQUIRED } = require("./model");
+  let s = editRecord(ready(), "shipments", "shipments-1", { loa: "" });
+  s = createRecord(s, "express", { shipmentId: "shipments-1", scac: "FDE", service: "PO", domInt: "DOM", shipDate: "12Oct2026", packageType: "Box" });
+  s = saveRecord(s, "express", "express-1");
+  expect(transition(s, "express", "express-1", "Send Request").outcome.messages).toContain(FUNDS_REQUIRED("TRN001"));
+  s = createRecord(s, "quotes", { shipmentId: "shipments-1", weight: "20", length: "12", width: "12", height: "12", originZip: "99506", destinationZip: "99701" });
+  expect(getQuote(s, "quotes-1").outcome.messages).toContain(FUNDS_REQUIRED("TRN001"));
+  expect(prevalidateLoa(editRecord(s, "shipments", "shipments-1", { tac: "" }), "shipments-1")).toMatchObject({ ok: false, message: "TAC is required to validate funds." });
+  const validated = prevalidateLoa(s, "shipments-1");
+  expect(validated.ok).toBe(true);
+  expect(validated.store.shipments["shipments-1"].draft.loa).toBe("P");
+  expect(transition(validated.store, "express", "express-1", "Send Request").outcome.messages || []).not.toContain(FUNDS_REQUIRED("TRN001"));
 });

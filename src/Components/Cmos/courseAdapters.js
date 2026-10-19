@@ -8,6 +8,7 @@ import {
   piecesFor,
   totals,
   currentCheck,
+  shipmentReady,
   assignShipments,
   deleteRecord,
   documentCurrent,
@@ -156,6 +157,8 @@ export function migrateOutboundCmos(session) {
   for (const shipment of session.shipments) {
     const e = session.exercises[shipment.key],
       r = e.cmos?.record;
+    // A customer without an advance record has nothing in CMOS until the trainee creates it.
+    if (!shipment.advance && !r?.saved) continue;
     const advance = planningFields(shipment);
     const initial = Object.fromEntries(
       Object.entries(advance)
@@ -233,9 +236,8 @@ export function legacyCdfRecord(store, r, saved = false) {
     palletId: null,
   };
 }
-const eligible = (r) =>
-  currentCheck(r) ||
-  (r?.legacyAccepted && JSON.stringify(r.draft) === JSON.stringify(r.saved));
+// A shipment counts once it is saved with nothing missing; running Edit TCN is not required.
+const eligible = (store, r) => shipmentReady(store, r.id);
 export function assetKeysFor(store, r) {
   const keys = piecesFor(store, [r.id])
     .map((p) => p.draft.assetKey)
@@ -297,7 +299,7 @@ export function projectCdf(store, session) {
       .filter(
         (r) =>
           r &&
-          eligible(r) &&
+          eligible(store, r) &&
           assetKeysFor(store, r).some((key) => exercises[key]),
       );
     const assignedKeys = [
@@ -409,7 +411,7 @@ export function projectOutbound(store, exercises) {
       const related = Object.values(store.shipments).filter((x) =>
         assetKeysFor(store, x).includes(key),
       );
-      const checked = related.every(eligible);
+      const checked = related.every((x) => eligible(store, x));
       const spe = Object.values(store.express).find(
         (x) => x.draft.shipmentId === r.id,
       );
@@ -447,7 +449,7 @@ export function projectOutbound(store, exercises) {
             },
             pieces: p,
             saved: Boolean(r.saved),
-            feedback: r.saved ? "Saved; run Edit TCN to check." : "",
+            feedback: r.saved ? "Saved. Edit TCN lists anything still missing." : "",
           },
         },
         spe: spe
@@ -545,11 +547,8 @@ export function resetOutboundShipment(store, key, shipment, exercise) {
     exercises: { [key]: exercise },
     selected: key,
   });
-  return createRecord(
-    next,
-    "shipments",
-    Object.values(fresh.shipments)[0].draft,
-  );
+  const record = Object.values(fresh.shipments)[0];
+  return record ? createRecord(next, "shipments", record.draft) : next;
 }
 
 export function resetCdfShipment(store, key, scenario) {

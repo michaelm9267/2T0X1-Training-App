@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { ITEMS, CONTAINERS, isHardware } from './outboundData';
+import { ITEMS, CONTAINERS, isHardware, originOf } from './outboundData';
+import ConditionTagForm, { CONDITION_TAGS, tagFor } from './ConditionTagForm';
+import RegulationHelp from '../Regulations/RegulationHelp';
 import { LABELS } from './outboundLogic';
 
 // The receiving bench: the customer's item as presented, and later the packed piece, drawn in SVG.
 // Inspect reads the condition tag and counts units; Tape measure and Scale read the packed piece.
 
-const TAGS = {
-  A: { form: 'DD 1574', title: 'SERVICEABLE', fill: '#f2d24b', text: '#2a2300' },
-  F: { form: 'DD 1577-2', title: 'UNSERVICEABLE (REPARABLE)', fill: '#6fbf73', text: '#0f2a12' },
-};
+// The small tag drawn on the item takes its form's border color; its close-up is the full DD Form tag.
+const tagStyle = condition => { const tag = CONDITION_TAGS[tagFor(condition)]; return { form: tag.form.replace('FORM ', ''), fill: tag.border, text: '#111' }; };
 
 function ConditionTag({ x, y, condition, onOpen }) {
-  const tag = TAGS[condition];
+  const tag = tagStyle(condition);
   return <g className="item-tag" role="button" tabIndex={0} aria-label={`${tag.form} condition tag. Select to inspect.`}
     onClick={onOpen} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onOpen(); } }}>
     <line x1={x + 6} y1={y} x2={x + 2} y2={y - 8} stroke="#c9b98f" strokeWidth=".8" />
@@ -211,19 +211,17 @@ function Dimension({ x1, y1, x2, y2, label, vertical }) {
     <text x={(x1 + x2) / 2 + (vertical ? -3 : 0)} y={(y1 + y2) / 2 + (vertical ? 0 : 6)} textAnchor={vertical ? 'end' : 'middle'} fill="#fff1c9" fontSize="6" stroke="#0d1420" strokeWidth=".5" paintOrder="stroke">{label}</text></g>;
 }
 
+// The tag as supply's inspector filled it in. QTY is what is actually tagged on the bench.
 function TagCloseup({ shipment }) {
   const item = ITEMS[shipment.itemId];
-  const tag = TAGS[shipment.condition];
-  return <div className="condition-tag-closeup" style={{ background: tag.fill, color: tag.text }} aria-label={`${tag.form} ${tag.title}`}>
-    <strong>{tag.title}</strong><small>{tag.form} · Condition code {shipment.condition}</small>
-    <dl>
-      <dt>NSN</dt><dd>{shipment.nsn}</dd>
-      <dt>Item</dt><dd>{item.nomenclature}</dd>
-      <dt>P/N</dt><dd>{item.partNumber}</dd>
-      {shipment.serialNumber && <><dt>Serial</dt><dd>{shipment.serialNumber}</dd></>}
-      <dt>UI</dt><dd>{item.ui}</dd>
-    </dl>
-  </div>;
+  const origin = originOf(shipment);
+  const reparable = tagFor(shipment.condition) === '1577-2';
+  return <><RegulationHelp claims={['outbound.receipt']} assumptions={['Which condition codes use which DD Form tag (1574, 1575, 1577, 1577-2) and the tag layouts follow the supplied tag images; the governing condition-code source (DLM 4000.25-2) was not obtained, so it is not quoted. The filled-in inspector, activity, and reason entries are fictional.']} /><ConditionTagForm condition={shipment.condition} values={{
+    description: <>{shipment.nsn}<br />P/N {item.partNumber}<br />{item.nomenclature}</>,
+    serial: shipment.serialNumber || '', ui: item.ui, qty: String(shipment.quantity), contract: '',
+    activity: `${origin.dodaac} SUPPLY QA`, inspector: 'J. ALVAREZ 12 OCT 2026',
+    nextInspection: '', reason: reparable ? 'FAILED OPERATIONAL CHECK' : '', removedFrom: reparable ? 'END ITEM SN TRN-0001' : '',
+  }} /></>;
 }
 
 export default function OutboundCargoWindow({ shipment, exercise, onInspect, onMeasure, onWeigh, onApplyLabel }) {
@@ -236,13 +234,13 @@ export default function OutboundCargoWindow({ shipment, exercise, onInspect, onM
   const packed = exercise.packed && view === 'packed';
   function inspect(id) {
     setDetail(id); onInspect(id);
-    if (id === 'tag') setMessage(`${TAGS[shipment.condition].form} tag: condition code ${shipment.condition}, NSN ${shipment.nsn}.`);
+    if (id === 'tag') setMessage(`${tagStyle(shipment.condition).form} tag: condition code ${shipment.condition}, NSN ${shipment.nsn}.`);
     if (id === 'count') setMessage(`You count ${shipment.quantity} ${item.ui} of ${item.nomenclature.toLowerCase()}.`);
     if (id === 'condition') setMessage(item.description);
   }
   function takeMeasure(dimension) { setMeasure(dimension); onMeasure(dimension); setMessage(`Packed ${dimension}: ${shipment.packed[dimension]} inches.`); }
   return <section className="cargo-window outbound-window" aria-label="Receiving bench">
-    <div className="scene-header"><div><span className="eyebrow">Receiving bench · {item.category}</span><h3>{item.nomenclature}</h3><p className="scene-tcn">Document <strong>{shipment.documentNumber}</strong> · DD {shipment.document}</p></div><span className="sample-badge">Simulated shipment</span></div>
+    <div className="scene-header"><div><span className="eyebrow">Receiving bench · {item.category}</span><h3>{item.nomenclature}</h3><p className="scene-tcn">{shipment.document === '1149' ? 'TCN' : 'Document'} <strong>{shipment.document === '1149' ? shipment.tcn : shipment.documentNumber}</strong> · DD {shipment.document}</p></div><span className="sample-badge">Simulated shipment</span></div>
     <div className="scene-toolbar">
       <div className="tool-group" aria-label="Bench tools">
         {[['inspect', 'Inspect'], ['tape', 'Tape measure'], ['scale', 'Scale'], ['labels', 'Labels']].map(([id, title]) => <button key={id} type="button" aria-pressed={tool === id} onClick={() => { setTool(id); setMeasure(null); if (id !== 'inspect' && exercise.packed) setView('packed'); }}>{title}</button>)}

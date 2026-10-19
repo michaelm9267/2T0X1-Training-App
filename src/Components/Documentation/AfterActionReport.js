@@ -1,3 +1,5 @@
+import RegulationScope from '../Regulations/RegulationScope';
+import { RegulationReference } from '../Regulations/RegulationHelp';
 import FloatingWindow from '../Session/FloatingWindow';
 import { MISTAKE_POINTS, MISSED_POINTS, overallScore } from '../CargoWindow/scoring';
 import { DODAAC_INFO } from '../CargoWindow/workflow';
@@ -10,7 +12,7 @@ const STAGES = [['precheck', 'Precheck'], ['incheck', 'Incheck'], ['manifest', '
 export default function AfterActionReport({ pieces, destination, mode, release, cdfCmos, onClose }) {
   const overall = overallScore(pieces.map(piece => piece.result));
   const totals = pieces.reduce((sum, { result }) => ({ mistakes: sum.mistakes + result.mistakes.length, caught: sum.caught + result.discrepancies.filter(d => d.status === 'Caught').length, missed: sum.missed + result.missed, found: sum.found + result.discrepancies.length }), { mistakes: 0, caught: 0, missed: 0, found: 0 });
-  return <FloatingWindow title="After-action report" closeLabel="Close after-action report" onClose={onClose} className="paper-sheet print-manifest aar-sheet" printable>
+  return <RegulationScope view="review"><FloatingWindow title="After-action report" closeLabel="Close after-action report" onClose={onClose} className="paper-sheet print-manifest aar-sheet" printable>
       <p className="paper-banner">FOR TRAINING USE ONLY</p>
       <header className="paper-header"><div><strong>After-Action Report</strong><span>CDF training deployment · {mode === 'test' ? 'Test mode' : 'Guided mode'} · Destination {destination} ({DODAAC_INFO[destination]?.port})</span></div><span className="paper-form">Overall score {overall === null ? '—' : `${overall} / 100`}</span></header>
       <div className="paper-boxes">
@@ -23,7 +25,7 @@ export default function AfterActionReport({ pieces, destination, mode, release, 
         <p className="aar-stages"><span>Departure {parseLocal(release.departureAt) ? formatTime(parseLocal(release.departureAt)) : '—'}</span><span className={release.releasedAt ? 'aar-done' : ''}>{release.releasedAt ? `✓ Released ${formatTime(new Date(release.releasedAt))}` : '○ Not released'}</span></p>
         <div className="paper-table"><table>
           <thead><tr><th>Release attempt problem</th><th>Reference</th></tr></thead>
-          <tbody>{release.mistakes?.length ? release.mistakes.map((m, i) => <tr key={i}><td>{m.detail}</td><td>{m.reference}</td></tr>) : <tr><td colSpan="2">No release problems recorded.</td></tr>}</tbody>
+          <tbody>{release.mistakes?.length ? release.mistakes.map((m, i) => <tr key={i}><td>{m.detail}</td><td><RegulationReference reference={m.reference} /></td></tr>) : <tr><td colSpan="2">No release problems recorded.</td></tr>}</tbody>
         </table></div>
       </section>}
       {pieces.map(({ title, tcn, result }) => <section key={tcn} className="aar-piece" aria-label={`${title} results`}>
@@ -31,12 +33,12 @@ export default function AfterActionReport({ pieces, destination, mode, release, 
         <p className="aar-stages">{STAGES.map(([id, label]) => <span key={id} className={result.done.includes(id) ? 'aar-done' : ''}>{result.done.includes(id) ? '✓' : '○'} {label}</span>)}{result.minutes !== null && <span>Time to JI: {result.minutes} min</span>}</p>
         <div className="paper-table"><table>
           <thead><tr><th>Discrepancy presented</th><th>Result</th><th>Reference</th></tr></thead>
-          <tbody>{result.discrepancies.length ? result.discrepancies.map(item => <tr key={item.id} className={`aar-${item.status === 'Caught' ? 'caught' : item.status === 'Missed' ? 'missed' : 'open'}`}><td>{item.title}</td><td>{item.status}</td><td>{item.reference}</td></tr>) : <tr><td colSpan="3">No discrepancies on this piece — it should pass without frustration.</td></tr>}</tbody>
+          <tbody>{result.discrepancies.length ? result.discrepancies.map(item => <tr key={item.id} className={`aar-${item.status === 'Caught' ? 'caught' : item.status === 'Missed' ? 'missed' : 'open'}`}><td>{item.title}</td><td>{item.status}</td><td><RegulationReference reference={item.reference} /></td></tr>) : <tr><td colSpan="3">No discrepancies on this piece — it should pass without frustration.</td></tr>}</tbody>
         </table></div>
         <div className="paper-table"><table>
           <thead><tr><th>Mistake</th><th>Type</th><th>Reference</th></tr></thead>
-          <tbody>{result.mistakes.length ? result.mistakes.map((m, i) => <tr key={i}><td>{m.detail}</td><td>{m.kind}</td><td>{m.reference}</td></tr>) : <tr><td colSpan="3">No mistakes recorded.</td></tr>}</tbody>
+          <tbody>{result.mistakes.length ? result.mistakes.map((m, i) => <tr key={i}><td>{m.detail}</td><td>{m.kind}</td><td><RegulationReference reference={m.reference} /></td></tr>) : <tr><td colSpan="3">No mistakes recorded.</td></tr>}</tbody>
         </table></div>
       </section>)}
-  </FloatingWindow>;
+  </FloatingWindow></RegulationScope>;
 }

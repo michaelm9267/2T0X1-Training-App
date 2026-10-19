@@ -3,6 +3,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CmosWorkspace from './CmosWorkspace';
 import { createCmosStore, createRecord } from './model';
+import { planningStatus, isPlanningViewOnly } from './planningStatuses';
 const statuses = [
   ['PI', 'Planning And Packaging', 'Inchecked'],
   ['ST', 'Inchecked Into Surface Freight', 'Inchecked'],
@@ -67,4 +68,25 @@ test('saving a new advance record keeps it at 00 until actual incheck', () => {
   userEvent.click(screen.getByRole('button', { name: 'New', exact: true }));
   userEvent.click(screen.getByRole('button', { name: 'Save', exact: true }));
   expect(screen.getByLabelText('Status')).toHaveValue('00 - Advance Record Not Yet Inchecked');
+});
+
+test('a TCN released in any form shows CT in Shipment Planning, and leaves history if the release is undone', () => {
+  const { createCmosStore, createRecord, saveRecord, syncReleasedTcns, transition } = require('./model');
+  let store = createCmosStore();
+  store = createRecord(store, 'shipments', { tcn: 'TRNCT0001XXX', description: 'TRAINING BOX', origin: 'FA5030', destination: 'FB4497', milMode: 'B', ediMode: 'LT', nmfc: '137300', rdd: '999', nsn: 'NNSN', ciic: 'U', tac: 'TRN1', tp: '2' });
+  store = createRecord(store, 'pieces', { shipmentId: 'shipments-1', weight: '291', length: '48', width: '40', height: '59', typePack: 'PLT' });
+  store = saveRecord(saveRecord(store, 'pieces', 'pieces-1'), 'shipments', 'shipments-1');
+  expect(planningStatus(store.shipments['shipments-1'])).not.toBe('CT');
+  store = createRecord(store, 'bills', { movementDocNbr: 'MKFZ700099', shipmentIds: ['shipments-1'] });
+  store = saveRecord(store, 'bills', 'bills-1');
+  store = syncReleasedTcns({ ...store, bills: { ...store.bills, 'bills-1': { ...store.bills['bills-1'], status: 'Released' } } });
+  expect(planningStatus(store.shipments['shipments-1'])).toBe('CT');
+  expect(isPlanningViewOnly(store.shipments['shipments-1'])).toBe(true);
+  store = transition(store, 'bills', 'bills-1', 'Cancel').store;
+  expect(planningStatus(store.shipments['shipments-1'])).not.toBe('CT');
+  // Air Manifest release and Small Package Express closeout count too.
+  for (const [kind, status, link] of [['airManifests', 'Released', { shipmentIds: ['shipments-1'] }], ['express', 'Closed out', { shipmentId: 'shipments-1' }]]) {
+    const released = syncReleasedTcns({ ...store, [kind]: { x: { id: 'x', draft: link, saved: link, status } } });
+    expect(planningStatus(released.shipments['shipments-1'])).toBe('CT');
+  }
 });

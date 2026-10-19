@@ -97,11 +97,17 @@ test.each(["cdf", "outbound"])(
 test("truck manifest loads two TCNs, checks prints and releases", () => {
   render(<Harness page="truck" />);
   userEvent.click(screen.getByRole("button", { name: "New", exact: true }));
-  fill("DSOE ID", "TRN01");
-  fill("Chalk", "001");
+  // DSOE ID and Chalk are optional on Truck Manifest.
   assign();
+  userEvent.click(screen.getByRole("tab", { name: "Addresses" }));
+  fill("Destination DODAAC", "FB6520");
+  expect(screen.getByLabelText("Destination Name")).toHaveValue("FB6520  176 LRS LGRDD");
+  userEvent.click(screen.getByRole("tab", { name: "Miscellaneous" }));
+  fill("Pick Up Date", "14OCT2026");
   userEvent.click(screen.getByRole("tab", { name: "Conveyance" }));
   fill("Equipment Type", "AV1");
+  fill("Truck Serial/Bumper Number", "TMO");
+  fill("Motor Carrier Name", "773 LRS/LGRTC");
   userEvent.click(screen.getByRole("tab", { name: "TCNs Assigned" }));
   for (const c of within(
     screen.getByRole("tabpanel", { name: "TCNs Assigned" }),
@@ -119,9 +125,11 @@ test("truck manifest loads two TCNs, checks prints and releases", () => {
   const d = within(
     screen.getByRole("dialog", { name: "Release Truck Manifest" }),
   );
-  fill("Departure Date/Time", "2026-10-14T09:00", d);
+  expect(d.getByLabelText("Document Number")).toHaveValue(stored().truckManifests["truckManifests-1"].draft.manifestNumber);
+  fill("Departure Date/Time", "14Oct2026/0900", d);
   userEvent.click(d.getByRole("button", { name: "Release", exact: true }));
   expect(stored().truckManifests["truckManifests-1"].status).toBe("Released");
+  expect(stored().truckManifests["truckManifests-1"].releaseDetails.departureAt).toBe("2026-10-14T09:00");
   expect(
     stored().truckManifests["truckManifests-1"].saved.loadedIds,
   ).toHaveLength(2);
@@ -170,11 +178,33 @@ test("CBL preserves incomplete RINs and conveyances then checks final print and 
     }),
   ).toHaveTextContent("TRN002");
   userEvent.click(screen.getByRole("button", { name: "Release", exact: true }));
-  const r = within(
-    screen.getByRole("dialog", { name: "Release Commercial Bill of Lading" }),
-  );
+  const r = within(screen.getByRole("dialog", { name: "Release" }));
+  expect(r.getByLabelText("B/L Nbr")).toHaveAttribute("readonly");
+  // Departure Date starts at the current date and time; waybill and delivery date are optional.
+  expect(r.getByLabelText("Departure Date").value).toMatch(/^\d{2}[A-Z][a-z]{2}\d{4}\/\d{4}$/);
+  fill("Departure Date", "", r);
+  userEvent.click(r.getByRole("button", { name: "OK" }));
+  expect(r.getByRole("status")).toHaveTextContent("Departure Date is required");
+  fill("Departure Date", "18Oct2026/1956", r);
   fill("Carrier/Waybill Nbr", "TRN-WB", r);
   fill("Estimated Delivery Date", "16Oct2026", r);
-  userEvent.click(r.getByRole("button", { name: "Release", exact: true }));
+  userEvent.click(r.getByRole("button", { name: "OK" }));
   expect(stored().bills["bills-1"].status).toBe("Released");
+  const { planningStatus } = require("./planningStatuses");
+  const onBill = () => stored().bills["bills-1"].draft.shipmentIds.map((sid) => planningStatus(stored().shipments[sid]));
+  expect(onBill().every((code) => code === "CT")).toBe(true);
+  // Released: view only, with B/L Corrections, the TCN in history (CT), and the released buttons.
+  expect(screen.getAllByRole("tab").map((t) => t.textContent)).toEqual(["TCNs", "Addresses", "Billing", "Miscellaneous", "RINs", "Conveyances", "Commodities", "Service Codes", "Via SCAC", "Rail", "B/L Corrections"]);
+  expect(screen.queryByRole("button", { name: "Assign TCNs/Aggregates" })).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Stop Off Data" })).toBeInTheDocument();
+  expect(screen.getAllByRole("cell", { name: "CT" }).length).toBeGreaterThan(0);
+  expect(screen.queryByRole("cell", { name: "ST" })).not.toBeInTheDocument();
+  expect(screen.getAllByLabelText(/^Stop LD /)[0]).toBeDisabled();
+  for (const name of ["Print", "Reopen/Cancel BOL", "Notices", "Close"]) expect(screen.getAllByRole("button", { name, exact: true }).length).toBeGreaterThan(0);
+  for (const name of ["Release", "Save", "Edit", "Validate Funds"]) expect(screen.queryByRole("button", { name, exact: true })).not.toBeInTheDocument();
+  userEvent.click(screen.getByRole("button", { name: "Reopen/Cancel BOL" }));
+  userEvent.click(within(screen.getByRole("dialog", { name: "Reopen/Cancel BOL" })).getByRole("button", { name: "Reopen BOL" }));
+  expect(stored().bills["bills-1"].status).toBe("Saved");
+  expect(onBill().some((code) => code === "CT")).toBe(false);
+  expect(screen.getByRole("button", { name: "Release", exact: true })).toBeInTheDocument();
 });

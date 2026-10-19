@@ -1,5 +1,5 @@
 import { JBER_CONSIGNOR, JBER_CITY_LINE } from '../jberConsignor';
-import { LOWER_48_DODAACS, OCONUS_DODAACS, ALASKA_DODAACS } from './dodaacs';
+import { LOWER_48_DODAACS, OCONUS_DODAACS, ALASKA_DODAACS, TABLE_APODS, TABLE_APOES } from './dodaacs';
 
 // Training catalog for the Outbound (Traffic Management) trainer. NSNs, part numbers and TACs are
 // fictional training values in the real formats; consignee DoDAACs come from the CMOS DoDAAC table
@@ -208,6 +208,9 @@ export const consignee = dodaac => CONUS[dodaac] || OVERSEAS[dodaac] || ALASKA_D
 export const isOverseas = dodaac => Boolean(OVERSEAS[dodaac]);
 export const ALL_DODAACS = [...new Set([...Object.values(ORIGINS).flatMap(origin => [origin.dodaac, origin.cmosDodaac]), ...Object.keys(CONUS), ...Object.keys(OVERSEAS)])].sort();
 export const AERIAL_PORTS = [...new Set(['EDF', 'SUU', 'TCM', ...Object.values(OVERSEAS).map(info => info.port)])].sort();
+// POE and POD lists: the ports above plus every APOE and APOD in the CMOS DoDAAC table.
+export const APOE_PORTS = [...new Set([...AERIAL_PORTS, ...TABLE_APOES])].sort();
+export const APOD_PORTS = [...new Set([...AERIAL_PORTS, ...TABLE_APODS])].sort();
 // Commercial repair vendors in the lower 48. They have no DoDAAC, so a DD 1149 to one carries the
 // address in the clear and CMOS takes it on the Ultimate Consignee tab. Fictional names.
 export const VENDORS = [

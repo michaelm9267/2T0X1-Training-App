@@ -1,5 +1,6 @@
+import RegulationHelp from '../Regulations/RegulationHelp';
 import { useRef, useState } from 'react';
-import { ACL, CB_RANGE, FLOOR, autoPlace, checkPlan, pieceCB, submitPlan } from './loadPlanLogic';
+import { ACL, CB_RANGE, FLOOR, across, autoPlace, checkPlan, foreAft, pieceCB, submitPlan } from './loadPlanLogic';
 import { useTestMode } from '../Session/mode';
 import './load-plan.css';
 
@@ -30,6 +31,7 @@ export default function LoadPlan({ pieces, plan, onChange }) {
     <div className="training-heading"><span className="eyebrow">{test ? 'Test' : 'Guided practice'} · Chalk 001 · C-17</span><h2 id="load-plan-title">Load plan</h2>
       <p className="muted">Place every piece that passed JI on the C-17 cargo floor and keep the combined center of balance in range. Forward is at the left.</p></div>
     {!test && <p className="reference-note">Simplified training limits, not from TO 1C-17A-9: cargo floor {FLOOR.length} × {FLOOR.width} in (ramp is the last {FLOOR.ramp} in), allowable cabin load {ACL.toLocaleString()} lb, combined CB between stations {CB_RANGE[0]} and {CB_RANGE[1]} in. Stations are measured aft of the forward cargo compartment bulkhead. See DTR Part III Appendix V.</p>}
+    <RegulationHelp claims={['loadPlan.guidance', 'loadPlan.actualWeight', 'cargo.cbReweigh']} assumptions={['The cargo-floor dimensions, cabin load, CB range, clearance, and placement acceptance gates in this exercise are simplified simulation values, not certified aircraft loading limits.']} />
     <div className="load-floor-wrap">
       <svg ref={svg} className="load-floor" viewBox={`-20 -20 ${FLOOR.length + 40} ${FLOOR.width + 60}`} role="img" aria-label="C-17 cargo floor, top view"
         onPointerMove={onMove} onPointerUp={() => setDrag(null)} onPointerLeave={() => setDrag(null)}>
@@ -44,10 +46,10 @@ export default function LoadPlan({ pieces, plan, onChange }) {
         <text x="8" y="14" className="tick-label">FWD</text>
         {ready.filter(piece => placements[piece.key]).map(piece => {
           const spot = placements[piece.key];
-          const y = FLOOR.width / 2 + spot.lateral - piece.width / 2;
+          const y = FLOOR.width / 2 + spot.lateral - across(piece) / 2;
           return <g key={piece.key} className={`load-piece ${drag?.key === piece.key ? 'dragging' : ''}`} onPointerDown={event => { const at = toFloor(event); event.currentTarget.ownerSVGElement.setPointerCapture?.(event.pointerId); setDrag({ key: piece.key, dx: at.x - spot.station, dy: at.y - spot.lateral }); }}>
-            <rect x={spot.station} y={y} width={piece.length} height={piece.width} />
-            <line x1={spot.station + pieceCB(piece)} x2={spot.station + pieceCB(piece)} y1={y} y2={y + piece.width} className="piece-cb" />
+            <rect x={spot.station} y={y} width={foreAft(piece)} height={across(piece)} />
+            <line x1={spot.station + pieceCB(piece)} x2={spot.station + pieceCB(piece)} y1={y} y2={y + across(piece)} className="piece-cb" />
             <text x={spot.station + 6} y={y + 18}>{piece.title}</text>
             <text x={spot.station + 6} y={y + 34} className="piece-weight">{piece.weight.toLocaleString()} lb</text>
           </g>;
@@ -61,11 +63,11 @@ export default function LoadPlan({ pieces, plan, onChange }) {
     </div>
     {!test && problems.length > 0 && <ul className="load-problems">{problems.map(problem => <li key={problem}>{problem}</li>)}</ul>}
     <div className="load-table"><table>
-      <thead><tr><th>Piece</th><th>L × W (in)</th><th>Weight (lb)</th><th>Own CB (in)</th><th>Forward edge station (in)</th><th>Lateral offset (in)</th><th><span className="visually-hidden">Actions</span></th></tr></thead>
+      <thead><tr><th>Piece</th><th>Fore-aft × across (in)</th><th>Weight (lb)</th><th>Own CB (in)</th><th>Forward edge station (in)</th><th>Lateral offset (in)</th><th><span className="visually-hidden">Actions</span></th></tr></thead>
       <tbody>{ready.map(piece => {
         const spot = placements[piece.key];
         return <tr key={piece.key}>
-          <td>{piece.title}</td><td>{piece.length} × {piece.width}</td><td>{piece.weight.toLocaleString()}</td><td>{pieceCB(piece).toFixed(1)}</td>
+          <td>{piece.title}</td><td>{foreAft(piece)} × {across(piece)}</td><td>{piece.weight.toLocaleString()}</td><td>{pieceCB(piece).toFixed(1)}</td>
           <td>{spot ? <input type="number" aria-label={`${piece.title} forward edge station`} value={spot.station} onChange={event => setSpot(piece.key, { ...spot, station: Number(event.target.value) })} /> : '—'}</td>
           <td>{spot ? <input type="number" aria-label={`${piece.title} lateral offset`} value={spot.lateral} onChange={event => setSpot(piece.key, { ...spot, lateral: Number(event.target.value) })} /> : '—'}</td>
           <td>{spot ? <button type="button" onClick={() => remove(piece.key)}>Remove</button> : <button type="button" onClick={() => setSpot(piece.key, autoPlace(piece, placements, ready))}>Place {piece.title}</button>}</td>

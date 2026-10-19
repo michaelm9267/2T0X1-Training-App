@@ -3,3 +3,11 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+// Training panel cards start closed in the app. Workflow tests read card contents directly, so
+// cards start open here; CollapsibleCard.test.js checks the real closed default.
+jest.mock('./Components/Documentation/CollapsibleCard', () => {
+  const { createElement } = require('react');
+  const Actual = jest.requireActual('./Components/Documentation/CollapsibleCard').default;
+  return { __esModule: true, default: props => createElement(Actual, { defaultOpen: true, ...props }) };
+});

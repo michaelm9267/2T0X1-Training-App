@@ -31,8 +31,8 @@
 .mistake-list { margin: 8px 0 12px; padding-left: 1.2em; color: var(--text-secondary); font-size: .88rem; line-height: 1.5; }
 .mistake-list .task-source { display: block; }
 
-.shipping-document .doc-barcode { display: block; width: 100%; height: 34px; margin: 4px 0; }
-.shipping-document .doc-signature { font-family: "Brush Script MT", "Segoe Script", cursive; font-size: 1.15rem; font-weight: 400; }
+.shipping-document .doc-barcode, .f1348 .doc-barcode, .f1149 .doc-barcode { display: block; width: 100%; height: 34px; margin: 4px 0; }
+.shipping-document .doc-signature, .f1348 .doc-signature, .f1149 .doc-signature { font-family: "Brush Script MT", "Segoe Script", cursive; font-size: 1.15rem; font-weight: 400; }
 @media (max-width: 600px) { .cmos-inline .cmos-field { grid-template-columns: 1fr; } .cmos-inline .cmos-field label { text-align: left; } .cmos-inline .cmos-hint { grid-column: 1; } }
 
 /* DD Form 1348-1A (JUL 91) laid out like the printed form: card line, boxes 1–23, bar code blocks 24–27. */
@@ -83,7 +83,7 @@
 .f1348-receipt .f1348-cell { min-height: 38px; }
 .f1348-address { display: flex; flex-direction: column; padding: 6px 8px; font-size: .9rem; line-height: 1.3; min-height: 64px; }
 .f1348-inspector { display: flex; flex-direction: column; gap: 6px; margin-top: auto; padding: 8px 10px 10px; font-family: "Courier New", Courier, monospace; font-size: .82rem; text-align: right; }
-.shipping-document .doc-ink, .f1348 .doc-ink { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-weight: 700; color: #1d3f9e; font-size: 1.05rem; letter-spacing: 0; }
+.shipping-document .doc-ink, .f1348 .doc-ink, .f1149 .doc-ink { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-weight: 700; color: #1d3f9e; font-size: 1.05rem; letter-spacing: 0; }
 
 /* CMOS window: logo bar, Cargo Management menu, Shipment Planning and Small Package Express.
    Selectors start with section.cmos-app so they win over the workspace's dark button styles. */
@@ -310,3 +310,25 @@ section.cmos-app .cmos-tabs button:disabled { color: #9aa1a7; background: #e4e7e
 .date-calendar-grid button[aria-pressed="true"] { background: #2a6ebb; color: #fff; }
 .date-calendar-today { outline: 1px solid #2a6ebb; }
 
+
+/* DD Form condition tags (1574, 1575, 1577, 1577-2) */
+.condition-tag-form { margin: 0; max-width: 560px; padding: 12px; background: var(--tag-border); border-radius: 4px; color: #111; font-family: Arial, Helvetica, sans-serif; color-scheme: light; }
+.condition-tag-form .tag-body { position: relative; display: grid; grid-template-columns: 26px 1fr; background: #fff; border: 1px solid #111; }
+.condition-tag-form .tag-warning { grid-row: 1 / span 2; margin: 0; padding: 4px 2px; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 7px; line-height: 1.15; border-right: 1px solid #111; text-transform: none; }
+.condition-tag-form .tag-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.condition-tag-form .tag-left, .condition-tag-form .tag-right { display: flex; flex-direction: column; }
+.condition-tag-form .tag-left { border-right: 1px solid #111; }
+.condition-tag-form .tag-row { display: flex; }
+.condition-tag-form .tag-row > .tag-block { flex: 1; }
+.condition-tag-form .tag-row > .tag-block + .tag-block { border-left: 1px solid #111; }
+.condition-tag-form .tag-block { min-height: 34px; padding: 2px 4px 3px; border-bottom: 1px solid #111; display: flex; flex-direction: column; gap: 2px; }
+.condition-tag-form .tag-block small { font-size: 8px; font-weight: 700; letter-spacing: .01em; line-height: 1.15; }
+.condition-tag-form .tag-description { min-height: 62px; flex: 1; }
+.condition-tag-form .tag-narrow { flex: 0 0 34% !important; }
+.condition-tag-form .tag-code { flex: 0 0 34% !important; }
+.condition-tag-form .tag-grow { flex: 1; border-bottom: 0; }
+.condition-tag-form .tag-title { padding: 6px 4px; border-bottom: 1px solid #111; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+.condition-tag-form .tag-remarks { grid-column: 1 / -1; min-height: 46px; border-top: 1px solid #111; border-bottom: 0; }
+.condition-tag-form .tag-left > .tag-block:last-child, .condition-tag-form .tag-left > .tag-row:last-child > .tag-block { border-bottom: 0; }
+.condition-tag-form .tag-ink { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-weight: 700; color: #1d3f9e; font-size: 12px; overflow-wrap: anywhere; }
+.condition-tag-form .tag-form-id { grid-column: 2; margin: 0; padding: 2px 6px; text-align: right; font-size: 9px; font-weight: 700; border-top: 1px solid #111; }

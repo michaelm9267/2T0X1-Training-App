@@ -1,3 +1,4 @@
+import RegulationHelp, { ClaimLink } from '../Regulations/RegulationHelp';
 import { useTestMode, neutral } from '../Session/mode';
 import { screenATTLA, letterApplies } from '../CargoWindow/transportability';
 import { useCallback, useState } from 'react';
@@ -18,6 +19,7 @@ export default function ShipmentPaperwork({scenario,exercise,step,onWorkflow,onO
   const documents=paperwork(scenario);
   const screening=screenATTLA(scenario);
   return <CollapsibleCard label="Shipment paperwork" title="Increment monitor’s paperwork packet">
+    <RegulationHelp claims={['documents.load', 'documents.hazdec', 'documents.msl', 'documents.attla', 'documents.jiCopies']} assumptions={['The packet copy counts are the training SOP. The cited three-copy rule applies to DD 2133, not to every packet document.', 'Numeric ATTLA screening thresholds remain user-supplied training criteria; a threshold alone does not require certification.']} />
     <p className="reference-note">Fictional training documents. Copy counts and ATTLA applicability below are this exercise’s SOP and scenario requirements.</p>
     <div className="training-task" aria-label="ATTLA transportability screening"><h4>ATTLA transportability screening</h4>
       <p className="reference-note">Uses your supplied training criteria attributed to DAFI 24-605V2 §3.54.1; official paragraph verification is pending. Thresholds initiate review and do not automatically require a certification letter.</p>
@@ -28,7 +30,7 @@ export default function ShipmentPaperwork({scenario,exercise,step,onWorkflow,onO
       <p aria-live="polite">{neutral(exercise.attlaFeedback, test)}</p>
       {screening.reasons.length>0 && <div className="answer-options"><FrustrateButton scenario={scenario} exercise={exercise} onWorkflow={onWorkflow} reason="attla" label="ATTLA letter" /></div>}
     </div>
-    {documents.map(d=><div className="training-task" key={d.id}><h4>{d.title} · {d.required?'Required':'Not applicable'}</h4>
+    {documents.map(d=><div className="training-task" key={d.id}><h4><ClaimLink claimId={{ logmod: 'documents.load', 'logmod-placards': 'cargo.weight', packing: 'documents.load', hazdec: 'documents.hazdec', attla: 'documents.attla' }[d.id]}>{d.title}</ClaimLink> · {d.required?'Required':'Not applicable'}</h4>
       <button type="button" onClick={()=>{onWorkflow(e=>({...e,documentsViewed:[...new Set([...e.documentsViewed,d.id])],jiDocumentsViewed:step==='ji'?[...new Set([...e.jiDocumentsViewed,d.id])]:e.jiDocumentsViewed,jiInspected:step==='ji' && documents.every(doc=>doc.id===d.id || e.jiDocumentsViewed.includes(doc.id))?[...new Set([...e.jiInspected,'documents','special-service'])]:e.jiInspected}));if((exercise.documentCopies[d.id]??d.copies)>0) setOpenDocument(d);}}>View {d.title}</button>
       {exercise.documentsViewed.includes(d.id) && <div><p>{d.required && (exercise.documentCopies[d.id]??d.copies)===0 ? 'The increment monitor did not bring this document. ' : ''}Available copies: {exercise.documentCopies[d.id]??d.copies}. {(exercise.documentCopies[d.id]??d.copies)>0 && <button type="button" className="link-button" onClick={()=>setOpenDocument(d)}>Open document</button>} {d.required?`Required: ${d.minimum}.`:d.id==='attla' && screening.reasons.length>0 ? 'Review required; scenario disposition does not require a separate letter.' : 'No document required for this scenario.'}</p>
         {d.id==='hazdec' && d.required && step==='precheck' && <div className="hazdec-review">

@@ -1,8 +1,8 @@
 import { useId, useState } from 'react';
 
-// Training panel card whose heading toggles its body open and closed. Each toggle sends a
+// Training panel card whose heading toggles its body open and closed; cards start closed. Each toggle sends a
 // cardtoggle event so the panel's section bar can show which cards are open.
-export default function CollapsibleCard({ label, title, summary, className = '', defaultOpen = true, children }) {
+export default function CollapsibleCard({ label, title, summary, className = '', defaultOpen = false, children }) {
   const [open, setOpen] = useState(defaultOpen);
   const bodyId = useId();
   return <section className={`training-card collapsible-card ${open ? '' : 'is-collapsed'} ${className}`} aria-label={label}>

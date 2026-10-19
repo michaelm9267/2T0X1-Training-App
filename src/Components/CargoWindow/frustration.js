@@ -11,7 +11,13 @@ export const FRUSTRATION_REASONS = [
   { id: 'hazdec', title: 'HAZDEC errors or missing signature', fix: 'Return the HAZDEC to the shipper for correction, then recount and verify the corrected copies.' },
   { id: 'attla', title: 'Missing, expired, or inapplicable ATTLA letter', fix: 'Obtain a current ATTLA letter that matches the configuration, dimensions, and weight.' },
   { id: 'label', title: 'Missing or illegible military shipping label', finding: true },
+  { id: 'packets', title: 'Missing or incomplete document packet', finding: true },
   { id: 'undeclared-hazmat', title: 'Undeclared hazardous material', finding: true },
+  { id: 'clean', title: 'Item not clean', finding: true },
+  { id: 'leaks', title: 'Fluid leak', finding: true },
+  { id: 'mechanical', title: 'Engine does not run', finding: true },
+  { id: 'brakes', title: 'Brakes not operational', finding: true },
+  { id: 'tires', title: 'Tire pressure out of specification', finding: true },
   { id: 'battery', title: 'Battery terminals unprotected', finding: true, physical: 'Inspect both battery terminals in the cargo bay and tape any exposed terminal, then confirm the correction here.' },
   { id: 'fuel', title: 'Fuel level exceeds limit', finding: true, physical: 'Read the fuel level in the cargo bay, drain to the equipment limit, reread the fuel level, then confirm the correction here.' },
   { id: 'equipment', title: 'Loose equipment or accessories', finding: true },
@@ -75,7 +81,7 @@ export function fixReadiness(scenario, e, id) {
 export const isFrustrated = e => (e.frustrations || []).some(entry => !entry.released);
 export const openFrustration = (e, reason, subject) => (e.frustrations || []).some(entry => entry.reason === reason && entry.subject === subject && !entry.released);
 
-const resetDownstream = e => ({ ...e, manifestAccepted: false, jiVerified: [] });
+const resetDownstream = e => ({ ...e, manifestAccepted: false, jiVerified: [], jiMarks: {} });
 export function frustrate(scenario, e, reason, note = '', subject) {
   if (!findReason(reason) || (reason === 'other' && !note.trim())) return { ...e, frustrationFeedback: reason === 'other' ? 'Describe the reason before frustrating the asset.' : 'Select a frustration reason.' };
   if (openFrustration(e, reason, subject)) return { ...e, frustrationFeedback: 'The asset is already frustrated for that reason.' };

@@ -1,3 +1,4 @@
+import RegulationScope from './Components/Regulations/RegulationScope';
 import { resetCdfShipment } from './Components/Cmos/courseAdapters';
 import CdfCmosWorkspace from './Components/CdfCmos/CdfCmosWorkspace';
 import useCdfCmos, {emptyCdfCmos} from './Components/CdfCmos/useCdfCmos';
@@ -16,7 +17,7 @@ import { manifestFields } from './Components/CargoWindow/workflow';
 import { withDocumentErrors } from './Components/CargoWindow/discrepancies';
 import { recordMistake } from './Components/CargoWindow/mistakes';
 import { pieceResult } from './Components/CargoWindow/scoring';
-import { newPracticeSession } from './Components/CargoWindow/practice';
+import { newPracticeSession, practicePieces } from './Components/CargoWindow/practice';
 import { TraineeBar, emptyTest } from './Components/Session/Grading';
 import AfterActionReport from './Components/Documentation/AfterActionReport';
 import SessionBar from './Components/Session/SessionBar';
@@ -27,6 +28,7 @@ import AcronymTooltip from './Components/Glossary/AcronymTooltip';
 import LoadPlan from './Components/LoadPlan/LoadPlan';
 import TrainingGuide from './Components/Training/TrainingGuide';
 import QuickDrills from './Components/Training/QuickDrills';
+import JiInspectionList from './Components/Training/JiInspectionList';
 import { reconcilePlan, planBasis } from './Components/LoadPlan/loadPlanLogic';
 import Departure from './Components/Departure/Departure';
 import AircraftPackage from './Components/Documentation/AircraftPackage';
@@ -130,7 +132,7 @@ function App() {
     if (finished) return;
     setExercises(previous => {
       const current = previous[scenarioId];
-      const next = preserveFinal ? update(current) : {...update(current),manifestAccepted:false,jiInspected:[],jiTerminals:{},jiVerified:[],jiDocumentsViewed:[],jiMeasurements:[],jiWeights:{},jiSides:[]};
+      const next = preserveFinal ? update(current) : {...update(current),manifestAccepted:false,jiInspected:[],jiTerminals:{},jiVerified:[],jiMarks:{},jiDocumentsViewed:[],jiMeasurements:[],jiWeights:{},jiSides:[]};
       return { ...previous, [scenarioId]: { ...next, firstActionAt: current.firstActionAt || Date.now() } };
     });
   }
@@ -154,12 +156,14 @@ function App() {
   const closeReport = useCallback(() => setReportOpen(false), []);
   const [guideOpen, setGuideOpen] = useState(false);
   const [drillsOpen, setDrillsOpen] = useState(false);
+  const [jiListOpen, setJiListOpen] = useState(false);
+  const closeJiList = useCallback(() => setJiListOpen(false), []);
   const closeGuide = useCallback(() => setGuideOpen(false), []);
   const closeDrills = useCallback(() => setDrillsOpen(false), []);
   const [transferFeedback, setTransferFeedback] = useState('');
   const sessionSnapshot = () => ({ version: initial.version, shipments, exercises, destination, pieceCount, scenarioId, stepId: selectedStep.id, mode, loadPlan, departure, cdfCmos, clock, ...meta, practice, test });
   // Entering practice sets the current session aside; leaving brings it back as it was.
-  const startPractice = (section, main = practice?.main) => startSession({ ...newPracticeSession({ section }), practice: { section, main } });
+  const startPractice = (section, main = practice?.main, piece = practice?.piece) => startSession({ ...newPracticeSession({ section, piece }), practice: { section, main, piece } });
   function changeMode(next) {
     if (next === mode) return;
     if (next === 'practice') { startPractice(processSteps.some(step => step.id === selectedStep.id) ? selectedStep.id : 'precheck', sessionSnapshot()); return; }
@@ -240,7 +244,7 @@ function App() {
     updateExercise(current => ({ ...current, answers: { ...current.answers, [id]: { ...current.answers[id], corrected: true } } }));
   }
   return (
-    <ModeContext.Provider value={mode}>
+    <ModeContext.Provider value={mode}><RegulationScope assessmentActive={mode === 'test' && !test.finishedAt}>
     <div className="App">
       <AcronymTooltip />
       <Layout activeModule={activeModule} onModuleChange={setActiveModule}>
@@ -252,16 +256,17 @@ function App() {
         {guideOpen && <TrainingGuide onClose={closeGuide} />}
         {packageOpen && packagePieces.length > 0 && <AircraftPackage manifest={cdfCmos.manifest} pieces={packagePieces} plan={loadPlan} departureAt={departureAt} releasedAt={departure.releasedAt} destination={destination} outstanding={packageOutstanding} onClose={closePackage} />}
         {drillsOpen && <QuickDrills onClose={closeDrills} />}
+        {jiListOpen && <JiInspectionList onClose={closeJiList} />}
         <main className="training-workspace">
           <SessionBar mode={mode} modes={CDF_MODES} testNote="Test mode: hints and explanations are hidden. Finish the test for the grading sheet." onModeChange={changeMode} onNewSession={() => practice ? startPractice(practice.section) : startSession(newSession({ mode }))} clock={clock} onClockChange={setClock}
-            onExport={downloadSession} onImport={uploadSession} tools={[['CMOS workspace',()=>setCmosPage('planning')],['Training guide', () => setGuideOpen(true)], ['Quick drills', () => setDrillsOpen(true)], ['Instructor setup', () => setSetupOpen(true)]]} />
+            onExport={downloadSession} onImport={uploadSession} tools={[['CMOS workspace',()=>setCmosPage('planning')],['Training guide', () => setGuideOpen(true)], ['Quick drills', () => setDrillsOpen(true)], ['JI inspection list', () => setJiListOpen(true)], ['Instructor setup', () => setSetupOpen(true)]]} />
           {transferFeedback && <p className="transfer-feedback" role="status">{transferFeedback}</p>}
           {meta.code && <p className="scenario-code-note">Scenario code <code>{meta.code}</code></p>}
           {setupOpen && <InstructorSetup currentCode={meta.code} onClose={closeSetup} onStart={session => { startSession(session); setSetupOpen(false); }} />}
           {mode === 'test' && <TraineeBar trainee={test.trainee} finishedAt={test.finishedAt} onChange={trainee => setTest(current => ({ ...current, trainee }))}
             onFinish={() => { setTest(current => ({ ...current, finishedAt: Date.now() })); setClock(current => ({ ...current, running: false })); setSheetOpen(true); }} onOpenSheet={() => setSheetOpen(true)} />}
           {practice && <PracticeBar sections={processSteps} section={practice.section} onStart={section => startPractice(section)} note="deployment" complete={practiceComplete} mistakes={practiceMistakes} />}
-          {practice && ['precheck','incheck','manifest'].includes(practice.section) && <label className="simulation-note">Practice cargo <select aria-label="Practice cargo" value={shipments[scenarioId].ammo?'ammunition':'equipment'} onChange={event=>startSession({...newPracticeSession({section:practice.section,cargo:event.target.value}),practice:{...practice}})}><option value="equipment">Equipment</option><option value="ammunition">Ammunition / explosives</option></select></label>}
+          {practice && ['precheck','incheck','manifest','ji'].includes(practice.section) && <label className="simulation-note">Practice piece <select aria-label="Practice piece" value={practice.piece || 'random'} onChange={event => startPractice(practice.section, practice.main, event.target.value)}>{practicePieces().map(([id, title]) => <option key={id} value={id}>{title}</option>)}</select></label>}
           {practice && ['load-plan','ji','departure'].includes(practice.section) && <p className="simulation-note">Focused practice: predecessor CMOS shipment, assignment, check, and print tasks are prepared for you.</p>}
           {finished && <p className="reference-note" role="status">Test finished. The work is locked; open the grading sheet to review or print it. Start a new session for the next trainee.</p>}
           <div className="shipment-bar">
@@ -281,7 +286,7 @@ function App() {
                 if (selectedStep.id!=='ji') return next;
                 if(action.type==='inspect-terminal') { const viewed={...current.jiTerminals,[action.terminal]:true}; return {...next,jiTerminals:viewed,jiInspected:viewed.positive&&viewed.negative ? [...new Set([...current.jiInspected,'battery'])] : current.jiInspected}; }
                 if(action.type==='read-fuel') return {...next,jiInspected:[...new Set([...current.jiInspected,'fuel'])]};
-                return {...next,manifestAccepted:false,jiInspected:[],jiVerified:[],jiTerminals:{}};
+                return {...next,manifestAccepted:false,jiInspected:[],jiVerified:[],jiMarks:{},jiTerminals:{}};
               },selectedStep.id==='ji')}
               onPlaceLabel={label => updateExercise(current => placeTapeLabel(scenario,current,label))}
               onRemoveLabel={(side,type) => updateExercise(current => ({ ...current, tapeLabels: current.tapeLabels.filter(label => !(label.side === side && label.type === type)), labelFeedback: `${type.toUpperCase()} tape removed from the ${side} side.` }))}
@@ -306,7 +311,7 @@ function App() {
         </main>}
       </Layout>
     </div>
-    </ModeContext.Provider>
+    </RegulationScope></ModeContext.Provider>
   );
 }
 

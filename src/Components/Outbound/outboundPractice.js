@@ -29,6 +29,8 @@ export function planned(shipment) {
   const d = shipment.delivery;
   if (d) e = [['ucName', d.name], ['ucAddress', d.address], ['ucCity', d.city], ['ucCountry', d.country], ['ucState', d.state], ['ucZip', d.zip], ['ucPhone', d.phone]].reduce((state, [id, value]) => editRecord(state, id, value), e);
   e = editRecord(editRecord(e, 'nmfc', item.nmfc), 'ciic', item.ciic);
+  // Val Funds already ran in TGET (LOA Val Status P), so the shipment can be rated.
+  e = editRecord(e, 'loa', 'P');
   const p = shipment.packed;
   e = [['weight', p.weight], ['length', p.length], ['width', p.width], ['height', p.height], ['typePack', typePackFor(shipment.container)]].reduce((state, [id, value]) => editPiece(state, 0, id, String(value)), addPiece(e));
   return markPrinted(savePlanning(shipment, e), 'msl');
@@ -43,7 +45,9 @@ export function newPractice({ random = Math.random, origin = 'jber', stepId = 'r
   const targets = (SECTION_TARGETS[stepId] || ORIGIN_TARGETS[origin]).filter(target => ORIGIN_TARGETS[origin].includes(target));
   for (let tries = 0; ; tries += 1) {
     const target = targets[Math.floor(random() * targets.length)];
-    const shipment = { ...createShipment({ random, origin, target }), key: 'practice' };
+    const created = { ...createShipment({ random, origin, target }), key: 'practice' };
+    // A DD 1149 always has an advance record; now and then a DD 1348-1A has none, to practice building one.
+    const shipment = created.document === '1348-1A' && random() < .25 ? { ...created, advance: false } : created;
     if (MODES[stepId] && routeFor(shipment) !== stepId && tries < 50) continue;
     const index = sectionIndex(stepId);
     const e = index >= 3 ? planned(shipment) : index === 2 ? packed(shipment) : index === 1 ? receive(shipment) : createOutboundExercise();

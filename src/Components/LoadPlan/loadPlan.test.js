@@ -3,9 +3,11 @@ import { autoPlace, checkPlan, pieceCB, submitPlan, emptyPlan, CB_RANGE, reconci
 const truck = { key: 't', title: 'Truck', length: 200, width: 86, weight: 10000, axles: [{ position: 30, weight: 6000 }, { position: 160, weight: 4000 }] };
 const pallet = { key: 'p', title: 'Pallet', length: 108, width: 88, weight: 5000 };
 
-test('own CB comes from axles for vehicles and the middle for other cargo', () => {
+test('own CB comes from axles for vehicles, 44 in for 463L pallets and ISUs, and the middle for other cargo', () => {
   expect(pieceCB(truck)).toBe((30 * 6000 + 160 * 4000) / 10000);
-  expect(pieceCB(pallet)).toBe(54);
+  expect(pieceCB(pallet)).toBe(44);
+  expect(pieceCB({ length: 88, width: 108, weight: 4200 })).toBe(44);
+  expect(pieceCB({ length: 48, width: 40, weight: 200 })).toBe(24);
 });
 test('accepted plans reopen whenever the deployment basis changes', () => {
  const accepted = { ...emptyPlan(), accepted: true, feedback: 'Training load plan accepted.', basis: 'old' };

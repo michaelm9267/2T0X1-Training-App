@@ -1,5 +1,4 @@
 import { REQUEST_STATUS_TEXT } from './routingResponse';
-import { billOfLading } from './routingEquipment';
 
 // Route Order Request Summary (Print Route Report): the request history, each equipment group's
 // award, and a Carrier Detail page for every carrier quote. All carrier data is fictional.
@@ -37,7 +36,7 @@ export default function RouteReport({ d, store }) {
       <table className="route-report-log"><thead><tr><th>ACTION DATE/TIME</th><th>USERID</th><th>ACTION</th></tr></thead>
         <tbody>{(r.requestLog || []).map((e, i) => <tr key={i}><td>{e.at}</td><td>{e.user}</td><td>{e.action}</td></tr>)}</tbody></table>
       {groups.map(([group, g]) => <div className="route-report-group" key={group}>
-        <p className="route-report-line"><b>EQUIPMENT GROUP:</b> {group} &nbsp; <b>B/L:</b> {g.awardStatus ? billOfLading(r, group) : ''} &nbsp; <b>RELEASE DATE:</b> {g.releaseDate || ''} &nbsp; <b>NMFC:</b> {g.nmfc || g.carriers?.[0]?.ratedCommod || ''} {g.nmfcSub || '0'}</p>
+        <p className="route-report-line"><b>EQUIPMENT GROUP:</b> {group} &nbsp; <b>B/L:</b> {g.cblNumber || ''} &nbsp; <b>RELEASE DATE:</b> {g.releaseDate || ''} &nbsp; <b>NMFC:</b> {g.nmfc || g.carriers?.[0]?.ratedCommod || ''} {g.nmfcSub || '0'}</p>
         <p><b>SCAC ASSIGNED:</b> {g.assignedScac || ''}</p>
         <h4 className="route-report-band small">TCNS</h4>
         {tcnsFor(group).map((tcn) => <p key={tcn} className="route-report-indent">{tcn}</p>)}

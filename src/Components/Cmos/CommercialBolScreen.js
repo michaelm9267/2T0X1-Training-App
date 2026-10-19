@@ -4,8 +4,9 @@ import { Dialog, Lookup, lookupValues } from './controls';
 import ReferenceLookup from './ReferenceLookup';
 import CmosDateField from './CmosDateField';
 import ConveyanceDialog from './ConveyanceDialog';
+import { CodeReference } from '../Regulations/RegulationHelp';
 import { SERVICE_CODES, serviceCodeInfo, splcFor } from './routingRequest';
-import { createRecord, editRecord, totals } from './model';
+import { createRecord, editRecord, totals, syncReleasedTcns } from './model';
 import { CBL_LIST_COLUMNS, CBL_SAMPLES, HAZARDOUS_CERTIFICATION, addressPatch, cblRow, shipmentModes } from './cblLogic';
 import { isHazardousIndicator } from '../CargoWindow/workflow';
 import { AIR_SVC_TYPES, AIR_SVC_LEVELS } from './routingLogic';
@@ -14,6 +15,10 @@ import { FREIGHT_SERVICE_AGENCIES, LOW_COST_NOT_USED_REASONS, RIN_CODES, rinText
 const TABS = ['TCNs', 'Addresses', 'Billing', 'Miscellaneous', 'RINs', 'Conveyances', 'Commodities', 'Service Codes', 'Via SCAC', 'Rail'];
 const ACTIONS = ['Print', 'Validate Funds', 'Notices', 'Edit', 'Release', 'Save', 'Save and Close', 'Close'];
 const VIEW_ACTIONS = ['Print', 'Close'];
+// A released bill is view only: CMOS offers Print, Reopen/Cancel BOL, Notices, and Close, and adds the
+// B/L Corrections tab.
+const RELEASED_ACTIONS = ['Print', 'Reopen/Cancel BOL', 'Notices', 'Close'];
+const RELEASED_TABS = [...TABS, 'B/L Corrections'];
 const COUNTRIES = lookupValues({ id: 'ucCountry' });
 const described = rows => ({ options: rows.map(([code]) => code), optionLabels: Object.fromEntries(rows.map(([code, text]) => [code, `${code} - ${text}`])) });
 const STATES = Object.entries(lookupValues({ id: 'ucState' }));
@@ -47,6 +52,8 @@ const addressFields = (prefix, title, third) => ({
 export default function CommercialBolScreen({ store, record, opened, locked, renderFields, renderTab, change, edit, action, newBill, openBill, setAssignment, setAssignIds, openEntry, collectionRows, newCollection, print, setMessage }) {
   const [filters, setFilters] = useState({});
   const [tab, setTab] = useState('TCNs');
+  // The Reopen/Cancel BOL window on a released bill.
+  const [reopen, setReopen] = useState(false);
   const [tcnFilters, setTcnFilters] = useState({});
   const [tcnSelected, setTcnSelected] = useState([]);
   const [conveyanceFilters, setConveyanceFilters] = useState({});
@@ -86,7 +93,8 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
   const id = record.id;
   const draft = record.draft || {};
   // A released bill is closed: its Service Codes and Rail tabs become read-only.
-  const closed = locked || record.status === 'Released';
+  const released = record.status === 'Released';
+  const closed = locked || released;
   const shipments = (draft.shipmentIds || []).map(sid => store.shipments[sid]).filter(Boolean);
   const conveyances = collectionRows('Conveyances');
   const figures = draft.sampleTotals ? { ...draft.sampleTotals, cube: 0 } : totals(store, draft.shipmentIds || []);
@@ -111,7 +119,7 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
     if (key === 'estimatedCharges') return change(editRecord(store, 'bills', id, { estimatedCharges: value, oaCharges: value }));
     edit(key, value);
   };
-  const show = (...fields) => renderFields(fields.filter(Boolean), values, onEdit);
+  const show = (...fields) => renderFields(fields.filter(Boolean).map(field => released ? { ...field, readOnly: true, disabled: true } : field), values, released ? () => {} : onEdit);
   const header = [
     [f('Movement Doc Nbr', 'movementDocNbr', { readOnly: true }), f('* Assign SCAC', 'scac'), f('Routing', 'routing', { readOnly: true, lookup: false }), pick('Status', 'routingStatus', [], { readOnly: true })],
     [f('Route ID', 'routeId', { lookup: false }), pick('Air Service Type', 'airServiceType', [], described(AIR_SVC_TYPES)), pick('Air Service Level', 'airServiceLevel', [], described(AIR_SVC_LEVELS)), pick('ETRR ID', 'etrrId', []), flagField('Complete', 'complete')],
@@ -122,7 +130,8 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
     const stops = stopsFor(r.id);
     const conveyance = conveyances.find(c => c.draft.conveyanceSeqNbr === stops.conveyance);
     const t = totals(store, [r.id]);
-    return { id: r.id, tcn: r.draft.tcn || r.id, st: 'ST', ...stops, primaryEqNbr: conveyance?.draft.primaryEqNbr || 'NONE', consignor: r.draft.origin || '', consignee: r.draft.destination || '', pieces: t.pieces, weight: t.weight, cube: Math.round(t.cube) };
+    // ST: ST while the bill is open; CT (TCN assigned to history) once it is released.
+    return { id: r.id, tcn: r.draft.tcn || r.id, st: released ? 'CT' : 'ST', ...stops, primaryEqNbr: conveyance?.draft.primaryEqNbr || 'NONE', consignor: r.draft.origin || '', consignee: r.draft.destination || '', pieces: t.pieces, weight: t.weight, cube: Math.round(t.cube) };
   }).filter(row => Object.entries(tcnFilters).every(([key, value]) => contains(row[key], value)));
   const nextConveyanceSeq = (after = 0) => String(Math.max(Number(after) || 0, ...conveyances.map(c => Number(c.draft.conveyanceSeqNbr) || 0)) + 1).padStart(3, '0');
   const saveConveyance = (cid, values) => {
@@ -135,16 +144,24 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
   const conveyanceOptions = [...new Set(['001', ...conveyances.map(c => c.draft.conveyanceSeqNbr).filter(Boolean)])];
 
   const panel = () => {
+    // B/L Corrections: corrections made to the bill after it was released.
+    if (tab === 'B/L Corrections') return <div className="shared-cbl-grid">
+      <div className="shared-table-scroll"><table className="shared-table">
+        <thead><tr>{['Correction Nbr', 'Correction Date', 'Field', 'Original Value', 'Corrected Value'].map(label => <th key={label}>{label}</th>)}</tr></thead>
+        <tbody>{(draft.blCorrections || []).map((c, i) => <tr key={i}><td>{c.nbr}</td><td>{c.date}</td><td>{c.field}</td><td>{c.from}</td><td>{c.to}</td></tr>)}</tbody>
+      </table>{!(draft.blCorrections || []).length && <p>No data to display.</p>}</div>
+      <div className="shared-piece-count">{(draft.blCorrections || []).length} row(s) found.</div>
+    </div>;
     if (tab === 'TCNs') return <div className="shared-cbl-grid">
       <div className="shared-toolbar">
-        <button disabled={locked} onClick={() => { setAssignment(true); setAssignIds([]); }}>Assign TCNs/Aggregates</button>
+        {!released && <button disabled={locked} onClick={() => { setAssignment(true); setAssignIds([]); }}>Assign TCNs/Aggregates</button>}
         <button disabled={locked} onClick={() => {
           const existing = collectionRows('Stop Offs')[0];
           if (existing) openEntry('documents', existing.id, 'Stop Offs detail', collections['Stop Offs']);
           else newCollection('Stop Offs');
         }}>Stop Off Data</button>
         <button onClick={() => { setTcnFilters({}); setTcnSelected([]); }}>Clear</button>
-        {tcnSelected.length > 0 && <button disabled={locked} onClick={() => { change(editRecord(store, 'bills', id, { shipmentIds: (draft.shipmentIds || []).filter(sid => !tcnSelected.includes(sid)) })); setTcnSelected([]); }}>Unassign</button>}
+        {tcnSelected.length > 0 && !released && <button disabled={locked} onClick={() => { change(editRecord(store, 'bills', id, { shipmentIds: (draft.shipmentIds || []).filter(sid => !tcnSelected.includes(sid)) })); setTcnSelected([]); }}>Unassign</button>}
       </div>
       <div className="shared-table-scroll"><table className="shared-table">
         <thead>
@@ -155,8 +172,8 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
           {tcnRows.map(row => <tr key={row.id} aria-selected={tcnSelected.includes(row.id)} onClick={e => { if (e.target.closest('input,select,button')) return; setTcnSelected(e.ctrlKey || e.metaKey ? [...new Set([...tcnSelected, row.id])] : [row.id]); }}>
             {tcnColumns.map(([key]) => <td key={key}>
               {key === 'tcn' ? <><input className="shared-air-select-checkbox" type="checkbox" aria-label={`Select ${row.tcn}`} checked={tcnSelected.includes(row.id)} onChange={e => setTcnSelected(e.target.checked ? [...tcnSelected, row.id] : tcnSelected.filter(x => x !== row.id))} /><span className="shared-cbl-link">{row.tcn}</span></>
-                : ['stopLd', 'stopUl'].includes(key) ? <input className="shared-cbl-cell-input" aria-label={`${key === 'stopLd' ? 'Stop LD' : 'Stop UL'} ${row.tcn}`} value={row[key]} disabled={locked} onChange={e => setStop(row.id, key, e.target.value)} />
-                : key === 'conveyance' ? <select aria-label={`Cnvync Nbr ${row.tcn}`} value={row.conveyance} disabled={locked} onChange={e => setStop(row.id, 'conveyance', e.target.value)}>{conveyanceOptions.map(o => <option key={o}>{o}</option>)}</select>
+                : ['stopLd', 'stopUl'].includes(key) ? <input className="shared-cbl-cell-input" aria-label={`${key === 'stopLd' ? 'Stop LD' : 'Stop UL'} ${row.tcn}`} value={row[key]} disabled={closed} onChange={e => setStop(row.id, key, e.target.value)} />
+                : key === 'conveyance' ? <select aria-label={`Cnvync Nbr ${row.tcn}`} value={row.conveyance} disabled={closed} onChange={e => setStop(row.id, 'conveyance', e.target.value)}>{conveyanceOptions.map(o => <option key={o}>{o}</option>)}</select>
                 : String(row[key] ?? '')}
             </td>)}
           </tr>)}
@@ -226,7 +243,7 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
         <div className="shared-toolbar"><button disabled={locked} onClick={() => setRinDialog({ id: null, rin: '', print: false })}>New</button></div>
         <div className="shared-table-scroll"><table className="shared-table">
           <thead><tr>{rinColumns.map(([key, label]) => <th key={key}>{label}</th>)}</tr></thead>
-          <tbody>{rows.map(r => <tr key={r.id}>{rinColumns.map(([key], i) => <td key={key}>{i === 0 ? <button className="shared-cbl-link" aria-label={`Open RIN ${r.draft.rin || r.id}`} onClick={() => setRinDialog({ id: r.id, rin: r.draft.rin || '', print: r.draft.printRin === 'Y' })}>{r.draft.rin || '(blank)'}</button> : String(r.draft[key] ?? '')}</td>)}</tr>)}
+          <tbody>{rows.map(r => <tr key={r.id}>{rinColumns.map(([key], i) => <td key={key}>{i === 0 ? <button className="shared-cbl-link" aria-label={`Open RIN ${r.draft.rin || r.id}`} onClick={() => setRinDialog({ id: r.id, rin: r.draft.rin || '', print: r.draft.printRin === 'Y' })}>{r.draft.rin || '(blank)'}</button> : key === 'description' && r.draft.rin ? <CodeReference fieldId="rin" code={r.draft.rin}>{String(r.draft[key] ?? '')}</CodeReference> : String(r.draft[key] ?? '')}</td>)}</tr>)}
             {!rows.length && <tr><td colSpan={rinColumns.length}>No data to display.</td></tr>}</tbody>
         </table></div>
         <div className="shared-air-count">{rows.length} row(s) found.</div>
@@ -341,7 +358,7 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
 
   return <div className="shared-cbl-detail">
     <div className="shared-cbl-header">{header.map((row, i) => <div className="shared-cbl-row" key={i}>{show(...row)}</div>)}</div>
-    <div className="shared-tab-bar shared-cbl-tabs" role="tablist" aria-label="Commercial Bill of Lading tabs">{TABS.map(t => <button key={t} role="tab" aria-selected={tab === t} onClick={() => { setTab(t); setTcnSelected([]); }}>{t}</button>)}</div>
+    <div className="shared-tab-bar shared-cbl-tabs" role="tablist" aria-label="Commercial Bill of Lading tabs">{(released ? RELEASED_TABS : TABS).map(t => <button key={t} role="tab" aria-selected={tab === t} onClick={() => { setTab(t); setTcnSelected([]); }}>{t}</button>)}</div>
     <section role="tabpanel" aria-label={tab} className="shared-cbl-panel">{panel()}</section>
     <p className="shared-air-errors">{record.check?.errors?.join(' ')}</p>
     {railLookup && <Lookup field={{ id: railLookup.key, label: railLookup.name }} rows={railLookup.rows}
@@ -373,7 +390,7 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
             <button type="button" onClick={() => setSvcDialog(null)}>Close</button>
           </footer>
         </div>
-        {svcDialog.lookup && <ReferenceLookup title="Service Code Lookup" columns={['Service Code', 'Service Code Type', 'Description']} rows={SERVICE_CODES}
+        {svcDialog.lookup && <ReferenceLookup sourceTable="serviceCodes" title="Service Code Lookup" columns={['Service Code', 'Service Code Type', 'Description']} rows={SERVICE_CODES}
           onSelect={code => set({ code })} onClose={() => set({ lookup: false })} />}
       </Dialog>;
     })()}
@@ -399,6 +416,18 @@ export default function CommercialBolScreen({ store, record, opened, locked, ren
         </div>
       </Dialog>;
     })()}
-    <div className="shared-toolbar shared-cbl-bottom">{ACTIONS.map(label => <button key={label} disabled={locked && !VIEW_ACTIONS.includes(label)} onClick={() => { if (label === 'Close') setMessage(''); action(label); }}>{label}</button>)}</div>
+    <div className="shared-toolbar shared-cbl-bottom">{(released ? RELEASED_ACTIONS : ACTIONS).map(label => <button key={label} disabled={locked && !VIEW_ACTIONS.includes(label)} onClick={() => {
+      if (label === 'Reopen/Cancel BOL') { setReopen(true); return; }
+      if (label === 'Close') setMessage('');
+      action(label);
+    }}>{label}</button>)}</div>
+    {reopen && <Dialog title="Reopen/Cancel BOL" onClose={() => setReopen(false)}><div className="cmos-release cmos-cbl-release">
+      <p>Reopen the bill to correct and release it again, or cancel it.</p>
+      <footer className="cmos-release-footer">
+        <button disabled={locked} onClick={() => { change(syncReleasedTcns({ ...store, bills: { ...store.bills, [id]: { ...record, status: 'Saved', releaseRevision: null } } })); setReopen(false); setTab('TCNs'); setMessage('BOL reopened. Correct it, then release it again.'); }}>Reopen BOL</button>
+        <button disabled={locked} onClick={() => { setReopen(false); action('Cancel'); }}>Cancel BOL</button>
+        <button onClick={() => setReopen(false)}>Close</button>
+      </footer>
+    </div></Dialog>}
   </div>;
 }

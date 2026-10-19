@@ -233,6 +233,9 @@ function jammer(s) {
   ];
 }
 
+// The combination written on the tape above each ISU door lock.
+export const ISU_COMBINATION = '2-7-4';
+
 // ISU-90: framed container on a 463L-compatible base with fork pockets, corrugated walls, and
 // double cargo doors on the forward end with locking bars.
 function isu90(s, { doorsOpen }) {
@@ -290,7 +293,16 @@ function isu90(s, { doorsOpen }) {
       ...bars.flatMap(y => [base + 4, top - 2].map(z => frontRect(-.5, y - 1.6, z - 1, 3.2, 2.4, '#8e9a9f', { only: ['3d', 'front'] }))),
       ...bars.map(y => line([-.6, y, .48 * h], [-.6, y + (y < w / 2 ? 6 : -6), .48 * h], '#e1e6e5', 1.6, { only: ['3d', 'front'] })),
       ...[3.5, w - 4.5].flatMap(y => [.25, .55, .85].map(f => frontRect(-.5, y, f * h, 1, 4, '#5f6b70', { only: ['3d', 'front'] }))),
-      frontRect(-.6, w / 2 - 2, .4 * h, 4, 5, '#3d3f3a', { only: ['3d', 'front'] }),
+      // A combination lock on each door leaf, with the combination on tape just above it (missing
+      // when the unit has not provided access).
+      ...[w / 2 - 7, w / 2 + 3].flatMap(y => [
+        frontRect(-.6, y, .3 * h, 4, 5, '#3d3f3a', { only: ['3d', 'front'] }),
+        frontCircle(-.7, y + 2, .3 * h + 2.3, 1.2, '#9aa3a6', { only: ['3d', 'front'] }),
+        ...(faulty(s, 'access') ? [] : [
+          frontRect(-.7, y - 2, .3 * h + 6.5, 8, 3.4, '#f2e5bd', { stroke: '#b5a77d', width: .3, only: ['3d', 'front'] }),
+          text('front', [-.8, y + 2, .3 * h + 7.3], ISU_COMBINATION, 2.2, '#18211d', { only: ['3d', 'front'] }),
+        ]),
+      ]),
       text('front', [-.3, w / 2, .82 * h], 'ISU-90', 6, '#e6e1c8', { only: ['3d', 'front'] }),
     ]),
   ];

@@ -26,6 +26,9 @@ TABLES = {
     'holdCodes': ('V_D_CGO_LD_UNT_TY', 0, 1, None),
     'typePacks': ('V_TYPE_PACK', 0, 6, None),
     'serviceCodes': ('V_SHPMNT_UNT_SPL_HNDL_CD_DOM', 0, 1, None),
+    # Pallet Type (module type, e.g. B = pallet 61"-84", L = 85"-96") and Config Code (e.g. PC) on CMOS Pallets.
+    'palletModuleTypes': ('V_D_PTUNT_MODU_TY_CD', 0, 1, None),
+    'palletConfigurations': ('V_D_PLTZD_TRNSPRTN2_CD', 0, 1, None),
 }
 
 def fetch(table):

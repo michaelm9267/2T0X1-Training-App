@@ -1,11 +1,13 @@
+import RegulationHelp from '../Regulations/RegulationHelp';
 import { useEffect, useState } from 'react';
 import { RELEASE_WINDOW_MINUTES, formatTime, parseLocal, releaseManifest, releaseWindow, setDepartureTime } from './departureLogic';
 import { DODAAC_INFO, ORIGIN } from '../CargoWindow/workflow';
 import { useTestMode } from '../Session/mode';
+import DepartureTimeField from './DepartureTimeField';
 import './departure.css';
 
 // Aircraft departure: set the departure date and time, then release the manifest within the
-// 30 minutes before departure.
+// 30 minutes following departure.
 export default function Departure({ state, departureAt, onChange, ready, waiting, manifestPieces, destination, basis, onPrintPackage, onOpenCmos }) {
   const test = useTestMode();
   const [now, setNow] = useState(() => new Date());
@@ -19,16 +21,17 @@ export default function Departure({ state, departureAt, onChange, ready, waiting
   const released = Boolean(state.releasedAt);
   return <section className="departure" aria-labelledby="departure-title">
     <div className="training-heading"><span className="eyebrow">{test ? 'Test' : 'Guided practice'} · Chalk 001 · C-17</span><h2 id="departure-title">Aircraft departure</h2>
-      <p className="muted">Set the aircraft departure, then release the manifest. The manifest must be released within {RELEASE_WINDOW_MINUTES} minutes of departure.</p></div>
+      <p className="muted">Set the aircraft departure, then release the manifest. The manifest must be released within the {RELEASE_WINDOW_MINUTES} minutes following departure.</p></div>
+    <RegulationHelp claims={['departure.finalPlan']} assumptions={['The 30-minute post-departure release window and simulated CMOS readiness gates are training workflow rules. The cited final-load-plan requirement concerns post-JI planning before departure, not the 30-minute release window.']} />
     <div className="departure-card">
       <div className="departure-route">
         <div><small>APOE</small><strong>{DODAAC_INFO[ORIGIN].port}</strong><span>{ORIGIN}</span></div>
         <span aria-hidden="true">→</span>
         <div><small>APOD</small><strong>{DODAAC_INFO[destination]?.port}</strong><span>{destination}</span></div>
       </div>
-      <label className="departure-time">Aircraft departure date and time
-        <input type="datetime-local" value={departureAt} onChange={event => onChange(setDepartureTime(state, event.target.value))} />
-      </label>
+      <div className="departure-time"><span>Aircraft departure date and time</span>
+        <DepartureTimeField label="Aircraft departure" value={departureAt} onChange={value => onChange(setDepartureTime(state, value))} />
+      </div>
       <dl className="departure-facts">
         <div><dt>Current time</dt><dd>{formatTime(now)}</dd></div>
         <div><dt>Departure</dt><dd>{departure ? formatTime(departure) : '—'}</dd></div>

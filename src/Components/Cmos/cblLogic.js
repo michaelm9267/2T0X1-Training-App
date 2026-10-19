@@ -25,6 +25,8 @@ export const CBL_DODAACS = Object.fromEntries([
   const domestic = STATES.has(state) && !['GU', 'PR'].includes(state);
   return [dodaac, { name: info.unit, address1: info.address, address2: info.address2 || '', phone: info.phone || '', city, state: domestic ? state : '', country: domestic ? 'US' : state, zip }];
 }));
+// The country listed for a DoDAAC: US for the states and DC, otherwise its country (or territory) code.
+export const dodaacCountry = dodaac => CBL_DODAACS[String(dodaac || '').trim().toUpperCase()]?.country || '';
 // Address block fields filled from a DODAAC entry; SPLC and GBLOC stay with the trainee.
 export function addressPatch(prefix, dodaac) {
   const info = CBL_DODAACS[String(dodaac || '').trim().toUpperCase()];

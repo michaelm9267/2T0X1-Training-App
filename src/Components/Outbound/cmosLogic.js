@@ -1,4 +1,5 @@
-import { ITEMS, ORIGINS, AERIAL_PORTS, originOf, isOverseas } from './outboundData';
+import { ITEMS, ORIGINS, APOE_PORTS, APOD_PORTS, originOf, isOverseas } from './outboundData';
+import { trackingNumber } from '../Cmos/trackingNumbers';
 import { HAZ_INDICATORS, isHazardousIndicator } from '../CargoWindow/workflow';
 import { shipmentTp, DOCUMENT_DAY, julian } from './outboundShipments';
 import { MIL_MODES, stepForMode, podFor } from './outboundLogic';
@@ -8,12 +9,15 @@ import { MIL_MODES, stepForMode, podFor } from './outboundLogic';
 
 export const DOC_TYPES = ['M - MILSTRIP', 'N - Non-MILSTRIP', 'O - Other'];
 export const expectedDocType = shipment => shipment.document === '1348-1A' ? 'M - MILSTRIP' : 'N - Non-MILSTRIP';
+// Only a MILSTRIP (DD 1348-1A) shipment carries a CMOS Document Number; a DD 1149 (Non-MILSTRIP)
+// is known by its TCN alone, even though the form has a requisition number.
+export const cmosDocNumber = shipment => shipment.document === '1348-1A' ? shipment.documentNumber : '';
 export const NO_DODAAC = 'F00000';
 export const tpCode = shipment => shipmentTp(shipment).slice(2);
-// CMOS rounds a piece's cube up to the next whole cubic foot.
+// CMOS rounds a piece's cube to the nearest whole cubic foot (at least 1).
 export const pieceCube = piece => {
   const [l, w, h] = ['length', 'width', 'height'].map(id => Number(piece[id]) || 0);
-  return l && w && h ? Math.ceil(l * w * h / 1728) : '';
+  return l && w && h ? Math.max(1, Math.round(l * w * h / 1728)) : '';
 };
 const normalize = (value, id) => String(value ?? '').trim().toUpperCase().replace(id === 'nsn' ? /[-\s]/g : /$^/, '');
 
@@ -47,7 +51,7 @@ export function customerRow(shipment, e) {
   const draft = record?.draft || {};
   const pieces = saved ? record.pieces : [];
   return {
-    tcn: activeTcn(shipment, e), docNbr: saved ? draft.docNbr || '' : shipment.documentNumber, status: saved ? 'PI' : '00', docType: (saved ? draft.docType || '' : expectedDocType(shipment)).slice(0, 1), tac: saved ? draft.tac || '' : shipment.tac,
+    tcn: activeTcn(shipment, e), docNbr: saved ? draft.docNbr || '' : cmosDocNumber(shipment), status: saved ? 'PI' : '00', docType: (saved ? draft.docType || '' : expectedDocType(shipment)).slice(0, 1), tac: saved ? draft.tac || '' : shipment.tac,
     consignee: saved ? draft.consignee || '' : shipment.dodaac || NO_DODAAC, pod: saved ? draft.pod || '' : '', milMode: saved ? draft.milMode : '', priority: saved ? draft.tp || '' : tpCode(shipment), rdd: saved ? draft.rdd || '' : shipment.rdd,
     pieces: pieces.length || '', weight: pieces.reduce((sum, p) => sum + (Number(p.weight) || 0), 0) || '', cube: pieces.reduce((sum, p) => sum + (Number(pieceCube(p)) || 0), 0) || '', customer: true,
   };
@@ -81,7 +85,7 @@ export function planningFields(shipment, draft = {}) {
   const amc = ['F', '9'].includes(chosenMode(draft));
   return {
     docType: { title: 'Doc Type', expected: expectedDocType(shipment), options: DOC_TYPES, advance: true },
-    docNbr: { title: 'Doc Nbr', expected: shipment.documentNumber, advance: true },
+    docNbr: { title: 'Doc Nbr', expected: cmosDocNumber(shipment), advance: true },
     tcn: { title: 'TCN', expected: shipment.tcn, advance: true, required: true },
     nomen: { title: 'Nomen', expected: item.nomenclature, advance: true, required: true },
     milMode: { title: 'MIL Mode', required: true },
@@ -90,12 +94,12 @@ export function planningFields(shipment, draft = {}) {
     nsn: { title: 'NSN', expected: shipment.nsn, advance: true, required: true },
     partNo: { title: 'Part No/AIN', expected: item.partNumber, advance: true },
     consignor: { title: 'Consignor', expected: origin.cmosDodaac, preset: true, required: true },
-    poe: { title: 'POE', expected: origin.port, options: AERIAL_PORTS, required: amc },
+    poe: { title: 'POE', expected: origin.port, options: APOE_PORTS, required: amc },
     poeDodaac: { title: 'POE DODAAC', expected: origin.cmosDodaac, required: amc },
     // A consignee with no DoDAAC takes the sponsoring Service code, F00000 for the Air Force
     // (DTR Part II, Chapter 203, para B.2).
     consignee: { title: 'Consignee', expected: shipment.dodaac || NO_DODAAC, advance: true },
-    pod: { title: 'POD', expected: podFor(shipment), options: AERIAL_PORTS, required: amc },
+    pod: { title: 'POD', expected: podFor(shipment), options: APOD_PORTS, required: amc },
     ciic: { title: 'CIIC', required: true },
     secClass: { title: 'Sec Class', expected: 'U', options: ['U', 'C', 'S'], preset: true },
     // Type cargo code 3 marks an ESD-sensitive item (DAFI 24-602V2 para 8.10.2.1).
@@ -190,18 +194,11 @@ export const SPE_FIELDS = {
   service: { title: 'Service', options: SERVICES, required: true },
   shipmentDate: { title: 'Shipment Date', required: true },
   destCity: { title: 'Dest City', required: true },
-  package: { title: 'Package', options: PACKAGES, required: true },
+  package: { title: 'Package', options: PACKAGES },
 };
 export const openExpressShip = e => canExpressShip(e) && !e.spe ? { ...e, spe: { draft: { label: 'Thermal' }, rated: false, errors: [], feedback: '' } } : e;
 export const editExpress = (e, field, value) => e.spe && !e.spe.rated ? { ...e, spe: { ...e.spe, draft: { ...e.spe.draft, [field]: value } } } : e;
 
-// Tracking numbers in each carrier's format, made from the TCN so they stay the same for a shipment.
-function trackingNumber(scac, tcn) {
-  const digits = [...tcn].map(ch => ch.charCodeAt(0) % 10).join('').padEnd(18, '7');
-  if (scac.startsWith('UPS')) return `1Z${digits.slice(0, 6).replace(/\d/g, d => 'ABCDEFGHJK'[d])}01${digits.slice(6, 14)}`;
-  if (scac === 'PAZC') return `9400${digits.slice(0, 18)}`;
-  return digits.slice(0, 12);
-}
 const RATES = { 'Priority Overnight': [42, 2.15, 1], 'Standard Overnight': [36, 1.9, 1], '2Day': [27, 1.35, 2], 'Express Saver': [21, 1.05, 3], Ground: [12, .55, 5] };
 
 // Send Request sends the shipment to the carrier, which rates it: tracking number, rated weight,
@@ -219,7 +216,7 @@ export function sendRequest(shipment, e) {
   const [base, perPound, days] = RATES[spe.draft.service] || RATES.Ground;
   const rated = Math.ceil(Math.max(weight, dimWeight));
   return save({ rated: true, errors: [], feedback: 'Request sent. The carrier rated the shipment. Print Express Docs to print the shipping label.',
-    result: { tracking: trackingNumber(spe.draft.scac, activeTcn(shipment, e)), rated, charges: (base + perPound * rated).toFixed(2), transitDays: days, closed: spe.draft.shipmentDate.trim().toUpperCase() } });
+    result: { tracking: trackingNumber(spe.draft.scac, activeTcn(shipment, e), spe.draft.service), rated, charges: (base + perPound * rated).toFixed(2), transitDays: days, closed: spe.draft.shipmentDate.trim().toUpperCase() } });
 }
 // Cancel voids the rating and its tracking number, so the entries can be changed and sent again. A
 // shipping label or invoice printed for the old tracking number is void too, and comes off the box.

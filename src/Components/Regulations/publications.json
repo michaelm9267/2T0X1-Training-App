@@ -1,0 +1,159 @@
+{
+  "dtr3O": {
+    "id": "dtr3O",
+    "title": "DTR Part III · Joint inspection",
+    "edition": "3 February 2023",
+    "url": "https://www.business.ustranscom.mil/dtr/part-iii/dtr_part_iii_app_o.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "f25c77329cd22953430e37abb291ad301bdddf0af31088be33e003ca737dc58c",
+    "sourceKind": "official download"
+  },
+  "dtr3P": {
+    "id": "dtr3P",
+    "title": "DTR Part III · Center of balance",
+    "edition": "June 2016",
+    "url": "https://www.business.ustranscom.mil/dtr/part-iii/dtr_part_iii_app_p.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "4c939dd5e72b789d062ee44e72b675b7f19202c8d0f53f42eb7d9cdd52c86d1a",
+    "sourceKind": "official download"
+  },
+  "dtr3V": {
+    "id": "dtr3V",
+    "title": "DTR Part III · Aircraft load planning",
+    "edition": "12 June 2025",
+    "url": "https://www.business.ustranscom.mil/dtr/part-iii/dtr_part_iii_app_v.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "99cabd1c6167e7936b94f0353dbc970e4925f2f37daba186a844471787cb10d0",
+    "sourceKind": "official download"
+  },
+  "dtr3Q": {
+    "id": "dtr3Q",
+    "title": "DTR Part III · Marshalling area",
+    "edition": "June 2016",
+    "url": "https://www.business.ustranscom.mil/dtr/part-iii/dtr_part_iii_app_q.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "16ab321645b21c1011f80dd9813ba34cf95c9e923411c936f98e4764b1227dba",
+    "sourceKind": "official download"
+  },
+  "dtr2-202": {
+    "id": "dtr2-202",
+    "title": "DTR Part II · Cargo routing",
+    "edition": "25 September 2026",
+    "url": "https://www.business.ustranscom.mil/dtr/part-ii/dtr_part_ii_202.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "9a15a8ba09ff9d9bbd32e92bacb638c74e63b1139a7a0d36d15f622f9b5a11bf",
+    "sourceKind": "official download"
+  },
+  "dtr2-203": {
+    "id": "dtr2-203",
+    "title": "DTR Part II · Shipper requirements",
+    "edition": "1 September 2026",
+    "url": "https://www.business.ustranscom.mil/dtr/part-ii/dtr_part_ii_203.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "723afe6ba70652a03fff057d644ce65d7df3c2e6869d50832082b2737f96d089",
+    "sourceKind": "official download"
+  },
+  "dtr2-208": {
+    "id": "dtr2-208",
+    "title": "DTR Part II · Packaging and handling",
+    "edition": "1 September 2026",
+    "url": "https://www.business.ustranscom.mil/dtr/part-ii/dtr_part_ii_208.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "bb114e57d104c73ab48cfc2b33d3aab6635cad52d9d1c53145cf7ad27708bca6",
+    "sourceKind": "official download"
+  },
+  "dtr2L": {
+    "id": "dtr2L",
+    "title": "DTR Part II · Transportation control number",
+    "edition": "2 June 2026",
+    "url": "https://www.business.ustranscom.mil/dtr/part-ii/dtr_part_ii_app_l.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "76393715362768dcf6580862d5b67e49e50f4820fb67b4acccc1e9fcc9bc70cd",
+    "sourceKind": "official download"
+  },
+  "dtr2M": {
+    "id": "dtr2M",
+    "title": "DTR Part II · Transportation control and movement document",
+    "edition": "22 May 2026",
+    "url": "https://www.business.ustranscom.mil/dtr/part-ii/dtr_part_ii_app_m.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "705ef16105cbcd5b3cd190ab1818e582cd26d810bb1a0eb2261d29e4fbc900e0",
+    "sourceKind": "official download"
+  },
+  "dtr2V": {
+    "id": "dtr2V",
+    "title": "DTR Part II · Transportation account codes",
+    "edition": "10 December 2025",
+    "url": "https://www.business.ustranscom.mil/dtr/part-ii/dtr_part_ii_app_v.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "c6f05bdaef3925c15b5dbe3852fb2bc256193ac0d2078b3ad61857b4abb8e102",
+    "sourceKind": "official download"
+  },
+  "dtr2-206": {
+    "id": "dtr2-206",
+    "title": "DTR Part II · Bills of lading",
+    "edition": "9 September 2026",
+    "url": "https://www.business.ustranscom.mil/dtr/part-ii/dtr_part_ii_206.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "907a67e11b8e1d70c91a8a3b960349adf476b33bef24186fae17e8d106bc33aa",
+    "sourceKind": "official download"
+  },
+  "afman604excerpt": {
+    "id": "afman604excerpt",
+    "title": "AFMAN 24-604 · supplied excerpt",
+    "edition": "6 June 2025",
+    "url": "asset:references/afman24-604-2025-excerpt.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "d9826880da3891d417048946e44e67d8bdc3bb2a17aada0502daf480098b7d94",
+    "sourceKind": "supplied copy",
+    "officialUrl": "https://static.e-publishing.af.mil/production/1/af_a4/publication/afman24-604/afman24-604.pdf"
+  },
+  "attla-fmtv": {
+    "id": "attla-fmtv",
+    "title": "ATTLA · FMTV A1P2",
+    "edition": "Issued letter supplied with training app",
+    "url": "asset:references/attla-fmtv.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "e85a91e16b12b35e6ea7cb909e66e375698c681b7572823351cfba8897af595c",
+    "sourceKind": "supplied copy"
+  },
+  "attla-isu": {
+    "id": "attla-isu",
+    "title": "ATTLA · ISU container",
+    "edition": "Issued letter supplied with training app",
+    "url": "asset:references/attla-isu.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "5d61f22a4a9c1dd6ad7e9a20c1864548e00f75d9743b3ae0f6387ba45f9b9ec3",
+    "sourceKind": "supplied copy"
+  },
+  "attla-hmmwv": {
+    "id": "attla-hmmwv",
+    "title": "ATTLA · HMMWV",
+    "edition": "Issued letter supplied with training app",
+    "url": "asset:references/attla-hmmwv.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "2d23a41279dcc8e523dd0ad2c4e25a7cb8e6dc4a6b1d85bee9623cd202acbf34",
+    "sourceKind": "supplied copy"
+  },
+  "afman604": {
+    "id": "afman604",
+    "title": "AFMAN 24-604",
+    "edition": "6 June 2025",
+    "url": "asset:references/afman24-604-2025.pdf",
+    "officialUrl": "https://static.e-publishing.af.mil/production/1/af_a4/publication/afman24-604/afman24-604.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "c7584a206d55da8455de5e7132b1443d06df2786d5cfee2537bfdea65e653b8b",
+    "sourceKind": "government publication copy",
+    "retrievalUrl": "https://www.jgatraining.com/vs-uploads/pdfs/1768239197_2_-AFMAN-24-604-Effective-06_06_25.pdf"
+  },
+  "dafi602": {
+    "id": "dafi602",
+    "title": "DAFI 24-602V2",
+    "edition": "20 December 2023 · GPO archived edition",
+    "url": "https://www.govinfo.gov/content/pkg/GOVPUB-D301-PURL-gpo248784/pdf/GOVPUB-D301-PURL-gpo248784.pdf",
+    "officialUrl": "https://static.e-publishing.af.mil/production/1/af_a4/publication/dafi24-602v2/dafi24-602v2.pdf",
+    "retrieved": "2026-10-18",
+    "sha256": "7e98ced32d3d314b7a304ef4d455f81d1d0c74259d2768b836c4c833113c0fde",
+    "sourceKind": "official government archive"
+  }
+}

@@ -1,0 +1,49 @@
+article.floating-window.paper-sheet.logmod-sheet { width: min(1400px, calc(100vw - 16px)); background: #fff; }
+.logmod-report { min-width: 0; max-width: 100%; overflow-x: auto; container-type: inline-size; color: #000; background: #fff; }
+.logmod-page { box-sizing: border-box; width: 100%; min-width: 0; padding: 8px 4px 18px; font: 13px/1.4 "Courier New", monospace; font-size: clamp(10px, 1.1cqw, 13px); }
+.logmod-page + .logmod-page { border-top: 2px dashed #888; margin-top: 24px; padding-top: 24px; }
+.logmod-heading { text-align: center; font-family: Arial, sans-serif; margin-bottom: 12px; }
+.logmod-heading p { margin: 0 0 4px; font-size: 19px; }
+.logmod-heading h2 { margin: 0; font-size: 20px; font-weight: 400; color: #000; }
+.logmod-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 0; padding: 5px 4px; border-bottom: 1px solid #000; }
+.logmod-band > div { min-width: 0; }
+.logmod-band dt { font-family: Arial, sans-serif; font-weight: 700; font-size: inherit; overflow-wrap: anywhere; color: #000; }
+.logmod-band dd { margin: 7px 0 0; overflow-wrap: anywhere; color: #000; }
+.logmod-plan { grid-template-columns: repeat(4, minmax(0, .8fr)) minmax(0, 3fr) minmax(0, 1.6fr); }
+.logmod-increment { grid-template-columns: repeat(2, minmax(0, .8fr)) minmax(0, 3.5fr) repeat(6, minmax(0, .65fr)) minmax(0, 1.6fr); }
+.logmod-org { grid-template-columns: minmax(0, 2fr) minmax(0, 1.9fr) minmax(0, .6fr) repeat(2, minmax(0, 1.5fr)) minmax(0, 1.8fr); }
+.logmod-items { width: 100%; table-layout: fixed; margin: 8px 0 0; border-collapse: collapse; font: inherit; color: #000; }
+.logmod-items th { padding: 2px 3px; border: 0; background: #fff; font-family: Arial, sans-serif; font-size: inherit; font-weight: bold; text-align: left; text-transform: none; white-space: normal; overflow-wrap: anywhere; }
+.logmod-items td { padding: 4px 3px; border: 1px solid #000; background: #fff; color: #000; vertical-align: top; overflow-wrap: anywhere; }
+.logmod-items th:nth-child(5), .logmod-items td:nth-child(5) { width: 24%; }
+.logmod-items th:nth-child(3), .logmod-items td:nth-child(3) { width: 12%; }
+.logmod-items th:nth-child(7), .logmod-items td:nth-child(7) { width: 8%; }
+.logmod-items td:nth-child(n+8):nth-child(-n+12) { text-align: right; }
+.logmod-note { margin: 6px 4px 14px; font: 11px Arial, sans-serif; color: #444; }
+.logmod-configuration { grid-template-columns: repeat(5, 1fr); border: 0; margin-bottom: 16px; }
+.logmod-footer { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-top: 80px; font: 12px/1.8 Arial, sans-serif; }
+.logmod-footer span:nth-child(2) { text-align: center; }
+.logmod-hazard { margin-top: 12px; }
+@container (max-width: 700px) {
+  .logmod-plan, .logmod-increment, .logmod-org, .logmod-configuration { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .logmod-band { gap: 6px; }
+  .logmod-items th, .logmod-items td { padding-left: 1px; padding-right: 1px; }
+  .logmod-footer { flex-wrap: wrap; }
+}
+@media print {
+  .logmod-report { overflow: visible; }
+  .logmod-page { min-width: 0; font-size: 9px; break-inside: avoid; }
+  .logmod-page + .logmod-page { break-before: page; border: 0; margin: 0; }
+  .logmod-band { gap: 5px; grid-template-columns: repeat(auto-fit, minmax(65px, 1fr)); }
+  .logmod-band dt, .logmod-items th { font-size: 9px; }
+  .logmod-footer { margin-top: 30px; font-size: 9px; }
+}
+.logmod-fac { margin: 14px 4px 2px; padding-bottom: 2px; border-bottom: 1px solid #000; font: bold 12px Arial, sans-serif; color: #000; }
+.logmod-material th:nth-child(1), .logmod-material td:nth-child(1), .logmod-material th:nth-child(2), .logmod-material td:nth-child(2), .logmod-material th:nth-child(3), .logmod-material td:nth-child(3) { width: 4%; }
+.logmod-material th:nth-child(4), .logmod-material td:nth-child(4) { width: 12%; }
+.logmod-material th:nth-child(5), .logmod-material td:nth-child(5) { width: 18%; }
+.logmod-material th:nth-child(n+6):nth-child(-n+7), .logmod-material td:nth-child(n+6):nth-child(-n+7) { width: 6%; }
+.logmod-material td:nth-child(n+8):nth-child(-n+12) { text-align: right; }
+.logmod-lots { width: auto; margin: 10px 4px; }
+.logmod-lots td { text-align: right; min-width: 90px; }
+.logmod-remarks { margin: 4px; min-height: 2em; }

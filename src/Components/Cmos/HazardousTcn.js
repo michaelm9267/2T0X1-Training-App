@@ -1,3 +1,5 @@
+import RegulationHelp from '../Regulations/RegulationHelp';
+import RegulationLink from '../Regulations/RegulationLink';
 import { useState } from 'react';
 import { Dialog, Fields, Lookup, lookupValues } from './controls';
 import { field } from './referenceInventory';
@@ -76,6 +78,8 @@ export default function HazardousTcn({ activeEntry, locked, hazTab, setHazTab, e
   };
   return <Dialog title="Hazardous TCN" heading="Maintain Hazardous TCNs" onClose={() => setEntry(null)} wide overlayClassName="shared-dg2-overlay">
     <div className="shared-dg2-editor">
+      <RegulationHelp claims={['hazmat.declaration', 'hazmat.classification', 'hazmat.passengers', 'hazmat.emergency']} />
+      {draft.templateId && <RegulationLink citationId={`afman604.table.${draft.templateId}`}>Selected UN/shipping-name entry · Table A4.1</RegulationLink>}
       <div className="shared-dg2-header">
         {form([{ ...field('Piece', 'piece'), inputMode: 'numeric' }], draft, editHeader)}
         {form([{ ...field('Template ID', 'templateId'), lookup: [], lookupLabel: 'DG2 template' }], draft, editHeader)}
@@ -114,7 +118,7 @@ export default function HazardousTcn({ activeEntry, locked, hazTab, setHazTab, e
         {hazTab === 'Certification Statement' && form([field('Certification Statement', 'certificationStatement', 'textarea')], draft, editHeader)}
       </section>
       <div className="shared-dg2-notice" aria-live="polite">{notice}</div>
-      <a className="shared-dg2-reference" href={AFMAN_REFERENCE.url} target="_blank" rel="noreferrer">{AFMAN_REFERENCE.title}</a>
+      <RegulationLink citationId="afman604.A17.2" className="shared-dg2-reference">{AFMAN_REFERENCE.title} · Declaration instructions</RegulationLink>
       <footer>
         <span className="shared-dg2-navigation">{[['First', 0], ['Previous', position - 1], ['Next', position + 1], ['Last', records.length - 1]].map(([label, target]) => <button key={label} disabled={target < 0 || target >= records.length || target === position} onClick={() => navigate(target)}>{label}</button>)}</span>
         <button disabled={locked} onClick={() => save(false)}>Save</button><button disabled={locked} onClick={() => save(true)}>Save and Close</button>

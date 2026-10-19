@@ -1,5 +1,7 @@
-import { newPracticeSession, CDF_SECTIONS } from './practice';
-import { isStageComplete } from './exercise';
+import { newPracticeSession, CDF_SECTIONS, completeIncheck, practicePieces } from './practice';
+import { isStageComplete, createExercise } from './exercise';
+import { axleLabels } from './axles';
+import { placeTapeLabel } from './notebook';
 import { withDocumentErrors } from './discrepancies';
 import { checkPlan, autoPlan, planBasis } from '../LoadPlan/loadPlanLogic';
 import { scenarios } from './scenarios';
@@ -31,4 +33,28 @@ test('the automatic load plan fits the whole chalk inside the floor and CB limit
   const pieces = scenarios.map(s => ({ ...s, key: s.id }));
   expect(checkPlan(pieces, autoPlan(pieces)).problems).toEqual([]);
   expect(checkPlan(pieces.slice(0, 1), autoPlan(pieces.slice(0, 1))).problems).toEqual([]);
+});
+
+test('practice tape sits directly above each axle and at the CB, centred on the side panel', () => {
+  for (const s of scenarios.filter(item => item.axles)) {
+    const e = completeIncheck(s, createExercise());
+    const expected = [...axleLabels(s).map(axle => [axle.type, axle.position]), ['cb', e.cbResult.rounded]];
+    for (const side of ['left', 'right']) for (const [type, x] of expected) {
+      const label = e.tapeLabels.find(item => item.side === side && item.type === type);
+      expect(label).toMatchObject({ x });
+      // Not perched on the roofline: the tape still fits a little higher and a little lower.
+      for (const dy of [-.5, .5]) expect(placeTapeLabel(s, { ...e, tapeLabels: [] }, { ...label, y: label.y + dy, value: String(label.value), gross: String(label.gross ?? '') }).tapeLabels).toHaveLength(2);
+    }
+  }
+});
+
+test('practice starts on the piece the trainee chooses, with earlier stages done', () => {
+  for (const section of ['precheck', 'incheck', 'manifest', 'ji']) for (const [piece] of practicePieces().filter(([id]) => id !== 'random')) {
+    const session = newPracticeSession({ section, piece, random: seededRandom(7) });
+    expect(session.pieceCount).toBe(1);
+    expect(session.scenarioId).toBe(piece === 'ammunition' ? '463l-pallet' : piece);
+    expect(Boolean(session.shipments[session.scenarioId].ammo)).toBe(piece === 'ammunition');
+    const done = STAGES.slice(0, STAGES.indexOf(section));
+    expect(done.every(stage => isStageComplete(view(session, session.scenarioId), stage, session.exercises[session.scenarioId]))).toBe(true);
+  }
 });

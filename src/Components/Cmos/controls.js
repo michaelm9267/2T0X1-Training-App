@@ -1,7 +1,12 @@
+import { FieldReference, CodeReference } from '../Regulations/RegulationHelp';
+import { pieceCubeFeet } from "./model";
 import { useState } from "react";
 import { Dialog } from "../CdfCmos/controls";
-import { DODAAC_INFO, AERIAL_PORTS } from "../CargoWindow/workflow";
+import { isMoneyField, money } from "./money";
+import { DODAAC_INFO, APOE_PORTS, APOD_PORTS } from "../CargoWindow/workflow";
+import { LOWER_48_DODAACS, OCONUS_DODAACS, ALASKA_DODAACS } from "../Outbound/dodaacs";
 import DateField from "../Outbound/DateField";
+import DepartureTimeField from "../Departure/DepartureTimeField";
 import { MODE_REFERENCE, MIL_EDI_REFERENCE } from "./modeReference";
 import { CIIC_REFERENCE, HOLD_CODE_REFERENCE } from "./planningReferences";
 import ReferenceLookup from "./ReferenceLookup";
@@ -38,13 +43,14 @@ export const lookupValues = (f) => {
   if (f.id === "holdCode") return HOLD_CODE_REFERENCE;
   if (/^(milMode|ediMode)$/i.test(f.id)) return MIL_EDI_REFERENCE;
   if (f.id === "expMode") return MODE_REFERENCE;
-  if (/poe$|pod$/i.test(f.id)) return AERIAL_PORTS.map((v) => [v, v]);
+  if (/poe$/i.test(f.id)) return APOE_PORTS.map((v) => [v, v]);
+  if (/pod$/i.test(f.id)) return APOD_PORTS.map((v) => [v, v]);
   if (/typePack/i.test(f.id)) return TYPE_PACK_CODES;
+  // DoDAAC lookups list every unit in the CMOS DoDAAC table.
   if (/origin$|destination$|dodaac/i.test(f.id))
-    return Object.entries(DODAAC_INFO).map(([id, v]) => [
-      id,
-      `${v.city || ""} ${v.name || ""}`,
-    ]);
+    return Object.entries({ ...LOWER_48_DODAACS, ...OCONUS_DODAACS, ...ALASKA_DODAACS, ...DODAAC_INFO })
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([id, v]) => [id, `${v.city || ""} ${v.unit || v.name || ""}`.trim()]);
   if (/service$|svcCode/i.test(f.id))
     return [
       ["2Day", "2Day"],
@@ -76,14 +82,16 @@ export function Fields({
         const name = f.ariaLabel || label;
         const options = f.options;
         const lookup = f.type === "checkbox" || options || f.lookup === false ? null : (f.lookup || lookupValues(f));
-        const value = values?.[f.id] ?? "";
+        const moneyField = isMoneyField(f.id) && f.type !== "checkbox" && !f.options;
+        // Read-only amounts show as $0.00; an amount entry shows the $ in front of the box.
+        const value = moneyField && f.readOnly ? money(values?.[f.id]) : values?.[f.id] ?? "";
         return (
           <div
-            className={`shared-field ${f.type === "checkbox" ? "shared-flag" : ""}`}
+            className={`shared-field ${f.type === "checkbox" ? "shared-flag" : ""} ${f.readOnly ? "shared-field-readonly" : ""}`}
             key={f.id}
             data-field={f.id}
           >
-            <span>{f.required && <span className="shared-required-mark" aria-hidden="true">* </span>}{label}</span>
+            <span>{f.required && <span className="shared-required-mark" aria-hidden="true">* </span>}<FieldReference fieldId={f.id} value={value}>{label}</FieldReference></span>
             <span className="shared-control">
               {f.type === "checkbox" ? (
                 <input
@@ -117,6 +125,13 @@ export function Fields({
                     <option key={o} value={o}>{f.optionLabels?.[o] || o}</option>
                   ))}
                 </select>
+              ) : f.type === "departure" ? (
+                <DepartureTimeField
+                  label={name}
+                  value={value}
+                  disabled={locked || f.readOnly}
+                  onChange={(v) => onEdit(f.id, v)}
+                />
               ) : /date$/i.test(f.id) &&
                 !f.id.toLowerCase().includes("frustrat") ? (
                 <DateField
@@ -127,7 +142,7 @@ export function Fields({
                   onChange={(v) => onEdit(f.id, v)}
                 />
               ) : (
-                <input
+                <>{moneyField && !f.readOnly && <span className="shared-money-sign" aria-hidden="true">$</span>}<input
                   aria-label={name}
                   value={value}
                   placeholder={f.placeholder}
@@ -137,7 +152,7 @@ export function Fields({
                   readOnly={Boolean(f.readOnly)}
                   disabled={locked || f.disabled}
                   onChange={(e) => onEdit(f.id, e.target.value)}
-                />
+                /></>
               )}
               {lookup && openLookup && (
                 <button
@@ -209,7 +224,7 @@ export function Lookup({ field, rows, onSelect, onClose }) {
                 />
               </td>
               <td>{id}</td>
-              <td>{name}</td>
+              <td><CodeReference fieldId={field.id} code={id}>{name}</CodeReference></td>
             </tr>
           ))}
         </tbody>
@@ -249,9 +264,7 @@ export function EntryDialog({
     fields={items.map(f => isPiece && ["number", "cube"].includes(f.id) ? { ...f, readOnly: true } : f)}
     values={isPiece ? {
       ...record.draft,
-      cube: record.draft.length && record.draft.width && record.draft.height
-        ? (Number(record.draft.length) * Number(record.draft.width) * Number(record.draft.height) / 1728).toFixed(1)
-        : "",
+      cube: record.draft.length && record.draft.width && record.draft.height ? String(pieceCubeFeet(record.draft)) : "",
     } : record.draft}
     onEdit={onEdit} locked={locked}
     openLookup={(f, rows) => setLookup({ f, rows })}

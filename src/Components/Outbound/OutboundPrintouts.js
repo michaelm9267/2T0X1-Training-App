@@ -4,6 +4,7 @@ import { ITEMS, consignee, originOf } from './outboundData';
 import { DOCUMENT_DAY, julian } from './outboundShipments';
 import { MIL_MODES } from './outboundLogic';
 import { activeTcn, pieceCube } from './cmosLogic';
+import { BILL_TO } from '../Cmos/SmallPackageScreen';
 
 // What CMOS prints for an outbound shipment: the military shipping label (DD Form 1387) for each
 // piece, the carrier's shipping label, the commercial invoice, and the carrier pickup report. All
@@ -65,7 +66,7 @@ export function CarrierLabel({ shipment, exercise }) {
     </div>
     <div className="carrier-label-to"><small>TO</small><p><b>{to.name}</b>{to.lines.map(line => <span key={line}><br />{line}</span>)}{to.phone && <><br />{to.phone}</>}</p><p className="carrier-label-city">{draft.destCity}</p></div>
     <div className="carrier-label-track"><small>TRK#</small><strong>{result.tracking}</strong><Barcode text={result.tracking} height={56} /></div>
-    <div className="carrier-label-row"><div><small>REF</small><p>{activeTcn(shipment, exercise)}</p></div><div><small>BILL</small><p>{(draft.billTo || 'Shipper').toUpperCase()} · TAC {record.draft.tac}</p></div></div>
+    <div className="carrier-label-row"><div><small>REF</small><p>{activeTcn(shipment, exercise)}</p></div><div><small>BILL</small><p>{(BILL_TO[draft.billTo] || draft.billTo || 'Shipper').toUpperCase()} · TAC {record.draft.tac}</p></div></div>
     <p className="msl-note">FOR TRAINING USE ONLY · Fictional label — not for shipment</p>
   </div>;
 }
@@ -83,7 +84,7 @@ export function CommercialInvoice({ shipment, exercise }) {
       <dt>Date</dt><dd>{result.closed}</dd><dt>Carrier / Tracking</dt><dd>{draft.scac} {result.tracking}</dd>
       <dt>Shipper</dt><dd>{[from.unit, from.address, from.address2, from.city].filter(Boolean).join(', ')}</dd>
       <dt>Consignee</dt><dd>{[to.name, ...to.lines].join(', ')}</dd>
-      <dt>Reference (TCN)</dt><dd>{activeTcn(shipment, exercise)}</dd><dt>Bill to / TAC</dt><dd>{draft.billTo || 'Shipper'} · {record.draft.tac}</dd>
+      <dt>Reference (TCN)</dt><dd>{activeTcn(shipment, exercise)}</dd><dt>Bill to / TAC</dt><dd>{BILL_TO[draft.billTo] || draft.billTo || 'Shipper'} · {record.draft.tac}</dd>
       <dt>Reason for export</dt><dd>U.S. GOVERNMENT MATERIEL — NOT FOR RESALE</dd>
     </dl>
     <table className="manifest-table">

@@ -1,3 +1,4 @@
+import RegulationLink from '../Regulations/RegulationLink';
 import { useState } from 'react';
 import { Dialog } from './controls';
 import { AFMAN_REFERENCE, DG2_CATALOG, EMERGENCY_CONTACTS, emergencyCategory } from './dg2Reference';
@@ -15,7 +16,7 @@ export default function Dg2Lookup({ emergency = false, page2, onSelect, onClose,
   const title = emergency ? 'Emergency Contact lookup' : templateLookup ? 'DG2 template lookup' : 'UN number lookup';
   return <Dialog title={title} onClose={onClose} wide overlayClassName="shared-lookup-overlay shared-dg2-lookup-overlay">
     <div className="shared-lookup shared-dg2-lookup">
-      <a className="shared-dg2-reference" href={`${AFMAN_REFERENCE.url}#page=${emergency ? 448 : 103}`} target="_blank" rel="noreferrer">{AFMAN_REFERENCE.title} · {emergency ? 'A17.2.9' : 'Table A4.1'}</a>
+      <RegulationLink className="shared-dg2-reference" citationId={emergency ? 'afman604.A17.2.9' : 'afman604.A4.2.1'}>{AFMAN_REFERENCE.title} · {emergency ? 'A17.2.9' : 'Hazard classification'}</RegulationLink>
       <div className="shared-dg2-lookup-query">
         <label>Search<input aria-label="Lookup search" value={query} onChange={e => { setQuery(e.target.value); setLimit(150); }} /></label>
         {emergency && <label>Hazard category<select aria-label="Emergency hazard category" value={category} onChange={e => { setCategory(e.target.value); setSelected(null); }}>
@@ -27,7 +28,7 @@ export default function Dg2Lookup({ emergency = false, page2, onSelect, onClose,
         <thead><tr><th>Select</th>{(emergency ? ['Hazard', 'Agency', 'Telephone number(s)', 'DSN', 'Notes', 'Reference'] : ['DG2 Template ID', 'UN/NA Number', 'Proper Shipping Name', 'Class/Div', 'Sub Risk', 'PG', 'Special Provisions', 'Packaging Para']).map(x => <th key={x}>{x}</th>)}</tr></thead>
         <tbody>{rows.slice(0, limit).map(r => <tr key={r.id} aria-selected={selected?.id === r.id} className={r.forbidden ? 'shared-dg2-forbidden' : ''} onClick={() => choose(r)} onDoubleClick={() => { if (!r.forbidden && !r.referenceOnly) { onSelect(r); onClose(); } }}>
           <td><input type="radio" aria-label={`Select ${r.id}`} checked={selected?.id === r.id} disabled={r.forbidden || r.referenceOnly} onChange={() => choose(r)} /></td>
-          {(emergency ? [r.hazard, r.agency, r.number, r.dsn, r.notes, r.paragraph] : [r.id, r.unId, r.name, r.division, r.subsidiary, r.packingGroup || 'N/A', r.specialProvisions, r.forbidden ? 'FORBIDDEN' : r.referenceOnly ? 'See AFMAN entry' : r.packingPara]).map((v, i) => <td key={i}>{v}</td>)}
+          {(emergency ? [r.hazard, r.agency, r.number, r.dsn, r.notes, r.paragraph] : [r.id, r.unId, r.name, r.division, r.subsidiary, r.packingGroup || 'N/A', r.specialProvisions, r.forbidden ? 'FORBIDDEN' : r.referenceOnly ? 'See AFMAN entry' : r.packingPara]).map((v, i) => <td key={i}>{(emergency && i === 5) || (!emergency && i === 2) ? <RegulationLink details={false} citationId={emergency ? `afman604.${r.paragraph}` : `afman604.table.${r.id}`}>{v}</RegulationLink> : v}</td>)}
         </tr>)}</tbody>
       </table></div>
       {!rows.length && <p>No matching records found.</p>}

@@ -13,3 +13,7 @@
 .departure-facts dd { margin: 4px 0 0; font-family: "DejaVu Sans Mono", Menlo, Consolas, monospace; }
 .departure-released { color: var(--accent); font-weight: 700; }
 .departure-feedback { color: #efce8d; }
+.departure-time-field { display: grid; gap: 6px; font-weight: 400; }
+.departure-time-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.departure-time-row label { display: inline-flex; align-items: center; gap: 4px; }
+.departure-time-status { opacity: .85; }

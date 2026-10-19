@@ -9,6 +9,8 @@ import {
   piecesFor,
   dependencyBasis,
   documentCurrent,
+  fundsValidated,
+  FUNDS_REQUIRED,
 } from "./model";
 const outcome = (store, status, ...messages) => ({
   store,
@@ -36,6 +38,8 @@ export function clearHazards(store, id) {
   });
 }
 export function getQuote(store, id) {
+  const sid = store.quotes?.[id]?.draft.shipmentId;
+  if (sid && !fundsValidated(store, sid)) return outcome(store, "failed", FUNDS_REQUIRED(store.shipments[sid]?.draft.tcn));
   let next = saveRecord(store, "quotes", id);
   const r = next.quotes[id],
     d = r?.saved || {};
@@ -121,8 +125,8 @@ export function assignQuote(store, id, index) {
     shipmentId: d.shipmentId,
     scac: rate.scac,
     service: rate.service,
-    domInt: d.quoteType === "SPE International" ? "INT" : "DOM",
-    packageType: d.packageType || "Package",
+    domInt: d.quoteType === "SPE International" ? "I" : "D",
+    ...(d.packageType ? { packageType: d.packageType } : {}),
     shipDate: d.shipDate || "",
     quoteId: id,
   };
@@ -207,6 +211,40 @@ export function retrieveExpressDocuments(store, id, titles) {
     "Selected documents retrieved; choose a document to print.",
   );
 }
+// One closed package as the Carrier Pickup Report lists it.
+const pickupLine = (store, r) => {
+  const shipment = store.shipments[r.draft.shipmentId]?.saved || {};
+  const t = totals(store, [r.draft.shipmentId], true);
+  return { tcn: shipment.tcn, tracking: r.result.tracking, service: r.draft.service || "", pieces: t.pieces, weight: r.result.ratedWeight,
+    cube: Math.max(1, Math.round(Number(t.cube) || 0)), cost: r.result.charges, advice: shipment.adviceNumber || "", haz: /^Y/i.test(String(shipment.hazmat || "")) ? "Y" : "" };
+};
+// Print Small Package Express Documents: each checked document prints (and is kept so Retrieve
+// Documents can print it again). picks: [{ id, title }].
+export function printExpressDocuments(store, picks) {
+  let next = store;
+  const documentIds = [];
+  for (const { id, title } of picks) {
+    if (next.express[id]?.result?.state !== "success") continue;
+    const made = generateDocument(next, "express", id, title, "Final");
+    next = transition(made.store, "express", id, "Retrieve").store;
+    documentIds.push(made.store.selection.documents);
+  }
+  if (!documentIds.length) return { ...outcome(store, "failed", "Check Print for at least one available document."), documentIds };
+  return { ...outcome(next, "success", `${documentIds.length} document(s) printed.`), documentIds };
+}
+// Pickup Report with no Closed Date: closes out the SCAC's rated packages not yet closed (for the
+// P/U Loc, when one is chosen) and makes that pickup's Carrier Pickup Report. closedAt is an ISO time.
+export function closeoutForPickup(store, scac, closedAt, pu = "", puId = "puLocation") {
+  const rows = Object.values(store.express).filter((r) => r.draft.scac === scac && r.result?.state === "success" && r.status !== "Closed out" && (!pu || r.draft[puId] === pu));
+  if (!scac || !rows.length) return outcome(store, "failed", `No rated ${scac || ""} packages are waiting for pickup.`.replace("  ", " "));
+  let next = store;
+  for (const r of rows) next = transition(next, "express", r.id, "Closeout", { closedAt }).store;
+  next = createRecord(next, "documents", { title: "Pickup report", variant: "Final", scac, closedAt, date: rows[0].draft.shipDate || "", pu,
+    origin: store.shipments[rows[0].draft.shipmentId]?.saved?.origin || "",
+    account: rows[0].draft.carrierAcctNbr || "", expressIds: rows.map((r) => r.id), packages: rows.map((r) => pickupLine(store, r)), ownerKind: "express", ownerId: rows[0].id });
+  next = saveRecord(next, "documents", next.selection.documents);
+  return { ...outcome(next, "success", "Carrier closeout completed. Carrier Pickup Report generated."), documentId: next.selection.documents };
+}
 export function closeoutCarrier(store, scac, date) {
   const rows = Object.values(store.express).filter(
     (r) =>
@@ -230,11 +268,10 @@ export function closeoutCarrier(store, scac, date) {
     scac,
     date,
     expressIds: rows.map((r) => r.id),
-    packages: rows.map((r) => ({
-      tcn: store.shipments[r.draft.shipmentId]?.saved?.tcn,
-      tracking: r.result.tracking,
-      weight: r.result.ratedWeight,
-    })),
+    closedAt: new Date().toISOString(),
+    origin: store.shipments[rows[0].draft.shipmentId]?.saved?.origin || "",
+    account: rows[0].draft.carrierAcctNbr || "",
+    packages: rows.map((r) => pickupLine(store, r)),
     ownerKind: "express",
     ownerId: rows[0].id,
   });

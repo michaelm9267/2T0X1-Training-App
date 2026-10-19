@@ -1,3 +1,5 @@
+import { DODAAC_TABLE } from './dodaacTable';
+
 // Consignee DoDAACs from the FA5030 (JBER) CMOS DoDAAC table, as supplied for training. Lower-48
 // units take small parcel and LTL shipments; OCONUS units (overseas, Hawaii, Guam, Puerto Rico) are
 // reached by AMC through their aerial port of debarkation (APOD). Alaska units are lookup only.
@@ -243,8 +245,28 @@ const ALASKA = [
   ['FB5005', 'JBER PACAF GPMS PWM', '5257 FINLETTER AVE', 'JBER', 'AK', '99506'],
 ];
 
-const entry = ([, unit, address, city, region, zip]) => ({ unit, address, city: `${city}, ${region} ${zip}` });
+// The full CMOS DoDAAC table: every populated DoDAAC with its APOD and APOE. The hand-entered
+// rows above keep their place; the table adds the rest and fills in each unit's APOE and phone.
+const TABLE = Object.fromEntries(DODAAC_TABLE.map(([dodaac, unit, address, address2, city, region, zip, apod, apoe, phone]) => [dodaac, { unit, address, address2, city, region, zip, apod, apoe, phone }]));
+const LOWER_48_STATES = new Set('AL AZ AR CA CO CT DE DC FL GA ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY'.split(' '));
+const listed = new Set([...LOWER_48, ...OCONUS, ...ALASKA].map(row => row[0]));
+const added = Object.entries(TABLE).filter(([dodaac]) => !listed.has(dodaac));
+const row = ([dodaac, t]) => [dodaac, t.unit, t.address, t.city, t.region, t.zip, t.apod];
+LOWER_48.push(...added.filter(([, t]) => LOWER_48_STATES.has(t.region)).map(row));
+// Overseas, Hawaii, Guam and Puerto Rico units need an APOD to be shipped to.
+OCONUS.push(...added.filter(([, t]) => !LOWER_48_STATES.has(t.region) && t.region !== 'AK' && t.apod).map(row));
+ALASKA.push(...added.filter(([, t]) => t.region === 'AK').map(row));
+// Units with no APOD on file (e.g. Camp Lemonnier, Longyearbyen): CMOS knows the address only.
+const NO_APOD = added.filter(([, t]) => !LOWER_48_STATES.has(t.region) && t.region !== 'AK' && !t.apod).map(row);
+
+const entry = ([dodaac, unit, address, city, region, zip]) => {
+  const t = TABLE[dodaac] || {};
+  return { unit, address, ...(t.address2 ? { address2: t.address2 } : {}), city: `${city}, ${region} ${zip}`, region, ...(t.phone ? { phone: t.phone } : {}), ...(t.apoe ? { apoe: t.apoe } : {}) };
+};
 // Lower-48 consignees; channelPort is the stateside aerial port an AMC channel from EDF serves.
 export const LOWER_48_DODAACS = Object.fromEntries(LOWER_48.map(row => [row[0], { ...entry(row), channelPort: row[0] === 'FB4427' ? 'SUU' : 'TCM' }]));
 export const OCONUS_DODAACS = Object.fromEntries(OCONUS.map(row => [row[0], { ...entry(row), port: row[6] }]));
-export const ALASKA_DODAACS = Object.fromEntries(ALASKA.map(row => [row[0], entry(row)]));
+export const ALASKA_DODAACS = Object.fromEntries([...ALASKA, ...NO_APOD].map(row => [row[0], entry(row)]));
+// The aerial ports in the DoDAAC table, for the APOE/POE and APOD/POD lists.
+export const TABLE_APODS = [...new Set(Object.values(TABLE).map(t => t.apod).filter(Boolean))].sort();
+export const TABLE_APOES = [...new Set(Object.values(TABLE).map(t => t.apoe).filter(Boolean))].sort();

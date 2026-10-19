@@ -22,7 +22,7 @@ function acronymAtPoint(x, y, ignore) {
   const caret = caretAt(x, y);
   if (!caret || caret.node?.nodeType !== Node.TEXT_NODE || ignore?.contains(caret.node)) return null;
   const hit = acronymAt(caret.node.textContent, caret.offset);
-  if (!hit) return null;
+  if (!hit || caret.node.parentElement?.closest('[data-regulation-source], [data-regulation-popup]')) return null;
   const range = document.createRange();
   range.setStart(caret.node, hit.start);
   range.setEnd(caret.node, hit.end);
@@ -35,7 +35,7 @@ function underlineAcronyms(ignore) {
   if (typeof CSS === 'undefined' || !CSS.highlights || !window.Highlight) return;
   const ranges = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-    acceptNode: node => node.parentElement?.closest('script, style, option, textarea') || ignore?.contains(node) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+    acceptNode: node => node.parentElement?.closest('script, style, option, textarea, [data-regulation-source], [data-regulation-popup]') || ignore?.contains(node) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
   });
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
     for (const hit of findAcronyms(node.textContent)) {
