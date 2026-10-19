@@ -462,7 +462,7 @@ test('New piece opens manual weight entry, Add Piece starts the next, and a sing
   expect(piece.getByLabelText('Weight')).toHaveValue('');
   for (const [label, value] of [['Weight', '25'], ['Length', '12'], ['Width', '12'], ['Height', '12']])
     fireEvent.change(piece.getByLabelText(label), { target: { value } });
-  expect(piece.getByLabelText('Cube')).toHaveValue('1.0');
+  expect(piece.getByLabelText('Cube')).toHaveValue('1');
   userEvent.click(piece.getByRole('button', { name: 'Add Piece' }));
   piece = within(screen.getByRole('dialog', { name: 'Piece Information' }));
   expect(piece.getByLabelText('Number')).toHaveValue('2');
@@ -878,4 +878,49 @@ test('Truck Manifest list, tabs, emergency phone types, statements, and optional
   const panel = within(screen.getByRole('tabpanel', { name: 'Assign Statements' }));
   expect(panel.getByRole('cell', { name: '01' })).toBeInTheDocument();
   expect(panel.getByText('1 row(s) found.')).toBeInTheDocument();
+});
+
+test('Truck Manifest TCNs Assigned shows cube as a whole number', () => {
+  let s = createRecord(createCmosStore(), 'shipments', { tcn: 'TRN020', origin: 'FA5030' });
+  s = createRecord(s, 'pieces', { shipmentId: 'shipments-1', weight: '10', length: '16', width: '16', height: '16' });
+  s = createRecord(s, 'truckManifests', { manifestNumber: 'EDF6T60200', shipmentIds: ['shipments-1'] });
+  function Truck() {
+    const [store, setStore] = useState(s);
+    return <CmosWorkspace store={store} onChange={setStore} initialPage="truck" context={{ course: 'outbound' }} onClose={() => {}} />;
+  }
+  render(<Truck />);
+  const open = screen.queryByRole('button', { name: 'Open manifest EDF6T60200' });
+  if (open) userEvent.click(open);
+  const row = within(screen.getByRole('tabpanel', { name: 'TCNs Assigned' })).getAllByRole('row').find(r => r.textContent.includes('TRN020'));
+  expect(row).toHaveTextContent('10');
+  expect(within(row).getByRole('cell', { name: '2' })).toBeInTheDocument();
+  expect(row).not.toHaveTextContent('2.37');
+});
+
+test('Truck Manifest Assign TCNs or Aggregates lists TCNs with the CMOS columns and double-click assigns', () => {
+  let s = createRecord(createCmosStore(), 'shipments', { tcn: 'TRN030', origin: 'FA5030', destination: 'FB6520', milMode: '9', ediMode: 'LD', tac: 'FUNT' });
+  s = createRecord(s, 'pieces', { shipmentId: 'shipments-1', weight: '176', length: '48', width: '40', height: '30' });
+  s = saveRecord(s, 'shipments', 'shipments-1');
+  s = createRecord(s, 'truckManifests', { manifestNumber: 'EDF6T60210' });
+  function Truck() {
+    const [store, setStore] = useState(s);
+    return <CmosWorkspace store={store} onChange={setStore} initialPage="truck" context={{ course: 'outbound' }} onClose={() => {}} />;
+  }
+  render(<Truck />);
+  const open = screen.queryByRole('button', { name: 'Open manifest EDF6T60210' });
+  if (open) userEvent.click(open);
+  userEvent.click(screen.getByRole('button', { name: 'Assign TCNs or Aggregates' }));
+  const d = within(screen.getByRole('dialog', { name: 'Assign TCNs or Aggregates' }));
+  expect(d.getAllByRole('tab').map(t => t.textContent)).toEqual(['Assign TCNs', 'Assign Aggregates']);
+  expect(d.getByText(/Double clicking a row will perform the Assign action/)).toBeInTheDocument();
+  expect(d.getAllByRole('columnheader').map(th => th.textContent).filter(Boolean)).toEqual(['TCN', 'Consignee', 'POE', 'DSOE ID', 'Chalk', 'MIL Mode', 'EDI Mode', 'Hold Code', 'Pieces', 'Weight', 'Cube', 'FR Code', 'TAC', 'Load Plan ID']);
+  const row = d.getAllByRole('row').find(r => r.textContent.includes('TRN030'));
+  expect(row).toHaveTextContent('FUNT');
+  userEvent.dblClick(row);
+  expect(d.getByText('0 row(s) found.')).toBeInTheDocument();
+  userEvent.click(d.getByRole('button', { name: 'Close' }));
+  const assigned = within(screen.getByRole('tabpanel', { name: 'TCNs Assigned' }));
+  expect(assigned.getAllByRole('row').find(r => r.textContent.includes('TRN030'))).toHaveTextContent('33');
+  userEvent.click(screen.getByRole('tab', { name: 'Addresses' }));
+  expect(screen.getByLabelText('Destination DODAAC')).toHaveValue('FB6520');
 });

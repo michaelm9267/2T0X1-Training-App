@@ -1756,3 +1756,107 @@ section.cmos-app .shared-cbl-rail-field .shared-route-lookup { margin-left: -2px
 .tm-block td div, .tm-tcns td { white-space: pre-wrap; }
 .cmos-truck-release-tip { text-align: center; margin: 0 0 14px; }
 .cmos-truck-release-tip strong { margin-right: 6px; }
+
+/* Truck Manifest: matched to the CMOS screenshots */
+.shared-truck-grid table { table-layout: fixed; min-width: 1200px; }
+.shared-truck-grid th { text-align: center; }
+.shared-truck-grid col, .shared-truck-grid th:nth-child(1) { width: 100px; }
+.shared-truck-grid th:nth-child(2) { width: 76px; } .shared-truck-grid th:nth-child(3) { width: 186px; } .shared-truck-grid th:nth-child(4) { width: 64px; }
+.shared-truck-grid th:nth-child(5) { width: 52px; } .shared-truck-grid th:nth-child(6), .shared-truck-grid th:nth-child(7) { width: 80px; }
+.shared-truck-grid th:nth-child(n+8) { width: 88px; }
+.shared-truck-grid tbody tr[aria-selected="true"] td { background: #fffbd6; }
+.shared-truck-grid .shared-air-manifest-link { font-weight: bold; text-decoration: none; color: #1d3f8a; }
+.shared-truck-detail .shared-required-mark { color: #000; }
+.shared-truck-header [data-field="statusCode"] > span:first-child { color: #000; }
+.cdf-dialog-overlay.shared-truck-overlay .cdf-dialog > header h2, .shared-truck-overlay .cdf-dialog-title { font-size: 16px; }
+.shared-truck-detail .shared-field { flex: 0 0 auto; }
+.shared-truck-address { grid-template-columns: 150px auto; }
+.shared-truck-address-fields .shared-fields > .shared-field:first-child > span:first-child { width: 78px; min-width: 78px; }
+.shared-truck-address-fields .shared-truck-row .shared-fields { gap: 8px; }
+.shared-truck-address-fields [data-field$="Name"] input, .shared-truck-address-fields [data-field$="Address1"] input,
+.shared-truck-address-fields [data-field$="Address2"] input, .shared-truck-address-fields [data-field$="MarkFor"] input { width: 310px; }
+.shared-truck-conveyance { padding-left: 320px; }
+.shared-truck-conveyance [data-field="equipmentType"] input { width: 40px; }
+.shared-truck-conveyance [data-field="truckSerialBumperNumber"] input { width: 95px; }
+.shared-truck-table { table-layout: auto; width: 100%; }
+.shared-truck-table thead tr:last-child th { background: #74a9f0; color: #000; text-align: center; font-weight: bold; }
+.shared-truck-table tbody tr[aria-selected="true"] td { background: #fffbd6; }
+.shared-truck-table tbody td { cursor: default; white-space: nowrap; }
+.shared-truck-assigned .shared-air-select-checkbox { margin-right: 4px; }
+.shared-truck-assign-overlay .cdf-dialog { width: min(1420px, 96vw); }
+.shared-truck-assign { font: 12px Arial, sans-serif; color: #000; }
+.shared-truck-assign .shared-tab-bar { margin: 0; gap: 0; border-bottom: 1px solid #b8b8c1; }
+.shared-truck-assign .shared-tab-bar button { padding: 3px 18px; border: 1px solid #bbc3cc; border-bottom: 0; border-radius: 7px 7px 0 0; background: linear-gradient(#edf5fa, #c1d8e7); }
+.shared-truck-assign .shared-tab-bar button[aria-selected="true"] { background: #fff; font-weight: bold; }
+.shared-truck-assign-panel { background: #fff; border: 1px solid #b8b8c1; border-top: 0; border-radius: 0 0 4px 4px; padding: 6px 6px 40px; }
+.shared-truck-assign-panel > p { margin: 0 0 40px; }
+.shared-truck-assign .shared-table-scroll { max-height: 420px; overflow: auto; }
+.shared-truck-assign-footer { display: flex; justify-content: flex-end; margin-top: 10px; }
+.shared-truck-detail .shared-field { justify-content: flex-start; }
+.shared-truck-detail .shared-field > span:first-child { flex: 0 0 auto; }
+.shared-truck-detail .shared-control { flex: 0 0 auto; }
+.shared-truck-detail .shared-control > input, .shared-truck-detail .shared-control > select { width: 130px; }
+.shared-truck-header > div:first-child .shared-field > span:first-child { text-align: right; }
+.shared-truck-table td.shared-num { text-align: right; }
+.shared-truck-table td.shared-center, .shared-truck-assign .shared-truck-table td:first-child { text-align: center; }
+.shared-truck-assign .cdf-dialog-title, .shared-truck-overlay .cdf-dialog-title { font-size: 16px; }
+/* Truck Manifest box widths, as the CMOS screens */
+.shared-truck-detail [data-field="manifestNumber"] input { width: 130px !important; }
+.shared-truck-detail [data-field="dsoeId"] input { width: 64px !important; }
+.shared-truck-detail [data-field="chalk"] input { width: 52px !important; }
+.shared-truck-detail [data-field="convoyNbr"] input { width: 118px !important; }
+.shared-truck-detail [data-field="equipmentOwner"] select, .shared-truck-detail [data-field="conveyanceMode"] select { width: 34px !important; }
+.shared-truck-detail [data-field="tmrNumber"] input { width: 250px !important; }
+.shared-truck-detail [data-field="statusCode"] input { width: 28px !important; }
+.shared-truck-detail [data-field="statusText"] input { width: 190px !important; }
+.shared-truck-detail [data-field="totalWeight"] input, .shared-truck-detail [data-field="totalCube"] input { width: 72px !important; text-align: right; }
+.shared-truck-detail [data-field$="DODAAC"] input { width: 64px !important; }
+.shared-truck-detail .shared-truck-address-fields input { width: 310px !important; }
+.shared-truck-detail .shared-truck-address-fields [data-field$="City"] input { width: 230px !important; }
+.shared-truck-detail .shared-truck-address-fields [data-field$="Country"] input, .shared-truck-detail .shared-truck-address-fields [data-field$="State"] input { width: 40px !important; }
+.shared-truck-detail .shared-truck-address-fields [data-field$="Zip"] input { width: 100px !important; }
+.shared-truck-detail .shared-truck-address-fields [data-field$="PhoneNumber"] input { width: 190px !important; }
+.shared-truck-detail .shared-truck-address-fields [data-field$="PhoneType"] select { width: 248px !important; }
+.shared-truck-detail [data-field="rfTagNumber"] input { width: 490px !important; }
+.shared-truck-detail [data-field="vesselName"] input { width: 200px !important; }
+.shared-truck-detail [data-field="ircs"] input { width: 80px !important; }
+.shared-truck-detail [data-field="addlShipInst"] input { width: 490px !important; }
+.shared-truck-detail [data-field="complete"] select { width: 42px !important; }
+.shared-truck-detail [data-field="etrrId"] input { width: 70px !important; }
+.shared-truck-detail [data-field="equipmentType"] input { width: 40px !important; }
+.shared-truck-detail [data-field="truckSerialBumperNumber"] input { width: 95px !important; }
+.shared-truck-detail [data-field="trailerChassisNumber"] input { width: 250px !important; }
+.shared-truck-detail [data-field="reeferCompartmentRefNumber"] input { width: 40px !important; }
+.shared-truck-detail [data-field="temperatureControl"] input { width: 64px !important; }
+.shared-truck-detail [data-field="tempScale"] select { width: 38px !important; }
+.shared-truck-detail [data-field="motorCarrierName"] input { width: 310px !important; }
+.shared-truck-detail [data-field="vehicleFullyLoaded"] select { width: 42px !important; }
+.shared-truck-detail .shared-truck-load input { width: 70px !important; }
+.shared-truck-address-fields .shared-truck-wide .shared-field > span:first-child, .shared-truck-address-fields .shared-truck-row .shared-fields > .shared-field:first-child > span:first-child { width: 70px; min-width: 70px; text-align: right; }
+.shared-truck-address { grid-template-columns: 170px auto; }
+.shared-truck-detail .shared-control > button[aria-label^="Look up"] { width: 20px !important; min-width: 0 !important; flex: 0 0 20px !important; margin: 0; }
+/* Conveyance and Miscellaneous: one input column with right-aligned labels, as CMOS lays them out. */
+.shared-truck-conveyance { padding-left: 327px; gap: 0 45px; }
+.shared-truck-conveyance > div:first-child, .shared-truck-misc > div { align-items: flex-start; }
+.shared-truck-conveyance > div:first-child > .shared-truck-row:not(.shared-truck-load) .shared-fields > .shared-field:first-child > span:first-child,
+.shared-truck-conveyance > div:first-child > .shared-truck-wide .shared-field > span:first-child { width: 190px; min-width: 190px; text-align: right; }
+.shared-truck-conveyance > div:first-child > h4 { align-self: flex-start; margin: 2px 0 14px 216px; }
+.shared-truck-load { margin-left: 92px; }
+.shared-truck-conveyance .shared-truck-seals { margin-top: 0; }
+.shared-truck-misc { padding-left: 200px; gap: 0 40px; }
+.shared-truck-misc > div > .shared-truck-row .shared-fields > .shared-field:first-child > span:first-child,
+.shared-truck-misc > div > .shared-truck-wide .shared-field > span:first-child { width: 90px; min-width: 90px; text-align: right; }
+.shared-truck-misc [data-field="ircs"] > span:first-child, .shared-truck-misc [data-field="pickUpDate"] > span:first-child, .shared-truck-misc [data-field="etrrId"] > span:first-child { margin-left: 24px; }
+.shared-truck-detail .shared-field { font-size: 12px; }
+.shared-truck-conveyance { padding-left: 317px; }
+.shared-truck-conveyance > div:first-child > .shared-truck-row:not(.shared-truck-load) .shared-fields > .shared-field:first-child > span:first-child,
+.shared-truck-conveyance > div:first-child > .shared-truck-wide .shared-field > span:first-child { width: 200px; min-width: 200px; }
+.shared-truck-seals h4 { margin: 0 0 6px; white-space: nowrap; }
+/* Miscellaneous: second-column fields sit at the right edge of the RF Tag Number row. */
+.shared-truck-misc > div > .shared-truck-row { width: 590px; }
+.shared-truck-misc > div > .shared-truck-row > .shared-fields { width: 100%; justify-content: space-between; }
+.shared-truck-misc [data-field="ircs"] > span:first-child, .shared-truck-misc [data-field="pickUpDate"] > span:first-child, .shared-truck-misc [data-field="etrrId"] > span:first-child { margin-left: 0; }
+.shared-truck-misc [data-field="rfTagNumber"] > span:first-child { color: #000; }
+.shared-truck-misc .date-field { width: 150px; }
+.shared-truck-misc .date-field input { width: 128px !important; }
+.shared-truck-misc { gap: 0 30px; }

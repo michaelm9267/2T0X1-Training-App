@@ -163,7 +163,7 @@ const defaults = {
     hazmat: "N - Not hazardous",
   },
   airManifests: { complete: "No" },
-  truckManifests: { equipmentOwner: "G", conveyanceMode: "9" },
+  truckManifests: { equipmentOwner: "G", conveyanceMode: "9", vehicleFullyLoaded: "No" },
   routings: { requestType: "OR", routeId: "RG", atrHours: "24" },
   bills: { currency: "USD" },
   express: {},
@@ -1039,8 +1039,7 @@ export default function CmosWorkspace({
                   setOpened(true); setSelected([]);
                 }}
               /> : page === "truck" ? <TruckManifestScreen
-                {...{ store, record, opened, locked, renderFields, change, edit, action }}
-                renderTab={detailTabs}
+                {...{ store, record, opened, locked, renderFields, change, edit, action, apply, go }}
                 newManifest={newRecord}
                 openManifest={row => {
                   if (!row) return;

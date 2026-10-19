@@ -39,3 +39,13 @@ test('earlier pickups fill the Closed Date list with weekday evening closeouts b
   expect(list[0].packages[0].tracking).toMatch(/^\d{12}$/);
   expect(pastPickups('XXXX')).toEqual([]);
 });
+
+test('cube rounds to the nearest whole cubic foot, and any cube above zero shows at least 1', () => {
+  const { wholeCube, pieceCubeFeet } = require('./model');
+  expect(wholeCube(2.4)).toBe(2);
+  expect(wholeCube(2.5)).toBe(3);
+  expect(wholeCube(0.3)).toBe(1);
+  expect(wholeCube(0)).toBe(0);
+  expect(pieceCubeFeet({ length: 24, width: 24, height: 12 })).toBe(4);
+  expect(pieceCubeFeet({ length: 30, width: 20, height: 10 })).toBe(3);
+});

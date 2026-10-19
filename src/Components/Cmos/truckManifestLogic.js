@@ -13,13 +13,20 @@ export const HAZ_STATEMENTS = [
   ['02', 'I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations.'],
 ];
 
+// Address block from a DODAAC, with the name as CMOS shows it ("FA5030  773 LRS LGRT").
+export function truckAddress(prefix, dodaac) {
+  const patch = addressPatch(prefix, dodaac);
+  const code = String(dodaac || '').trim().toUpperCase();
+  return patch[`${prefix}Name`] ? { ...patch, [`${prefix}Name`]: `${code}  ${patch[`${prefix}Name`]}`, [`${prefix}PhoneType`]: 'DSN' } : patch;
+}
+
 // Invented training traffic in the CMOS manifest number format (EDF + year digit + T + serial).
 export const TRUCK_SAMPLES = [
-  ['EDF6T60103', 'FA4318', '9', 2, 1840], ['EDF6T60108', 'FB5000', '9', 4, 6120], ['EDF6T60114', 'FA4318', '9', 1, 960],
-  ['EDF6T60121', 'FB6520', '9', 7, 12480], ['EDF6T60127', 'FB5000', '9', 3, 2210], ['EDF6T60132', 'FB5005', '9', 0, 0],
+  ['EDF6T60103', 'FB6520', '9', 2, 1840], ['EDF6T60108', 'FB5000', '9', 4, 6120], ['EDF6T60114', 'FB6520', '9', 1, 960],
+  ['EDF6T60121', 'FB5004', '9', 7, 12480], ['EDF6T60127', 'FB5000', '9', 3, 2210], ['EDF6T60132', 'FB6521', '9', 0, 0],
 ].map(([manifestNumber, destinationDODAAC, conveyanceMode, pieces, weight], index) => ({
   id: `truck-sample-${index}`, sample: true, status: 'Saved',
-  draft: { manifestNumber, destinationDODAAC, ...addressPatch('destination', destinationDODAAC), conveyanceMode, equipmentOwner: 'G', samplePieces: pieces, sampleWeight: weight, sampleCube: Math.round(weight / 14) },
+  draft: { manifestNumber, destinationDODAAC, ...truckAddress('destination', destinationDODAAC), originDODAAC: 'FA5030', origin: 'FA5030', ...truckAddress('origin', 'FA5030'), shipperDODAAC: 'FA5030', ...truckAddress('shipper', 'FA5030'), conveyanceMode, equipmentOwner: 'G', vehicleFullyLoaded: 'No', samplePieces: pieces, sampleWeight: weight, sampleCube: Math.round(weight / 14) },
 }));
 
 export function nextTruckManifestNumber(store) {
@@ -28,13 +35,6 @@ export function nextTruckManifestNumber(store) {
   const serials = numbers.filter(n => typeof n === 'string' && n.startsWith(prefix) && /^\d{4}$/.test(n.slice(prefix.length))).map(n => Number(n.slice(prefix.length)));
   const serial = Math.max(1, ...serials.map(n => n + 1));
   return serial <= 9999 ? `${prefix}${String(serial).padStart(4, '0')}` : null;
-}
-
-// Address block from a DODAAC, with the name as CMOS shows it ("FA5030  773 LRS LGRT").
-export function truckAddress(prefix, dodaac) {
-  const patch = addressPatch(prefix, dodaac);
-  const code = String(dodaac || '').trim().toUpperCase();
-  return patch[`${prefix}Name`] ? { ...patch, [`${prefix}Name`]: `${code}  ${patch[`${prefix}Name`]}`, [`${prefix}PhoneType`]: 'DSN' } : patch;
 }
 
 // One manifest as the Truck Manifest list shows it.

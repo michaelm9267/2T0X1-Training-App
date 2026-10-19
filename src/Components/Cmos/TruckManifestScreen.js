@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import { field } from './referenceInventory';
 import { Dialog, lookupValues } from './controls';
-import { editRecord, totals } from './model';
+import { assignShipments, editRecord, totals, wholeCube } from './model';
+import { generateDocument } from './operations';
 import { DSOE_REFERENCE } from './airScheduleLogic';
 import { EMERGENCY_PHONE_TYPES, HAZ_STATEMENTS, PHONE_TYPES, TRUCK_COLUMNS, TRUCK_SAMPLES, truckAddress, truckRow } from './truckManifestLogic';
 
 // CMOS Truck Manifest, laid out like the CMOS screens: the manifest list (Manifest / Release Status
 // search), and the manifest window with its header and the TCNs Assigned, Addresses, Miscellaneous,
 // Conveyance and Assign Statements tabs. DSOE ID and Chalk are optional on this screen.
+// TCNs Assigned and Assign TCNs or Aggregates columns, as CMOS lists them.
+const ASSIGNED_COLUMNS = [['tcn', 'TCN'], ['dsoeId', 'DSOE ID'], ['chalk', 'Chalk'], ['consignee', 'Consignee'], ['poe', 'POE'], ['holdCode', 'Hold Code'], ['pieces', 'Pieces'], ['weight', 'Weight'], ['cube', 'Cube'], ['frCode', 'FR Code']];
+const ASSIGN_COLUMNS = [['tcn', 'TCN'], ['consignee', 'Consignee'], ['poe', 'POE'], ['dsoeId', 'DSOE ID'], ['chalk', 'Chalk'], ['milMode', 'MIL Mode'], ['ediMode', 'EDI Mode'], ['holdCode', 'Hold Code'], ['pieces', 'Pieces'], ['weight', 'Weight'], ['cube', 'Cube'], ['frCode', 'FR Code'], ['tac', 'TAC'], ['loadPlanId', 'Load Plan ID']];
+const AGGREGATE_COLUMNS = [['aggregateId', 'Aggregate ID'], ['leadTcn', 'Lead TCN'], ['consignee', 'Consignee'], ['pieces', 'Pieces'], ['weight', 'Weight'], ['cube', 'Cube']];
+const NUMERIC = ['pieces', 'weight', 'cube'];
+const CENTER = ['milMode', 'ediMode', 'tac', 'loaded', 'consignee', 'poe'];
 const TABS = ['TCNs Assigned', 'Addresses', 'Miscellaneous', 'Conveyance', 'Assign Statements'];
 const ACTIONS = ['First', 'Previous', 'Next', 'Last', 'Edit Check', 'Print Manifest', 'Export', 'Release', 'Abort Manifest', 'Save', 'Save and Close', 'Close'];
 const VIEW_ACTIONS = ['First', 'Previous', 'Next', 'Last', 'Print Manifest', 'Export', 'Close'];
@@ -16,7 +23,7 @@ const STATES = lookupValues({ id: 'ucState' });
 const contains = (value, query) => !query || String(value ?? '').toUpperCase().includes(String(query).toUpperCase().replace(/%/g, ''));
 const f = (label, id, extra = {}) => ({ ...field(label, id), ...extra });
 
-export default function TruckManifestScreen({ store, record, opened, locked, renderFields, renderTab, change, edit, action, newManifest, openManifest }) {
+export default function TruckManifestScreen({ store, record, opened, locked, renderFields, change, edit, action, apply, go, newManifest, openManifest }) {
   const [query, setQuery] = useState({ manifest: '', release: 'Open' });
   const [search, setSearch] = useState(query);
   const [filters, setFilters] = useState({});
@@ -24,6 +31,11 @@ export default function TruckManifestScreen({ store, record, opened, locked, ren
   const [statementPick, setStatementPick] = useState(null);
   const [statementSelected, setStatementSelected] = useState([]);
   const [statementFilters, setStatementFilters] = useState({});
+  const [picked, setPicked] = useState([]);
+  const [assignedFilters, setAssignedFilters] = useState({});
+  const [assigning, setAssigning] = useState(null);
+  const [assignTab, setAssignTab] = useState('Assign TCNs');
+  const [assignFilters, setAssignFilters] = useState({});
   const actual = Object.values(store.truckManifests || {});
   const all = [...actual, ...TRUCK_SAMPLES.filter(sample => !actual.some(r => r.id === sample.id || r.draft.manifestNumber === sample.draft.manifestNumber))];
   const rows = all.map(r => ({ r, row: truckRow(store, r) }))
@@ -79,12 +91,42 @@ export default function TruckManifestScreen({ store, record, opened, locked, ren
       {markFor && <div className="shared-truck-wide">{show(f('Mark For', `${prefix}MarkFor`, { ariaLabel: `${title} Mark For`, lookup: false }))}</div>}
     </div>
   </section>;
+  const tcnRow = r => { const t = totals(store, [r.id]); return { id: r.id, tcn: r.draft.tcn || r.id, consignee: r.draft.destination || '', poe: r.draft.poe || '', dsoeId: r.draft.dsoeId || '', chalk: r.draft.chalk || '',
+    milMode: r.draft.milMode || '', ediMode: r.draft.ediMode || '', holdCode: r.draft.holdCode || '', pieces: t.pieces, weight: t.weight, cube: wholeCube(t.cube), frCode: r.draft.frustratedReason || '', tac: r.draft.tac || '', loadPlanId: r.draft.loadPlanId || '' }; };
+  // Click selects a row; ctrl/cmd-click adds or removes it.
+  const multi = (list, id, e) => e.ctrlKey || e.metaKey ? (list.includes(id) ? list.filter(x => x !== id) : [...list, id]) : [id];
+  const grid = (columns, gridRows, gridFilters, setGridFilters, name, isPicked, onPick, withCheckbox = false, onDouble) => <>
+    <div className="shared-table-scroll"><table className="shared-table shared-truck-table"><thead>
+      <tr className="shared-air-filters">{columns.map(([key, label]) => <th key={key}><input aria-label={`Filter ${name} ${label}`} value={gridFilters[key] || ''} onChange={e => setGridFilters({ ...gridFilters, [key]: e.target.value })} /></th>)}</tr>
+      <tr>{columns.map(([key, label]) => <th key={key}>{label}</th>)}</tr></thead>
+      <tbody>{gridRows.map(row => <tr key={row.id} aria-selected={isPicked(row)} onClick={e => { if (!e.target.closest('input')) onPick(row, e); }} onDoubleClick={() => onDouble?.(row)}>
+        {columns.map(([key], i) => <td key={key} className={NUMERIC.includes(key) ? 'shared-num' : CENTER.includes(key) ? 'shared-center' : undefined}>
+          {i === 0 && withCheckbox && <input className="shared-air-select-checkbox" type="checkbox" aria-label={`Select ${row.tcn}`} checked={isPicked(row)} onChange={e => onPick(row, { ctrlKey: true, target: e.target })} />}{String(row[key] ?? '')}</td>)}</tr>)}
+        {!gridRows.length && <tr><td colSpan={columns.length}>No data to display.</td></tr>}</tbody></table></div>
+    <div className="shared-air-count">{gridRows.length} row(s) found.</div>
+  </>;
   const phones = draft.emergencyPhones || [{}, {}, {}];
   const seals = draft.sealNumbers || ['', '', '', ''];
   const statements = (draft.statementIds || []).map(id => HAZ_STATEMENTS.find(([cert]) => cert === id)).filter(Boolean)
     .filter(([cert, text]) => contains(cert, statementFilters.cert) && contains(text, statementFilters.text));
   const panel = () => {
-    if (tab === 'TCNs Assigned') return renderTab('TCNs Assigned');
+    if (tab === 'TCNs Assigned') {
+      const loaded = draft.loadedIds || [];
+      const assignedRows = ids.map(sid => store.shipments[sid]).filter(Boolean).map(tcnRow).map(row => ({ ...row, loaded: loaded.includes(row.id) ? 'Y' : '' }))
+        .filter(row => ASSIGNED_COLUMNS.every(([key]) => contains(row[key], assignedFilters[key])));
+      return <div className="shared-air-cargo shared-truck-assigned">
+        <div className="shared-toolbar">
+          <button disabled={disabled} onClick={() => { setAssigning([]); setAssignTab('Assign TCNs'); setAssignFilters({}); }}>Assign TCNs or Aggregates</button>
+          <button disabled={disabled || !picked.length} onClick={() => { change(assignShipments(store, 'truckManifests', record.id, picked, true)); setPicked([]); }}>Unassign</button>
+          <button disabled={disabled || !picked.length} onClick={() => put({ loadedIds: [...new Set([...loaded, ...picked])] })}>Load</button>
+          <button disabled={disabled || !picked.length} onClick={() => put({ loadedIds: loaded.filter(x => !picked.includes(x)) })}>Unload</button>
+          <button disabled={disabled || !picked.length} onClick={() => apply(generateDocument(store, 'truckManifests', record.id, 'AIT shipment data', 'Draft', { shipmentIds: picked }))}>Create AIT for TCN</button>
+          <button disabled={picked.length !== 1} title="Open the selected TCN in Shipment Planning" onClick={() => go('planning')}>Ship Plan</button>
+          <button onClick={() => { setPicked([]); setAssignedFilters({}); }}>Clear</button>
+        </div>
+        {grid(ASSIGNED_COLUMNS, assignedRows, assignedFilters, setAssignedFilters, 'assigned', row => picked.includes(row.id), (row, e) => setPicked(multi(picked, row.id, e)), true)}
+      </div>;
+    }
     if (tab === 'Addresses') return <div className="shared-truck-addresses">
       {address('Destination', 'destination', { markFor: true })}{address('Origin', 'origin')}{address('Shipper', 'shipper', { required: false })}
     </div>;
@@ -141,6 +183,19 @@ export default function TruckManifestScreen({ store, record, opened, locked, ren
     </div>;
   };
   const index = all.findIndex(r => r.id === record.id);
+  // TCNs that can be assigned: saved shipments not already on this or another open truck manifest.
+  const elsewhere = new Set(Object.values(store.truckManifests || {}).filter(m => m.id !== record.id && m.status !== 'Aborted').flatMap(m => m.draft.shipmentIds || []));
+  const assignable = Object.values(store.shipments).filter(r => r.saved && !ids.includes(r.id) && !elsewhere.has(r.id)).map(tcnRow)
+    .filter(row => ASSIGN_COLUMNS.every(([key]) => contains(row[key], assignFilters[key])));
+  const assign = chosen => {
+    if (!chosen.length || disabled) return;
+    let next = assignShipments(store, 'truckManifests', record.id, chosen);
+    // The destination comes from the first TCN when the manifest has none yet.
+    const dest = store.shipments[chosen[0]]?.draft.destination;
+    if (!draft.destinationDODAAC && dest) next = editRecord(next, 'truckManifests', record.id, { destinationDODAAC: dest, ...truckAddress('destination', dest) });
+    change(next);
+    setAssigning([]);
+  };
   return <Dialog title="Truck Manifest" wide onClose={() => action('Close')} overlayClassName="shared-truck-overlay"><div className="shared-truck-detail">
     <div className="shared-truck-header">
       <div>
@@ -167,6 +222,21 @@ export default function TruckManifestScreen({ store, record, opened, locked, ren
         if (['First', 'Previous', 'Next', 'Last'].includes(label)) { const next = label === 'First' ? 0 : label === 'Last' ? all.length - 1 : Math.max(0, Math.min(all.length - 1, index + (label === 'Next' ? 1 : -1))); openManifest(all[next]); }
         else action(label);
       }}>{label}</button>)}</div>
+    {assigning && <Dialog title="Assign TCNs or Aggregates" wide onClose={() => setAssigning(null)} overlayClassName="shared-truck-assign-overlay">
+      <div className="shared-truck-assign">
+        <div className="shared-tab-bar" role="tablist" aria-label="Assign tabs">{['Assign TCNs', 'Assign Aggregates'].map(name => <button key={name} role="tab" aria-selected={assignTab === name} onClick={() => { setAssignTab(name); setAssigning([]); }}>{name}</button>)}</div>
+        <section role="tabpanel" aria-label={assignTab} className="shared-truck-assign-panel">
+          <p><strong>Tip:</strong> One or more rows can be selected to process. Double clicking a row will perform the Assign action</p>
+          <div className="shared-air-cargo">
+            <div className="shared-toolbar"><button disabled={disabled || !assigning.length} onClick={() => assign(assigning)}>Assign</button><button onClick={() => { setAssigning([]); setAssignFilters({}); }}>Clear</button></div>
+            {assignTab === 'Assign TCNs'
+              ? grid(ASSIGN_COLUMNS, assignable, assignFilters, setAssignFilters, 'assign', row => assigning.includes(row.id), (row, e) => setAssigning(multi(assigning, row.id, e)), false, row => assign([row.id]))
+              : grid(AGGREGATE_COLUMNS, [], {}, () => {}, 'aggregate', () => false, () => {})}
+          </div>
+        </section>
+        <footer className="shared-truck-assign-footer"><button onClick={() => setAssigning(null)}>Close</button></footer>
+      </div>
+    </Dialog>}
     {statementPick && <Dialog title="Hazardous Certification Statements" wide onClose={() => setStatementPick(null)} overlayClassName="shared-reference-overlay">
       <div className="shared-truck-statement-pick">
         <table className="shared-table"><colgroup><col style={{ width: 40 }} /><col style={{ width: 90 }} /><col /></colgroup>

@@ -61,8 +61,11 @@ function assign() {
   userEvent.click(
     screen.getByRole("button", { name: /^Assign TCNs( or |\/)Aggregates$/ }),
   );
-  const d = within(screen.getByRole("dialog", { name: "Assign TCNs" }));
-  for (const c of d.getAllByRole("checkbox")) userEvent.click(c);
+  // Truck Manifest uses the CMOS Assign TCNs or Aggregates window: ctrl-click rows to select them.
+  const truck = screen.queryByRole("dialog", { name: "Assign TCNs or Aggregates" });
+  const d = within(truck || screen.getByRole("dialog", { name: "Assign TCNs" }));
+  if (truck) for (const row of d.getAllByRole("row").filter((r) => /TRN00/.test(r.textContent))) userEvent.click(row, { ctrlKey: true });
+  else for (const c of d.getAllByRole("checkbox")) userEvent.click(c);
   userEvent.click(d.getByRole("button", { name: "Assign", exact: true }));
   userEvent.click(d.getByRole("button", { name: "Close", exact: true }));
 }

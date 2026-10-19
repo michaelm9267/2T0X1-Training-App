@@ -192,7 +192,7 @@ export default function DetailTabs({
       .filter(Boolean)
       .map((r) => ({
         ...r,
-        draft: { ...r.draft, ...totals(store, [r.id]) },
+        draft: { ...r.draft, ...totals(store, [r.id]), cube: wholeCube(totals(store, [r.id]).cube) },
       }));
     return (
       <>
