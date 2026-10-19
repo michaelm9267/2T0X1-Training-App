@@ -1,7 +1,7 @@
 # Regulation links and quoted tooltips
 
 Date: 18 October 2026
-Status: In-chat design approved; written specification awaiting user review.
+Status: Written specification approved by the user; implementation plan awaiting review and execution-method selection.
 
 ## Purpose and approved behavior
 
