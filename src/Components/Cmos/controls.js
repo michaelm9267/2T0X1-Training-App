@@ -213,8 +213,8 @@ export function Lookup({ field, rows, onSelect, onClose }) {
           </tr>
         </thead>
         <tbody>
-          {matches.map(([id, name]) => (
-            <tr key={id} aria-selected={selected === id} onClick={() => setSelected(id)}>
+          {matches.map(([id, name], index) => (
+            <tr key={`${id}-${index}`} aria-selected={selected === id} onClick={() => setSelected(id)}>
               <td>
                 <input
                   type="radio"

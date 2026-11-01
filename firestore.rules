@@ -42,7 +42,13 @@ service cloud.firestore {
       // One saved session per course.
       match /sessions/{course} {
         allow read: if owner(uid) || instructor();
-        allow write: if writer(uid) && course in ['cdf', 'outbound'];
+        allow write: if writer(uid) && course in ['cdf', 'outbound', 'waps'];
+
+        // Chunked WAPS snapshots keep large exams and reports below the document size limit.
+        match /payloads/{part} {
+          allow read: if owner(uid) || instructor();
+          allow write: if writer(uid) && course == 'waps';
+        }
 
         // The simulated CMOS database, kept apart so neither document nears the 1 MiB limit.
         match /cmos/{doc} {

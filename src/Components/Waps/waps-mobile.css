@@ -1,0 +1,54 @@
+/* Phone layout for the WAPS Study Tool (screens 640px wide or less). The desktop layout lives in
+   waps.css; this file only reflows it so the study content starts near the top of the screen and
+   the controls are sized for thumbs. */
+@media (max-width: 640px) {
+  /* The page is a grid sized to its content; cap it at the screen so sideways-scrolling rows
+     scroll inside it instead of widening the page. */
+  .waps-study { grid-template-columns: minmax(0, 1fr); padding: 12px 12px 24px; }
+  .waps-workspace { min-width: 0; gap: 12px; }
+  .waps-workspace > *, .waps-study-set, .waps-study-set > * { min-width: 0; }
+  .waps-header { flex-wrap: nowrap; align-items: center; }
+  .waps-header h2 { margin-top: 6px; font-size: 1.35rem; }
+  .waps-workspace .waps-change { flex-shrink: 0; min-height: 36px; padding: 6px 10px; font-size: .78rem; white-space: nowrap; }
+
+  /* Publications: one sideways-scrolling row of names instead of eight stacked cards.
+     "All regulations" leads the row so the mixed review and full exam are easy to find. */
+  .waps-publications { display: flex; gap: 8px; margin: 0 -12px; padding: 0 12px 4px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 12px; scrollbar-width: none; }
+  .waps-publications::-webkit-scrollbar { display: none; }
+  .waps-workspace .waps-publications button { flex: 0 0 auto; min-height: 40px; padding: 8px 12px; scroll-snap-align: start; white-space: nowrap; }
+  .waps-publications button span { display: none; }
+  .waps-workspace .waps-publications .waps-combined { order: -1; grid-column: auto; }
+
+  .waps-source { gap: 6px; padding: 12px 14px; }
+  .waps-source h3 { font-size: .95rem; }
+  .waps-source .waps-muted { font-size: .78rem; }
+
+  /* Sections and study modes: single rows that scroll sideways rather than wrapping. */
+  .waps-filters, .waps-modes { flex-wrap: nowrap; margin: 0 -12px; padding: 0 12px; overflow-x: auto; scrollbar-width: none; }
+  .waps-modes { padding-bottom: 8px; }
+  .waps-filters::-webkit-scrollbar, .waps-modes::-webkit-scrollbar { display: none; }
+  .waps-workspace .waps-filters button, .waps-workspace .waps-modes button { flex: 0 0 auto; min-height: 38px; white-space: nowrap; }
+
+  .waps-panel { gap: 12px; padding: 16px 14px; border-radius: 12px; }
+  .waps-question { font-size: 1.05rem; }
+  .waps-workspace .waps-choice { min-height: 48px; }
+
+  /* Main actions span the panel in equal columns, tall enough to tap. */
+  .waps-panel > button, .waps-feedback > button { align-self: stretch; min-height: 48px; }
+  .waps-actions { display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; }
+  .waps-workspace .waps-actions > button { min-height: 48px; padding: 6px 8px; line-height: 1.25; white-space: normal; }
+
+  /* Full exam: Previous / Flag / Next / Submit stay at the bottom of the screen while reading a
+     long question, and the 100-question grid becomes one sideways-scrolling row. */
+  section[aria-label="Full exam"] .waps-actions { position: sticky; bottom: 0; z-index: 5; margin: 0 -14px; padding: 8px 14px calc(8px + env(safe-area-inset-bottom)); background: var(--surface); border-top: 1px solid var(--border); }
+  section[aria-label="Full exam"] .waps-actions > button { font-size: .78rem; }
+  .waps-navigator { display: flex; gap: 6px; padding-bottom: 6px; overflow-x: auto; }
+  .waps-workspace .waps-navigator button { flex: 0 0 40px; min-height: 40px; }
+
+  /* iOS zooms the page into any form field under 16px. */
+  .waps-workspace select, .waps-workspace textarea, .waps-workspace input { font-size: 16px; }
+
+  /* Guest banner: keep "Sign in" on one line. */
+  .auth-account-bar { justify-content: space-between; padding: 6px 12px; font-size: .74rem; line-height: 1.35; }
+  .auth-account-bar button { flex-shrink: 0; min-height: 32px; white-space: nowrap; }
+}

@@ -1,3 +1,5 @@
+import { WAPS_GLOSSARY } from './wapsAcronyms';
+
 // Acronyms and codes shown in the trainer, with what each stands for.
 export const GLOSSARY = {
   AB: 'Air Base',
@@ -77,22 +79,26 @@ export const GLOSSARY = {
 
 const TOKEN = /[A-Za-z0-9][A-Za-z0-9/-]*[A-Za-z0-9]|[A-Za-z]/g;
 
+// Text inside an element marked data-glossary="waps" (the WAPS Study Tool) also uses the WAPS terms.
+const STUDY_GLOSSARY = { ...GLOSSARY, ...WAPS_GLOSSARY };
+export const glossaryFor = node => (node?.nodeType === 1 ? node : node?.parentElement)?.closest('[data-glossary="waps"]') ? STUDY_GLOSSARY : GLOSSARY;
+
 // The glossary term for a word, allowing a plural "s" (DoDAACs).
-export function lookup(word) {
-  if (Object.hasOwn(GLOSSARY, word)) return word;
-  if (word.endsWith('s') && Object.hasOwn(GLOSSARY, word.slice(0, -1))) return word.slice(0, -1);
+export function lookup(word, glossary = GLOSSARY) {
+  if (Object.hasOwn(glossary, word)) return word;
+  if (word.endsWith('s') && Object.hasOwn(glossary, word.slice(0, -1))) return word.slice(0, -1);
   return undefined;
 }
 
 // Every glossary term in a string, with its character range.
-export function findAcronyms(text) {
+export function findAcronyms(text, glossary = GLOSSARY) {
   const found = [];
   for (const match of text.matchAll(TOKEN)) {
-    const term = lookup(match[0]);
+    const term = lookup(match[0], glossary);
     if (term) { found.push({ term, start: match.index, end: match.index + match[0].length }); continue; }
     // Paired words such as "Consignor/POE" or "ISU-type": check each part on its own.
     for (const part of match[0].matchAll(/[A-Za-z0-9]+/g)) {
-      const partTerm = lookup(part[0]);
+      const partTerm = lookup(part[0], glossary);
       if (partTerm) found.push({ term: partTerm, start: match.index + part.index, end: match.index + part.index + part[0].length });
     }
   }
@@ -100,4 +106,4 @@ export function findAcronyms(text) {
 }
 
 // The glossary term covering a character offset, if any.
-export const acronymAt = (text, offset) => findAcronyms(text).find(item => offset >= item.start && offset <= item.end);
+export const acronymAt = (text, offset, glossary = GLOSSARY) => findAcronyms(text, glossary).find(item => offset >= item.start && offset <= item.end);

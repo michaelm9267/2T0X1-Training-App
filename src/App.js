@@ -35,6 +35,7 @@ import AircraftPackage from './Components/Documentation/AircraftPackage';
 import { defaultDepartureAt, emptyDeparture, reconcileRelease } from './Components/Departure/departureLogic';
 import { chalkSchedule } from './Components/Documentation/Dsoe';
 import OutboundTrainer from './Components/Outbound/OutboundTrainer';
+import WapsStudyTool from './Components/Waps/WapsStudyTool';
 import PracticeBar from './Components/Session/PracticeBar';
 import CdfGradingSheet from './Components/Documentation/CdfGradingSheet';
 import './App.css';
@@ -302,7 +303,7 @@ function App() {
           </div>
         </main>
         {cmosPage && <CdfCmosWorkspace session={cmosContext} state={cdfCmos} initialPage={cmosPage} onClose={closeCmos} onStateChange={cmos.onStateChange} onExerciseChange={cmos.onExerciseChange} onDepartureChange={update=>{if(!finished)setDeparture(update);}}/>}
-        </> : activeModule === 'outbound' ? <OutboundTrainer /> : <main className="module-placeholder">
+        </> : activeModule === 'outbound' ? <OutboundTrainer /> : activeModule === 'waps' ? <WapsStudyTool /> : <main className="module-placeholder">
           <div className="module-placeholder-card">
             <span className="module-status">Coming soon</span>
             <h2>{placeholderModules[activeModule]}</h2>

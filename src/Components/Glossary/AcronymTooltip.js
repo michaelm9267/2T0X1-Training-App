@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { GLOSSARY, acronymAt, findAcronyms } from './acronyms';
+import { acronymAt, findAcronyms, glossaryFor } from './acronyms';
 import './acronym-tooltip.css';
 
 // Shows what an acronym means when the pointer rests on it anywhere in the page. It reads the
@@ -21,14 +21,15 @@ function caretAt(x, y) {
 function acronymAtPoint(x, y, ignore) {
   const caret = caretAt(x, y);
   if (!caret || caret.node?.nodeType !== Node.TEXT_NODE || ignore?.contains(caret.node)) return null;
-  const hit = acronymAt(caret.node.textContent, caret.offset);
+  const glossary = glossaryFor(caret.node);
+  const hit = acronymAt(caret.node.textContent, caret.offset, glossary);
   if (!hit || caret.node.parentElement?.closest('[data-regulation-source], [data-regulation-popup]')) return null;
   const range = document.createRange();
   range.setStart(caret.node, hit.start);
   range.setEnd(caret.node, hit.end);
   // The caret lands on the nearest text even when the pointer is beside it; require a direct hit.
   const rect = [...range.getClientRects()].find(r => x >= r.left - 2 && x <= r.right + 2 && y >= r.top - 2 && y <= r.bottom + 2);
-  return rect ? { term: hit.term, rect } : null;
+  return rect ? { term: hit.term, meaning: glossary[hit.term], rect } : null;
 }
 
 function underlineAcronyms(ignore) {
@@ -38,7 +39,7 @@ function underlineAcronyms(ignore) {
     acceptNode: node => node.parentElement?.closest('script, style, option, textarea, [data-regulation-source], [data-regulation-popup]') || ignore?.contains(node) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
   });
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-    for (const hit of findAcronyms(node.textContent)) {
+    for (const hit of findAcronyms(node.textContent, glossaryFor(node))) {
       const range = new Range();
       range.setStart(node, hit.start);
       range.setEnd(node, hit.end);
@@ -90,6 +91,6 @@ export default function AcronymTooltip() {
     maxWidth: width,
   };
   return <div ref={tooltip} className="acronym-tooltip" role="tooltip" hidden={!tip} style={style || undefined}>
-    {tip && <><strong>{tip.term}</strong><span>{GLOSSARY[tip.term]}</span></>}
+    {tip && <><strong>{tip.term}</strong><span>{tip.meaning}</span></>}
   </div>;
 }

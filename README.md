@@ -69,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # 2T0X1-Training-App
+
+## WAPS study maintenance
+
+See [E-5 question quality, account persistence and offline deployment](docs/reference/waps-quality-and-persistence.md). Run `npm run audit:waps` for source-review coverage and answer-length diagnostics. `npm run build` includes the offline worker. Deploy the updated Firestore rules before releasing account-synced WAPS progress.

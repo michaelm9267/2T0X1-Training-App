@@ -10,6 +10,7 @@ export const META_KEY = 'transit-iq-cloud';
 export const COURSES = {
   cdf: { storageKey: 'cdf-trainer-session' },
   outbound: { storageKey: 'outbound-trainer-session' },
+  waps: { storageKey: 'waps-progress-e5' },
 };
 
 const clone = (value) => JSON.parse(JSON.stringify(value ?? null));
@@ -71,18 +72,37 @@ const writeMeta = (storage, meta) => {
   try { storage.setItem(META_KEY, JSON.stringify(meta)); } catch { /* storage unavailable */ }
 };
 
+// Guest work is adopted on the first account sign-in without discarding existing account cards.
+function mergeGuestWaps(local, remote) {
+  const cards = {...remote.cards};
+  Object.entries(local.cards || {}).forEach(([id, card]) => {
+    if (!cards[id] || Number(card.seen || 0) > Number(cards[id].seen || 0)) cards[id] = card;
+  });
+  const tests = [...(remote.tests || []), ...(local.tests || [])];
+  const uniqueTests = [...new Map(tests.map(t => [`${t.at}|${t.kind}|${t.publication}|${t.total}`, t])).values()].sort((a,b) => a.at-b.at).slice(-20);
+  const reports = [...new Map([...(remote.reports || []), ...(local.reports || [])].map(r => [r.id, r])).values()].sort((a,b)=>a.at-b.at).slice(-100);
+  return {...remote, ...local, cards, tests: uniqueTests, reports, exam: local.exam || remote.exam || null};
+}
+
 // Before the courses load: make this browser's copy belong to the signed-in user. The newer of
 // the cloud and browser copies wins; another user's browser copy is never shown.
-export async function hydrate({ uid, readCourse, storage = window.localStorage }) {
+export async function hydrate({ uid, readCourse, storage = window.localStorage, isCurrent = () => true }) {
+  if (!isCurrent()) return;
   const meta = readMeta(storage);
   const sameUser = meta.uid === uid;
   const firstSync = !meta.uid;
+  if (!sameUser && !firstSync) storage.removeItem('waps-exam-e5');
   for (const [course, { storageKey }] of Object.entries(COURSES)) {
     const cloud = await readCourse(uid, course);
+    if (!isCurrent()) return;
     const local = storage.getItem(storageKey);
     const cloudNewer = cloud && (!sameUser || !local || Number(cloud.updatedAt) > Number(meta[course] || 0));
     if (cloudNewer) {
-      storage.setItem(storageKey, JSON.stringify(joinSession(course, cloud)));
+      let restored = joinSession(course, cloud);
+      if (course === 'waps' && firstSync && local) {
+        try { restored = mergeGuestWaps(JSON.parse(local), restored); } catch { /* use valid cloud snapshot */ }
+      }
+      storage.setItem(storageKey, JSON.stringify(restored));
       meta[course] = Number(cloud.updatedAt);
     } else if (!cloud && !sameUser && !firstSync) {
       // Work left by a different user on this browser.
@@ -103,16 +123,18 @@ export function claimLocal(uid, storage = window.localStorage) {
 // Removes this browser's copies, e.g. when signing out on a shared computer.
 export function clearLocal(storage = window.localStorage) {
   for (const { storageKey } of Object.values(COURSES)) storage.removeItem(storageKey);
+  storage.removeItem('waps-exam-e5');
   storage.removeItem(META_KEY);
 }
 
-export function createCloudSync({ uid, writeCourse, storage = window.localStorage, interval = WRITE_INTERVAL, now = Date.now, onError = () => {} }) {
+export function createCloudSync({ uid, writeCourse, storage = window.localStorage, interval = WRITE_INTERVAL, now = Date.now, onError = () => {}, onSuccess = () => {} }) {
   const latest = {}, written = {}, writtenCmos = {}, writtenFull = {};
-  let timer = null, stopped = false;
+  let timer = null, stopped = false, inFlight = null;
   const schedule = () => {
     if (!timer && !stopped) timer = setTimeout(() => { timer = null; flush(); }, interval);
   };
-  async function flush({ final = false } = {}) {
+  async function performFlush({ final = false } = {}) {
+    let succeeded = true;
     const work = Object.entries(latest).filter(([course, session]) =>
       fingerprint(course, session) !== written[course] || (final && JSON.stringify(session) !== writtenFull[course]));
     for (const [course, session] of work) {
@@ -120,15 +142,25 @@ export function createCloudSync({ uid, writeCourse, storage = window.localStorag
       const parts = splitSession(course, session, updatedAt);
       try {
         await writeCourse(uid, course, { session: parts.session, ...(parts.cmos !== writtenCmos[course] ? { cmos: parts.cmos } : {}) });
+        if (stopped || (readMeta(storage).uid && readMeta(storage).uid !== uid)) continue;
+        onSuccess();
         written[course] = fingerprint(course, session);
         writtenFull[course] = JSON.stringify(session);
         writtenCmos[course] = parts.cmos;
-        writeMeta(storage, { ...readMeta(storage), uid, [course]: updatedAt });
+        const meta = readMeta(storage);
+        writeMeta(storage, { ...meta, uid, [course]: Math.max(Number(meta[course] || 0), updatedAt) });
       } catch (error) {
+        succeeded = false;
         onError(error);
         schedule();
       }
     }
+    return succeeded;
+  }
+  async function flush(options = {}) {
+    if (inFlight) { await inFlight; return flush(options); }
+    inFlight = performFlush(options);
+    try { return await inFlight; } finally { inFlight = null; }
   }
   return {
     handleSave(course, session) {

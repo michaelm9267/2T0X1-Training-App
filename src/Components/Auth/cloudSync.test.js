@@ -131,3 +131,56 @@ test('demo accounts keep their own browser work but never see a previous user', 
   clearLocal(storage);
   expect(storage.data[META_KEY]).toBeUndefined();
 });
+
+test('WAPS progress, reports and exam restore on another device and clear between accounts', async () => {
+  const progress = {cards: {a: {right: 2}}, tests: [], reports: [{id: 'r1'}], exam: {position: 2}};
+  const storage = memory();
+  await hydrate({uid: 'one', storage, readCourse: async (uid, course) => course === 'waps' ? {data: JSON.stringify(progress), updatedAt: 10} : null});
+  expect(JSON.parse(storage.getItem('waps-progress-e5'))).toEqual(progress);
+  await hydrate({uid: 'two', storage, readCourse: async () => null});
+  expect(storage.getItem('waps-progress-e5')).toBeNull();
+});
+
+test('WAPS writes use the existing account sync bridge', async () => {
+  const storage = memory();
+  const writes = [];
+  const sync = createCloudSync({uid: 'one', storage, writeCourse: async (...args) => writes.push(args)});
+  sync.handleSave('waps', {cards: {}, tests: [], reports: [{questionId: 'q1'}]});
+  await sync.flush();
+  sync.stop();
+  expect(writes).toHaveLength(1);
+  expect(JSON.parse(writes[0][2].session.data).reports[0].questionId).toBe('q1');
+});
+
+test('first account sign-in merges guest WAPS cards and reports with existing cloud progress', async () => {
+  const storage = memory({'waps-progress-e5': JSON.stringify({cards: {guest: {seen: 50}}, tests: [], reports: [{id:'local'}]})});
+  await hydrate({uid:'one', storage, readCourse: async (uid, course) => course === 'waps' ? {data: JSON.stringify({cards:{cloud:{seen:40}}, tests:[], reports:[{id:'remote'}]}), updatedAt: 40} : null});
+  const restored = JSON.parse(storage.getItem('waps-progress-e5'));
+  expect(Object.keys(restored.cards).sort()).toEqual(['cloud', 'guest']);
+  expect(restored.reports.map(r=>r.id).sort()).toEqual(['local', 'remote']);
+});
+test('legacy WAPS exams are removed when browser ownership changes', async () => {
+  const storage = memory({'waps-exam-e5':'{"secret":"previous user"}', [META_KEY]:JSON.stringify({uid:'one'})});
+  await hydrate({uid:'two', storage, readCourse: async()=>null});
+  expect(storage.getItem('waps-exam-e5')).toBeNull();
+});
+test('a superseded account hydration cannot write another user snapshot', async () => {
+  const storage = memory(); let current = false;
+  await hydrate({uid:'one',storage,isCurrent:()=>current,readCourse:async()=>({data:'{"private":true}',updatedAt:1})});
+  expect(storage.getItem('cdf-trainer-session')).toBeNull();
+  expect(storage.getItem(META_KEY)).toBeNull();
+});
+test('an old account write cannot reclaim browser metadata after sync stops', async () => {
+  const storage = memory({[META_KEY]:JSON.stringify({uid:'one'})});
+  let finish; const pending = new Promise(resolve=>{finish=resolve;});
+  const sync = createCloudSync({uid:'one',storage,writeCourse:()=>pending});
+  sync.handleSave('waps',{cards:{},tests:[]}); const flushing = sync.flush();
+  sync.stop(); storage.setItem(META_KEY, JSON.stringify({uid:'two',waps:99}));
+  finish(); await flushing;
+  expect(JSON.parse(storage.getItem(META_KEY))).toEqual({uid:'two',waps:99});
+});
+test('final flush reports failure so sign-out can preserve unsent work', async () => {
+  const sync = createCloudSync({uid:'one',storage:memory(),writeCourse:async()=>{throw new Error('offline');}});
+  sync.handleSave('waps',{cards:{},tests:[]});
+  expect(await sync.flush({final:true})).toBe(false); sync.stop();
+});

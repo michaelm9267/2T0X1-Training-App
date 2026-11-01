@@ -116,8 +116,10 @@ test('date fields open a calendar; date/time fields add a time', () => {
   userEvent.click(screen.getByRole('button', { name: 'Choose Delivery Latest' }));
   const picker = within(screen.getByRole('dialog', { name: 'Delivery Latest calendar' }));
   fireEvent.change(picker.getByLabelText('Delivery Latest time'), { target: { value: '1630' } });
-  userEvent.click(picker.getByRole('button', { name: '20Oct2026' }));
-  expect(screen.getByLabelText('Delivery Latest')).toHaveValue('20Oct2026/1630');
+  const twentieth = picker.getByRole('button', { name: /^20[A-Z][a-z]{2}\d{4}$/ });
+  const selectedDate = twentieth.getAttribute('aria-label');
+  userEvent.click(twentieth);
+  expect(screen.getByLabelText('Delivery Latest')).toHaveValue(`${selectedDate}/1630`);
   expect(screen.queryByRole('dialog', { name: 'Delivery Latest calendar' })).not.toBeInTheDocument();
 });
 

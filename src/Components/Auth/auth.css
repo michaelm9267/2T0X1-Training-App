@@ -22,3 +22,6 @@
 .auth-account-bar button { padding: 2px 10px; border: 1px solid var(--border, #2c3c50); border-radius: 4px; background: transparent; color: var(--text-primary, #edf2f8); font-size: .8rem; cursor: pointer; }
 @media print { .auth-account-bar { display: none; } }
 .auth-account-bar strong { color: var(--text-primary, #edf2f8); font-weight: 600; }
+.auth-guest { width: 100%; min-height: 40px; border: 1px solid var(--accent, #5ee0c5); border-radius: 6px; background: transparent; color: var(--accent, #5ee0c5); font-weight: 600; font-size: .95rem; cursor: pointer; }
+.auth-guest:hover { background: rgb(94 224 197 / 10%); }
+.auth-guest:focus-visible { outline: 2px solid var(--accent, #5ee0c5); outline-offset: 2px; }

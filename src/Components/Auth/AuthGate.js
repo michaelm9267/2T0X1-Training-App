@@ -3,11 +3,14 @@ import { onSave } from '../../cloudBridge';
 import { setCurrentUser } from '../../currentUser';
 import * as client from './firebaseClient';
 import { createCloudSync, hydrate, clearLocal, claimLocal } from './cloudSync';
+import WapsStudyTool from '../Waps/WapsStudyTool';
+import AcronymTooltip from '../Glossary/AcronymTooltip';
 import './auth.css';
 
 // The app opens only for signed-in users on the instructor's allow-list. Trainee and instructor
 // work is mirrored to their account; a demo account (for showcasing the app) keeps work in this
-// browser only and starts fresh at each sign-in.
+// browser only and starts fresh at each sign-in. The WAPS Study Tool is open to signed-out
+// visitors (guest mode, or a link ending in #waps); its progress stays in this browser.
 const ERRORS = {
   'auth/invalid-credential': 'Email or password is incorrect.',
   'auth/wrong-password': 'Email or password is incorrect.',
@@ -32,7 +35,9 @@ function Shell({ children }) {
   </main>;
 }
 
-function SignIn() {
+const GUEST_HASH = '#waps';
+
+function SignIn({ onGuest }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
@@ -59,40 +64,81 @@ function SignIn() {
     </button>
     {notice && <p className={notice.error ? 'auth-error' : 'auth-note'} role={notice.error ? 'alert' : 'status'}>{notice.text}</p>}
     <p className="auth-fine">Accounts are issued by your instructor.</p>
+    <div className="auth-divider"><span>no account?</span></div>
+    <button type="button" className="auth-guest" onClick={onGuest}>Study for WAPS without signing in</button>
   </Shell>;
+}
+
+function GuestWaps({ onSignIn }) {
+  return <>
+    <div className="auth-account-bar">
+      <span><strong>Guest</strong> · 2T0 WAPS Study Tool · progress is saved in this browser only</span>
+      <button type="button" onClick={onSignIn}>Sign in</button>
+    </div>
+    <WapsStudyTool />
+    <AcronymTooltip />
+  </>;
 }
 
 export default function AuthGate({ children }) {
   const [state, setState] = useState({ phase: 'loading' });
+  const [online, setOnline] = useState(navigator.onLine);
+  useEffect(() => {
+    const update = () => setOnline(navigator.onLine);
+    window.addEventListener('online', update); window.addEventListener('offline', update);
+    return () => {window.removeEventListener('online', update); window.removeEventListener('offline', update);};
+  }, []);
+  const [guest, setGuest] = useState(() => window.location.hash === GUEST_HASH);
+  const setGuestMode = (on) => {
+    setGuest(on);
+    window.history.replaceState(null, '', on ? GUEST_HASH : window.location.pathname + window.location.search);
+  };
   const sync = useRef(null);
+  const [syncError, setSyncError] = useState('');
 
-  useEffect(() => client.onAuth(async (user) => {
-    sync.current?.stop();
-    sync.current = null;
-    if (!user) { setState({ phase: 'signedOut' }); return; }
-    setState({ phase: 'checking', user });
-    try {
-      const entry = await client.allowlistEntry(user.email);
-      if (!entry) { setState({ phase: 'denied', user }); return; }
-      const role = entry.role || 'trainee';
-      if (role === 'demo') {
-        // Showcase account: shared by many people, so its work stays in this browser only.
-        claimLocal(user.uid);
-      } else {
-        await hydrate({ uid: user.uid, readCourse: client.readCourse });
-        client.touchProfile(user.uid, { email: user.email.toLowerCase(), displayName: user.displayName || '', role }).catch(() => {});
-        sync.current = createCloudSync({ uid: user.uid, writeCourse: client.writeCourse });
+  useEffect(() => {
+    if (!online) return undefined;
+    let revision = 0;
+    const unsubscribe = client.onAuth(async (user) => {
+      const current = ++revision;
+      const isCurrent = () => revision === current;
+      sync.current?.stop(); sync.current = null;
+      setSyncError('');
+      if (!user) {
+        try { if (JSON.parse(localStorage.getItem('transit-iq-cloud'))?.uid) clearLocal(); } catch { /* no owned browser snapshot */ }
+        setCurrentUser(''); setState({phase: 'signedOut'}); return;
       }
-      // The name shown in the account bar: the allow-list entry's name (set by the instructor),
-      // else the Google account name, else the email address.
-      const name = String(entry.name || user.displayName || user.email).trim();
-      setCurrentUser(role === 'demo' ? 'Demo' : name);
-      setState({ phase: 'ready', user, role, name });
-    } catch (error) {
-      console.error('Transit IQ sign-in setup failed', error);
-      setState({ phase: 'error', user });
-    }
-  }), []);
+      setState({phase: 'checking', user});
+      try {
+        const entry = await client.allowlistEntry(user.email);
+        if (!isCurrent()) return;
+        if (!entry) {setState({phase: 'denied', user}); return;}
+        const role = entry.role || 'trainee';
+        if (role === 'demo') claimLocal(user.uid);
+        else {
+          await hydrate({uid: user.uid, readCourse: client.readCourse, isCurrent});
+          if (!isCurrent()) return;
+          client.touchProfile(user.uid, {email: user.email.toLowerCase(), displayName: user.displayName || '', role}).catch(() => {});
+          sync.current = createCloudSync({uid: user.uid, writeCourse: client.writeCourse,
+            onError: () => {if (isCurrent()) setSyncError('Account sync is unavailable. Your work is saved in this browser and will retry.');},
+            onSuccess: () => {if (isCurrent()) setSyncError('');}});
+          try {const waps = JSON.parse(localStorage.getItem('waps-progress-e5')); if (waps) sync.current.handleSave('waps', waps);} catch { /* no valid browser WAPS snapshot */ }
+        }
+        const name = String(entry.name || user.displayName || user.email).trim();
+        setCurrentUser(role === 'demo' ? 'Demo' : name);
+        setState({phase: 'ready', user, role, name});
+      } catch (error) {
+        if (!isCurrent()) return;
+        console.error('Transit IQ sign-in setup failed', error);
+        setState({phase: 'error', user});
+      }
+    });
+    return () => {revision += 1; unsubscribe();};
+  }, [online]);
+
+  // Keep collecting local edits while offline; stop only when the gate unmounts or the
+  // next authenticated account replaces the sync instance.
+  useEffect(() => () => sync.current?.stop(), []);
 
   useEffect(() => {
     if (state.phase !== 'ready') return undefined;
@@ -110,15 +156,21 @@ export default function AuthGate({ children }) {
 
   async function signOut() {
     setState((current) => ({ ...current, phase: 'signingOut' }));
-    try { await sync.current?.flush({ final: true }); } catch { /* the browser copy is cleared either way */ }
+    let saved = false;
+    try { saved = (await sync.current?.flush({final: true})) !== false; } catch { /* preserve work unless explicitly discarded */ }
+    if (!saved && !window.confirm('Your latest work has not reached your account. Sign out and erase this browser’s unsent copy anyway?')) {
+      setState(current => ({...current, phase: 'ready'}));
+      return;
+    }
     sync.current?.stop();
     clearLocal();
     await client.signOut();
     window.location.reload();
   }
 
+  if (!online && state.phase !== 'ready') return <GuestWaps onSignIn={() => setGuestMode(false)} />;
   if (state.phase === 'loading' || state.phase === 'checking') return <Shell><p className="auth-note" role="status">Signing in…</p></Shell>;
-  if (state.phase === 'signedOut') return <SignIn />;
+  if (state.phase === 'signedOut') return guest ? <GuestWaps onSignIn={() => setGuestMode(false)} /> : <SignIn onGuest={() => setGuestMode(true)} />;
   if (state.phase === 'signingOut') return <Shell><p className="auth-note" role="status">Saving your work and signing out…</p></Shell>;
   if (state.phase === 'denied' || state.phase === 'error') return <Shell>
     <p className="auth-error" role="alert">{state.phase === 'denied'
@@ -131,6 +183,7 @@ export default function AuthGate({ children }) {
       <span title={state.user.email}>Signed in as <strong>{state.name}</strong>{ROLE_LABELS[state.role] ? ` · ${ROLE_LABELS[state.role]}` : ''}</span>
       <button type="button" onClick={signOut}>Sign out</button>
     </div>
+    {syncError && <p className="auth-note" role="status">{syncError}</p>}
     {children}
   </>;
 }

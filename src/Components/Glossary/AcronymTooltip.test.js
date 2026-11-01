@@ -31,3 +31,27 @@ test('hovering an acronym shows what it means and moving away hides it', () => {
     raf.mockRestore();
   }
 });
+
+test('WAPS study tool text uses the WAPS glossary, and other screens do not', () => {
+  render(<>
+    <main data-glossary="waps"><p>Ask the TO about the CBA</p></main>
+    <p>Ask the TO about the CBA</p>
+    <AcronymTooltip />
+  </>);
+  const [study, other] = screen.getAllByText('Ask the TO about the CBA').map(p => p.firstChild);
+  const original = { caret: document.caretRangeFromPoint, rects: Range.prototype.getClientRects };
+  const raf = jest.spyOn(window, 'requestAnimationFrame').mockImplementation(callback => { callback(); return 1; });
+  Range.prototype.getClientRects = () => [{ left: 100, right: 130, top: 10, bottom: 26, width: 30, height: 16 }];
+  try {
+    document.caretRangeFromPoint = () => ({ startContainer: study, startOffset: 9 });
+    act(() => { fireEvent.mouseMove(document, { clientX: 110, clientY: 18 }); });
+    expect(screen.getByRole('tooltip')).toHaveTextContent('TOTransportation Officer');
+    document.caretRangeFromPoint = () => ({ startContainer: other, startOffset: 9 });
+    act(() => { fireEvent.mouseMove(document, { clientX: 110, clientY: 18 }); });
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+  } finally {
+    document.caretRangeFromPoint = original.caret;
+    Range.prototype.getClientRects = original.rects;
+    raf.mockRestore();
+  }
+});

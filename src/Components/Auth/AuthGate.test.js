@@ -101,3 +101,46 @@ test('the account bar shows the name from the allow-list, falling back to the em
   await waitFor(() => authCallback({ uid: 'u3', email: 'new@example.com', displayName: null }));
   expect(await screen.findByText(/Signed in as/)).toHaveTextContent('Signed in as new@example.com · Trainee');
 });
+
+test('signed-out visitors can open the WAPS Study Tool as a guest and go back to sign in', async () => {
+  render(<AuthGate><p>Training app</p></AuthGate>);
+  await waitFor(() => authCallback(null));
+  userEvent.click(await screen.findByRole('button', { name: 'Study for WAPS without signing in' }));
+  expect(screen.getByRole('heading', { name: 'What are you studying for?' })).toBeInTheDocument();
+  expect(screen.queryByText('Training app')).not.toBeInTheDocument();
+  expect(window.location.hash).toBe('#waps');
+  userEvent.click(screen.getByRole('button', { name: 'Sign in' }));
+  expect(screen.getByLabelText('Email')).toBeInTheDocument();
+  expect(window.location.hash).toBe('');
+});
+
+test('a #waps link opens guest WAPS directly, but a signed-in user still gets the full app', async () => {
+  window.history.replaceState(null, '', '#waps');
+  client.allowlistEntry.mockResolvedValue({ role: 'trainee' });
+  render(<AuthGate><p>Training app</p></AuthGate>);
+  await waitFor(() => authCallback(null));
+  expect(await screen.findByText('Guest')).toBeInTheDocument();
+  await waitFor(() => signedIn());
+  expect(await screen.findByText('Training app')).toBeInTheDocument();
+  window.history.replaceState(null, '', window.location.pathname);
+});
+
+test('offline visitors can open cached guest study before authentication completes', () => {
+  Object.defineProperty(navigator, 'onLine', {configurable:true, value:false});
+  render(<AuthGate><p>Training app</p></AuthGate>);
+  expect(screen.getByRole('heading', {name:'What are you studying for?'})).toBeInTheDocument();
+  delete navigator.onLine;
+});
+
+test('offline edits remain queued in the signed-in sync instance for a final save attempt', async () => {
+  client.allowlistEntry.mockResolvedValue({role:'trainee'});
+  render(<AuthGate><p>Training app</p></AuthGate>);
+  await waitFor(()=>signedIn()); await screen.findByText('Training app');
+  Object.defineProperty(navigator,'onLine',{configurable:true,value:false});
+  fireEvent(window,new Event('offline'));
+  publishSave('waps',{cards:{offlineCard:{right:1}},tests:[]});
+  Object.defineProperty(document,'visibilityState',{configurable:true,value:'hidden'});
+  fireEvent(document,new Event('visibilitychange'));
+  await waitFor(()=>expect(client.writeCourse).toHaveBeenCalledWith('u1','waps',expect.objectContaining({session:expect.objectContaining({data:expect.stringContaining('offlineCard')})})));
+  delete navigator.onLine; delete document.visibilityState;
+});

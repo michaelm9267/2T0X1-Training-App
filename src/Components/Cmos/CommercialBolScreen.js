@@ -34,7 +34,7 @@ const flagField = (label, id) => f(label, id, { type: 'checkbox' });
 const area = (label, id, extra = {}) => f(label, id, { type: 'textarea', ...extra });
 // SPLCs for the DODAACs already in the system (training values; no licensed SPLC data).
 const SYSTEM_DODAACS = lookupValues({ id: 'destination' });
-const SYSTEM_SPLCS = SYSTEM_DODAACS.map(([code, text]) => [splcFor(code), `${code} ${String(text).trim()}`]);
+const SYSTEM_SPLCS = SYSTEM_DODAACS.map(([code, text]) => [splcFor(code), `${code} ${String(text).trim()}`]).filter(([splc]) => splc);
 const ADDRESS_BLOCKS = [['destination', 'Destination', 'splc'], ['origin', 'Origin', 'splc'], ['consignee', 'Consignee', 'gbloc'], ['shipper', 'Shipper', null]];
 const addressFields = (prefix, title, third) => ({
   dodaac: f('* DODAAC', `${prefix}Dodaac`, { ariaLabel: `${title} DODAAC` }),

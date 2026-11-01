@@ -1,0 +1,228 @@
+{
+  "Ch A-411, para B.3.c": {
+    "page": 2,
+    "note": "The Bulky Article list is an image in the source PDF; transcribed from page IV-A-411-2.",
+    "units": [
+      "c. Bulky Articles. (Domestic Only)",
+      "Below are the only Bulky items that may be considered for PPM shipments. Counselors will approve/deny members request before processing. Counselors can authorize more than one Bulky Article, dependent on what the customer has identified they are shipping. Bulky Articles are only authorized for domestic PPM moves as they are included in the SFR in the International program which is already included in the compensation methodology.",
+      "Bulky Article Description",
+      "Bulky Article: Go-Carts, Motorcycle >=250cc, Riding Golf Cart, Small Rec Vehicle, Snowmobile, Three/Four Wheelers, Riding Lawnmowers (including stand-on)",
+      "Bulky Article: Canoes, Jet Skis, Kayaks, or Windsurfers with/without associated trailer",
+      "Bulky Article: Boats <= 14 Ft. Dinghies, Row Boats, Sculls, Skiffs with/without associated trailer",
+      "Bulky Article: Boats > 14 Ft. Dinghies, Row Boats, Sculls, Skiffs with/without associated trailer",
+      "Bulky Article: Trailers Boats (excluding all other trailers used to move property (i.e. horse, utility))",
+      "Bulky Article: Big Screen TV >=48 In. (excluding flat screen televisions)",
+      "Bulky Article: Baby Grand Piano or Grand Piano (excluding upright pianos)",
+      "Bulky Article: Animal House/Kennel, Play House, Tool Shed, or Utility Shed >100 cu ft",
+      "Bulky Article: Bath Tub, Hot Tub, Jacuzzi, Spa, or Whirlpool Baths >100 cu ft"
+    ]
+  },
+  "Ch A-411, Figure 411-1": {
+    "page": 6,
+    "note": "DD Form 2278 is an image in the source PDF; transcribed from pages IV-A-411-6 and -7.",
+    "units": [
+      "Figure 411-1. DD Form 2278, Application for Personally Procured Move (PPM) and Counseling Checklist",
+      "7c. Mandatory Gross (full) and Tare (empty) certified weight tickets. (Required).",
+      "7d. Customer's Name and Weighmaster's signature required on each weight ticket.",
+      "7g. Completed DD Form 2278 and certified weight ticket(s) that reflect Gross (full) and Tare (empty) weights are mandatory and must be submitted to paying officer (see back) to receive incentive payment.",
+      "8b.(4) I agree to furnish certified weight ticket(s) that reflect Gross (full) and Tare (empty) weights within 45 days from the start of this move. If I fail to do so, I voluntarily consent to collection of all government costs of this move from my pay. I also voluntarily consent to collection of any unearned advance operating allowance up to a maximum of $ ____ from my pay.",
+      "NO INCENTIVES WILL BE PAID WITHOUT ACCEPTABLE CERTIFIED WEIGHT CERTIFICATES AND OTHER REQUIRED DOCUMENTS.",
+      "12d. I agree to furnish the mandatory certified weight ticket(s) that reflect Gross (full) and Tare (empty) weights within 45 days of the start of the move to preclude issuance of DD Form 139 for collection of all charges paid by the government.",
+      "13. UNDERSTANDING OF LOSS AND DAMAGE",
+      "I understand that a claim for loss and/or damage to personal property during a PPM is cognizable under the Military Personnel and Civilian Employees Claims Act (PCA) (31 U.S.C. Section 3721) provided the customer or authorized agent is free from negligence. The PCA provides limited compensation and should not be considered a substitute for private insurance. The PCA statutory limit is $40,000 per incident but can be waived up to $100,000 for extraordinary circumstances. Coverage under the PCA is limited to depreciated coverage only and payment limitations are applied to items within certain categories. Customer or authorized agents are strongly encouraged to ensure their personal property is properly insured by purchasing Full Replacement Value coverage, which is not taxable, for the entire shipment."
+    ]
+  },
+  "App A-B, Figure B-3": {
+    "page": 49,
+    "note": "Figure B-3 is an image in the source PDF; transcribed from page 49.",
+    "units": [
+      "Figure B-3. Notification of Loss or Damage AFTER Delivery",
+      "INSTRUCTIONS TO CUSTOMER (OR HIS/HER DESIGNATED REPRESENTATIVE):",
+      "• You have up to 180 days to inspect your property, note all loss and damage not previously discovered and reported at the time of delivery, and provide notice to the Transportation Service Provider (TSP).",
+      "• If TSP is not notified within 180 days, you may lose any potential monetary recovery for your loss and damage.",
+      "• This is only a notification to the TSP of your loss or damage - THIS DOES NOT CONSTITUTE FILING YOUR CLAIM.",
+      "SECTION A – DPS ONLINE NOTIFICATION:",
+      "• You must notify TSP in DPS by midnight GMT on the 180th day following delivery to be eligible for Full Replacement Value.",
+      "SECTION C – FILING A CLAIM AGAINST THE TSP:",
+      "• With limited exceptions, to receive Full Replacement Value for eligible loss or damage, you MUST file your claim online via the DPS Claims Module within 9 MONTHS of your property delivery.",
+      "• If you choose not to file your claim in DPS, you may file a claim directly with your servicing MCO; however, you will not be eligible for full replacement value and will be responsible for obtaining repair estimates."
+    ]
+  },
+  "10.3|What are the three types of reusable SPI containers?": {
+    "page": 67,
+    "units": [
+      "10.3. Types of Reusable SPI Packs. There are three types of reusable SPI containers for AF depot level reparable items and other selected items:",
+      "10.3.1. Fast Pack SPIs.",
+      "…",
+      "10.3.2. Standard Pack SPIs.",
+      "…",
+      "10.3.3. SPI Drawings."
+    ],
+    "note": "Question-specific excerpt of the three numbered type headings on source PDF pages 67–68 (printed pages 83–84); omitted descriptions are marked."
+  },
+  "10.10.2|If a SPI lists both a long-life and a short-life container, which is used?": {
+    "page": 72,
+    "units": [
+      "10.10.2. If the SPI specifies a long-life container as the primary pack with a short-life container as the alternate pack, the long-life container will be used unless it is not available through the RCP or supply channels. (T-1)",
+      "10.11.2. A NSN is only prescribed one SPI. If an item has both a long-life and short-life container, they are specified in the SPI. The long-life container will be the primary pack and the short-life container will be the alternate pack. (T-1)"
+    ],
+    "note": "Includes 10.11.2, which establishes the primary/alternate designation whenever both container lifetimes are listed."
+  },
+  "Atch 1|What is the CIIC also known as?": {
+    "page": 97,
+    "units": [
+      "Attachment 1",
+      "Abbreviations and Acronyms",
+      "…",
+      "CIIC—Controlled Inventory Item Code (also known as PSC)"
+    ],
+    "note": "Question-specific acronym-list entry from source PDF page 97; supersedes unrelated glossary excerpt."
+  },
+  "Table A9.8|What does reject 469 mean, and who is contacted?": {
+    "page": 144,
+    "units": [
+      "Table A9.8. Common Reject Codes and Corrective Actions.",
+      "…",
+      "469 – REJ RECORD OF INPUT S/N FROZEN FOR COMPLETE OR SPEC INV – INITIATOR Contact Physical Inventory Control Section for further Action. X"
+    ],
+    "note": "Question-specific complete reject 469 row from source PDF page 144 (printed page 180), including its corrective action."
+  },
+  "2.9|Which of these is NOT part of the minimum PCT information entered on the travel authorization?": {
+    "page": 22,
+    "units": [
+      "2.9. PCT Documentation Requirements. Before the TMC issues PCT tickets, the AO must",
+      "enter a statement in the remarks section of the travel authorization stating PCT is approved. (T-",
+      "0). The minimum information entered on the travel authorization is:",
+      "2.9.1. The type of PCT accommodations approved. (first class or business class).",
+      "2.9.2. The regulatory reference in the JTR that was used to justify the PCT.",
+      "2.9.3. The cost difference between the premium class and coach class fares (normal",
+      "Government routing, YCA and other Government contract fares, etc.).",
+      "2.9.4. The premium class approving authority, Name, Rank, and Office Symbol."
+    ],
+    "note": "Question-specific excerpt restored from the cached original publication text to include the rule and all relevant alternatives."
+  },
+  "2.10.7|AFIMSC/IZLT provides first class requests to AF/A4LR within how long?": {
+    "page": 24,
+    "units": [
+      "2.10.6. First",
+      "class",
+      "travel",
+      "requests",
+      "originating",
+      "from",
+      "the",
+      "MAJCOM",
+      "HQ/Center/DRU staff must be submitted to AFIMSC/IZLT for technical/policy review.",
+      "AFIMSC/IZLT will forward to AF/A4LR. (T-1).",
+      "2.10.7. AFIMSC/IZLT will provide to AF/A4LR within 10 duty days. (T-1)."
+    ],
+    "note": "Question-specific excerpt restored from the cached original publication text to include the rule and all relevant alternatives."
+  },
+  "6.1.4.2.1|To extend storage for direct delivery into government quarters, what must the member be on?": {
+    "page": 10,
+    "units": [
+      "6.1.4.2.1. Storage required to permit direct delivery from temporary storage into",
+      "government quarters. To meet this criterion authorizing an extension for a specific",
+      "delivery date, the member is to be on the active government quarters waiting list.",
+      "6.1.4.2.2. This does not apply to members who are on a waiting list for a specific type",
+      "of house when other adequate housing is available. Verification in writing from the",
+      "housing office is required. If a member is removed from the active waiting list,",
+      "government SIT terminates immediately."
+    ],
+    "note": "Question-specific excerpt restored from the cached original publication text to include the rule and all relevant alternatives."
+  },
+  "8.11.2|Which of these is an acceptable PPM weight?": {
+    "page": 29,
+    "units": [
+      "8.11.1.1. Weight tickets are to be obtained from a certified government, commercial or",
+      "public scale and should include:",
+      "8.11.1.1.1. Complete name and location of the scale.",
+      "8.11.1.1.2. Date of each weighing.",
+      "8.11.1.1.3. Identification of weight entries as tare, gross, or net weights.",
+      "8.11.1.1.4. License plate number for any POV(s), trailers, rental vehicles or",
+      "commercial company vehicles used for the move.",
+      "8.11.1.1.5. Member’s full name.",
+      "8.11.1.1.6. Signature of weigh master",
+      "8.11.2. The use of a manufacturer weight for POVs or commercial vehicles, on-line weight",
+      "estimates or weight tickets from prior moves are not acceptable weights. (T-0)."
+    ],
+    "note": "Question-specific excerpt restored from the cached original publication text to include the rule and all relevant alternatives."
+  },
+  "Ch 205, para O.4.d|May a security escort vehicle carry cargo?": {
+    "page": 30,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged. Includes Ch 205, para O.4.f (PDF page 30) so the stated exception/constraint remains visible.",
+    "units": [
+      "d. Security escort vehicles shall be empty of any cargo.\n…\nf. One SEV can escort one or two load carrying vehicles traveling along the same route in unison from origin to destination. When SEV is provided by a DoD-approved munitions TSPs, that TSP may either provide SEV (using another truck and driver team under the same SCAC) or enlist any other DoD-approved munitions TSP to provide the service. SEV vehicles shall not carry loads unless requirements are met IAW ARTRANS MFTURP-1, are an approved ARTRANS AA&E TSPs, and when specifically authorized by the ARTRANS DTTS. Contingency requirements may result in a higher 1:4 ratio of SEV to TSPs vehicle. The ARTRANS G3 shall authorize all contingency ratios."
+    ]
+  },
+  "Ch 202, para AA.2.c(1)|Which weight or volume threshold independently requires an ETRR for an RU ocean shipment?": {
+    "page": 19,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged.",
+    "units": [
+      "(1) The Release Unit (RU) ocean shipments requiring the submission of ETRRs are:\n(a) Cargo in lots of 10,000 lbs or more.\n(b) Cargo in lots of 800 cubic feet or more.\n(c) Vehicles moved by driveaway service.\n(d) Containerized cargo (full ISO containers, including specialized equipment, such as flat racks, moving under the terms and conditions of an ARTRANS contract/agreement or ocean carrier tariff).\n(e) Non-containerizable cargo (i.e., oversize, breakbulk, roll-on/roll-off (RO/RO) items; overweight items; or other items for which containerization is not possible or practical). Chapter 203, Paragraph B.13.b, provides guidelines for routing low volumes of export shipments of non-containerized cargo to CONUS ports without prior clearance.\n(f) SRC cargo. SRC cargo (shipments in any quantity) is comprised of the following:\n1. Small arms.\n2. Small shipments of AA&E, 15 or fewer arms Category II through IV and M-16 rifles, including M82A1A.50 Caliber Special Application Scoped Rifles (to exclude the M2.50 Caliber [12.7mm] Machine Gun and above).\n3. Ammunition, 150 lbs or less of sensitive SRC IV.\n4. SRC I through III AA&E or equivalent security risk code shipments cannot move under small package contracts. Freight forwarders, brokers, 3PL, and indirect carriers cannot be used to move these type shipments.\n…"
+    ]
+  },
+  "Ch 210, para F.1.a(3)|For a non-classified shipment, within how long must the RFI copy go to the TSP?": {
+    "page": 9,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged. Includes Ch 210, para F.1.a(2) (PDF page 9) so the stated exception/constraint remains visible.",
+    "units": [
+      "1. To report a transportation discrepancy:\na. The consignee will:\n…\n(3) Provide a copy of a RFI to the TSP within 7 calendar days from the date the discrepancy was discovered for a non-classified/non-protected shipment.\n…\n1. To report a transportation discrepancy:\na. The consignee will:\n…\n(2) Prepare an Advisory Action RFI message (e-mail) IAW Figure 210-4 for classified or protected shipments within 24 hours from the date the discrepancy was discovered."
+    ]
+  },
+  "Ch 205, Table 205-1|Under Table 205-1, stops at non-DoD locations are limited to how long?": {
+    "page": 66,
+    "note": "Recovered exact Table 205-1 footnote 5 from original Chapter 205 PDF page 66; the table-only extraction omitted the two-hour rule.",
+    "units": [
+      "(5) X X X X X X X X X X X X X X X 22 In the event of an incident/accident or additional FPCON requirements, TSP shall call ARTRANS for guidance and instruction. X X X X X X X X X X X X X X X Footnotes to Table 205-1 (1) FPCON referenced herein is defined in Paragraph A.4.a thru e. FPCON NORMAL (N), FPCON ALPHA (A), FPCON BRAVO (B), FPCON CHARLIE (C), FPCON DELTA (D) (2) See Paragraph G., Small shipments of AA&E for exception instructions and TPS requirements when shipping small quantities of small arms and 1.4, 1.5 and 1.6 small arms ammunition. See ARTRANS MFTURP-1, Items 43 and 45, for instructions concerning FAK shipping criteria. Full Truck Load shipment of non-SRC Division 1.4 shall be afforded at least DDP/SNS. Shipments weighing less than 1001 lbs aggregate gross weight (which includes hazard, packaging materials and packaging), of 1.4 small arms ammunition shall be shipped as stipulated in Paragraph G and Table 205-7. Ammunition and explosives items assigned CIIC C (CONFIDENTIAL) shall be afforded at least DDP/SNS (Exception: Redeye Tactical Missile System CIIC C shall be afforded at least PSS/SNS/EXC/SEV). (3) The second means of communication may be a cellular phone, Citizen Band radio, or radiotelephone network. (4) SEV qualifications/training/general requirements are described in Paragraph O.4./Paragraph C.2.a."
+    ]
+  },
+  "Ch 210, para A.4.a|If a discrepancy occurs under a Strategic Lift contract, which part of Chapter 210 applies?": {
+    "page": 1,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged. Includes Ch 210, para A.5.a (PDF page 2) so the stated exception/constraint remains visible.",
+    "units": [
+      "a. Strategic Lift Contracts – If the transportation discrepancy occurred while moving material under any of the following three Strategic Lift contracts, proceed directly to Paragraph O. No other portion of Section 210, other than Paragraph O, is relevant to Strategic Lift transportation discrepancies. Strategic Lift contracts include:\n(1) Universal Services Contracts\n(2) Multi-Modal Contracts\n(3) Guantanamo Bay Contracts\n…\nA. GENERAL\n…\n5. Exceptions:\na. HAZMAT, classified material, and small package transportation discrepancies – Regardless of what contract was used to book the TSP, follow only the procedures outlined in Paragraph B through Paragraph N of this chapter."
+    ]
+  },
+  "Ch 303, para C.4.a(4)|Who controls personnel access to the aircraft?": {
+    "page": 15,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged.",
+    "units": [
+      "4. Support Functions. Air movement of units involves detailed planning in all aspects of control, coordination, preparation, and execution that have a direct impact on the operation. Several of the support functions related to a successful deployment are security, communications, and safety.\na. Security.\n…\n(4) Personnel access to the aircraft will be controlled by the mobility force."
+    ]
+  },
+  "Ch 303, para E.2.b(3)(d)|Who issues hazardous cargo permits?": {
+    "page": 27,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged.",
+    "units": [
+      "b. Deployment. This section outlines the responsibilities for the deployment of forces via ocean.\n…\n(3) The USCG and/or CDR will:\n…\n(d) Issue hazardous cargo permits."
+    ]
+  },
+  "App A-B, para B.11.g(4)|Which miscellaneous expense is NOT eligible for reimbursement?": {
+    "page": 24,
+    "note": "Recovered exact ToS B.11.g(1)–(4) from original PDF page 24 so eligibility of furniture/appliance rental and EFMP medical equipment can be checked with the grocery exclusion.",
+    "units": [
+      "g. Miscellaneous Expenses: The following guidelines apply to 1) UB shipments and 2) instances where a customer claims miscellaneous expenses for personal expenses. (1) Miscellaneous expenses are personal expenses incurred by a customer and their dependents because they are not able to use necessary items in their shipment to establish their household. Expenses that are considered for reimbursement when establishing a household include but are not limited to furniture and/or appliance rental (to include rental of a television). (2) Miscellaneous expenses include special medical equipment unavailable due to shipment delay for qualified customer and accompanying dependents covered under the Exceptional Family Member Program (EFMP) or other special medical requirements. (3) Miscellaneous expenses will include costs incurred by the customer above and beyond their Basic Allowance for Housing (BAH) due to unexpected lease extensions of rental property at origin due to missed pickup at origin. (4) Groceries are not eligible for reimbursement. Lodging and individual meals are normally not part of an IC but the U.S. Government recognizes there may be unique circumstances that would require consideration. I may consider exceptions (e.g., limited lodging and meals required due to unexpected inability to deliver) on a case-by-case basis. I must make customers aware that in instances where lodging or individual meals are approved it should be reasonable and usually will only be reimbursed for a short duration."
+    ]
+  },
+  "Ch A-402, para D.6.b(1)|According to D.6.b(1), how often can DPS email a PPSO about outstanding accessorial actions?": {
+    "page": 20,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged.",
+    "units": [
+      "6. Request Accessorials:\n…\nb. DPS notifies the PPSOs electronically when actions need to be taken. This includes the following:\n(1) E-mails sent to a PPSO up to four times a day or as needed. Times are relative to the time zone of the PPSO."
+    ]
+  },
+  "Ch A-402, para F.1 note|When can the BL be printed?": {
+    "page": 26,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged. Includes App A-B, para C.3.n (PDF page 35) so the stated exception/constraint remains visible.",
+    "units": [
+      "1. Shipment Award/Offer:\nNOTE: At the time the shipment is awarded, the BL number is assigned but DPS does not allow the forms to be printed. The BL is not accessible for printing until after the TSP has entered the pre-move survey data (e.g., agreed upon pack/pick-up dates, estimated weights). At this time, DPS allows the TSP and PPSO user(s) to print the BL.\n…\nC. PERFORMANCE REQUIREMENTS\n…\n3. Shipment Arrival/Delivery/Delays:\n…\nn. I will document the agreed pickup date, and the customer’s acceptance in DPS within three calendar days or 24 hours prior to shipment pickup, whichever is sooner. I will print the bill of lading no earlier than two GBDs prior to the first pack date."
+    ]
+  },
+  "Ch A-411, para B.1.b(2)|How is the FSC for international PPMs currently calculated?": {
+    "page": 1,
+    "note": "Source-grounded question-specific passage retained after the 31 October 2026 semantic audit; original saved-question identity is unchanged.",
+    "units": [
+      "1. The GCC automatically includes the following items.\n…\nb. International PPMs (Reference the International Tender).\n…\n(2) FSC for any domestic portion of the above. FSC for international PPMs must be manually calculated at this time."
+    ]
+  }
+}

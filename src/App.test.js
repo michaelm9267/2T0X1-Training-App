@@ -28,6 +28,7 @@ test('opens the existing trainer from the CDF Training tab by default', () => {
     'Inbound Training',
     'HHG Training',
     'PAX Training',
+    '2T0 WAPS Study Tool',
   ]);
   expect(within(navigation).getByRole('tab', { name: 'CDF Training' })).toHaveAttribute('aria-selected', 'true');
   expect(screen.getByRole('navigation', { name: 'CDF process steps' })).toBeInTheDocument();
