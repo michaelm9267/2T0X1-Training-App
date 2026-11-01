@@ -73,7 +73,7 @@
     {
       "id": "DTR-II|Ch 202, para B.1.a|For CONUS shipments, when may the TO authorize the automated system override feature?",
       "ref": "Ch 202, para B.1.a",
-      "question": "For CONUS shipments, when may the TO authorize the automated system override feature?",
+      "question": "For CONUS freight shipments, when may the TO authorize the automated routing system override feature?",
       "status": "verified",
       "reason": "The cited rule gives 'After routing through ATR' for this question. The alternatives 'Before the shipment is entered in GFM', 'Only after a spot bid fails', 'Any time the TO prefers a carrier' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -86,12 +86,17 @@
         "Only after a spot bid fails",
         "Any time the TO prefers a carrier"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For CONUS shipments, when may the TO authorize the automated system override feature?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para B.1.a|How long must the TO keep the written justification for each override?",
       "ref": "Ch 202, para B.1.a",
-      "question": "How long must the TO keep the written justification for each override?",
+      "question": "How long must the TO keep the written justification for each freight routing override?",
       "status": "verified",
       "reason": "The cited rule gives '3 years from pickup' for this question. The alternatives '1 year from pickup', '2 years from delivery', '6 years from pickup' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -104,12 +109,17 @@
         "2 years from delivery",
         "6 years from pickup"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How long must the TO keep the written justification for each override?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para B.1.a|Which override does NOT require approval, with the 349 Report serving as the authorization?",
       "ref": "Ch 202, para B.1.a",
-      "question": "Which override does NOT require approval, with the 349 Report serving as the authorization?",
+      "question": "Which freight routing override does NOT require approval, with the 349 Report serving as the authorization?",
       "status": "verified",
       "reason": "The cited rule gives 'GFM 500K series tenders negotiated by the ARTRANS Special Requirements Branch' for this question. The alternatives 'Any OCONUS shipment', 'Any shipment under 150 lbs', 'Any spot bid shipment' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -122,7 +132,12 @@
         "Any shipment under 150 lbs",
         "Any spot bid shipment"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which override does NOT require approval, with the 349 Report serving as the authorization?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para B.1.b(2)(a)1|When GFM is down, what is the carrier entitled to for an overdimensional or overweight shipment?",
@@ -397,7 +412,7 @@
     {
       "id": "DTR-II|Ch 202, para D|During national, regional, or local emergencies, who grants exceptions to routing authority?",
       "ref": "Ch 202, para D",
-      "question": "During national, regional, or local emergencies, who grants exceptions to routing authority?",
+      "question": "During national, regional, or local emergencies, who grants exceptions to DoD freight routing authority?",
       "status": "verified",
       "reason": "The cited rule gives 'ARTRANS or theater CDR' for this question. The alternatives 'The origin installation transportation officer', 'The shipping activity’s MAJCOM A4 staff', 'The awarded transportation service provider' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -410,7 +425,12 @@
         "The shipping activity’s MAJCOM A4 staff",
         "The awarded transportation service provider"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "During national, regional, or local emergencies, who grants exceptions to routing authority?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para E.2|Who is responsible for Electronic Export Information (EEI) submission?",
@@ -667,7 +687,7 @@
     {
       "id": "DTR-II|Ch 202, para K.3.a(1)|During mass cancellation holds, which shipments are NOT held?",
       "ref": "Ch 202, para K.3.a(1)",
-      "question": "During mass cancellation holds, which shipments are NOT held?",
+      "question": "During mass cancellation holds on freight shipments, which shipments are NOT held?",
       "status": "verified",
       "reason": "The cited rule gives 'RDD “555”' for this question. The alternatives 'Shipments with \"999\" in the RDD field', 'Any TP-3 shipment', 'Shipments with no RDD' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -680,7 +700,12 @@
         "Any TP-3 shipment",
         "Shipments with no RDD"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "During mass cancellation holds, which shipments are NOT held?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para K.3.a(2)|Except for a mode change, may a shipper divert MILSTRIP materiel without direction from the supply source?",
@@ -865,7 +890,7 @@
     {
       "id": "DTR-II|Ch 202, para N.4.a|When does transit time start?",
       "ref": "Ch 202, para N.4.a",
-      "question": "When does transit time start?",
+      "question": "Under the DoD Standard Transit Time Guides, when does transit time start?",
       "status": "verified",
       "reason": "The cited rule gives 'The day after departure' for this question. The alternatives 'The day the bill of lading is created', 'The moment the carrier signs for the load', 'The day the carrier is awarded the shipment' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -878,12 +903,17 @@
         "The moment the carrier signs for the load",
         "The day the carrier is awarded the shipment"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When does transit time start?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para N.4.b|Are weekends and federal holidays counted in transit time?",
       "ref": "Ch 202, para N.4.b",
-      "question": "Are weekends and federal holidays counted in transit time?",
+      "question": "Under the DoD Standard Transit Time Guides, are weekends and federal holidays counted in transit time?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, all days count', 'Only weekends count', 'Only for AA&E' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -896,12 +926,17 @@
         "Only weekends count",
         "Only for AA&E"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Are weekends and federal holidays counted in transit time?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para N.4.c|Which shipments must the consignee accept and receipt for upon arrival?",
       "ref": "Ch 202, para N.4.c",
-      "question": "Which shipments must the consignee accept and receipt for upon arrival?",
+      "question": "Under the DoD Standard Transit Time Guides, which shipments must the consignee accept and receipt for upon arrival?",
       "status": "verified",
       "reason": "The cited rule gives 'SRC I, SRC II, and AE' for this question. The alternatives 'All LTL shipments', 'Only FMS shipments', 'Only shipments over 10,000 lbs' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -914,12 +949,17 @@
         "Only FMS shipments",
         "Only shipments over 10,000 lbs"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which shipments must the consignee accept and receipt for upon arrival?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para N.4.d|Does time in transit begin when the TSP's local driver accepts the load?",
       "ref": "Ch 202, para N.4.d",
-      "question": "Does time in transit begin when the TSP's local driver accepts the load?",
+      "question": "Under the DoD Standard Transit Time Guides, does time in transit begin when the TSP's local driver accepts the load?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for SNS shipments', 'Only on weekends' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -932,7 +972,12 @@
         "Only for SNS shipments",
         "Only on weekends"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Does time in transit begin when the TSP's local driver accepts the load?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para N.5.a|Which is an exception to the DoD Standard Transit Time Guides?",
@@ -1099,7 +1144,7 @@
     {
       "id": "DTR-II|Ch 202, para P.2.b|How is loading/unloading by the carrier paid?",
       "ref": "Ch 202, para P.2.b",
-      "question": "How is loading/unloading by the carrier paid?",
+      "question": "How is loading or unloading of a freight shipment by the carrier paid?",
       "status": "verified",
       "reason": "The cited rule gives 'A TPPS accessorial service' for this question. The alternatives 'It is always free', 'By GPC', \"Out of the TO's local funds only\" do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1112,7 +1157,12 @@
         "By GPC",
         "Out of the TO's local funds only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How is loading/unloading by the carrier paid?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para P.3.a|In a closed rail car, what placards show where the shipping documents are?",
@@ -1315,7 +1365,7 @@
     {
       "id": "DTR-II|Ch 202, para S.5|For commercial air, what is the billable weight?",
       "ref": "Ch 202, para S.5",
-      "question": "For commercial air, what is the billable weight?",
+      "question": "For commercial air freight, what is the billable weight?",
       "status": "verified",
       "reason": "The cited rule gives 'The greater of the actual or dimensional weight' for this question. The alternatives 'The actual weight only', 'The lesser of the two', 'The dimensional weight only' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1328,12 +1378,17 @@
         "The lesser of the two",
         "The dimensional weight only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For commercial air, what is the billable weight?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para S.5|What is the typical domestic dimensional factor used to calculate dimensional weight?",
       "ref": "Ch 202, para S.5",
-      "question": "What is the typical domestic dimensional factor used to calculate dimensional weight?",
+      "question": "For commercial air freight, what is the typical domestic dimensional factor used to calculate dimensional weight?",
       "status": "verified",
       "reason": "The cited rule gives '166' for this question. The alternatives '139', '194', '250' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1346,7 +1401,12 @@
         "194",
         "250"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the typical domestic dimensional factor used to calculate dimensional weight?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para T.2|For live animal shipments, the TO gives the carrier driver health certificates required by whom?",
@@ -1513,7 +1573,7 @@
     {
       "id": "DTR-II|Ch 202, para AA.2.c(2)(a)|Within how long of receipt at the OCCA will the ETR be provided to the TO?",
       "ref": "Ch 202, para AA.2.c(2)(a)",
-      "question": "Within how long of receipt at the OCCA will the ETR be provided to the TO?",
+      "question": "For an ocean export shipment, within how long of receipt at the OCCA will the Export Traffic Release (ETR) be provided to the TO?",
       "status": "verified",
       "reason": "The cited rule gives '3 working days' for this question. The alternatives '24 hours', '7 calendar days', '10 working days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1526,7 +1586,12 @@
         "7 calendar days",
         "10 working days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long of receipt at the OCCA will the ETR be provided to the TO?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para AA.2.c(2)(c)|May shipments covered by separate ETRs be combined?",
@@ -1585,7 +1650,7 @@
     {
       "id": "DTR-II|Ch 202, para AA.2.h|Which is NOT an acceptable means of securing a container?",
       "ref": "Ch 202, para AA.2.h",
-      "question": "Which is NOT an acceptable means of securing a container?",
+      "question": "Which is NOT an acceptable means of securing an ocean shipping container?",
       "status": "verified",
       "reason": "The cited rule gives 'A padlock' for this question. The alternatives 'A serialized ISO 17712 bolt seal', 'A cable seal in figure 8 at the top', 'A high-security bolt seal at the bottom hasp' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1598,7 +1663,12 @@
         "A cable seal in figure 8 at the top",
         "A high-security bolt seal at the bottom hasp"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which is NOT an acceptable means of securing a container?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para AA.3.a|What process does USTRANSCOM use to establish, change, or cancel AMC channels?",
@@ -1801,7 +1871,7 @@
     {
       "id": "DTR-II|Ch 205, para A.4|When the FPCON differs between origin and destination, which applies?",
       "ref": "Ch 205, para A.4",
-      "question": "When the FPCON differs between origin and destination, which applies?",
+      "question": "For a TPS shipment, when the FPCON differs between origin and destination, which FPCON applies?",
       "status": "verified",
       "reason": "The cited rule gives 'The highest FPCON' for this question. The alternatives 'The origin FPCON', 'The destination FPCON', 'The lowest FPCON' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1814,7 +1884,12 @@
         "The destination FPCON",
         "The lowest FPCON"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When the FPCON differs between origin and destination, which applies?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para A.6|For Chapter 205, what does CONUS include?",
@@ -1891,7 +1966,7 @@
     {
       "id": "DTR-II|Ch 205, para B.3|Under a FAR-based contract, when may voluntary tenders be used?",
       "ref": "Ch 205, para B.3",
-      "question": "Under a FAR-based contract, when may voluntary tenders be used?",
+      "question": "For TPS cargo under a FAR-based contract, when may voluntary tenders be used?",
       "status": "verified",
       "reason": "The cited rule gives \"Only during contingencies or when volume exceeds the contractors' capacity\" for this question. The alternatives 'Any time they are cheaper', 'Only for SRC I', 'Never' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1904,7 +1979,12 @@
         "Only for SRC I",
         "Never"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Under a FAR-based contract, when may voluntary tenders be used?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para C.2.a|For SRC I, SRC II, and NWRM shipments, what must the TO receive before the shipment moves?",
@@ -2701,7 +2781,7 @@
     {
       "id": "DTR-II|Ch 205, para H.3|When a seal is replaced, which must be entered on the BL?",
       "ref": "Ch 205, para H.3",
-      "question": "When a seal is replaced, which must be entered on the BL?",
+      "question": "When a seal on a TPS shipment is replaced, which must be entered on the BL?",
       "status": "verified",
       "reason": "The cited rule gives 'The replacement seal number, date/time, reason, and who required removal' for this question. The alternatives 'Only the new seal number', 'Only the reason', 'Nothing if the TO approved' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2714,7 +2794,12 @@
         "Only the reason",
         "Nothing if the TO approved"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When a seal is replaced, which must be entered on the BL?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para H.4|Where is the serialized bolt seal applied on an AA&E container or vehicle?",
@@ -2755,7 +2840,7 @@
     {
       "id": "DTR-II|Ch 205, para H.7.a|With seals intact, within how long must SRC I and II shipments get inventory quantity verification?",
       "ref": "Ch 205, para H.7.a",
-      "question": "With seals intact, within how long must SRC I and II shipments get inventory quantity verification?",
+      "question": "With seals intact on delivery, within how long must SRC I and II AA&E shipments get inventory quantity verification?",
       "status": "verified",
       "reason": "The cited rule gives '24 hours' for this question. The alternatives '48 hours', '72 hours', '7 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2768,12 +2853,17 @@
         "72 hours",
         "7 days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "With seals intact, within how long must SRC I and II shipments get inventory quantity verification?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para H.7.b|Within how long must SRC III and IV shipments get inventory quantity verification?",
       "ref": "Ch 205, para H.7.b",
-      "question": "Within how long must SRC III and IV shipments get inventory quantity verification?",
+      "question": "Within how long must delivered SRC III and IV AA&E shipments get inventory quantity verification?",
       "status": "verified",
       "reason": "The cited rule gives '48 hours' for this question. The alternatives '24 hours', '72 hours', '5 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2786,7 +2876,12 @@
         "72 hours",
         "5 days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long must SRC III and IV shipments get inventory quantity verification?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para I.2|For military airlift, where is the required TPS shown?",
@@ -3284,7 +3379,7 @@
     {
       "id": "DTR-II|Ch 205, para O.6.b(1)|How many DD Forms 1907 does the shipper print?",
       "ref": "Ch 205, para O.6.b(1)",
-      "question": "How many DD Forms 1907 does the shipper print?",
+      "question": "For Signature and Tally Record (675) service, how many DD Forms 1907 does the shipper print?",
       "status": "verified",
       "reason": "The cited rule gives 'Two' for this question. The alternatives 'One printed copy', 'Three printed copies', 'Four printed copies' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3297,7 +3392,12 @@
         "Three printed copies",
         "Four printed copies"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How many DD Forms 1907 does the shipper print?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para O.6.f|Must facility guards at secure holding areas sign the DD Form 1907?",
@@ -3878,7 +3978,7 @@
     {
       "id": "DTR-II|Ch 205, Table 205-1|Under Table 205-1, stops at non-DoD locations are limited to how long?",
       "ref": "Ch 205, Table 205-1",
-      "question": "Under Table 205-1, stops at non-DoD locations are limited to how long?",
+      "question": "For AA&E shipments in transit (Table 205-1), stops at non-DoD locations are limited to how long?",
       "status": "verified",
       "reason": "Recovered original Table 205-1 footnote 5 on PDF page 66 expressly limits stops outside DoD installations/activities to two hours for operational reasons. Thirty minutes, four hours, and 100 hours are not that non-DoD stop limit.",
       "evidence": {
@@ -3900,7 +4000,12 @@
           "quote": "(5) X X X X X X X X X X X X X X X 22 In the event of an incident/accident or additional FPCON requirements, TSP shall call ARTRANS for guidance and instruction. X X X X X X X X X X X X X X X Footnotes to Table 205-1 (1) FPCON referenced herein is defined in Paragraph A.4.a thru e. FPCON NORMAL (N), FPCON ALPHA (A), FPCON BRAVO (B), FPCON CHARLIE (C), FPCON DELTA (D) (2) See Paragraph G., Small shipments of AA&E for exception instructions and TPS requirements when shipping small quantities of small arms and 1.4, 1.5 and 1.6 small arms ammunition. See ARTRANS MFTURP-1, Items 43 and 45, for instructions concerning FAK shipping criteria. Full Truck Load shipment of non-SRC Division 1.4 shall be afforded at least DDP/SNS. Shipments weighing less than 1001 lbs aggregate gross weight (which includes hazard, packaging materials and packaging), of 1.4 small arms ammunition shall be shipped as stipulated in Paragraph G and Table 205-7. Ammunition and explosives items assigned CIIC C (CONFIDENTIAL) shall be afforded at least DDP/SNS (Exception: Redeye Tactical Missile System CIIC C shall be afforded at least PSS/SNS/EXC/SEV). (3) The second means of communication may be a cellular phone, Citizen Band radio, or radiotelephone network. (4) SEV qualifications/training/general requirements are described in Paragraph O.4./Paragraph C.2.a.",
           "sourceFile": "l624_2.pdf"
         }
-      ]
+      ],
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Under Table 205-1, stops at non-DoD locations are limited to how long?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 205, Table 205-1|For SRC III/IV at FPCON Normal through Bravo, how long may stops in transit last at DoD secure AA&E holding facilities?",
@@ -3970,7 +4075,7 @@
     {
       "id": "DTR-II|Ch 210, para A.3|Which is a transportation discrepancy?",
       "ref": "Ch 210, para A.3",
-      "question": "Which is a transportation discrepancy?",
+      "question": "Under DTR Chapter 210, which of these is a transportation discrepancy?",
       "status": "verified",
       "reason": "The cited rule gives 'Missing advance REPSHIP' for this question. The alternatives 'The wrong item shipped by the supply source', 'Expired shelf life from the depot', 'Improper preservation by the shipper' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3983,7 +4088,12 @@
         "Expired shelf life from the depot",
         "Improper preservation by the shipper"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which is a transportation discrepancy?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para A.4.a|If a discrepancy occurs under a Strategic Lift contract, which part of Chapter 210 applies?",
@@ -4193,7 +4303,7 @@
     {
       "id": "DTR-II|Ch 210, para B.6.k|Discrepancies of less than what value are documented, reported, and settled at the local level?",
       "ref": "Ch 210, para B.6.k",
-      "question": "Discrepancies of less than what value are documented, reported, and settled at the local level?",
+      "question": "Transportation discrepancies of less than what value are documented, reported, and settled at the local level?",
       "status": "verified",
       "reason": "The cited rule gives '$500' for this question. The alternatives '$100', '$1,000', '$2,500' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4206,12 +4316,17 @@
         "$1,000",
         "$2,500"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Discrepancies of less than what value are documented, reported, and settled at the local level?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para B.6.k|Which shipment discrepancies are reported for tracking regardless of value?",
       "ref": "Ch 210, para B.6.k",
-      "question": "Which shipment discrepancies are reported for tracking regardless of value?",
+      "question": "Which shipment discrepancies are reported for TDR tracking regardless of value?",
       "status": "verified",
       "reason": "The cited rule gives 'Classified, protected, HAZMAT, and SCP/FMS' for this question. The alternatives 'All LTL', 'All air shipments', 'All GPC purchases' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4224,7 +4339,12 @@
         "All air shipments",
         "All GPC purchases"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which shipment discrepancies are reported for tracking regardless of value?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para B.6.l|For SCP deliveries overseas, who performs the TDR functions of a Receiving Officer?",
@@ -4247,7 +4367,7 @@
     {
       "id": "DTR-II|Ch 210, para B.8.a|Who makes the final determination of liability and measure of damage?",
       "ref": "Ch 210, para B.8.a",
-      "question": "Who makes the final determination of liability and measure of damage?",
+      "question": "For transportation discrepancy (TDR) claims, who makes the final determination of liability and measure of damage?",
       "status": "verified",
       "reason": "The cited rule gives 'Finance/claims offices' for this question. The alternatives 'The consignee’s transportation officer acting alone', 'The transportation service provider’s local terminal', 'The theater Area Monitoring Office acting alone' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4260,7 +4380,12 @@
         "The transportation service provider’s local terminal",
         "The theater Area Monitoring Office acting alone"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who makes the final determination of liability and measure of damage?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para B.8.d|Claims offices send litigation reports to the Department of Justice for compromise offers of at least what?",
@@ -4301,7 +4426,7 @@
     {
       "id": "DTR-II|Ch 210, para C|If Chapter 210 conflicts with a USG contract, which applies?",
       "ref": "Ch 210, para C",
-      "question": "If Chapter 210 conflicts with a USG contract, which applies?",
+      "question": "If DTR Chapter 210 (transportation discrepancies) conflicts with a USG contract, which applies?",
       "status": "verified",
       "reason": "The cited rule gives 'The contract' for this question. The alternatives 'Chapter 210', 'Whichever is stricter', \"The TSP's tender\" do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4314,7 +4439,12 @@
         "Whichever is stricter",
         "The TSP's tender"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If Chapter 210 conflicts with a USG contract, which applies?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para D.1|Which FMS Delivery Term Codes do not involve the DTS, so TDR procedures do not apply?",
@@ -4409,7 +4539,7 @@
     {
       "id": "DTR-II|Ch 210, para F.1.a(1)|Within how long must the consignee notify the TSP in writing of a discrepancy?",
       "ref": "Ch 210, para F.1.a(1)",
-      "question": "Within how long must the consignee notify the TSP in writing of a discrepancy?",
+      "question": "Within how long must the consignee notify the TSP in writing of a transportation discrepancy?",
       "status": "verified",
       "reason": "The cited rule gives '3 business days' for this question. The alternatives '24 hours', '7 calendar days', '30 calendar days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4422,7 +4552,12 @@
         "7 calendar days",
         "30 calendar days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long must the consignee notify the TSP in writing of a discrepancy?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para F.1.a(2)|For classified or protected shipments, the Advisory Action RFI email must be prepared within how long?",
@@ -4470,7 +4605,7 @@
     {
       "id": "DTR-II|Ch 210, para F.1.a(6)|Within how long must customers request credit from the ICP?",
       "ref": "Ch 210, para F.1.a(6)",
-      "question": "Within how long must customers request credit from the ICP?",
+      "question": "For a transportation discrepancy, within how long must customers request credit from the ICP?",
       "status": "verified",
       "reason": "F.1.a(6) sets nine months from receipt/expected receipt and excludes SCP shipments because title transfers. The revised answer preserves that exception rather than presenting nine months as universal.",
       "evidence": {
@@ -4483,7 +4618,12 @@
         "1 year from receipt or expected receipt",
         "90 days from receipt or expected receipt"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long must customers request credit from the ICP?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para F.1.a(6)|Where on the DD Form 1348-1A is the RIC of the originating Defense Supply Center?",
@@ -4542,7 +4682,7 @@
     {
       "id": "DTR-II|Ch 210, para F.4.c|Shipments valued under $100 need no claims action, except which?",
       "ref": "Ch 210, para F.4.c",
-      "question": "Shipments valued under $100 need no claims action, except which?",
+      "question": "Transportation discrepancies on shipments valued under $100 need no claims action, except which?",
       "status": "verified",
       "reason": "The cited rule gives 'Classified, protected, and SCP shipments' for this question. The alternatives 'All air shipments', 'All HAZMAT shipments only', 'All ocean shipments' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4555,12 +4695,17 @@
         "All HAZMAT shipments only",
         "All ocean shipments"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Shipments valued under $100 need no claims action, except which?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para F.4.e(1)|Which form submits a TSP settlement check to the finance office?",
       "ref": "Ch 210, para F.4.e(1)",
-      "question": "Which form submits a TSP settlement check to the finance office?",
+      "question": "Which form submits a TSP's loss or damage settlement check to the finance office?",
       "status": "verified",
       "reason": "The cited rule gives 'DD Form 1131' for this question. The alternatives 'DD Form 361', 'DD Form 139', 'SF 1200' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4573,7 +4718,12 @@
         "DD Form 139",
         "SF 1200"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which form submits a TSP settlement check to the finance office?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para F.4.e(2)|If the original appropriation has expired, where do recovered loss and damage funds go?",
@@ -4704,7 +4854,7 @@
     {
       "id": "DTR-II|Ch 210, para H.2.a(7)|If an action addressee has no information about the discrepancy, what must it send?",
       "ref": "Ch 210, para H.2.a(7)",
-      "question": "If an action addressee has no information about the discrepancy, what must it send?",
+      "question": "If an action addressee on a TDR RFI has no information about the discrepancy, what must it send?",
       "status": "verified",
       "reason": "The cited rule gives 'A negative reply' for this question. The alternatives 'No reply if there is no useful information', 'A cancellation of the originating discrepancy report', 'A replacement RFI addressed back to the consignee' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4717,7 +4867,12 @@
         "A cancellation of the originating discrepancy report",
         "A replacement RFI addressed back to the consignee"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If an action addressee has no information about the discrepancy, what must it send?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para H.2.a(8)|What is the subject line of a \"Non-response\" TDR?",
@@ -4776,7 +4931,7 @@
     {
       "id": "DTR-II|Ch 210, para H.2.b|After notification, how long does the TSP have to inspect a damaged shipment?",
       "ref": "Ch 210, para H.2.b",
-      "question": "After notification, how long does the TSP have to inspect a damaged shipment?",
+      "question": "After notification of a transportation discrepancy, how long does the TSP have to inspect a damaged shipment?",
       "status": "verified",
       "reason": "The cited rule gives '7 calendar days' for this question. The alternatives '3 business days', '14 calendar days', '30 calendar days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4789,12 +4944,17 @@
         "14 calendar days",
         "30 calendar days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "After notification, how long does the TSP have to inspect a damaged shipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para H.2.b|If the TSP waives inspection, what happens?",
       "ref": "Ch 210, para H.2.b",
-      "question": "If the TSP waives inspection, what happens?",
+      "question": "If the TSP waives inspection of a damaged shipment, what happens?",
       "status": "verified",
       "reason": "The cited rule gives \"Record the person's name, title, and date, and the Government performs the inspection\" for this question. The alternatives 'The claim is void', 'No inspection is needed', 'The consignee must ship it back' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4807,7 +4967,12 @@
         "No inspection is needed",
         "The consignee must ship it back"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If the TSP waives inspection, what happens?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para H.2.b(2)|What must NOT be entered on the copy of the RFI given to the TSP?",
@@ -5064,7 +5229,7 @@
     {
       "id": "DTR-II|Ch 210, para N.1|In a two-position discrepancy code, what does each position show?",
       "ref": "Ch 210, para N.1",
-      "question": "In a two-position discrepancy code, what does each position show?",
+      "question": "In a two-position TDR discrepancy code, what does each position show?",
       "status": "verified",
       "reason": "The cited rule gives 'Type, then cause' for this question. The alternatives 'First is the mode; second is the cause', 'First is the Service; second is the type', 'First is the value; second is the mode' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5077,12 +5242,17 @@
         "First is the Service; second is the type",
         "First is the value; second is the mode"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In a two-position discrepancy code, what does each position show?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para N.3|What is the first position of the code for SEAVAN shipments?",
       "ref": "Ch 210, para N.3",
-      "question": "What is the first position of the code for SEAVAN shipments?",
+      "question": "What is the first position of the TDR discrepancy code for SEAVAN shipments?",
       "status": "verified",
       "reason": "The cited rule gives '\"Z\"' for this question. The alternatives '\"A\"', '\"S\"', '\"V\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5095,7 +5265,12 @@
         "\"S\"",
         "\"V\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the first position of the code for SEAVAN shipments?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para O.2|Are HAZMAT and classified discrepancies on Strategic Lift contracts still reported on a TDR?",
@@ -5154,7 +5329,7 @@
     {
       "id": "DTR-II|Ch 210, Table 210-2|What is the time limit to file a TDR for claims action on domestic motor shipments?",
       "ref": "Ch 210, Table 210-2",
-      "question": "What is the time limit to file a TDR for claims action on domestic motor shipments?",
+      "question": "Under the TDR claim time limits (Table 210-2), what is the time limit to file a TDR for claims action on domestic motor shipments?",
       "status": "verified",
       "reason": "The cited rule gives '9 months' for this question. The alternatives '1 year from delivery or expected delivery', '14 days from delivery or expected delivery', '120 days from delivery or expected delivery' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5167,12 +5342,17 @@
         "14 days from delivery or expected delivery",
         "120 days from delivery or expected delivery"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the time limit to file a TDR for claims action on domestic motor shipments?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, Table 210-2|What is the time limit for ocean claims?",
       "ref": "Ch 210, Table 210-2",
-      "question": "What is the time limit for ocean claims?",
+      "question": "Under the TDR claim time limits (Table 210-2), what is the time limit for ocean claims?",
       "status": "verified",
       "reason": "The cited rule gives '1 year from delivery' for this question. The alternatives '9 months from date of delivery', '120 days from date of delivery', '14 days from date of delivery' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5185,12 +5365,17 @@
         "120 days from date of delivery",
         "14 days from date of delivery"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the time limit for ocean claims?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, Table 210-2|For international air, what is the limit for visible damage?",
       "ref": "Ch 210, Table 210-2",
-      "question": "For international air, what is the limit for visible damage?",
+      "question": "Under the TDR claim time limits (Table 210-2), what is the international air claim limit for visible damage?",
       "status": "verified",
       "reason": "The cited rule gives 'Within 14 days of delivery' for this question. The alternatives 'Within 9 months of the date of delivery', 'Within 120 days of the air waybill issue date', 'Within 30 days of the date the cargo was shipped' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5203,7 +5388,12 @@
         "Within 120 days of the air waybill issue date",
         "Within 30 days of the date the cargo was shipped"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For international air, what is the limit for visible damage?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, Table 210-3|For an Ocean Cargo TDR in DIS, which DoDAAC must be added as a TDR Addressee?",
@@ -5244,7 +5434,7 @@
     {
       "id": "DTR-II|Ch 210, Fig 210-7|A loss or damage claim must prove which three points?",
       "ref": "Ch 210, Fig 210-7",
-      "question": "A loss or damage claim must prove which three points?",
+      "question": "Under DTR Chapter 210's local claim filing guidelines (Figure 210-7), a loss or damage claim must prove which three points?",
       "status": "verified",
       "reason": "The cited rule gives 'Tendered in good condition, delivered in lesser condition or quantity, and the amount of loss' for this question. The alternatives 'The carrier was late, negligent, and uninsured', 'The BL, the TCN, and the RDD', 'The driver, the route, and the weather' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5257,12 +5447,17 @@
         "The BL, the TCN, and the RDD",
         "The driver, the route, and the weather"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "A loss or damage claim must prove which three points?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, Fig 210-7|Which can relieve a carrier of liability if it was not negligent?",
       "ref": "Ch 210, Fig 210-7",
-      "question": "Which can relieve a carrier of liability if it was not negligent?",
+      "question": "Under DTR Chapter 210's local claim filing guidelines (Figure 210-7), which can relieve a carrier of liability if it was not negligent?",
       "status": "verified",
       "reason": "The cited rule gives 'An act of the public enemy' for this question. The alternatives 'Late delivery caused by routine carrier scheduling', 'A shortage of drivers employed by the transportation provider', 'A missing seal without any applicable liability exception' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5275,12 +5470,17 @@
         "A shortage of drivers employed by the transportation provider",
         "A missing seal without any applicable liability exception"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which can relieve a carrier of liability if it was not negligent?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, Fig 210-7|Where is the local claim package sent?",
       "ref": "Ch 210, Fig 210-7",
-      "question": "Where is the local claim package sent?",
+      "question": "Under DTR Chapter 210's local claim filing guidelines (Figure 210-7), where is the local claim package sent?",
       "status": "verified",
       "reason": "The cited rule gives 'Carrier home office; traceable means' for this question. The alternatives 'The carrier’s local terminal using ordinary untracked mail', 'The Defense Finance and Accounting Service without carrier filing', 'The delivering driver without submission to the carrier’s office' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5293,12 +5493,17 @@
         "The Defense Finance and Accounting Service without carrier filing",
         "The delivering driver without submission to the carrier’s office"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Where is the local claim package sent?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-II|Ch 210, Fig 210-7|After a claim is filed, how long does the carrier have to pay, protest, or deny it?",
       "ref": "Ch 210, Fig 210-7",
-      "question": "After a claim is filed, how long does the carrier have to pay, protest, or deny it?",
+      "question": "Under DTR Chapter 210's local claim filing guidelines (Figure 210-7), after a claim is filed, how long does the carrier have to pay, protest, or deny it?",
       "status": "verified",
       "reason": "The cited rule gives '120 days' for this question. The alternatives '30 days', '60 days', '1 year' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5311,7 +5516,12 @@
         "60 days",
         "1 year"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "After a claim is filed, how long does the carrier have to pay, protest, or deny it?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     }
   ]
 }

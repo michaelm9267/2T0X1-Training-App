@@ -476,6 +476,12 @@
       "evidence": {
         "page": 4,
         "quote": "1.7. AF Command and Direct Reporting Unit Roles and Responsibilities. The AF Command, Service Component Commands, and Direct Reporting Unit /Deputy Commanders (or equivalents) will:\n…\n1.7.4. AF Command, Service Component Commands, and Direct Reporting Unit/Director of Logistics (or equivalent organizations) will:\n1.7.4.1. Review and approve or disapprove logistics detail additions, deletions, or changes and forward approved changes to AF/A3OD for update to the Type Unit Characteristics (TUCHA) file IAW DAFMAN 10-406, Unit Type Code Management."
+      },
+      "question": "In UTC management, approved logistics detail changes are forwarded to AF/A3OD to update which file?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Approved logistics detail changes are forwarded to AF/A3OD to update which file?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -694,6 +700,12 @@
       "evidence": {
         "page": 6,
         "quote": "1.12.1.1. Not posture UTCs in the UTA or report readiness IAW AFI 10-201."
+      },
+      "question": "Under DAFI 10-403, what must institutional forces (JCS Unit Designator Codes X, Q, 9, or 0) NOT do IAW AFI 10-201?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What must institutional forces NOT do IAW AFI 10-201?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1442,6 +1454,12 @@
       "evidence": {
         "page": 16,
         "quote": "1.28. Installation Deployment Officer (IDO). The IDO will:\n…\n1.28.4. Provide the FRGB to the installation commander, unit commanders, and key members of the deployment team approximately 90 days prior to the start of each force generation phase. (See Attachment 5). The FRGB should be at the SECRET level and will include:\n…\n1.28.4.3. IDP updates and recommended revisions. (T-3)\n1.28.4.4. Recent deployment training and exercise results to include those conducted IAW para 1.28.8 of this instruction. (T-1)\n1.28.4.5. Supported OPLANs, when available. (T-3) Note: Many OPLANs require Top Secret Sensitive Compartmentalized Information access. Installation commanders and unit commanders should maximize access for core deployment personnel (Logistics Planners, IDO, Air Staff, etc.) to ensure information availability and mission preparedness.\n1.28.4.6. Limiting factors and shortfalls affecting expected installation deployment processes and requirements. (T-2)\n1.28.4.7. Next two force generation phase deployment commitments. (T-3)\n1.28.4.8. RAT completion rates IAW AFI 10-405 and provided by installation education and training management function.\n1.28.4.9. Other readiness offices (Emergency Management, readiness reporting managers, Command Post) should be considered for inclusion as part of overall FRGB topics."
+      },
+      "question": "At what classification level should the IDO's Force Readiness and Generation Briefing (FRGB) be?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "At what classification level should the FRGB be?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1468,6 +1486,12 @@
       "evidence": {
         "page": 16,
         "quote": "1.28. Installation Deployment Officer (IDO). The IDO will:\n…\n1.28.4. Provide the FRGB to the installation commander, unit commanders, and key members of the deployment team approximately 90 days prior to the start of each force generation phase. (See Attachment 5). The FRGB should be at the SECRET level and will include:\n1.28.4.1. Worst-Case Scenario. The worst-case scenario is based on the entirety of an installation’s deployable commitment, as defined by the current year UTA listing, regardless of phase. (T-1) Note: WCS should include considerations of throughput and bed down of incoming forces, if applicable."
+      },
+      "question": "In the IDO's Force Readiness and Generation Briefing (FRGB), the installation's worst-case deployment scenario is based on what?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "The worst-case scenario is based on what?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1494,6 +1518,12 @@
       "evidence": {
         "page": 16,
         "quote": "1.28. Installation Deployment Officer (IDO). The IDO will:\n…\n1.28.4. Provide the FRGB to the installation commander, unit commanders, and key members of the deployment team approximately 90 days prior to the start of each force generation phase. (See Attachment 5). The FRGB should be at the SECRET level and will include:\n…\n1.28.4.2. Maximum Simultaneous Deployment Capability. The Maximum Simultaneous Deployment Capability is the total capacity of the installation to deploy forces in a 24-hour period. Considerations of combined passenger and cargo processing requirements should be included in the development of Maximum Simultaneous Deployment Capability. The Maximum Simultaneous Deployment Capability should illustrate numbers by total capability and chalk capacities (e.g., 80 increments and 400 personnel total, 20 increments, and 100 personnel per chalk, up to 4 chalks every 24 hours). (T-1)"
+      },
+      "question": "In the IDO's Force Readiness and Generation Briefing (FRGB), the Maximum Simultaneous Deployment Capability is the installation's total capacity to deploy forces in what time period?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "The Maximum Simultaneous Deployment Capability is the installation's total capacity to deploy forces in what time period?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1520,6 +1550,12 @@
       "evidence": {
         "page": 17,
         "quote": "1.28. Installation Deployment Officer (IDO). The IDO will:\n…\n1.28.8. Conduct DCC training exercises for P&I and key deployment personnel assigned to the DCC, subordinate work centers. Exercises will be conducted in the first 90 days of every force generation cycle (T-1) Note: This requirement may be filled by using stand-alone, table- top exercises, installation exercises, Combat Readiness Exercise, /Combat Readiness Inspections IAW DAFI 90-302.\n1.28.8.1. Provide after-action report to the AF CommandA4R (or equivalent). Note: Appropriate classification markings are required. (T-2)\n1.28.8.2. The table-top training exercise should include:\n1.28.8.2.1. Mission type order (Planning Order, Prepare To Deploy Order) and OPLAN analysis and validation.\n1.28.8.2.2. Deployment Schedule of Events development.\n1.28.8.2.3. DCC activation and recall procedures.\n1.28.8.2.4. UTC tailoring and prioritization.\n1.28.8.2.5. Multi-modal transportation and load plan development IAW LRS/Deployment and Distribution Flight.\n1.28.8.3. Exercises should seek to produce documentation (e.g., placards, hazardous declaration forms, LOGMOD files) for retention and use in future exercises or real-world events.\n1.28.8.4. Transportation request processes and procedures.\n1.28.8.5. Higher Headquarters communications."
+      },
+      "question": "When must the IDO conduct Deployment Control Center (DCC) training exercises?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When must DCC training exercises be conducted?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1642,6 +1678,12 @@
       "evidence": {
         "page": 18,
         "quote": "1.29.6. Ensure all personnel tasked for deployment:\n…\n1.29.6.2. Process for deployment using the Commander Dashboard. (T-2)\n1.29.6.2.1. In the event of online system interruption or network degradation prohibiting processing, recommend processing via AF Form 4005."
+      },
+      "question": "If a network outage prevents deployment processing in the Commander Dashboard, which form is recommended for processing deploying members?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a network outage prevents Commander Dashboard processing, which form is recommended?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1668,6 +1710,12 @@
       "evidence": {
         "page": 18,
         "quote": "1.29. Unit Deployment Manager (UDM). The UDM will:\n…\n1.29.6. Ensure all personnel tasked for deployment:\n…\n1.29.6.4. In the event of short notice deployment (less than 15 days), UDMs will notify the gaining commander of known training or pre-deployment processing deficiencies IAW supported command guidance. (T-1)"
+      },
+      "question": "For deployment readiness processing, a short-notice deployment is one with less than how many days notice?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "A short-notice deployment is one with less than how many days notice?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1850,6 +1898,12 @@
       "evidence": {
         "page": 33,
         "quote": "Table 3.1. Standard Deployment Schedule of Events.\nCargo Related Events\nPersonnel Related Events\nCargo Unit Assembly Complete\nPersonnel Unit Assembly Complete\nCargo In-check Start\nPersonnel Deployment Bags Start\nCargo In-check Complete\nPersonnel Deployment Bags Complete\nCargo Joint Inspection Start\nPersonnel Process Start\nCargo Joint Inspection Complete\nPersonnel Process Complete\nCargo Manifest Complete\nPersonnel Orders Complete\nCargo QC Complete\nPersonnel Manifest Complete\nCargo Aircraft Commander’s Package Complete Baggage Load Start\nCargo Load Start\nBaggage Load Complete\nCargo Load Complete\nPersonnel Load Start\nTransmit Manifest to Global Air Transportation\nExecution System\nPersonnel Load Complete"
+      },
+      "question": "In DAFI 10-403's standard Deployment Schedule of Events (Table 3.1), what is the last cargo-related event?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the last standard cargo-related event in the Deployment Schedule of Events?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1876,6 +1930,12 @@
       "evidence": {
         "page": 33,
         "quote": "Table 3.1. Standard Deployment Schedule of Events.\nCargo Related Events\nPersonnel Related Events\nCargo Unit Assembly Complete\nPersonnel Unit Assembly Complete\nCargo In-check Start\nPersonnel Deployment Bags Start\nCargo In-check Complete\nPersonnel Deployment Bags Complete\nCargo Joint Inspection Start\nPersonnel Process Start\nCargo Joint Inspection Complete\nPersonnel Process Complete\nCargo Manifest Complete\nPersonnel Orders Complete\nCargo QC Complete\nPersonnel Manifest Complete\nCargo Aircraft Commander’s Package Complete Baggage Load Start\nCargo Load Start\nBaggage Load Complete\nCargo Load Complete\nPersonnel Load Start\nTransmit Manifest to Global Air Transportation\nExecution System\nPersonnel Load Complete"
+      },
+      "question": "Which of these is NOT a standard cargo-related event in DAFI 10-403's Deployment Schedule of Events (Table 3.1)?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which of these is NOT a standard cargo-related DSOE event in Table 3.1?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1902,6 +1962,12 @@
       "evidence": {
         "page": 33,
         "quote": "Table 3.1. Standard Deployment Schedule of Events.\nCargo Related Events\nPersonnel Related Events\nCargo Unit Assembly Complete\nPersonnel Unit Assembly Complete\nCargo In-check Start\nPersonnel Deployment Bags Start\nCargo In-check Complete\nPersonnel Deployment Bags Complete\nCargo Joint Inspection Start\nPersonnel Process Start\nCargo Joint Inspection Complete\nPersonnel Process Complete\nCargo Manifest Complete\nPersonnel Orders Complete\nCargo QC Complete\nPersonnel Manifest Complete\nCargo Aircraft Commander’s Package Complete Baggage Load Start\nCargo Load Start\nBaggage Load Complete\nCargo Load Complete\nPersonnel Load Start\nTransmit Manifest to Global Air Transportation\nExecution System\nPersonnel Load Complete"
+      },
+      "question": "In DAFI 10-403's standard Deployment Schedule of Events (Table 3.1), which cargo event comes right after Cargo Manifest Complete?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which standard cargo DSOE event comes right after Cargo Manifest Complete?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -1928,6 +1994,12 @@
       "evidence": {
         "page": 33,
         "quote": "Table 3.1. Standard Deployment Schedule of Events.\nCargo Related Events\nPersonnel Related Events\nCargo Unit Assembly Complete\nPersonnel Unit Assembly Complete\nCargo In-check Start\nPersonnel Deployment Bags Start\nCargo In-check Complete\nPersonnel Deployment Bags Complete\nCargo Joint Inspection Start\nPersonnel Process Start\nCargo Joint Inspection Complete\nPersonnel Process Complete\nCargo Manifest Complete\nPersonnel Orders Complete\nCargo QC Complete\nPersonnel Manifest Complete\nCargo Aircraft Commander’s Package Complete Baggage Load Start\nCargo Load Start\nBaggage Load Complete\nCargo Load Complete\nPersonnel Load Start\nTransmit Manifest to Global Air Transportation\nExecution System\nPersonnel Load Complete"
+      },
+      "question": "In DAFI 10-403's standard Deployment Schedule of Events (Table 3.1), what is the first cargo-related event?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the first standard cargo-related event in the Deployment Schedule of Events?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -2380,6 +2452,12 @@
       "evidence": {
         "page": 37,
         "quote": "3.9. Air Passenger Terminal (APT). The APT will:\n…\n3.9.7. Designate the senior ranking individual assigned to a group of personnel deploying to the same destination on the same chalk (military air, commercial, or Air Mobility Command contracted airlift) as the troop leader. (T-1)\n3.9.7.1. The troop leader will:\n3.9.7.1.1. Account for and control their personnel from processing complete until arrival at the destination. (T-1)\n3.9.7.1.2. Retain chalk files and documents provided by DCC and subordinate work centers (e.g., chalk manifests, orders) (T-1)\n3.9.7.1.3. Provide chalk files and documents to the personnel integration function or the PERSCO team upon arrival IAW DAFI 36-3802."
+      },
+      "question": "For personnel deploying by air, who is designated as the troop leader?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is designated as troop leader?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -2554,6 +2632,12 @@
       "evidence": {
         "page": 38,
         "quote": "3.10. Cargo Deployment Function (CDF). The CDF will:\n…\n3.10.3. CDF Work centers. The IDO will activate CDF work centers on an as required basis.\n…\n3.10.3.6. Joint Inspection. Joint inspectors will inspect deploying cargo with the owning unit’s representative(s) during in-check or joint inspection personnel prior to aircraft loading IAW AFI 24-605, Volume 2."
+      },
+      "question": "During the joint inspection of deploying cargo, joint inspectors inspect the cargo together with whom?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Joint inspectors inspect deploying cargo together with whom?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -2606,6 +2690,12 @@
       "evidence": {
         "page": 38,
         "quote": "3.10. Cargo Deployment Function (CDF). The CDF will:\n…\n3.10.3. CDF Work centers. The IDO will activate CDF work centers on an as required basis.\n…\n3.10.3.8. Load Teams. Load team personnel will transport, load, and secure cargo on aircraft and vehicles. (T-3) Note: Air Force Specialty Code 2T2X1 personnel or civilian equivalent should be designated as load team chiefs."
+      },
+      "question": "Personnel with which AFSC (or civilian equivalent) should be designated as CDF load team chiefs?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Personnel with which AFSC (or civilian equivalent) should be designated as load team chiefs?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -2632,6 +2722,12 @@
       "evidence": {
         "page": 38,
         "quote": "3.10.3. CDF Work centers. The IDO will activate CDF work centers on an as required basis.\n…\n3.10.3.9. Ramp Coordinator. The ramp coordinator will:\n…\n3.10.3.9.2. Provide the aircraft commander package to the aircraft commander or loadmaster and brief any special cargo handling requirements. (T-3)"
+      },
+      "question": "In the Cargo Deployment Function, who gives the aircraft commander package to the aircraft commander or loadmaster?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who gives the aircraft commander package to the aircraft commander or loadmaster?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -2736,6 +2832,12 @@
       "evidence": {
         "page": 39,
         "quote": "3.12. Overview.\n3.12.1. The IDO will determine how personnel processing is accomplished. (T-3) Note: Personnel processing may be accomplished using a full or partial processing line or by checklist only.\n3.12.1.1. Partial Processing Line: Individuals or for small scale deployments are managed by FSS/IPR to support rotational operations IAW AFI 10-401, the AFFORGEN Support Plan this instruction, and the IDP."
+      },
+      "question": "For deployment personnel processing, a partial processing line (individuals or small-scale deployments) is managed by whom?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "A partial processing line (individuals or small-scale deployments) is managed by whom?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -2762,6 +2864,12 @@
       "evidence": {
         "page": 39,
         "quote": "3.12. Overview.\n3.12.1. The IDO will determine how personnel processing is accomplished. (T-3) Note: Personnel processing may be accomplished using a full or partial processing line or by checklist only.\n…\n3.12.1.2. Full Processing Line: Mass (large scale) deployments are managed by the DCC and its subordinate work centers for contingency or crises operations this instruction, and the IDP."
+      },
+      "question": "For deployment personnel processing, a full processing line (mass deployments) is managed by whom?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "A full processing line (mass deployments) is managed by whom?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -2858,6 +2966,12 @@
       "evidence": {
         "page": 40,
         "quote": "3.13.2.6. When personnel processing actions are complete, FSS/IPR or the PDF will:\n…\n3.13.2.6.4. Provide Contingency, Exercise, and Deployment orders to deploying personnel IAW DAFI 36-3802.\n…\n3.13.2.6.4.2. If the orders are not completed prior to the aircraft departure, prepare a hard-copy passenger manifest to document departing passengers without orders and upload the electronic manifest to CMOS or GATES as soon as possible to maintain in-transit visibility. (T-1)"
+      },
+      "question": "If a deploying member's CED orders are not done before the aircraft departs, what is prepared?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If CED orders are not done before the aircraft departs, what is prepared?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3258,6 +3372,12 @@
       "evidence": {
         "page": 44,
         "quote": "3.15. Deploying Personnel. Deploying personnel will:\n…\n3.15.4. Personal Baggage. For purposes of this instruction, the term “bag” or “baggage” refers to any soft- or hard-sided container with carrying handle(s) containing items necessary for personal and duty use for the duration of the deployment. Deploying personnel will:\n3.15.4.1. Deploy aboard the same aircraft transporting their personal baggage AFI 24-605, Volume 2."
+      },
+      "question": "Deploying personnel must deploy aboard which aircraft?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Deploying personnel deploy aboard which aircraft?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3414,6 +3534,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\nTYPE\nFREQUENCY\nTRAINER\nRECORD KEEPER\nREFERENCE(S)\nAFFORGEN\nConnect\nInitial 2\nP&I\nDAFI 10-403\nWork center\nOrientation\nInitial 2\nWork center Officer\nIn Charge or Non-\nCommissioned\nOfficer in Charge\nDAFI 10-403\nUnit Deployment\nManager\nInitial 2, 3\nP&I\nDAFI 10-403\nAir Force Job\nQualification Standard\n(8U000)\nLOGMOD\nInitial 2\nP&I\nDAFI 10-403\nCargo Preparation\nPallet Build Up\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nHazardous Material\nPreparers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nInspectors\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nHandlers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nPackers\n(Technical\nSpecialist)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nJoint Airborne or\nTransportability\nTraining\nInitial\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nICODES\n(Aircraft Load\nPlanning)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nJoint Airlift\nInspector\nInitial 2\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), what is the refresher frequency for Hazardous Material Preparers, Inspectors, Handlers, and Packers?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the refresher frequency for Hazardous Material Preparers, Inspectors, Handlers, and Packers?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3440,6 +3566,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nPackers\n(Technical\nSpecialist)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nJoint Airborne or\nTransportability\nTraining\nInitial\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nICODES\n(Aircraft Load\nPlanning)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nJoint Airlift\nInspector\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), which publication governs Hazardous Material Preparer, Inspector, Handler, and Packer training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which publication governs Hazardous Material Preparer, Inspector, Handler, and Packer training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3466,6 +3598,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\nTYPE\nFREQUENCY\nTRAINER\nRECORD KEEPER\nREFERENCE(S)\nAFFORGEN\nConnect\nInitial 2\nP&I\nDAFI 10-403\nWork center\nOrientation\nInitial 2\nWork center Officer\nIn Charge or Non-\nCommissioned\nOfficer in Charge\nDAFI 10-403\nUnit Deployment\nManager\nInitial 2, 3\nP&I\nDAFI 10-403\nAir Force Job\nQualification Standard\n(8U000)\nLOGMOD\nInitial 2\nP&I\nDAFI 10-403\nCargo Preparation\nPallet Build Up\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nHazardous Material\nPreparers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nInspectors\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nHandlers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nPackers\n(Technical\nSpecialist)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nJoint Airborne or\nTransportability\nTraining\nInitial\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nICODES\n(Aircraft Load\nPlanning)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nJoint Airlift\nInspector\nInitial 2\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), what is the refresher frequency for ICODES (aircraft load planning) training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the refresher frequency for ICODES (aircraft load planning) training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3492,6 +3630,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nPassenger\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nDAFI 24-605, Vol 2\nIn-Check and\nManifesting\nTransportation\nFunction\nWeapons Courier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nAmmunition\nCourier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nClassified Courier\nInitial 2\nUnit Security\nManager\nDoDM\n5200.01V1_AFMAN16-\n1404V1\nDeployed\nEquipment\nCustodian\nInitial 2\nLRS/Materiel\nManagement\nDAFMAN 23-300\nNote 1: Recurring training every 15 months IAW DAFI 91-202\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1, Note 1), how often is Explosives and Weapons Safety training recurring?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How often is Explosives and Weapons Safety training recurring (Note 1)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3518,6 +3662,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nPassenger\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nDAFI 24-605, Vol 2\nIn-Check and\nManifesting\nTransportation\nFunction\nWeapons Courier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nAmmunition\nCourier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nClassified Courier\nInitial 2\nUnit Security\nManager\nDoDM\n5200.01V1_AFMAN16-\n1404V1\nDeployed\nEquipment\nCustodian\nInitial 2\nLRS/Materiel\nManagement\nDAFMAN 23-300\nNote 1: Recurring training every 15 months IAW DAFI 91-202\nNote 2: Refresher training is “as required”\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1, Note 2), how often is refresher training required for most deployment classes (e.g., Joint Airlift Inspector, Cargo In-Check)?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "According to Note 2, how often is refresher training for most deployment classes (e.g., Joint Airlift Inspector, Cargo In-Check)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3544,6 +3694,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nPassenger\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nDAFI 24-605, Vol 2\nIn-Check and\nManifesting\nTransportation\nFunction\nWeapons Courier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nAmmunition\nCourier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nClassified Courier\nInitial 2\nUnit Security\nManager\nDoDM\n5200.01V1_AFMAN16-\n1404V1\nDeployed\nEquipment\nCustodian\nInitial 2\nLRS/Materiel\nManagement\nDAFMAN 23-300\nNote 1: Recurring training every 15 months IAW DAFI 91-202\nNote 2: Refresher training is “as required”\nNote 3: Computer Based Training available on MyLearning is a prerequisite."
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1, Note 3), what is the prerequisite for Unit Deployment Manager training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the prerequisite for Unit Deployment Manager training (Note 3)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3570,6 +3726,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\nTYPE\nFREQUENCY\nTRAINER\nRECORD KEEPER\nREFERENCE(S)\nAFFORGEN\nConnect\nInitial 2\nP&I\nDAFI 10-403\nWork center\nOrientation\nInitial 2\nWork center Officer\nIn Charge or Non-\nCommissioned\nOfficer in Charge\nDAFI 10-403\nUnit Deployment\nManager\nInitial 2, 3\nP&I\nDAFI 10-403\nAir Force Job\nQualification Standard\n(8U000)\nLOGMOD\nInitial 2\nP&I\nDAFI 10-403\nCargo Preparation\nPallet Build Up\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nHazardous Material\nPreparers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nInspectors\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nHandlers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nPackers\n(Technical\nSpecialist)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nJoint Airborne or\nTransportability\nTraining\nInitial\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nICODES\n(Aircraft Load\nPlanning)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nJoint Airlift\nInspector\nInitial 2\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), who is the trainer/record keeper for AFFORGEN Connect, Unit Deployment Manager, and LOGMOD training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is the trainer/record keeper for AFFORGEN Connect, Unit Deployment Manager, and LOGMOD training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3596,6 +3758,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\nTYPE\nFREQUENCY\nTRAINER\nRECORD KEEPER\nREFERENCE(S)\nAFFORGEN\nConnect\nInitial 2\nP&I\nDAFI 10-403\nWork center\nOrientation\nInitial 2\nWork center Officer\nIn Charge or Non-\nCommissioned\nOfficer in Charge\nDAFI 10-403\nUnit Deployment\nManager\nInitial 2, 3\nP&I\nDAFI 10-403\nAir Force Job\nQualification Standard\n(8U000)\nLOGMOD\nInitial 2\nP&I\nDAFI 10-403\nCargo Preparation\nPallet Build Up\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nHazardous Material\nPreparers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nInspectors\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nHandlers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nPackers\n(Technical\nSpecialist)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nJoint Airborne or\nTransportability\nTraining\nInitial\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nICODES\n(Aircraft Load\nPlanning)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nJoint Airlift\nInspector\nInitial 2\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), who is the trainer/record keeper for Work Center Orientation?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is the trainer/record keeper for Work Center Orientation?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3622,6 +3790,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nPassenger\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nDAFI 24-605, Vol 2\nIn-Check and\nManifesting\nTransportation\nFunction\nWeapons Courier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nAmmunition\nCourier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nClassified Courier\nInitial 2\nUnit Security\nManager\nDoDM\n5200.01V1_AFMAN16-\n1404V1\nDeployed\nEquipment\nCustodian\nInitial 2\nLRS/Materiel\nManagement\nDAFMAN 23-300\nNote 1: Recurring training every 15 months IAW DAFI 91-202\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), who is the trainer/record keeper for Classified Courier training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is the trainer/record keeper for Classified Courier training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3648,6 +3822,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nPassenger\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nDAFI 24-605, Vol 2\nIn-Check and\nManifesting\nTransportation\nFunction\nWeapons Courier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nAmmunition\nCourier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nClassified Courier\nInitial 2\nUnit Security\nManager\nDoDM\n5200.01V1_AFMAN16-\n1404V1\nDeployed\nEquipment\nCustodian\nInitial 2\nLRS/Materiel\nManagement\nDAFMAN 23-300\nNote 1: Recurring training every 15 months IAW DAFI 91-202\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), who is the trainer/record keeper for Deployed Equipment Custodian training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is the trainer/record keeper for Deployed Equipment Custodian training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3674,6 +3854,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nPassenger\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nDAFI 24-605, Vol 2\nIn-Check and\nManifesting\nTransportation\nFunction\nWeapons Courier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nAmmunition\nCourier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nClassified Courier\nInitial 2\nUnit Security\nManager\nDoDM\n5200.01V1_AFMAN16-\n1404V1\nDeployed\nEquipment\nCustodian\nInitial 2\nLRS/Materiel\nManagement\nDAFMAN 23-300\nNote 1: Recurring training every 15 months IAW DAFI 91-202\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), which publication is listed for Deployed Equipment Custodian training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which publication is listed for Deployed Equipment Custodian training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3718,6 +3904,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nLOGMOD\nInitial 2\nP&I\nDAFI 10-403\nCargo Preparation\nPallet Build Up\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nHazardous Material\nPreparers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nInspectors\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nHandlers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nPackers\n(Technical\nSpecialist)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nJoint Airborne or\nTransportability\nTraining\nInitial\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nICODES\n(Aircraft Load\nPlanning)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nJoint Airlift\nInspector\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), which two publications are listed for Aircraft Marshaling training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which two publications are listed for Aircraft Marshaling training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3744,6 +3936,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nTraining\nInitial\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nICODES\n(Aircraft Load\nPlanning)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nJoint Airlift\nInspector\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nPassenger\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nDAFI 24-605, Vol 2\nIn-Check and\nManifesting\nTransportation\nFunction\nWeapons Courier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nAmmunition\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), which publication is listed for Weapons Courier and Ammunition Courier training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which publication is listed for Weapons Courier and Ammunition Courier training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3770,6 +3968,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\n…\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Load Team\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nAircraft Marshaling\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 11-218\nDAFI 24-605, Vol 2\nRamp Coordinator\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nQuality Control\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nCargo In-Check\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nExplosives and\nWeapons Safety\nInitial 1\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 91-202\nDAFI 24-605, Vol 2\nPassenger Baggage\nHandler\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nPassenger\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nDAFI 24-605, Vol 2\nIn-Check and\nManifesting\nTransportation\nFunction\nWeapons Courier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nAmmunition\nCourier\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFI 24-602, Vol 2\nClassified Courier\nInitial 2\nUnit Security\nManager\nDoDM\n5200.01V1_AFMAN16-\n1404V1\nDeployed\nEquipment\nCustodian\nInitial 2\nLRS/Materiel\nManagement\nDAFMAN 23-300\nNote 1: Recurring training every 15 months IAW DAFI 91-202\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), which publication is listed for Classified Courier training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which publication is listed for Classified Courier training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     },
     {
@@ -3796,6 +4000,12 @@
       "evidence": {
         "page": 45,
         "quote": "Table A3.1. Deployment Training Requirements.\nTYPE\nFREQUENCY\nTRAINER\nRECORD KEEPER\nREFERENCE(S)\nAFFORGEN\nConnect\nInitial 2\nP&I\nDAFI 10-403\nWork center\nOrientation\nInitial 2\nWork center Officer\nIn Charge or Non-\nCommissioned\nOfficer in Charge\nDAFI 10-403\nUnit Deployment\nManager\nInitial 2, 3\nP&I\nDAFI 10-403\nAir Force Job\nQualification Standard\n(8U000)\nLOGMOD\nInitial 2\nP&I\nDAFI 10-403\nCargo Preparation\nPallet Build Up\nInitial 2\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nHazardous Material\nPreparers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nInspectors\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nHandlers\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nHazardous Material\nPackers\n(Technical\nSpecialist)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nAFMAN 24-604-\nIntegrated Publication\nJoint Airborne or\nTransportability\nTraining\nInitial\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nICODES\n(Aircraft Load\nPlanning)\nInitial\nRefresher: 24\nmonths\nLRS/Deployments &\nDistribution\nFlight/Air\nTransportation\nFunction\nDAFI 24-605, Vol 2\nJoint Airlift\nInspector\nInitial 2\n…"
+      },
+      "question": "In DAFI 10-403's deployment training requirements (Table A3.1), who is the trainer/record keeper for Cargo In-Check, Quality Control, Ramp Coordinator, and Joint Airlift Inspector training?",
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is the trainer/record keeper for Cargo In-Check, Quality Control, Ramp Coordinator, and Joint Airlift Inspector training?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
       }
     }
   ]

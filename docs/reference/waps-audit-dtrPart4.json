@@ -37,7 +37,7 @@
     {
       "id": "DTR-IV|Ch A-402, para A.3|DPM shipments, shipments going into NTS, and intra-theater tender shipments are processed using what?",
       "ref": "Ch A-402, para A.3",
-      "question": "DPM shipments, shipments going into NTS, and intra-theater tender shipments are processed using what?",
+      "question": "In the DP3 personal property program, DPM shipments, shipments going into NTS, and intra-theater tender shipments are processed using what?",
       "status": "verified",
       "reason": "The cited rule gives 'eTOPS' for this question. The alternatives 'DPS round robin', 'GFM', 'CMOS' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -50,12 +50,17 @@
         "GFM",
         "CMOS"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "DPM shipments, shipments going into NTS, and intra-theater tender shipments are processed using what?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para B.1|Army TP-2 airlift requests to/from other than hard-lift areas are routed to whom?",
       "ref": "Ch A-402, para B.1",
-      "question": "Army TP-2 airlift requests to/from other than hard-lift areas are routed to whom?",
+      "question": "Army TP-2 airlift requests for personal property to/from other than hard-lift areas are routed to whom?",
       "status": "verified",
       "reason": "The cited rule gives 'HQ Army G-4 (DALO-FPT)' for this question. The alternatives 'Joint Personal Property Shipping Office South Central', 'NAVSUP Household Goods Division headquarters', 'Surface Deployment and Distribution Command' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -68,12 +73,17 @@
         "NAVSUP Household Goods Division headquarters",
         "Surface Deployment and Distribution Command"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Army TP-2 airlift requests to/from other than hard-lift areas are routed to whom?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para B.2|Air Force TP-2 airlift requests to/from other than hard-lift areas are routed through the MAJCOM to whom?",
       "ref": "Ch A-402, para B.2",
-      "question": "Air Force TP-2 airlift requests to/from other than hard-lift areas are routed through the MAJCOM to whom?",
+      "question": "Air Force TP-2 airlift requests for personal property to/from other than hard-lift areas are routed through the MAJCOM to whom?",
       "status": "verified",
       "reason": "The cited rule gives 'JPPSO-SC' for this question. The alternatives 'HQ Army G-4', 'AMC/A4T', 'PPA HQ/LHX' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -86,12 +96,17 @@
         "AMC/A4T",
         "PPA HQ/LHX"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Air Force TP-2 airlift requests to/from other than hard-lift areas are routed through the MAJCOM to whom?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para B.2|For Air Force TP-2 shipments, what must the ATCMD clearance documents include?",
       "ref": "Ch A-402, para B.2",
-      "question": "For Air Force TP-2 shipments, what must the ATCMD clearance documents include?",
+      "question": "For Air Force personal property moving by TP-2 airlift, what must the ATCMD clearance documents include?",
       "status": "verified",
       "reason": "The cited rule gives 'TH-9 identifying approval authority' for this question. The alternatives 'DD Form 1857 authorizing Government-funded storage', 'Only the member’s permanent change of station orders', 'DD Form 1085 requesting domestic freight routing' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -104,12 +119,17 @@
         "Only the member’s permanent change of station orders",
         "DD Form 1085 requesting domestic freight routing"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For Air Force TP-2 shipments, what must the ATCMD clearance documents include?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.1.a|How are TSPs ranked on each Traffic Distribution List (TDL)?",
       "ref": "Ch A-402, para C.1.a",
-      "question": "How are TSPs ranked on each Traffic Distribution List (TDL)?",
+      "question": "In DP3 shipment allocation, how are TSPs ranked on each Traffic Distribution List (TDL)?",
       "status": "verified",
       "reason": "The cited rule gives 'Highest to lowest BVS' for this question. The alternatives 'Alphabetical order of the transportation service provider', 'Lowest offered rate without consideration of performance', 'Earliest date of approval for the traffic distribution list' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -122,12 +142,17 @@
         "Lowest offered rate without consideration of performance",
         "Earliest date of approval for the traffic distribution list"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How are TSPs ranked on each Traffic Distribution List (TDL)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.1.b|How many general channel categories are there?",
       "ref": "Ch A-402, para C.1.b",
-      "question": "How many general channel categories are there?",
+      "question": "How many general categories of origin-destination channels does DP3 use for HHG shipments?",
       "status": "verified",
       "reason": "The cited rule gives 'Four' for this question. The alternatives 'Two', 'Three', 'Thirteen' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -140,12 +165,17 @@
         "Three",
         "Thirteen"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How many general channel categories are there?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.1.b(1)|Which four states are split into separate rate areas for originating shipments?",
       "ref": "Ch A-402, para C.1.b(1)",
-      "question": "Which four states are split into separate rate areas for originating shipments?",
+      "question": "For CONUS-to-CONUS HHG channels, which four states are split into separate rate areas for originating shipments?",
       "status": "verified",
       "reason": "The cited rule gives 'California, Florida, Texas, and Alaska' for this question. The alternatives 'California, New York, Texas, and Hawaii', 'Florida, Virginia, Texas, and Alaska', 'California, Washington, Florida, and Georgia' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -158,12 +188,17 @@
         "Florida, Virginia, Texas, and Alaska",
         "California, Washington, Florida, and Georgia"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which four states are split into separate rate areas for originating shipments?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.1.b(1)|How many destination regions are there in CONUS (plus intrastate and Alaska)?",
       "ref": "Ch A-402, para C.1.b(1)",
-      "question": "How many destination regions are there in CONUS (plus intrastate and Alaska)?",
+      "question": "For CONUS-to-CONUS HHG channels, how many destination regions are there in CONUS (plus intrastate and Alaska)?",
       "status": "verified",
       "reason": "The cited rule gives '13' for this question. The alternatives '10', '15', '48' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -176,12 +211,17 @@
         "15",
         "48"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How many destination regions are there in CONUS (plus intrastate and Alaska)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.a|When is Code 2 service used at the PPSO's discretion?",
       "ref": "Ch A-402, para C.2.a",
-      "question": "When is Code 2 service used at the PPSO's discretion?",
+      "question": "When does the PPSO use Code 2 (domestic containerized HHG) service at its discretion?",
       "status": "verified",
       "reason": "The cited rule gives 'Based on market conditions and when Code D capability reaches capacity, without excess cost to the customer' for this question. The alternatives 'For every shipment over 5,000 lbs', 'Only for OCONUS moves', 'Only when the customer pays' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -194,12 +234,17 @@
         "Only for OCONUS moves",
         "Only when the customer pays"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When is Code 2 service used at the PPSO's discretion?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.b|If a customer requests Code 2 and Code D is available, what applies?",
       "ref": "Ch A-402, para C.2.b",
-      "question": "If a customer requests Code 2 and Code D is available, what applies?",
+      "question": "If a customer requests Code 2 (domestic containerized HHG) service and Code D is available, what applies?",
       "status": "verified",
       "reason": "The cited rule gives 'The customer may owe excess cost' for this question. The alternatives 'Code 2 is free', 'The request is automatically denied', 'The TSP pays the difference' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -212,12 +257,17 @@
         "The request is automatically denied",
         "The TSP pays the difference"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a customer requests Code 2 and Code D is available, what applies?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.c(1)(b)|What is the Code 2 weight criterion during Peak Season?",
       "ref": "Ch A-402, para C.2.c(1)(b)",
-      "question": "What is the Code 2 weight criterion during Peak Season?",
+      "question": "What is the Code 2 (domestic containerized HHG) weight criterion during Peak Season?",
       "status": "verified",
       "reason": "The cited rule gives '10,000 lbs or less' for this question. The alternatives '3,000 lbs or less', '5,000 lbs or less', '18,000 lbs or less' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -230,12 +280,17 @@
         "5,000 lbs or less",
         "18,000 lbs or less"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the Code 2 weight criterion during Peak Season?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.c(1)(b)|What is the Code 2 weight criterion during Non-Peak Season?",
       "ref": "Ch A-402, para C.2.c(1)(b)",
-      "question": "What is the Code 2 weight criterion during Non-Peak Season?",
+      "question": "What is the Code 2 (domestic containerized HHG) weight criterion during Non-Peak Season?",
       "status": "verified",
       "reason": "The cited rule gives '3,000 lbs or less' for this question. The alternatives '10,000 lbs or less', '1,000 lbs or less', '7,500 lbs or less' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -248,12 +303,17 @@
         "1,000 lbs or less",
         "7,500 lbs or less"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the Code 2 weight criterion during Non-Peak Season?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.c(1)(b)|What are the dates of Peak Season?",
       "ref": "Ch A-402, para C.2.c(1)(b)",
-      "question": "What are the dates of Peak Season?",
+      "question": "For DP3 household goods moves, what are the dates of Peak Season?",
       "status": "verified",
       "reason": "The cited rule gives '15 May through 30 September' for this question. The alternatives '1 June through 31 August', '1 May through 31 October', '15 April through 15 September' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -266,12 +326,17 @@
         "1 May through 31 October",
         "15 April through 15 September"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What are the dates of Peak Season?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.c(1)(c)|To qualify for Code 2, a shipment must move how far?",
       "ref": "Ch A-402, para C.2.c(1)(c)",
-      "question": "To qualify for Code 2, a shipment must move how far?",
+      "question": "To qualify for Code 2 (domestic containerized HHG) service, a shipment must move how far?",
       "status": "verified",
       "reason": "The cited rule gives 'Greater than 800 miles' for this question. The alternatives 'Greater than 500 miles', 'Greater than 1,000 miles', 'Any distance' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -284,12 +349,17 @@
         "Greater than 1,000 miles",
         "Any distance"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "To qualify for Code 2, a shipment must move how far?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.c(3)(b)|Which shipment is excluded from Code 2?",
       "ref": "Ch A-402, para C.2.c(3)(b)",
-      "question": "Which shipment is excluded from Code 2?",
+      "question": "Which domestic HHG shipment is excluded from Code 2 (containerized) service?",
       "status": "verified",
       "reason": "C.2.c(3)(b) excludes planned direct delivery where an address will be furnished after booking. Merely lacking an address at booking does not establish this intent, so that overbroad distractor was replaced with an explicitly eligible capacity-exhausted case; intended SIT and TDY-related delay are not the stated direct-delivery exclusion.",
       "evidence": {
@@ -302,7 +372,12 @@
         "One the customer wants placed in SIT",
         "One delayed by the member's TDY in transit"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which shipment is excluded from Code 2?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.c(5)|How many days do PPSOs add to the standard domestic transit time for Code 2 shipments?",
@@ -325,7 +400,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.2.e|TSPs above the Minimum Performance Score are divided into how many Quality Bands?",
       "ref": "Ch A-402, para C.2.e",
-      "question": "TSPs above the Minimum Performance Score are divided into how many Quality Bands?",
+      "question": "In DP3 shipment distribution, TSPs above the Minimum Performance Score are divided into how many Quality Bands?",
       "status": "verified",
       "reason": "The cited rule gives 'Four' for this question. The alternatives 'Three', 'Five', 'Two' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -338,12 +413,17 @@
         "Five",
         "Two"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "TSPs above the Minimum Performance Score are divided into how many Quality Bands?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.e|Who develops the Minimum Performance Score (MPS) for each market, and when?",
       "ref": "Ch A-402, para C.2.e",
-      "question": "Who develops the Minimum Performance Score (MPS) for each market, and when?",
+      "question": "In DP3 shipment distribution, who develops the Minimum Performance Score (MPS) for each market, and when?",
       "status": "verified",
       "reason": "The cited rule gives 'DoW PPA, each annual rate cycle' for this question. The alternatives 'Each PPSO, at the beginning of every calendar month', 'USTRANSCOM, once during every five-year planning period', 'The participating TSPs, by a vote at each annual meeting' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -356,12 +436,17 @@
         "USTRANSCOM, once during every five-year planning period",
         "The participating TSPs, by a vote at each annual meeting"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who develops the Minimum Performance Score (MPS) for each market, and when?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.e|If the number of TSPs in a market is not divisible by four, where do the extra TSPs go?",
       "ref": "Ch A-402, para C.2.e",
-      "question": "If the number of TSPs in a market is not divisible by four, where do the extra TSPs go?",
+      "question": "In DP3 shipment distribution, if the number of TSPs in a market is not divisible by four, which Quality Band gets the extra TSPs?",
       "status": "verified",
       "reason": "The cited rule gives 'The first Quality Band' for this question. The alternatives 'The fourth Quality Band', 'They are dropped', 'They are spread evenly' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -374,12 +459,17 @@
         "They are dropped",
         "They are spread evenly"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If the number of TSPs in a market is not divisible by four, where do the extra TSPs go?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, Table A-402-1|Under the dHHG/iHHG Quality Bands, how many shipments does each TSP in Band 1 get?",
       "ref": "Ch A-402, Table A-402-1",
-      "question": "Under the dHHG/iHHG Quality Bands, how many shipments does each TSP in Band 1 get?",
+      "question": "Under the dHHG/iHHG Quality Bands (Table A-402-1), how many shipments does each TSP in Band 1 get?",
       "status": "verified",
       "reason": "The cited rule gives '5' for this question. The alternatives '3', '10', '50' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -392,12 +482,17 @@
         "10",
         "50"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Under the dHHG/iHHG Quality Bands, how many shipments does each TSP in Band 1 get?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, Table A-402-1|Under the dHHG/iHHG Quality Bands, how many shipments does each TSP in Band 4 get?",
       "ref": "Ch A-402, Table A-402-1",
-      "question": "Under the dHHG/iHHG Quality Bands, how many shipments does each TSP in Band 4 get?",
+      "question": "Under the dHHG/iHHG Quality Bands (Table A-402-1), how many shipments does each TSP in Band 4 get?",
       "status": "verified",
       "reason": "The cited rule gives '1' for this question. The alternatives '2', '0', '10' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -410,12 +505,17 @@
         "0",
         "10"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Under the dHHG/iHHG Quality Bands, how many shipments does each TSP in Band 4 get?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, Table A-402-2|Under the UB Quality Bands, how many shipments does each TSP in Band 1 get?",
       "ref": "Ch A-402, Table A-402-2",
-      "question": "Under the UB Quality Bands, how many shipments does each TSP in Band 1 get?",
+      "question": "Under the UB Quality Bands (Table A-402-2), how many shipments does each TSP in Band 1 get?",
       "status": "verified",
       "reason": "The cited rule gives '50' for this question. The alternatives '5', '30', '100' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -428,12 +528,17 @@
         "30",
         "100"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Under the UB Quality Bands, how many shipments does each TSP in Band 1 get?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.g|How must a TSP's Volume Move (VM) rate compare to its current rate on file?",
       "ref": "Ch A-402, para C.2.g",
-      "question": "How must a TSP's Volume Move (VM) rate compare to its current rate on file?",
+      "question": "For a DP3 Volume Move (VM), how must a TSP's VM rate compare to its current rate on file?",
       "status": "verified",
       "reason": "The cited rule gives 'It must be lower' for this question. The alternatives 'It may be higher', 'It must be the same', 'It must be at least 10% higher' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -446,12 +551,17 @@
         "It must be the same",
         "It must be at least 10% higher"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How must a TSP's Volume Move (VM) rate compare to its current rate on file?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.g(5)(a)2|For a domestic VM, which rates must the TSP file lower than its rate on file?",
       "ref": "Ch A-402, para C.2.g(5)(a)2",
-      "question": "For a domestic VM, which rates must the TSP file lower than its rate on file?",
+      "question": "For a domestic DP3 Volume Move (VM), which rates must the TSP file lower than its rate on file?",
       "status": "verified",
       "reason": "The cited rule gives 'Both LH and SIT' for this question. The alternatives 'Line-haul only', 'SIT only', 'Packing only' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -464,12 +574,17 @@
         "SIT only",
         "Packing only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For a domestic VM, which rates must the TSP file lower than its rate on file?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.g(5)(b)1|Which rate is used for an international VM?",
       "ref": "Ch A-402, para C.2.g(5)(b)1",
-      "question": "Which rate is used for an international VM?",
+      "question": "Which rate is used for an international DP3 Volume Move (VM)?",
       "status": "verified",
       "reason": "The cited rule gives 'An SFR' for this question. The alternatives 'A domestic line-haul rate', 'A GSA commuted rate', 'A spot bid rate' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -482,12 +597,17 @@
         "A GSA commuted rate",
         "A spot bid rate"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which rate is used for an international VM?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.g(5)(a)5|How is the unique BVS for a VM established?",
       "ref": "Ch A-402, para C.2.g(5)(a)5",
-      "question": "How is the unique BVS for a VM established?",
+      "question": "How is the unique Best Value Score (BVS) for a DP3 Volume Move (VM) established?",
       "status": "verified",
       "reason": "The cited rule gives 'Rate Score + current Performance Score' for this question. The alternatives 'The lowest submitted rate without a performance component', 'The PPSO’s preferred carrier without a scored comparison', 'Only the carrier’s claims ratio for the previous rate cycle' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -500,12 +620,17 @@
         "The PPSO’s preferred carrier without a scored comparison",
         "Only the carrier’s claims ratio for the previous rate cycle"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How is the unique BVS for a VM established?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.g(6)(a)|Which is an example of a Special Solicitation group?",
       "ref": "Ch A-402, para C.2.g(6)(a)",
-      "question": "Which is an example of a Special Solicitation group?",
+      "question": "Which is an example of a DP3 Special Solicitation channel group?",
       "status": "verified",
       "reason": "The cited rule gives 'CONUS–Singapore' for this question. The alternatives 'CONUS to CONUS', 'Germany to CONUS', 'Intrastate Texas' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -518,12 +643,17 @@
         "Germany to CONUS",
         "Intrastate Texas"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which is an example of a Special Solicitation group?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.2.g(6)(b)|In a Special Solicitation, which TSP is allocated all shipments in the group?",
       "ref": "Ch A-402, para C.2.g(6)(b)",
-      "question": "In a Special Solicitation, which TSP is allocated all shipments in the group?",
+      "question": "In a DP3 Special Solicitation, which TSP is allocated all shipments in the group?",
       "status": "verified",
       "reason": "The cited rule gives 'Primary TSP (highest BVS)' for this question. The alternatives 'The lowest-priced TSP', 'Each TSP in rotation', 'The TSP chosen by the customer' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -536,7 +666,12 @@
         "Each TSP in rotation",
         "The TSP chosen by the customer"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In a Special Solicitation, which TSP is allocated all shipments in the group?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.3.b(1)|If a PPSO overrides the next BVS TSP (e.g., customer preferred TSP), what must the DPS record contain?",
@@ -559,7 +694,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.3.b(2)|Who holds approval authority for other manual offer processes, and can it be delegated?",
       "ref": "Ch A-402, para C.3.b(2)",
-      "question": "Who holds approval authority for other manual offer processes, and can it be delegated?",
+      "question": "When a PPSO awards a shipment through another manual offer process, who holds approval authority, and can it be delegated?",
       "status": "verified",
       "reason": "The cited rule gives 'PPSO Director; no delegation' for this question. The alternatives 'Any PPSO technician; delegation is permitted', 'DoW PPA; delegation to any TSP is permitted', 'The selected transportation provider; no delegation' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -572,7 +707,12 @@
         "DoW PPA; delegation to any TSP is permitted",
         "The selected transportation provider; no delegation"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who holds approval authority for other manual offer processes, and can it be delegated?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.3.b(2)|If there are no major capacity constraints, the PPSO Director keeps re-offering through BVS until the shipment is within how many days of the pickup window?",
@@ -649,7 +789,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.3.e|What is a short-fuse shipment?",
       "ref": "Ch A-402, para C.3.e",
-      "question": "What is a short-fuse shipment?",
+      "question": "In DPS shipment booking, what is a short-fuse shipment?",
       "status": "verified",
       "reason": "The cited rule gives 'Pickup within five GBDs' for this question. The alternatives 'A shipment under 1,000 lbs', 'A shipment requiring pickup within 30 days', 'Any shipment in peak season' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -662,12 +802,17 @@
         "A shipment requiring pickup within 30 days",
         "Any shipment in peak season"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is a short-fuse shipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.3.e|Who gets a short-fuse shipment?",
       "ref": "Ch A-402, para C.3.e",
-      "question": "Who gets a short-fuse shipment?",
+      "question": "In DPS shipment booking, which TSP is awarded a short-fuse shipment?",
       "status": "verified",
       "reason": "The cited rule gives 'The first accepting TSP' for this question. The alternatives 'The next TSP by BVS only', 'The TSP with the lowest rate', 'The TSP chosen by the customer' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -680,7 +825,12 @@
         "The TSP with the lowest rate",
         "The TSP chosen by the customer"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who gets a short-fuse shipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.3.e|If no TSP accepts a short-fuse shipment within how long does DPS alert the PPSO of \"Non-Response\"?",
@@ -703,7 +853,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.3.f|How far in advance may a TSP enter blackout dates?",
       "ref": "Ch A-402, para C.3.f",
-      "question": "How far in advance may a TSP enter blackout dates?",
+      "question": "How far in advance may a TSP enter blackout dates in DPS?",
       "status": "verified",
       "reason": "The cited rule gives 'Six months' for this question. The alternatives 'Three months', 'One year', 'Thirty days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -716,12 +866,17 @@
         "One year",
         "Thirty days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How far in advance may a TSP enter blackout dates?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.3.f|If a TSP misses a shipment offer because the date was blacked out, what is the TSP assigned?",
       "ref": "Ch A-402, para C.3.f",
-      "question": "If a TSP misses a shipment offer because the date was blacked out, what is the TSP assigned?",
+      "question": "If a TSP misses a DPS shipment offer because the date was blacked out, what is the TSP assigned?",
       "status": "verified",
       "reason": "The cited rule gives 'An administrative shipment' for this question. The alternatives 'A shipment refusal charged to its annual record', 'A thirty-day suspension from the PPSO market', 'A bonus shipment outside the normal allotment' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -734,12 +889,17 @@
         "A thirty-day suspension from the PPSO market",
         "A bonus shipment outside the normal allotment"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a TSP misses a shipment offer because the date was blacked out, what is the TSP assigned?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.3.h|How does DPS establish the RDD?",
       "ref": "Ch A-402, para C.3.h",
-      "question": "How does DPS establish the RDD?",
+      "question": "How does DPS establish a shipment's Required Delivery Date (RDD)?",
       "status": "verified",
       "reason": "The cited rule gives 'Pickup date + transit time' for this question. The alternatives 'First pack date plus thirty calendar days', 'The member’s reporting date stated on the orders', 'The customer’s desired delivery date in every case' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -752,7 +912,12 @@
         "The member’s reporting date stated on the orders",
         "The customer’s desired delivery date in every case"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How does DPS establish the RDD?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.3.h(1)|If the customer enters a Desired Delivery Date earlier than transit time and the TSP agrees, what happens?",
@@ -775,7 +940,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.4.a|If a TSP refuses a shipment, it may be ineligible in that PPSO's market for how long?",
       "ref": "Ch A-402, para C.4.a",
-      "question": "If a TSP refuses a shipment, it may be ineligible in that PPSO's market for how long?",
+      "question": "If a TSP refuses a DPS shipment offer, it may be ineligible in that PPSO's market for how long?",
       "status": "verified",
       "reason": "The cited rule gives '30 calendar days' for this question. The alternatives '10 calendar days', '90 calendar days', '1 year' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -788,12 +953,17 @@
         "90 calendar days",
         "1 year"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a TSP refuses a shipment, it may be ineligible in that PPSO's market for how long?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.4.a|Within how long must a TSP accept a shipment offer (excluding weekends and holidays)?",
       "ref": "Ch A-402, para C.4.a",
-      "question": "Within how long must a TSP accept a shipment offer (excluding weekends and holidays)?",
+      "question": "Within how long must a TSP accept a DPS shipment offer (excluding weekends and holidays)?",
       "status": "verified",
       "reason": "The cited rule gives '24 hours' for this question. The alternatives '48 hours', '12 hours', '3 GBDs' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -806,7 +976,12 @@
         "12 hours",
         "3 GBDs"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long must a TSP accept a shipment offer (excluding weekends and holidays)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.4.a note|How far ahead does DoW PPA issue a Customer Advisory before changing refusal procedures?",
@@ -847,7 +1022,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.4.b(4)|Which form is the Letter of Suspension to a TSP?",
       "ref": "Ch A-402, para C.4.b(4)",
-      "question": "Which form is the Letter of Suspension to a TSP?",
+      "question": "Which form is the PPSO's Letter of Suspension to a TSP?",
       "status": "verified",
       "reason": "The cited rule gives 'DD Form 1814' for this question. The alternatives 'DD Form 1780', 'DD Form 619', 'SF 1200' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -860,12 +1035,17 @@
         "DD Form 619",
         "SF 1200"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which form is the Letter of Suspension to a TSP?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.5.a note|Shipments canceled within how many GBDs of pickup are short notice and not chargeable to the new TSP?",
       "ref": "Ch A-402, para C.5.a note",
-      "question": "Shipments canceled within how many GBDs of pickup are short notice and not chargeable to the new TSP?",
+      "question": "When a PPSO cancels an awarded shipment, cancellations within how many GBDs of pickup are short notice and not chargeable to the new TSP?",
       "status": "verified",
       "reason": "The cited rule gives 'Five' for this question. The alternatives 'Three', 'Ten', 'One' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -878,7 +1058,12 @@
         "Ten",
         "One"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Shipments canceled within how many GBDs of pickup are short notice and not chargeable to the new TSP?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.5.a(1)|When the PPSO cancels a shipment in the interest of the Government, what happens to the TSP?",
@@ -901,7 +1086,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.6|When may a PPSO pull back a shipment (cancel the BL)?",
       "ref": "Ch A-402, para C.6",
-      "question": "When may a PPSO pull back a shipment (cancel the BL)?",
+      "question": "When may a PPSO pull back an awarded shipment (cancel the BL)?",
       "status": "verified",
       "reason": "The cited rule gives 'Before packing is performed' for this question. The alternatives 'Any time before the final delivery, including after packing', 'Only after the shipment is picked up by the assigned TSP', 'Never, even if no packing services have been performed' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -914,7 +1099,12 @@
         "Only after the shipment is picked up by the assigned TSP",
         "Never, even if no packing services have been performed"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When may a PPSO pull back a shipment (cancel the BL)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.6.b|Are pull-backs/turn-backs caused by the TSP's actions charged against the TSP?",
@@ -955,7 +1145,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.7.c|Normally, weight estimates are due no later than how many days before the first scheduled pack/pickup date?",
       "ref": "Ch A-402, para C.7.c",
-      "question": "Normally, weight estimates are due no later than how many days before the first scheduled pack/pickup date?",
+      "question": "Normally, when are the TSP's pre-move weight estimates due?",
       "status": "verified",
       "reason": "C.7.c uses the later of five days after accepting the shipment and nine days before first pack/pickup (with separate shorter-notice rules). The original nine-days-only key omitted the competing deadline. The revised key states the full ordinary timing rule.",
       "evidence": {
@@ -968,12 +1158,17 @@
         "Five days",
         "Fourteen days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Normally, weight estimates are due no later than how many days before the first scheduled pack/pickup date?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.7.c|For a shipment ordered less than three days before the first pack/pickup date, when are weight estimates due?",
       "ref": "Ch A-402, para C.7.c",
-      "question": "For a shipment ordered less than three days before the first pack/pickup date, when are weight estimates due?",
+      "question": "For a shipment ordered less than three days before the first pack/pickup date, when are the TSP's pre-move weight estimates due?",
       "status": "verified",
       "reason": "The cited rule gives 'NLT one day before pack/pickup' for this question. The alternatives 'On the day the shipment is picked up at the residence', 'NLT three days before the first scheduled pack/pickup', 'Within twenty-four hours after the shipment is picked up' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -986,7 +1181,12 @@
         "NLT three days before the first scheduled pack/pickup",
         "Within twenty-four hours after the shipment is picked up"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For a shipment ordered less than three days before the first pack/pickup date, when are weight estimates due?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.7.c|Pre-move survey data must be in DPS NLT how many GBDs prior to pickup (non-short-fuse)?",
@@ -1009,7 +1209,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.8|Within how long must the PPSO approve or disapprove accessorials?",
       "ref": "Ch A-402, para C.8",
-      "question": "Within how long must the PPSO approve or disapprove accessorials?",
+      "question": "Within how long must the PPSO approve or disapprove a TSP's request for accessorial services?",
       "status": "verified",
       "reason": "The cited rule gives 'Three GBDs and/or prior to service, whichever is earlier' for this question. The alternatives 'Ten GBDs', 'After services are performed', '30 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1022,7 +1222,12 @@
         "After services are performed",
         "30 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long must the PPSO approve or disapprove accessorials?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.9.c|Which form is issued when a customer provides a delivery address to release a shipment from origin SIT?",
@@ -1081,7 +1286,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.10.b|When is a customer initially notified that excess costs may occur?",
       "ref": "Ch A-402, para C.10.b",
-      "question": "When is a customer initially notified that excess costs may occur?",
+      "question": "When is a customer initially notified that HHG excess costs may occur?",
       "status": "verified",
       "reason": "The cited rule gives 'After pickup and weighing, or at destination prior to delivery' for this question. The alternatives 'At counseling only', 'After the claim is filed', 'One year after delivery' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1094,7 +1299,12 @@
         "After the claim is filed",
         "One year after delivery"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When is a customer initially notified that excess costs may occur?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.10 note|When possible excess cost exists, what does DPS print in Block 25 of the BL?",
@@ -1135,7 +1345,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.11.a(1)(a)|After a shipment is validated, what can the customer still update in DPS at any time?",
       "ref": "Ch A-402, para C.11.a(1)(a)",
-      "question": "After a shipment is validated, what can the customer still update in DPS at any time?",
+      "question": "After a DPS shipment is validated, what can the customer still update in DPS at any time?",
       "status": "verified",
       "reason": "The cited rule gives 'Contact and dependent data' for this question. The alternatives 'Pickup dates', 'Destination address after award', 'Weight estimates' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1148,7 +1358,12 @@
         "Destination address after award",
         "Weight estimates"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "After a shipment is validated, what can the customer still update in DPS at any time?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.11.a(2)(b)|If changes are requested after the pre-move survey and the BL is printed, what does the PPSO generate?",
@@ -1189,7 +1404,7 @@
     {
       "id": "DTR-IV|Ch A-402, para C.12.a note|When must the TSP provide a BL to the customer?",
       "ref": "Ch A-402, para C.12.a note",
-      "question": "When must the TSP provide a BL to the customer?",
+      "question": "When must the TSP provide the bill of lading (BL) to the customer?",
       "status": "verified",
       "reason": "The cited rule gives 'Before pickup is completed' for this question. The alternatives 'At delivery after the shipment reaches destination', 'Within seven calendar days after shipment pickup', 'Only if the customer specifically requests a copy' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1202,7 +1417,12 @@
         "Within seven calendar days after shipment pickup",
         "Only if the customer specifically requests a copy"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When must the TSP provide a BL to the customer?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.12.c|Which form is the Shipment Evaluation and Inspection Record?",
@@ -1351,7 +1571,7 @@
     {
       "id": "DTR-IV|Ch A-402, para D.2.a|When a shipment arrives at destination, what must the TSP attempt before other electronic notifications?",
       "ref": "Ch A-402, para D.2.a",
-      "question": "When a shipment arrives at destination, what must the TSP attempt before other electronic notifications?",
+      "question": "When an HHG shipment arrives at destination, what must the TSP attempt before other electronic notifications to the customer?",
       "status": "verified",
       "reason": "The cited rule gives 'A telephone contact attempt' for this question. The alternatives 'Only an email without any attempt to telephone', 'A postal letter without any attempt to telephone', 'Placement in storage without any attempt to telephone' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1364,7 +1584,12 @@
         "A postal letter without any attempt to telephone",
         "Placement in storage without any attempt to telephone"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When a shipment arrives at destination, what must the TSP attempt before other electronic notifications?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para D.2.b(2)|For international shipments, what arrival data does the TSP enter in DPS?",
@@ -1477,7 +1702,7 @@
     {
       "id": "DTR-IV|Ch A-402, para D.5.a(2)|How many digits is a SIT control number?",
       "ref": "Ch A-402, para D.5.a(2)",
-      "question": "How many digits is a SIT control number?",
+      "question": "How many digits is a DPS storage-in-transit (SIT) control number?",
       "status": "verified",
       "reason": "The cited rule gives 'Nine' for this question. The alternatives 'Seven', 'Eleven', 'Six' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1490,7 +1715,12 @@
         "Eleven",
         "Six"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How many digits is a SIT control number?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para D.5.a(2)|The 11th shipment placed in SIT on 9 November 2014 (Julian 313). What is its SIT control number?",
@@ -1549,7 +1779,7 @@
     {
       "id": "DTR-IV|Ch A-402, para D.5.b(2) note|When approved, SIT is effective from what date?",
       "ref": "Ch A-402, para D.5.b(2) note",
-      "question": "When approved, SIT is effective from what date?",
+      "question": "When a TSP's request to place a shipment in SIT is approved, SIT is effective from what date?",
       "status": "verified",
       "reason": "The cited rule gives 'The date offered for delivery' for this question. The alternatives 'The arrival date at destination', 'The pickup date', 'The RDD' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1562,7 +1792,12 @@
         "The pickup date",
         "The RDD"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When approved, SIT is effective from what date?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para D.5.b(4)|For a split shipment, how is SIT handled for each portion?",
@@ -1585,7 +1820,7 @@
     {
       "id": "DTR-IV|Ch A-402, para D.5.c(1)|Is SIT conversion to customer expense retroactive?",
       "ref": "Ch A-402, para D.5.c(1)",
-      "question": "Is SIT conversion to customer expense retroactive?",
+      "question": "When SIT at Government expense ends and converts to customer expense, is the conversion retroactive?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, to the arrival date', 'Yes, 30 days back', 'Only for civilians' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1598,7 +1833,12 @@
         "Yes, 30 days back",
         "Only for civilians"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Is SIT conversion to customer expense retroactive?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para D.5.c(1)|After SIT converts to customer expense, who pays for delivery out of storage?",
@@ -1639,7 +1879,7 @@
     {
       "id": "DTR-IV|Ch A-402, para D.6.b(1)|DPS can email a PPSO about outstanding accessorial actions up to how many times a day?",
       "ref": "Ch A-402, para D.6.b(1)",
-      "question": "According to D.6.b(1), how often can DPS email a PPSO about outstanding accessorial actions?",
+      "question": "How often can DPS email a PPSO about outstanding accessorial actions?",
       "status": "verified",
       "reason": "D.6.b(1) says emails up to four times daily or as needed. The former “up to how many” stem implied an absolute cap and omitted the as-needed provision; the revised stem/key state the actual rule and retain the original ID.",
       "evidence": {
@@ -1652,7 +1892,12 @@
         "Eight",
         "Once"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "According to D.6.b(1), how often can DPS email a PPSO about outstanding accessorial actions?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para D.7.a(1)|A customer may request a reweigh if they believe the shipment will exceed or be within what percentage of their weight allowance?",
@@ -1747,7 +1992,7 @@
     {
       "id": "DTR-IV|Ch A-402, para E.1|What counts as a \"diversion\"?",
       "ref": "Ch A-402, para E.1",
-      "question": "What counts as a \"diversion\"?",
+      "question": "In personal property shipment management, what counts as a \"diversion\"?",
       "status": "verified",
       "reason": "E.1 defines diversion as an in-transit destination change over 30 miles but expressly excludes destination SIT and OTO shipments. The key now retains these exclusions; a generic address change, ten-mile threshold, or SIT placement alone is not that definition.",
       "evidence": {
@@ -1760,7 +2005,12 @@
         "A change of more than 10 miles",
         "Any SIT placement"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What counts as a \"diversion\"?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para E.2.b|If a PPSO other than the origin PPSO learns of a diversion, it must notify the origin PPSO within how long?",
@@ -1783,7 +2033,7 @@
     {
       "id": "DTR-IV|Ch A-402, para E.3.c(2)(c)|Where may an international shipment be diverted?",
       "ref": "Ch A-402, para E.3.c(2)(c)",
-      "question": "Where may an international shipment be diverted?",
+      "question": "Where may an international HHG shipment be diverted?",
       "status": "verified",
       "reason": "The cited rule gives 'Water/air POE, POD, or destination' for this question. The alternatives 'Any location along the route, including while the vessel is at sea', 'Only the origin residence, with no permitted port diversions', 'Only aboard the vessel after it leaves the port of embarkation' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1796,7 +2046,12 @@
         "Only the origin residence, with no permitted port diversions",
         "Only aboard the vessel after it leaves the port of embarkation"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Where may an international shipment be diverted?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para E.4.a(1)(a)|An international shipment from CONUS is diverted at the CONUS POE to a CONUS destination. What happens?",
@@ -1855,7 +2110,7 @@
     {
       "id": "DTR-IV|Ch A-402, para F.1 note|When can the BL be printed?",
       "ref": "Ch A-402, para F.1 note",
-      "question": "When can the BL be printed?",
+      "question": "When can the TSP print the bill of lading (BL) for a DPS shipment?",
       "status": "verified",
       "reason": "F.1 says the BL becomes printable after pre-move survey data entry; ToS C.3.n additionally says no earlier than two GBDs before first pack. The revised key includes both constraints. Award alone, counseling alone, or waiting until delivery do not express the rule.",
       "evidence": {
@@ -1875,7 +2130,12 @@
           "page": 35,
           "quote": "C. PERFORMANCE REQUIREMENTS\n…\n3. Shipment Arrival/Delivery/Delays:\n…\nn. I will document the agreed pickup date, and the customer’s acceptance in DPS within three calendar days or 24 hours prior to shipment pickup, whichever is sooner. I will print the bill of lading no earlier than two GBDs prior to the first pack date."
         }
-      ]
+      ],
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When can the BL be printed?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.3.b|An in-residence pre-move survey is required on domestic shipments estimated at what weight or more (within 50 miles)?",
@@ -1952,7 +2212,7 @@
     {
       "id": "DTR-IV|Ch A-402, para F.8.d(2)|After the TSP enters shipment weights, what status code does the shipment get?",
       "ref": "Ch A-402, para F.8.d(2)",
-      "question": "After the TSP enters shipment weights, what status code does the shipment get?",
+      "question": "In DPS, after the TSP enters shipment weights, what status code does the shipment get?",
       "status": "verified",
       "reason": "The cited rule gives '\"IT\" (in transit)' for this question. The alternatives '\"DC\" (delivered complete)', '\"BK\" (booked)', '\"SI\" (storage)' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1965,12 +2225,17 @@
         "\"BK\" (booked)",
         "\"SI\" (storage)"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "After the TSP enters shipment weights, what status code does the shipment get?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.8.d(3)|Once the status is \"Delivered Complete,\" what can the customer do?",
       "ref": "Ch A-402, para F.8.d(3)",
-      "question": "Once the status is \"Delivered Complete,\" what can the customer do?",
+      "question": "Once a DPS shipment's status is \"Delivered Complete,\" what can the customer do?",
       "status": "verified",
       "reason": "The cited rule gives 'Complete the Notice of Loss and Damage, initiate a claim, and complete the CSS' for this question. The alternatives 'Request a new pickup date', 'Change the origin address', 'Cancel the BL' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1983,7 +2248,12 @@
         "Change the origin address",
         "Cancel the BL"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Once the status is \"Delivered Complete,\" what can the customer do?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.8.d note|Why can't the TSP update the customer's email address in transit?",
@@ -2006,7 +2276,7 @@
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(1)|In BL Block 1, which abbreviations of the TSP business name are allowed?",
       "ref": "Ch A-402, para F.10.a(1)",
-      "question": "In BL Block 1, which abbreviations of the TSP business name are allowed?",
+      "question": "In bill of lading (BL) Block 1, which abbreviations of the TSP business name are allowed?",
       "status": "verified",
       "reason": "The cited rule gives 'CO., INC., LTD.' for this question. The alternatives 'Any abbreviation', 'The SCAC only', 'Initials only' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2019,12 +2289,17 @@
         "The SCAC only",
         "Initials only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In BL Block 1, which abbreviations of the TSP business name are allowed?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(3)(b)|What service code goes in BL Block 3 for mobile homes?",
       "ref": "Ch A-402, para F.10.a(3)(b)",
-      "question": "What service code goes in BL Block 3 for mobile homes?",
+      "question": "What service code goes in bill of lading (BL) Block 3 for mobile homes?",
       "status": "verified",
       "reason": "The cited rule gives '\"S\"' for this question. The alternatives '\"D\"', '\"2\"', '\"J\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2037,12 +2312,17 @@
         "\"2\"",
         "\"J\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What service code goes in BL Block 3 for mobile homes?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(4)|When only one shipment is made, what is entered in BL Block 4?",
       "ref": "Ch A-402, para F.10.a(4)",
-      "question": "When only one shipment is made, what is entered in BL Block 4?",
+      "question": "When only one shipment is made, what is entered in bill of lading (BL) Block 4?",
       "status": "verified",
       "reason": "The cited rule gives '\"1 of 1\"' for this question. The alternatives '\"1\"', '\"Single\"', '\"N/A\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2055,12 +2335,17 @@
         "\"Single\"",
         "\"N/A\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When only one shipment is made, what is entered in BL Block 4?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(10)|How much of the SSN goes in BL Block 10?",
       "ref": "Ch A-402, para F.10.a(10)",
-      "question": "How much of the SSN goes in BL Block 10?",
+      "question": "How much of the customer's SSN goes in bill of lading (BL) Block 10?",
       "status": "verified",
       "reason": "The cited rule gives 'Last four only' for this question. The alternatives 'The full SSN', 'None', 'The first five' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2073,12 +2358,17 @@
         "None",
         "The first five"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How much of the SSN goes in BL Block 10?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(10)(a)|In Block 10, for a member E-4 or below, what must be indicated?",
       "ref": "Ch A-402, para F.10.a(10)(a)",
-      "question": "In Block 10, for a member E-4 or below, what must be indicated?",
+      "question": "In bill of lading (BL) Block 10, for a member E-4 or below, what must be indicated?",
       "status": "verified",
       "reason": "The cited rule gives 'Maximum JTR weight allowance' for this question. The alternatives \"Their unit commander's name\", 'Their home of record', \"Their spouse's name\" do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2091,12 +2381,17 @@
         "Their home of record",
         "Their spouse's name"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In Block 10, for a member E-4 or below, what must be indicated?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(10)(d)|For a deceased customer or dependent, what is annotated after the name in Block 10?",
       "ref": "Ch A-402, para F.10.a(10)(d)",
-      "question": "For a deceased customer or dependent, what is annotated after the name in Block 10?",
+      "question": "In bill of lading (BL) Block 10, what is annotated after the name of a deceased customer or dependent?",
       "status": "verified",
       "reason": "The cited rule gives '\"BLUEBARK\"' for this question. The alternatives '\"DECEASED\"', '\"NOK\"', '\"MAO\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2109,12 +2404,17 @@
         "\"NOK\"",
         "\"MAO\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For a deceased customer or dependent, what is annotated after the name in Block 10?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(15)(b)|What 15th-position TCN code indicates TGBL household goods (Code 5 or T)?",
       "ref": "Ch A-402, para F.10.a(15)(b)",
-      "question": "What 15th-position TCN code indicates TGBL household goods (Code 5 or T)?",
+      "question": "In a personal property TCN, what 15th-position code indicates TGBL household goods (Code 5 or T)?",
       "status": "verified",
       "reason": "The cited rule gives 'K' for this question. The alternatives 'H', 'J', 'B' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2127,12 +2427,17 @@
         "J",
         "B"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What 15th-position TCN code indicates TGBL household goods (Code 5 or T)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(15)(b)|What 15th-position TCN code indicates UB moving TGBL Code J?",
       "ref": "Ch A-402, para F.10.a(15)(b)",
-      "question": "What 15th-position TCN code indicates UB moving TGBL Code J?",
+      "question": "In a personal property TCN, what 15th-position code indicates UB moving TGBL Code J?",
       "status": "verified",
       "reason": "The cited rule gives 'J' for this question. The alternatives 'B', 'K', 'P' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2145,12 +2450,17 @@
         "K",
         "P"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What 15th-position TCN code indicates UB moving TGBL Code J?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(18)|In BL Block 18, the rate area code is required only on which shipments?",
       "ref": "Ch A-402, para F.10.a(18)",
-      "question": "In BL Block 18, the rate area code is required only on which shipments?",
+      "question": "In bill of lading (BL) Block 18, the rate area code is required only on which shipments?",
       "status": "verified",
       "reason": "The cited rule gives 'ITGBL shipments' for this question. The alternatives 'All domestic shipments', 'Mobile homes', 'POVs' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2163,12 +2473,17 @@
         "Mobile homes",
         "POVs"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In BL Block 18, the rate area code is required only on which shipments?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(21)|What is entered in BL Block 21, Bill Charges To?",
       "ref": "Ch A-402, para F.10.a(21)",
-      "question": "What is entered in BL Block 21, Bill Charges To?",
+      "question": "What is entered in bill of lading (BL) Block 21, Bill Charges To?",
       "status": "verified",
       "reason": "The cited rule gives '\"Bill To: US Bank Third Party Payment System\"' for this question. The alternatives \"The member's finance office\", 'The origin PPSO', 'DFAS Indianapolis' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2181,12 +2496,17 @@
         "The origin PPSO",
         "DFAS Indianapolis"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is entered in BL Block 21, Bill Charges To?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(25)(b)|For shipments originating in CONUS and destined overseas, what does Block 25 say?",
       "ref": "Ch A-402, para F.10.a(25)(b)",
-      "question": "For shipments originating in CONUS and destined overseas, what does Block 25 say?",
+      "question": "For personal property shipments originating in CONUS and destined overseas, what does bill of lading (BL) Block 25 say?",
       "status": "verified",
       "reason": "The cited rule gives '\"For Export\"' for this question. The alternatives '\"Imported by Air\"', '\"International\"', '\"OCONUS\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2199,12 +2519,17 @@
         "\"International\"",
         "\"OCONUS\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For shipments originating in CONUS and destined overseas, what does Block 25 say?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(25)(d)3|For BLUEBARK shipments, what does Block 25 say?",
       "ref": "Ch A-402, para F.10.a(25)(d)3",
-      "question": "For BLUEBARK shipments, what does Block 25 say?",
+      "question": "For BLUEBARK shipments, what does bill of lading (BL) Block 25 say?",
       "status": "verified",
       "reason": "The cited rule gives '\"Direct Delivery is not authorized\"' for this question. The alternatives '\"Direct Delivery Authorized\"', '\"SIT not authorized\"', '\"For Non-temporary Storage\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2217,12 +2542,17 @@
         "\"SIT not authorized\"",
         "\"For Non-temporary Storage\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For BLUEBARK shipments, what does Block 25 say?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(25)(f)1|Without prior approval, mobile home repairs and services are authorized up to what total?",
       "ref": "Ch A-402, para F.10.a(25)(f)1",
-      "question": "Without prior approval, mobile home repairs and services are authorized up to what total?",
+      "question": "Per the bill of lading (BL) Block 25 annotations, mobile home repairs and services without prior approval are authorized up to what total?",
       "status": "verified",
       "reason": "The cited rule gives '$150; tires/tubes excluded' for this question. The alternatives '$500 including all tire and tube replacements', '$100 including all tire and tube replacements', '$1,000 including all tire and tube replacements' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2235,12 +2565,17 @@
         "$100 including all tire and tube replacements",
         "$1,000 including all tire and tube replacements"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Without prior approval, mobile home repairs and services are authorized up to what total?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(25)(k)|When a shipment contains firearms, what is entered in Block 25?",
       "ref": "Ch A-402, para F.10.a(25)(k)",
-      "question": "When a shipment contains firearms, what is entered in Block 25?",
+      "question": "When a personal property shipment contains firearms, what is entered in bill of lading (BL) Block 25?",
       "status": "verified",
       "reason": "The cited rule gives '\"This Shipment Contains Firearms\"' for this question. The alternatives 'Nothing; firearms are never noted', '\"Weapons Aboard\"', '\"Sensitive\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2253,12 +2588,17 @@
         "\"Weapons Aboard\"",
         "\"Sensitive\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When a shipment contains firearms, what is entered in Block 25?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(26)|What is entered in Block 26, Packages, for a TGBL shipment?",
       "ref": "Ch A-402, para F.10.a(26)",
-      "question": "What is entered in Block 26, Packages, for a TGBL shipment?",
+      "question": "What is entered in bill of lading (BL) Block 26, Packages, for a TGBL shipment?",
       "status": "verified",
       "reason": "The cited rule gives '\"1 LOT\"' for this question. The alternatives '\"1 EA\"', '\"1 VO\"', 'The carton count' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2271,12 +2611,17 @@
         "\"1 VO\"",
         "The carton count"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is entered in Block 26, Packages, for a TGBL shipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(26)(d)|What is entered in Block 26 for a POV?",
       "ref": "Ch A-402, para F.10.a(26)(d)",
-      "question": "What is entered in Block 26 for a POV?",
+      "question": "What is entered in bill of lading (BL) Block 26 for a POV?",
       "status": "verified",
       "reason": "The cited rule gives '\"1 VO\"' for this question. The alternatives '\"1 EA\"', '\"1 LOT\"', '\"1 POV\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2289,12 +2634,17 @@
         "\"1 LOT\"",
         "\"1 POV\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is entered in Block 26 for a POV?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(32)|Is the issuing TO's signature required in Block 32a?",
       "ref": "Ch A-402, para F.10.a(32)",
-      "question": "Is the issuing TO's signature required in Block 32a?",
+      "question": "Is the issuing TO's signature required in bill of lading (BL) Block 32a?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for OCONUS', 'Only for DPM' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2307,12 +2657,17 @@
         "Only for OCONUS",
         "Only for DPM"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Is the issuing TO's signature required in Block 32a?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(38)|Block 34 must be marked for all Navy-sponsored shipments that include what?",
       "ref": "Ch A-402, para F.10.a(38)",
-      "question": "Block 34 must be marked for all Navy-sponsored shipments that include what?",
+      "question": "Bill of lading (BL) Block 34 must be marked for all Navy-sponsored shipments that include what?",
       "status": "verified",
       "reason": "The cited rule gives 'A boat or mobile home' for this question. The alternatives 'Any shipment containing privately owned firearms', 'Any shipment containing professional books and equipment', 'Any shipment containing authorized consumable goods' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2325,7 +2680,12 @@
         "Any shipment containing professional books and equipment",
         "Any shipment containing authorized consumable goods"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Block 34 must be marked for all Navy-sponsored shipments that include what?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, Table A-402-3|What are the Codes of Service for domestic HHG?",
@@ -2420,7 +2780,7 @@
     {
       "id": "DTR-IV|Ch A-402, para G.1 note|Are there UB moves under the domestic program?",
       "ref": "Ch A-402, para G.1 note",
-      "question": "Are there UB moves under the domestic program?",
+      "question": "Are there UB moves under the DP3 domestic program?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only to Alaska', 'Only in peak season' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2433,7 +2793,12 @@
         "Only to Alaska",
         "Only in peak season"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Are there UB moves under the domestic program?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para G.3|How must mobile homes moving between CONUS and Alaska be booked?",
@@ -2456,7 +2821,7 @@
     {
       "id": "DTR-IV|Ch A-402, para H.2.b|In the excess distance example, the requested move costs $18,059 and the authorized move $17,007. What is the excess cost?",
       "ref": "Ch A-402, para H.2.b",
-      "question": "In the excess distance example, the requested move costs $18,059 and the authorized move $17,007. What is the excess cost?",
+      "question": "In the DTR's HHG excess distance example, the requested move costs $18,059 and the authorized move $17,007. What is the excess cost?",
       "status": "verified",
       "reason": "The cited rule gives '$1,052' for this question. The alternatives '$35,066', '$1,520', '$17,007' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2469,12 +2834,17 @@
         "$1,520",
         "$17,007"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In the excess distance example, the requested move costs $18,059 and the authorized move $17,007. What is the excess cost?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para H.2.a|The PPSO is only required to attempt collection of excess costs when the customer is what?",
       "ref": "Ch A-402, para H.2.a",
-      "question": "The PPSO is only required to attempt collection of excess costs when the customer is what?",
+      "question": "The PPSO is only required to attempt collection of HHG excess costs when the customer is what?",
       "status": "verified",
       "reason": "The cited rule gives 'No longer in pay status' for this question. The alternatives 'On temporary duty while still receiving military pay', 'Moving during the annual peak personal property season', 'Moving to an overseas location while still in a pay status' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2487,7 +2857,12 @@
         "Moving during the annual peak personal property season",
         "Moving to an overseas location while still in a pay status"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "The PPSO is only required to attempt collection of excess costs when the customer is what?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-411, para B|What is the Government Constructed Cost (GCC)?",
@@ -2564,7 +2939,7 @@
     {
       "id": "DTR-IV|Ch A-411, para B.1.a(3)|What does the PPM Factor account for?",
       "ref": "Ch A-411, para B.1.a(3)",
-      "question": "What does the PPM Factor account for?",
+      "question": "In the PPM Government Constructed Cost (GCC), what does the PPM Factor account for?",
       "status": "verified",
       "reason": "The cited rule gives 'Irregular industry accessorials' for this question. The alternatives 'Fuel receipts submitted by the individual moving member', 'All recurring non-temporary storage and drayage charges', 'Charges collected for exceeding the authorized weight allowance' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2577,12 +2952,17 @@
         "All recurring non-temporary storage and drayage charges",
         "Charges collected for exceeding the authorized weight allowance"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What does the PPM Factor account for?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-411, para B.1.a(3)|Who updates the PPM Factor as needed?",
       "ref": "Ch A-411, para B.1.a(3)",
-      "question": "Who updates the PPM Factor as needed?",
+      "question": "Who updates the PPM Factor used in the Government Constructed Cost (GCC) as needed?",
       "status": "verified",
       "reason": "The cited rule gives 'USTRANSCOM' for this question. The alternatives 'Each PPSO', 'DFAS', 'The Military Services' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2595,7 +2975,12 @@
         "DFAS",
         "The Military Services"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who updates the PPM Factor as needed?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-411, para B.1.b(1)|For international PPMs, which rate is used?",
@@ -2654,7 +3039,7 @@
     {
       "id": "DTR-IV|Ch A-411, para B.3.b|Does mail or small parcel reimbursement include Extra Pickup or Extra Delivery?",
       "ref": "Ch A-411, para B.3.b",
-      "question": "Does mail or small parcel reimbursement include Extra Pickup or Extra Delivery?",
+      "question": "Does PPM reimbursement for mail or small parcel shipments include Extra Pickup or Extra Delivery?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for OCONUS', 'Only with TO approval' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2667,7 +3052,12 @@
         "Only for OCONUS",
         "Only with TO approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Does mail or small parcel reimbursement include Extra Pickup or Extra Delivery?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-411, para B.3.c|Why are Bulky Articles authorized only for domestic PPMs?",
@@ -2874,7 +3264,7 @@
     {
       "id": "DTR-IV|Ch A-411, para E|When does Actual Cost Reimbursement (ACR) apply?",
       "ref": "Ch A-411, para E",
-      "question": "When does Actual Cost Reimbursement (ACR) apply?",
+      "question": "For a PPM, when does Actual Cost Reimbursement (ACR) apply?",
       "status": "verified",
       "reason": "The cited rule gives 'When Government transportation is NOT available and the member is approved to do a PPM' for this question. The alternatives 'Whenever the member prefers', 'Only for civilians', 'Only for OCONUS moves' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2887,12 +3277,17 @@
         "Only for civilians",
         "Only for OCONUS moves"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When does Actual Cost Reimbursement (ACR) apply?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-411, para E|Is pre-approval required for ACR?",
       "ref": "Ch A-411, para E",
-      "question": "Is pre-approval required for ACR?",
+      "question": "Is pre-approval required for a PPM Actual Cost Reimbursement (ACR)?",
       "status": "verified",
       "reason": "The cited rule gives 'Yes, it is mandatory' for this question. The alternatives 'No', 'Only over 10,000 lbs', 'Only for retirees' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2905,7 +3300,12 @@
         "Only over 10,000 lbs",
         "Only for retirees"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Is pre-approval required for ACR?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|Ch A-411, para F|Which block of DD Form 1614 identifies the PPM reimbursement method for a DoD civilian?",
@@ -3111,7 +3511,7 @@
     {
       "id": "DTR-IV|App A-B, para A.1.c(1)|Which law covers knowingly making false statements to a U.S. agency?",
       "ref": "App A-B, para A.1.c(1)",
-      "question": "Which law covers knowingly making false statements to a U.S. agency?",
+      "question": "Under the DP3 Tender of Service, which law covers knowingly making false statements to a U.S. agency?",
       "status": "verified",
       "reason": "The cited rule gives '18 U.S.C. § 1001' for this question. The alternatives '31 U.S.C. § 3729', '10 U.S.C. § 2631', '49 U.S.C. § 41113' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3124,12 +3524,17 @@
         "10 U.S.C. § 2631",
         "49 U.S.C. § 41113"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which law covers knowingly making false statements to a U.S. agency?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para A.1.c(2)(h)|Which law covers False Claims civil penalties?",
       "ref": "App A-B, para A.1.c(2)(h)",
-      "question": "Which law covers False Claims civil penalties?",
+      "question": "Under the DP3 Tender of Service, which law covers False Claims civil penalties?",
       "status": "verified",
       "reason": "The cited rule gives '31 U.S.C. § 3729' for this question. The alternatives '18 U.S.C. § 1001', '15 U.S.C. § 1', '41 U.S.C. § 51' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3142,7 +3547,12 @@
         "15 U.S.C. § 1",
         "41 U.S.C. § 51"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which law covers False Claims civil penalties?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para A.2.c(2)|To be awarded shipments after 15 May 2026, a TSP must complete which CMMC self-assessment by 15 March 2026?",
@@ -3201,7 +3611,7 @@
     {
       "id": "DTR-IV|App A-B, para A.2.f|A follow-on cyber-incident report is due within how long?",
       "ref": "App A-B, para A.2.f",
-      "question": "A follow-on cyber-incident report is due within how long?",
+      "question": "Under the DP3 Tender of Service, a TSP's follow-on cyber-incident report is due within how long?",
       "status": "verified",
       "reason": "The cited rule gives 'Five calendar days' for this question. The alternatives 'Seventy-two hours after incident discovery', 'Ten Government business days after incident discovery', 'Thirty calendar days after incident discovery' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3214,12 +3624,17 @@
         "Ten Government business days after incident discovery",
         "Thirty calendar days after incident discovery"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "A follow-on cyber-incident report is due within how long?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para A.2.i|How long must a TSP preserve images of affected systems after a cyber incident report?",
       "ref": "App A-B, para A.2.i",
-      "question": "How long must a TSP preserve images of affected systems after a cyber incident report?",
+      "question": "Under the DP3 Tender of Service, how long must a TSP preserve images of affected systems after a cyber incident report?",
       "status": "verified",
       "reason": "The cited rule gives '90 days minimum' for this question. The alternatives 'Thirty days from the submission of the report', 'One year from the submission of the report', 'Seven days from the submission of the report' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3232,7 +3647,12 @@
         "One year from the submission of the report",
         "Seven days from the submission of the report"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How long must a TSP preserve images of affected systems after a cyber incident report?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para A.2.d(4)|May a TSP sell customer information (FCI/CUI) to advertisers or data brokers?",
@@ -3255,7 +3675,7 @@
     {
       "id": "DTR-IV|App A-B, para B.2.a|Who pays for background checks on TSP personnel who interact with customers?",
       "ref": "App A-B, para B.2.a",
-      "question": "Who pays for background checks on TSP personnel who interact with customers?",
+      "question": "Under the DP3 Tender of Service, who pays for background checks on TSP personnel who interact with customers?",
       "status": "verified",
       "reason": "The cited rule gives 'The TSP' for this question. The alternatives 'The Government', 'The customer', 'The installation' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3268,12 +3688,17 @@
         "The customer",
         "The installation"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who pays for background checks on TSP personnel who interact with customers?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.2.e|During packing, loading, and delivery, the TSP must always have at least one what?",
       "ref": "App A-B, para B.2.e",
-      "question": "During packing, loading, and delivery, the TSP must always have at least one what?",
+      "question": "During packing, loading, and delivery of an HHG shipment, the TSP must always have at least one what on site?",
       "status": "verified",
       "reason": "The cited rule gives 'An English-speaking representative' for this question. The alternatives 'A packer certified by a specific industry training organization', 'A driver holding an active Government security clearance', 'A notary public authorized to witness shipment documents' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3286,12 +3711,17 @@
         "A driver holding an active Government security clearance",
         "A notary public authorized to witness shipment documents"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "During packing, loading, and delivery, the TSP must always have at least one what?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.2.f|How far from the personal property is smoking (including e-cigarettes) prohibited?",
       "ref": "App A-B, para B.2.f",
-      "question": "How far from the personal property is smoking (including e-cigarettes) prohibited?",
+      "question": "Under the DP3 Tender of Service, how far from the customer's personal property is smoking (including e-cigarettes) prohibited?",
       "status": "verified",
       "reason": "The cited rule gives '50 feet' for this question. The alternatives '25 feet', '10 feet', '100 feet' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3304,12 +3734,17 @@
         "10 feet",
         "100 feet"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How far from the personal property is smoking (including e-cigarettes) prohibited?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.3.c|If a TSP ships the wrong property to the wrong destination through its own fault, who pays to fix it?",
       "ref": "App A-B, para B.3.c",
-      "question": "If a TSP ships the wrong property to the wrong destination through its own fault, who pays to fix it?",
+      "question": "Under the DP3 Tender of Service, if a TSP ships the wrong property to the wrong destination through its own fault, who pays to fix it?",
       "status": "verified",
       "reason": "The cited rule gives 'The TSP' for this question. The alternatives 'The Government', 'The customer', 'The PPSO' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3322,7 +3757,12 @@
         "The customer",
         "The PPSO"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a TSP ships the wrong property to the wrong destination through its own fault, who pays to fix it?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.3.f|Is double brokering of DoW HHG permitted?",
@@ -3363,7 +3803,7 @@
     {
       "id": "DTR-IV|App A-B, para B.4.a|After notice that a shipment is available at a military air terminal, the TSP must pick it up NLT when?",
       "ref": "App A-B, para B.4.a",
-      "question": "After notice that a shipment is available at a military air terminal, the TSP must pick it up NLT when?",
+      "question": "After notice that an HHG shipment is available at a military air terminal, the TSP must pick it up NLT when?",
       "status": "verified",
       "reason": "The cited rule gives 'One GBD' for this question. The alternatives 'Five GBDs', 'Three GBDs', 'Seven GBDs' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3376,12 +3816,17 @@
         "Three GBDs",
         "Seven GBDs"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "After notice that a shipment is available at a military air terminal, the TSP must pick it up NLT when?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.4.a|After notice that a shipment is available at a military water terminal, the TSP must pick it up NLT when?",
       "ref": "App A-B, para B.4.a",
-      "question": "After notice that a shipment is available at a military water terminal, the TSP must pick it up NLT when?",
+      "question": "After notice that an HHG shipment is available at a military water terminal, the TSP must pick it up NLT when?",
       "status": "verified",
       "reason": "The cited rule gives 'Five GBDs' for this question. The alternatives 'One GBD', 'Ten GBDs', 'Three GBDs' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3394,12 +3839,17 @@
         "Ten GBDs",
         "Three GBDs"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "After notice that a shipment is available at a military water terminal, the TSP must pick it up NLT when?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.5.b|Whose Performance Score reflects the performance of an alternate TSP the TSP chose to use?",
       "ref": "App A-B, para B.5.b",
-      "question": "Whose Performance Score reflects the performance of an alternate TSP the TSP chose to use?",
+      "question": "Under the DP3 Tender of Service, whose Performance Score reflects the performance of an alternate TSP the awarded TSP chose to use?",
       "status": "verified",
       "reason": "The cited rule gives \"The awarded TSP's\" for this question. The alternatives \"The alternate TSP's only\", \"No one's\", \"The PPSO's\" do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3412,12 +3862,17 @@
         "No one's",
         "The PPSO's"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Whose Performance Score reflects the performance of an alternate TSP the TSP chose to use?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.6|When tracing, how soon must the TSP report the shipment location for a domestic shipment?",
       "ref": "App A-B, para B.6",
-      "question": "When tracing, how soon must the TSP report the shipment location for a domestic shipment?",
+      "question": "When tracing a domestic HHG shipment, how soon must the TSP report the shipment's location?",
       "status": "verified",
       "reason": "The cited rule gives 'Within one GBD' for this question. The alternatives 'Within 72 hours', 'Within five GBDs', 'Within 24 hours of delivery' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3430,12 +3885,17 @@
         "Within five GBDs",
         "Within 24 hours of delivery"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When tracing, how soon must the TSP report the shipment location for a domestic shipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.6|When tracing, how soon must the TSP report the shipment location for an international shipment?",
       "ref": "App A-B, para B.6",
-      "question": "When tracing, how soon must the TSP report the shipment location for an international shipment?",
+      "question": "When tracing an international HHG shipment, how soon must the TSP report the shipment's location?",
       "status": "verified",
       "reason": "The cited rule gives '72 hours (three GBDs)' for this question. The alternatives 'Within one Government business day of the tracing request', 'Within seven Government business days of the tracing request', 'Within thirty calendar days of the tracing request' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3448,12 +3908,17 @@
         "Within seven Government business days of the tracing request",
         "Within thirty calendar days of the tracing request"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When tracing, how soon must the TSP report the shipment location for an international shipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.8.a|Within how long must the TSP enter the shipment weight in DPS?",
       "ref": "App A-B, para B.8.a",
-      "question": "Within how long must the TSP enter the shipment weight in DPS?",
+      "question": "Within how long must the TSP enter an HHG shipment's weight in DPS?",
       "status": "verified",
       "reason": "The cited rule gives 'Four GBDs after pickup or before arrival, whichever is earlier' for this question. The alternatives 'Seven GBDs after pickup', 'At delivery', '30 days after pickup' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3466,12 +3931,17 @@
         "At delivery",
         "30 days after pickup"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long must the TSP enter the shipment weight in DPS?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.8.a|Within how long must weight tickets go to the origin PPSO?",
       "ref": "App A-B, para B.8.a",
-      "question": "Within how long must weight tickets go to the origin PPSO?",
+      "question": "Within how long must the TSP send an HHG shipment's weight tickets to the origin PPSO?",
       "status": "verified",
       "reason": "The cited rule gives 'Seven GBDs after pickup' for this question. The alternatives 'Four Government business days after shipment pickup', 'Thirty calendar days after shipment pickup', 'Only when the shipment is delivered at destination' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3484,12 +3954,17 @@
         "Thirty calendar days after shipment pickup",
         "Only when the shipment is delivered at destination"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long must weight tickets go to the origin PPSO?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.8.a(1)(a)|Which scales may be used to weigh PBP&E?",
       "ref": "App A-B, para B.8.a(1)(a)",
-      "question": "Which scales may be used to weigh PBP&E?",
+      "question": "Under the DP3 Tender of Service, which scales may be used to weigh PBP&E?",
       "status": "verified",
       "reason": "The cited rule gives 'Bathroom, certified platform-type, or warehouse scales' for this question. The alternatives 'Only certified truck scales', \"Only the TSP's estimate\", 'Only DoW scales' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3502,12 +3977,17 @@
         "Only the TSP's estimate",
         "Only DoW scales"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which scales may be used to weigh PBP&E?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.8.a(2)(c)|If a reweigh is lower than the original weight, which weight is invoiced?",
       "ref": "App A-B, para B.8.a(2)(c)",
-      "question": "If a reweigh is lower than the original weight, which weight is invoiced?",
+      "question": "If an HHG reweigh is lower than the original weight, which weight does the TSP invoice?",
       "status": "verified",
       "reason": "The cited rule gives 'The lower weight' for this question. The alternatives 'The original weight', 'The average', 'The higher weight' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3520,12 +4000,17 @@
         "The average",
         "The higher weight"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a reweigh is lower than the original weight, which weight is invoiced?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.8.a(2)(e)|Where are all international shipments reweighed (IAW IT Item 505)?",
       "ref": "App A-B, para B.8.a(2)(e)",
-      "question": "Where are all international shipments reweighed (IAW IT Item 505)?",
+      "question": "Under the DP3 Tender of Service, where are all international shipments reweighed (IAW IT Item 505)?",
       "status": "verified",
       "reason": "B.8.a(2)(e) calls for international shipment reweighs at destination but notes exceptions where certified scales are unavailable. The revised key retains that exception; origin, POE, and POD-only-on-request alternatives are not the stated requirement.",
       "evidence": {
@@ -3538,12 +4023,17 @@
         "At the POE",
         "At the POD only if requested"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Where are all international shipments reweighed (IAW IT Item 505)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.8.a(3)(a)|If certified weight tickets are lost, what must the TSP get before using a constructed weight to be paid?",
       "ref": "App A-B, para B.8.a(3)(a)",
-      "question": "If certified weight tickets are lost, what must the TSP get before using a constructed weight to be paid?",
+      "question": "If an HHG shipment's certified weight tickets are lost, what must the TSP get before using a constructed weight to be paid?",
       "status": "verified",
       "reason": "The cited rule gives 'Prior approval from the PPSO' for this question. The alternatives 'Nothing', \"The customer's signature only\", 'DPMO approval after payment' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3556,12 +4046,17 @@
         "The customer's signature only",
         "DPMO approval after payment"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If certified weight tickets are lost, what must the TSP get before using a constructed weight to be paid?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.9|If DPMO disqualifies a SIT warehouse, who pays to move the property to another approved warehouse?",
       "ref": "App A-B, para B.9",
-      "question": "If DPMO disqualifies a SIT warehouse, who pays to move the property to another approved warehouse?",
+      "question": "If DPMO disqualifies a TSP's SIT warehouse, who pays to move the property to another approved warehouse?",
       "status": "verified",
       "reason": "The cited rule gives 'The TSP' for this question. The alternatives 'The Government', 'The customer', 'Split equally' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3574,7 +4069,12 @@
         "The customer",
         "Split equally"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If DPMO disqualifies a SIT warehouse, who pays to move the property to another approved warehouse?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.10.b|For unusual occurrence shipments, within how long must the TSP send DPMO an After Action Report (AAR)?",
@@ -3597,7 +4097,7 @@
     {
       "id": "DTR-IV|App A-B, para B.10.c|If a claim is not settled within 60 days, how often must the TSP update the claimant in writing?",
       "ref": "App A-B, para B.10.c",
-      "question": "If a claim is not settled within 60 days, how often must the TSP update the claimant in writing?",
+      "question": "If a customer's loss or damage claim is not settled within 60 days, how often must the TSP update the claimant in writing?",
       "status": "verified",
       "reason": "The cited rule gives 'Every succeeding 30 days' for this question. The alternatives 'Every seven calendar days while the claim remains pending', 'Every ninety calendar days while the claim remains pending', 'Only when the claim is finally settled or denied' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3610,12 +4110,17 @@
         "Every ninety calendar days while the claim remains pending",
         "Only when the claim is finally settled or denied"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a claim is not settled within 60 days, how often must the TSP update the claimant in writing?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.10.e|The customer should notify the TSP of real property damage within how long?",
       "ref": "App A-B, para B.10.e",
-      "question": "The customer should notify the TSP of real property damage within how long?",
+      "question": "Under the DP3 Tender of Service, the customer should notify the TSP of real property damage (e.g., to the residence) within how long?",
       "status": "verified",
       "reason": "B.10.e asks for notice within seven calendar days but negates that period if the TSP fails to give a real-property-damage POC. The revised key keeps the exception; three GBDs, 30 days, and 180 days are not the ordinary rule.",
       "evidence": {
@@ -3628,7 +4133,12 @@
         "Thirty calendar days after damage occurs",
         "One hundred eighty calendar days after damage occurs"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "The customer should notify the TSP of real property damage within how long?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.10.e|Within how long of the customer's notice must the TSP arrange a repair firm to inspect real property damage?",
@@ -3687,7 +4197,7 @@
     {
       "id": "DTR-IV|App A-B, para B.11.d(1)|For a missed RDD, when does the IC period start and end?",
       "ref": "App A-B, para B.11.d(1)",
-      "question": "For a missed RDD, when does the IC period start and end?",
+      "question": "For a missed RDD, when does the customer's inconvenience claim (IC) period start and end?",
       "status": "verified",
       "reason": "The cited rule gives 'From the day after the missed date through the actual delivery day (included)' for this question. The alternatives 'From the pickup date to the RDD', 'From the RDD through the day before delivery', 'Only the RDD itself' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3700,7 +4210,12 @@
         "From the RDD through the day before delivery",
         "Only the RDD itself"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For a missed RDD, when does the IC period start and end?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.11.d(2)|What percentage of the M&IE per diem does each dependent traveling on the orders receive for an IC?",
@@ -3759,7 +4274,7 @@
     {
       "id": "DTR-IV|App A-B, para B.11.e|How are inconvenience claims for UB shipments paid?",
       "ref": "App A-B, para B.11.e",
-      "question": "How are inconvenience claims for UB shipments paid?",
+      "question": "How are inconvenience claims (ICs) for UB shipments paid?",
       "status": "verified",
       "reason": "The cited rule gives 'Actual expenses only' for this question. The alternatives 'On the M&IE per diem', 'At a flat $50 per day', 'They are not paid' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3772,7 +4287,12 @@
         "At a flat $50 per day",
         "They are not paid"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How are inconvenience claims for UB shipments paid?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.11.f(2)|The TSP owes an IC if it cannot deliver out of SIT within how long of the customer's first request (when the requested date is within that window)?",
@@ -3795,7 +4315,7 @@
     {
       "id": "DTR-IV|App A-B, para B.11.g(4)|Which miscellaneous expense is NOT eligible for reimbursement?",
       "ref": "App A-B, para B.11.g(4)",
-      "question": "Which miscellaneous expense is NOT eligible for reimbursement?",
+      "question": "Which miscellaneous expense is NOT eligible for inconvenience claim (IC) reimbursement?",
       "status": "verified",
       "reason": "Recovered original ToS B.11.g(1) expressly permits furniture/appliance rental and g(2) permits special medical equipment for EFMP/special medical requirements; g(4) excludes groceries. Thus all three distractors can be reimbursable and groceries is the unique excluded choice.",
       "evidence": {
@@ -3817,12 +4337,17 @@
           "quote": "g. Miscellaneous Expenses: The following guidelines apply to 1) UB shipments and 2) instances where a customer claims miscellaneous expenses for personal expenses. (1) Miscellaneous expenses are personal expenses incurred by a customer and their dependents because they are not able to use necessary items in their shipment to establish their household. Expenses that are considered for reimbursement when establishing a household include but are not limited to furniture and/or appliance rental (to include rental of a television). (2) Miscellaneous expenses include special medical equipment unavailable due to shipment delay for qualified customer and accompanying dependents covered under the Exceptional Family Member Program (EFMP) or other special medical requirements. (3) Miscellaneous expenses will include costs incurred by the customer above and beyond their Basic Allowance for Housing (BAH) due to unexpected lease extensions of rental property at origin due to missed pickup at origin. (4) Groceries are not eligible for reimbursement. Lodging and individual meals are normally not part of an IC but the U.S. Government recognizes there may be unique circumstances that would require consideration. I may consider exceptions (e.g., limited lodging and meals required due to unexpected inability to deliver) on a case-by-case basis. I must make customers aware that in instances where lodging or individual meals are approved it should be reasonable and usually will only be reimbursed for a short duration.",
           "sourceFile": "l731_3.pdf"
         }
-      ]
+      ],
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which miscellaneous expense is NOT eligible for reimbursement?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.11.g(6)|May a customer be reimbursed for alcoholic beverages on an IC?",
       "ref": "App A-B, para B.11.g(6)",
-      "question": "May a customer be reimbursed for alcoholic beverages on an IC?",
+      "question": "May a customer be reimbursed for alcoholic beverages on an inconvenience claim (IC)?",
       "status": "verified",
       "reason": "The cited rule gives 'No, it is prohibited' for this question. The alternatives 'Yes, with receipts', 'Up to $50', 'Only with dependents' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3835,7 +4360,12 @@
         "Up to $50",
         "Only with dependents"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May a customer be reimbursed for alcoholic beverages on an IC?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.11.h|Within how long may a TSP appeal a PPSO's IC resolution to DPMO?",
@@ -3858,7 +4388,7 @@
     {
       "id": "DTR-IV|App A-B, para B.11.i(3)|The TSP is not liable for an IC if the delayed shipment consists entirely of what?",
       "ref": "App A-B, para B.11.i(3)",
-      "question": "The TSP is not liable for an IC if the delayed shipment consists entirely of what?",
+      "question": "The TSP is not liable for an inconvenience claim (IC) if the delayed shipment consists entirely of what?",
       "status": "verified",
       "reason": "The cited rule gives 'Alcohol' for this question. The alternatives 'Furniture', 'PBP&E', 'Firearms' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3871,12 +4401,17 @@
         "PBP&E",
         "Firearms"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "The TSP is not liable for an IC if the delayed shipment consists entirely of what?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.11.i(6)|In a catastrophic loss or mold remediation, IC liability ends how long after payment for essential items?",
       "ref": "App A-B, para B.11.i(6)",
-      "question": "In a catastrophic loss or mold remediation, IC liability ends how long after payment for essential items?",
+      "question": "In a catastrophic loss or mold remediation, the TSP's inconvenience claim (IC) liability ends how long after payment for essential items?",
       "status": "verified",
       "reason": "The cited rule gives '15 days' for this question. The alternatives '30 days', '7 days', '60 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3889,12 +4424,17 @@
         "7 days",
         "60 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In a catastrophic loss or mold remediation, IC liability ends how long after payment for essential items?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.11.j(1)|Between 15 June and 31 October, how often must the TSP report filed ICs?",
       "ref": "App A-B, para B.11.j(1)",
-      "question": "Between 15 June and 31 October, how often must the TSP report filed ICs?",
+      "question": "Between 15 June and 31 October, how often must the TSP report filed inconvenience claims (ICs)?",
       "status": "verified",
       "reason": "The cited rule gives 'Twice monthly: 1st and 15th' for this question. The alternatives 'Once monthly, due on the first business day of the month', 'Once weekly, due each Friday during the reporting period', 'Quarterly, due at the end of each three-month period' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3907,12 +4447,17 @@
         "Once weekly, due each Friday during the reporting period",
         "Quarterly, due at the end of each three-month period"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Between 15 June and 31 October, how often must the TSP report filed ICs?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.11.k(1)|If a TSP turns back a shipment within how many calendar days of pickup does it owe miscellaneous expenses (if dates can't be kept)?",
       "ref": "App A-B, para B.11.k(1)",
-      "question": "If a TSP turns back a shipment within how many calendar days of pickup does it owe miscellaneous expenses (if dates can't be kept)?",
+      "question": "If a TSP turns back an HHG shipment within how many calendar days of pickup does it owe the customer's miscellaneous expenses (if dates can't be kept)?",
       "status": "verified",
       "reason": "The cited rule gives '14' for this question. The alternatives '7', '30', '3' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3925,12 +4470,17 @@
         "30",
         "3"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a TSP turns back a shipment within how many calendar days of pickup does it owe miscellaneous expenses (if dates can't be kept)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.11.l(1)|Which is \"good cause\" for a customer being unavailable on the FADD after a missed RDD?",
       "ref": "App A-B, para B.11.l(1)",
-      "question": "Which is \"good cause\" for a customer being unavailable on the FADD after a missed RDD?",
+      "question": "Under the DP3 inconvenience claim rules, which is \"good cause\" for a customer being unavailable on the FADD after a missed RDD?",
       "status": "verified",
       "reason": "The cited rule gives 'A short notice mission/exercise, hospitalization, or convalescent leave' for this question. The alternatives 'A planned vacation', 'Waiting for a new couch', 'Not having picked a house yet' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3943,12 +4493,17 @@
         "Waiting for a new couch",
         "Not having picked a house yet"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which is \"good cause\" for a customer being unavailable on the FADD after a missed RDD?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.12.c|When must accessorial services be requested and pre-approved by the PPSO in DPS?",
       "ref": "App A-B, para B.12.c",
-      "question": "When must accessorial services be requested and pre-approved by the PPSO in DPS?",
+      "question": "When must a TSP's accessorial services be requested and pre-approved by the PPSO in DPS?",
       "status": "verified",
       "reason": "The cited rule gives 'Before the service is rendered' for this question. The alternatives 'After delivery', 'At invoicing', 'Within 30 days after the service' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3961,12 +4516,17 @@
         "At invoicing",
         "Within 30 days after the service"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When must accessorial services be requested and pre-approved by the PPSO in DPS?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.15.a|Which law requires U.S.-flag vessels for ocean shipments unless unavailable?",
       "ref": "App A-B, para B.15.a",
-      "question": "Which law requires U.S.-flag vessels for ocean shipments unless unavailable?",
+      "question": "Which law requires U.S.-flag vessels for ocean shipments of DoW personal property unless unavailable?",
       "status": "verified",
       "reason": "The cited rule gives 'Cargo Preference Act' for this question. The alternatives 'The Fly America Act', 'The Jones Act only', 'The Brady Act' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3979,12 +4539,17 @@
         "The Jones Act only",
         "The Brady Act"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which law requires U.S.-flag vessels for ocean shipments unless unavailable?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.15.b|Which law requires U.S.-flag aircraft for international air transportation?",
       "ref": "App A-B, para B.15.b",
-      "question": "Which law requires U.S.-flag aircraft for international air transportation?",
+      "question": "Which law requires U.S.-flag aircraft for international air transportation of DoW personal property?",
       "status": "verified",
       "reason": "The cited rule gives 'The Fly America Act' for this question. The alternatives 'The Cargo Preference Act', 'The Debt Collection Act', 'The Sherman Act' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -3997,12 +4562,17 @@
         "The Debt Collection Act",
         "The Sherman Act"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which law requires U.S.-flag aircraft for international air transportation?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.15.c|Which may NOT be entered in AMS or ACE \"Marks and Numbers\"?",
       "ref": "App A-B, para B.15.c",
-      "question": "Which may NOT be entered in AMS or ACE \"Marks and Numbers\"?",
+      "question": "For international HHG shipments, which may NOT be entered in the AMS or ACE \"Marks and Numbers\" field?",
       "status": "verified",
       "reason": "The cited rule gives 'The customer\\'s SSN, rank, \"DoW Shipment,\" or the BL number' for this question. The alternatives 'The container number', 'The port of loading', 'The number of pieces' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4015,7 +4585,12 @@
         "The port of loading",
         "The number of pieces"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which may NOT be entered in AMS or ACE \"Marks and Numbers\"?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.17.b|At a minimum, which third parties must a TSP identify in DPS?",
@@ -4092,7 +4667,7 @@
     {
       "id": "DTR-IV|App A-B, para B.19.a|May a TSP run its own customer survey?",
       "ref": "App A-B, para B.19.a",
-      "question": "May a TSP run its own customer survey?",
+      "question": "May a TSP run its own customer survey on DP3 shipments?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, by email', 'Yes, on social media', 'Yes, at delivery' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4105,7 +4680,12 @@
         "Yes, on social media",
         "Yes, at delivery"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May a TSP run its own customer survey?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.19.b|May a TSP offer incentives to customers to complete the CSS?",
@@ -4164,7 +4744,7 @@
     {
       "id": "DTR-IV|App A-B, para B.22.a|When is the Foreign Vendor Report due?",
       "ref": "App A-B, para B.22.a",
-      "question": "When is the Foreign Vendor Report due?",
+      "question": "When is the TSP's Foreign Vendor Report due?",
       "status": "verified",
       "reason": "The cited rule gives '31 March / 30 September' for this question. The alternatives '1 January and 1 July each calendar year', '15 May and 15 November each calendar year', 'Monthly on the final business day of each month' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4177,7 +4757,12 @@
         "15 May and 15 November each calendar year",
         "Monthly on the final business day of each month"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When is the Foreign Vendor Report due?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.23.b|Where does a TSP verify whether a subcontractor is debarred or suspended?",
@@ -4200,7 +4785,7 @@
     {
       "id": "DTR-IV|App A-B, para C.1.b|May pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
       "ref": "App A-B, para C.1.b",
-      "question": "May pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
+      "question": "May HHG pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
       "status": "verified",
       "reason": "The cited rule gives 'Only by mutual agreement of the customer, PPSO, and TSP' for this question. The alternatives 'Yes, anytime', 'Never', 'Only in peak season' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4213,12 +4798,17 @@
         "Never",
         "Only in peak season"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.1.d|From 15 May through 31 October, what are the TSP's customer support hours?",
       "ref": "App A-B, para C.1.d",
-      "question": "From 15 May through 31 October, what are the TSP's customer support hours?",
+      "question": "From 15 May through 31 October, what are the TSP's required customer support hours?",
       "status": "verified",
       "reason": "C.1.d requires 0800–1700 Monday–Saturday support during 15 May–31 October, except U.S./foreign holidays. The key retains that exception; 24/7, weekdays only, and 0600–2100 daily do not match.",
       "evidence": {
@@ -4231,12 +4821,17 @@
         "0800-1700, Monday through Friday",
         "0600-2100 daily"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "From 15 May through 31 October, what are the TSP's customer support hours?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.1.d|Customer support wait times may not exceed how long?",
       "ref": "App A-B, para C.1.d",
-      "question": "Customer support wait times may not exceed how long?",
+      "question": "Under the DP3 Tender of Service, TSP customer support wait times may not exceed how long?",
       "status": "verified",
       "reason": "The cited rule gives '20 minutes' for this question. The alternatives '10 minutes', '30 minutes', '1 hour' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4249,12 +4844,17 @@
         "30 minutes",
         "1 hour"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Customer support wait times may not exceed how long?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.1.g|Without the customer's approval, pickup or delivery may not begin before or after what times?",
       "ref": "App A-B, para C.1.g",
-      "question": "Without the customer's approval, pickup or delivery may not begin before or after what times?",
+      "question": "Without the customer's approval, HHG pickup or delivery may not begin before or after what times?",
       "status": "verified",
       "reason": "The cited rule gives 'Before 0800 or after 1700' for this question. The alternatives 'Before 0700 or after 1900', 'Before 0900 or after 1600', 'Before 0600 or after 2100' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4267,12 +4867,17 @@
         "Before 0900 or after 1600",
         "Before 0600 or after 2100"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Without the customer's approval, pickup or delivery may not begin before or after what times?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.1.i|Without the customer's approval, a TSP may not begin a service that cannot be completed by when?",
       "ref": "App A-B, para C.1.i",
-      "question": "Without the customer's approval, a TSP may not begin a service that cannot be completed by when?",
+      "question": "Without the customer's approval, a TSP may not begin an HHG service that cannot be completed by when?",
       "status": "verified",
       "reason": "The cited rule gives '2100 hours' for this question. The alternatives '1700 hours', '1900 hours', '2300 hours' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4285,12 +4890,17 @@
         "1900 hours",
         "2300 hours"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Without the customer's approval, a TSP may not begin a service that cannot be completed by when?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.2.b|Pre-move weight estimates must be accurate within what percentage of the actual net weight?",
       "ref": "App A-B, para C.2.b",
-      "question": "Pre-move weight estimates must be accurate within what percentage of the actual net weight?",
+      "question": "The TSP's pre-move weight estimates must be accurate within what percentage of the actual net weight?",
       "status": "verified",
       "reason": "The cited rule gives '10%' for this question. The alternatives '5%', '15%', '20%' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4303,12 +4913,17 @@
         "15%",
         "20%"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Pre-move weight estimates must be accurate within what percentage of the actual net weight?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.3.b|In-transit visibility notices to the customer must occur within how long?",
       "ref": "App A-B, para C.3.b",
-      "question": "In-transit visibility notices to the customer must occur within how long?",
+      "question": "The TSP's in-transit visibility notices to the HHG customer must occur within how long?",
       "status": "verified",
       "reason": "The cited rule gives 'Three GBDs of pickup, or one GBD of any change in estimated arrival' for this question. The alternatives '24 hours of pickup only', 'Only at arrival', 'Weekly' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4321,12 +4936,17 @@
         "Only at arrival",
         "Weekly"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In-transit visibility notices to the customer must occur within how long?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.3.c|If the first attempt to give 24-hour delivery notice fails, how must the final attempt be made?",
       "ref": "App A-B, para C.3.c",
-      "question": "If the first attempt to give 24-hour delivery notice fails, how must the final attempt be made?",
+      "question": "If the TSP's first attempt to give the customer 24-hour delivery notice fails, how must the final attempt be made?",
       "status": "verified",
       "reason": "The cited rule gives 'By telephone' for this question. The alternatives 'By electronic mail to the customer only', 'By postal mail to the customer’s address', 'By text message without a telephone call' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4339,12 +4959,17 @@
         "By postal mail to the customer’s address",
         "By text message without a telephone call"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If the first attempt to give 24-hour delivery notice fails, how must the final attempt be made?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.3.g|Can SIT start on a weekend or holiday?",
       "ref": "App A-B, para C.3.g",
-      "question": "Can SIT start on a weekend or holiday?",
+      "question": "Can an HHG shipment's storage in transit (SIT) start on a weekend or holiday?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only on Saturdays', 'Only for UB' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4357,12 +4982,17 @@
         "Only on Saturdays",
         "Only for UB"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Can SIT start on a weekend or holiday?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.3.h|If the TSP did not give the customer at least 24-hour notice before SIT, what does the PPSO do?",
       "ref": "App A-B, para C.3.h",
-      "question": "If the TSP did not give the customer at least 24-hour notice before SIT, what does the PPSO do?",
+      "question": "If the TSP did not give the customer at least 24-hour notice before placing a shipment in SIT, what does the PPSO do?",
       "status": "verified",
       "reason": "The cited rule gives 'Deny SIT and delivery-out charges' for this question. The alternatives 'Approve storage at half the normal storage-in-transit rate', 'Permanently disqualify the carrier from every DoW market', 'Charge the customer for the carrier’s notification failure' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4375,12 +5005,17 @@
         "Permanently disqualify the carrier from every DoW market",
         "Charge the customer for the carrier’s notification failure"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If the TSP did not give the customer at least 24-hour notice before SIT, what does the PPSO do?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.3.j|How long are pickup spread dates for standard awards?",
       "ref": "App A-B, para C.3.j",
-      "question": "How long are pickup spread dates for standard awards?",
+      "question": "How long are HHG pickup spread dates for standard awards?",
       "status": "verified",
       "reason": "The cited rule gives 'Seven calendar days' for this question. The alternatives 'Three business days', 'Five GBDs', 'Fourteen days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4393,12 +5028,17 @@
         "Five GBDs",
         "Fourteen days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How long are pickup spread dates for standard awards?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.3.m|Within how long of acceptance must the TSP confirm the agreed pickup date in writing?",
       "ref": "App A-B, para C.3.m",
-      "question": "Within how long of acceptance must the TSP confirm the agreed pickup date in writing?",
+      "question": "Within how long of accepting an HHG shipment must the TSP confirm the agreed pickup date in writing?",
       "status": "verified",
       "reason": "The cited rule gives 'Three calendar days' for this question. The alternatives 'One GBD', 'Seven days', 'At the pre-move survey' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4411,7 +5051,12 @@
         "Seven days",
         "At the pre-move survey"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how long of acceptance must the TSP confirm the agreed pickup date in writing?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.3.n|How early may the TSP print the bill of lading?",
@@ -4434,7 +5079,7 @@
     {
       "id": "DTR-IV|App A-B, para C.3.p|Pickup spread dates do NOT apply to which shipments?",
       "ref": "App A-B, para C.3.p",
-      "question": "Pickup spread dates do NOT apply to which shipments?",
+      "question": "HHG pickup spread dates do NOT apply to which shipments?",
       "status": "verified",
       "reason": "The cited rule gives 'NTS releases and DPM' for this question. The alternatives 'All domestic Code D household goods shipments', 'All unaccompanied baggage shipment categories', 'All shipments scheduled during the peak season' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4447,12 +5092,17 @@
         "All unaccompanied baggage shipment categories",
         "All shipments scheduled during the peak season"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Pickup spread dates do NOT apply to which shipments?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.3.q|Does a weekend service agreement between the customer and TSP authorize extra labor and overtime?",
       "ref": "App A-B, para C.3.q",
-      "question": "Does a weekend service agreement between the customer and TSP authorize extra labor and overtime?",
+      "question": "Does a weekend service agreement between the HHG customer and TSP authorize extra labor and overtime charges?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only on holidays', 'Only in peak season' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4465,12 +5115,17 @@
         "Only on holidays",
         "Only in peak season"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Does a weekend service agreement between the customer and TSP authorize extra labor and overtime?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.4.a|Which wrapping material may NOT be used for furniture covers?",
       "ref": "App A-B, para C.4.a",
-      "question": "Which wrapping material may NOT be used for furniture covers?",
+      "question": "When packing HHG, which wrapping material may NOT be used for furniture covers?",
       "status": "verified",
       "reason": "The cited rule gives 'Burlap' for this question. The alternatives 'Textile furniture pads', 'Paper pads', 'Furniture covers' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4483,12 +5138,17 @@
         "Paper pads",
         "Furniture covers"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which wrapping material may NOT be used for furniture covers?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.4.c|Which items are excepted from the TSP's origin disassembly duty?",
       "ref": "App A-B, para C.4.c",
-      "question": "Which items are excepted from the TSP's origin disassembly duty?",
+      "question": "Which items are excepted from the TSP's duty to disassemble HHG at origin?",
       "status": "verified",
       "reason": "The cited rule gives 'Outdoor items like swing sets, playground equipment, and antennas' for this question. The alternatives 'Beds', 'Dining tables', 'Bookcases' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4501,7 +5161,12 @@
         "Dining tables",
         "Bookcases"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which items are excepted from the TSP's origin disassembly duty?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.4.i|Lithium-ion batteries over what rating are not allowed in personal property shipments?",
@@ -4542,7 +5207,7 @@
     {
       "id": "DTR-IV|App A-B, para C.6.a|For which items must new packing material be used?",
       "ref": "App A-B, para C.6.a",
-      "question": "For which items must new packing material be used?",
+      "question": "When packing HHG, for which items must the TSP use new packing material?",
       "status": "verified",
       "reason": "The cited rule gives 'Mattresses, box springs, linens, bedding, and clothing' for this question. The alternatives 'Books', 'Dishes', 'Tools' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4555,12 +5220,17 @@
         "Dishes",
         "Tools"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For which items must new packing material be used?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.6.c|Which containers may NOT be used for packing?",
       "ref": "App A-B, para C.6.c",
-      "question": "Which containers may NOT be used for packing?",
+      "question": "Which containers may NOT be used for packing HHG?",
       "status": "verified",
       "reason": "The cited rule gives 'Egg/fruit/vegetable crates' for this question. The alternatives 'Standard corrugated cartons designed for books', 'Reinforced dish-pack cartons for fragile kitchenware', 'Upright wardrobe cartons for hanging clothing' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4573,12 +5243,17 @@
         "Reinforced dish-pack cartons for fragile kitchenware",
         "Upright wardrobe cartons for hanging clothing"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which containers may NOT be used for packing?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.7.c|Books are normally packed in what size carton, and how high?",
       "ref": "App A-B, para C.7.c",
-      "question": "Books are normally packed in what size carton, and how high?",
+      "question": "When packing HHG, books are normally packed in what size carton, and how high?",
       "status": "verified",
       "reason": "The cited rule gives '1.5 cubic feet; maximum two rows' for this question. The alternatives '3.0 cubic foot carton, three rows high', '4.5 cubic foot carton, any height', '6.0 cubic foot carton, one row' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4591,12 +5266,17 @@
         "4.5 cubic foot carton, any height",
         "6.0 cubic foot carton, one row"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Books are normally packed in what size carton, and how high?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.7.d(1)|Which wardrobes are used for Code D shipments?",
       "ref": "App A-B, para C.7.d(1)",
-      "question": "Which wardrobes are used for Code D shipments?",
+      "question": "When packing HHG, which wardrobes are used for Code D shipments?",
       "status": "verified",
       "reason": "The cited rule gives 'Upright wardrobes' for this question. The alternatives 'Flat wardrobes', 'No wardrobes', 'Customer-provided bags' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4609,12 +5289,17 @@
         "No wardrobes",
         "Customer-provided bags"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which wardrobes are used for Code D shipments?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.7.d(3)|What is done with hangers in flat wardrobes?",
       "ref": "App A-B, para C.7.d(3)",
-      "question": "What is done with hangers in flat wardrobes?",
+      "question": "When packing clothing in flat wardrobes, what does the TSP do with the hangers?",
       "status": "verified",
       "reason": "C.7.d(3) requires removal of hangers from clothing in flat wardrobes but does not prescribe later hanger disposition. The original separate-box distractor could coexist with removal. New distractors all keep hangers in use on the garments, conflicting with removal.",
       "evidence": {
@@ -4627,12 +5312,17 @@
         "Fastened through garment necklines",
         "Used to hang clothing upright in the flat wardrobe"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is done with hangers in flat wardrobes?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.7.f|How must rugs and rug pads be prepared for shipment?",
       "ref": "App A-B, para C.7.f",
-      "question": "How must rugs and rug pads be prepared for shipment?",
+      "question": "How must rugs and rug pads be prepared for HHG shipment?",
       "status": "verified",
       "reason": "The cited rule gives 'Rolled, not folded' for this question. The alternatives 'Folded in quarters', 'Folded in half', 'Left loose' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4645,7 +5335,12 @@
         "Folded in half",
         "Left loose"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How must rugs and rug pads be prepared for shipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.8.d|For international containerized shipments, where are privately owned firearms (POFs) placed?",
@@ -4668,7 +5363,7 @@
     {
       "id": "DTR-IV|App A-B, para C.8.f|May the outside of a package be marked to show it contains a firearm?",
       "ref": "App A-B, para C.8.f",
-      "question": "May the outside of a package be marked to show it contains a firearm?",
+      "question": "May the outside of an HHG carton be marked to show it contains a firearm?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only internationally', 'Only on the side panel' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4681,12 +5376,17 @@
         "Only internationally",
         "Only on the side panel"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May the outside of a package be marked to show it contains a firearm?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.9.a(16)|How is a military spouse's PBP&E identified on the inventory?",
       "ref": "App A-B, para C.9.a(16)",
-      "question": "How is a military spouse's PBP&E identified on the inventory?",
+      "question": "On an HHG inventory, how is a military spouse's PBP&E identified?",
       "status": "verified",
       "reason": "The cited rule gives '\"S-PRO\"' for this question. The alternatives '\"M-PRO\"', '\"SP-PBP\"', '\"PRO-2\"' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4699,12 +5399,17 @@
         "\"SP-PBP\"",
         "\"PRO-2\""
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How is a military spouse's PBP&E identified on the inventory?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.9.a(17)|A privately owned firearm made in 1968 or later with no serial number is handled how?",
       "ref": "App A-B, para C.9.a(17)",
-      "question": "A privately owned firearm made in 1968 or later with no serial number is handled how?",
+      "question": "When packing HHG, how does the TSP handle a privately owned firearm made in 1968 or later with no serial number?",
       "status": "verified",
       "reason": "The cited rule gives 'Do not pack; refer to PPSO' for this question. The alternatives 'Pack it with a notation that the serial number is absent', 'Pack it in unaccompanied baggage instead of household goods', 'Pack it in a gun safe without referring it to the shipping office' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4717,12 +5422,17 @@
         "Pack it in unaccompanied baggage instead of household goods",
         "Pack it in a gun safe without referring it to the shipping office"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "A privately owned firearm made in 1968 or later with no serial number is handled how?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.9.a(18)|What does \"CW\" on an inventory mean?",
       "ref": "App A-B, para C.9.a(18)",
-      "question": "What does \"CW\" on an inventory mean?",
+      "question": "On an HHG inventory, what does \"CW\" mean?",
       "status": "verified",
       "reason": "The cited rule gives 'Containerized at Warehouse' for this question. The alternatives 'Cartons Wrapped for protection during the movement', 'Customer Waived an inspection of the shipment contents', 'Code W shipment accepted for international transportation' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4735,12 +5445,17 @@
         "Customer Waived an inspection of the shipment contents",
         "Code W shipment accepted for international transportation"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What does \"CW\" on an inventory mean?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.9.a(22)|If a TSP describes carton contents as \"misc.\" with the room identified, what does it agree to?",
       "ref": "App A-B, para C.9.a(22)",
-      "question": "If a TSP describes carton contents as \"misc.\" with the room identified, what does it agree to?",
+      "question": "On an HHG inventory, if a TSP describes carton contents as \"misc.\" with the room identified, what does it agree to?",
       "status": "verified",
       "reason": "The cited rule gives 'Not to contest a claim for missing items related to those cartons' for this question. The alternatives 'Nothing', 'To repack at destination', 'To pay double' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4753,12 +5468,17 @@
         "To repack at destination",
         "To pay double"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a TSP describes carton contents as \"misc.\" with the room identified, what does it agree to?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.9.a(24)|Does a signed bingo card or check-off sheet prove delivery?",
       "ref": "App A-B, para C.9.a(24)",
-      "question": "Does a signed bingo card or check-off sheet prove delivery?",
+      "question": "At HHG delivery, does a signed bingo card or check-off sheet prove delivery?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for cartons', 'Only internationally' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4771,12 +5491,17 @@
         "Only for cartons",
         "Only internationally"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Does a signed bingo card or check-off sheet prove delivery?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.10|If a shipment is split for line-haul (overflow), which RDD applies to the overflow?",
       "ref": "App A-B, para C.10",
-      "question": "If a shipment is split for line-haul (overflow), which RDD applies to the overflow?",
+      "question": "If an HHG shipment is split for line-haul (overflow), which RDD applies to the overflow?",
       "status": "verified",
       "reason": "The cited rule gives 'The original RDD' for this question. The alternatives 'A new required delivery date seven calendar days later', 'No required delivery date applies to the overflow portion', 'The original required delivery date plus five calendar days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4789,7 +5514,12 @@
         "No required delivery date applies to the overflow portion",
         "The original required delivery date plus five calendar days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If a shipment is split for line-haul (overflow), which RDD applies to the overflow?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.11.e|TSP-owned or leased commercially designed shipping containers must meet or exceed which standard?",
@@ -4812,7 +5542,7 @@
     {
       "id": "DTR-IV|App A-B, para C.11.g(1)|Which shipment codes require container stenciling or labels on two surfaces (one side and one end)?",
       "ref": "App A-B, para C.11.g(1)",
-      "question": "Which shipment codes require container stenciling or labels on two surfaces (one side and one end)?",
+      "question": "Which HHG and UB shipment codes require container stenciling or labels on two surfaces (one side and one end)?",
       "status": "verified",
       "reason": "The cited rule gives '4, 6, 7, and 8' for this question. The alternatives 'Codes D and 2', 'Codes 5 and T', 'Codes J and S' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4825,12 +5555,17 @@
         "Codes 5 and T",
         "Codes J and S"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which shipment codes require container stenciling or labels on two surfaces (one side and one end)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.11.h(3)|In what format is the RDD on container stencils?",
       "ref": "App A-B, para C.11.h(3)",
-      "question": "In what format is the RDD on container stencils?",
+      "question": "On HHG and UB container stencils, in what format is the RDD shown?",
       "status": "verified",
       "reason": "The cited rule gives 'Julian date' for this question. The alternatives 'DD MMM YYYY', 'MM/DD/YY', 'Day of week' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4843,12 +5578,17 @@
         "MM/DD/YY",
         "Day of week"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "In what format is the RDD on container stencils?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.11.i(3)|At a minimum, how many tamper-evident seals are used per UB box?",
       "ref": "App A-B, para C.11.i(3)",
-      "question": "At a minimum, how many tamper-evident seals are used per UB box?",
+      "question": "At a minimum, how many tamper-evident seals does the TSP use per UB shipping box?",
       "status": "verified",
       "reason": "The cited rule gives 'Two' for this question. The alternatives 'Four', 'One', 'Six' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4861,12 +5601,17 @@
         "One",
         "Six"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "At a minimum, how many tamper-evident seals are used per UB box?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.11.i(4)|At a minimum, how many tamper-evident seals are used per HHG box?",
       "ref": "App A-B, para C.11.i(4)",
-      "question": "At a minimum, how many tamper-evident seals are used per HHG box?",
+      "question": "At a minimum, how many tamper-evident seals does the TSP use per HHG shipping box?",
       "status": "verified",
       "reason": "The cited rule gives 'Four' for this question. The alternatives 'Two', 'Six', 'Eight' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4879,12 +5624,17 @@
         "Six",
         "Eight"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "At a minimum, how many tamper-evident seals are used per HHG box?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.11.i(5)|If seals must be broken before delivery, the PPSO/PPPO arranges a QA inspector to be present within how long?",
       "ref": "App A-B, para C.11.i(5)",
-      "question": "If seals must be broken before delivery, the PPSO/PPPO arranges a QA inspector to be present within how long?",
+      "question": "If container seals must be broken before HHG delivery, the PPSO/PPPO arranges for a QA inspector to be present within how long?",
       "status": "verified",
       "reason": "The cited rule gives 'Two GBDs' for this question. The alternatives '24 hours', 'Five GBDs', '30 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4897,7 +5647,12 @@
         "Five GBDs",
         "30 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If seals must be broken before delivery, the PPSO/PPPO arranges a QA inspector to be present within how long?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.12.b|NLT how long after pickup must the TSP give the origin PPSO the weighted BL, weight tickets, DD Form 619, inventories, and third-party invoices?",
@@ -4938,7 +5693,7 @@
     {
       "id": "DTR-IV|App A-B, para C.14.c|May the contents of containerized shipments be removed from the containers in SIT?",
       "ref": "App A-B, para C.14.c",
-      "question": "May the contents of containerized shipments be removed from the containers in SIT?",
+      "question": "May the contents of containerized HHG shipments be removed from the containers while in SIT?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for inspection', 'Only after 30 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4951,12 +5706,17 @@
         "Only for inspection",
         "Only after 30 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May the contents of containerized shipments be removed from the containers in SIT?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.14.e|How are rugs and carpets stored in SIT?",
       "ref": "App A-B, para C.14.e",
-      "question": "How are rugs and carpets stored in SIT?",
+      "question": "How does the SIT warehouse store rugs and carpets?",
       "status": "verified",
       "reason": "The cited rule gives 'On racks, horizontally, rolled up in tubes without folding' for this question. The alternatives 'Folded on pallets', 'Standing upright', 'Under furniture' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4969,12 +5729,17 @@
         "Standing upright",
         "Under furniture"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How are rugs and carpets stored in SIT?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.15.a|How is upholstered furniture stored loose on racks?",
       "ref": "App A-B, para C.15.a",
-      "question": "How is upholstered furniture stored loose on racks?",
+      "question": "How does the SIT warehouse store upholstered furniture kept loose on racks?",
       "status": "verified",
       "reason": "The cited rule gives 'Upright, covered against dust, with nothing placed on top' for this question. The alternatives 'On its back with boxes on top', 'Wrapped in burlap', 'Stacked two high' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -4987,12 +5752,17 @@
         "Wrapped in burlap",
         "Stacked two high"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How is upholstered furniture stored loose on racks?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.16.a|What does unloading at destination include?",
       "ref": "App A-B, para C.16.a",
-      "question": "What does unloading at destination include?",
+      "question": "What does the TSP's unloading service at HHG destination include?",
       "status": "verified",
       "reason": "C.16.a includes one-time rug laying and furniture placement in the designated room. The old “arranging items as customer desires” distractor could overlap authorized placement. It was replaced with curtain hanging; unlimited furniture moves and picture hanging are not included by this passage.",
       "evidence": {
@@ -5005,12 +5775,17 @@
         "Unlimited furniture moves",
         "Hanging pictures"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What does unloading at destination include?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para C.17.c|For missing items, the TSP must advise the customer in writing of tracer results within how long of delivery?",
       "ref": "App A-B, para C.17.c",
-      "question": "For missing items, the TSP must advise the customer in writing of tracer results within how long of delivery?",
+      "question": "For items missing at HHG delivery, the TSP must advise the customer in writing of tracer results within how long of delivery?",
       "status": "verified",
       "reason": "The cited rule gives '30 days' for this question. The alternatives '7 days', '60 days', '180 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5023,12 +5798,17 @@
         "60 days",
         "180 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For missing items, the TSP must advise the customer in writing of tracer results within how long of delivery?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, Figure B-3|How long does a customer have to notify the TSP of loss or damage after delivery?",
       "ref": "App A-B, Figure B-3",
-      "question": "How long does a customer have to notify the TSP of loss or damage after delivery?",
+      "question": "Per the DP3 Notification of Loss or Damage AFTER Delivery form, how long does a customer have to notify the TSP of loss or damage?",
       "status": "verified",
       "reason": "The cited rule gives '180 days' for this question. The alternatives '75 days', '9 months', '30 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5042,12 +5822,17 @@
         "9 months",
         "30 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How long does a customer have to notify the TSP of loss or damage after delivery?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, Figure B-3|To receive Full Replacement Value, the customer must file the claim in DPS within how long of delivery?",
       "ref": "App A-B, Figure B-3",
-      "question": "To receive Full Replacement Value, the customer must file the claim in DPS within how long of delivery?",
+      "question": "Per the DP3 Notification of Loss or Damage AFTER Delivery form, to receive Full Replacement Value the customer must file the claim in DPS within how long of delivery?",
       "status": "verified",
       "reason": "The cited rule gives '9 months' for this question. The alternatives '180 days', '2 years', '30 days' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5061,12 +5846,17 @@
         "2 years",
         "30 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "To receive Full Replacement Value, the customer must file the claim in DPS within how long of delivery?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para D.2.c|May a TSP place a lien on or detain a DoW shipment?",
       "ref": "App A-B, para D.2.c",
-      "question": "May a TSP place a lien on or detain a DoW shipment?",
+      "question": "Under the DP3 Tender of Service, may a TSP place a lien on or detain a DoW shipment?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, for unpaid charges', 'Yes, with PPSO approval', 'Only for SIT charges' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5079,12 +5869,17 @@
         "Yes, with PPSO approval",
         "Only for SIT charges"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May a TSP place a lien on or detain a DoW shipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para D.2.d|May a TSP collect payment for charges from the customer?",
       "ref": "App A-B, para D.2.d",
-      "question": "May a TSP collect payment for charges from the customer?",
+      "question": "Under the DP3 Tender of Service, may a TSP collect payment for shipment charges from the customer?",
       "status": "verified",
       "reason": "The cited rule gives 'No, never' for this question. The alternatives 'Yes, for accessorials', 'Yes, prepayment', 'Only for excess weight' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -5097,7 +5892,12 @@
         "Yes, prepayment",
         "Only for excess weight"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May a TSP collect payment for charges from the customer?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     }
   ]
 }

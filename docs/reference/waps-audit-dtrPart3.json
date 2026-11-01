@@ -163,7 +163,7 @@
     {
       "id": "DTR-III|Ch 303, para B.2.e(1)|Tenant aerial ports/air terminals provide for which of these?",
       "ref": "Ch 303, para B.2.e(1)",
-      "question": "Tenant aerial ports/air terminals provide for which of these?",
+      "question": "For a unit air movement, tenant aerial ports/air terminals provide which of these?",
       "status": "verified",
       "reason": "The cited rule gives 'JIs, MHE, operators, load team chiefs' for this question. The alternatives 'Unit load plans, shoring, dunnage, and hazardous cargo certification', 'Unit orders, passenger funding, and deployment reporting', 'Aircraft scheduling, diplomatic clearances, and mission numbering' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -176,12 +176,17 @@
         "Unit orders, passenger funding, and deployment reporting",
         "Aircraft scheduling, diplomatic clearances, and mission numbering"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Tenant aerial ports/air terminals provide for which of these?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para B.2.f|Mobility forces consist of which of these?",
       "ref": "Ch 303, para B.2.f",
-      "question": "Mobility forces consist of which of these?",
+      "question": "For unit air movements, mobility forces consist of which of these?",
       "status": "verified",
       "reason": "The cited rule gives 'CRE, CSE, CST, aerial port, or air terminal' for this question. The alternatives 'A/DACG, unit movement officer, and transportation officer', 'Only AMC aerial port squadrons and deployment control centers', 'Only Army deployment support brigades and movement teams' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -194,7 +199,12 @@
         "Only AMC aerial port squadrons and deployment control centers",
         "Only Army deployment support brigades and movement teams"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Mobility forces consist of which of these?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para B.2.f(1)|Who commands a Contingency Response Element (CRE)?",
@@ -307,7 +317,7 @@
     {
       "id": "DTR-III|Ch 303, para B.2.g|Who is the single POC for unit movements and non-unit related personnel moved under this regulation?",
       "ref": "Ch 303, para B.2.g",
-      "question": "Who is the single POC for unit movements and non-unit related personnel moved under this regulation?",
+      "question": "Who is the single POC for unit movements and non-unit related personnel moved under DTR Part III?",
       "status": "verified",
       "reason": "The cited rule gives 'The TO or MO' for this question. The alternatives 'The A/DACG OIC', 'The aircraft commander', 'The troop commander' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -320,7 +330,12 @@
         "The aircraft commander",
         "The troop commander"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is the single POC for unit movements and non-unit related personnel moved under this regulation?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para B.2.h(4)|Aircraft load plans must be completed using which system?",
@@ -361,7 +376,7 @@
     {
       "id": "DTR-III|Ch 303, para B.2.h|Who prepares and certifies the aircraft load plans?",
       "ref": "Ch 303, para B.2.h",
-      "question": "Who prepares and certifies the aircraft load plans?",
+      "question": "For a unit air movement, who prepares and certifies the aircraft load plans?",
       "status": "verified",
       "reason": "The cited rule gives 'The deploying unit' for this question. The alternatives 'The ATOC', 'The aircraft loadmaster', 'The A/DACG' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -374,12 +389,17 @@
         "The aircraft loadmaster",
         "The A/DACG"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who prepares and certifies the aircraft load plans?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para B.2.h(13)|May unit/organizational equipment be commingled with personal property or personal equipment?",
       "ref": "Ch 303, para B.2.h(13)",
-      "question": "May unit/organizational equipment be commingled with personal property or personal equipment?",
+      "question": "When preparing a unit air movement, may unit/organizational equipment be commingled with personal property or personal equipment?",
       "status": "verified",
       "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, in the same vehicle', 'Yes, with TO approval', 'Only on organic aircraft' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -392,7 +412,12 @@
         "Yes, with TO approval",
         "Only on organic aircraft"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May unit/organizational equipment be commingled with personal property or personal equipment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para B.2.i(3)|Who provides the shoring specified in an ATTLA certification letter for a non-unit shipper?",
@@ -577,7 +602,7 @@
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(e)1|Cargo longer than what may require an ATTLA certification?",
       "ref": "Ch 303, para C.2.b(1)(e)1",
-      "question": "Cargo longer than what may require an ATTLA certification?",
+      "question": "For unit cargo moving by air, cargo longer than what may require an ATTLA certification?",
       "status": "verified",
       "reason": "The cited rule gives '20 ft (240 inches)' for this question. The alternatives '10 ft (120 inches)', '30 ft (360 inches)', '40 ft (480 inches)' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -590,12 +615,17 @@
         "30 ft (360 inches)",
         "40 ft (480 inches)"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Cargo longer than what may require an ATTLA certification?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(e)2|Cargo exceeding what height or width may require ATTLA certification?",
       "ref": "Ch 303, para C.2.b(1)(e)2",
-      "question": "Cargo exceeding what height or width may require ATTLA certification?",
+      "question": "For unit cargo moving by air, cargo exceeding what height or width may require ATTLA certification?",
       "status": "verified",
       "reason": "The cited rule gives '8 ft (96 inches)' for this question. The alternatives '6 ft (72 inches)', '10 ft (120 inches)', '12 ft (144 inches)' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -608,12 +638,17 @@
         "10 ft (120 inches)",
         "12 ft (144 inches)"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Cargo exceeding what height or width may require ATTLA certification?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(e)3|Cargo exceeding what weight may require ATTLA certification?",
       "ref": "Ch 303, para C.2.b(1)(e)3",
-      "question": "Cargo exceeding what weight may require ATTLA certification?",
+      "question": "For unit cargo moving by air, cargo exceeding what weight may require ATTLA certification?",
       "status": "verified",
       "reason": "The cited rule gives '10,000 lbs' for this question. The alternatives '5,000 lbs', '25,000 lbs', '2,500 lbs' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -626,12 +661,17 @@
         "25,000 lbs",
         "2,500 lbs"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Cargo exceeding what weight may require ATTLA certification?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(e)4|What floor contact pressure may trigger ATTLA certification?",
       "ref": "Ch 303, para C.2.b(1)(e)4",
-      "question": "What floor contact pressure may trigger ATTLA certification?",
+      "question": "For unit cargo moving by air, what floor contact pressure may trigger ATTLA certification?",
       "status": "verified",
       "reason": "The cited rule gives '50 pounds per square inch' for this question. The alternatives '100 pounds per square inch', '25 pounds per square inch', '75 pounds per square inch' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -644,7 +684,12 @@
         "25 pounds per square inch",
         "75 pounds per square inch"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What floor contact pressure may trigger ATTLA certification?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(e)5|For a vehicle with pneumatic tires, axle loads above what may require ATTLA certification?",
@@ -703,7 +748,7 @@
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(f)|Which of these requires an ATTLA certification letter?",
       "ref": "Ch 303, para C.2.b(1)(f)",
-      "question": "Which of these requires an ATTLA certification letter?",
+      "question": "For unit cargo moving by air, which of these requires an ATTLA certification letter?",
       "status": "verified",
       "reason": "The cited rule gives 'Items that operate while in flight' for this question. The alternatives 'Any palletized general cargo', 'Any vehicle under 5,000 lbs', 'Baggage pallets' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -716,7 +761,12 @@
         "Any vehicle under 5,000 lbs",
         "Baggage pallets"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which of these requires an ATTLA certification letter?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(f)|What happens if a required ATTLA certification letter is not provided?",
@@ -811,7 +861,7 @@
     {
       "id": "DTR-III|Ch 303, para C.2.c|When must at least one joint planning conference be held?",
       "ref": "Ch 303, para C.2.c",
-      "question": "When must at least one joint planning conference be held?",
+      "question": "For a unit air movement, when must at least one joint planning conference be held?",
       "status": "verified",
       "reason": "The cited rule gives 'As soon as possible after the movement order' for this question. The alternatives 'Exactly 24 hours before the first aircraft departs the origin', 'Only after the final joint inspection has been completed', 'After the first mission aircraft arrives at the destination' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -824,7 +874,12 @@
         "Only after the final joint inspection has been completed",
         "After the first mission aircraft arrives at the destination"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When must at least one joint planning conference be held?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.c(1)(c)|Who represents the CDR of the unit being transported and submits aircraft planning documents to 618 AOC (TACC)?",
@@ -955,7 +1010,7 @@
     {
       "id": "DTR-III|Ch 303, para C.2.d(1)(e)|Whose presence must be made known to the aircraft CDR?",
       "ref": "Ch 303, para C.2.d(1)(e)",
-      "question": "Whose presence must be made known to the aircraft CDR?",
+      "question": "During a unit air movement, whose presence must be made known to the aircraft commander?",
       "status": "verified",
       "reason": "The cited rule gives 'Armed equipment guards' for this question. The alternatives 'All passengers over E-7', 'The UMO', 'The A/DACG OIC' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -968,7 +1023,12 @@
         "The UMO",
         "The A/DACG OIC"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Whose presence must be made known to the aircraft CDR?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.d(1)(j)|Who does the deploying unit appoint for each mission aircraft carrying passengers?",
@@ -991,7 +1051,7 @@
     {
       "id": "DTR-III|Ch 303, para C.2.d(2)(d)|How many pusher vehicles are assigned per loading team?",
       "ref": "Ch 303, para C.2.d(2)(d)",
-      "question": "How many pusher vehicles are assigned per loading team?",
+      "question": "In unit air movement loading operations, how many pusher vehicles are assigned per loading team?",
       "status": "verified",
       "reason": "The cited rule gives 'One' for this question. The alternatives 'Two', 'None', 'One per aircraft' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1004,7 +1064,12 @@
         "None",
         "One per aircraft"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How many pusher vehicles are assigned per loading team?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.d(3)(a)|When does the mobility support force provide specialized MHE, drivers, cargo inspectors, and load teams?",
@@ -1027,7 +1092,7 @@
     {
       "id": "DTR-III|Ch 303, para C.2.e|Who conducts the final joint coordination meeting?",
       "ref": "Ch 303, para C.2.e",
-      "question": "Who conducts the final joint coordination meeting?",
+      "question": "For a unit air movement, who conducts the final joint coordination meeting?",
       "status": "verified",
       "reason": "The cited rule gives 'Task force CDR representative' for this question. The alternatives 'Aircraft commander of the first departing mission', 'Unit movement officer of the deploying organization', 'Air Terminal Operations Center duty officer' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1040,7 +1105,12 @@
         "Unit movement officer of the deploying organization",
         "Air Terminal Operations Center duty officer"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who conducts the final joint coordination meeting?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.3.b|What are the four areas of departure airfield operations, in order?",
@@ -1243,7 +1313,7 @@
     {
       "id": "DTR-III|Ch 303, para C.4.a(4)|Who controls personnel access and vehicle movement around the aircraft?",
       "ref": "Ch 303, para C.4.a(4)",
-      "question": "Who controls personnel access to the aircraft?",
+      "question": "At the departure airfield, who controls personnel access to the aircraft?",
       "status": "verified",
       "reason": "The exact C.4.a(4) passage assigns personnel access to the mobility force. The former stem also claimed vehicle movement, which this passage does not establish; the stem was narrowed to personnel access while retaining the original saved-question ID.",
       "evidence": {
@@ -1256,7 +1326,12 @@
         "The A/DACG",
         "Security forces only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who controls personnel access to the aircraft?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.4.b|What is the focal point of the airlift operations communications system?",
@@ -1315,7 +1390,7 @@
     {
       "id": "DTR-III|Ch 303, para C.4.c(1)(c)|What must everyone in loading and offloading operations wear?",
       "ref": "Ch 303, para C.4.c(1)(c)",
-      "question": "What must everyone in loading and offloading operations wear?",
+      "question": "What must everyone in aircraft loading and offloading operations wear?",
       "status": "verified",
       "reason": "The cited rule gives 'Gloves, ear protection, and safety goggles' for this question. The alternatives 'A reflective belt only', 'Steel-toe boots and a hard hat', 'A flight suit' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1328,7 +1403,12 @@
         "Steel-toe boots and a hard hat",
         "A flight suit"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What must everyone in loading and offloading operations wear?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.4.c(1)(f)|Equipment may not be refueled or serviced within how many feet of an aircraft?",
@@ -1657,7 +1737,7 @@
     {
       "id": "DTR-III|Ch 303, para C.5|Arrival at the APOD marks the transition between which levels?",
       "ref": "Ch 303, para C.5",
-      "question": "Arrival at the APOD marks the transition between which levels?",
+      "question": "For a deploying unit, arrival at the APOD marks the transition between which levels?",
       "status": "verified",
       "reason": "The cited rule gives 'Strategic to operational' for this question. The alternatives 'From the operational to the tactical level', 'From the tactical to the strategic level', 'From the national to the theater level' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1670,12 +1750,17 @@
         "From the tactical to the strategic level",
         "From the national to the theater level"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Arrival at the APOD marks the transition between which levels?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.5|Who is responsible for reception and onward movement?",
       "ref": "Ch 303, para C.5",
-      "question": "Who is responsible for reception and onward movement?",
+      "question": "Who is responsible for reception and onward movement of deploying forces in theater?",
       "status": "verified",
       "reason": "The cited rule gives 'The theater unified command' for this question. The alternatives 'The USTRANSCOM deployment coordination staff', 'The deploying unit’s home installation commander', 'The AMC airlift mission planning organization' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1688,7 +1773,12 @@
         "The deploying unit’s home installation commander",
         "The AMC airlift mission planning organization"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is responsible for reception and onward movement?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.5.c|What is the primary challenge of reception at the APOD?",
@@ -1819,7 +1909,7 @@
     {
       "id": "DTR-III|Ch 303, para C.5.e(1)|Express channel service should be limited to what?",
       "ref": "Ch 303, para C.5.e(1)",
-      "question": "Express channel service should be limited to what?",
+      "question": "Express airlift channel service should be limited to what?",
       "status": "verified",
       "reason": "The cited rule gives 'Extremely high priority, mission essential commodities' for this question. The alternatives 'All sustainment cargo', 'Retrograde only', 'Personal property' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1832,12 +1922,17 @@
         "Retrograde only",
         "Personal property"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Express channel service should be limited to what?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para D.2.c(3)(b)|Hand-carried items may be no larger than how many linear inches?",
       "ref": "Ch 303, para D.2.c(3)(b)",
-      "question": "Hand-carried items may be no larger than how many linear inches?",
+      "question": "For deploying unit passengers, hand-carried items may be no larger than how many linear inches?",
       "status": "verified",
       "reason": "The cited rule gives '45' for this question. The alternatives '62', '80', '36' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1850,7 +1945,12 @@
         "80",
         "36"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Hand-carried items may be no larger than how many linear inches?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para D.2.c(3)(c)|Unless directed otherwise by the GCC, what must all military personnel have in their carried baggage?",
@@ -1873,7 +1973,7 @@
     {
       "id": "DTR-III|Ch 303, para D.2.d(4)|Baggage exceeding what weight or size will not be accepted and must move as freight?",
       "ref": "Ch 303, para D.2.d(4)",
-      "question": "Baggage exceeding what weight or size will not be accepted and must move as freight?",
+      "question": "For deploying unit passengers, baggage exceeding what weight or size will not be accepted and must move as freight?",
       "status": "verified",
       "reason": "The cited rule gives '100 pounds and/or 80 linear inches' for this question. The alternatives '70 pounds and/or 62 linear inches', '150 pounds and/or 100 linear inches', '50 pounds and/or 45 linear inches' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1886,7 +1986,12 @@
         "150 pounds and/or 100 linear inches",
         "50 pounds and/or 45 linear inches"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Baggage exceeding what weight or size will not be accepted and must move as freight?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para D.2.d(4)|For mobility movements, a B-4, passenger, or sea bag is allowed as one piece regardless of size if it does not exceed what?",
@@ -1927,7 +2032,7 @@
     {
       "id": "DTR-III|Ch 303, para D.2.d(4)|Personnel plus accompanying baggage may not exceed what average weight per person?",
       "ref": "Ch 303, para D.2.d(4)",
-      "question": "Personnel plus accompanying baggage may not exceed what average weight per person?",
+      "question": "For unit move passengers, personnel plus accompanying baggage may not exceed what average weight per person?",
       "status": "verified",
       "reason": "The cited rule gives '400 pounds' for this question. The alternatives '300 pounds', '500 pounds', '250 pounds' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1940,7 +2045,12 @@
         "500 pounds",
         "250 pounds"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Personnel plus accompanying baggage may not exceed what average weight per person?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para D.2.d(5)|On DoD commercial charter and military aircraft, which weights are used for passengers and baggage?",
@@ -1963,7 +2073,7 @@
     {
       "id": "DTR-III|Ch 303, para D.2.d(5)|Where is the weight of hand-carried items recorded?",
       "ref": "Ch 303, para D.2.d(5)",
-      "question": "Where is the weight of hand-carried items recorded?",
+      "question": "For unit move passengers, where is the weight of hand-carried items recorded?",
       "status": "verified",
       "reason": "The cited rule gives \"Added to the passenger's body weight on the manifest\" for this question. The alternatives 'It is not recorded', 'On the cargo manifest', 'On the baggage tag only' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -1976,7 +2086,12 @@
         "On the cargo manifest",
         "On the baggage tag only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Where is the weight of hand-carried items recorded?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para D.5|Passenger manifesting must comply with which law requiring emergency contact information?",
@@ -1999,7 +2114,7 @@
     {
       "id": "DTR-III|Ch 303, para D.5.b|Where there is no automated manifesting capability, which form is used?",
       "ref": "Ch 303, para D.5.b",
-      "question": "Where there is no automated manifesting capability, which form is used?",
+      "question": "Where there is no automated passenger manifesting capability, which form is used?",
       "status": "verified",
       "reason": "The cited rule gives 'DD Form 2131' for this question. The alternatives 'DD Form 93', 'DD Form 1384', 'DD Form 1387-2' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2012,7 +2127,12 @@
         "DD Form 1384",
         "DD Form 1387-2"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Where there is no automated manifesting capability, which form is used?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para D.5.b(1)|A completed DD Form 2131 must be sent to AMC no later than when?",
@@ -2071,7 +2191,7 @@
     {
       "id": "DTR-III|Ch 303, para D.6.b|Which item must be collected from each passenger at a minimum?",
       "ref": "Ch 303, para D.6.b",
-      "question": "Which item must be collected from each passenger at a minimum?",
+      "question": "For passenger manifesting, which item must be collected from each passenger at a minimum?",
       "status": "verified",
       "reason": "The cited rule gives 'An emergency contact not traveling with the passenger' for this question. The alternatives 'Home of record', 'Date of birth', 'Blood type' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2084,7 +2204,12 @@
         "Date of birth",
         "Blood type"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which item must be collected from each passenger at a minimum?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para D.6.b(7)|For a unit move, what must be collected in addition to the standard passenger data?",
@@ -2161,7 +2286,7 @@
     {
       "id": "DTR-III|Ch 303, para E.2.b(3)(d)|Who issues hazardous cargo permits and regulates pier-side storage of hazardous cargo?",
       "ref": "Ch 303, para E.2.b(3)(d)",
-      "question": "Who issues hazardous cargo permits?",
+      "question": "For deployment cargo moving by sea, who issues hazardous cargo permits?",
       "status": "verified",
       "reason": "E.2.b(3)(d) expressly assigns hazardous cargo permits to the USCG and/or CDR. The former stem also claimed pier-side storage regulation beyond this cited subparagraph; it now asks only about permits.",
       "evidence": {
@@ -2174,7 +2299,12 @@
         "The TO",
         "SDDC"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who issues hazardous cargo permits?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para E.2.b(4)(d)|Does unit move cargo validated on JOPES-assigned air missions require ACA clearance?",
@@ -2233,7 +2363,7 @@
     {
       "id": "DTR-III|Ch 303, para E.3.b(3)(h)|Who inspects and approves rail loads along with a railroad inspector?",
       "ref": "Ch 303, para E.3.b(3)(h)",
-      "question": "Who inspects and approves rail loads along with a railroad inspector?",
+      "question": "For unit moves by rail, who inspects and approves rail loads along with a railroad inspector?",
       "status": "verified",
       "reason": "The cited rule gives 'The TO' for this question. The alternatives 'The deploying unit CDR', 'SDDC', 'The installation CDR' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2246,7 +2376,12 @@
         "SDDC",
         "The installation CDR"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who inspects and approves rail loads along with a railroad inspector?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para E.3.b(4)(g)|For North American rail transport, which rules are mandatory before the railroad inspector accepts cars?",
@@ -2448,7 +2583,7 @@
     {
       "id": "DTR-III|App P, para A|Who is responsible for marking each cargo item with its gross weight and CB?",
       "ref": "App P, para A",
-      "question": "Who is responsible for marking each cargo item with its gross weight and CB?",
+      "question": "For airlift cargo, who is responsible for marking each item with its gross weight and center of balance (CB)?",
       "status": "verified",
       "reason": "The cited rule gives 'The agency offering the cargo for air shipment' for this question. The alternatives 'The aerial port', 'The aircraft loadmaster', 'The A/DACG' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2461,12 +2596,17 @@
         "The aircraft loadmaster",
         "The A/DACG"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is responsible for marking each cargo item with its gross weight and CB?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para A|Which items must be marked with a CB point?",
       "ref": "App P, para A",
-      "question": "Which items must be marked with a CB point?",
+      "question": "For airlift, which cargo items must be marked with a center of balance (CB) point?",
       "status": "verified",
       "reason": "The cited rule gives 'Items 10 feet or longer and/or with a balance point other than their center' for this question. The alternatives 'Only vehicles', 'Only items over 10,000 lbs', 'Only palletized cargo' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2479,12 +2619,17 @@
         "Only items over 10,000 lbs",
         "Only palletized cargo"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which items must be marked with a CB point?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para A|Where are axle weights marked on vehicle-type cargo?",
       "ref": "App P, para A",
-      "question": "Where are axle weights marked on vehicle-type cargo?",
+      "question": "For airlift, where are axle weights marked on vehicle-type cargo?",
       "status": "verified",
       "reason": "The cited rule gives 'Above each axle, on both sides, with weather resistant material' for this question. The alternatives 'On the windshield', 'On the front bumper only', 'On the packing list only' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2497,12 +2642,17 @@
         "On the front bumper only",
         "On the packing list only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Where are axle weights marked on vehicle-type cargo?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para A|How must vehicle-type cargo with load-carrying capability be marked?",
       "ref": "App P, para A",
-      "question": "How must vehicle-type cargo with load-carrying capability be marked?",
+      "question": "For airlift, how must vehicle-type cargo with load-carrying capability be marked?",
       "status": "verified",
       "reason": "The cited rule gives 'Empty or loaded CB' for this question. The alternatives 'With two CBs always', 'Only with gross weight', 'With no CB' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2515,12 +2665,17 @@
         "Only with gross weight",
         "With no CB"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How must vehicle-type cargo with load-carrying capability be marked?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para A|What happens to items not properly marked with weight and CB?",
       "ref": "App P, para A",
-      "question": "What happens to items not properly marked with weight and CB?",
+      "question": "What happens to cargo offered for airlift that is not properly marked with weight and center of balance (CB)?",
       "status": "verified",
       "reason": "The cited rule gives 'Refused for airlift' for this question. The alternatives 'The aerial port marks them', 'They fly at the back of the aircraft', 'They are weighed on the aircraft' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2533,7 +2688,12 @@
         "They fly at the back of the aircraft",
         "They are weighed on the aircraft"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What happens to items not properly marked with weight and CB?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para A note|Must trailers and their prime movers be individually marked if connected on the aircraft?",
@@ -2556,7 +2716,7 @@
     {
       "id": "DTR-III|App P, para B.1|When is a vehicle's weight and CB determined?",
       "ref": "App P, para B.1",
-      "question": "When is a vehicle's weight and CB determined?",
+      "question": "For airlift, when is a vehicle's weight and center of balance (CB) determined?",
       "status": "verified",
       "reason": "The cited rule gives 'After all secondary cargo is secured for airlift' for this question. The alternatives 'Before secondary cargo is loaded', 'After the vehicle is on the aircraft', 'At the manufacturer' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2569,7 +2729,12 @@
         "After the vehicle is on the aircraft",
         "At the manufacturer"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When is a vehicle's weight and CB determined?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para B.1|What happens if cargo is added to or removed from a weighed and marked vehicle?",
@@ -2592,7 +2757,7 @@
     {
       "id": "DTR-III|App P, para B.2.a|Where is the Reference Datum Line (RDL) normally established?",
       "ref": "App P, para B.2.a",
-      "question": "Where is the Reference Datum Line (RDL) normally established?",
+      "question": "In center of balance (CB) calculations, where is the Reference Datum Line (RDL) normally established?",
       "status": "verified",
       "reason": "The cited rule gives 'At the forward front edge' for this question. The alternatives 'At the front axle', 'At the rear bumper', 'At the center of the vehicle' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2605,12 +2770,17 @@
         "At the rear bumper",
         "At the center of the vehicle"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Where is the Reference Datum Line (RDL) normally established?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para B.2.b|What is the Front Overhang (FOH)?",
       "ref": "App P, para B.2.b",
-      "question": "What is the Front Overhang (FOH)?",
+      "question": "In center of balance (CB) calculations, what is the Front Overhang (FOH)?",
       "status": "verified",
       "reason": "The cited rule gives 'Front bumper to front axle center' for this question. The alternatives 'The distance between axles', 'The distance from the rear axle to the rear bumper', 'The front axle weight' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2623,12 +2793,17 @@
         "The distance from the rear axle to the rear bumper",
         "The front axle weight"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the Front Overhang (FOH)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para B.2.c|What is the Wheel Base (WB)?",
       "ref": "App P, para B.2.c",
-      "question": "What is the Wheel Base (WB)?",
+      "question": "In center of balance (CB) calculations, what is the Wheel Base (WB)?",
       "status": "verified",
       "reason": "The cited rule gives 'The distance from the center of the front axle to the center of the rear axle (or tandem axles)' for this question. The alternatives 'The front bumper to the rear bumper', 'The width between the wheels', 'The front bumper to the front axle' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2641,12 +2816,17 @@
         "The width between the wheels",
         "The front bumper to the front axle"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the Wheel Base (WB)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para B.2.j|What is a moment?",
       "ref": "App P, para B.2.j",
-      "question": "What is a moment?",
+      "question": "In center of balance (CB) calculations, what is a moment?",
       "status": "verified",
       "reason": "The cited rule gives 'Weight × distance from RDL (inches)' for this question. The alternatives 'Weight divided by distance from the reference datum line', 'The sum of the front and rear axle weights of the vehicle', 'The distance between the front and rear axle centers' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2659,12 +2839,17 @@
         "The sum of the front and rear axle weights of the vehicle",
         "The distance between the front and rear axle centers"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is a moment?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para C|Before beginning the CB process, what must the unit movement officer ensure?",
       "ref": "App P, para C",
-      "question": "Before beginning the CB process, what must the unit movement officer ensure?",
+      "question": "Before beginning the center of balance (CB) computation, what must the unit movement officer ensure?",
       "status": "verified",
       "reason": "The cited rule gives 'The scales are calibrated' for this question. The alternatives 'The fuel tanks are empty', 'The aircraft is on the ramp', 'The vehicle is unloaded' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2677,12 +2862,17 @@
         "The aircraft is on the ramp",
         "The vehicle is unloaded"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Before beginning the CB process, what must the unit movement officer ensure?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para C.1|What is the CB formula?",
       "ref": "App P, para C.1",
-      "question": "What is the CB formula?",
+      "question": "What is the formula for a vehicle's center of balance (CB)?",
       "status": "verified",
       "reason": "The cited rule gives 'Total moments ÷ gross weight' for this question. The alternatives 'Gross weight divided by wheel base', 'Front axle weight times rear axle weight', 'Total moments times gross weight' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2695,12 +2885,17 @@
         "Front axle weight times rear axle weight",
         "Total moments times gross weight"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the CB formula?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para C.1|The resulting CB figure is measured in which direction from the reference line?",
       "ref": "App P, para C.1",
-      "question": "The resulting CB figure is measured in which direction from the reference line?",
+      "question": "The resulting center of balance (CB) figure is measured in which direction from the reference line?",
       "status": "verified",
       "reason": "The cited rule gives 'Aft' for this question. The alternatives 'Forward', 'Up', 'Toward the rear bumper from the rear axle' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2713,12 +2908,17 @@
         "Up",
         "Toward the rear bumper from the rear axle"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "The resulting CB figure is measured in which direction from the reference line?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para C.2|A CB computes to 100.5 inches. What is marked?",
       "ref": "App P, para C.2",
-      "question": "A CB computes to 100.5 inches. What is marked?",
+      "question": "A vehicle's center of balance (CB) computes to 100.5 inches. What is marked?",
       "status": "verified",
       "reason": "The cited rule gives '101 inches' for this question. The alternatives '100 inches', '100.5 inches', '102 inches' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2731,12 +2931,17 @@
         "100.5 inches",
         "102 inches"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "A CB computes to 100.5 inches. What is marked?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para C.2|A CB computes to 100.4 inches. What is marked?",
       "ref": "App P, para C.2",
-      "question": "A CB computes to 100.4 inches. What is marked?",
+      "question": "A vehicle's center of balance (CB) computes to 100.4 inches. What is marked?",
       "status": "verified",
       "reason": "The cited rule gives '100 inches' for this question. The alternatives '101 inches', '100.4 inches', '99 inches' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2749,12 +2954,17 @@
         "100.4 inches",
         "99 inches"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "A CB computes to 100.4 inches. What is marked?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para C.3|What shape is the CB marker made with masking tape?",
       "ref": "App P, para C.3",
-      "question": "What shape is the CB marker made with masking tape?",
+      "question": "What shape is the center of balance (CB) marker made with masking tape?",
       "status": "verified",
       "reason": "The cited rule gives 'A “T”' for this question. The alternatives 'An \"X\"', 'A circle', 'An arrow' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2767,7 +2977,12 @@
         "A circle",
         "An arrow"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What shape is the CB marker made with masking tape?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para C.3|On the CB \"T\" marker, what goes on the horizontal portion?",
@@ -2808,7 +3023,7 @@
     {
       "id": "DTR-III|App P, para C.3|From what point are RDL measurements taken?",
       "ref": "App P, para C.3",
-      "question": "From what point are RDL measurements taken?",
+      "question": "When marking a vehicle's center of balance (CB), from what point are RDL measurements taken?",
       "status": "verified",
       "reason": "The cited rule gives 'The FFE' for this question. The alternatives 'The front axle', \"The driver's door\", 'The rear bumper' do not state that rule for the conditions in the stem.",
       "evidence": {
@@ -2821,7 +3036,12 @@
         "The driver's door",
         "The rear bumper"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "From what point are RDL measurements taken?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, para C.3 note|Is masking tape used to mark the CB on aerospace ground equipment with permanent CB markings?",
@@ -2844,7 +3064,7 @@
     {
       "id": "DTR-III|App P, Example 1|Front axle 2,870 lbs at 20\"; rear axle 2,550 lbs at 150\". What is the CB?",
       "ref": "App P, Example 1",
-      "question": "Front axle 2,870 lbs at 20\"; rear axle 2,550 lbs at 150\". What is the CB?",
+      "question": "A vehicle has a front axle of 2,870 lbs at 20\" and a rear axle of 2,550 lbs at 150\" from the RDL. What is its center of balance (CB)?",
       "status": "verified",
       "reason": "Example 1 gives moments 57,400 + 382,500 = 439,900 and gross weight 5,420; CB is 81.162... inches, marked 81 inches. The offered 85, 78, and 150-inch values do not follow the formula.",
       "evidence": {
@@ -2857,7 +3077,12 @@
         "78\" from the RDL",
         "150\" from the RDL"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Front axle 2,870 lbs at 20\"; rear axle 2,550 lbs at 150\". What is the CB?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, Example 1|In Example 1 (2,870 lbs at 20\" and 2,550 lbs at 150\"), what is the total moment?",
@@ -2916,7 +3141,7 @@
     {
       "id": "DTR-III|App P, para C.1|Front axle 3,000 lbs at 30\"; rear axle 2,000 lbs at 130\". What is the CB?",
       "ref": "App P, para C.1",
-      "question": "Front axle 3,000 lbs at 30\"; rear axle 2,000 lbs at 130\". What is the CB?",
+      "question": "A vehicle has a front axle of 3,000 lbs at 30\" and a rear axle of 2,000 lbs at 130\" from the RDL. What is its center of balance (CB)?",
       "status": "verified",
       "reason": "Applying C.1 to the stated case gives (3,000×30 + 2,000×130)/5,000 = 70 inches. The alternative 80, 65, and 100-inch results are incorrect.",
       "evidence": {
@@ -2929,7 +3154,12 @@
         "65\" from the RDL",
         "100\" from the RDL"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Front axle 3,000 lbs at 30\"; rear axle 2,000 lbs at 130\". What is the CB?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "DTR-III|App P, Example 4|How is the CB of a tracked vehicle found?",

@@ -664,7 +664,7 @@
     {
       "id": "24-602V1|1.19.2|Which of these may users do on an eTool?",
       "ref": "1.19.2",
-      "question": "Which of these may users do on an eTool?",
+      "question": "Which of these may users do on a Traffic Management eTool?",
       "status": "verified",
       "reason": "The rule limits use to official and authorized purposes. Installing phone apps, music downloads, and unauthorized external media are not authorized uses merely because the device is an eTool.",
       "evidence": {
@@ -677,12 +677,17 @@
         "Download music",
         "Insert unauthorized external media"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which of these may users do on an eTool?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|2.1.2|Which travelers must be issued a ticket and provided a seat on all conveyances?",
       "ref": "2.1.2",
-      "question": "Which travelers must be issued a ticket and provided a seat on all conveyances?",
+      "question": "For official passenger travel, which travelers must be issued a ticket and provided a seat on all conveyances?",
       "status": "verified",
       "reason": "Every traveler including infants must receive a ticket and seat; age-two, sponsor-only, and military-only exclusions contradict the rule.",
       "evidence": {
@@ -695,7 +700,12 @@
         "Only the sponsor",
         "Only military members"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which travelers must be issued a ticket and provided a seat on all conveyances?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|2.2|Who approves the air carriers DoD may buy commercial air transportation from?",
@@ -952,7 +962,7 @@
     {
       "id": "24-602V1|2.5.1|Who is responsible for fees from changing or cancelling a restricted fare?",
       "ref": "2.5.1",
-      "question": "Who is responsible for fees from changing or cancelling a restricted fare?",
+      "question": "Who is responsible for fees from changing or cancelling a restricted GSA City Pair fare?",
       "status": "verified",
       "reason": "The traveler’s unit assumes restricted-fare change/cancellation loss. Traveler personal payment, TMC, and GSA are not the responsible unit.",
       "evidence": {
@@ -965,7 +975,12 @@
         "The TMC",
         "GSA"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who is responsible for fees from changing or cancelling a restricted fare?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|2.5.2|Can government contractors use GSA City Pair airfares?",
@@ -1042,7 +1057,7 @@
     {
       "id": "24-602V1|2.6|How early may the TMC ticket travel?",
       "ref": "2.6",
-      "question": "How early may the TMC ticket travel?",
+      "question": "How early may the TMC ticket official travel?",
       "status": "verified",
       "reason": "2.6 allows ticketing no earlier than3 GBDs CONUS or5 GBDs OCONUS after AO approval;1 day,10 days and unrestricted postapproval timing differ.",
       "evidence": {
@@ -1055,7 +1070,12 @@
         "No earlier than 10 days before any travel",
         "Any time after the AO approves"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How early may the TMC ticket travel?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|2.6|The TMC captures, records, and reports which data?",
@@ -1096,7 +1116,7 @@
     {
       "id": "24-602V1|2.7|When are PCT upgrades permitted without approval?",
       "ref": "2.7",
-      "question": "When are PCT upgrades permitted without approval?",
+      "question": "When are Premium Class Travel (PCT) upgrades permitted without approval?",
       "status": "verified",
       "reason": "2.7 permits no-government-cost upgrades without approval; flight duration, PCS status and E-7 rank alone do not grant that exception.",
       "evidence": {
@@ -1109,7 +1129,12 @@
         "For all PCS travel",
         "When the traveler is an E-7 or above"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When are PCT upgrades permitted without approval?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|2.7.2|Economy plus/coach elite seating is considered what, and who approves it?",
@@ -1132,7 +1157,7 @@
     {
       "id": "24-602V1|2.7.3|When PCT is approved, who does it apply to?",
       "ref": "2.7.3",
-      "question": "When PCT is approved, who does it apply to?",
+      "question": "When Premium Class Travel (PCT) is approved, who does it apply to?",
       "status": "verified",
       "reason": "2.7.3 applies PCT approval only to principal traveler unless specifically extended; whole party, spouse and same-order travelers are not automatically covered.",
       "evidence": {
@@ -1145,12 +1170,17 @@
         "The traveler and spouse",
         "Everyone on the same orders"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When PCT is approved, who does it apply to?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|2.7.3|PCT accommodations shall not be used for which travel (except limited JTR conditions)?",
       "ref": "2.7.3",
-      "question": "PCT accommodations shall not be used for which travel (except limited JTR conditions)?",
+      "question": "Premium Class Travel (PCT) accommodations shall not be used for which travel (except limited JTR conditions)?",
       "status": "verified",
       "reason": "2.7.3 bars PCS and CONUS-to-CONUS PCT except limited JTR conditions; OCONUS TDY, medical and long-flight categories are not the stated blanket prohibition.",
       "evidence": {
@@ -1163,7 +1193,12 @@
         "Medical travel",
         "Flights over 14 hours"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "PCT accommodations shall not be used for which travel (except limited JTR conditions)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|2.7.5|From whom must a MAJCOM/CC get business class approval for their own travel?",
@@ -1240,7 +1275,7 @@
     {
       "id": "24-602V1|2.8|When a business/first class fare costs less than the least expensive unrestricted coach fare, what approval is needed?",
       "ref": "2.8",
-      "question": "When a business/first class fare costs less than the least expensive unrestricted coach fare, what approval is needed?",
+      "question": "When a business/first class fare costs less than the least expensive unrestricted coach fare, what Premium Class Travel approval is needed?",
       "status": "verified",
       "reason": "No approval is required when the premium fare is below the least expensive unrestricted coach fare; each named-approver alternative adds a requirement the note removes.",
       "evidence": {
@@ -1253,7 +1288,12 @@
         "AF/CV approval",
         "SecAF approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When a business/first class fare costs less than the least expensive unrestricted coach fare, what approval is needed?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|2.8.1.1|PCT requests needing AF/CV, SAF/AA, SAF/US, or SAF/OS approval are submitted no less than how long before travel?",
@@ -1764,7 +1804,7 @@
     {
       "id": "24-602V1|3.1|What establishes the official travel points?",
       "ref": "3.1",
-      "question": "What establishes the official travel points?",
+      "question": "For official travel, what establishes the official travel points?",
       "status": "verified",
       "reason": "3.1 gives official points to the travel authorization; itinerary, regulation and personal request do not establish authorized points.",
       "evidence": {
@@ -1777,7 +1817,12 @@
         "The DTR",
         "The traveler's request"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What establishes the official travel points?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|3.2|DoD official travelers with DTS access must schedule commercial transportation how?",
@@ -2016,7 +2061,7 @@
     {
       "id": "24-602V1|3.8|When a member's request on the CBA exceeds the authorized government cost, which forms does the TO/TMC initiate?",
       "ref": "3.8",
-      "question": "When a member's request on the CBA exceeds the authorized government cost, which forms does the TO/TMC initiate?",
+      "question": "When a traveler's ticket request charged to the CBA exceeds the authorized government cost, which forms does the TO/TMC initiate?",
       "status": "verified",
       "reason": "3.8 requires DD1131 or DD139 for excess CBA costs; other form pairs do not perform that collection function.",
       "evidence": {
@@ -2029,7 +2074,12 @@
         "AF Form 529 or AF Form 1546",
         "DD Form 2768 or DD Form 577"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When a member's request on the CBA exceeds the authorized government cost, which forms does the TO/TMC initiate?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|3.9|The Alaska Marine Highway System is a ferry service between which states?",
@@ -2052,7 +2102,7 @@
     {
       "id": "24-602V1|3.9|Which AMHS costs are NOT reimbursed?",
       "ref": "3.9",
-      "question": "Which AMHS costs are NOT reimbursed?",
+      "question": "Which Alaska Marine Highway System (AMHS) ferry costs are NOT reimbursed?",
       "status": "verified",
       "reason": "3.9 excludes pets but allows member, authorized dependents and one POV; the other options are reimbursable categories.",
       "evidence": {
@@ -2065,12 +2115,17 @@
         "Dependents' transportation",
         "One POV to the new PDS"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which AMHS costs are NOT reimbursed?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|3.10|ITA travel approval requests should be submitted at least how long before travel?",
       "ref": "3.10",
-      "question": "ITA travel approval requests should be submitted at least how long before travel?",
+      "question": "Invitational Travel Authorization (ITA) approval requests should be submitted at least how long before travel?",
       "status": "verified",
       "reason": "3.10 says at least20 working days;5,10 and30 differ from the requested minimum.",
       "evidence": {
@@ -2083,7 +2138,12 @@
         "30 working days",
         "5 working days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "ITA travel approval requests should be submitted at least how long before travel?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|3.11|For FMS travel not funded by the U.S. Government, who may NOT use City Pair fares?",
@@ -2106,7 +2166,7 @@
     {
       "id": "24-602V1|3.12.1|Who approves excess accompanied baggage, and where is it annotated?",
       "ref": "3.12.1",
-      "question": "Who approves excess accompanied baggage, and where is it annotated?",
+      "question": "For official travel, who approves excess accompanied baggage, and where is it annotated?",
       "status": "verified",
       "reason": "3.12.1 specifies orders issuing official/AO approval recorded in orders; TMC, ITO and airline annotations are not authority.",
       "evidence": {
@@ -2119,12 +2179,17 @@
         "The ITO, on a memo",
         "The airline, at check-in"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who approves excess accompanied baggage, and where is it annotated?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|3.12.1|What is the preferred payment method for excess baggage?",
       "ref": "3.12.1",
-      "question": "What is the preferred payment method for excess baggage?",
+      "question": "For official travel, what is the preferred payment method for excess baggage?",
       "status": "verified",
       "reason": "3.12.1 names GTCC as preferred payment; CBA, cash and GTR differ.",
       "evidence": {
@@ -2137,7 +2202,12 @@
         "Personal cash",
         "A GTR"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the preferred payment method for excess baggage?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|3.12.4|How is ammunition for individual weapons moved on Patriot Express missions from AMC gateways?",
@@ -2196,7 +2266,7 @@
     {
       "id": "24-602V1|3.14|Should passengers be routed to a farther airport solely because of a lower airfare?",
       "ref": "3.14",
-      "question": "Should passengers be routed to a farther airport solely because of a lower airfare?",
+      "question": "When routing official travelers, should passengers be routed to a farther airport solely because of a lower airfare?",
       "status": "verified",
       "reason": "3.14 says lower airfare alone cannot justify farther airport;100-mile and AO-unavailable exceptions are absent.",
       "evidence": {
@@ -2209,7 +2279,12 @@
         "Yes, if within 100 miles",
         "Yes, if the AO is not available"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Should passengers be routed to a farther airport solely because of a lower airfare?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|3.14.2.1|Members going to PACAF installations on government transoceanic travel are routed from which airport?",
@@ -2574,7 +2649,7 @@
     {
       "id": "24-602V1|5.3|On ships with two or more accommodation classes, which class is used?",
       "ref": "5.3",
-      "question": "On ships with two or more accommodation classes, which class is used?",
+      "question": "For official travel by ship with two or more accommodation classes, which class is used?",
       "status": "verified",
       "reason": "5.3 selects lowest available ship accommodations; rank, middle class and personal upgrade payment are not the stated selection rule.",
       "evidence": {
@@ -2587,12 +2662,17 @@
         "The middle class",
         "Any class the traveler pays the difference for"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "On ships with two or more accommodation classes, which class is used?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|5.3.1|If the medical verification for surface travel comes from a civilian physician, what else is needed?",
       "ref": "5.3.1",
-      "question": "If the medical verification for surface travel comes from a civilian physician, what else is needed?",
+      "question": "If the medical verification for a traveler's surface (ship) travel comes from a civilian physician, what else is needed?",
       "status": "verified",
       "reason": "5.3.1 requires government physician verification in addition to civilian physician; command approval, second civilian or nothing cannot replace it.",
       "evidence": {
@@ -2605,7 +2685,12 @@
         "A second civilian physician",
         "Nothing else"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If the medical verification for surface travel comes from a civilian physician, what else is needed?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|5.4|What animals are defined as pets for AMC pet shipments?",
@@ -2952,7 +3037,7 @@
     {
       "id": "24-602V1|6.8|Which is true for NAF travel?",
       "ref": "6.8",
-      "question": "Which is true for NAF travel?",
+      "question": "Which is true for Nonappropriated Fund (NAF) travel?",
       "status": "verified",
       "reason": "6.8 bars NAF orders from AF CBA and contradicts all three alternatives: contractors cannot use ITAs, eligible employees must use CPP, and authorized MILAIR is possible.",
       "evidence": {
@@ -2965,7 +3050,12 @@
         "NAF employees cannot use City Pair fares",
         "NAF travelers may never travel on MILAIR"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which is true for NAF travel?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|6.9|What must government contractors be issued to travel by MILAIR or AMC contracted charter?",
@@ -3042,7 +3132,7 @@
     {
       "id": "24-602V1|7.1.1|What is the mandatory payment method for passenger travel?",
       "ref": "7.1.1",
-      "question": "What is the mandatory payment method for passenger travel?",
+      "question": "What is the mandatory payment method for official passenger travel?",
       "status": "verified",
       "reason": "7.1.1 mandates GTCC instead of GTR, cash or meal tickets.",
       "evidence": {
@@ -3055,12 +3145,17 @@
         "Personal cash",
         "Meal tickets"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What is the mandatory payment method for passenger travel?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|7.1.2.4|The Unit Card is intended for what?",
       "ref": "7.1.2.4",
-      "question": "The Unit Card is intended for what?",
+      "question": "In official passenger travel payment, the Unit Card is intended for what?",
       "status": "verified",
       "reason": "7.1.2.4 intends Unit Card for group travel; individualTDY, leave and household goods are not its intended use.",
       "evidence": {
@@ -3073,7 +3168,12 @@
         "Leave travel",
         "PCS household goods"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "The Unit Card is intended for what?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|7.1.2.5|If a traveler books through a non-contract travel agent when the TMC was available, how much is reimbursed?",
@@ -3132,7 +3232,7 @@
     {
       "id": "24-602V1|7.3|Which of these is an accountable form TOs must control until exhausted?",
       "ref": "7.3",
-      "question": "Which of these is an accountable form TOs must control until exhausted?",
+      "question": "In passenger travel, which of these is an accountable form TOs must control until exhausted?",
       "status": "verified",
       "reason": "7.3 lists meal tickets as accountable forms;2768,1546 and730 are not on this list.",
       "evidence": {
@@ -3145,7 +3245,12 @@
         "AF Form 1546",
         "DD Form 730"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which of these is an accountable form TOs must control until exhausted?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|7.3|Active duty installations must contact whom for authorization to use OF 1169?",
@@ -3348,7 +3453,7 @@
     {
       "id": "24-602V1|7.9.6|What pen-and-ink change may the TO make instead of requiring an amended order?",
       "ref": "7.9.6",
-      "question": "What pen-and-ink change may the TO make instead of requiring an amended order?",
+      "question": "What pen-and-ink change may the TO make to a travel order instead of requiring an amended order?",
       "status": "verified",
       "reason": "7.9.6 allows EEIC pen-and-ink update;name,destination andfund citation changes are not this exception.",
       "evidence": {
@@ -3361,7 +3466,12 @@
         "Changing the destination",
         "Changing the fund cite"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What pen-and-ink change may the TO make instead of requiring an amended order?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V1|7.10|Local Payment of Airlines (LOPA) was phased out by which act?",

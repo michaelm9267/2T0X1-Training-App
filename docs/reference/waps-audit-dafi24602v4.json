@@ -394,7 +394,7 @@
     {
       "id": "24-602V4|3.2.1.4|What document can a member provide as an exception to the authorized weight allowance?",
       "ref": "3.2.1.4",
-      "question": "What document can a member provide as an exception to the authorized weight allowance?",
+      "question": "For a member assigned to a weight-restricted OCONUS area, what document can the member provide as an exception to the authorized HHG weight allowance?",
       "status": "verified",
       "reason": "3.2.1.4 accepts destination housing-office unavailable/partly-furnished letter; supervisor furniture purchase, TSP estimate and DD1797 do not establish that exception.",
       "evidence": {
@@ -407,7 +407,12 @@
         "A TSP estimate",
         "A DD Form 1797"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What document can a member provide as an exception to the authorized weight allowance?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.2.2|Exceptions to authorized weight allowances are submitted to PPA HQ through whom?",
@@ -430,7 +435,7 @@
     {
       "id": "24-602V4|3.2.3|Requests for local administrative weight limitations are submitted to whom?",
       "ref": "3.2.3",
-      "question": "Requests for local administrative weight limitations are submitted to whom?",
+      "question": "Requests for local administrative HHG weight limitations are submitted to whom?",
       "status": "verified",
       "reason": "3.2.3 sends local limitation requests to DAF MAP member through A4LR; PPA/housing, TO and USTRANSCOM differ.",
       "evidence": {
@@ -443,7 +448,12 @@
         "The installation TO",
         "USTRANSCOM"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Requests for local administrative weight limitations are submitted to whom?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.3.1|Is reshipment of the same property on the same PCS order authorized at government expense after delivery?",
@@ -502,7 +512,7 @@
     {
       "id": "24-602V4|3.4.1.2|Shipments to hardlift areas, TP-4 areas, and those approved for airlift are moved with preference given to whom?",
       "ref": "3.4.1.2",
-      "question": "Shipments to hardlift areas, TP-4 areas, and those approved for airlift are moved with preference given to whom?",
+      "question": "HHG shipments to hardlift areas, TP-4 areas, and those approved for airlift are moved with preference given to whom?",
       "status": "verified",
       "reason": "3.4.1.2 gives AMC preference for hardlift/TP4/approved airlift; commercial,MSC and member preference are not that priority.",
       "evidence": {
@@ -515,7 +525,12 @@
         "MSC",
         "The member's choice"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Shipments to hardlift areas, TP-4 areas, and those approved for airlift are moved with preference given to whom?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.4.1.3|Is space-required airlift of HHG (including to hardlift areas) authorized for retirees or separatees?",
@@ -682,7 +697,7 @@
     {
       "id": "24-602V4|3.5.3.3|What should members do with valuables such as jewelry, watches, cameras, and currency?",
       "ref": "3.5.3.3",
-      "question": "What should members do with valuables such as jewelry, watches, cameras, and currency?",
+      "question": "When shipping HHG, what should members do with valuables such as jewelry, watches, cameras, and currency?",
       "status": "verified",
       "reason": "The paragraph directs hand carry of valuables. UB, high-value HHG, and NTS are shipment/storage alternatives rather than hand carry.",
       "evidence": {
@@ -695,12 +710,17 @@
         "Ship them as high-value HHG",
         "Put them in NTS"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What should members do with valuables such as jewelry, watches, cameras, and currency?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.5.3.2|If the maximum claim amount gives inadequate settlement for valuable items, what should members be advised to do?",
       "ref": "3.5.3.2",
-      "question": "If the maximum claim amount gives inadequate settlement for valuable items, what should members be advised to do?",
+      "question": "If the maximum HHG claim amount gives inadequate settlement for valuable items, what should members be advised to do?",
       "status": "verified",
       "reason": "Commercial insurance addresses insufficient maximum claim settlement. Crating, rebuttal, and TP-2 do not provide the additional insurance coverage.",
       "evidence": {
@@ -713,7 +733,12 @@
         "File a rebuttal",
         "Ship them by TP-2"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If the maximum claim amount gives inadequate settlement for valuable items, what should members be advised to do?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.5.5|A separating/retiring member who takes a federal job has two sets of allowances. What are they entitled to?",
@@ -736,7 +761,7 @@
     {
       "id": "24-602V4|3.6.1|When the outer container is the member's personal property, is a packing adjustment authorized?",
       "ref": "3.6.1",
-      "question": "When the outer container is the member's personal property, is a packing adjustment authorized?",
+      "question": "When weighing HHG, if the outer container is the member's personal property, is a packing weight adjustment authorized?",
       "status": "verified",
       "reason": "No packing adjustment is allowed for a personal outer container. Ten percent, TO approval, and OCONUS do not create an exception.",
       "evidence": {
@@ -749,12 +774,17 @@
         "Yes, by the TO",
         "Yes, for OCONUS shipments"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When the outer container is the member's personal property, is a packing adjustment authorized?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.6.2|Who may approve a change of the net weight of a shipment, and when?",
       "ref": "3.6.2",
-      "question": "Who may approve a change of the net weight of a shipment, and when?",
+      "question": "Who may approve a change of the net weight of an HHG shipment, and when?",
       "status": "verified",
       "reason": "3.6.2 assigns TO approval only after complete unpacking and verified packing-material weight; TSP estimation/delivery and member rebuttal are not approval authority.",
       "evidence": {
@@ -767,7 +797,12 @@
         "The TSP, at delivery",
         "The member, by rebuttal"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who may approve a change of the net weight of a shipment, and when?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.6.4|If a member is promoted after the order is issued but before its effective date, which grade sets the weight allowance?",
@@ -826,7 +861,7 @@
     {
       "id": "24-602V4|3.7.1.5|Why do these NTS excess cost procedures result in lower costs for members?",
       "ref": "3.7.1.5",
-      "question": "Why do these NTS excess cost procedures result in lower costs for members?",
+      "question": "Why do the DAF procedures for excess HHG weight in government NTS result in lower costs for members?",
       "status": "verified",
       "reason": "3.7.1.5 attributes savings to lower government storage rates; half-price discount,TSP absorption and free90 days are not rationale.",
       "evidence": {
@@ -839,7 +874,12 @@
         "The TSP absorbs the cost",
         "Storage is free for 90 days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Why do these NTS excess cost procedures result in lower costs for members?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.7.3|For HHG shipped other than between authorized locations, can excess costs occur even if the distance is shorter?",
@@ -862,7 +902,7 @@
     {
       "id": "24-602V4|3.7.4|Who pays to transport unauthorized articles?",
       "ref": "3.7.4",
-      "question": "Who pays to transport unauthorized articles?",
+      "question": "Who pays to transport unauthorized articles in an HHG shipment?",
       "status": "verified",
       "reason": "The member pays all unauthorized-article expenses. Government allowance, TSP payment, and government prepayment do not replace that responsibility.",
       "evidence": {
@@ -875,12 +915,17 @@
         "The TSP",
         "The government, then collects later"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Who pays to transport unauthorized articles?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.7.5.1|When a member requests a higher cost mode, what is the excess cost?",
       "ref": "3.7.5.1",
-      "question": "When a member requests a higher cost mode, what is the excess cost?",
+      "question": "When a member requests a higher-cost mode for HHG, what is the excess cost?",
       "status": "verified",
       "reason": "3.7.5.1 defines difference of requested and normal mode, not whole cost,zero or10-percent flat fee.",
       "evidence": {
@@ -893,7 +938,12 @@
         "Nothing",
         "10% of the shipment cost"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When a member requests a higher cost mode, what is the excess cost?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|3.7.5.3|Who decides whether to use the PCS allowance to ship property legally awarded to an ex-spouse?",
@@ -934,7 +984,7 @@
     {
       "id": "24-602V4|6.1.1|What should departing personnel be briefed to do when they arrive at destination?",
       "ref": "6.1.1",
-      "question": "What should departing personnel be briefed to do when they arrive at destination?",
+      "question": "For HHG temporary storage, what should departing personnel be briefed to do when they arrive at destination?",
       "status": "verified",
       "reason": "6.1.1 requires prompt TSP arrival notification;PPA,MPF and waiting for carrier call omit responsibility.",
       "evidence": {
@@ -947,7 +997,12 @@
         "Visit the MPF",
         "Wait for the TSP to call"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What should departing personnel be briefed to do when they arrive at destination?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|6.1.1.1|If the member does not designate a destination state, how may HHG be stored at origin?",
@@ -988,7 +1043,7 @@
     {
       "id": "24-602V4|6.1.2|How should members be told about temporary storage?",
       "ref": "6.1.2",
-      "question": "How should members be told about temporary storage?",
+      "question": "How should members be counseled about HHG temporary storage?",
       "status": "verified",
       "reason": "6.1.2 makes SIT contingent on necessity and rejects automatic allowance;90/180 automatic andOCONUS-only alternatives differ.",
       "evidence": {
@@ -1001,7 +1056,12 @@
         "It is automatic for 180 days",
         "It is only for OCONUS moves"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How should members be told about temporary storage?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|6.1.3|Which form is used for the second 90 days of storage (SIT at government expense)?",
@@ -1042,7 +1102,7 @@
     {
       "id": "24-602V4|6.1.4.1.3|For a member on TDY or deployment, government storage terminates no later than how long after the TDY/deployment ends (unless extended)?",
       "ref": "6.1.4.1.3",
-      "question": "For a member on TDY or deployment, government storage terminates no later than how long after the TDY/deployment ends (unless extended)?",
+      "question": "For a member on TDY or deployment, government HHG storage terminates no later than how long after the TDY/deployment ends (unless extended)?",
       "status": "verified",
       "reason": "Government storage ends no later than 90 days after TDY/deployment unless extended. Thirty, sixty, and 180 are not the stated post-TDY limit.",
       "evidence": {
@@ -1055,7 +1115,12 @@
         "60 days",
         "180 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "For a member on TDY or deployment, government storage terminates no later than how long after the TDY/deployment ends (unless extended)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|6.1.4.2.1|To extend storage for direct delivery into government quarters, what must the member be on?",
@@ -1169,7 +1234,7 @@
     {
       "id": "24-602V4|6.1.7|How many partial lot withdrawals or deliveries from SIT may a member request?",
       "ref": "6.1.7",
-      "question": "How many partial lot withdrawals or deliveries from SIT may a member request?",
+      "question": "How many partial lot withdrawals or deliveries of HHG from SIT may a member request?",
       "status": "verified",
       "reason": "6.1.7 permits up to two partial withdrawals/deliveries then personal cost;one,three andunlimited counts differ.",
       "evidence": {
@@ -1182,12 +1247,17 @@
         "Three",
         "Unlimited"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How many partial lot withdrawals or deliveries from SIT may a member request?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|6.1.9|What must the PPSO NOT enter on the BL for property released from NTS?",
       "ref": "6.1.9",
-      "question": "What must the PPSO NOT enter on the BL for property released from NTS?",
+      "question": "What must the PPSO NOT enter on the bill of lading (BL) for HHG released from NTS?",
       "status": "verified",
       "reason": "6.1.9 forbids SIT-is-not-authorized annotation to preserve necessary destination storage;delivery address,name andweight are not forbidden.",
       "evidence": {
@@ -1200,7 +1270,12 @@
         "The member's name",
         "The weight"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "What must the PPSO NOT enter on the BL for property released from NTS?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|6.2.1|When NTS is authorized from OCONUS, where are HHG normally returned?",
@@ -1727,7 +1802,7 @@
     {
       "id": "24-602V4|7.9.2.3|May commercial \"drive-away\" service be used for overland shipment of these POVs?",
       "ref": "7.9.2.3",
-      "question": "May commercial \"drive-away\" service be used for overland shipment of these POVs?",
+      "question": "For a deceased or missing member's POV, may commercial \"drive-away\" service be used for overland shipment?",
       "status": "verified",
       "reason": "Commercial drive-away is prohibited; CONUS routing and NOK approval do not remove the prohibition.",
       "evidence": {
@@ -1740,7 +1815,12 @@
         "Only within CONUS",
         "Only with NOK approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May commercial \"drive-away\" service be used for overland shipment of these POVs?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|7.10.1.2|A separating member must offer the POV to the port/VPC before when?",
@@ -2051,7 +2131,7 @@
     {
       "id": "24-602V4|8.2.1.6|Are special routing and services requested by the member reimbursable as part of actual cost?",
       "ref": "8.2.1.6",
-      "question": "Are special routing and services requested by the member reimbursable as part of actual cost?",
+      "question": "Are special routing and services requested by the member reimbursable as part of an actual-cost PPM?",
       "status": "verified",
       "reason": "Member-requested special routing/services are not reimbursable actual costs. Ten percent and TO-approval conditions do not create that reimbursement.",
       "evidence": {
@@ -2064,7 +2144,12 @@
         "Up to 10%",
         "With TO approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Are special routing and services requested by the member reimbursable as part of actual cost?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|8.2.2.1.1|What advance may a member get for an actual expense PPM, based on estimated weight?",
@@ -2339,7 +2424,7 @@
     {
       "id": "24-602V4|8.5.1|How many times may the weight of a personally owned utility trailer be claimed in the net weight on one move?",
       "ref": "8.5.1",
-      "question": "How many times may the weight of a personally owned utility trailer be claimed in the net weight on one move?",
+      "question": "For a PPM, how many times may the weight of a personally owned utility trailer be claimed in the net weight on one move?",
       "status": "verified",
       "reason": "Utility-trailer weight is claimed once per move even with multiple trips. Per-trip, never, and twice differ.",
       "evidence": {
@@ -2352,12 +2437,17 @@
         "Never",
         "Twice"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How many times may the weight of a personally owned utility trailer be claimed in the net weight on one move?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|8.5.2|When must the member or dependent have owned the trailer?",
       "ref": "8.5.2",
-      "question": "When must the member or dependent have owned the trailer?",
+      "question": "For a PPM, when must the member or dependent have owned the utility trailer whose weight is claimed?",
       "status": "verified",
       "reason": "8.5.2 requiresownership beforeorder effective date;pickup timing,30days andanytime differ.",
       "evidence": {
@@ -2370,12 +2460,17 @@
         "Within 30 days of the move",
         "At any time"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "When must the member or dependent have owned the trailer?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|8.5.4|May the weight of a rented or borrowed car-top carrier be included?",
       "ref": "8.5.4",
-      "question": "May the weight of a rented or borrowed car-top carrier be included?",
+      "question": "May the weight of a rented or borrowed car-top carrier be included in a PPM's net weight?",
       "status": "verified",
       "reason": "Only personally owned car-top carriers count; rented/borrowed weight does not. OCONUS does not change ownership.",
       "evidence": {
@@ -2388,12 +2483,17 @@
         "Only if rented",
         "Only OCONUS"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "May the weight of a rented or borrowed car-top carrier be included?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|8.5.7|If the driver and passengers are in the vehicle during the tare weighing, what is required at the gross weighing?",
       "ref": "8.5.7",
-      "question": "If the driver and passengers are in the vehicle during the tare weighing, what is required at the gross weighing?",
+      "question": "When weighing a PPM, if the driver and passengers are in the vehicle during the tare weighing, what is required at the gross weighing?",
       "status": "verified",
       "reason": "8.5.7 requires samepeople present for gross if present for tare;absence,no requirement andweight subtraction differ.",
       "evidence": {
@@ -2406,7 +2506,12 @@
         "Nothing",
         "Their weight is subtracted"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If the driver and passengers are in the vehicle during the tare weighing, what is required at the gross weighing?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|8.5.8|For a PPM moving a boat, will the registration weight suffice?",
@@ -2429,7 +2534,7 @@
     {
       "id": "24-602V4|8.6.1|Which is an example of when the TO may approve a constructed weight in advance?",
       "ref": "8.6.1",
-      "question": "Which is an example of when the TO may approve a constructed weight in advance?",
+      "question": "Which is an example of when the TO may approve a constructed weight for a PPM in advance?",
       "status": "verified",
       "reason": "8.6.1.2 permits advance constructed weight when scales are unavailable. Forgotten tickets, preference, or an inconvenient available scale are not that condition.",
       "evidence": {
@@ -2442,7 +2547,12 @@
         "The member prefers an estimate",
         "A scale is available, but inconvenient"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which is an example of when the TO may approve a constructed weight in advance?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|8.6.3|When a properly counseled member fails to get weight tickets and a constructed weight is approved, what payment is limited to?",
@@ -2646,7 +2756,7 @@
     {
       "id": "24-602V4|8.11.3|Can axle weights be broken up to remove non-HHG items (e.g., a towed POV)?",
       "ref": "8.11.3",
-      "question": "Can axle weights be broken up to remove non-HHG items (e.g., a towed POV)?",
+      "question": "On PPM weight tickets, can axle weights be broken up to remove non-HHG items (e.g., a towed POV)?",
       "status": "verified",
       "reason": "Axle weights cannot be broken up to remove non-HHG weights. TO approval and trailer-only conditions do not authorize that deduction.",
       "evidence": {
@@ -2659,7 +2769,12 @@
         "Only with TO approval",
         "Only for trailers"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Can axle weights be broken up to remove non-HHG items (e.g., a towed POV)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|8.11.4|Which form is the travel voucher the member completes for a PPM?",
@@ -2772,7 +2887,7 @@
     {
       "id": "24-602V4|11.1.1|Which customers must be counseled by PPPO personnel (not self-counseled)?",
       "ref": "11.1.1",
-      "question": "Which customers must be counseled by PPPO personnel (not self-counseled)?",
+      "question": "For HHG moves, which customers must be counseled by PPPO personnel (not self-counseled)?",
       "status": "verified",
       "reason": "11.1.1 requires PPPO counseling for first movers, separatees, retirees and BLUEBARK. The alternatives incorrectly restrict it to officers, OCONUS or PBP&E.",
       "evidence": {
@@ -2785,12 +2900,17 @@
         "Only OCONUS movers",
         "Only members with PBP&E"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which customers must be counseled by PPPO personnel (not self-counseled)?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|11.1.2.4|How long is each customer survey link valid?",
       "ref": "11.1.2.4",
-      "question": "How long is each customer survey link valid?",
+      "question": "How long is each DP3 Customer Satisfaction Survey (CSS) link valid?",
       "status": "verified",
       "reason": "11.1.2.4 expires each survey link120 days from receipt, not30,7 or180.",
       "evidence": {
@@ -2803,12 +2923,17 @@
         "7 days",
         "180 days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "How long is each customer survey link valid?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|11.1.2.4|Up to how many surveys will a customer receive during their PCS move?",
       "ref": "11.1.2.4",
-      "question": "Up to how many surveys will a customer receive during their PCS move?",
+      "question": "Up to how many Customer Satisfaction Surveys (CSS) will a customer receive during their PCS move?",
       "status": "verified",
       "reason": "11.1.2.4 provides up to five surveys; one, two and ten differ.",
       "evidence": {
@@ -2821,7 +2946,12 @@
         "Two",
         "Ten"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Up to how many surveys will a customer receive during their PCS move?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|11.1.2.5|What must self-counseled members print, sign, and submit to the PPPO/PPSO?",
@@ -3168,7 +3298,7 @@
     {
       "id": "24-602V4|11.10|Shipping offices may use DPM for domestic shipments estimated at how much weight or less?",
       "ref": "11.10",
-      "question": "Shipping offices may use DPM for domestic shipments estimated at how much weight or less?",
+      "question": "Shipping offices may use the Direct Procurement Method (DPM) for domestic HHG shipments estimated at how much weight or less?",
       "status": "verified",
       "reason": "11.10 gives1,000 pounds as the estimated domestic DPM threshold;500,2,500 and5,000 differ.",
       "evidence": {
@@ -3181,7 +3311,12 @@
         "2,500 pounds",
         "5,000 pounds"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Shipping offices may use DPM for domestic shipments estimated at how much weight or less?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|11.11.2|Which unit handles AF General Officer moves to, from, and within the National Capital Region?",
@@ -3294,7 +3429,7 @@
     {
       "id": "24-602V4|12.2.3|DAF policy gives automatic TP-2 approval for inter-theater shipments. What must members be counseled about?",
       "ref": "12.2.3",
-      "question": "DAF policy gives automatic TP-2 approval for inter-theater shipments. What must members be counseled about?",
+      "question": "DAF policy gives automatic TP-2 approval for inter-theater HHG shipments. What must members be counseled about?",
       "status": "verified",
       "reason": "12.2.3 requires counseling on high overweight cost and cheaper surface choice. Free TP-2, mandatory TP-4 and prohibited surface contradict it.",
       "evidence": {
@@ -3307,12 +3442,17 @@
         "That they must use TP-4",
         "That they cannot use surface"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "DAF policy gives automatic TP-2 approval for inter-theater shipments. What must members be counseled about?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|12.2.4|Are shipments routinely placed into SIT at origin pending payment of excess costs?",
       "ref": "12.2.4",
-      "question": "Are shipments routinely placed into SIT at origin pending payment of excess costs?",
+      "question": "Are HHG shipments routinely placed into SIT at origin pending payment of excess costs?",
       "status": "verified",
       "reason": "Shipments are not routinely held in origin SIT pending payment. Always, thirty days, and until DFAS payment all incorrectly require routine holding.",
       "evidence": {
@@ -3325,7 +3465,12 @@
         "Yes, for 30 days",
         "Yes, until DFAS confirms payment"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Are shipments routinely placed into SIT at origin pending payment of excess costs?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|12.2.5|Which form is the Cash Collection Voucher for excess cost?",
@@ -3384,7 +3529,7 @@
     {
       "id": "24-602V4|12.2.8.1.1|If the shipment is under government control and the member cannot pay excess costs, what happens?",
       "ref": "12.2.8.1.1",
-      "question": "If the shipment is under government control and the member cannot pay excess costs, what happens?",
+      "question": "If an HHG shipment is under government control and the member cannot pay excess costs, what happens?",
       "status": "verified",
       "reason": "12.2.8.1.1 requires delivery and referral to LHX for collection, not storage hold, return or sale.",
       "evidence": {
@@ -3397,12 +3542,17 @@
         "It is returned to origin",
         "It is sold to pay the debt"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "If the shipment is under government control and the member cannot pay excess costs, what happens?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|12.3.1|Is property delivered even if the member is no longer in a pay status and excess costs were not collected?",
       "ref": "12.3.1",
-      "question": "Is property delivered even if the member is no longer in a pay status and excess costs were not collected?",
+      "question": "Is HHG delivered even if the member is no longer in a pay status and excess costs were not collected?",
       "status": "verified",
       "reason": "Property should be delivered despite no pay status and uncollected excess cost. Half delivery and HQ approval are not the specified condition.",
       "evidence": {
@@ -3415,7 +3565,12 @@
         "Only half",
         "Only with PPA HQ approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Is property delivered even if the member is no longer in a pay status and excess costs were not collected?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|12.3.2|Which of these is generally NOT acceptable evidence for an excess cost rebuttal?",
@@ -3528,7 +3683,7 @@
     {
       "id": "24-602V4|Atch 4|On the telephonic inspection, during what hours should the TSP arrive?",
       "ref": "Atch 4",
-      "question": "On the telephonic inspection, during what hours should the TSP arrive?",
+      "question": "On the DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4), during what hours should the TSP arrive?",
       "status": "verified",
       "reason": "Both inbound and outbound checks ask whether TSP arrived 0800–1700. The other windows do not match.",
       "evidence": {
@@ -3541,12 +3696,17 @@
         "Between 0900 and 1500",
         "Any time agreed with the TSP"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "On the telephonic inspection, during what hours should the TSP arrive?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|Atch 4|Within how many days does the inspector instruct the customer to complete the CSS?",
       "ref": "Atch 4",
-      "question": "Within how many days does the inspector instruct the customer to complete the CSS?",
+      "question": "On the DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4), within how many days does the inspector instruct the customer to complete the Customer Satisfaction Survey (CSS)?",
       "status": "verified",
       "reason": "Inbound checklist instructs CSS completion within seven days. Thirty, fourteen, and 120 days do not match.",
       "evidence": {
@@ -3559,12 +3719,17 @@
         "14 days",
         "120 days"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Within how many days does the inspector instruct the customer to complete the CSS?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|Atch 4|On the outbound telephonic inspection, what should have been done to old container markings?",
       "ref": "Atch 4",
-      "question": "On the outbound telephonic inspection, what should have been done to old container markings?",
+      "question": "On the outbound DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4), what should have been done to old container markings?",
       "status": "verified",
       "reason": "Table A4.1 outbound item g requires old markings redacted/blackened; leaving, photographing or inventory-copying does not remove them.",
       "evidence": {
@@ -3577,12 +3742,17 @@
         "Photographed",
         "Copied onto the inventory"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "On the outbound telephonic inspection, what should have been done to old container markings?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|Atch 4|Which form must the TSP have provided at origin, per the outbound telephonic inspection?",
       "ref": "Atch 4",
-      "question": "Which form must the TSP have provided at origin, per the outbound telephonic inspection?",
+      "question": "Per the outbound DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4), which form must the TSP have provided at origin?",
       "status": "verified",
       "reason": "Table A4.1 outbound item i lists DD619, inventory copies and GBL/BL;1797,1857 and2278 are not that carrier document set.",
       "evidence": {
@@ -3595,12 +3765,17 @@
         "DD Form 1857",
         "DD Form 2278"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which form must the TSP have provided at origin, per the outbound telephonic inspection?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|Atch 4|On the inbound telephonic inspection, what is the customer briefed on verifying?",
       "ref": "Atch 4",
-      "question": "On the inbound telephonic inspection, what is the customer briefed on verifying?",
+      "question": "On the inbound DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4), what is the customer briefed on verifying?",
       "status": "verified",
       "reason": "Table A4.1 inbound item f checks briefing on619-1 services, not1299 weight,139 debt or2278 PPM.",
       "evidence": {
@@ -3613,12 +3788,17 @@
         "The excess cost DD Form 139",
         "The PPM DD Form 2278"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "On the inbound telephonic inspection, what is the customer briefed on verifying?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     },
     {
       "id": "24-602V4|Atch 4|Which inventory check is on the outbound telephonic inspection?",
       "ref": "Atch 4",
-      "question": "Which inventory check is on the outbound telephonic inspection?",
+      "question": "Which inventory check is on the outbound DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4)?",
       "status": "verified",
       "reason": "Table A4.1 outbound item h checks all items including member/spouse PBP&E; photos, TO signature and PPA email are not this inventory check.",
       "evidence": {
@@ -3631,7 +3811,12 @@
         "Was the inventory signed by the TO?",
         "Was the inventory emailed to PPA HQ?"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "stemClarified": {
+        "date": "2026-11-01",
+        "previous": "Which inventory check is on the outbound telephonic inspection?",
+        "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      }
     }
   ]
 }
