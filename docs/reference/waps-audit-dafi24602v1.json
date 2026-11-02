@@ -34,20 +34,31 @@
     {
       "id": "24-602V1|1.1.5|Can a traveler approve their own Premium Class Travel (PCT)?",
       "ref": "1.1.5",
-      "question": "Can a traveler approve their own Premium Class Travel (PCT)?",
+      "question": "What is the rule on travelers approving their own Premium Class Travel (PCT)?",
       "status": "verified",
-      "reason": "The rule expressly prohibits self-approval; none of the rank, business-class, or flight-duration exceptions offered by the distractors appears in this prohibition.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Self-approval is prohibited\".",
       "evidence": {
         "page": 1,
         "quote": "1.1. The Secretary of the Air Force (SecAF):\n…\n1.1.5. Designates the following Air Force Premium Class Travel (PCT), (e.g., first and business class) authorizing/approval authorities and reporting officials to meet DoD PCT Policy requirements. (Note: Self approval of PCT is prohibited):"
       },
-      "answer": "No, self-approval of PCT is prohibited",
+      "answer": "Self-approval is prohibited",
       "wrong": [
-        "Yes, if they are a general officer",
-        "Yes, for business class only",
-        "Yes, if the flight is over 14 hours"
+        "General officers may self-approve",
+        "Self-approval is allowed for business class only",
+        "Self-approval is allowed on flights over 14 hours"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can a traveler approve their own Premium Class Travel (PCT)?",
+        "previousAnswer": "No, self-approval of PCT is prohibited",
+        "previousWrong": [
+          "Yes, if they are a general officer",
+          "Yes, for business class only",
+          "Yes, if the flight is over 14 hours"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|1.1.6|Who is the authorizing/approval authority and reporting official for ALL first class travel?",
@@ -764,20 +775,31 @@
     {
       "id": "24-602V1|2.3.1.1|Must the Patriot Express be used even when a commercial carrier is cheaper?",
       "ref": "2.3.1.1",
-      "question": "Must the Patriot Express be used even when a commercial carrier is cheaper?",
+      "question": "When a commercial carrier is cheaper than the Patriot Express, which must the TO/TMC use?",
       "status": "verified",
-      "reason": "Lower commercial cost does not override Patriot Express precedence. Neither PCS-only applicability nor traveler consent is the condition in this rule.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"The Patriot Express\".",
       "evidence": {
         "page": 16,
         "quote": "2.3.1.1. TO/TMC must follow the DoD Order of Precedence and use PE channel airlift, even if the service can be provided at a lower cost by a commercial air carrier. (T-0)."
       },
-      "answer": "Yes",
+      "answer": "The Patriot Express",
       "wrong": [
-        "No, the cheaper fare is always used",
-        "Only for PCS travel",
-        "Only if the traveler agrees"
+        "The cheaper commercial carrier",
+        "The Patriot Express for PCS travel only",
+        "Whichever the traveler agrees to"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Must the Patriot Express be used even when a commercial carrier is cheaper?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No, the cheaper fare is always used",
+          "Only for PCS travel",
+          "Only if the traveler agrees"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.3.1.3|Whom does the TO contact to set up Conditional Routing for OCONUS travel requests in DTS?",
@@ -818,20 +840,31 @@
     {
       "id": "24-602V1|2.3.1.4|Are blanket approvals of Patriot Express Exception to Policy requests authorized?",
       "ref": "2.3.1.4",
-      "question": "Are blanket approvals of Patriot Express Exception to Policy requests authorized?",
+      "question": "What is the policy on blanket approvals of Patriot Express Exception to Policy (ETP) requests?",
       "status": "verified",
-      "reason": "Blanket ETP approval is forbidden; each request is reviewed individually. Squadron, fiscal-year, and TDY blanket exceptions are not authorized.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not authorized\".",
       "evidence": {
         "page": 17,
         "quote": "2.3.1.4. In instances of requested non-use of AMC-PE due to a documented negative critical mission impact, a mission impact statement must be provided by the traveler and certified/signed by their unit commander or designee (only in the commander’s absence) by utilizing Attachment 2. (T-1). To maximum use of the Patriot Express, the approving official must review each Exception to Policy (ETP) requests individually as blanket approvals are not authorized. Consideration for an ETP approval may include, but are not limited to the following:\n2.3.1.4.1. Academic enrollment or completion for school-age dependents.\n2.3.1.4.2. Active role at a change of command or assumption of command.\n2.3.1.4.3. Morale and quality of life of the Airman is affected if flying on the PE.\n2.3.1.4.4. Member, dependents and/or pets cannot be accommodated on the same PE. NOTE: An approved ETP does not guarantee reimbursement when the cost is above the authorized government threshold. Reimbursement of commercial travel will be limited to the official government fares, thus, any excess cost incurred above the government fare will be the responsibility of the member. (T-1)."
       },
-      "answer": "No",
+      "answer": "Not authorized",
       "wrong": [
-        "Yes, for a whole squadron",
-        "Yes, for one fiscal year",
-        "Yes, for TDY travel only"
+        "Authorized for a whole squadron",
+        "Authorized for one fiscal year",
+        "Authorized for TDY travel only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are blanket approvals of Patriot Express Exception to Policy requests authorized?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, for a whole squadron",
+          "Yes, for one fiscal year",
+          "Yes, for TDY travel only"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.3.1.4|If an ETP for commercial travel is approved but costs more than the government fare, who pays the excess?",
@@ -985,38 +1018,60 @@
     {
       "id": "24-602V1|2.5.2|Can government contractors use GSA City Pair airfares?",
       "ref": "2.5.2",
-      "question": "Can government contractors use GSA City Pair airfares?",
+      "question": "Under what circumstances may government contractors use GSA City Pair airfares?",
       "status": "verified",
-      "reason": "Contractors are ineligible under any circumstances; official duty, an LOA, and OCONUS status do not create eligibility.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Under no circumstances\".",
       "evidence": {
         "page": 19,
         "quote": "2.5. Use of General Services Administration (GSA) Airline City Pair Program (CPP).\n…\n2.5.2. Government contractors and contractor employees are governed by the rules in the Federal Acquisition Regulations (FAR) 31.205-46, and are not government employees and are therefore not eligible, under any circumstances, to use GSA City Pair airfares, or any travel-related item restricted to government employees."
       },
-      "answer": "No, under no circumstances",
+      "answer": "Under no circumstances",
       "wrong": [
-        "Yes, when on official business",
-        "Yes, with an LOA",
-        "Yes, for OCONUS travel only"
+        "When on official business",
+        "When they have an LOA",
+        "For OCONUS travel only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can government contractors use GSA City Pair airfares?",
+        "previousAnswer": "No, under no circumstances",
+        "previousWrong": [
+          "Yes, when on official business",
+          "Yes, with an LOA",
+          "Yes, for OCONUS travel only"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.5.3|May City Pair fares be segmented when a through-fare exists?",
       "ref": "2.5.3",
-      "question": "May City Pair fares be segmented when a through-fare exists?",
+      "question": "When a City Pair through-fare exists, when may the City Pair fare be segmented instead?",
       "status": "verified",
-      "reason": "City Pair fares cannot be segmented when a through-fare exists; savings, AO approval, and international routing do not authorize segmentation.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Never; the through-fare is used\".",
       "evidence": {
         "page": 19,
         "quote": "2.5. Use of General Services Administration (GSA) Airline City Pair Program (CPP).\n…\n2.5.3. Government airfares (e.g., GSA City Pair fares YCA and _CA, _DG air fares offered by non-contract carriers at City Pair rates, MMZ international non-contract air fare, etc.) may be used for official DoD travel only, but only after City Pair fares are deemed to be unavailable. City Pair fares may not be segmented when a through-fare exists, even if it costs less. Constructed YCA and _CA fares may be used when there is no through-fare between the origin and destination listed on the official travel orders. Unlike YCA and _CA fares, when using other government fares such as YMZ, MMZ, MDG, HDG, the use of through or segmented fares may be used to meet mission requirements when they provide the overall best value. Some airlines may have restrictions, check with appropriate airline carrier for specifics."
       },
-      "answer": "No",
+      "answer": "Never; the through-fare is used",
       "wrong": [
-        "Yes, if it saves money",
-        "Yes, with AO approval",
-        "Only for international travel"
+        "Whenever segmenting the trip saves money",
+        "With AO approval",
+        "For international travel only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May City Pair fares be segmented when a through-fare exists?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, if it saves money",
+          "Yes, with AO approval",
+          "Only for international travel"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.5.5|The GSA City Pair Program is mandatory for group travel of how many passengers?",
@@ -1353,20 +1408,31 @@
     {
       "id": "24-602V1|2.10.2|Per the JTR, is flight length alone enough to justify business class?",
       "ref": "2.10.2",
-      "question": "Per the JTR, is flight length alone enough to justify business class?",
+      "question": "Per the JTR, how much flight time by itself justifies business class?",
       "status": "verified",
-      "reason": "Flight length alone is insufficient; the paragraph first considers coach arrival the day before. Fourteen hours, ten hours, and any OCONUS flight do not independently justify business class.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None; flight length alone is not enough\".",
       "evidence": {
         "page": 23,
         "quote": "2.10. PCT Reporting Requirement. When requested by DTMO and/or reflected on their “other than economy coach class” report, all identified PCT must be validated and supporting documentation entered into the Premium Class Reporting Tool. (T-0).\n…\n2.10.2. Per the JTR, 020206.J.3, the flight length alone is insufficient justification to authorize or approve business-class travel. The AO must first consider using economy or coach-class fare and scheduling the traveler to arrive the day before TDY begins to allow appropriate rest. The second choice is to use economy or coach-class fare and arrange a rest stop, preferably at a no-cost point allowed by the airline with the traveler scheduled to arrive on the day TDY starts. The last option is to use business-class accommodations with a scheduled arrival on the day TDY starts."
       },
-      "answer": "No",
+      "answer": "None; flight length alone is not enough",
       "wrong": [
-        "Yes, over 14 hours",
-        "Yes, over 10 hours",
-        "Yes, for any OCONUS flight"
+        "Any flight over 14 hours",
+        "Any flight over 10 hours",
+        "Any OCONUS flight, regardless of length"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Per the JTR, is flight length alone enough to justify business class?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, over 14 hours",
+          "Yes, over 10 hours",
+          "Yes, for any OCONUS flight"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.10.3|How long must base-level business class requests be kept on file?",
@@ -1462,38 +1528,60 @@
     {
       "id": "24-602V1|2.11.3.7|In the MAJCOM/CC's absence, can the MAJCOM/CV approve travel for their own spouse?",
       "ref": "2.11.3.7",
-      "question": "In the MAJCOM/CC's absence, can the MAJCOM/CV approve travel for their own spouse?",
+      "question": "In the MAJCOM/CC's absence, who approves the MAJCOM/CV's request for their own spouse's travel?",
       "status": "verified",
-      "reason": "2.11.3.7 forbids MAJCOM/CV approval of their own spouse request and requires elevation; phone concurrence and MILAIR-only conditions do not create an exception.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"AF/CV, the next higher official\".",
       "evidence": {
         "page": 26,
         "quote": "2.11.3. The following are spouse travel approving authorities when the travel meets established criteria in this instruction or the JTR, as appropriate in a particular case. If the JTR sets approval at a higher level for spouse travel on a commercial air carrier, the JTR controls.\n…\n2.11.3.7. MAJCOM/CCs and vice commanders (CVs) for all travel by spouses of personnel assigned to their command when the travel meets the criteria of this instruction. Note: In the absence of the MAJCOM/CC, a MAJCOM/CV cannot approve a spouse travel request for his or her own spouse/family member, but must elevate to the next higher official in the chain, AF/CV unless otherwise delegated/designated."
       },
-      "answer": "No",
+      "answer": "AF/CV, the next higher official",
       "wrong": [
-        "Yes, always",
-        "Yes, if the MAJCOM/CC agrees by phone",
-        "Yes, for MILAIR only"
+        "The MAJCOM/CV, who signs as acting commander",
+        "The MAJCOM/CC, by phone approval",
+        "The MAJCOM/CV, for MILAIR travel only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "In the MAJCOM/CC's absence, can the MAJCOM/CV approve travel for their own spouse?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Yes, if the MAJCOM/CC agrees by phone",
+          "Yes, for MILAIR only"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.11.3.10|Can the spouse travel authorities delegated to HAF/DS be re-delegated?",
       "ref": "2.11.3.10",
-      "question": "Can the spouse travel authorities delegated to HAF/DS be re-delegated?",
+      "question": "To whom may the spouse travel authorities delegated to HAF/DS be re-delegated?",
       "status": "verified",
-      "reason": "2.11.3.10 states HAF/DS authorities are not further redelegable; the three purported redelegation paths conflict.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"No one; they are not re-delegable\".",
       "evidence": {
         "page": 26,
         "quote": "2.11.3. The following are spouse travel approving authorities when the travel meets established criteria in this instruction or the JTR, as appropriate in a particular case. If the JTR sets approval at a higher level for spouse travel on a commercial air carrier, the JTR controls.\n…\n2.11.3.10. In HAF/DS’s absence, requests will be forwarded to AF/CV’s or VCSO’s as appropriate office for action covered by the delegations in paragraphs 2.11.1.3, 2.11.1.5, and 2.11.1.8 The authorities delegated to HAF/DS are not further re- delegable."
       },
-      "answer": "No",
+      "answer": "No one; they are not re-delegable",
       "wrong": [
-        "Yes, to the MAJCOM/CV",
-        "Yes, to AF/A3",
-        "Yes, in writing"
+        "The MAJCOM/CV",
+        "AF/A3",
+        "Anyone HAF/DS names in a written memorandum"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can the spouse travel authorities delegated to HAF/DS be re-delegated?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, to the MAJCOM/CV",
+          "Yes, to AF/A3",
+          "Yes, in writing"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.11.3.12|Which of these is an approved basis for official spouse travel on MILAIR?",
@@ -1588,20 +1676,31 @@
     {
       "id": "24-602V1|2.14|Are blanket Invitational Travel Authorizations (ITAs) issued for spouse travel?",
       "ref": "2.14",
-      "question": "Are blanket Invitational Travel Authorizations (ITAs) issued for spouse travel?",
+      "question": "When are blanket Invitational Travel Authorizations (ITAs) issued for spouse travel?",
       "status": "verified",
-      "reason": "2.14 forbids blanket ITAs and requires an individual request each time; annual, general-officer and MILAIR exceptions are not allowed.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Never\".",
       "evidence": {
         "page": 29,
         "quote": "2.14. Invitational Travel Authorization (ITA). In all instances of spouse travel (official [non- reimbursable] or unofficial), after the authorizing authority approves spouse travel, the requesting organization will issue an ITA IAW AFI 65-103 and the JTR, funding transportation only. (T-0). A specific approval request must be generated for each instance of spouse travel. (T- 0). Blanket ITAs will not be issued. Supporting documentation to include a separate itinerary agenda is mandatory and will be retained for two years. (T-1).\n2.14.1. When the spouse is an Air Force uniformed service member or Air Force Civil Service employee and spouse travel is approved, a TDY order will be issued rather than an ITA. (T-0).\n2.14.2. Include the following statement in the ITA as specified in JTR: “This order authorizes the dependent to accompany the sponsor to attend an official function. It does not entitle the dependent to per diem or other expense allowances. If the dependent does not desire to bear the expenses, this order is canceled.”\n2.14.3. All spouse travel (official [non-reimbursable] or unofficial) shall be approved in advance of the proposed travel. “After-the-fact” approvals of spouse travel are not authorized. (T-0)."
       },
-      "answer": "No",
+      "answer": "Never",
       "wrong": [
-        "Yes, annually",
-        "Yes, for general officers",
-        "Yes, for MILAIR only"
+        "Annually",
+        "For general officers",
+        "For MILAIR travel"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are blanket Invitational Travel Authorizations (ITAs) issued for spouse travel?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, annually",
+          "Yes, for general officers",
+          "Yes, for MILAIR only"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.14|How long is supporting documentation (including the itinerary agenda) for spouse travel retained?",
@@ -1642,20 +1741,31 @@
     {
       "id": "24-602V1|2.14.3|Are after-the-fact approvals of spouse travel authorized?",
       "ref": "2.14.3",
-      "question": "Are after-the-fact approvals of spouse travel authorized?",
+      "question": "When must spouse travel be approved?",
       "status": "verified",
-      "reason": "2.14.3 prohibits all after-the-fact spouse approvals; five-day, legal and unofficial exceptions are absent.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"In advance of the travel\".",
       "evidence": {
         "page": 30,
         "quote": "2.14.3. All spouse travel (official [non-reimbursable] or unofficial) shall be approved in advance of the proposed travel. “After-the-fact” approvals of spouse travel are not authorized. (T-0)."
       },
-      "answer": "No",
+      "answer": "In advance of the travel",
       "wrong": [
-        "Yes, within 5 business days",
-        "Yes, with legal coordination",
-        "Yes, for unofficial travel"
+        "Within 5 business days after travel",
+        "After travel, with legal coordination",
+        "After travel, if the travel is unofficial"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are after-the-fact approvals of spouse travel authorized?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, within 5 business days",
+          "Yes, with legal coordination",
+          "Yes, for unofficial travel"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.15.1|For approved family member/spouse travel to an award ceremony, what is funded?",
@@ -1714,20 +1824,31 @@
     {
       "id": "24-602V1|2.16.2|May personal expenses from leave taken with official travel be put on the GTCC/IBA/CBA?",
       "ref": "2.16.2",
-      "question": "May personal expenses from leave taken with official travel be put on the GTCC/IBA/CBA?",
+      "question": "Which government accounts may carry personal expenses from leave taken with official travel?",
       "status": "verified",
-      "reason": "2.16.2 prohibits leave-related personal expenses on all three accounts; repayment and account type do not waive it.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None of them (GTCC, IBA, or CBA)\".",
       "evidence": {
         "page": 31,
         "quote": "2.16. Government Travel Charge Card (GTCC).\n…\n2.16.2. Individually-Billed Account (IBA). All DoD personnel (military and civilian), to include infrequent travelers that do not meet the exemption criteria under section 040602, of the DTMO’s Government Travel Charge Card Regulations: Authorized by DoDI 5154.31, Volume 4 are mandatory users of the IBA. Note: Personal expenses associated with leave in conjunction with official travel will not be placed on a GTCC, IBA or CBA (DoDI 5154.31, Volume 4, paragraph 040504). (T-0)."
       },
-      "answer": "No",
+      "answer": "None of them (GTCC, IBA, or CBA)",
       "wrong": [
-        "Yes, on the IBA",
-        "Yes, if repaid within 30 days",
-        "Yes, on the CBA"
+        "The IBA",
+        "The GTCC, if repaid within 30 days",
+        "The CBA"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May personal expenses from leave taken with official travel be put on the GTCC/IBA/CBA?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, on the IBA",
+          "Yes, if repaid within 30 days",
+          "Yes, on the CBA"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|2.17|When using frequent flyer miles to upgrade to business or first class, what may Air Force members NOT do?",
@@ -1863,20 +1984,31 @@
     {
       "id": "24-602V1|3.3.2|Is the TO the approval authority for circuitous travel?",
       "ref": "3.3.2",
-      "question": "Is the TO the approval authority for circuitous travel?",
+      "question": "Who approves circuitous or indirect travel?",
       "status": "verified",
-      "reason": "3.3.2 expressly denies TO approval authority; the MPS/AO approves and low cost or OCONUS location do not transfer authority.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"The servicing MPS/AO\".",
       "evidence": {
         "page": 32,
         "quote": "3.3.2. Circuitous routing must be approved in advance of travel by the servicing MPS/AO, and annotated in the travel orders (when practical). (T-0). MPS/AO may also provide a memorandum for the traveler to provide to Traffic Management Office (TMO) and FM to assist vouchering and to ensure reimbursement does not to exceed authorized cost. Note: The TO is not the approval authority for circuitous or indirect travel, therefore an MPS/AO memorandum is needed to separate official travel from un-official travel points. The"
       },
-      "answer": "No",
+      "answer": "The servicing MPS/AO",
       "wrong": [
-        "Yes, always",
-        "Yes, for OCONUS travel only",
-        "Yes, if the cost is lower"
+        "The TO",
+        "The TO, for OCONUS travel only",
+        "The TO, when the cost is lower"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is the TO the approval authority for circuitous travel?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Yes, for OCONUS travel only",
+          "Yes, if the cost is lower"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|3.3.4.1|For a member traveling circuitously by commercial air, which fare is used for the cost comparison?",
@@ -1917,20 +2049,31 @@
     {
       "id": "24-602V1|3.3.6|Can Space-A travel substitute for a leg the traveler has a space-required allowance for?",
       "ref": "3.3.6",
-      "question": "Can Space-A travel substitute for a leg the traveler has a space-required allowance for?",
+      "question": "What is the rule on using Space-A travel for a leg the traveler has a space-required allowance for?",
       "status": "verified",
-      "reason": "Space-A may accompany space-required travel but cannot replace an entitled leg. AO approval and PCS status do not remove this restriction.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Space-A may not substitute for that leg\".",
       "evidence": {
         "page": 33,
         "quote": "3.3.6. Space-available travel may be used in conjunction with a space-required travel as long as space-available travel does not substitute for any single leg for which the traveler has a space-required allowance. Reference DoDI 4515.13, section 4, paragraph 4.5."
       },
-      "answer": "No",
+      "answer": "Space-A may not substitute for that leg",
       "wrong": [
-        "Yes, always",
-        "Yes, with AO approval",
-        "Yes, for PCS travel"
+        "Space-A may always substitute",
+        "Space-A may substitute with AO approval",
+        "Space-A may substitute on PCS travel"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can Space-A travel substitute for a leg the traveler has a space-required allowance for?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Yes, with AO approval",
+          "Yes, for PCS travel"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|3.4|What is \"dual commitment\" transportation?",
@@ -2266,24 +2409,35 @@
     {
       "id": "24-602V1|3.14|Should passengers be routed to a farther airport solely because of a lower airfare?",
       "ref": "3.14",
-      "question": "When routing official travelers, should passengers be routed to a farther airport solely because of a lower airfare?",
+      "question": "What is the policy on routing passengers to a farther airport solely because of a lower airfare?",
       "status": "verified",
-      "reason": "3.14 says lower airfare alone cannot justify farther airport;100-mile and AO-unavailable exceptions are absent.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It should not be done\".",
       "evidence": {
         "page": 38,
         "quote": "3.14. Multiple Airports Servicing CONUS Origins/Destinations. Passengers should not be routed to an airport farther away from origin or destination airports based solely on a lower airfare. When arranging transportation, the TO/TMC must route passengers using the best value that meets mission requirements within established guidelines, local written policies and business rules which may include, but not limited to, authorized/establish commuting radius. (T-1). Per Diem, travel time, most direct route, authorized GSA contract carrier versus alternate carrier/airport, and rental car costs should be considered in factoring best value. (T-1). If a traveler’s request does not follow the order of precedence for travel in paragraph 2.3, or the airfare is more expensive, the final determination rests with the AO/order issuing official.\n3.14.1. Routing when no Patriot Express (PE) mission is available. When no PE mission is available, the member is entitled to commercial air transportation from the closest international airport from the member’s current PDS to the member’s new PDS. Passengers will be routed using GSA City Pair Airfares when available, or the Policy Constructed commercial Airfares over the normally traveled route. (T-1).\n3.14.2. Members requesting government transportation for the transoceanic travel from the CONUS must be routed from the following ports (T-1):\n3.14.2.1. For travel to Pacific Air Force (PACAF) installations, use Seattle International Airport.\n…"
       },
-      "answer": "No",
+      "answer": "It should not be done",
       "wrong": [
-        "Yes, always",
-        "Yes, if within 100 miles",
-        "Yes, if the AO is not available"
+        "It should always be done",
+        "It is done if within 100 miles",
+        "It is done if the AO is not available"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Should passengers be routed to a farther airport solely because of a lower airfare?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "When routing official travelers, should passengers be routed to a farther airport solely because of a lower airfare?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Yes, if within 100 miles",
+          "Yes, if the AO is not available"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -2325,20 +2479,31 @@
     {
       "id": "24-602V1|3.15|Is the Patriot Express considered MILAIR?",
       "ref": "3.15",
-      "question": "Is the Patriot Express considered MILAIR?",
+      "question": "How is the Patriot Express classified for official travel purposes?",
       "status": "verified",
-      "reason": "Patriot Express is contracted commercial service and is not MILAIR. PCS or TDY status does not change that classification.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is not MILAIR\".",
       "evidence": {
         "page": 39,
         "quote": "3.15. Travel on Military Aircraft (MILAIR). Patriot Express is an AMC-contracted commercial air service and is not considered MILAIR. MILAIR travel, often provided by Operational Support Airlift (OSA), is a premium mode involving high cost and limited resources, reference paragraph 3.18 MILAIR is used for high-priority missions and movement of passengers and cargo to meet mission sensitive requirements. MILAIR should not be used when commercial air, including AMC-contracted (Patriot Express) service, is able to meet the traveler’s departure and/or arrival requirements within a 24-hour period. Exceptions that would make commercial air transportation impractical would include an unusual circumstance that presents a clear and present danger, an emergency exists, use of MILAIR is more cost-effective than commercial air, or other similar compelling operational considerations.\n3.15.1. Required Use MILAIR Travelers. The SecAF and CSAF are the only Air Force required users as designated by the Secretary of Defense in DoDD 4500.56 Enclosure 3. Requesters must document their travel on DD Form 2768 and sign their request as the senior traveler and authorizing official. (T-0). Due to the continuous requirement for secure communications, security reasons or for responsive transportation to satisfy exceptional scheduling requirements dictated by frequent short-notice travel, commercial transportation is considered unacceptable. Reference DoDD 4500.56, enclosure 3 for a list of DoD officials designated as “Required Users” (Tiers 1 & 2) by the Secretary of Defense (SECDEF).\n…"
       },
-      "answer": "No",
+      "answer": "It is not MILAIR",
       "wrong": [
-        "Yes",
-        "Only for PCS travel",
-        "Only for TDY travel"
+        "It is MILAIR",
+        "It is MILAIR for PCS travel only",
+        "It is MILAIR for TDY travel only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is the Patriot Express considered MILAIR?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for PCS travel",
+          "Only for TDY travel"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|3.15|MILAIR should not be used when commercial air can meet the traveler's requirements within what period?",
@@ -2379,20 +2544,31 @@
     {
       "id": "24-602V1|3.15.2|May members make back-up commercial reservations while requesting MILAIR?",
       "ref": "3.15.2",
-      "question": "May members make back-up commercial reservations while requesting MILAIR?",
+      "question": "What is the rule on making back-up commercial reservations while requesting MILAIR?",
       "status": "verified",
-      "reason": "Back-up commercial reservations are prohibited while MILAIR is requested; refundability, AO approval, or a general yes do not remove dual commitment.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"They are not allowed\".",
       "evidence": {
         "page": 39,
         "quote": "3.15.2. Use DD Form 2768, Military Air Passenger/Cargo Request, to obtain and document airlift support. Members may not make back-up commercial reservations while requesting any type of MILAIR support. (T-1). (Prohibition of Dual Commitment reference 3.1)."
       },
-      "answer": "No",
+      "answer": "They are not allowed",
       "wrong": [
-        "Yes, always",
-        "Yes, refundable fares only",
-        "Yes, with AO approval"
+        "They are always allowed",
+        "They are allowed for refundable fares",
+        "They are allowed with AO approval"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May members make back-up commercial reservations while requesting MILAIR?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Yes, refundable fares only",
+          "Yes, with AO approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|3.16|How many digits is the Customer Identification Code (CIC) required on orders for travel on AMC aircraft?",
@@ -2631,20 +2807,31 @@
     {
       "id": "24-602V1|5.1.3|Is self-procurement of PCS transoceanic travel authorized?",
       "ref": "5.1.3",
-      "question": "Is self-procurement of PCS transoceanic travel authorized?",
+      "question": "When is self-procurement of PCS transoceanic travel authorized?",
       "status": "verified",
-      "reason": "5.1.3 permits self-procurement only if approved before travel and included in orders; unconditional yes/no or low cost alone conflict.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Only with approval in advance, in the orders\".",
       "evidence": {
         "page": 45,
         "quote": "5.1.3. Air Force members and DoD civilian employees and their authorized family members are required to obtain government-procured transoceanic travel through the TO/TMC. TO/TMC must use DoD owned, -controlled or -contracted aircraft to move travelers to, from and within overseas areas, when available. (T-1). Self-procurement of transoceanic travel is not authorized unless specifically approved prior to travel and included in the orders. (T-1)."
       },
-      "answer": "Only with advance approval in orders",
+      "answer": "Only with approval in advance, in the orders",
       "wrong": [
-        "Yes, always",
-        "Never",
-        "Yes, if cheaper than the Patriot Express"
+        "Whenever the traveler prefers a commercial carrier",
+        "Never, even with approval in the orders",
+        "When it is cheaper than the Patriot Express"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is self-procurement of PCS transoceanic travel authorized?",
+        "previousAnswer": "Only with advance approval in orders",
+        "previousWrong": [
+          "Yes, always",
+          "Never",
+          "Yes, if cheaper than the Patriot Express"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|5.3|On ships with two or more accommodation classes, which class is used?",
@@ -2803,20 +2990,31 @@
     {
       "id": "24-602V1|6.1|Are multiple alternate points authorized for RAT?",
       "ref": "6.1",
-      "question": "Are multiple alternate points authorized for RAT?",
+      "question": "How many alternate points are authorized for Renewal Agreement Travel (RAT)?",
       "status": "verified",
-      "reason": "6.1 explicitly prohibits multiple alternate RAT points; AO approval and equal price do not waive it.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"One, stated in the orders\".",
       "evidence": {
         "page": 47,
         "quote": "6.1. Renewal Agreement Travel (RAT). Civilian employees who are eligible for Renewal Agreement Travel (RAT) must obtain official travel orders from their servicing personnel office stating authorized travel locations and/or reimbursement allowance. (T-1). Employees may select an alternate point, but the alternate point must be stated in the orders. (T-1). The travel cost to the alternate point cannot exceed the authorized cost for travel between the old PDS and the place of actual residence and return to the old or new PDS, as applicable. Multiple alternate points are not authorized. Employees must arrange their travel through the TO/TMC. (T-1). Reference the JTR, Chapter 5, Part H."
       },
-      "answer": "No",
+      "answer": "One, stated in the orders",
       "wrong": [
-        "Yes, up to two",
-        "Yes, with AO approval",
-        "Yes, if cost is equal"
+        "Up to two",
+        "Any number with AO approval",
+        "Any number if the cost is equal"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are multiple alternate points authorized for RAT?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, up to two",
+          "Yes, with AO approval",
+          "Yes, if cost is equal"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|6.2|For COT/IPCOT travel, members may travel to their Home of Record or to another point not exceeding what?",
@@ -2839,38 +3037,60 @@
     {
       "id": "24-602V1|6.2|Can a cruise or tour package substitute for COT/IPCOT travel?",
       "ref": "6.2",
-      "question": "Can a cruise or tour package substitute for COT/IPCOT travel?",
+      "question": "What is the rule on using a cruise or tour package as a substitute for COT/IPCOT travel?",
       "status": "verified",
-      "reason": "6.2 explicitly rejects cruise/tour substitutions; price, MPS and family-only conditions do not authorize them.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not permitted\".",
       "evidence": {
         "page": 47,
         "quote": "6.2. Consecutive Overseas Tour (COT) and In-Place COT (IPCOT) Travel. Eligible members and their dependents are authorized travel and transportation for this funded leave, at government expense, between COT or IPCOT. Air Force members and their families may travel to their Home of Record, or to any other point not to exceed the cost of travel to the Home of Record. Since this is government-funded travel, use of GSA City Pair fares is authorized. Note: If the member chooses an alternate destination (i.e., not the authorized destination) and the travel cost is more expensive than transportation to the HOR, the member is financially responsible for the additional cost, unless transportation to the more expensive alternate place is authorized/approved by the Secretarial Process. In order to utilize the Secretarial Process, instruct the members to contact the local MPS for assistance with staffing the request to AF/A1PA, to staff to SAF/MR if appropriate. If the member elects to travel to a more expensive alternate place and the Secretarial Process has not authorized/approved travel to that destination, GSA City Pair fares are not authorized for transportation to/from that alternate place. The traveler may not use a cruise or tour packages as a substitute for COT/IPCOT travel. Members should visit their local MPS to determine COT allowances and eligibility. Reference the JTR, paragraph 050812."
       },
-      "answer": "No",
+      "answer": "Not permitted",
       "wrong": [
-        "Yes, if cheaper",
-        "Yes, with MPS approval",
-        "Yes, for families only"
+        "Permitted if cheaper",
+        "Permitted with MPS approval",
+        "Permitted for families only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can a cruise or tour package substitute for COT/IPCOT travel?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, if cheaper",
+          "Yes, with MPS approval",
+          "Yes, for families only"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|6.3|Should funded emergency leave travelers wait for an available Patriot Express mission?",
       "ref": "6.3",
-      "question": "Should funded emergency leave travelers wait for an available Patriot Express mission?",
+      "question": "For funded emergency leave travel, how long should travelers wait for an available Patriot Express mission?",
       "status": "verified",
-      "reason": "6.3 forbids delaying EL travelers pending PE availability; waiting72 hours or commander waiver is not required.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"They should not wait for the Patriot Express\".",
       "evidence": {
         "page": 47,
         "quote": "6.3. Funded Emergency Leave (EL) Travel. When eligible members, employees and authorized dependents permanently assigned to an OCONUS location receive notification of a family emergency away from their duty station, they may request travel orders to the emergency location. Review the JTR, paragraph 0403 for employees’ allowances. Once the member’s commander or the delegated authority has determined emergency travel is authorized, the member and/or family member(s) are entitled to government funded round-trip transportation IAW JTR, paragraph 0402, DTR 4500.9-R, Part 1, Chapter 102, and AFI 36-3003, Military Leave Program. When AMC-contracted airlift is not available, commercial air must be used. (T- 1). Do not delay the EL traveler(s) pending available Patriot Express missions. Note: For personal emergencies for members in TDY status see JTR paragraph 0402. The TMC will compute a baseline/authorized travel cost using GSA City Pair fares from the PDS to the nearest CONUS international airport (See Table 6.1). The TMC will consider GSA City Pair fares, military furlough and public fares that best accommodate the traveler's desires (i.e., travel dates, times, and destination). (T-0).\n…\n6.3.3. Use the member's GTCC for government funded emergency leave travel costs whenever possible.\n6.3.4. The unit commander, without re-delegation, may authorize other OCONUS destinations IAW AFI 36-3003."
       },
-      "answer": "No",
+      "answer": "They should not wait for the Patriot Express",
       "wrong": [
-        "Yes, always",
-        "Yes, up to 72 hours",
-        "Yes, unless the commander waives it"
+        "As long as it takes for a mission to open",
+        "Up to 72 hours",
+        "Until the commander waives it"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Should funded emergency leave travelers wait for an available Patriot Express mission?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Yes, up to 72 hours",
+          "Yes, unless the commander waives it"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|Table 6.1|For emergency leave baseline cost from USAFE, which CONUS airport is used?",
@@ -3019,20 +3239,31 @@
     {
       "id": "24-602V1|6.6|May IMAs use GSA City Pair fares when traveling to Inactive Duty Training?",
       "ref": "6.6",
-      "question": "May IMAs use GSA City Pair fares when traveling to Inactive Duty Training?",
+      "question": "Which fares may IMAs use when traveling to perform Inactive Duty Training?",
       "status": "verified",
-      "reason": "6.6 permits IMAs to use CPP for IDT; never, MAJCOM-only and OCONUS-only restrictions are absent.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"GSA City Pair fares\".",
       "evidence": {
         "page": 49,
         "quote": "6.6. Individual Mobilization Augmentee (IMA). IMAs may use GSA Airline City Pair Program fares when traveling to perform Inactive Duty Training, IAW DoDI 4515.16, Use of General Services Administration (GSA) Contracts for Air Passenger Transportation Services (GSA Airline City Pair Program) for Attendance at Inactive Duty (IDT) Assemblies. Reference http://arpc.afrc.af.mil/orders/travel.htm for more information."
       },
-      "answer": "Yes",
+      "answer": "GSA City Pair fares",
       "wrong": [
-        "No, never",
-        "Only with MAJCOM approval",
-        "Only OCONUS"
+        "Only full-fare economy tickets",
+        "GSA City Pair fares with MAJCOM approval only",
+        "GSA City Pair fares for OCONUS travel only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May IMAs use GSA City Pair fares when traveling to Inactive Duty Training?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No, never",
+          "Only with MAJCOM approval",
+          "Only OCONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|6.8|Which is true for NAF travel?",
@@ -3096,20 +3327,31 @@
     {
       "id": "24-602V1|6.14|Does POV car ferry transportation use up the POV shipping entitlement?",
       "ref": "6.14",
-      "question": "Does POV car ferry transportation use up the POV shipping entitlement?",
+      "question": "How does POV car ferry transportation affect the POV shipping entitlement?",
       "status": "verified",
-      "reason": "6.14 says car ferry does not exhaust POV shipment entitlement; OCONUS and PCS do not reverse it.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It does not use up the entitlement\".",
       "evidence": {
         "page": 50,
         "quote": "6.14. Privately Owned Vehicle (POV) – Car Ferry Transportation. Per Diem and reimbursement entitlements can be found in the JTR, paragraph 020211. Travel of this type does not exhaust the POV shipping entitlement in the JTR, paragraph 050202 D. Chapter 7 TRAVEL DOCUMENTATION AND BILLING"
       },
-      "answer": "No",
+      "answer": "It does not use up the entitlement",
       "wrong": [
-        "Yes",
-        "Only if OCONUS",
-        "Only for PCS travel"
+        "It uses up the entitlement",
+        "It uses up the entitlement if OCONUS",
+        "It uses up the entitlement on PCS travel"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does POV car ferry transportation use up the POV shipping entitlement?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only if OCONUS",
+          "Only for PCS travel"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|7.1.1|Which form, the Government Transportation Request, should be eliminated to the maximum extent possible?",
@@ -3214,20 +3456,31 @@
     {
       "id": "24-602V1|7.2|Must the orders and PNR be kept for tickets purchased with an IBA?",
       "ref": "7.2",
-      "question": "Must the orders and PNR be kept for tickets purchased with an IBA?",
+      "question": "For tickets purchased with an IBA, how long must the orders and PNR be kept?",
       "status": "verified",
-      "reason": "7.2 explicitly waives order/PNR retention for IBA tickets;2/6 years and until reconciliation are not the rule here.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"No retention is required\".",
       "evidence": {
         "page": 52,
         "quote": "7.2. Maintaining Records. For auditability purposes, at a minimum, the TO/TMC must retain a copy of orders for CBA and either a copy of the ticket, passenger name record (PNR), or AF Form 529, Request for Air Carrier Services, and Exception memorandum for each CBA transaction processed. (T-0). Additional documentation such as justification for non-use of GSA Airline City Pair Program fares, Patriot Express mission impact statements, etc. must also be retained. (T-2). CBA ticketing documentation must be grouped and filed together for reconciliation purposes and forwarded as determined by the supporting FSO and DFAS Field Site. (T-1). There is no requirement to retain a copy of orders, PNR or additional documentation for tickets purchased via IBA."
       },
-      "answer": "No",
+      "answer": "No retention is required",
       "wrong": [
-        "Yes, for 2 years",
-        "Yes, for 6 years",
-        "Yes, until reconciled"
+        "Two years from the travel date",
+        "Six years and three months",
+        "Until the CBA is reconciled"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Must the orders and PNR be kept for tickets purchased with an IBA?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, for 2 years",
+          "Yes, for 6 years",
+          "Yes, until reconciled"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|7.3|Which of these is an accountable form TOs must control until exhausted?",
@@ -3273,20 +3526,31 @@
     {
       "id": "24-602V1|7.4.1|Is use of DD Form 730, Receipt for Unused Transportation Request and/or Tickets, mandatory?",
       "ref": "7.4.1",
-      "question": "Is use of DD Form 730, Receipt for Unused Transportation Request and/or Tickets, mandatory?",
+      "question": "What is the status of DD Form 730 when receiving unused tickets?",
       "status": "verified",
-      "reason": "7.4.1 makes DD730 optional; CBA and OCONUS status do not make it mandatory.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Optional\".",
       "evidence": {
         "page": 52,
         "quote": "7.4. Receiving Unused Travel Documents. TOs/TMCs receiving unused travel documents must do the following:\n7.4.1. Document/file receipt for unused tickets per locally developed procedures (Use of DD Form 730, Receipt for Unused Transportation Request and/or Tickets, is optional). (T-1)."
       },
-      "answer": "No, it is optional",
+      "answer": "Optional",
       "wrong": [
-        "Yes, always",
-        "Yes, for CBA tickets",
-        "Yes, for OCONUS tickets"
+        "Mandatory",
+        "Mandatory for CBA tickets",
+        "Mandatory for OCONUS tickets"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is use of DD Form 730, Receipt for Unused Transportation Request and/or Tickets, mandatory?",
+        "previousAnswer": "No, it is optional",
+        "previousWrong": [
+          "Yes, always",
+          "Yes, for CBA tickets",
+          "Yes, for OCONUS tickets"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|7.4.2|What is marked across the face of unused, damaged, or canceled GTRs, warrants, and meal tickets?",
@@ -3512,20 +3776,31 @@
     {
       "id": "24-602V1|7.12.1|Should the PNR invoice show the CBA or IBA number?",
       "ref": "7.12.1",
-      "question": "Should the PNR invoice show the CBA or IBA number?",
+      "question": "Which account number should appear on the PNR invoice?",
       "status": "verified",
-      "reason": "7.12.1 excludes CBA/IBA numbers from PNR invoice;full,last-four andCBA-only alternatives still disclose numbers.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Neither the CBA nor the IBA number\".",
       "evidence": {
         "page": 54,
         "quote": "7.12. Centrally Billed Account (CBA) Procedures. The CBA is used as the method of payment/reimbursement for airline, rail and bus tickets when a traveler has not been issued an IBA/GTCC and meets the exemptions outlined in DoDI 5154.31, Vol. 4, paragraph 040602\n7.12.1. To preclude travelers from mistakenly requesting reimbursement when the CBA method of payment is used, the TMC will mark the traveler’s receipt or ticketed copy with the method of payment. (T-0). Tickets purchased using a CBA will state, “Airline ticket(s) paid by CBA, Non-Reimbursable to Traveler.” (T-0). Tickets purchased using an IBA will state, “Airline Ticket(s) paid by IBA, Reimbursable to Traveler”. (T-0). Note: The Passenger Name Record (PNR) invoice should not contain the CBA or IBA number."
       },
-      "answer": "No",
+      "answer": "Neither the CBA nor the IBA number",
       "wrong": [
-        "Yes, the full number",
-        "Yes, the last four digits",
-        "Only the CBA number"
+        "The full CBA or IBA account number",
+        "The last four digits of the account",
+        "The CBA number only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Should the PNR invoice show the CBA or IBA number?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, the full number",
+          "Yes, the last four digits",
+          "Only the CBA number"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V1|7.12.3|How often must the TO follow up on outstanding CBA credits due?",

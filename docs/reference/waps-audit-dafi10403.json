@@ -3384,53 +3384,77 @@
       "id": "3.15.4.4|Can weapons and ammunition deploy as or inside carry-on baggage?",
       "ref": "3.15.4.4",
       "status": "verified",
-      "decision": "The supplied 3.15.4.4 passage supports the keyed response to this stem: No. The alternatives were reviewed as competing responses within that scope and do not identify the stated requirement.",
-      "answer": "No",
+      "decision": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The supplied 3.15.4.4 passage supports the keyed response: Not permitted.",
+      "answer": "Not permitted",
       "distractors": [
         {
-          "choice": "Yes, if the troop leader approves",
-          "decision": "Does not match the 3.15.4.4 requirement requested by the stem; keyed response is No."
+          "choice": "Permitted if the troop leader approves",
+          "decision": "Contradicts the 3.15.4.4 requirement; keyed response is \"Not permitted\"."
         },
         {
-          "choice": "Yes, weapons only",
-          "decision": "Does not match the 3.15.4.4 requirement requested by the stem; keyed response is No."
+          "choice": "Permitted for weapons only, not ammunition",
+          "decision": "Contradicts the 3.15.4.4 requirement; keyed response is \"Not permitted\"."
         },
         {
-          "choice": "Yes, if unloaded",
-          "decision": "Does not match the 3.15.4.4 requirement requested by the stem; keyed response is No."
+          "choice": "Permitted if the weapons are unloaded",
+          "decision": "Contradicts the 3.15.4.4 requirement; keyed response is \"Not permitted\"."
         }
       ],
       "change": null,
       "evidence": {
         "page": 44,
         "quote": "3.15. Deploying Personnel. Deploying personnel will:\n…\n3.15.4. Personal Baggage. For purposes of this instruction, the term “bag” or “baggage” refers to any soft- or hard-sided container with carrying handle(s) containing items necessary for personal and duty use for the duration of the deployment. Deploying personnel will:\n…\n3.15.4.4. Not deploy weapons and ammunition as or within carry-on baggage. (T-1) Note: Some airlines allow movement of ammunition and weapons in checked baggage. Section 3F—Cargo Deployment"
-      }
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can weapons and ammunition deploy as or inside carry-on baggage?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, if the troop leader approves",
+          "Yes, weapons only",
+          "Yes, if unloaded"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      },
+      "question": "What is the rule on deploying weapons and ammunition as or inside carry-on baggage?"
     },
     {
       "id": "3.14.3|Can equipment normally shipped as freight or cargo be deployed as baggage?",
       "ref": "3.14.3",
       "status": "verified",
-      "decision": "The supplied 3.14.3 passage supports the keyed response to this stem: No. The alternatives were reviewed as competing responses within that scope and do not identify the stated requirement.",
-      "answer": "No",
+      "decision": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The supplied 3.14.3 passage supports the keyed response: It may not deploy as baggage.",
+      "answer": "It may not deploy as baggage",
       "distractors": [
         {
-          "choice": "Yes, if under 70 lb",
-          "decision": "Does not match the 3.14.3 requirement requested by the stem; keyed response is No."
+          "choice": "It may deploy as baggage if under 70 lb",
+          "decision": "Contradicts the 3.14.3 requirement; keyed response is \"It may not deploy as baggage\"."
         },
         {
-          "choice": "Yes, if listed on CED orders",
-          "decision": "Does not match the 3.14.3 requirement requested by the stem; keyed response is No."
+          "choice": "It may deploy as baggage if listed on CED orders",
+          "decision": "Contradicts the 3.14.3 requirement; keyed response is \"It may not deploy as baggage\"."
         },
         {
-          "choice": "Yes, if the UDM approves",
-          "decision": "Does not match the 3.14.3 requirement requested by the stem; keyed response is No."
+          "choice": "It may deploy as baggage if the UDM approves",
+          "decision": "Contradicts the 3.14.3 requirement; keyed response is \"It may not deploy as baggage\"."
         }
       ],
       "change": null,
       "evidence": {
         "page": 43,
         "quote": "3.14. Air Passenger Terminal. The APT will:\n…\n3.14.3. Not deploy equipment items normally shipped as freight or cargo as baggage IAW DAFI 24-605, Volume 2."
-      }
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can equipment normally shipped as freight or cargo be deployed as baggage?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, if under 70 lb",
+          "Yes, if listed on CED orders",
+          "Yes, if the UDM approves"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      },
+      "question": "What is the rule on deploying equipment normally shipped as freight or cargo as baggage?"
     },
     {
       "id": "3.16.4|Before submitting cargo and equipment shortfalls to the AF Command, the IDO or DCC staff first tries to source them from where?",

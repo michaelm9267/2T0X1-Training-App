@@ -710,20 +710,31 @@
     {
       "id": "DTR-II|Ch 202, para K.3.a(2)|Except for a mode change, may a shipper divert MILSTRIP materiel without direction from the supply source?",
       "ref": "Ch 202, para K.3.a(2)",
-      "question": "Except for a mode change, may a shipper divert MILSTRIP materiel without direction from the supply source?",
+      "question": "Except for a mode change, when may a shipper divert MILSTRIP materiel?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, any time', 'Yes, if the TO approves', 'Yes, for OCONUS shipments' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Only with direction from the supply source\".",
       "evidence": {
         "page": 7,
         "quote": "3. Holding and Diversion:\na. Holding and diverting are actions in which a shipper may be involved because of irregular or interrupted movement of cargo in the Defense Transportation System (DTS).\n…\n(2) A transportation diversion may be a change of mode (e.g., from air to water), a change of destination, and/or a change of route. Except for mode change, the shipper will not divert materiel requisitioned under MILSTRIP unless directed to do so by the supply source."
       },
-      "answer": "No",
+      "answer": "Only with direction from the supply source",
       "wrong": [
-        "Yes, any time",
-        "Yes, if the TO approves",
-        "Yes, for OCONUS shipments"
+        "Any time the shipper decides it is needed",
+        "Whenever the local TO approves the diversion",
+        "For OCONUS shipments"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Except for a mode change, may a shipper divert MILSTRIP materiel without direction from the supply source?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, any time",
+          "Yes, if the TO approves",
+          "Yes, for OCONUS shipments"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para K.3.b(2)|Which transportation priorities normally move by premium (air) transportation?",
@@ -913,24 +924,35 @@
     {
       "id": "DTR-II|Ch 202, para N.4.b|Are weekends and federal holidays counted in transit time?",
       "ref": "Ch 202, para N.4.b",
-      "question": "Under the DoD Standard Transit Time Guides, are weekends and federal holidays counted in transit time?",
+      "question": "Under the DoD Standard Transit Time Guides, which days count in transit time?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, all days count', 'Only weekends count', 'Only for AA&E' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Weekdays other than holidays\".",
       "evidence": {
         "page": 10,
         "quote": "N. TRANSIT TIMES\n…\n4. DoD standard transit times are based on either 500 or 700 miles a day, depending on the type of shipment. Computation of transit times is as follows:\n…\nb. Weekends and federal holidays will not be counted as part of the transit time. A delivery date that falls on a non-business day (weekend/federal holiday) will automatically be the next business day."
       },
-      "answer": "No",
+      "answer": "Weekdays other than holidays",
       "wrong": [
-        "Yes, all days count",
-        "Only weekends count",
-        "Only for AA&E"
+        "All calendar days, including holidays",
+        "Weekdays and weekends, not holidays",
+        "All days, for AA&E only"
       ],
       "editorialChange": true,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Are weekends and federal holidays counted in transit time?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Under the DoD Standard Transit Time Guides, are weekends and federal holidays counted in transit time?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, all days count",
+          "Only weekends count",
+          "Only for AA&E"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -959,24 +981,35 @@
     {
       "id": "DTR-II|Ch 202, para N.4.d|Does time in transit begin when the TSP's local driver accepts the load?",
       "ref": "Ch 202, para N.4.d",
-      "question": "Under the DoD Standard Transit Time Guides, does time in transit begin when the TSP's local driver accepts the load?",
+      "question": "Under the DoD Standard Transit Time Guides, how is the TSP's local driver accepting the load treated?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for SNS shipments', 'Only on weekends' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It does not start time in transit\".",
       "evidence": {
         "page": 10,
         "quote": "N. TRANSIT TIMES\n…\n4. DoD standard transit times are based on either 500 or 700 miles a day, depending on the type of shipment. Computation of transit times is as follows:\n…\nd. Shippers that utilize local drivers must coordinate the required delivery date (RDD) with Transportation Service Provider (TSP) and the destination. Coordination will include destination operating hours, any delivery restrictions specific to the destination and time in transit from when the over-the-road team is scheduled to depart the installation. Time-in- transit will not commence when the TSPs local driver accepts the load."
       },
-      "answer": "No",
+      "answer": "It does not start time in transit",
       "wrong": [
-        "Yes",
-        "Only for SNS shipments",
-        "Only on weekends"
+        "It starts time in transit",
+        "It starts time in transit for SNS only",
+        "It starts time in transit on weekends"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Does time in transit begin when the TSP's local driver accepts the load?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Under the DoD Standard Transit Time Guides, does time in transit begin when the TSP's local driver accepts the load?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for SNS shipments",
+          "Only on weekends"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -1090,20 +1123,31 @@
     {
       "id": "DTR-II|Ch 202, para O.3|Are carrier requests to use a \"rolling permit\" process permitted?",
       "ref": "Ch 202, para O.3",
-      "question": "Are carrier requests to use a \"rolling permit\" process permitted?",
+      "question": "What is the policy on carrier requests to use a \"rolling permit\" process?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only within CONUS', 'Only with TO approval' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not permitted\".",
       "evidence": {
         "page": 10,
         "quote": "O. PERMITS FOR MOTOR SHIPMENTS\n…\n3. Carriers are required to obtain all the necessary permits. Shipping activities must not release DoD oversize/overweight cargo shipments until the carrier has notified or presented the shipping activity with a written statement that the carrier has, or will be able to obtain, the required state road-use permits. At a minimum, the carrier must present to the shipping activity the permit for the origin state prior to shipment release. Carrier requests to utilize a “rolling permit” process will not be permitted. Under the unusual situation where a shipment by motor carrier has been certified as essential to national defense, the TO will request assistance for a Letter of Essentiality from ARTRANS Operations via e-mail at usarmy.scott.artrans.mbx.g3-domestic-freight-services- branch@army.mil or the theater CDR."
       },
-      "answer": "No",
+      "answer": "Not permitted",
       "wrong": [
-        "Yes",
-        "Only within CONUS",
-        "Only with TO approval"
+        "Permitted",
+        "Permitted within CONUS",
+        "Permitted with TO approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are carrier requests to use a \"rolling permit\" process permitted?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only within CONUS",
+          "Only with TO approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para P.1.b|What does the TO do when the carrier furnishes equipment different from what was ordered?",
@@ -1239,20 +1283,31 @@
     {
       "id": "DTR-II|Ch 202, para Q.6.a|May receivers reverse route empty DFRIF cars?",
       "ref": "Ch 202, para Q.6.a",
-      "question": "May receivers reverse route empty DFRIF cars?",
+      "question": "What is the rule on receivers reverse routing empty DFRIF cars?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, back to the origin', 'Yes, with TO approval', 'Yes, if within the same state' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 12,
         "quote": "Q. DEFENSE FREIGHT RAILWAY INTERCHANGE FLEET (DFRIF)\n…\n6. When releasing empty cars:\na. The receivers of the equipment may not reverse route empty cars. They must contact the ARTRANS contractor for destination and routing instructions. They will use these instructions to prepare a BL and annotate the BL with “Free under the provisions of Freight Tariff RPS 6007, Mileage Allowances and Rules.”"
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes, back to the origin",
-        "Yes, with TO approval",
-        "Yes, if within the same state"
+        "Allowed back to the origin",
+        "Allowed with TO approval",
+        "Allowed within the same state"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May receivers reverse route empty DFRIF cars?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, back to the origin",
+          "Yes, with TO approval",
+          "Yes, if within the same state"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para Q.8.d|How many functioning chain tie-down assemblies must each DFRIF car have?",
@@ -1347,20 +1402,31 @@
     {
       "id": "DTR-II|Ch 202, para S.2|Under the SOLAS Verified Gross Mass (VGM) rule, may the weight of a container's contents be estimated?",
       "ref": "Ch 202, para S.2",
-      "question": "Under the SOLAS Verified Gross Mass (VGM) rule, may the weight of a container's contents be estimated?",
+      "question": "Under the SOLAS Verified Gross Mass (VGM) rule, what is the rule on estimating the weight of a container's contents?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for LTL', 'Only under 10,000 lbs' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It may not be estimated\".",
       "evidence": {
         "page": 14,
         "quote": "S. WEIGHING CARGO\n…\n2. Containers moving by vessel must follow Verified Gross Mass (VGM) requirements of the International Maritime Organization (IMO) Safety of Life at Sea (SOLAS) Convention. Weighing equipment used to weigh the contents of the container must meet the applicable accuracy standards and requirements of the State in which the equipment is being used. Estimating the weight of a container’s contents is not permitted. See Chapter 203, Paragraph B.21."
       },
-      "answer": "No",
+      "answer": "It may not be estimated",
       "wrong": [
-        "Yes",
-        "Only for LTL",
-        "Only under 10,000 lbs"
+        "It may be estimated",
+        "It may be estimated for LTL",
+        "It may be estimated under 10,000 lbs"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Under the SOLAS Verified Gross Mass (VGM) rule, may the weight of a container's contents be estimated?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for LTL",
+          "Only under 10,000 lbs"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para S.5|For commercial air, what is the billable weight?",
@@ -1501,20 +1567,31 @@
     {
       "id": "DTR-II|Ch 202, para Y.2.b|May a TSP's U.S. shipyard maintenance percentage be released to other TSPs?",
       "ref": "Ch 202, para Y.2.b",
-      "question": "May a TSP's U.S. shipyard maintenance percentage be released to other TSPs?",
+      "question": "What is the rule on releasing a TSP's U.S. shipyard maintenance percentage to other TSPs?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only to Category 1 TSPs', 'Only after award' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It may not be released\".",
       "evidence": {
         "page": 17,
         "quote": "Y. APPLICATION OF DOMESTIC SHIPYARD PREFERENCE\n…\n2. Application:\n…\nb. Voluntary Tenders and Spot Bids: For all TSPs with a Mode O (water) voluntary tender that can meet the movement requirement being evaluated, DoD shippers must request each TSP’s percent maintenance (percentage, i.e. - 88.7%) in writing for a best value determination. Note that these percentages MUST NOT be released to any other TSP or non-DoD entity, but must remain with DoD personnel involved in the movement of cargo.\n(1) Reference the “Threshold & Preference” criteria, award preference will be as follows:\n(a) First preference: Category 1, technically acceptable TSPs low-to-high cost.\n(b) Second preference: Category 2, technically acceptable TSPs low-to-high cost."
       },
-      "answer": "No",
+      "answer": "It may not be released",
       "wrong": [
-        "Yes",
-        "Only to Category 1 TSPs",
-        "Only after award"
+        "It may be released",
+        "It may be released to Category 1 TSPs",
+        "It may be released after award"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a TSP's U.S. shipyard maintenance percentage be released to other TSPs?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only to Category 1 TSPs",
+          "Only after award"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para Z.1.a|What is the preferred method for shipping DoD-sponsored export cargo?",
@@ -1537,20 +1614,31 @@
     {
       "id": "DTR-II|Ch 202, para Z.2.a|Does moving export cargo to a CCP require an ETRR?",
       "ref": "Ch 202, para Z.2.a",
-      "question": "Does moving export cargo to a CCP require an ETRR?",
+      "question": "What is the ETRR requirement for moving export cargo to a CCP?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for AA&E', 'Only over 10,000 lbs' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not required\".",
       "evidence": {
         "page": 18,
         "quote": "Z. GUIDANCE ON INTERMODAL SURFACE CONTAINERS AND USE OF A CONSOLIDATION AND CONTAINERIZATION POINT (CCP)\n…\n2. Use of a CCP:\na. The movement of export cargo to a CCP does not require an Export Traffic Release Request (ETRR), but the cargo will be routed IAW this chapter."
       },
-      "answer": "No",
+      "answer": "Not required",
       "wrong": [
-        "Yes",
-        "Only for AA&E",
-        "Only over 10,000 lbs"
+        "Required",
+        "Required for AA&E",
+        "Required over 10,000 lbs"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does moving export cargo to a CCP require an ETRR?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for AA&E",
+          "Only over 10,000 lbs"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para AA.2.c(1)|Which ocean cargo lot requires an ETRR?",
@@ -1596,20 +1684,31 @@
     {
       "id": "DTR-II|Ch 202, para AA.2.c(2)(c)|May shipments covered by separate ETRs be combined?",
       "ref": "Ch 202, para AA.2.c(2)(c)",
-      "question": "May shipments covered by separate ETRs be combined?",
+      "question": "When may shipments covered by separate ETRs be combined?",
       "status": "verified",
-      "reason": "The cited rule gives 'Not without prior approval from the clearance authority' for this question. The alternatives 'Yes, any time', 'Only by the carrier', 'Never, under any circumstances' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"With prior clearance authority approval\".",
       "evidence": {
         "page": 20,
         "quote": "(2) Issuance of an ETR.\n…\n(c) Shipments covered by separate ETRs will not be combined without prior approval from the clearance authority. When approval is received, the TO will enter all ETR reference numbers on the BL."
       },
-      "answer": "Not without prior approval from the clearance authority",
+      "answer": "With prior clearance authority approval",
       "wrong": [
-        "Yes, any time",
-        "Only by the carrier",
-        "Never, under any circumstances"
+        "Any time the shipper has room in the container",
+        "Only when the ocean carrier combines them at the port",
+        "Never, under any circumstances, even with approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May shipments covered by separate ETRs be combined?",
+        "previousAnswer": "Not without prior approval from the clearance authority",
+        "previousWrong": [
+          "Yes, any time",
+          "Only by the carrier",
+          "Never, under any circumstances"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 202, para AA.2.d(2)(b)|Under direct booking, what replaces the Port Call File Number?",
@@ -1853,20 +1952,31 @@
     {
       "id": "DTR-II|Ch 202, para EE|May TOP SECRET information be sent by the U.S. Postal Service?",
       "ref": "Ch 202, para EE",
-      "question": "May TOP SECRET information be sent by the U.S. Postal Service?",
+      "question": "What is the rule on sending TOP SECRET information by the U.S. Postal Service?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, by registered mail', 'Yes, within CONUS', 'Yes, with return receipt' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 26,
         "quote": "EE. TOP SECRET In accordance with the guidance in 32 CFR, Part 2001, Classified National Security Information, TOP SECRET materiel may be shipped/transmitted between the United States, Puerto Rico, or a U.S. possession or trust territory by direct contact between authorized persons, the Defense Courier Division (DCD) or an authorized government agency courier service, a designated courier or escort with TOP SECRET clearance, or electronic means over approved communications systems. Under no circumstances will TOP SECRET information be transmitted via the U.S. Postal Service or any other cleared or uncleared commercial carrier. Shippers who are able to provide their own cleared couriers or escorts are authorized to do so, and should follow the procedures outlined in 32 CFR and DoD Manual 5200.01, Volume 3, DoD Information Security Program: Protection of Classified Information. For shippers who need to ship materiel outside of the areas designated by 32 CFR or who otherwise need assistance, contact the DCD using the USTRANSCOM DCD website listed below in Paragraph DD.1."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes, by registered mail",
-        "Yes, within CONUS",
-        "Yes, with return receipt"
+        "Allowed by registered mail",
+        "Allowed within CONUS",
+        "Allowed with return receipt"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May TOP SECRET information be sent by the U.S. Postal Service?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, by registered mail",
+          "Yes, within CONUS",
+          "Yes, with return receipt"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para A.4|When the FPCON differs between origin and destination, which applies?",
@@ -2061,20 +2171,31 @@
     {
       "id": "DTR-II|Ch 205, para C.2.a(8)(b)|May a TSP local driver leave the installation with a TPS load?",
       "ref": "Ch 205, para C.2.a(8)(b)",
-      "question": "May a TSP local driver leave the installation with a TPS load?",
+      "question": "Under what circumstances may a TSP local driver leave the installation with a TPS load?",
       "status": "verified",
-      "reason": "The cited rule gives 'No, not for any reason' for this question. The alternatives 'Yes, in an emergency', 'Yes, with a second driver', 'Yes, within 50 miles' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Under no circumstances\".",
       "evidence": {
         "page": 6,
         "quote": "(8) Installations’ use of local TSP drivers:\n…\n(b) A local driver is a single driver that meets all of the other applicable provisions to transport TPS freight requiring PSS—except the second driver. The local driver is used to benefit both the TSP and the installation by allowing efficient scheduling and use of resources. For shipping installations, the local driver can spot empty equipment, sign for loads, and place them into secure holding. For receiving installations, the local driver can pull loaded equipment, from secure holding, and spot the loaded equipment as required. The local driver is not permitted to leave the installation with TPS loads for any reason."
       },
-      "answer": "No, not for any reason",
+      "answer": "Under no circumstances",
       "wrong": [
-        "Yes, in an emergency",
-        "Yes, with a second driver",
-        "Yes, within 50 miles"
+        "In an emergency",
+        "With a second driver aboard the vehicle",
+        "Within 50 miles"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a TSP local driver leave the installation with a TPS load?",
+        "previousAnswer": "No, not for any reason",
+        "previousWrong": [
+          "Yes, in an emergency",
+          "Yes, with a second driver",
+          "Yes, within 50 miles"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para C.2.a(8)(a)|Who reviews and approves an installation's local driver policy?",
@@ -2097,20 +2218,31 @@
     {
       "id": "DTR-II|Ch 205, para C.2.a(10)|May arms and ammunition of the same caliber be shipped in the same container or conveyance?",
       "ref": "Ch 205, para C.2.a(10)",
-      "question": "May arms and ammunition of the same caliber be shipped in the same container or conveyance?",
+      "question": "What is the rule on shipping arms and ammunition of the same caliber in the same container or conveyance?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only in CONUS', 'Only with SEV' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 6,
         "quote": "(10) Arms and ammunition of the same caliber shall not be shipped in the same container or conveyance."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes",
-        "Only in CONUS",
-        "Only with SEV"
+        "Allowed",
+        "Allowed within CONUS",
+        "Allowed with an SEV escort"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May arms and ammunition of the same caliber be shipped in the same container or conveyance?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only in CONUS",
+          "Only with SEV"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para C.2.b(3)|Where is the status of the satellite motor surveillance check recorded?",
@@ -2169,20 +2301,31 @@
     {
       "id": "DTR-II|Ch 205, para C.2.b(4)(a)|Can an equipment substitution for carrier convenience add charges to the Government?",
       "ref": "Ch 205, para C.2.b(4)(a)",
-      "question": "Can an equipment substitution for carrier convenience add charges to the Government?",
+      "question": "What charges may an equipment substitution for carrier convenience add for the Government?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, at tender rates', 'Yes, if the TO approves', 'Only for accessorials' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 7,
         "quote": "(a) Equipment substitution for carrier convenience shall not result in additional charge to the Government."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes, at tender rates",
-        "Yes, if the TO approves",
-        "Only for accessorials"
+        "Charges at tender rates",
+        "Charges the TO approves",
+        "Accessorial charges only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can an equipment substitution for carrier convenience add charges to the Government?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, at tender rates",
+          "Yes, if the TO approves",
+          "Only for accessorials"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para C.2.c(10)|SRC I and II shipments are not released if the transit time puts the TSP at destination when?",
@@ -2205,38 +2348,60 @@
     {
       "id": "DTR-II|Ch 205, para C.2.c(16)|Are stop-offs permitted for SRC I and II AA&E?",
       "ref": "Ch 205, para C.2.c(16)",
-      "question": "Are stop-offs permitted for SRC I and II AA&E?",
+      "question": "When are stop-offs permitted for SRC I and II AA&E?",
       "status": "verified",
-      "reason": "The cited rule gives 'No, except split pickup/delivery within the same installation or facility' for this question. The alternatives 'Yes, up to two', 'Yes, at DoD installations', 'Yes, with SEV' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Only within the same installation or facility\".",
       "evidence": {
         "page": 8,
         "quote": "2. The TO, Contracting Officer (CO), Ordering Officer, and COR:\n…\nc. Release AA&E, classified and sensitive shipments that require a TPS as follows:\n…\n(16) SRCs I and II AA&E shall be delivered directly to the destination—no stop-offs are permitted. Exception: Split pickup and delivery at more than one location within the confines of the same installation or facility are permitted."
       },
-      "answer": "No, except split pickup/delivery within the same installation or facility",
+      "answer": "Only within the same installation or facility",
       "wrong": [
-        "Yes, up to two",
-        "Yes, at DoD installations",
-        "Yes, with SEV"
+        "Up to two stop-offs per shipment",
+        "At any DoD installation along the planned route",
+        "Whenever an SEV escorts the shipment"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are stop-offs permitted for SRC I and II AA&E?",
+        "previousAnswer": "No, except split pickup/delivery within the same installation or facility",
+        "previousWrong": [
+          "Yes, up to two",
+          "Yes, at DoD installations",
+          "Yes, with SEV"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para C.2.c(18)|May a POV be used to carry, move, or store AA&E?",
       "ref": "Ch 205, para C.2.c(18)",
-      "question": "May a POV be used to carry, move, or store AA&E?",
+      "question": "What is the rule on using a POV to carry, move, or store AA&E?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, on the installation', 'Yes, by the TSP', 'Yes, for small arms' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 9,
         "quote": "2. The TO, Contracting Officer (CO), Ordering Officer, and COR:\n…\nc. Release AA&E, classified and sensitive shipments that require a TPS as follows:\n…\n(18) Use of a privately owned vehicle (POV) either on or off the installation to carry, move, or store AA&E is prohibited. Use of a POV to transport AA&E by a TSP is prohibited."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes, on the installation",
-        "Yes, by the TSP",
-        "Yes, for small arms"
+        "Allowed on the installation",
+        "Allowed when the TSP provides it",
+        "Allowed for small arms"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a POV be used to carry, move, or store AA&E?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, on the installation",
+          "Yes, by the TSP",
+          "Yes, for small arms"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para C.2.c(21)|What may the TSP NOT provide as a dromedary?",
@@ -2385,20 +2550,31 @@
     {
       "id": "DTR-II|Ch 205, para G.1.a(4)|May the outside container of a small sensitive shipment bear classification markings?",
       "ref": "Ch 205, para G.1.a(4)",
-      "question": "May the outside container of a small sensitive shipment bear classification markings?",
+      "question": "What classification markings may the outside container of a small sensitive shipment bear?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, on one side', 'Yes, on the top', 'Only for SECRET' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 14,
         "quote": "1. Requirements for small shipments of AA&E, classified (SECRET/CONFIDENTIAL/ NWRM), and Sensitive cargo, and in conjunction with responsibilities listed in this chapter’s Paragraph C:\na. The origin TO shall:\n…\n(4) Shipping documents (DD Form 1348-1A, Issue Release/Receipt Document, Figure 205-14, DD Form 1149, Requisition and Invoice/Shipping Document, Figure 205-13), or DD Form 250, Material Inspection and Receiving Report, Figure 205-12, for contractor shipped FMS), shall be placed in inner receptacle and all markings not applicable to the shipment on outside shipping container shall be obliterated. The container shall not bear classification markings or other unusual marks that invite special attention that the contents are classified or sensitive items."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes, on one side",
-        "Yes, on the top",
-        "Only for SECRET"
+        "Markings on one side",
+        "Markings on the top",
+        "SECRET markings only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May the outside container of a small sensitive shipment bear classification markings?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, on one side",
+          "Yes, on the top",
+          "Only for SECRET"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para G.2.a|What are \"small arms\" under Chapter 205?",
@@ -2439,20 +2615,31 @@
     {
       "id": "DTR-II|Ch 205, para G.2.d(6)|May a requisition of 16 or more arms be split into multiple packages to use NGDS?",
       "ref": "Ch 205, para G.2.d(6)",
-      "question": "May a requisition of 16 or more arms be split into multiple packages to use NGDS?",
+      "question": "What is the rule on splitting a requisition of 16 or more arms into multiple packages to use NGDS?",
       "status": "verified",
-      "reason": "The cited rule gives 'No, it is prohibited' for this question. The alternatives 'Yes', 'Yes, with TO approval', 'Only in CONUS' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is prohibited\".",
       "evidence": {
         "page": 15,
         "quote": "2. Small Arms:\n…\nd. NGDS Domestic contracts:\n…\n(6) Requisitions shall be shipped to a single consignee. Breaking a requisition of 16 or more arms into multiple packages/shipments in order to utilize this shipping methodology is prohibited."
       },
-      "answer": "No, it is prohibited",
+      "answer": "It is prohibited",
       "wrong": [
-        "Yes",
-        "Yes, with TO approval",
-        "Only in CONUS"
+        "It is allowed",
+        "It is allowed with TO approval",
+        "It is allowed within CONUS"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a requisition of 16 or more arms be split into multiple packages to use NGDS?",
+        "previousAnswer": "No, it is prohibited",
+        "previousWrong": [
+          "Yes",
+          "Yes, with TO approval",
+          "Only in CONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para G.2.d(7)|Under NGDS, how many shipment requisitions of arms may go per conveyance/carrier to a consignee per day?",
@@ -2493,38 +2680,60 @@
     {
       "id": "DTR-II|Ch 205, para G.2.e(1)|May contractors use the USPS to ship small arms?",
       "ref": "Ch 205, para G.2.e(1)",
-      "question": "May contractors use the USPS to ship small arms?",
+      "question": "What is the rule on contractors using the USPS to ship small arms?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only by registered mail', 'Only 15 or fewer' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 16,
         "quote": "2. Small Arms:\n…\ne. USPS:\n(1) For CONUS to CONUS movements, an alternative to the use of CIS for small arms is the USPS Registered Mail (Designated Person/Return Receipt Requested) overnight service when the size and weight of the shipment meets USPS restrictions (70 lbs, girth does not exceed 108 inches). Small arms in small quantities (15 or fewer) may be sent via USPS Registered Mail, Return Receipt Requested, if initiated by a Federal Standard Requisitioning and Issue Procedures (FEDSTRIP)/Military Standard Requisitioning and Issue Procedures (MILSTRIP) document, or on a DD Form 250, Material Inspection and Receiving Report, Figure 205-12, or a DD Form 1149, Figure 205-13. Contractors are prohibited from using the USPS to ship small arms."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes",
-        "Only by registered mail",
-        "Only 15 or fewer"
+        "Allowed",
+        "Allowed by registered mail",
+        "Allowed for 15 or fewer"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May contractors use the USPS to ship small arms?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only by registered mail",
+          "Only 15 or fewer"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para G.2.e(2)|May USPS be used to move small arms to an AMC APOE for onward channel airlift?",
       "ref": "Ch 205, para G.2.e(2)",
-      "question": "May USPS be used to move small arms to an AMC APOE for onward channel airlift?",
+      "question": "What is the rule on using the USPS to move small arms to an AMC APOE for onward channel airlift?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only with return receipt', 'Only from contractors' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 16,
         "quote": "2. Small Arms:\n…\ne. USPS:\n…\n(2) Do not use the USPS method to move small arms shipments to an AMC aerial port of embarkation (APOE) for onward channel airlift. Reference Table 205-2 and Table 205-6 for seal/lock guidance."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes",
-        "Only with return receipt",
-        "Only from contractors"
+        "Allowed",
+        "Allowed with return receipt",
+        "Allowed from contractors"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May USPS be used to move small arms to an AMC APOE for onward channel airlift?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only with return receipt",
+          "Only from contractors"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para G.3.b|FAK carriers may move unclassified A&E HC/Div 1.4, 1.5, or 1.6 (CIIC 7, P, or U) under what aggregate gross weight?",
@@ -2637,20 +2846,31 @@
     {
       "id": "DTR-II|Ch 205, para G.4.c|Are shipments of CADs via the USPS authorized?",
       "ref": "Ch 205, para G.4.c",
-      "question": "Are shipments of CADs via the USPS authorized?",
+      "question": "What is the policy on shipping CADs via the USPS?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only by registered mail', 'Only in CONUS' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not authorized\".",
       "evidence": {
         "page": 19,
         "quote": "G. SMALL SHIPMENTS OF AA&E, CLASSIFIED (SECRET/CONFIDENTIAL/NWRM), PROTECTED, AND SENSITIVE CARGO\n…\n4. Cartridge and Propellant Actuated Devices (CAD/PADs/FSC 1377):\n…\nc. USPS:\n(1) No shipments of CADs via the USPS are authorized."
       },
-      "answer": "No",
+      "answer": "Not authorized",
       "wrong": [
-        "Yes",
-        "Only by registered mail",
-        "Only in CONUS"
+        "Authorized",
+        "Authorized by registered mail",
+        "Authorized within CONUS"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are shipments of CADs via the USPS authorized?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only by registered mail",
+          "Only in CONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para G.5.b(1)|TOP SECRET shipments can only be moved by what?",
@@ -2673,20 +2893,31 @@
     {
       "id": "DTR-II|Ch 205, para G.5.b(3)|Is the NGDS TSP told the classification of a classified shipment?",
       "ref": "Ch 205, para G.5.b(3)",
-      "question": "Is the NGDS TSP told the classification of a classified shipment?",
+      "question": "What is the NGDS TSP told about a classified shipment's classification?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only if SECRET', 'Only on request' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Nothing\".",
       "evidence": {
         "page": 19,
         "quote": "5. Classified (SECRET/CONFIDENTIAL/NWRM) Material:\n…\nb. NGDS Domestic Contracts:\n…\n(3) The TSP shall not be told the classification of the shipment."
       },
-      "answer": "No",
+      "answer": "Nothing",
       "wrong": [
-        "Yes",
-        "Only if SECRET",
-        "Only on request"
+        "The classification",
+        "SECRET only",
+        "The classification, on request"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is the NGDS TSP told the classification of a classified shipment?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only if SECRET",
+          "Only on request"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para G.5.b(6)|Which is an authorized delivery address for a classified NGDS shipment?",
@@ -2763,20 +2994,31 @@
     {
       "id": "DTR-II|Ch 205, para H.1|Does a shipper applying a seal constitute a request for Exclusive Use (EXC)?",
       "ref": "Ch 205, para H.1",
-      "question": "Does a shipper applying a seal constitute a request for Exclusive Use (EXC)?",
+      "question": "What does a shipper applying a seal mean for Exclusive Use (EXC)?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for SECRET', 'Only for TL' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is not an EXC request\".",
       "evidence": {
         "page": 22,
         "quote": "H. SEALING OF MOTOR CONVEYANCES/CONTAINERS\n1. Shippers shall apply DoD-approved seals on motor shipments of material requiring TPS when prescribed in Table 205-1 or Table 205-2. An express air TSP motor vehicle transporting shipments on local pickup or delivery service shall be locked (a seal is not required). Seal application by the shipper does not constitute a request for Exclusive Use (EXC)."
       },
-      "answer": "No",
+      "answer": "It is not an EXC request",
       "wrong": [
-        "Yes",
-        "Only for SECRET",
-        "Only for TL"
+        "It is an EXC request",
+        "It is an EXC request for SECRET",
+        "It is an EXC request for TL"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does a shipper applying a seal constitute a request for Exclusive Use (EXC)?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for SECRET",
+          "Only for TL"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para H.3|When a seal is replaced, which must be entered on the BL?",
@@ -2976,38 +3218,60 @@
     {
       "id": "DTR-II|Ch 205, para K.4.f|May general cargo moving as classified cargo (e.g., sensitive hard drives) move as FAK?",
       "ref": "Ch 205, para K.4.f",
-      "question": "May general cargo moving as classified cargo (e.g., sensitive hard drives) move as FAK?",
+      "question": "What is the rule on general cargo moving as classified cargo (e.g., sensitive hard drives) moving as FAK?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only LTL', 'Only by air' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It may not move as FAK\".",
       "evidence": {
         "page": 24,
         "quote": "K. BL\n…\n4. For shipments consisting of classified and unclassified AA&E, the shipper:\n…\nf. May not transport general cargo (e.g., circuit cards and sensitive hard drives) moving as classified cargo as FAK."
       },
-      "answer": "No",
+      "answer": "It may not move as FAK",
       "wrong": [
-        "Yes",
-        "Only LTL",
-        "Only by air"
+        "It may move as FAK",
+        "It may move as FAK if LTL",
+        "It may move as FAK by air"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May general cargo moving as classified cargo (e.g., sensitive hard drives) move as FAK?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only LTL",
+          "Only by air"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para L.2|May a shipment requiring a REPSHIP be made without confirmation from the receiving activity?",
       "ref": "Ch 205, para L.2",
-      "question": "May a shipment requiring a REPSHIP be made without confirmation from the receiving activity?",
+      "question": "Before a shipment requiring a REPSHIP is made, what is needed from the receiving activity?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, if urgent', 'Yes, for CONUS', 'Yes, with TO approval' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Confirmation\".",
       "evidence": {
         "page": 25,
         "quote": "L. REPSHIP REQUIREMENTS\n…\n2. TOs shall ensure a REPSHIP is submitted for all categories of AA&E shipments originating CONUS or OCONUS, to include: - Coded Classified, sensitive, pilferage - HAZMAT shipments as provided in Chapter 204 Prior to shipment, origin TOs should ensure that the receiving activity 1) acknowledges awareness of the impending shipment and 2) confirms the ability to receive it in accordance with regulations. Under no circumstances should a shipment requiring a REPSHIP be made by the origin TO without first receiving this confirmation from the destination/receiving activity. For SNS CONUS-to-CONUS movements: Shippers shall use the DTTS website to transmit a REPSHIP to final destination unless both the shipper and destination shipper systems are capable of exchanging REPSHIPs via electronic interchange or electronic means (e.g., e-mail, fax, CMOS, GFM, VSM and DSS/WMS. Shippers can use the TFG for more information on transportation node contact information and capability to process cargo.\na. Shippers executing a REPSHIP shall utilize an electronic means (e.g., via e-mail, fax, DTTS, or electronic interchange in the shipper’s system) to transmit the REPSHIP to both the next immediate en route transportation node and the final destination. Manual REPSHIPS shall be prepared IAW the format in Figure 205-10 and sent via message, e-mail, or fax. The origin shipping office shall send a REPSHIP (manual or automated) to the port of embarkation (POE) for OCONUS DTS shipments for all categories of material requiring TPS.\n…"
       },
-      "answer": "No",
+      "answer": "Confirmation",
       "wrong": [
-        "Yes, if urgent",
-        "Yes, for CONUS",
-        "Yes, with TO approval"
+        "Nothing, if the shipment is urgent",
+        "Nothing, for CONUS shipments",
+        "Nothing, if the TO approves"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a shipment requiring a REPSHIP be made without confirmation from the receiving activity?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, if urgent",
+          "Yes, for CONUS",
+          "Yes, with TO approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para L.2.b|For SNS CONUS-to-CONUS movements, how is the REPSHIP normally sent?",
@@ -3084,20 +3348,31 @@
     {
       "id": "DTR-II|Ch 205, para M.1.c|Do personnel on unit moves in military-owned vehicles need a security clearance?",
       "ref": "Ch 205, para M.1.c",
-      "question": "Do personnel on unit moves in military-owned vehicles need a security clearance?",
+      "question": "Which personnel on unit moves in military-owned vehicles need a security clearance?",
       "status": "verified",
-      "reason": "The cited rule gives 'Only classified-item protectors' for this question. The alternatives 'Yes, all need SECRET', 'Yes, all need CONFIDENTIAL', 'Only the convoy commander' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Only those protecting classified items\".",
       "evidence": {
         "page": 26,
         "quote": "M. UNIT MOVES\n1. Commercial TSPs shall be used to transport unit AA&E. However, when training or operational necessity dictates the use of organic vehicles, procedures outlined below shall be used. Prior to movement, contact Service HQ and consult Service security and mobility regulations.\n…\nc. Personnel performing unit moves in MOVs do not require a security clearance except for those personnel involved in protecting classified items. Personnel providing security for classified items shall hold the requisite clearance for the item protected."
       },
-      "answer": "Only classified-item protectors",
+      "answer": "Only those protecting classified items",
       "wrong": [
-        "Yes, all need SECRET",
-        "Yes, all need CONFIDENTIAL",
+        "All personnel, at the SECRET level",
+        "All personnel, at the CONFIDENTIAL level",
         "Only the convoy commander"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Do personnel on unit moves in military-owned vehicles need a security clearance?",
+        "previousAnswer": "Only classified-item protectors",
+        "previousWrong": [
+          "Yes, all need SECRET",
+          "Yes, all need CONFIDENTIAL",
+          "Only the convoy commander"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para M.2.b|When may separate packages of weapons and same-caliber ammunition be on the same pallet?",
@@ -3228,20 +3503,31 @@
     {
       "id": "DTR-II|Ch 205, para O.3.f|Is SNS required for PSS shipments?",
       "ref": "Ch 205, para O.3.f",
-      "question": "Is SNS required for PSS shipments?",
+      "question": "Which service must accompany PSS shipments?",
       "status": "verified",
-      "reason": "The cited rule gives 'Yes' for this question. The alternatives 'No', 'Only for SRC I', 'Only at FPCON Delta' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"SNS\".",
       "evidence": {
         "page": 29,
         "quote": "f. SNS is required (see Paragraph O.5)."
       },
-      "answer": "Yes",
+      "answer": "SNS",
       "wrong": [
-        "No",
-        "Only for SRC I",
-        "Only at FPCON Delta"
+        "None",
+        "SNS for SRC I only",
+        "SNS at FPCON Delta only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is SNS required for PSS shipments?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No",
+          "Only for SRC I",
+          "Only at FPCON Delta"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para O.4.a|When is SEV required for all SRC I shipments, even with DCS?",
@@ -3282,18 +3568,18 @@
     {
       "id": "DTR-II|Ch 205, para O.4.d|May a security escort vehicle carry cargo?",
       "ref": "Ch 205, para O.4.d",
-      "question": "May a security escort vehicle carry cargo?",
+      "question": "When may a security escort vehicle carry cargo?",
       "status": "verified",
-      "reason": "O.4.d normally requires an empty SEV, while O.4.f allows specifically authorized loaded SEVs satisfying MFTURP-1, approved-TSP, and DTTS conditions. The key now incorporates the exception; weight alone, TSP ownership, and local TO approval alone are insufficient.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Normally never; only exceptions specifically authorized under O.4.f\".",
       "evidence": {
         "page": 30,
         "quote": "d. Security escort vehicles shall be empty of any cargo."
       },
-      "answer": "Normally empty; O.4.f permits specifically authorized exceptions",
+      "answer": "Normally never; only exceptions specifically authorized under O.4.f",
       "wrong": [
-        "Yes, whenever the cargo weighs less than one thousand pounds",
-        "Yes, whenever the cargo belongs to the escort transportation provider",
-        "Yes, solely on the local transportation officer’s verbal approval"
+        "Whenever the cargo weighs less than one thousand pounds",
+        "Whenever the cargo belongs to the escort transportation provider",
+        "Solely on the local transportation officer's verbal approval"
       ],
       "editorialChange": true,
       "additionalEvidence": [
@@ -3302,7 +3588,18 @@
           "page": 30,
           "quote": "f. One SEV can escort one or two load carrying vehicles traveling along the same route in unison from origin to destination. When SEV is provided by a DoD-approved munitions TSPs, that TSP may either provide SEV (using another truck and driver team under the same SCAC) or enlist any other DoD-approved munitions TSP to provide the service. SEV vehicles shall not carry loads unless requirements are met IAW ARTRANS MFTURP-1, are an approved ARTRANS AA&E TSPs, and when specifically authorized by the ARTRANS DTTS. Contingency requirements may result in a higher 1:4 ratio of SEV to TSPs vehicle. The ARTRANS G3 shall authorize all contingency ratios."
         }
-      ]
+      ],
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a security escort vehicle carry cargo?",
+        "previousAnswer": "Normally empty; O.4.f permits specifically authorized exceptions",
+        "previousWrong": [
+          "Yes, whenever the cargo weighs less than one thousand pounds",
+          "Yes, whenever the cargo belongs to the escort transportation provider",
+          "Yes, solely on the local transportation officer’s verbal approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para O.4.f|How many load-carrying vehicles can one SEV normally escort?",
@@ -3325,20 +3622,31 @@
     {
       "id": "DTR-II|Ch 205, para O.4.g|May security escort personnel be used as a guard force by DoD installations?",
       "ref": "Ch 205, para O.4.g",
-      "question": "May security escort personnel be used as a guard force by DoD installations?",
+      "question": "What is the rule on DoD installations using security escort personnel as a guard force?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only at secure holding', 'Only during FPCON Delta' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 30,
         "quote": "g. Security escort personnel shall not be used as a guard force by DoD installations or commercial shippers."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes",
-        "Only at secure holding",
-        "Only during FPCON Delta"
+        "Allowed",
+        "Allowed at secure holding",
+        "Allowed during FPCON Delta"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May security escort personnel be used as a guard force by DoD installations?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only at secure holding",
+          "Only during FPCON Delta"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para O.4.i(4)|SEV drivers must be fully qualified HAZMAT drivers of what age and experience?",
@@ -3402,20 +3710,31 @@
     {
       "id": "DTR-II|Ch 205, para O.6.f|Must facility guards at secure holding areas sign the DD Form 1907?",
       "ref": "Ch 205, para O.6.f",
-      "question": "Must facility guards at secure holding areas sign the DD Form 1907?",
+      "question": "What is the DD Form 1907 signature requirement for facility guards at secure holding areas?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, on arrival', 'Yes, on departure', 'Only for SRC I' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"They do not sign it\".",
       "evidence": {
         "page": 32,
         "quote": "f. Facility guards at secure holding areas are not required to take custody of the shipment or sign the DD Form 1907. Facility guards shall only be responsible for verifying the condition of the conveyance seals and maintaining proper surveillance of shipment. Custody remains with the last driver who signed the DD Form 1907 or until the ultimate consignee accepts the shipment for receipt."
       },
-      "answer": "No",
+      "answer": "They do not sign it",
       "wrong": [
-        "Yes, on arrival",
-        "Yes, on departure",
-        "Only for SRC I"
+        "They sign on arrival",
+        "They sign on departure",
+        "They sign for SRC I only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Must facility guards at secure holding areas sign the DD Form 1907?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, on arrival",
+          "Yes, on departure",
+          "Only for SRC I"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para O.7|When must Expedited Service (EXP) be ordered?",
@@ -3438,20 +3757,31 @@
     {
       "id": "DTR-II|Ch 205, para O.8|Is Military Traffic Expediting Service (MTX) required for DoD rail shipments?",
       "ref": "Ch 205, para O.8",
-      "question": "Is Military Traffic Expediting Service (MTX) required for DoD rail shipments?",
+      "question": "What is the requirement for Military Traffic Expediting Service (MTX) on DoD rail shipments?",
       "status": "verified",
-      "reason": "The cited rule gives 'Yes, at no cost' for this question. The alternatives 'No, it is optional', 'Only for AA&E', \"Yes, at the shipper's cost\" do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Required, at no cost\".",
       "evidence": {
         "page": 32,
         "quote": "O. TRANSPORTATION PROTECTIVE SERVICES (TPS) AND ACCESSORIAL DESCRIPTIONS AND STANDARDS This section contains an overview of TPS and Accessorial descriptions and standards. The three-digit ANSI X.12 codes for TPS are available on Table 205-9.\n…\n8. Military Traffic Expediting Service (MTX). MTX is a tracking service provided by ARTRANS to keep shippers and receivers informed of the location and status of loaded rail cars during movement from origin to destination. MTX is an automated ITV tracking service provided by the TSP for the military carload shipments of unclassified cargo, which do not require seals or terminal inspections. MTX links a specific military shipment on a specific rail car with associated Car Location Messages (CLMs). CLMs are generated by the railroads for all cars, loaded or empty, as they move. MTX is mandatory for all DOD rail shipments. MTX service shall be provided automatically by the TSP without cost. For the TSP to provide an MTX, shippers should communicate shipment information to the servicing railroad as soon as a movement is scheduled for loading. The minimum information required is the origin, destination, date of shipment, the Standard Carrier Alpha Code (SCAC) of the tendering carrier, the RDD (if any), whether or not the shipment has Clearance (High/Wide) loads, and whether or not the shipment will move as a unit train(s). Each loaded movement is provided a unique MTX number. An MTX report is produced three times daily. To obtain access to the MTX report, approval must be granted through ARTRANS. Call 618-220-1730 or email usarmy.scott.artrans.mbx.dodx.@army.mil to obtain access."
       },
-      "answer": "Yes, at no cost",
+      "answer": "Required, at no cost",
       "wrong": [
-        "No, it is optional",
-        "Only for AA&E",
-        "Yes, at the shipper's cost"
+        "Optional",
+        "Required for AA&E only",
+        "Required, at the shipper's cost"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is Military Traffic Expediting Service (MTX) required for DoD rail shipments?",
+        "previousAnswer": "Yes, at no cost",
+        "previousWrong": [
+          "No, it is optional",
+          "Only for AA&E",
+          "Yes, at the shipper's cost"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para O.9|Greater Security Service (GSS) is used with which mode?",
@@ -3528,20 +3858,31 @@
     {
       "id": "DTR-II|Ch 205, para Q.1.a|Does granting secure hold or safe haven relieve the carrier of liability?",
       "ref": "Ch 205, para Q.1.a",
-      "question": "Does granting secure hold or safe haven relieve the carrier of liability?",
+      "question": "How does granting secure hold or safe haven affect the carrier's liability?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only during emergencies', 'Only on military installations' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"The carrier remains liable\".",
       "evidence": {
         "page": 35,
         "quote": "Q. TSP ASSISTANCE\n1. Secure Holding and Safe Haven:\na. DoD installations are required to assist commercial TSPs transporting DoD shipments of AA&E, classified (SECRET/CONFIDENTIAL/NWRM) sensitive, protected, HAZMAT, and CCI materials/shipments by providing secure holding and safe haven areas in the interest of public safety and national security. Granting secure hold or safe haven does not relieve the carrier of liability and is within the prerogative of the installation CDR or activity as to whether carrier personnel are to remain with the shipment to fulfill security duties. The installation or activity TFG page should articulate these requirements."
       },
-      "answer": "No",
+      "answer": "The carrier remains liable",
       "wrong": [
-        "Yes",
-        "Only during emergencies",
-        "Only on military installations"
+        "It relieves the carrier",
+        "It relieves the carrier during emergencies",
+        "It relieves the carrier on installations"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does granting secure hold or safe haven relieve the carrier of liability?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only during emergencies",
+          "Only on military installations"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, para Q.1.b(3)|What is safe haven?",
@@ -3906,20 +4247,31 @@
     {
       "id": "DTR-II|Ch 205, Table 205-7|May SECRET (CIIC S) material move by rail?",
       "ref": "Ch 205, Table 205-7",
-      "question": "May SECRET (CIIC S) material move by rail?",
+      "question": "Under Table 205-7, what is the rule on moving SECRET (CIIC S) material by rail?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, with RIS', 'Yes, with GSS', 'Yes, with ARG' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Rail is forbidden\".",
       "evidence": {
         "page": 75,
         "quote": "Table 205-7. Transportation Protective Services (TPS) Chart for Motor, Barge & Rail Modes\nNOTE 1: This table is NOT to be used as a stand-alone reference. Users must read and\nunderstand the detailed procedures in Chapter 205 and use it in conjunction with this table and\napplicable footnotes.\nNOTE 2: Table 205-8 covers TPS requirements for NGDS commercial small parcel express\ndomestic and international shipments, AMC airlift, Special Airlift Assignment Mission (SAAM) and\nCharter domestic and international shipments, and GHS commercial heavyweight domestic and\ninternational shipments. More information about NGDS and GHS is in Chapter 202.\nNOTE 3: For surface movement associated with organic airlift, see Table 205-7.\nControlled Inventory Item Code (CIIC\nMode\nMotor\nBarge\nRail\nGround\nUSPS\n#\nSRC\nCIIC\n1. Classified Items (Examples)1\nTPS/ 675 Requirements & Footnote #s\n1 N/A\nA,\nB, C\nA: CONFIDENTIAL Formerly\nRestricted Data\nB: CONFIDENTIAL Restricted Data\nC: CONFIDENTIAL\nDDP/SNS 5, 6, 9,\n24 Note 8\nNotes 3,\n4, 8\nRIS 21\n2 N/A\nG,\nH, S\nG: SECRET Formerly Restricted\nData\nH: SECRET Restricted Data\nS: SECRET\nPSS/SNS/EXC 5, 6,\n10 Note 8\nNotes 3,\n4, 8\nForbidden\n3 D\nD: CONFIDENTIAL Crypto\nDDP/SNS 5, 6, 9\nNote 8\nNotes 3,\n4, 8\nRIS 21\n4 E\nE: SECRET Crypto\nPSS/SNS/EXC 5, 6,\n10 Forbidden\nNotes 3,\n4, 8\nForbidden\n5 N/A\nF, K,\nL, T\nF: TOP SECRET Crypto\nK: TOP SECRET Formerly\nRestricted Data\nL: Restricted Data\nT: TOP SECRET\nDCD 5, 10, 17\nForbidden\nForbidden\nForbidden\n6 N/A\n7 Demil- Retrograde Arms, Tanks\n…"
       },
-      "answer": "No",
+      "answer": "Rail is forbidden",
       "wrong": [
-        "Yes, with RIS",
-        "Yes, with GSS",
-        "Yes, with ARG"
+        "Rail with RIS",
+        "Rail with Greater Security Service (GSS)",
+        "Rail with ARG"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May SECRET (CIIC S) material move by rail?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, with RIS",
+          "Yes, with GSS",
+          "Yes, with ARG"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 205, Table 205-7|How must TOP SECRET (CIIC T) material move?",
@@ -4818,20 +5170,31 @@
     {
       "id": "DTR-II|Ch 210, para H.2.a(6)|May damaged SECRET or CONFIDENTIAL property or narcotics be released to the TSP for salvage?",
       "ref": "Ch 210, para H.2.a(6)",
-      "question": "May damaged SECRET or CONFIDENTIAL property or narcotics be released to the TSP for salvage?",
+      "question": "What is the rule on releasing damaged SECRET or CONFIDENTIAL property or narcotics to the TSP for salvage?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, if beyond repair', 'Yes, with TO approval', 'Only narcotics' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 12,
         "quote": "2. Advisory Action and RFI.\na. If a discrepancy is found in a classified, protected, or AA&E shipment, notify the nearest TO by telephone upon discovery.\n…\n(6) Classified or protected cargo will not be released to the TSP or any unauthorized personnel for repair or salvage. Property that is designated SECRET or CONFIDENTIAL and narcotics will not be released to the TSP regardless of the extent of damage."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes, if beyond repair",
-        "Yes, with TO approval",
-        "Only narcotics"
+        "Allowed if beyond repair",
+        "Allowed with TO approval",
+        "Allowed for narcotics only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May damaged SECRET or CONFIDENTIAL property or narcotics be released to the TSP for salvage?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, if beyond repair",
+          "Yes, with TO approval",
+          "Only narcotics"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para H.2.a(7)|Within how long must action addressees answer an RFI on a classified or protected shipment?",
@@ -4913,20 +5276,31 @@
     {
       "id": "DTR-II|Ch 210, para H.2.a(13)|May Part II of the DD Form 361 be disclosed to the TSP?",
       "ref": "Ch 210, para H.2.a(13)",
-      "question": "May Part II of the DD Form 361 be disclosed to the TSP?",
+      "question": "What is the rule on disclosing Part II of the DD Form 361 to the TSP?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only Block 36', 'Only on request' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It may not be disclosed\".",
       "evidence": {
         "page": 14,
         "quote": "2. Advisory Action and RFI.\na. If a discrepancy is found in a classified, protected, or AA&E shipment, notify the nearest TO by telephone upon discovery.\n…\n(13) Guidance for completing the DD Form 361. The consignee will complete Blocks 1 through 31 of the DD Form 361. When using DIS, the system will automatically date and assign a report number to the TDR; the Preparer must have already completed all the fields under the Report Identifier and Line Items tabs and follow instructions for reviewing replies and forwarding the TDR to a claims office (found in the DIS User Manual). Most of the information needed to fill out the DD Form 361 is available from the Advisory or RFI TDR. In addition, complete Blocks 32 through 38 (Part II of the DD Form 361) for claim action against the TSP. TSP claims will be filed by the finance center or claim office whose fund citation is annotated on the Appropriation Chargeable (Block 24) of the BL. Contractor claims will be filed by the Government activity that administers the contract. Information contained in Part II of the DD Form 361 will not be disclosed to the TSP or contractor. (See Figure 210-1.)\n(a) If Outside CONUS (OCONUS), forward one copy of the DD Form 361 to the AMO.\n(b) Distribute other copies as required by Service or Agency identified in Paragraph L."
       },
-      "answer": "No",
+      "answer": "It may not be disclosed",
       "wrong": [
-        "Yes",
-        "Only Block 36",
-        "Only on request"
+        "It may be disclosed",
+        "Only Block 36 may be disclosed",
+        "It may be disclosed on request"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May Part II of the DD Form 361 be disclosed to the TSP?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only Block 36",
+          "Only on request"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para H.2.b|After notification, how long does the TSP have to inspect a damaged shipment?",
@@ -4995,38 +5369,60 @@
     {
       "id": "DTR-II|Ch 210, para H.2.g|If evidence indicates AMC is responsible for the discrepancy, are supporting documents required?",
       "ref": "Ch 210, para H.2.g",
-      "question": "If evidence indicates AMC is responsible for the discrepancy, are supporting documents required?",
+      "question": "If evidence indicates AMC is responsible for the discrepancy, what supporting documents are required?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, all of Table 210-4', 'Only photographs', 'Only the BL' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 16,
         "quote": "H. REPORTING REQUIREMENTS\n…\n2. Advisory Action and RFI.\n…\ng. Assembling the TDR Package. The DD Form 361 is the source document for claim action against the TSP and, dependent on Service or Agency policy, for the IM to reissue material, issue credit, or provide disposition instructions for astray freight and repair of damaged DoD shipments. These actions will be successful if the TDR is supported with documented facts and firm evidence that establish TSP liability and the actual amount of the Government loss. If evidence indicates that AMC is responsible for the discrepancy, supporting documents are not required."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes, all of Table 210-4",
-        "Only photographs",
-        "Only the BL"
+        "All of Table 210-4",
+        "Photographs only",
+        "The BL only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "If evidence indicates AMC is responsible for the discrepancy, are supporting documents required?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, all of Table 210-4",
+          "Only photographs",
+          "Only the BL"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para H.2.i(1)(e)|If the Government is responsible for the discrepancy, is the TDR sent to the finance center?",
       "ref": "Ch 210, para H.2.i(1)(e)",
-      "question": "If the Government is responsible for the discrepancy, is the TDR sent to the finance center?",
+      "question": "If the Government is responsible for the discrepancy, what is done with the TDR?",
       "status": "verified",
-      "reason": "The cited rule gives 'No; file it for monitoring' for this question. The alternatives 'Yes, for collection against the transportation provider', 'Yes, for credit to the Government activity’s account', 'No, and no transportation discrepancy report is filed' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is filed for monitoring, not sent to finance\".",
       "evidence": {
         "page": 17,
         "quote": "i. Forwarding the TDR Package.\n(1) The procedures for forwarding a TDR package depend on which party is at fault and whether claim action is necessary.\n…\n(e) If evidence indicates that the Government is responsible for the discrepancy, do not send the TDR to the finance center or claims office since funds will not be recovered. However, it is important to file these TDRs to enable monitoring and evaluation of performance."
       },
-      "answer": "No; file it for monitoring",
+      "answer": "It is filed for monitoring, not sent to finance",
       "wrong": [
-        "Yes, for collection against the transportation provider",
-        "Yes, for credit to the Government activity’s account",
-        "No, and no transportation discrepancy report is filed"
+        "It goes to finance for collection against the transportation provider",
+        "It goes to finance for credit to the Government activity's account",
+        "Nothing; no transportation discrepancy report is filed"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "If the Government is responsible for the discrepancy, is the TDR sent to the finance center?",
+        "previousAnswer": "No; file it for monitoring",
+        "previousWrong": [
+          "Yes, for collection against the transportation provider",
+          "Yes, for credit to the Government activity’s account",
+          "No, and no transportation discrepancy report is filed"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para I.2.b|When an ocean carrier is suspected at fault, where does the Advisory TDR go?",
@@ -5275,38 +5671,60 @@
     {
       "id": "DTR-II|Ch 210, para O.2|Are HAZMAT and classified discrepancies on Strategic Lift contracts still reported on a TDR?",
       "ref": "Ch 210, para O.2",
-      "question": "Are HAZMAT and classified discrepancies on Strategic Lift contracts still reported on a TDR?",
+      "question": "How are HAZMAT and classified discrepancies on Strategic Lift contracts reported?",
       "status": "verified",
-      "reason": "The cited rule gives 'Yes, under Paragraphs B through N' for this question. The alternatives 'No, only through the PAT Claims Portal', 'No, only by phone to TCAQ', 'Only if over $1,000' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"On a TDR under Paragraphs B through N\".",
       "evidence": {
         "page": 32,
         "quote": "O. STRATEGIC LIFT CONTRACT CLAIMS\n…\n2. All HAZMAT and classified transportation discrepancies, even those that occur while USG material is being transported by a TSP booked under a Strategic Lift contract, must be reported in a TDR as outlined in Paragraphs B through N above."
       },
-      "answer": "Yes, under Paragraphs B through N",
+      "answer": "On a TDR under Paragraphs B through N",
       "wrong": [
-        "No, only through the PAT Claims Portal",
-        "No, only by phone to TCAQ",
-        "Only if over $1,000"
+        "Only through the PAT Claims Portal",
+        "Only by phone to TCAQ",
+        "On a TDR only if over $1,000"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are HAZMAT and classified discrepancies on Strategic Lift contracts still reported on a TDR?",
+        "previousAnswer": "Yes, under Paragraphs B through N",
+        "previousWrong": [
+          "No, only through the PAT Claims Portal",
+          "No, only by phone to TCAQ",
+          "Only if over $1,000"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para O.3.b(7)|Should missing information prevent filing a Strategic Lift claim?",
       "ref": "Ch 210, para O.3.b(7)",
-      "question": "Should missing information prevent filing a Strategic Lift claim?",
+      "question": "How does missing information affect filing a Strategic Lift claim?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only missing photographs', 'Only missing valuation' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It should not prevent filing\".",
       "evidence": {
         "page": 32,
         "quote": "3. Documenting a Strategic Lift transportation discrepancy.\n…\nb. In addition to local policies, the following information is critical to the successful resolution of a Strategic Lift claim:\n…\n(7) The inability to obtain any of the above information should not prevent filing a Strategic Lift claim."
       },
-      "answer": "No",
+      "answer": "It should not prevent filing",
       "wrong": [
-        "Yes",
-        "Only missing photographs",
-        "Only missing valuation"
+        "It prevents filing",
+        "Missing photographs prevent filing",
+        "Missing valuation prevents filing"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Should missing information prevent filing a Strategic Lift claim?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only missing photographs",
+          "Only missing valuation"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-II|Ch 210, para O.4.a|Where is the Strategic Lift Claims Portal?",

@@ -83,7 +83,7 @@ test('E-5 also offers DAFI 24-602V1 with its own sections', () => {
   expect(screen.getByRole('button', { name: 'Chapter 7' })).toBeInTheDocument();
   expect(screen.queryByRole('button', { name: 'Chapter 4' })).not.toBeInTheDocument();
   userEvent.click(within(screen.getByRole('region', { name: 'Flashcards' })).getByRole('button', { name: 'Show answer' }));
-  expect(screen.getByText('No, self-approval of PCT is prohibited')).toBeInTheDocument();
+  expect(screen.getByText('Self-approval is prohibited')).toBeInTheDocument();
 });
 
 test('E-5 also offers DAFI 24-602V4 with the chapters in the excerpt', () => {
@@ -94,7 +94,7 @@ test('E-5 also offers DAFI 24-602V4 with the chapters in the excerpt', () => {
   expect(screen.getByRole('button', { name: 'Attachment 4' })).toBeInTheDocument();
   expect(screen.queryByRole('button', { name: 'Chapter 14' })).not.toBeInTheDocument();
   userEvent.click(within(screen.getByRole('region', { name: 'Flashcards' })).getByRole('button', { name: 'Show answer' }));
-  expect(screen.getByText('No, it is prohibited')).toBeInTheDocument();
+  expect(screen.getByText('It is prohibited')).toBeInTheDocument();
 });
 
 test('E-5 also offers DTR Part II Chapters 202, 205, and 210', () => {

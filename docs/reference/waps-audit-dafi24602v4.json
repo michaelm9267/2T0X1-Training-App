@@ -34,20 +34,31 @@
     {
       "id": "24-602V4|3.1.1|Once a member exhausts their JTR weight allowance, may additional weight be shipped at government expense or by government arrangement?",
       "ref": "3.1.1",
-      "question": "Once a member exhausts their JTR weight allowance, may additional weight be shipped at government expense or by government arrangement?",
+      "question": "Once a member exhausts their JTR weight allowance, what is the rule on shipping additional weight at government expense or by government arrangement?",
       "status": "verified",
-      "reason": "Additional weight is prohibited once the JTR weight allowance is exhausted. Excess-cost shipment applies instead when cost obligation is exceeded while weight remains; TO approval and an extra 1,000 pounds do not override this prohibition.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is prohibited\".",
       "evidence": {
         "page": 1,
         "quote": "3.1. (0513) Standard Allowances.\n3.1.1. (0513) When members exhaust their JTR weight allowance, shipment of additional weight at government expense or by government arrangement is prohibited. (T-0). However, if the maximum government obligation has been exceeded but the member has not exceeded their weight allowance, shipment of remaining allowances is subject to excess cost.\n3.1.1.1. (051301-D) Additional transportation. After issuance of a new PCS order, allowances under a prior PCS order cease to the current PDS, except as provided in JTR, paragraph (051301-D). This procedure is often referred to as a “Combination of Orders” shipment. Such shipments may only be made from a former duty station or authorized point to which previously shipped at government expense. The household goods must have been acquired before the effective date of all orders used in the combination of orders. The authorized weight allowance is the unused balance in effect on the effective date of the previous orders (See example provided in 051301-D). The appropriate shipping document is to be annotated to show “Paying Officer Review Requested.”\n3.1.1.2. A member who has exceeded his/her weight allowance may release NTS that is currently under government control (NTS) to ship HHG to an authorized destination."
       },
-      "answer": "No, it is prohibited",
+      "answer": "It is prohibited",
       "wrong": [
-        "Yes, at excess cost",
-        "Yes, with TO approval",
-        "Yes, up to 1,000 more pounds"
+        "It is allowed at excess cost",
+        "It is allowed with TO approval",
+        "It is allowed up to 1,000 more pounds"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Once a member exhausts their JTR weight allowance, may additional weight be shipped at government expense or by government arrangement?",
+        "previousAnswer": "No, it is prohibited",
+        "previousWrong": [
+          "Yes, at excess cost",
+          "Yes, with TO approval",
+          "Yes, up to 1,000 more pounds"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.1.1.1|How is the shipping document annotated for a \"Combination of Orders\" shipment?",
@@ -142,20 +153,31 @@
     {
       "id": "24-602V4|3.1.3.1|Do home school supplies and equipment qualify as spouse PBP&E?",
       "ref": "3.1.3.1",
-      "question": "Do home school supplies and equipment qualify as spouse PBP&E?",
+      "question": "How are home school supplies and equipment treated under the spouse PBP&E rules?",
       "status": "verified",
-      "reason": "Home-school supplies do not qualify as spouse PBP&E. The paragraph does not create 500-pound, teaching-certificate, or OCONUS exceptions.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"They do not qualify as spouse PBP&E\".",
       "evidence": {
         "page": 2,
         "quote": "3.1. (0513) Standard Allowances.\n…\n3.1.3. (051304) PBP&E, Required Medical Equipment, and Gun Safes\n3.1.3.1. See PBP&E definition for member or employee and a member’s dependent spouse in JTR, Appendix A. Home school supplies and equipment do not qualify as spouse PBP&E. If an allowance for NTS exists, NTS is authorized for both the PBP&E for the member and the PBP&E for his/her dependent spouse when one or both are not required at the member’s next PDS."
       },
-      "answer": "No",
+      "answer": "They do not qualify as spouse PBP&E",
       "wrong": [
-        "Yes, up to 500 pounds",
-        "Yes, with a teaching certificate",
-        "Yes, for OCONUS moves only"
+        "They qualify up to 500 pounds",
+        "They qualify with a teaching certificate",
+        "They qualify for OCONUS moves only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Do home school supplies and equipment qualify as spouse PBP&E?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, up to 500 pounds",
+          "Yes, with a teaching certificate",
+          "Yes, for OCONUS moves only"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.1.3.3|What is the maximum estimate entered in DPS for spouse pro-gear (shown in Block 7d of the DD Form 1299)?",
@@ -286,20 +308,31 @@
     {
       "id": "24-602V4|3.1.3.5.2|Is personal stereo equipment PBP&E?",
       "ref": "3.1.3.5.2",
-      "question": "Is personal stereo equipment PBP&E?",
+      "question": "How is personal stereo equipment treated for PBP&E?",
       "status": "verified",
-      "reason": "Personal stereo equipment is excluded. Band membership, 500 pounds, and declaration do not override the exclusion.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is not PBP&E\".",
       "evidence": {
         "page": 3,
         "quote": "3.1.3. (051304) PBP&E, Required Medical Equipment, and Gun Safes\n…\n3.1.3.5. DAF Band Equipment (Applies only to members): (T-1).\n…\n3.1.3.5.2. Personal stereo equipment and associated media are not PBP&E."
       },
-      "answer": "No",
+      "answer": "It is not PBP&E",
       "wrong": [
-        "Yes, for band members",
-        "Yes, up to 500 pounds",
-        "Yes, if declared at origin"
+        "It is PBP&E for band members",
+        "It is PBP&E up to 500 pounds",
+        "It is PBP&E if declared at origin"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is personal stereo equipment PBP&E?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, for band members",
+          "Yes, up to 500 pounds",
+          "Yes, if declared at origin"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.1.3.6.1|What is the maximum allowable weight for a gun safe?",
@@ -322,20 +355,31 @@
     {
       "id": "24-602V4|3.1.4|May extra HHG pickup provisions be used to pick up consumable goods from the base commissary?",
       "ref": "3.1.4",
-      "question": "May extra HHG pickup provisions be used to pick up consumable goods from the base commissary?",
+      "question": "Where may extra HHG pickup provisions be used to pick up consumable goods?",
       "status": "verified",
-      "reason": "Extra HHG pickups can include commissary consumables. Never, OCONUS-only, and PPA approval-only each add a restriction not present in the rule.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Base commissaries or commercial grocery stores\".",
       "evidence": {
         "page": 3,
         "quote": "3.1. (0513) Standard Allowances.\n…\n3.1.4. (052002-F) Consumable Goods. See paragraph 10.3 for description of consumable goods. The use of extra HHG pickup provisions to pick up consumable goods directly from base commissaries or commercial grocery stores is permitted."
       },
-      "answer": "Yes",
+      "answer": "Base commissaries or commercial grocery stores",
       "wrong": [
-        "No, never",
-        "Only OCONUS",
-        "Only with PPA HQ approval"
+        "Nowhere; consumables must move in a separate shipment",
+        "Base commissaries, OCONUS only",
+        "Base commissaries, with PPA HQ approval only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May extra HHG pickup provisions be used to pick up consumable goods from the base commissary?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No, never",
+          "Only OCONUS",
+          "Only with PPA HQ approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.1.5|If a member requests exceptional packing and crating services, who pays?",
@@ -458,20 +502,31 @@
     {
       "id": "24-602V4|3.3.1|Is reshipment of the same property on the same PCS order authorized at government expense after delivery?",
       "ref": "3.3.1",
-      "question": "Is reshipment of the same property on the same PCS order authorized at government expense after delivery?",
+      "question": "After delivery, what is the rule on reshipping the same property on the same PCS order at government expense?",
       "status": "verified",
-      "reason": "After delivery, the same property cannot be reshipped on the same PCS order at government expense. Once-only, local-only, and TO-approval exceptions are not offered by the cited member-convenience rule.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is not authorized\".",
       "evidence": {
         "page": 4,
         "quote": "3.3. (051301-C) Re-Transportation of HHG.\n3.3.1. Member’s convenience. Reshipment of the same property on the same PCS order is not authorized at government expense after delivery to member/employee. Reshipment of the TDY weight allowance from TDY location to TDY location to new PDS is authorized."
       },
-      "answer": "No",
+      "answer": "It is not authorized",
       "wrong": [
-        "Yes, once",
-        "Yes, within the local area",
-        "Yes, with TO approval"
+        "It is authorized once",
+        "It is authorized within the local area",
+        "It is authorized with TO approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is reshipment of the same property on the same PCS order authorized at government expense after delivery?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, once",
+          "Yes, within the local area",
+          "Yes, with TO approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.3.2|When a long delivery from SIT goes to a different destination for the member's convenience, what happens to the GBL?",
@@ -535,56 +590,89 @@
     {
       "id": "24-602V4|3.4.1.3|Is space-required airlift of HHG (including to hardlift areas) authorized for retirees or separatees?",
       "ref": "3.4.1.3",
-      "question": "Is space-required airlift of HHG (including to hardlift areas) authorized for retirees or separatees?",
+      "question": "What is the rule on space-required airlift of HHG (including to hardlift areas) for retirees or separatees?",
       "status": "verified",
-      "reason": "Retirees and separatees are not authorized space-required airlift, including hardlift areas. Hardlift status and PPA approval do not create the offered exception.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not authorized\".",
       "evidence": {
         "page": 4,
         "quote": "3.4. (0515) Transportation Methods.\n3.4.1. (0515) Household Goods (HHG).\n…\n3.4.1.3. Note: (1) Space required airlift of HHG including airlift to “hardlift areas” is not authorized for retirees or separatees. (2) There is no TP-4 capability for inter-theater shipments (i.e., EUCOM to PACOM); however, TP-2 is available"
       },
-      "answer": "No",
+      "answer": "Not authorized",
       "wrong": [
-        "Yes",
-        "Only to hardlift areas",
-        "Only with PPA HQ approval"
+        "Authorized",
+        "Authorized only to hardlift areas",
+        "Authorized with PPA HQ approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is space-required airlift of HHG (including to hardlift areas) authorized for retirees or separatees?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only to hardlift areas",
+          "Only with PPA HQ approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.4.1.3|Is there TP-4 capability for inter-theater HHG shipments (e.g., EUCOM to PACOM)?",
       "ref": "3.4.1.3",
-      "question": "Is there TP-4 capability for inter-theater HHG shipments (e.g., EUCOM to PACOM)?",
+      "question": "Which airlift is available for inter-theater HHG shipments (e.g., EUCOM to PACOM)?",
       "status": "verified",
-      "reason": "There is no inter-theater TP-4 capability. UB and Patriot Express options do not create that capability; TP-2 is a different priority.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"TP-2 only\".",
       "evidence": {
         "page": 4,
         "quote": "3.4. (0515) Transportation Methods.\n3.4.1. (0515) Household Goods (HHG).\n…\n3.4.1.3. Note: (1) Space required airlift of HHG including airlift to “hardlift areas” is not authorized for retirees or separatees. (2) There is no TP-4 capability for inter-theater shipments (i.e., EUCOM to PACOM); however, TP-2 is available"
       },
-      "answer": "No",
+      "answer": "TP-2 only",
       "wrong": [
-        "Yes, always",
-        "Only for UB",
-        "Only on Patriot Express"
+        "TP-4 only",
+        "TP-4, for UB only",
+        "The Patriot Express"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is there TP-4 capability for inter-theater HHG shipments (e.g., EUCOM to PACOM)?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Only for UB",
+          "Only on Patriot Express"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.4.2|Is unaccompanied baggage (UB) part of the administrative HHG weight limitation?",
       "ref": "3.4.2",
-      "question": "Is unaccompanied baggage (UB) part of the administrative HHG weight limitation?",
+      "question": "How does unaccompanied baggage (UB) relate to the administrative HHG weight limitation?",
       "status": "verified",
-      "reason": "UB is part of the administrative HHG limit. Separate, CONUS-only, and dependent-only conditions contradict the note.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"UB is part of it\".",
       "evidence": {
         "page": 4,
         "quote": "3.4. (0515) Transportation Methods.\n…\n3.4.2. (051403) Unaccompanied Baggage (UB). Note: UB is part of the administrative HHG weight limitation.\n3.4.2.1. Between points within CONUS: Normally, UB is included with the HHG if the transit time satisfies the member’s needs. HHG shipped in this manner is identified to the TSP as “designated items for extra pickup or delivery.” One GBL is issued and annotated “Extra Pick Up and/or Extra Delivery Authorized.” The TSP is required to inventory, load and store designated items to permit ready access at destination. Expedited mode (for the JTR-limited amount of UB) may be used when the transit time of the HHG shipment does not meet the required delivery date for UB. This also applies when the only shipment is UB.\n3.4.2.2. To, From, or between points OCONUS: See the PPCIG for routing/mode. Separate shipments of UB to, from, and between hardlift areas are not authorized for dependents or members when concurrent travel of dependents is authorized. (T-0). Separate shipment is authorized when required due to host country restrictions. Review OCONUS PPCIG.\n3.4.2.3. UB weight entitlement is determined by JTR, par. 051403, excluding the weight of PBP&E, if PBP&E is transported with UB.\n3.4.2.4. Shipment of UB by Mail. Shipment of UB by parcel post or military official mail is authorized when it meets the member’s needs or is cost effective. UB should meet the specifications of the U.S. Postal Service."
       },
-      "answer": "Yes",
+      "answer": "UB is part of it",
       "wrong": [
-        "No, it is separate",
-        "Only for CONUS moves",
-        "Only for members with dependents"
+        "UB is separate from it",
+        "UB counts only on CONUS moves",
+        "UB counts only for members with dependents"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is unaccompanied baggage (UB) part of the administrative HHG weight limitation?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No, it is separate",
+          "Only for CONUS moves",
+          "Only for members with dependents"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.4.2.1|When UB is included with HHG within CONUS, how is the single GBL annotated?",
@@ -607,56 +695,89 @@
     {
       "id": "24-602V4|3.4.2.2|Are separate UB shipments to/from hardlift areas authorized when concurrent travel of dependents is authorized?",
       "ref": "3.4.2.2",
-      "question": "Are separate UB shipments to/from hardlift areas authorized when concurrent travel of dependents is authorized?",
+      "question": "When concurrent travel of dependents is authorized, when are separate UB shipments to/from hardlift areas authorized?",
       "status": "verified",
-      "reason": "3.4.2.2 prohibits separate UB when concurrent dependent travel authorized except host-country restrictions; personal request,TP2 and member-only explanations do not override it.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Only when host-country restrictions require it\".",
       "evidence": {
         "page": 5,
         "quote": "3.4. (0515) Transportation Methods.\n…\n3.4.2. (051403) Unaccompanied Baggage (UB). Note: UB is part of the administrative HHG weight limitation.\n…\n3.4.2.2. To, From, or between points OCONUS: See the PPCIG for routing/mode. Separate shipments of UB to, from, and between hardlift areas are not authorized for dependents or members when concurrent travel of dependents is authorized. (T-0). Separate shipment is authorized when required due to host country restrictions. Review OCONUS PPCIG."
       },
-      "answer": "No, except host-country restrictions",
+      "answer": "Only when host-country restrictions require it",
       "wrong": [
-        "Yes, whenever the member requests a separate UB shipment",
-        "Yes, by TP-2",
-        "Yes, for members only"
+        "Whenever the member requests a separate UB shipment",
+        "Whenever the UB moves by TP-2",
+        "For members only, not dependents"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are separate UB shipments to/from hardlift areas authorized when concurrent travel of dependents is authorized?",
+        "previousAnswer": "No, except host-country restrictions",
+        "previousWrong": [
+          "Yes, whenever the member requests a separate UB shipment",
+          "Yes, by TP-2",
+          "Yes, for members only"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.4.2.4|May UB be shipped by parcel post or military official mail?",
       "ref": "3.4.2.4",
-      "question": "May UB be shipped by parcel post or military official mail?",
+      "question": "When may UB be shipped by parcel post or military official mail?",
       "status": "verified",
-      "reason": "3.4.2.4 permits mail when meeting need or cost-effective; blanket prohibition, OCONUS-only and retiree-only restrictions are absent.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"When it meets the member's needs or is cost effective\".",
       "evidence": {
         "page": 5,
         "quote": "3.4. (0515) Transportation Methods.\n…\n3.4.2. (051403) Unaccompanied Baggage (UB). Note: UB is part of the administrative HHG weight limitation.\n…\n3.4.2.4. Shipment of UB by Mail. Shipment of UB by parcel post or military official mail is authorized when it meets the member’s needs or is cost effective. UB should meet the specifications of the U.S. Postal Service."
       },
-      "answer": "Yes, if needed or cost-effective",
+      "answer": "When it meets the member's needs or is cost effective",
       "wrong": [
-        "No; parcel post and military official mail are always prohibited",
-        "Only OCONUS",
-        "Only for retirees"
+        "Never; parcel post and official mail are always prohibited",
+        "On OCONUS moves only",
+        "For retirees only"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May UB be shipped by parcel post or military official mail?",
+        "previousAnswer": "Yes, if needed or cost-effective",
+        "previousWrong": [
+          "No; parcel post and military official mail are always prohibited",
+          "Only OCONUS",
+          "Only for retirees"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.5.1|When two military members are married to each other, can one be considered a dependent of the other to increase HHG weight?",
       "ref": "3.5.1",
-      "question": "When two military members are married to each other, can one be considered a dependent of the other to increase HHG weight?",
+      "question": "When two military members are married to each other, what is the rule on counting one as the other's dependent to increase HHG weight?",
       "status": "verified",
-      "reason": "Neither married military member can be treated as the other’s dependent to increase HHG weight. OCONUS and relative rank do not change that restriction.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Neither may be counted as a dependent\".",
       "evidence": {
         "page": 5,
         "quote": "3.5. (051402) Exceptions to the Authorized Weight Allowance.\n3.5.1. (051402-F Table 5-38) Service member married to another service member or married to a civilian employee. When a military member is married to another military member (MIL to MIL) neither member can be considered a dependent of the other to increase any allowance including HHG weight. If no other dependent(s) exists, both are members without dependents in determining weight allowance.\n…\n3.5.1.3. When both members are assigned to or from OCONUS duty station accompanied, they are each authorized full JTR weight entitlement.\n3.5.1.4. Once the HHG have been shipped to the authorized PDS under one member’s entitlement, the government’s statutory and regulatory obligation to the member has been met. Further movement of the same HHG under the other member’s order is not authorized (54 Comptroller General Decision 847, Transportation of Household Effects—Dual Rights B-181402, 10 April 1975). https://www.gao.gov/products/B-181402. (T-0).\n3.5.1.5. Military member married to a civilian employee. The civilian employee, if under a PCS order, is authorized appropriate JTR allowances. The member may also be authorized HHG shipment under a PCS order. (T-0). Both persons cannot be paid for the same expenses. Only one administrative weight allowance is authorized if the couple is PCSing from the same or nearby PDS and their new orders are to the same or nearby PDS IAW JTR, 051402-F1 Table 5-38. Note 1."
       },
-      "answer": "No",
+      "answer": "Neither may be counted as a dependent",
       "wrong": [
-        "Yes",
-        "Only for OCONUS moves",
-        "Only if one is junior in grade"
+        "Either may be counted as a dependent",
+        "The junior member may be counted as a dependent",
+        "One may be counted, for OCONUS moves only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "When two military members are married to each other, can one be considered a dependent of the other to increase HHG weight?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for OCONUS moves",
+          "Only if one is junior in grade"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.5.1.1|When both married members are assigned to/from OCONUS unaccompanied, what is their weight allowance?",
@@ -679,20 +800,31 @@
     {
       "id": "24-602V4|3.5.1.4|After HHG are shipped to the PDS under one member's entitlement, may the same HHG be moved under the other member's order?",
       "ref": "3.5.1.4",
-      "question": "After HHG are shipped to the PDS under one member's entitlement, may the same HHG be moved under the other member's order?",
+      "question": "After HHG are shipped to the PDS under one member's entitlement, what is the rule on moving the same HHG under the other member's order?",
       "status": "verified",
-      "reason": "The same HHG cannot be moved again under the other spouse’s order after the entitlement has been met. Once-only, HQ-approval, and CONUS exceptions are not authorized.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is not authorized\".",
       "evidence": {
         "page": 6,
         "quote": "3.5.1.4. Once the HHG have been shipped to the authorized PDS under one member’s entitlement, the government’s statutory and regulatory obligation to the member has been met. Further movement of the same HHG under the other member’s order is not authorized (54 Comptroller General Decision 847, Transportation of Household Effects—Dual Rights B-181402, 10 April 1975). https://www.gao.gov/products/B-181402. (T-0)."
       },
-      "answer": "No",
+      "answer": "It is not authorized",
       "wrong": [
-        "Yes, once",
-        "Yes, with PPA HQ approval",
-        "Yes, within CONUS"
+        "It is authorized once",
+        "It is authorized with PPA HQ approval",
+        "It is authorized within CONUS"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "After HHG are shipped to the PDS under one member's entitlement, may the same HHG be moved under the other member's order?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, once",
+          "Yes, with PPA HQ approval",
+          "Yes, within CONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.5.3.3|What should members do with valuables such as jewelry, watches, cameras, and currency?",
@@ -761,24 +893,35 @@
     {
       "id": "24-602V4|3.6.1|When the outer container is the member's personal property, is a packing adjustment authorized?",
       "ref": "3.6.1",
-      "question": "When weighing HHG, if the outer container is the member's personal property, is a packing weight adjustment authorized?",
+      "question": "When weighing HHG, what packing weight adjustment applies if the outer container is the member's personal property?",
       "status": "verified",
-      "reason": "No packing adjustment is allowed for a personal outer container. Ten percent, TO approval, and OCONUS do not create an exception.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 6,
         "quote": "3.6. (051401) Authorized PCS Weight Allowances.\n3.6.1. In any case where the outer container is the member's \"personal\" property, no packing adjustment is authorized."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes, 10%",
-        "Yes, by the TO",
-        "Yes, for OCONUS shipments"
+        "10%",
+        "An adjustment set by the TO",
+        "An adjustment for OCONUS shipments only"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "When the outer container is the member's personal property, is a packing adjustment authorized?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "When weighing HHG, if the outer container is the member's personal property, is a packing weight adjustment authorized?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, 10%",
+          "Yes, by the TO",
+          "Yes, for OCONUS shipments"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -884,20 +1027,31 @@
     {
       "id": "24-602V4|3.7.3|For HHG shipped other than between authorized locations, can excess costs occur even if the distance is shorter?",
       "ref": "3.7.3",
-      "question": "For HHG shipped other than between authorized locations, can excess costs occur even if the distance is shorter?",
+      "question": "For HHG shipped other than between authorized locations, when can excess costs occur?",
       "status": "verified",
-      "reason": "Excess costs may occur even over shorter distances. Never, OCONUS-only, and UB-only answers contradict that warning.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Even if the distance is shorter\".",
       "evidence": {
         "page": 7,
         "quote": "3.7. (051306) Excess Charges. (See Chapter 12 for Responsibilities and Procedures).\n…\n3.7.3. (051306-C) HHG transportation other than between authorized locations. Members contemplating shipment of HHG other than between authorized locations should always be advised of possible excess cost. Excess costs may occur even if the distance is less than the distance between authorized locations. Annotate in the counseling module of DPS “Paying Officer Review”.(T-0)."
       },
-      "answer": "Yes",
+      "answer": "Even if the distance is shorter",
       "wrong": [
-        "No, never",
-        "Only OCONUS",
-        "Only for UB"
+        "Never",
+        "Only on OCONUS moves",
+        "Only for UB shipments"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "For HHG shipped other than between authorized locations, can excess costs occur even if the distance is shorter?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No, never",
+          "Only OCONUS",
+          "Only for UB"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|3.7.4|Who pays to transport unauthorized articles?",
@@ -966,20 +1120,31 @@
     {
       "id": "24-602V4|3.8|Is a letter-in-lieu of orders (LILO) valid for ordering any transportation services, including a PPM?",
       "ref": "3.8",
-      "question": "Is a letter-in-lieu of orders (LILO) valid for ordering any transportation services, including a PPM?",
+      "question": "What transportation services may be ordered with a letter-in-lieu of orders (LILO)?",
       "status": "verified",
-      "reason": "LILO is not valid for any transportation service including PPM. PPM-only and local-move exceptions are expressly excluded by the all-services prohibition.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None, including a PPM\".",
       "evidence": {
         "page": 8,
         "quote": "3.8. Letter-in-lieu of Orders (LILO). A letter-in-lieu of orders is not valid for ordering or executing any transportation services, including a PPM. Chapter 6 HOUSEHOLD GOODS STORAGE"
       },
-      "answer": "No",
+      "answer": "None, including a PPM",
       "wrong": [
-        "Yes",
-        "Only for PPMs",
-        "Only for local moves"
+        "Any transportation services",
+        "PPMs only",
+        "Local moves only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is a letter-in-lieu of orders (LILO) valid for ordering any transportation services, including a PPM?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for PPMs",
+          "Only for local moves"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|6.1.1|What should departing personnel be briefed to do when they arrive at destination?",
@@ -1198,20 +1363,31 @@
     {
       "id": "24-602V4|6.1.5.1|After SIT converts to member's expense, is the member still entitled to delivery at government expense?",
       "ref": "6.1.5.1",
-      "question": "After SIT converts to member's expense, is the member still entitled to delivery at government expense?",
+      "question": "After SIT converts to the member's expense, who pays for delivery?",
       "status": "verified",
-      "reason": "Delivery remains entitled after conversion to member expense. No, OCONUS-only, and HQ-approval-only answers improperly remove that entitlement.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"The government\".",
       "evidence": {
         "page": 11,
         "quote": "6.1.5.1. (0518-C) After conversion to member’s expense, the member is entitled to delivery at government expense. If SIT is at destination and converts to members expense, the member is entitled to a local delivery. The (J)PPSO using the GBL, local invoicing or purchasing procedures can pay for delivery services at government expense."
       },
-      "answer": "Yes",
+      "answer": "The government",
       "wrong": [
-        "No",
-        "Only OCONUS",
-        "Only with PPA HQ approval"
+        "The member",
+        "The government, OCONUS only",
+        "The government, with PPA HQ approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "After SIT converts to member's expense, is the member still entitled to delivery at government expense?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No",
+          "Only OCONUS",
+          "Only with PPA HQ approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|6.1.6|Who approves converting SIT at origin to NTS?",
@@ -1424,20 +1600,31 @@
     {
       "id": "24-602V4|6.2.7.3|As long as the member's order is valid, does the government pay for local delivery from storage regardless of how long it was stored?",
       "ref": "6.2.7.3",
-      "question": "As long as the member's order is valid, does the government pay for local delivery from storage regardless of how long it was stored?",
+      "question": "As long as the member's order is valid, how long may HHG be stored and still get government-paid local delivery from storage?",
       "status": "verified",
-      "reason": "6.2.7.3 pays local delivery whenever order remains valid including member-funded storage;180day cutoff,government-storage-only andmember delivery cost conflict.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Any length of time\".",
       "evidence": {
         "page": 13,
         "quote": "6.2. (0518-B) Non-Temporary Storage (NTS).\n…\n6.2.7. (0518-B4) Time Limits.\n…\n6.2.7.3. (0518-C) Delivery Out of Storage. As long as the Service member’s order is valid, the Government will pay for the local delivery of HHG from storage, regardless of the amount of time the HHG was stored. This includes HHG shipments converted to storage at the Service member’s expense. Chapter 7 POV TRANSPORTATION AND STORAGE (SERVICE MEMBERS)"
       },
-      "answer": "Yes",
+      "answer": "Any length of time",
       "wrong": [
-        "No, only within 180 days",
-        "Only if storage was at government expense",
-        "No, the member pays delivery"
+        "Up to 180 days",
+        "Only while stored at government expense",
+        "None; the member pays delivery"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "As long as the member's order is valid, does the government pay for local delivery from storage regardless of how long it was stored?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No, only within 180 days",
+          "Only if storage was at government expense",
+          "No, the member pays delivery"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|7.1.1|Who authorizes CONUS POV shipment at government expense when the member is physically unable to drive or lacks time?",
@@ -1460,20 +1647,31 @@
     {
       "id": "24-602V4|7.1.1|Does the POV shipment allowance for a member unable to drive extend to dependents unable to drive for medical reasons?",
       "ref": "7.1.1",
-      "question": "Does the POV shipment allowance for a member unable to drive extend to dependents unable to drive for medical reasons?",
+      "question": "Who is covered by the POV shipment allowance for a member unable to drive?",
       "status": "verified",
-      "reason": "The inability-to-drive medical allowance does not extend to dependents. Spouse and OCONUS conditions do not create the offered exception.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"The member only, not dependents\".",
       "evidence": {
         "page": 14,
         "quote": "7.1. (052901) Shipment of a POV at Government Expense.\n7.1.1. (052901-A2) The local MPF authorizes or approves POV shipments when member is physically unable to drive or there is insufficient time for the member to drive and report to their new PDS. It is the member's responsibility to provide medical documentation substantiating the request for overland shipment to the MPF and the authorization is to be included in the member’s PCS order. This allowance does not extend to dependents unable to drive for any medical reason. PPPO will counsel customers utilizing DD form 3164. Collect and forward travel orders, all vehicle information and documents and forward to PPSO. PPSO will forward shipment request and supporting documentation to U.S. Transportation for shipment scheduling with DoD Global POV contractor. (T-0)."
       },
-      "answer": "No",
+      "answer": "The member only, not dependents",
       "wrong": [
-        "Yes",
-        "Only for spouses",
-        "Only OCONUS"
+        "The member and dependents unable to drive",
+        "The member and spouse only",
+        "The member and dependents, OCONUS only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does the POV shipment allowance for a member unable to drive extend to dependents unable to drive for medical reasons?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for spouses",
+          "Only OCONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|7.2|Who arranges and reimburses shipment of a POV by the Service member under JTR 052902?",
@@ -1496,20 +1694,31 @@
     {
       "id": "24-602V4|7.3.2|Does the \"ownership prior to effective date of orders\" provision apply to POV shipments?",
       "ref": "7.3.2",
-      "question": "Does the \"ownership prior to effective date of orders\" provision apply to POV shipments?",
+      "question": "How does the \"ownership prior to effective date of orders\" provision apply to POV shipments?",
       "status": "verified",
-      "reason": "The prior-ownership provision does not apply to POV shipment. OCONUS and retiree conditions do not change that answer.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It does not apply\".",
       "evidence": {
         "page": 14,
         "quote": "7.3. (0530) Shipmentof a POV OCONUS.\n…\n7.3.2. The \"ownership prior to effective date of orders provision\" does not apply for shipment of POVs."
       },
-      "answer": "No",
+      "answer": "It does not apply",
       "wrong": [
-        "Yes",
-        "Only for OCONUS",
-        "Only for retirees"
+        "It applies to all POV shipments",
+        "It applies to OCONUS POV shipments only",
+        "It applies to retirees' POVs only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does the \"ownership prior to effective date of orders\" provision apply to POV shipments?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for OCONUS",
+          "Only for retirees"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|7.3.3|How many POVs may military members married to each other ship?",
@@ -1586,38 +1795,60 @@
     {
       "id": "24-602V4|7.4.3|Is replacement POV shipment normally approved if the member already has a second vehicle?",
       "ref": "7.4.3",
-      "question": "Is replacement POV shipment normally approved if the member already has a second vehicle?",
+      "question": "If the member already has a second vehicle, how is a replacement POV shipment request normally treated?",
       "status": "verified",
-      "reason": "Replacement is normally not approved when a second vehicle is possessed. Remaining twelve months and CONUS do not supply the stated second-vehicle exception.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is normally not approved\".",
       "evidence": {
         "page": 15,
         "quote": "7.4. (053001) Authorized Shipment of a POV at Government Expense.\n…\n7.4.3. (053003) Replacement POV shipment. MAJCOM and Separate Operating Agencies (SOA) Directors of Transportation having logistical responsibilities in the OCONUS areas, or the PPA HQ/LHO in the absence of a MAJCOM/A4R, are designated to make replacement vehicle determinations when in the best interest of the government. Normally, replacement transportation is not approved if the member is in possession of a second vehicle, or if a vehicle can be purchased in the overseas location through private sales or manufacturer new car sales programs. Time remaining on station requirements in paragraphs 7.3.1.1 and 7.4.1 do not apply. However, approval for members with less than one year remaining requires strong justification. This section pertains to shipment of POVs from CONUS to the OCONUS station.\n…\n7.4.3.2. The vehicle is to be disposed of and supporting documentation (letter from salvage yard, repair company, etc.) is used to support the request. Sale to a private party does not meet the requirement in par. 053003-A.\n7.4.3.3. Consider the age of the vehicle when initially shipped OCONUS. The age and condition of the vehicle should be expected to last the duration of the OCONUS tour.\n7.4.3.4. Whether the member is currently in possession of another vehicle, and if so, why that vehicle is not considered a suitable replacement.\n…"
       },
-      "answer": "No",
+      "answer": "It is normally not approved",
       "wrong": [
-        "Yes",
-        "Only with 12 months left",
-        "Only CONUS"
+        "It is normally approved",
+        "It is approved with 12 months left",
+        "It is approved for CONUS only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is replacement POV shipment normally approved if the member already has a second vehicle?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only with 12 months left",
+          "Only CONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|7.4.3.2|Does selling the old POV to a private party meet the disposal requirement for a replacement POV shipment?",
       "ref": "7.4.3.2",
-      "question": "Does selling the old POV to a private party meet the disposal requirement for a replacement POV shipment?",
+      "question": "How does selling the old POV to a private party count toward the replacement POV disposal requirement?",
       "status": "verified",
-      "reason": "Sale to a private party does not meet disposal requirements. Overseas location and bill of sale do not alter that express exclusion.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It does not meet the requirement\".",
       "evidence": {
         "page": 15,
         "quote": "7.4.3.2. The vehicle is to be disposed of and supporting documentation (letter from salvage yard, repair company, etc.) is used to support the request. Sale to a private party does not meet the requirement in par. 053003-A."
       },
-      "answer": "No",
+      "answer": "It does not meet the requirement",
       "wrong": [
-        "Yes",
-        "Only overseas",
-        "Only with a bill of sale"
+        "It meets the requirement",
+        "It meets it for overseas sales only",
+        "It meets it with a bill of sale"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does selling the old POV to a private party meet the disposal requirement for a replacement POV shipment?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only overseas",
+          "Only with a bill of sale"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|7.5|Who approves POV transportation between the OCONUS VPC/port and PDS for DAF personnel assigned to US Defense Attaché offices?",
@@ -1802,24 +2033,35 @@
     {
       "id": "24-602V4|7.9.2.3|May commercial \"drive-away\" service be used for overland shipment of these POVs?",
       "ref": "7.9.2.3",
-      "question": "For a deceased or missing member's POV, may commercial \"drive-away\" service be used for overland shipment?",
+      "question": "For a deceased or missing member's POV, what is the rule on commercial \"drive-away\" service for overland shipment?",
       "status": "verified",
-      "reason": "Commercial drive-away is prohibited; CONUS routing and NOK approval do not remove the prohibition.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It may not be used\".",
       "evidence": {
         "page": 17,
         "quote": "7.9. (053001-B) POV Transportation Under Special Circumstances.\n…\n7.9.2. (0531) POV shipment and storage when service member reported as ill, injured, absent for a period of 30 or more days in a missing status or dead.\n…\n7.9.2.3. Commercial \"drive-away\" service is not to be used for overland shipment of POVs. (T-0)."
       },
-      "answer": "No",
+      "answer": "It may not be used",
       "wrong": [
-        "Yes",
-        "Only within CONUS",
-        "Only with NOK approval"
+        "It may be used",
+        "It may be used within CONUS only",
+        "It may be used with NOK approval"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May commercial \"drive-away\" service be used for overland shipment of these POVs?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "For a deceased or missing member's POV, may commercial \"drive-away\" service be used for overland shipment?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only within CONUS",
+          "Only with NOK approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -1861,20 +2103,31 @@
     {
       "id": "24-602V4|7.10.2.2|Is a member who retires from a CONUS PDS and selects an OCONUS home authorized POV shipment there?",
       "ref": "7.10.2.2",
-      "question": "Is a member who retires from a CONUS PDS and selects an OCONUS home authorized POV shipment there?",
+      "question": "What POV shipment is authorized to an OCONUS home for a member retiring from a CONUS PDS?",
       "status": "verified",
-      "reason": "CONUS retirement followed by OCONUS home selection does not confer OCONUS POV shipment. Alaska and HQ approval alternatives do not state this entitlement rule.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 18,
         "quote": "7.10. (053001 Table 5-65) Factors Affecting POV Transportation OCONUS.\n…\n7.10.2. (053001-B Table 5-65 Item 6) An eligible service member retires or is placed on the temporary disability retired list, discharged with severance or separation pay, or involuntarily released from active duty with readjustment or separation pay.\n…\n7.10.2.2. Home of selection (HOS) is so located as to authorize transoceanic shipment as defined in JTR, pars. 053001-A, Table 5-64, and 053001-B3. A member whose HOS is “any other place” does not have a POV shipping entitlement as defined in JTR, par. 051003-A1. A member who retires from a CONUS PDS and selects an OCONUS location is not authorized a POV shipment to OCONUS location."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes",
-        "Only to Alaska",
-        "Only with PPA HQ approval"
+        "One POV",
+        "One POV, to Alaska only",
+        "One POV, with PPA HQ approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is a member who retires from a CONUS PDS and selects an OCONUS home authorized POV shipment there?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only to Alaska",
+          "Only with PPA HQ approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|7.12.2.2|Which of these is a POV shipment restriction listed in the PPCIG examples?",
@@ -1897,20 +2150,31 @@
     {
       "id": "24-602V4|7.12.2.3|Is POV shipment and storage meant for vintage, classic, or collector vehicles?",
       "ref": "7.12.2.3",
-      "question": "Is POV shipment and storage meant for vintage, classic, or collector vehicles?",
+      "question": "What is the policy on POV shipment and storage for vintage, classic, or collector vehicles?",
       "status": "verified",
-      "reason": "The purpose is primary transportation, not collector vehicles. Storage-only and excess-cost offers do not automatically create collector-vehicle allowance.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"The program is not meant for them\".",
       "evidence": {
         "page": 19,
         "quote": "7.12.2.3. The intent of POV shipment and storage is to provide for the member's primary means of transportation at the PDS. It is not an automatic allowance to be used to transport or store vintage, historic, classic, restored, collector or customized vehicles."
       },
-      "answer": "No",
+      "answer": "The program is not meant for them",
       "wrong": [
-        "Yes",
-        "Only for storage",
-        "Only with excess cost"
+        "They are fully covered",
+        "They are covered for storage only",
+        "They are covered at excess cost"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is POV shipment and storage meant for vintage, classic, or collector vehicles?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for storage",
+          "Only with excess cost"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|7.12.1.2|Indeterminate TDY POV storage is charged to which account?",
@@ -2059,20 +2323,31 @@
     {
       "id": "24-602V4|8.1|May a government owned or leased vehicle be used for a PPM?",
       "ref": "8.1",
-      "question": "May a government owned or leased vehicle be used for a PPM?",
+      "question": "What is the rule on using a government owned or leased vehicle for a PPM?",
       "status": "verified",
-      "reason": "Government-owned or leased vehicles are forbidden for PPM. TO approval, local movement, and rental unavailability do not create an exception.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 21,
         "quote": "8.1. Personally Procured Moves (PPM). The personally procured method of HHG transportation is available to active duty, retired or separated members, and the next of kin of a deceased member. This method allows members to personally procure HHG transportation and/or NTS when they have an allowance to ship or store HHG in connection with a PCS move, special storage, local move, etc. A member can use any privately owned vehicle, direct hire and/or rental of a conveyance (with or without operator) to move HHG. Under no circumstances is the use of a government owned and/or leased vehicle authorized for a PPM. (T-0). Personally procuring transportation and/or NTS of HHG allows for:\n8.1.1. Reimbursement of actual cost incurred when government transportation is not available and directed by the TO to personally procure transportation for weight moved up to the member’s maximum authorized weight allowance.\n8.1.2. Reimbursement of authorized expenses incurred NTE the GCC for weight moved up to the member’s maximum authorized weight allowance, or\n8.1.3. A monetary allowance equal to 100% of the GCC for weight moved up to the member’s maximum authorized weight allowance."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes, with TO approval",
-        "Yes, for local moves",
-        "Yes, if no rental is available"
+        "Allowed with TO approval",
+        "Allowed for local moves",
+        "Allowed if no rental is available"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a government owned or leased vehicle be used for a PPM?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, with TO approval",
+          "Yes, for local moves",
+          "Yes, if no rental is available"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|8.1.3|What is the PPM monetary allowance?",
@@ -2131,24 +2406,35 @@
     {
       "id": "24-602V4|8.2.1.6|Are special routing and services requested by the member reimbursable as part of actual cost?",
       "ref": "8.2.1.6",
-      "question": "Are special routing and services requested by the member reimbursable as part of an actual-cost PPM?",
+      "question": "How are special routing and services requested by the member treated in an actual-cost PPM?",
       "status": "verified",
-      "reason": "Member-requested special routing/services are not reimbursable actual costs. Ten percent and TO-approval conditions do not create that reimbursement.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not reimbursable\".",
       "evidence": {
         "page": 22,
         "quote": "8.2. PPM Procedures. The PPPO/PPSO provides information to members on the methods and procedures for performing a PPM. Counselors advise members that they may elect either as a full PPM or in conjunction with a government arranged move.\n8.2.1. (051501) Government-Procured HHG Transportation.\n…\n8.2.1.6. (051502-B1) Special routing and services. Any special routing and services requested under this section are not included as part of the actual cost and are not reimbursable. (T-0)."
       },
-      "answer": "No",
+      "answer": "Not reimbursable",
       "wrong": [
-        "Yes",
-        "Up to 10%",
-        "With TO approval"
+        "Fully reimbursable",
+        "Reimbursable up to 10%",
+        "Reimbursable with TO approval"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Are special routing and services requested by the member reimbursable as part of actual cost?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are special routing and services requested by the member reimbursable as part of an actual-cost PPM?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Up to 10%",
+          "With TO approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -2172,20 +2458,31 @@
     {
       "id": "24-602V4|8.2.2.4|If small package service is used to ship HHG, is the monetary allowance authorized?",
       "ref": "8.2.2.4",
-      "question": "If small package service is used to ship HHG, is the monetary allowance authorized?",
+      "question": "If small package service is used to ship HHG, how is the member reimbursed?",
       "status": "verified",
-      "reason": "8.2.2.4 denies incentive for small packages but allows receipt-supported cost reimbursement up to GCC;100/60percent incentive and zero reimbursement are wrong.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Actual costs, up to GCC\".",
       "evidence": {
         "page": 22,
         "quote": "8.2.2.4. (051502-C4) Small Package Shipments. If small package service arrangements are used for shipping household goods, then a monetary allowance is not authorized. However, the shipment costs on the small package service receipts may be reimbursed, limited to the Government’s constructed cost for the weight of items shipped, not to exceed the maximum authorized weight allowance for all shipments under the current orders."
       },
-      "answer": "No; costs reimbursable up to GCC",
+      "answer": "Actual costs, up to GCC",
       "wrong": [
-        "Yes, 100% GCC",
-        "Yes, 60% GCC",
+        "A 100% GCC monetary allowance",
+        "A 60% GCC monetary allowance",
         "No reimbursement at all"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "If small package service is used to ship HHG, is the monetary allowance authorized?",
+        "previousAnswer": "No; costs reimbursable up to GCC",
+        "previousWrong": [
+          "Yes, 100% GCC",
+          "Yes, 60% GCC",
+          "No reimbursement at all"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|8.2.2.5.1|How long may a member arrange temporary storage for a PPM before needing PPSO approval for more?",
@@ -2226,20 +2523,31 @@
     {
       "id": "24-602V4|8.2.2.5.3|For a portable moving container, is storage during the company's advertised \"no charge\" period reimbursed?",
       "ref": "8.2.2.5.3",
-      "question": "For a portable moving container, is storage during the company's advertised \"no charge\" period reimbursed?",
+      "question": "For a portable moving container, how much storage during the company's advertised \"no charge\" period is reimbursed?",
       "status": "verified",
-      "reason": "The no-charge storage period cannot be reimbursed. Full, half, and destination-only reimbursement contradict the no-cost condition.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 23,
         "quote": "8.2.2.5. (051502-C3) Temporary storage. The JTR limits temporary storage reimbursement to authorized expenses incurred NTE the GCC for actual weight stored and NTE the member’s JTR weight allowance.\n…\n8.2.2.5.3. In order to qualify for temporary storage reimbursement, the HHGs need to be physically removed from the vehicle and placed into a commercial warehouse. An invoice or contract containing the name and address of the commercial facility is required. SIT is not reimbursed for a member who negotiates a direct delivery with a commercial company and the commercial company elects to hold the household goods on a vehicle at a residence or other location. For PPMs using portable moving and/or storage containers, household goods do not need to be removed from the container. However, temporary storage is to be reimbursed when the container is stored at the company’s storage center/facility and not at the member’s origin or destination residence. As an incentive to employ the portable container company, many companies advertise an initial period of storage at no charge to the member, Temporary storage at the company’s storage facility during the “no charge” period cannot be reimbursed. (T-0)."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes",
+        "All of it",
         "Half",
-        "Only at destination"
+        "Only storage at destination"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "For a portable moving container, is storage during the company's advertised \"no charge\" period reimbursed?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Half",
+          "Only at destination"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|8.2.2.5.4|When a member extends a rental vehicle contract in lieu of SIT, what is reimbursed?",
@@ -2470,24 +2778,35 @@
     {
       "id": "24-602V4|8.5.4|May the weight of a rented or borrowed car-top carrier be included?",
       "ref": "8.5.4",
-      "question": "May the weight of a rented or borrowed car-top carrier be included in a PPM's net weight?",
+      "question": "What is the rule on including a rented or borrowed car-top carrier's weight in a PPM's net weight?",
       "status": "verified",
-      "reason": "Only personally owned car-top carriers count; rented/borrowed weight does not. OCONUS does not change ownership.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It may not be included\".",
       "evidence": {
         "page": 26,
         "quote": "8.5. Vehicles and Equipment. There are no restrictions as to the type of POV or equipment used, however, use of a privately owned airplanes is not an authorized method.\n…\n8.5.4. The weight of a personally owned car-top carrier that would be accepted for shipment by a TSP may be included. However, the weight of a rented or borrowed car-top carrier cannot be included. (T-0)."
       },
-      "answer": "No",
+      "answer": "It may not be included",
       "wrong": [
-        "Yes",
-        "Only if rented",
-        "Only OCONUS"
+        "It may be included",
+        "It may be included if rented",
+        "It may be included for OCONUS moves"
       ],
       "editorialChange": true,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May the weight of a rented or borrowed car-top carrier be included?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May the weight of a rented or borrowed car-top carrier be included in a PPM's net weight?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only if rented",
+          "Only OCONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -2516,20 +2835,31 @@
     {
       "id": "24-602V4|8.5.8|For a PPM moving a boat, will the registration weight suffice?",
       "ref": "8.5.8",
-      "question": "For a PPM moving a boat, will the registration weight suffice?",
+      "question": "For a PPM moving a boat, what is the status of the boat's registration weight?",
       "status": "verified",
-      "reason": "A full weight ticket is required; boat registration weight is insufficient. Boat size and having a trailer do not replace the ticket.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is not sufficient\".",
       "evidence": {
         "page": 26,
         "quote": "8.5. Vehicles and Equipment. There are no restrictions as to the type of POV or equipment used, however, use of a privately owned airplanes is not an authorized method.\n…\n8.5.8. A full weight ticket is required when moving a boat. Registration weight will not suffice for incentive payment."
       },
-      "answer": "No",
+      "answer": "It is not sufficient",
       "wrong": [
-        "Yes",
-        "Only for small boats",
-        "Only with a trailer"
+        "It is sufficient",
+        "It is sufficient for small boats",
+        "It is sufficient with a trailer"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "For a PPM moving a boat, will the registration weight suffice?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for small boats",
+          "Only with a trailer"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|8.6.1|Which is an example of when the TO may approve a constructed weight in advance?",
@@ -2593,20 +2923,31 @@
     {
       "id": "24-602V4|8.6.4.4|Must members get separate weight tickets for PBP&E in a PPM?",
       "ref": "8.6.4.4",
-      "question": "Must members get separate weight tickets for PBP&E in a PPM?",
+      "question": "For a PPM, what weight tickets are required for PBP&E?",
       "status": "verified",
-      "reason": "Separate PBP&E weight tickets are not required. Spouse-only and 500-pound triggers are not stated.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"No separate tickets\".",
       "evidence": {
         "page": 27,
         "quote": "8.6.4.4. Members are not required to obtain separate weight tickets for PBP&E."
       },
-      "answer": "No",
+      "answer": "No separate tickets",
       "wrong": [
-        "Yes",
-        "Only for spouse PBP&E",
-        "Only over 500 pounds"
+        "Separate tickets",
+        "Separate tickets for spouse PBP&E",
+        "Separate tickets over 500 pounds"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Must members get separate weight tickets for PBP&E in a PPM?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for spouse PBP&E",
+          "Only over 500 pounds"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|8.7|What is the basic government valuation coverage for HHG?",
@@ -2629,20 +2970,31 @@
     {
       "id": "24-602V4|8.7|Is the cost of additional insurance for a PPM reimbursable?",
       "ref": "8.7",
-      "question": "Is the cost of additional insurance for a PPM reimbursable?",
+      "question": "How much of the cost of additional insurance for a PPM is reimbursable?",
       "status": "verified",
-      "reason": "Additional PPM insurance is not reimbursable. Half and OCONUS-only reimbursement do not override the rule.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 27,
         "quote": "8.7. Insurance Coverage. The PPPO/PPSO advises members to consider purchasing private insurance to cover HHG being transported. The expense of additional insurance for shipment or storage is not reimbursable. (T-0). Claims are generally paid for those damages incurred due to circumstances beyond a member’s control (vehicle accidents, leakage, fires, or thefts in which the member is free of negligence). Members may want to consider purchasing private insurance to cover HHG being transported if they believe the basic valuation coverage by the government ($40,000) is not sufficient to cover the value of their property. This added protection may be especially important if the member is moving items for which the government may pay limited maximum amounts if lost or damaged. The expense of additional insurance for shipment or storage is not reimbursable. Members should contact the DAF Claims Service Center (AFCSC) for information on maximum amounts. https://claims.jag.af.mil/index.php?JA=382781\n8.7.1. The PPPO advises members who plan to use a trailer for a PPM to check with their automobile insurer to determine if they are properly covered in case of loss or damage. Some automobile insurance companies may extend coverage when trailers are towed behind a POV, others may not. Additional insurance is not a claimable expense. (T-0).\n…"
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes",
+        "All of it",
         "Half",
-        "Only OCONUS"
+        "All of it, OCONUS only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is the cost of additional insurance for a PPM reimbursable?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Half",
+          "Only OCONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|8.8|For an OCONUS PPM, who is responsible for SOFA, customs, and import/export issues?",
@@ -2701,20 +3053,31 @@
     {
       "id": "24-602V4|8.10.3|May a military couple doing individual PPMs commingle weight tickets and receipts?",
       "ref": "8.10.3",
-      "question": "May a military couple doing individual PPMs commingle weight tickets and receipts?",
+      "question": "What is the rule on a military couple doing individual PPMs commingling weight tickets and receipts?",
       "status": "verified",
-      "reason": "Individual PPM weight tickets and receipts cannot be commingled. Neither receipts-only nor tickets-only commingling is authorized.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 28,
         "quote": "8.10. Combined Shipment – Military Married to Military. A military couple may ship or store their combined JTR authorized weight allowance or exercise an individual allowance.\n…\n8.10.3. Separate and individual weight tickets and receipts (expenses) are required for each member’s respective PPM. Comingling of weight tickets and expenses is not authorized. (T-0)."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes",
-        "Only receipts",
-        "Only weight tickets"
+        "Allowed",
+        "Allowed for receipts only",
+        "Allowed for weight tickets only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a military couple doing individual PPMs commingle weight tickets and receipts?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only receipts",
+          "Only weight tickets"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|8.11.1.1|Which of these is NOT required on a PPM weight ticket?",
@@ -2756,24 +3119,35 @@
     {
       "id": "24-602V4|8.11.3|Can axle weights be broken up to remove non-HHG items (e.g., a towed POV)?",
       "ref": "8.11.3",
-      "question": "On PPM weight tickets, can axle weights be broken up to remove non-HHG items (e.g., a towed POV)?",
+      "question": "What is the rule on breaking up axle weights on PPM weight tickets to remove non-HHG items (e.g., a towed POV)?",
       "status": "verified",
-      "reason": "Axle weights cannot be broken up to remove non-HHG weights. TO approval and trailer-only conditions do not authorize that deduction.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 29,
         "quote": "8.11. Member Responsibilities.\n…\n8.11.3. Axle scale weights are permitted when local or state law does not otherwise restrict them. Axle weights cannot be broken up to remove non-HHG item weights. For example, the trailer axel weight on a full weight ticket cannot simply be deducted as proof of the empty weight of a towed POV."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes",
-        "Only with TO approval",
-        "Only for trailers"
+        "Allowed",
+        "Allowed with TO approval",
+        "Allowed for trailers only"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Can axle weights be broken up to remove non-HHG items (e.g., a towed POV)?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "On PPM weight tickets, can axle weights be broken up to remove non-HHG items (e.g., a towed POV)?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only with TO approval",
+          "Only for trailers"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -2815,20 +3189,31 @@
     {
       "id": "24-602V4|8.13|Are PPM expense receipts required to finalize settlement?",
       "ref": "8.13",
-      "question": "Are PPM expense receipts required to finalize settlement?",
+      "question": "When are PPM expense receipts required to finalize settlement?",
       "status": "verified",
-      "reason": "8.13 requires expense receipts above the incentive, and8.13.6.8 additionally requires commercial storage contracts/receipts. The revised answer preserves that exception; always, never and OCONUS-only do not.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"For costs above the incentive and for commercial storage\".",
       "evidence": {
         "page": 29,
         "quote": "8.13. Final Settlement/PPM Closeout. Receipts for expenses incurred when performing a PPM are not required for submission to finalize settlement of a PPM unless the expenses exceed the incentive. Do not submit receipts to finance as it may cause the PPM package to be rejected. It is the member's responsibility to retain moving expense records IAW IRS regulations.\n…\n8.13.4.1. Exception. Moves made incident to JTR, pars. (051902), (051904-A), (051904- B), (0518-B8) and (0518-B9a) are authorized without regard to the member’s prescribed weight allowance.\n8.13.5. Upon close-out of the PPM, ensure the member retains copies of all documents submitted to the PPSO for their records.\n8.13.6. The member submits the following required documents to ensure prompt payment:\n8.13.6.1. A signed DD Form 2278\n8.13.6.2. PPM Checklist and Certification of Expenses\n8.13.6.3. DD Form 1351-2, Travel Voucher\n8.13.6.4. Legible copy of order and all amendments\n8.13.6.5. If applicable, a copy of the letter of non-availability\n8.13.6.6. Legible copy of weight tickets or weight estimator if constructive weight is approved.\n8.13.6.7. If applicable, a legible copy of registration for trailer,\n8.13.6.8. Contract and receipts from commercial storage facility to support request for SIT/NTS reimbursement.\n8.13.7. PPPO closes out the PPM, certifies and provides required documents to the customer to submit to FSO. (T-0).\n…"
       },
-      "answer": "For costs above incentive, and for commercial storage",
+      "answer": "For costs above the incentive and for commercial storage",
       "wrong": [
-        "Always",
+        "Always, for every PPM expense regardless of the incentive",
         "Never",
         "Only for OCONUS PPMs"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are PPM expense receipts required to finalize settlement?",
+        "previousAnswer": "For costs above incentive, and for commercial storage",
+        "previousWrong": [
+          "Always",
+          "Never",
+          "Only for OCONUS PPMs"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|8.13.1.3|If no weight allowance remains after all government moves are delivered, what does the PPPO do with the PPM?",
@@ -3100,20 +3485,31 @@
     {
       "id": "24-602V4|11.4.1|Is there authority to grant an exception or waiver to any JTR provision?",
       "ref": "11.4.1",
-      "question": "Is there authority to grant an exception or waiver to any JTR provision?",
+      "question": "Who may grant an exception or waiver to a JTR provision?",
       "status": "verified",
-      "reason": "The paragraph states no JTR waiver authority and forbids forwarding such requests. AF/A4LR, PPA HQ, and MAJCOM cannot supply the offered waiver.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"No one\".",
       "evidence": {
         "page": 33,
         "quote": "11.4. Exception to Provisions of the Joint Travel Regulations is prohibited.\n11.4.1. The JTR is a direct implementation of the laws enacted by the Congress and the President and interpretations of those laws by the Comptroller General of the United States (GAO) and Defense Office of Hearings and Appeals, and has the force and effect of law. The JTR is the DoD implementation of General Services Administration (GSA) Federal Travel Regulation (FTR) that is the direct implementation of law and GAO and GSA Board of Contract Appeals (GSBCA) interpretations. There is no authority to grant an exception or a waiver to any JTR provision. (T-0). Do not forward requests of this nature to AF/A4LR for consideration."
       },
-      "answer": "No",
+      "answer": "No one",
       "wrong": [
-        "Yes, by AF/A4LR",
-        "Yes, by PPA HQ",
-        "Yes, by the MAJCOM"
+        "AF/A4LR",
+        "PPA HQ",
+        "The MAJCOM"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is there authority to grant an exception or waiver to any JTR provision?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, by AF/A4LR",
+          "Yes, by PPA HQ",
+          "Yes, by the MAJCOM"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|11.4.2|Recommended administrative changes to the JTR are submitted through MAJCOM A1 and A4 channels to whom?",
@@ -3154,20 +3550,31 @@
     {
       "id": "24-602V4|11.6|Does HHG shipment via AMC TP-4 to, from, or between hardlift areas require prior approval?",
       "ref": "11.6",
-      "question": "Does HHG shipment via AMC TP-4 to, from, or between hardlift areas require prior approval?",
+      "question": "Who must approve HHG shipment via AMC TP-4 to, from, or between hardlift areas in advance?",
       "status": "verified",
-      "reason": "Hardlift TP-4 needs no prior approval. Each named-office yes alternative adds prior approval.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"No one\".",
       "evidence": {
         "page": 33,
         "quote": "11.6. Airlift of HHG. HHG shipment by air to, from, or between hardlift areas via AMC TP-4, does not require prior approval. TP-2 airlift to any other area (except inter-theater) requires prior approval. PPA HQ is delegated approval authority for TP-2 airlift. Validation of hardlift areas should be completed through the PPCIG.\n…\n11.6.3.3.1. Fax information to DSN (312) 787-3185 or commercial (937) 257-3185.\n11.6.3.3.2. Telephone ACA office DSN (312)787-4949 or commercial (937) 257- 4946.\n11.6.3.4. Available TP-4 airlift may be used when a cost comparison indicates that it is cost favorable or when it is required to meet the member's, dependent's, or next-of-kin's requirements. However, HHG shipments are to move as TP-4 when it best meets the needs of the member without incurring storage-in-transit costs at destination.\n11.6.3.5. Shipments returning from OCONUS points destined for CONUS Non- temporary storage cannot be routed via TP-4.\n11.6.3.6. Once the appropriate ACA clears a shipment, it moves as TP-4. Shipments are not to be pulled out of the airlift system by AMC and diverted to surface movement without coordination with the ACA.\n11.6.4. TP-2 Airlift Requests. Airlift requests (AMC TP-2) to, from or between other than approved hardlift areas are sent to PPA HQ/LHO at ppahq.af.workflow@us.af.mil. The PPPO initiates the request that includes, as a minimum, the following:\n11.6.4.1. The member’s name, grade, and social security number. (T-0).\n…"
       },
-      "answer": "No",
+      "answer": "No one",
       "wrong": [
-        "Yes, by PPA HQ",
-        "Yes, by HAF/A4LR",
-        "Yes, by the ACA"
+        "PPA HQ, in writing",
+        "HAF/A4LR, by memorandum",
+        "The ACA, before booking"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does HHG shipment via AMC TP-4 to, from, or between hardlift areas require prior approval?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, by PPA HQ",
+          "Yes, by HAF/A4LR",
+          "Yes, by the ACA"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|11.6|Who has approval authority for TP-2 airlift of HHG?",
@@ -3226,20 +3633,31 @@
     {
       "id": "24-602V4|11.6.3.5|Can shipments returning from OCONUS for CONUS NTS be routed via TP-4?",
       "ref": "11.6.3.5",
-      "question": "Can shipments returning from OCONUS for CONUS NTS be routed via TP-4?",
+      "question": "How are shipments returning from OCONUS for CONUS NTS routed with regard to TP-4?",
       "status": "verified",
-      "reason": "Returning OCONUS shipments for CONUS NTS cannot use TP-4; UB and ACA approval do not override it.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"They may not be routed via TP-4\".",
       "evidence": {
         "page": 34,
         "quote": "11.6.3. TP-4 Airlift of HHG.\n…\n11.6.3.5. Shipments returning from OCONUS points destined for CONUS Non- temporary storage cannot be routed via TP-4."
       },
-      "answer": "No",
+      "answer": "They may not be routed via TP-4",
       "wrong": [
-        "Yes",
-        "Only UB",
-        "Only with ACA approval"
+        "Via TP-4",
+        "Via TP-4 for UB only",
+        "Via TP-4 with ACA approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can shipments returning from OCONUS for CONUS NTS be routed via TP-4?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only UB",
+          "Only with ACA approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|11.6.4.5.2|Which of these is sufficient justification for TP-2 airlift of HHG?",
@@ -3452,24 +3870,35 @@
     {
       "id": "24-602V4|12.2.4|Are shipments routinely placed into SIT at origin pending payment of excess costs?",
       "ref": "12.2.4",
-      "question": "Are HHG shipments routinely placed into SIT at origin pending payment of excess costs?",
+      "question": "What is the policy on placing HHG into SIT at origin pending payment of excess costs?",
       "status": "verified",
-      "reason": "Shipments are not routinely held in origin SIT pending payment. Always, thirty days, and until DFAS payment all incorrectly require routine holding.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not done routinely\".",
       "evidence": {
         "page": 38,
         "quote": "12.2. Origin PPPO Responsibilities.\n…\n12.2.4. Determine in advance that the member/employee will be financially responsible for all excess costs to effect movement. Advise the member that excess costs are paid at origin. However, shipment is not routinely placed into SIT at origin pending payment. Advise the member/employee that the debt is turned over to DFAS for out-of- service collection if payment is not made prior to delivery. (T-0)."
       },
-      "answer": "No",
+      "answer": "Not done routinely",
       "wrong": [
-        "Yes, always",
-        "Yes, for 30 days",
-        "Yes, until DFAS confirms payment"
+        "Always done",
+        "Done for 30 days",
+        "Done until DFAS confirms payment"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Are shipments routinely placed into SIT at origin pending payment of excess costs?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are HHG shipments routinely placed into SIT at origin pending payment of excess costs?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Yes, for 30 days",
+          "Yes, until DFAS confirms payment"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -3552,24 +3981,35 @@
     {
       "id": "24-602V4|12.3.1|Is property delivered even if the member is no longer in a pay status and excess costs were not collected?",
       "ref": "12.3.1",
-      "question": "Is HHG delivered even if the member is no longer in a pay status and excess costs were not collected?",
+      "question": "What happens to HHG when the member is no longer in a pay status and excess costs were not collected?",
       "status": "verified",
-      "reason": "Property should be delivered despite no pay status and uncollected excess cost. Half delivery and HQ approval are not the specified condition.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is still delivered\".",
       "evidence": {
         "page": 38,
         "quote": "12.3. Destination PPPO Responsibilities.\n12.3.1. Notify the member/employee of excess cost and attempt to collect excess charges prior to final delivery. If collection action is unsuccessful, issue a SF Form 1200 indicating excess charges were not collected and that paying officer review is required. Provide a copy to PPA HQ/LHX who then initiates out-of-service collection action. Property should be delivered even if the member/employee is no longer in a pay status. (T-0)."
       },
-      "answer": "Yes",
+      "answer": "It is still delivered",
       "wrong": [
-        "No",
-        "Only half",
-        "Only with PPA HQ approval"
+        "It is held until paid",
+        "Half is delivered",
+        "It is delivered with PPA HQ approval"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Is property delivered even if the member is no longer in a pay status and excess costs were not collected?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is HHG delivered even if the member is no longer in a pay status and excess costs were not collected?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No",
+          "Only half",
+          "Only with PPA HQ approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -3593,20 +4033,31 @@
     {
       "id": "24-602V4|12.3.7|If collection was not made for a contractual service, should a DD Form 139 be issued incident to the rebuttal action?",
       "ref": "12.3.7",
-      "question": "If collection was not made for a contractual service, should a DD Form 139 be issued incident to the rebuttal action?",
+      "question": "If collection was not made for a contractual service, what is done incident to the rebuttal action?",
       "status": "verified",
-      "reason": "12.3.7 explicitly forbids DD139 incident to rebuttal when collection was not made; rates go to LHX. All yes alternatives conflict.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Collection rates go to LHX\".",
       "evidence": {
         "page": 39,
         "quote": "12.3. Destination PPPO Responsibilities.\n…\n12.3.7. State if collection was made for any other contractual service. If so, provide a copy of the applicable DD Form 1131. If collection was not made, do not issue a DD Form 139 incident to the rebuttal action. Provide PPA HQ/LHX the rates upon which collection should have been made. (T-1)."
       },
-      "answer": "No; provide collection rates to LHX",
+      "answer": "Collection rates go to LHX",
       "wrong": [
-        "Yes, immediately",
-        "Yes, by the FSO",
-        "Yes, by the TSP"
+        "Issue a DD Form 139 immediately",
+        "The FSO issues a DD Form 139",
+        "The TSP issues a DD Form 139"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "If collection was not made for a contractual service, should a DD Form 139 be issued incident to the rebuttal action?",
+        "previousAnswer": "No; provide collection rates to LHX",
+        "previousWrong": [
+          "Yes, immediately",
+          "Yes, by the FSO",
+          "Yes, by the TSP"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "24-602V4|12.4.1|Whom does a member contact for counseling on excess cost rebuttal procedures?",

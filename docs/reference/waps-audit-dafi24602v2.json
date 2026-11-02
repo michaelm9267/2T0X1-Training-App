@@ -3306,20 +3306,20 @@
       "id": "24-602V2|4.8.2|On the DAF Form 4387, can the person who performs the tasks also certify them?",
       "ref": "4.8.2",
       "status": "verified",
-      "decision": "The supplied 4.8.2 passage supports the keyed response to this stem: No; separate people are required. The alternatives were reviewed as competing responses within that scope and do not identify the stated requirement.",
-      "answer": "No; separate people are required",
+      "decision": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The supplied 4.8.2 passage supports the keyed response: A different person must certify them.",
+      "answer": "A different person must certify them",
       "distractors": [
         {
-          "choice": "Yes, if they are a 2T071",
-          "decision": "Does not match the 4.8.2 requirement requested by the stem; keyed response is No; separate people are required."
+          "choice": "The same person may certify if a 2T071",
+          "decision": "Contradicts the 4.8.2 requirement; keyed response is \"A different person must certify them\"."
         },
         {
-          "choice": "Yes, for Section II only",
-          "decision": "Does not match the 4.8.2 requirement requested by the stem; keyed response is No; separate people are required."
+          "choice": "The same person may certify Section II only",
+          "decision": "Contradicts the 4.8.2 requirement; keyed response is \"A different person must certify them\"."
         },
         {
-          "choice": "Yes, during degraded operations",
-          "decision": "Does not match the 4.8.2 requirement requested by the stem; keyed response is No; separate people are required."
+          "choice": "The same person may certify in degraded operations",
+          "decision": "Contradicts the 4.8.2 requirement; keyed response is \"A different person must certify them\"."
         }
       ],
       "change": {
@@ -3344,7 +3344,19 @@
       "evidence": {
         "page": 40,
         "quote": "4.8.2. Traffic Managers will use DAF Form 4387, Outbound Transportation Protective Service Materiel Worksheet, to process TPS materiel for movement. (T-1) The packaging certifier must validate Section I tasks prior to shipment planning. (T-1) The movement documentation certifier must validate Section II tasks prior to the shipment being released. (T-1) The certifier for all sections will be a 2T0 with a Primary AFSC of 2T071, military, civilian or contractor supervisor, or equivalent level. (T-3) The individual performing the tasks and certification cannot be the same person. (T-1) Exception: Technical Specialists (e.g., maintenance, munitions, weapons, etc.) will only complete line 1., 2., and Section I of the form. (T-1)"
-      }
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "On the DAF Form 4387, can the person who performs the tasks also certify them?",
+        "previousAnswer": "No; separate people are required",
+        "previousWrong": [
+          "Yes, if they are a 2T071",
+          "Yes, for Section II only",
+          "Yes, during degraded operations"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      },
+      "question": "On the DAF Form 4387, what is the rule on the person who performs the tasks also certifying them?"
     },
     {
       "id": "24-602V2|4.8.2|Which parts of the DAF Form 4387 do technical specialists (maintenance, munitions, weapons) complete?",

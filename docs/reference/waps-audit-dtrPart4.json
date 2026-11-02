@@ -735,20 +735,31 @@
     {
       "id": "DTR-IV|Ch A-402, para C.3.c(2)(c)|Do shipments accepted through \"Offer to All\" count against a TSP's round robin allotment?",
       "ref": "Ch A-402, para C.3.c(2)(c)",
-      "question": "Do shipments accepted through \"Offer to All\" count against a TSP's round robin allotment?",
+      "question": "How do shipments accepted through \"Offer to All\" affect a TSP's round robin allotment?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only half', 'Only for UB' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"They do not count against it\".",
       "evidence": {
         "page": 6,
         "quote": "c. Manual “Offer to All” process.\n…\n(2) Steps in the “Offer to All” Process:\n…\n(c) Shipments accepted in this status will not count against the TSP’s scheduled shipment allotment under “Round Robin” distribution."
       },
-      "answer": "No",
+      "answer": "They do not count against it",
       "wrong": [
-        "Yes",
-        "Only half",
-        "Only for UB"
+        "They count fully",
+        "They count as half",
+        "They count for UB only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Do shipments accepted through \"Offer to All\" count against a TSP's round robin allotment?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only half",
+          "Only for UB"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.3.c(2)(d)|Who conducts monthly trend and utilization analysis on \"Manual Award\" and \"Offer to All\"?",
@@ -1004,20 +1015,31 @@
     {
       "id": "DTR-IV|Ch A-402, para C.4.b(3)|Does DPS automatically suspend a TSP for a \"Non-Response\"?",
       "ref": "Ch A-402, para C.4.b(3)",
-      "question": "Does DPS automatically suspend a TSP for a \"Non-Response\"?",
+      "question": "Who suspends a TSP for a \"Non-Response\" in DPS?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, for 30 days', 'Yes, permanently', 'Yes, for 10 days' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"The PPSO, after ruling out a system problem\".",
       "evidence": {
         "page": 8,
         "quote": "4. Rejection of Shipment Offers:\n…\nb. If the TSP fails to accept a shipment offer within the required time:\n…\n(3) DPS does not “automatically” suspend the TSP from the market. This action must be taken by the PPSO to ensure the “Non-Response” was not due to a system problem."
       },
-      "answer": "No",
+      "answer": "The PPSO, after ruling out a system problem",
       "wrong": [
-        "Yes, for 30 days",
-        "Yes, permanently",
-        "Yes, for 10 days"
+        "DPS, automatically for 30 days",
+        "DPS, automatically and permanently",
+        "DPS, automatically for 10 days"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does DPS automatically suspend a TSP for a \"Non-Response\"?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, for 30 days",
+          "Yes, permanently",
+          "Yes, for 10 days"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.4.b(4)|Which form is the Letter of Suspension to a TSP?",
@@ -1109,20 +1131,31 @@
     {
       "id": "DTR-IV|Ch A-402, para C.6.b|Are pull-backs/turn-backs caused by the TSP's actions charged against the TSP?",
       "ref": "Ch A-402, para C.6.b",
-      "question": "Are pull-backs/turn-backs caused by the TSP's actions charged against the TSP?",
+      "question": "How are pull-backs/turn-backs caused by the TSP's actions charged?",
       "status": "verified",
-      "reason": "The cited rule gives 'Yes' for this question. The alternatives 'No', 'Only in peak season', 'Only for UB' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Against the TSP\".",
       "evidence": {
         "page": 9,
         "quote": "b. Shipments that are pulled-back/turned-back based on actions or inactions of the TSP are charged against the TSP on the TDL. When a suspension action occurs against a TSP, at the PPSO discretion, all shipments awarded to the affected TSP from the BLOC may be pulled- back and reallocated to other eligible TSPs. PPSO will consider all available information and whether or not the TSP has the ability to service shipments in question before the shipments are pulled-back."
       },
-      "answer": "Yes",
+      "answer": "Against the TSP",
       "wrong": [
-        "No",
-        "Only in peak season",
-        "Only for UB"
+        "Not at all",
+        "Against the TSP in peak season only",
+        "Against the TSP for UB only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are pull-backs/turn-backs caused by the TSP's actions charged against the TSP?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No",
+          "Only in peak season",
+          "Only for UB"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.7.c|Within how long of award must the TSP make initial contact with the customer?",
@@ -1327,20 +1360,31 @@
     {
       "id": "DTR-IV|Ch A-402, para C.10 note|If a customer's only shipment is a PPM, is it included in the excess cost computation?",
       "ref": "Ch A-402, para C.10 note",
-      "question": "If a customer's only shipment is a PPM, is it included in the excess cost computation?",
+      "question": "How is a customer's only shipment being a PPM treated in the excess cost computation?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for weight', 'Only for distance' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It is not included\".",
       "evidence": {
         "page": 11,
         "quote": "10. Excess Costs:\nNOTE: If the only shipment the customer has is a PPM, the shipment is not included in the computation for excess costs. However, if the customer has multiple shipments to include a PPM move, the weight of the PPM shipment must be used in the excess costs computations."
       },
-      "answer": "No",
+      "answer": "It is not included",
       "wrong": [
-        "Yes",
-        "Only for weight",
-        "Only for distance"
+        "It is fully included",
+        "It is included for weight only",
+        "It is included for distance only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "If a customer's only shipment is a PPM, is it included in the excess cost computation?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for weight",
+          "Only for distance"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.11.a(1)(a)|After a shipment is validated, what can the customer still update in DPS at any time?",
@@ -1386,20 +1430,31 @@
     {
       "id": "DTR-IV|Ch A-402, para C.11.a(2)(c)2|If a customer's new pickup date is blacked out by the TSP and the shipment is pulled back, is the original TSP charged a refusal?",
       "ref": "Ch A-402, para C.11.a(2)(c)2",
-      "question": "If a customer's new pickup date is blacked out by the TSP and the shipment is pulled back, is the original TSP charged a refusal?",
+      "question": "If a customer's new pickup date is blacked out by the TSP and the shipment is pulled back, what is the original TSP charged?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only in peak season', 'Only if short fuse' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"No refusal\".",
       "evidence": {
         "page": 13,
         "quote": "(2) The PPSO is required to make changes to the shipment record.\n…\n(c) If the customer requested change to the desired pickup date and the date requested is “blacked-out,” DPS alerts the PPSO that the date is not available with that TSP and the PPSO must:\n…\n2 If the TSP is not available on the new date(s), the PPSO must pull-back and offer the shipment to another TSP who is available during the period requested by the customer. The original TSP is not charged a “refusal,” and the next available shipment in that channel must be offered to the original TSP if they are not blacked out."
       },
-      "answer": "No",
+      "answer": "No refusal",
       "wrong": [
-        "Yes",
-        "Only in peak season",
-        "Only if short fuse"
+        "A refusal",
+        "A refusal in peak season",
+        "A refusal if short fuse"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "If a customer's new pickup date is blacked out by the TSP and the shipment is pulled back, is the original TSP charged a refusal?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only in peak season",
+          "Only if short fuse"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|Ch A-402, para C.12.a note|When must the TSP provide a BL to the customer?",
@@ -1820,24 +1875,35 @@
     {
       "id": "DTR-IV|Ch A-402, para D.5.c(1)|Is SIT conversion to customer expense retroactive?",
       "ref": "Ch A-402, para D.5.c(1)",
-      "question": "When SIT at Government expense ends and converts to customer expense, is the conversion retroactive?",
+      "question": "How is conversion of SIT from Government expense to customer expense applied?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, to the arrival date', 'Yes, 30 days back', 'Only for civilians' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not retroactively\".",
       "evidence": {
         "page": 19,
         "quote": "5. SIT:\n…\nc. Converting SIT:\n(1) Shipments remain in SIT until converted to the customer’s expense by the PPSO and is not retroactive. The PPSO cannot convert a shipment to commercial storage prior to contacting the customer or their duly appointed representative. DPS tracks the date the customer was contacted and informed of SIT conversion to customer expense. After the shipment converts to the customer expense, DPS processes the shipment delivery out of SIT; however, DPS maintains visibility of the shipment while in storage at the customer’s expense. When converted to customer expense, the customer is still entitled to delivery out of storage paid for by the Government.\nNOTE: Members of the DoW community, to include Active duty Coast Guard members can normally be located at https://dod411.gds.disa.mil."
       },
-      "answer": "No",
+      "answer": "Not retroactively",
       "wrong": [
-        "Yes, to the arrival date",
-        "Yes, 30 days back",
-        "Only for civilians"
+        "Retroactive to the arrival date",
+        "Retroactive 30 days",
+        "Retroactive for civilians only"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Is SIT conversion to customer expense retroactive?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "When SIT at Government expense ends and converts to customer expense, is the conversion retroactive?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, to the arrival date",
+          "Yes, 30 days back",
+          "Only for civilians"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -2644,24 +2710,35 @@
     {
       "id": "DTR-IV|Ch A-402, para F.10.a(32)|Is the issuing TO's signature required in Block 32a?",
       "ref": "Ch A-402, para F.10.a(32)",
-      "question": "Is the issuing TO's signature required in bill of lading (BL) Block 32a?",
+      "question": "What does the issuing TO enter in bill of lading (BL) Block 32a?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for OCONUS', 'Only for DPM' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Name and title only\".",
       "evidence": {
         "page": 39,
         "quote": "(32) Block 32a, Issuing Officer. Enter the name and title of the issuing TO. Signature of the issuing TO is not required."
       },
-      "answer": "No",
+      "answer": "Name and title only",
       "wrong": [
-        "Yes",
-        "Only for OCONUS",
-        "Only for DPM"
+        "Signature, name, and title",
+        "Signature, for OCONUS only",
+        "Signature, for DPM only"
       ],
       "editorialChange": true,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Is the issuing TO's signature required in Block 32a?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is the issuing TO's signature required in bill of lading (BL) Block 32a?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for OCONUS",
+          "Only for DPM"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -2780,24 +2857,35 @@
     {
       "id": "DTR-IV|Ch A-402, para G.1 note|Are there UB moves under the domestic program?",
       "ref": "Ch A-402, para G.1 note",
-      "question": "Are there UB moves under the DP3 domestic program?",
+      "question": "Which DP3 program has no UB moves?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only to Alaska', 'Only in peak season' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"The domestic program\".",
       "evidence": {
         "page": 39,
         "quote": "1. Domestic Shipments:\nNOTE: There are no UB moves under the domestic program."
       },
-      "answer": "No",
+      "answer": "The domestic program",
       "wrong": [
-        "Yes",
-        "Only to Alaska",
-        "Only in peak season"
+        "The international program",
+        "Both programs",
+        "Neither program"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Are there UB moves under the domestic program?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Are there UB moves under the DP3 domestic program?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only to Alaska",
+          "Only in peak season"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -3039,24 +3127,35 @@
     {
       "id": "DTR-IV|Ch A-411, para B.3.b|Does mail or small parcel reimbursement include Extra Pickup or Extra Delivery?",
       "ref": "Ch A-411, para B.3.b",
-      "question": "Does PPM reimbursement for mail or small parcel shipments include Extra Pickup or Extra Delivery?",
+      "question": "What does PPM reimbursement for mail or small parcel shipments exclude?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for OCONUS', 'Only with TO approval' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Extra Pickup and Extra Delivery\".",
       "evidence": {
         "page": 2,
         "quote": "b. Extra Pickup or Delivery (Item 28/509-Domestic and International – International must be manually calculated). Counselors will approve/deny members request before processing. Mail or small parcel reimbursement will not include Extra Pickup or Extra Delivery authorization."
       },
-      "answer": "No",
+      "answer": "Extra Pickup and Extra Delivery",
       "wrong": [
-        "Yes",
-        "Only for OCONUS",
-        "Only with TO approval"
+        "Nothing",
+        "OCONUS charges only",
+        "Items without TO approval only"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Does mail or small parcel reimbursement include Extra Pickup or Extra Delivery?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does PPM reimbursement for mail or small parcel shipments include Extra Pickup or Extra Delivery?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for OCONUS",
+          "Only with TO approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -3287,24 +3386,35 @@
     {
       "id": "DTR-IV|Ch A-411, para E|Is pre-approval required for ACR?",
       "ref": "Ch A-411, para E",
-      "question": "Is pre-approval required for a PPM Actual Cost Reimbursement (ACR)?",
+      "question": "What approval is needed before a PPM Actual Cost Reimbursement (ACR)?",
       "status": "verified",
-      "reason": "The cited rule gives 'Yes, it is mandatory' for this question. The alternatives 'No', 'Only over 10,000 lbs', 'Only for retirees' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Mandatory pre-approval\".",
       "evidence": {
         "page": 4,
         "quote": "E. ACTUAL COST REIMBURSEMENT (ACR) ACR is a PPM where government transportation is NOT available and the member is approved to procure a PPM, reimbursements may be up to the “actual cost” regardless of the government’s GCC Best Value. Pre-approval is required and mandatory for ACR, IAW with Service publication.\nNOTE: Employees must obtain prior approval in writing from their Agency for PPM."
       },
-      "answer": "Yes, it is mandatory",
+      "answer": "Mandatory pre-approval",
       "wrong": [
-        "No",
-        "Only over 10,000 lbs",
-        "Only for retirees"
+        "None",
+        "Pre-approval over 10,000 lbs only",
+        "Pre-approval for retirees only"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Is pre-approval required for ACR?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is pre-approval required for a PPM Actual Cost Reimbursement (ACR)?",
+        "previousAnswer": "Yes, it is mandatory",
+        "previousWrong": [
+          "No",
+          "Only over 10,000 lbs",
+          "Only for retirees"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -3346,38 +3456,60 @@
     {
       "id": "DTR-IV|Ch A-411, para F.1.b|Should DD Form 2278 be used when counseling DoD civilians?",
       "ref": "Ch A-411, para F.1.b",
-      "question": "Should DD Form 2278 be used when counseling DoD civilians?",
+      "question": "Which members is DD Form 2278 used to counsel?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, always', 'Only for commuted rate', 'Only for OCONUS moves' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Service members, not DoD civilians\".",
       "evidence": {
         "page": 4,
         "quote": "1. GBL is directed by the Authorizing/Orders Issuing Official.\n…\nb. Do not use DD Form 2278 when counseling DoD Civilians as no incentive is calculated.\n(1) Incentive reimbursement only applies to Service Members.\n(2) Use of the DD Form 2278 may result in false information provided to the DoD Civilian on the amount they may be reimbursed for. Installation Transportation Office (ITO) memo submitted to Defense Finance Accounting System (DFAS) will include GCC so DFAS has the maximum ceiling for the ACR that the DoD Civilian could be reimbursed for.\n(3) DFAS requires orders, ITO memo, moving contract, rental truck and/or trailer receipts as applicable, fuel receipts for rental vehicle, weight tickets, and all miscellaneous receipts related to the move to calculate reimbursement."
       },
-      "answer": "No",
+      "answer": "Service members, not DoD civilians",
       "wrong": [
-        "Yes, always",
-        "Only for commuted rate",
-        "Only for OCONUS moves"
+        "DoD civilians, always",
+        "DoD civilians on commuted rate",
+        "DoD civilians on OCONUS moves"
       ],
-      "editorialChange": true
+      "editorialChange": true,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Should DD Form 2278 be used when counseling DoD civilians?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Only for commuted rate",
+          "Only for OCONUS moves"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|Ch A-411, para F.2.d|Could a DoD civilian's commuted rate reimbursement exceed 100% of the GCC?",
       "ref": "Ch A-411, para F.2.d",
-      "question": "Could a DoD civilian's commuted rate reimbursement exceed 100% of the GCC?",
+      "question": "How can a DoD civilian's commuted rate reimbursement compare with 100% of the GCC?",
       "status": "verified",
-      "reason": "The cited rule gives 'Yes, possibly' for this question. The alternatives 'No, never', 'Only for OCONUS', 'Only with DFAS approval' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It may exceed it\".",
       "evidence": {
         "page": 5,
         "quote": "2. Commuted Rate is authorized by the Authorizing/Orders Issuing Official.\n…\nd. Commuted rate reimbursement could possibly exceed the 100% GCC for government arranged move."
       },
-      "answer": "Yes, possibly",
+      "answer": "It may exceed it",
       "wrong": [
-        "No, never",
-        "Only for OCONUS",
-        "Only with DFAS approval"
+        "It never exceeds it",
+        "It exceeds it for OCONUS only",
+        "It exceeds it with DFAS approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Could a DoD civilian's commuted rate reimbursement exceed 100% of the GCC?",
+        "previousAnswer": "Yes, possibly",
+        "previousWrong": [
+          "No, never",
+          "Only for OCONUS",
+          "Only with DFAS approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|Ch A-411, Figure 411-1|On DD Form 2278, the member agrees to furnish certified weight tickets within how many days of the start of the move?",
@@ -3657,20 +3789,31 @@
     {
       "id": "DTR-IV|App A-B, para A.2.d(4)|May a TSP sell customer information (FCI/CUI) to advertisers or data brokers?",
       "ref": "App A-B, para A.2.d(4)",
-      "question": "May a TSP sell customer information (FCI/CUI) to advertisers or data brokers?",
+      "question": "What is the rule on a TSP selling customer information (FCI/CUI) to advertisers or data brokers?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, if anonymized', 'Yes, with DPMO approval', 'Only addresses' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Prohibited\".",
       "evidence": {
         "page": 12,
         "quote": "2. General Cyber Security Requirements:\n…\n(d) Handling and Protection of Non-Public Information:\n…\n(4) I agree to use FCI information developed or received, including CUI while performing under the ToS only for the purposes of fulfilling the contracted requirements and to protect such information from unauthorized release or disclosure. Information may be provided to subcontractors only as needed to perform their subcontracted duties. Such information may not be sold or provided to third parties or others such as advertisers or data-brokers."
       },
-      "answer": "No",
+      "answer": "Prohibited",
       "wrong": [
-        "Yes, if anonymized",
-        "Yes, with DPMO approval",
-        "Only addresses"
+        "Allowed if anonymized",
+        "Allowed with DPMO approval",
+        "Allowed for addresses only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a TSP sell customer information (FCI/CUI) to advertisers or data brokers?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, if anonymized",
+          "Yes, with DPMO approval",
+          "Only addresses"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.2.a|Who pays for background checks on TSP personnel who interact with customers?",
@@ -3767,20 +3910,31 @@
     {
       "id": "DTR-IV|App A-B, para B.3.f|Is double brokering of DoW HHG permitted?",
       "ref": "App A-B, para B.3.f",
-      "question": "Is double brokering of DoW HHG permitted?",
+      "question": "What is the status of double brokering DoW HHG?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only domestically', 'Only with PPSO approval' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Prohibited\".",
       "evidence": {
         "page": 18,
         "quote": "B. MUTUAL AGREEMENTS AND UNDERSTANDINGS\n…\n3. Through Responsibility:\n…\nf. Double Brokering of any DoW HHG is not permitted. TSPs may not solicit drivers with a price for specific loads through broker or load boards unless they have already been awarded that freight by a DoW shipper. Double brokering is defined as when a TSP assigns a shipment to a carrier who then brokers the shipment to another carrier. TSPs awarded DoW HHG shipments are responsible for ensuring that its underlying TSP(s) handle and deliver freight without the underlying TSP contracting the use of additional TSPs and brokers. To ensure subcontractor visibility, the awarded TSP shall record the following information in the “General Remarks” block in DPS no later than two (2) GBDs after the shipment’s departure from the origin:\n(1) The legal name and US DOT number of the service provider hauling the shipment.\n(2) The shipment’s date of departure from the origin location."
       },
-      "answer": "No",
+      "answer": "Prohibited",
       "wrong": [
-        "Yes",
-        "Only domestically",
-        "Only with PPSO approval"
+        "Permitted",
+        "Permitted domestically",
+        "Permitted with PPSO approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is double brokering of DoW HHG permitted?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only domestically",
+          "Only with PPSO approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.3.f|NLT how long after departure must the awarded TSP record the hauler's legal name and U.S. DOT number in DPS?",
@@ -4347,24 +4501,35 @@
     {
       "id": "DTR-IV|App A-B, para B.11.g(6)|May a customer be reimbursed for alcoholic beverages on an IC?",
       "ref": "App A-B, para B.11.g(6)",
-      "question": "May a customer be reimbursed for alcoholic beverages on an inconvenience claim (IC)?",
+      "question": "How much of a customer's alcoholic beverage cost is reimbursed on an inconvenience claim (IC)?",
       "status": "verified",
-      "reason": "The cited rule gives 'No, it is prohibited' for this question. The alternatives 'Yes, with receipts', 'Up to $50', 'Only with dependents' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 24,
         "quote": "11. Inconvenience Claim (IC):\n…\ng. Miscellaneous Expenses: The following guidelines apply to 1) UB shipments and 2) instances where a customer claims miscellaneous expenses for personal expenses.\n…\n(6) A request for reimbursement of alcoholic beverages is prohibited."
       },
-      "answer": "No, it is prohibited",
+      "answer": "None",
       "wrong": [
-        "Yes, with receipts",
+        "All of it, with receipts",
         "Up to $50",
-        "Only with dependents"
+        "All of it, for families with dependents"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May a customer be reimbursed for alcoholic beverages on an IC?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a customer be reimbursed for alcoholic beverages on an inconvenience claim (IC)?",
+        "previousAnswer": "No, it is prohibited",
+        "previousWrong": [
+          "Yes, with receipts",
+          "Up to $50",
+          "Only with dependents"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -4667,43 +4832,65 @@
     {
       "id": "DTR-IV|App A-B, para B.19.a|May a TSP run its own customer survey?",
       "ref": "App A-B, para B.19.a",
-      "question": "May a TSP run its own customer survey on DP3 shipments?",
+      "question": "What customer survey may a TSP run on DP3 shipments?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, by email', 'Yes, on social media', 'Yes, at delivery' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None of its own\".",
       "evidence": {
         "page": 28,
         "quote": "B. MUTUAL AGREEMENTS AND UNDERSTANDINGS\n…\n19. Customer Satisfaction Survey (CSS) Language Prohibition:\na. I understand that under no circumstance will I survey customers other than reminding them about the DoW CSS. This includes verbal, print material, electronic material, or social media."
       },
-      "answer": "No",
+      "answer": "None of its own",
       "wrong": [
-        "Yes, by email",
-        "Yes, on social media",
-        "Yes, at delivery"
+        "Its own email survey",
+        "Its own social media survey",
+        "Its own survey at delivery"
       ],
       "editorialChange": true,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May a TSP run its own customer survey?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a TSP run its own customer survey on DP3 shipments?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, by email",
+          "Yes, on social media",
+          "Yes, at delivery"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
       "id": "DTR-IV|App A-B, para B.19.b|May a TSP offer incentives to customers to complete the CSS?",
       "ref": "App A-B, para B.19.b",
-      "question": "May a TSP offer incentives to customers to complete the CSS?",
+      "question": "What incentives may a TSP offer customers to complete the CSS?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, gift cards', 'Yes, faster claims', 'Only after delivery' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 28,
         "quote": "B. MUTUAL AGREEMENTS AND UNDERSTANDINGS\n…\n19. Customer Satisfaction Survey (CSS) Language Prohibition:\n…\nb. I will not offer monetary gifts nor incentives to customers or other entities for completion of a survey. Neither will I manipulate or coerce a customer to complete a CSS in return for any claims related action. Claims actions must not be contingent on completion of a CSS."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes, gift cards",
-        "Yes, faster claims",
-        "Only after delivery"
+        "Gift cards",
+        "Faster claims",
+        "Incentives after delivery"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a TSP offer incentives to customers to complete the CSS?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, gift cards",
+          "Yes, faster claims",
+          "Only after delivery"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.20.a|When must the TSP enter a valid origin servicing agent in DPS?",
@@ -4726,20 +4913,31 @@
     {
       "id": "DTR-IV|App A-B, para B.20.a|Is an MMC's name acceptable as the origin servicing agent?",
       "ref": "App A-B, para B.20.a",
-      "question": "Is an MMC's name acceptable as the origin servicing agent?",
+      "question": "What is the status of an MMC's name as the origin servicing agent?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for short fuse', 'Only domestically' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not acceptable\".",
       "evidence": {
         "page": 29,
         "quote": "B. MUTUAL AGREEMENTS AND UNDERSTANDINGS\n…\n20. Origin Servicing Agent Representation:\na. I agree to enter the name and telephone number of a valid servicing agent at origin in DPS within 15 calendar days of shipment acceptance or NLT seven calendar days prior to pick up, whichever is sooner. If the shipment is awarded as a short fuse, I will update the origin servicing agent information within one (1) GBD. Entering name and telephone number of an MMC as servicing agent is not acceptable."
       },
-      "answer": "No",
+      "answer": "Not acceptable",
       "wrong": [
-        "Yes",
-        "Only for short fuse",
-        "Only domestically"
+        "Acceptable",
+        "Acceptable for short fuse",
+        "Acceptable domestically"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is an MMC's name acceptable as the origin servicing agent?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for short fuse",
+          "Only domestically"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-IV|App A-B, para B.22.a|When is the Foreign Vendor Report due?",
@@ -4785,24 +4983,35 @@
     {
       "id": "DTR-IV|App A-B, para C.1.b|May pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
       "ref": "App A-B, para C.1.b",
-      "question": "May HHG pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
+      "question": "When may HHG pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
       "status": "verified",
-      "reason": "The cited rule gives 'Only by mutual agreement of the customer, PPSO, and TSP' for this question. The alternatives 'Yes, anytime', 'Never', 'Only in peak season' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"By customer, PPSO, and TSP agreement\".",
       "evidence": {
         "page": 32,
         "quote": "C. PERFORMANCE REQUIREMENTS\n1. Pickup and Delivery Dates:\n…\nb. Shipments will not be scheduled by PPSO or me for pickup or delivery on Saturdays, Sundays, U.S. holidays, or foreign national holidays unless there is a mutual agreement between the customer, PPSO, and the TSP."
       },
-      "answer": "Only by mutual agreement of the customer, PPSO, and TSP",
+      "answer": "By customer, PPSO, and TSP agreement",
       "wrong": [
-        "Yes, anytime",
-        "Never",
-        "Only in peak season"
+        "Any time the TSP has crews available",
+        "Never, even with the customer's agreement",
+        "Only during peak season, 15 May-30 Sep"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May HHG pickup or delivery be scheduled on Saturdays, Sundays, or holidays?",
+        "previousAnswer": "Only by mutual agreement of the customer, PPSO, and TSP",
+        "previousWrong": [
+          "Yes, anytime",
+          "Never",
+          "Only in peak season"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -4969,24 +5178,35 @@
     {
       "id": "DTR-IV|App A-B, para C.3.g|Can SIT start on a weekend or holiday?",
       "ref": "App A-B, para C.3.g",
-      "question": "Can an HHG shipment's storage in transit (SIT) start on a weekend or holiday?",
+      "question": "On which days may an HHG shipment's storage in transit (SIT) start?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only on Saturdays', 'Only for UB' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not on weekends or holidays\".",
       "evidence": {
         "page": 34,
         "quote": "C. PERFORMANCE REQUIREMENTS\n…\n3. Shipment Arrival/Delivery/Delays:\n…\ng. SIT cannot start on weekends and/or holidays."
       },
-      "answer": "No",
+      "answer": "Not on weekends or holidays",
       "wrong": [
-        "Yes",
-        "Only on Saturdays",
-        "Only for UB"
+        "Any day",
+        "Saturdays as well as weekdays",
+        "Weekends and holidays, for UB"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Can SIT start on a weekend or holiday?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Can an HHG shipment's storage in transit (SIT) start on a weekend or holiday?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only on Saturdays",
+          "Only for UB"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -5102,24 +5322,35 @@
     {
       "id": "DTR-IV|App A-B, para C.3.q|Does a weekend service agreement between the customer and TSP authorize extra labor and overtime?",
       "ref": "App A-B, para C.3.q",
-      "question": "Does a weekend service agreement between the HHG customer and TSP authorize extra labor and overtime charges?",
+      "question": "What extra labor and overtime charges does a weekend service agreement between the HHG customer and TSP authorize?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only on holidays', 'Only in peak season' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 35,
         "quote": "C. PERFORMANCE REQUIREMENTS\n…\n3. Shipment Arrival/Delivery/Delays:\n…\nq. I will not schedule pickup or delivery on Saturdays, Sundays, and holidays unless there is a mutual agreement between the customer, PPSO, and me. Agreement by me and customer for weekend or holiday service does not authorize extra labor and overtime."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes",
-        "Only on holidays",
-        "Only in peak season"
+        "All weekend charges",
+        "Holiday charges only",
+        "Peak season charges only"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Does a weekend service agreement between the customer and TSP authorize extra labor and overtime?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does a weekend service agreement between the HHG customer and TSP authorize extra labor and overtime charges?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only on holidays",
+          "Only in peak season"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -5363,24 +5594,35 @@
     {
       "id": "DTR-IV|App A-B, para C.8.f|May the outside of a package be marked to show it contains a firearm?",
       "ref": "App A-B, para C.8.f",
-      "question": "May the outside of an HHG carton be marked to show it contains a firearm?",
+      "question": "How may the outside of an HHG carton containing a firearm be marked?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only internationally', 'Only on the side panel' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not to show it contains a firearm\".",
       "evidence": {
         "page": 38,
         "quote": "C. PERFORMANCE REQUIREMENTS\n…\n8. Privately Owned Firearms (POFs):\n…\nf. Marking the outside of any package, luggage, or other container indicating that the package contains a firearm is prohibited. This does not exclude attaching documentation in a sealed envelope to a box/container of HHGs."
       },
-      "answer": "No",
+      "answer": "Not to show it contains a firearm",
       "wrong": [
-        "Yes",
-        "Only internationally",
-        "Only on the side panel"
+        "To show it contains a firearm",
+        "With a firearm label, internationally",
+        "On the side panel only"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May the outside of a package be marked to show it contains a firearm?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May the outside of an HHG carton be marked to show it contains a firearm?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only internationally",
+          "Only on the side panel"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -5478,24 +5720,35 @@
     {
       "id": "DTR-IV|App A-B, para C.9.a(24)|Does a signed bingo card or check-off sheet prove delivery?",
       "ref": "App A-B, para C.9.a(24)",
-      "question": "At HHG delivery, does a signed bingo card or check-off sheet prove delivery?",
+      "question": "At HHG delivery, what does a signed bingo card or check-off sheet prove?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for cartons', 'Only internationally' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It does not prove delivery\".",
       "evidence": {
         "page": 40,
         "quote": "9. Inventory:\na. I agree to:\n…\n(24) Use of bingo cards or check off sheets at delivery. I agree that I may use bingo cards or check off sheets as internal company documents only. However, a signed bingo card or check-off sheet does not indicate proof of delivery and lost, missing or damaged items will still be indicated on the appropriate loss or damage forms."
       },
-      "answer": "No",
+      "answer": "It does not prove delivery",
       "wrong": [
-        "Yes",
-        "Only for cartons",
-        "Only internationally"
+        "It proves delivery",
+        "It proves delivery of cartons",
+        "It proves delivery internationally"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "Does a signed bingo card or check-off sheet prove delivery?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "At HHG delivery, does a signed bingo card or check-off sheet prove delivery?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for cartons",
+          "Only internationally"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -5693,24 +5946,35 @@
     {
       "id": "DTR-IV|App A-B, para C.14.c|May the contents of containerized shipments be removed from the containers in SIT?",
       "ref": "App A-B, para C.14.c",
-      "question": "May the contents of containerized HHG shipments be removed from the containers while in SIT?",
+      "question": "What is the rule on removing the contents of containerized HHG shipments from the containers while in SIT?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for inspection', 'Only after 30 days' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 44,
         "quote": "C. PERFORMANCE REQUIREMENTS\n…\n14. SIT:\n…\nc. Shipping Containers: The contents of containerized shipments must not be removed from containers when placed in SIT."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes",
-        "Only for inspection",
-        "Only after 30 days"
+        "Allowed",
+        "Allowed for inspection",
+        "Allowed after 30 days"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May the contents of containerized shipments be removed from the containers in SIT?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May the contents of containerized HHG shipments be removed from the containers while in SIT?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for inspection",
+          "Only after 30 days"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -5856,47 +6120,69 @@
     {
       "id": "DTR-IV|App A-B, para D.2.c|May a TSP place a lien on or detain a DoW shipment?",
       "ref": "App A-B, para D.2.c",
-      "question": "Under the DP3 Tender of Service, may a TSP place a lien on or detain a DoW shipment?",
+      "question": "Under the DP3 Tender of Service, when may a TSP place a lien on or detain a DoW shipment?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, for unpaid charges', 'Yes, with PPSO approval', 'Only for SIT charges' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Never\".",
       "evidence": {
         "page": 46,
         "quote": "D. CERTIFICATION\n…\n2. Terms and Conditions:\n…\nc. All parties to the BL (TSPs, freight forwarders, or their representative), recognize that this shipment is made under the auspices of the U.S. U.S. Government, agree to forego any liens that may arise from any cause whatsoever and not to detain or impound this shipment made on the usual forms provided therefore by the TSP."
       },
-      "answer": "No",
+      "answer": "Never",
       "wrong": [
-        "Yes, for unpaid charges",
-        "Yes, with PPSO approval",
-        "Only for SIT charges"
+        "For unpaid charges",
+        "With PPSO approval",
+        "For SIT charges only"
       ],
       "editorialChange": true,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May a TSP place a lien on or detain a DoW shipment?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Under the DP3 Tender of Service, may a TSP place a lien on or detain a DoW shipment?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, for unpaid charges",
+          "Yes, with PPSO approval",
+          "Only for SIT charges"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
       "id": "DTR-IV|App A-B, para D.2.d|May a TSP collect payment for charges from the customer?",
       "ref": "App A-B, para D.2.d",
-      "question": "Under the DP3 Tender of Service, may a TSP collect payment for shipment charges from the customer?",
+      "question": "Under the DP3 Tender of Service, what shipment charges may a TSP collect from the customer?",
       "status": "verified",
-      "reason": "The cited rule gives 'No, never' for this question. The alternatives 'Yes, for accessorials', 'Yes, prepayment', 'Only for excess weight' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 46,
         "quote": "D. CERTIFICATION\n…\n2. Terms and Conditions:\n…\nd. The TSP will in no way demand prepayment of charges, nor make any collection of charges, nor attempt to collect any payments from the customer."
       },
-      "answer": "No, never",
+      "answer": "None",
       "wrong": [
-        "Yes, for accessorials",
-        "Yes, prepayment",
-        "Only for excess weight"
+        "Accessorial charges",
+        "Prepayment of charges",
+        "Excess weight charges"
       ],
       "editorialChange": false,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May a TSP collect payment for charges from the customer?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Under the DP3 Tender of Service, may a TSP collect payment for shipment charges from the customer?",
+        "previousAnswer": "No, never",
+        "previousWrong": [
+          "Yes, for accessorials",
+          "Yes, prepayment",
+          "Only for excess weight"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     }
   ]

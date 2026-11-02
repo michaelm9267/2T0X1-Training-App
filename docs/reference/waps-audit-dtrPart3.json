@@ -399,24 +399,35 @@
     {
       "id": "DTR-III|Ch 303, para B.2.h(13)|May unit/organizational equipment be commingled with personal property or personal equipment?",
       "ref": "Ch 303, para B.2.h(13)",
-      "question": "When preparing a unit air movement, may unit/organizational equipment be commingled with personal property or personal equipment?",
+      "question": "When preparing a unit air movement, what is the rule on commingling unit/organizational equipment with personal property or personal equipment?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, in the same vehicle', 'Yes, with TO approval', 'Only on organic aircraft' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 5,
         "quote": "2. Missions and Functions.\n…\nh. The deploying unit will:\n…\n(13) Commingling of unit/organizational equipment and personal property or personal equipment is strictly prohibited. CBP and Host Nation law requires that personal property and personal equipment be kept separate from other military cargo. Personal property and personal equipment include organizational clothing and individual equipment, and other individually assigned equipment that Service members are financially liable for while in their possession."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes, in the same vehicle",
-        "Yes, with TO approval",
-        "Only on organic aircraft"
+        "Allowed in the same vehicle",
+        "Allowed with TO approval",
+        "Allowed on organic aircraft"
       ],
       "editorialChange": true,
       "stemClarified": {
         "date": "2026-11-01",
         "previous": "May unit/organizational equipment be commingled with personal property or personal equipment?",
         "note": "Context added to the stem so the reader knows the program, form, or table referenced; answer and choices unchanged."
+      },
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "When preparing a unit air movement, may unit/organizational equipment be commingled with personal property or personal equipment?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, in the same vehicle",
+          "Yes, with TO approval",
+          "Only on organic aircraft"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
       }
     },
     {
@@ -730,20 +741,31 @@
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(e)1|Does commonly palletized outsized cargo like pipes or helicopter blades need ATTLA certification just for length?",
       "ref": "Ch 303, para C.2.b(1)(e)1",
-      "question": "Does commonly palletized outsized cargo like pipes or helicopter blades need ATTLA certification just for length?",
+      "question": "What ATTLA certification applies to commonly palletized outsized cargo (e.g., pipes, helicopter blades) based on length alone?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, always', 'Only over 30 ft', 'Only on the C-5' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 7,
         "quote": "(1) Deployment planners and/or deploying unit will:\n…\n(e) Cargo item(s) which exceed the dimensions or criteria below may require an ATTLA certification. ATTLA can assist with determination of certification requirements:\n1 Length: 20 ft. (240 inches/6.10m) (commonly palletized outsized cargo such as pipes, wood, helicopter blades, light oversized cargo, etc. does not require ATTLA certification)"
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes, always",
-        "Only over 30 ft",
-        "Only on the C-5"
+        "Certification always",
+        "Certification over 30 ft",
+        "Certification on the C-5 only"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does commonly palletized outsized cargo like pipes or helicopter blades need ATTLA certification just for length?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Only over 30 ft",
+          "Only on the C-5"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(f)|Which of these requires an ATTLA certification letter?",
@@ -789,20 +811,31 @@
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(f)|Will aerial ports accept items that interface with aircraft rails (Land, Sea, and Air Adapters) without ATTLA Air Certification?",
       "ref": "Ch 303, para C.2.b(1)(f)",
-      "question": "Will aerial ports accept items that interface with aircraft rails (Land, Sea, and Air Adapters) without ATTLA Air Certification?",
+      "question": "How do aerial ports treat items that interface with aircraft rails (Land, Sea, and Air Adapters) without ATTLA Air Certification?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only on the C-17', 'Only with A/DACG approval' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"They do not accept them\".",
       "evidence": {
         "page": 7,
         "quote": "b. Initial Planning. The actions necessary to prepare the deploying unit and support elements to participate in the joint planning conference are as follows:\n(1) Deployment planners and/or deploying unit will:\n…\n(f) If the cargo exceeds the criteria listed in (e), utilize the criteria listed below to determine if an ATTLA certification letter is required: Items that exceed the allowable loading limits of the aircraft as described in the applicable aircraft TO 1C-XXX-9. 2 Items that require special equipment or loading procedures not listed in the applicable aircraft TO. 3 Items designed to interface with the aircraft rail systems (e.g., LSA™ adapters), not contained in the applicable aircraft TO. 4 Any type of watercraft, fixed-wing and rotary-wing aircraft not identified in the applicable TO. 5 Enclosed items (airtight containers, on-board tanks, etc.) not designed with pressure relief devices or items that cannot be configured in a way for aircraft cabin pressure changes. 6 Non-palletized items with questionable structural integrity or items with significant damage to the frame or structural components (e.g., battle damaged equipment). 7 Items that cannot be restrained using standard restraint procedures or items requiring specific restraint procedures not listed in the aircraft’s TO. 8 Items that operate while in-flight.\n…\nNOTE: Cargo determined to not be “air-ready” due to improper preparation or incomplete documentation at the Port of Departure may be frustrated and/or experience excessive airlift delays. Aerial ports will not accept items interfacing aircraft rails (i.e., Land, Sea, and Air Adapters) without ATTLA Air Certification."
       },
-      "answer": "No",
+      "answer": "They do not accept them",
       "wrong": [
-        "Yes",
-        "Only on the C-17",
-        "Only with A/DACG approval"
+        "They accept them",
+        "They accept them on the C-17",
+        "They accept them with A/DACG approval"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Will aerial ports accept items that interface with aircraft rails (Land, Sea, and Air Adapters) without ATTLA Air Certification?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only on the C-17",
+          "Only with A/DACG approval"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.2.b(1)(h)|Which is the CONUS active duty AMCU that provides technical assistance to deploying units?",
@@ -1223,20 +1256,31 @@
     {
       "id": "DTR-III|Ch 303, para C.3.b(3)|Will incomplete chalks be accepted for JI?",
       "ref": "Ch 303, para C.3.b(3)",
-      "question": "Will incomplete chalks be accepted for JI?",
+      "question": "How are incomplete chalks handled at the Joint Inspection (JI)?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Yes, with a waiver', 'Only for passengers' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"They are not accepted\".",
       "evidence": {
         "page": 14,
         "quote": "3. Execution Phase.\n…\nb. Departure Airfield Operations. There may be four separate areas of activity in departure airfield operations: the marshalling area, the alert holding area (AHA), the call-forward area, and the ready line/loading ramp area (Figure 303-6).\n…\n(3) Call-Forward Area. The activities conducted within the call-forward area are the responsibility of the A/DACG, host installation, and mobility force. In this area, the JI is conducted and discrepancies are corrected. Members of the deploying unit and the mobility force accomplish this inspection jointly. This is the final check to ensure all cargo and equipment is properly prepared and documented for safe and efficient air shipment. Improperly prepared cargo and equipment will not be accepted for airlift until all discrepancies are corrected. Incomplete chalks will not be accepted for JI. The JI of cargo and equipment loads must be completed not later than 6 hours prior to aircraft departure and final/updated load plans sent to the 618th AOC/TACC via e-mail to tacc.fm.do@us.af.mil. Subject line must be in the following format: Subject: Departure ICAO – Mission Number (for example, KDOV – PVRA75477241). This allows flight managers to perform final aircraft mission planning, calculate fuel loads, etc. In the absence of an automated means to transmit unit manifest information to IGC, the unit will coordinate with a manifesting element to provide an electronic file to the manifesting team 6 hours prior to departure for cargo, or as soon as is feasible following completion of the JI, and 3 hours prior to departure for passengers. The specific timing of the event will be coordinated between the supported unit, the A/DACG and the mobility force during pre-movement planning. Personnel must be available for passenger briefings and manifest checks 3 hours prior to departure. (See Appendix S.)"
       },
-      "answer": "No",
+      "answer": "They are not accepted",
       "wrong": [
-        "Yes",
-        "Yes, with a waiver",
-        "Only for passengers"
+        "They are accepted",
+        "They are accepted with a waiver",
+        "Passengers only are accepted"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Will incomplete chalks be accepted for JI?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Yes, with a waiver",
+          "Only for passengers"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.3.b(3)|The JI of cargo and equipment loads must be completed no later than when?",
@@ -1575,20 +1619,31 @@
     {
       "id": "DTR-III|Ch 303, para C.4.c(4)(a)|May a vehicle be driven under any part of an aircraft?",
       "ref": "Ch 303, para C.4.c(4)(a)",
-      "question": "May a vehicle be driven under any part of an aircraft?",
+      "question": "What is the rule on driving a vehicle under any part of an aircraft?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, under the wing', 'Yes, with a guide', 'Only loading vehicles' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not allowed\".",
       "evidence": {
         "page": 17,
         "quote": "(4) Vehicle Operation on the Parking Ramp and in the Vicinity of Aircraft.\n(a) No vehicle will be driven under any part of an aircraft."
       },
-      "answer": "No",
+      "answer": "Not allowed",
       "wrong": [
-        "Yes, under the wing",
-        "Yes, with a guide",
-        "Only loading vehicles"
+        "Allowed under the wing",
+        "Allowed with a guide",
+        "Allowed for loading vehicles"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "May a vehicle be driven under any part of an aircraft?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, under the wing",
+          "Yes, with a guide",
+          "Only loading vehicles"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para C.4.c(4)(b)|What is the maximum vehicle speed within 25 feet of an aircraft?",
@@ -2155,20 +2210,31 @@
     {
       "id": "DTR-III|Ch 303, para D.5.b(2)|Does a current DD Form 93 on file meet the emergency POC collection requirement?",
       "ref": "Ch 303, para D.5.b(2)",
-      "question": "Does a current DD Form 93 on file meet the emergency POC collection requirement?",
+      "question": "How does a current DD Form 93 on file relate to the emergency POC collection requirement?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for active duty', 'Only with orderly room info' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"It does not meet it\".",
       "evidence": {
         "page": 23,
         "quote": "(2) The mandatory procedures established requiring the collection of emergency POC information is not met by providing the unit orderly room information or by having a current DD Form 93, Record of Emergency Data (see DTR Part I, Figure 103-5), on file."
       },
-      "answer": "No",
+      "answer": "It does not meet it",
       "wrong": [
-        "Yes",
-        "Only for active duty",
-        "Only with orderly room info"
+        "It meets it",
+        "It meets it for active duty",
+        "It meets it with orderly room info"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does a current DD Form 93 on file meet the emergency POC collection requirement?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for active duty",
+          "Only with orderly room info"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para D.6|Who is ultimately responsible for passenger manifesting and anti-hijacking compliance?",
@@ -2309,20 +2375,31 @@
     {
       "id": "DTR-III|Ch 303, para E.2.b(4)(d)|Does unit move cargo validated on JOPES-assigned air missions require ACA clearance?",
       "ref": "Ch 303, para E.2.b(4)(d)",
-      "question": "Does unit move cargo validated on JOPES-assigned air missions require ACA clearance?",
+      "question": "What ACA clearance does unit move cargo validated on JOPES-assigned air missions need?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes', 'Only for HAZMAT', 'Only OCONUS' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"None\".",
       "evidence": {
         "page": 27,
         "quote": "b. Deployment. This section outlines the responsibilities for the deployment of forces via ocean.\n…\n(4) The TO and/or MO will:\n…\n(d) Unit move cargo will be marked and cleared for movement IAW Appendix H and DTR Part II. Unit move cargo validated for movement on JOPES-assigned air missions does not require ACA clearance—all other unit move cargo air shipments offered for movement from Appendix M-designated aerial ports (e.g., channel air) require ACA clearance."
       },
-      "answer": "No",
+      "answer": "None",
       "wrong": [
-        "Yes",
-        "Only for HAZMAT",
-        "Only OCONUS"
+        "Full ACA clearance",
+        "ACA clearance for HAZMAT",
+        "ACA clearance OCONUS"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Does unit move cargo validated on JOPES-assigned air missions require ACA clearance?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes",
+          "Only for HAZMAT",
+          "Only OCONUS"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-III|Ch 303, para E.2.e(1)|What is Logistics Over-The-Shore (LOTS)?",
@@ -2698,20 +2775,31 @@
     {
       "id": "DTR-III|App P, para A note|Must trailers and their prime movers be individually marked if connected on the aircraft?",
       "ref": "App P, para A note",
-      "question": "Must trailers and their prime movers be individually marked if connected on the aircraft?",
+      "question": "How must trailers and their prime movers be marked if connected on the aircraft?",
       "status": "verified",
-      "reason": "The cited rule gives 'Yes' for this question. The alternatives 'No, mark the combination only', 'Only the trailer', 'Only the prime mover' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Individually\".",
       "evidence": {
         "page": 1,
         "quote": "A. DETERMINATION The CB of cargo must be determined to accurately compute the weight and balance condition of a loaded aircraft. The agency offering cargo for air shipment is responsible for marking each item with the correct gross weight and a CB point. This includes any item measuring 10 feet or longer and/or any item having a balance point other than its center. All vehicle type cargo will have axle weights marked above each axle, on both sides of vehicle, with weather resistant material. Vehicle-type cargo with a load-carrying capability will be marked indicating an empty or loaded CB. Items not properly marked as outlined herein will not be accepted for airlift since unknown weight and CB represents an unsafe condition relative to aircraft weight and balance.\nNOTE: Trailers and associated prime movers must be individually marked, even if they are connected on the aircraft. This precludes delays when vehicles must be disconnected or shipped on separate aircraft."
       },
-      "answer": "Yes",
+      "answer": "Individually",
       "wrong": [
-        "No, mark the combination only",
+        "As one combination",
         "Only the trailer",
         "Only the prime mover"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Must trailers and their prime movers be individually marked if connected on the aircraft?",
+        "previousAnswer": "Yes",
+        "previousWrong": [
+          "No, mark the combination only",
+          "Only the trailer",
+          "Only the prime mover"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-III|App P, para B.1|When is a vehicle's weight and CB determined?",
@@ -3046,20 +3134,31 @@
     {
       "id": "DTR-III|App P, para C.3 note|Is masking tape used to mark the CB on aerospace ground equipment with permanent CB markings?",
       "ref": "App P, para C.3 note",
-      "question": "Is masking tape used to mark the CB on aerospace ground equipment with permanent CB markings?",
+      "question": "How is the CB marked on aerospace ground equipment with permanent CB markings?",
       "status": "verified",
-      "reason": "The cited rule gives 'No' for this question. The alternatives 'Yes, always', 'Only on both sides', 'Only for deployments' do not state that rule for the conditions in the stem.",
+      "reason": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options. The cited rule gives \"Not with masking tape\".",
       "evidence": {
         "page": 2,
         "quote": "3. After computing the CB of a vehicle, mark its location and gross weight on both sides using weather-resistant masking tape and a grease pencil/magic marker, forming the letter “T”, Figure P-2.\n(NOTE: Masking tape will not be used to mark the CB location on aerospace ground equipment with permanently mounted CB markings in accordance with Technical Order 35-1-3, Corrosion Prevention, Painting and Marking of USAF Support Equipment.) The horizontal portion of the “T” will contain the gross weight information and the vertical portion of the “T” will contain the letters “CB” to indicate the exact position of the vehicle’s CB. Also indicate number of inches from the RDL of the CB location and mark axle weights above each axle. The RDL measurements will be taken from the FFE of the vehicle."
       },
-      "answer": "No",
+      "answer": "Not with masking tape",
       "wrong": [
-        "Yes, always",
-        "Only on both sides",
-        "Only for deployments"
+        "With masking tape",
+        "With masking tape on both sides",
+        "With masking tape for deployments"
       ],
-      "editorialChange": false
+      "editorialChange": false,
+      "openEnded": {
+        "date": "2026-11-01",
+        "previousQuestion": "Is masking tape used to mark the CB on aerospace ground equipment with permanent CB markings?",
+        "previousAnswer": "No",
+        "previousWrong": [
+          "Yes, always",
+          "Only on both sides",
+          "Only for deployments"
+        ],
+        "note": "Converted from a yes/no stem to an open-ended question; the keyed rule is unchanged and the alternatives restate the former incorrect options."
+      }
     },
     {
       "id": "DTR-III|App P, Example 1|Front axle 2,870 lbs at 20\"; rear axle 2,550 lbs at 150\". What is the CB?",
