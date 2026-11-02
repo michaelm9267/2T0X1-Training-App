@@ -1,0 +1,2152 @@
+{
+ "dafi10403|Table A3.1": {
+  "title": "Table A3.1. Deployment Training Requirements.",
+  "page": 45,
+  "pages": 4,
+  "head": [
+   [
+    "TYPE",
+    "FREQUENCY",
+    "TRAINER / RECORD KEEPER",
+    "REFERENCE(S)"
+   ]
+  ],
+  "rows": [
+   [
+    "AFFORGEN Connect",
+    "Initial (Note 2)",
+    "P&I",
+    "DAFI 10-403"
+   ],
+   [
+    "Work center Orientation",
+    "Initial (Note 2)",
+    "Work center Officer In Charge or Non-Commissioned Officer in Charge",
+    "DAFI 10-403"
+   ],
+   [
+    "Unit Deployment Manager",
+    "Initial (Notes 2, 3)",
+    "P&I",
+    "DAFI 10-403\nAir Force Job Qualification Standard (8U000)"
+   ],
+   [
+    "LOGMOD",
+    "Initial (Note 2)",
+    "P&I",
+    "DAFI 10-403"
+   ],
+   [
+    "Cargo Preparation Pallet Build Up",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Hazardous Material Preparers",
+    "Initial\nRefresher: 24 months",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "AFMAN 24-604-Integrated Publication"
+   ],
+   [
+    "Hazardous Material Inspectors",
+    "Initial\nRefresher: 24 months",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "AFMAN 24-604-Integrated Publication"
+   ],
+   [
+    "Hazardous Material Handlers",
+    "Initial\nRefresher: 24 months",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "AFMAN 24-604-Integrated Publication"
+   ],
+   [
+    "Hazardous Material Packers (Technical Specialist)",
+    "Initial\nRefresher: 24 months",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "AFMAN 24-604-Integrated Publication"
+   ],
+   [
+    "Joint Airborne or Transportability Training",
+    "Initial",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "ICODES (Aircraft Load Planning)",
+    "Initial\nRefresher: 24 months",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Joint Airlift Inspector",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Aircraft Load Team",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Aircraft Marshaling",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "AFMAN 11-218\nDAFI 24-605, Vol 2"
+   ],
+   [
+    "Ramp Coordinator",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Quality Control",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Cargo In-Check",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Explosives and Weapons Safety",
+    "Initial (Note 1)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 91-202\nDAFI 24-605, Vol 2"
+   ],
+   [
+    "Passenger Baggage Handler",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Passenger In-Check and Manifesting",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "DAFI 24-605, Vol 2"
+   ],
+   [
+    "Weapons Courier",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "AFI 24-602, Vol 2"
+   ],
+   [
+    "Ammunition Courier",
+    "Initial (Note 2)",
+    "LRS/Deployments & Distribution Flight/Air Transportation Function",
+    "AFI 24-602, Vol 2"
+   ],
+   [
+    "Classified Courier",
+    "Initial (Note 2)",
+    "Unit Security Manager",
+    "DoDM 5200.01V1_AFMAN16-1404V1"
+   ],
+   [
+    "Deployed Equipment Custodian",
+    "Initial (Note 2)",
+    "LRS/Materiel Management",
+    "DAFMAN 23-300"
+   ]
+  ],
+  "notes": [
+   "Note 1: Recurring training every 15 months IAW DAFI 91-202",
+   "Note 2: Refresher training is “as required”",
+   "Note 3: Computer Based Training available on MyLearning is a prerequisite."
+  ]
+ },
+ "dafi10403|Table 3.1": {
+  "title": "Table 3.1. Standard Deployment Schedule of Events.",
+  "page": 33,
+  "pages": 2,
+  "head": [
+   [
+    "Cargo Related Events",
+    "Personnel Related Events"
+   ]
+  ],
+  "rows": [
+   [
+    "Cargo Unit Assembly Complete",
+    "Personnel Unit Assembly Complete"
+   ],
+   [
+    "Cargo In-check Start",
+    "Personnel Deployment Bags Start"
+   ],
+   [
+    "Cargo In-check Complete",
+    "Personnel Deployment Bags Complete"
+   ],
+   [
+    "Cargo Joint Inspection Start",
+    "Personnel Process Start"
+   ],
+   [
+    "Cargo Joint Inspection Complete",
+    "Personnel Process Complete"
+   ],
+   [
+    "Cargo Manifest Complete",
+    "Personnel Orders Complete"
+   ],
+   [
+    "Cargo QC Complete",
+    "Personnel Manifest Complete"
+   ],
+   [
+    "Cargo Aircraft Commander’s Package Complete",
+    "Baggage Load Start"
+   ],
+   [
+    "Cargo Load Start",
+    "Baggage Load Complete"
+   ],
+   [
+    "Cargo Load Complete",
+    "Personnel Load Start"
+   ],
+   [
+    "Transmit Manifest to Global Air Transportation Execution System",
+    "Personnel Load Complete"
+   ]
+  ]
+ },
+ "dafi24602v2|Table 3.1": {
+  "title": "Table 3.1. Receipt Processing Time Goals.",
+  "page": 36,
+  "head": [
+   [
+    "PRIORITY",
+    "PROCESS TIME (Hours)"
+   ]
+  ],
+  "rows": [
+   [
+    "999/MICAP/NMCS",
+    "Within 4 hours from when materiel was received"
+   ],
+   [
+    "Issue Priority Group (IPG) I",
+    "Within 24 hours from when materiel was received"
+   ],
+   [
+    "IPG II",
+    "Within 48 hours from when materiel was received"
+   ],
+   [
+    "IPG III",
+    "Within 72 hours from when materiel was received"
+   ]
+  ]
+ },
+ "dafi24602v2|Table 3.2": {
+  "title": "Table 3.2. Consignee Pick-up Time Standards.",
+  "page": 37,
+  "head": [
+   [
+    "PRIORITY",
+    "PICKUP TIME (Hours/Days)"
+   ]
+  ],
+  "rows": [
+   [
+    "999/MICAP/NMCS",
+    "Within 12 hours of Consignee notification"
+   ],
+   [
+    "TP-1",
+    "Within 1 Government Business Day (GBD) of Consignee notification"
+   ],
+   [
+    "TP-2",
+    "Within 2 GBDs of Consignee notification"
+   ],
+   [
+    "TP-3",
+    "Within 3 GBDs of Consignee notification"
+   ]
+  ]
+ },
+ "dafi24602v2|Table 8.1": {
+  "title": "Table 8.1. Packaging Office by RIC.",
+  "page": 59,
+  "head": [
+   [
+    "RIC",
+    "Packaging Office"
+   ]
+  ],
+  "rows": [
+   [
+    "FGZ",
+    "OGDEN ALC (OO-ALC) HILL AFB UT"
+   ],
+   [
+    "FHZ",
+    "OKLAHOMA CITY ALC (OC-ALC) TINKER AFB OK"
+   ],
+   [
+    "FLZ",
+    "WARNER-ROBINS ALC (WR-ALC) ROBINS AFB GA"
+   ],
+   [
+    "FPD",
+    "AFLCMC/ HNCLOT LACKLAND AFB TX"
+   ]
+  ]
+ },
+ "dafi24602v2|Table A9.1": {
+  "title": "Table A9.1. Receipt Processing Screens.",
+  "page": 119,
+  "head": [
+   [
+    "CATEGORY",
+    "INQUIRY SCREEN",
+    "PROCESSING SCREEN"
+   ]
+  ],
+  "rows": [
+   [
+    "MILSTRIP",
+    "REC INQ",
+    "REC"
+   ],
+   [
+    "UNSERVICEABLE",
+    "REC UNSERV INQ",
+    "REC UNSERV"
+   ],
+   [
+    "OVERAGE",
+    "REC O INQ",
+    "REC O"
+   ],
+   [
+    "SHORTAGE",
+    "REC S INQ",
+    "REC S"
+   ],
+   [
+    "LOCAL PURCHASE",
+    "REC LP INQ",
+    "REC LP"
+   ],
+   [
+    "REC NOT DUE-IN",
+    "",
+    "REC J"
+   ],
+   [
+    "DEGRADED OPERATIONS",
+    "",
+    "REC PP"
+   ]
+  ]
+ },
+ "dafi24602v2|Table A9.8": {
+  "title": "Table A9.8. Common Reject Codes and Corrective Actions.",
+  "page": 146,
+  "head": [
+   [
+    "REJECTS",
+    "Inbound Cargo",
+    "LGRMCC"
+   ]
+  ],
+  "rows": [
+   [
+    "001 – REJ INPUT POSITIONS WITH X BELOW ARE INVALID",
+    "X",
+    ""
+   ],
+   [
+    "024 – REJ DUP NIIN ON FILE WITH DIFF FSC/MMAC If there is a duplicate NIIN, determine if input or loaded record is correct.",
+    "",
+    "X"
+   ],
+   [
+    "074 – REJ DOCUMENT NUMBER INVALID Check the validity of the input document number, change the document number if applicable, and re-input.",
+    "X",
+    "X"
+   ],
+   [
+    "257 – REJ SUPPLY CONDITION CODE BLANK OR IN ERROR Verify the input supply condition code. Correct and re-input.",
+    "X",
+    ""
+   ],
+   [
+    "282 – REJ INPUT QUANTITY BLANK, ZERO, OR CONTAINS ALPHA CHARACTERS Correct the input quantity and re-input",
+    "X",
+    ""
+   ],
+   [
+    "295 – REJ ITEM RECORD NOT LOADED Contact customer support to load Stock number into System. Re-Process",
+    "",
+    "X"
+   ]
+  ]
+ },
+ "dtrPart2|Table 210-2": {
+  "title": "Table 210-2. Time Limit to File TDR for Claims Action",
+  "page": 44,
+  "head": [
+   [
+    "Mode of Shipment",
+    "Time Limit to File TDR for Claims Action"
+   ]
+  ],
+  "rows": [
+   [
+    "Domestic motor",
+    "9 months from date of delivery or expected date of delivery"
+   ],
+   [
+    "Domestic rail",
+    "9 months from date of delivery or expected date of delivery"
+   ],
+   [
+    "Domestic air",
+    "Limits are set forth on the individual TSP’s air waybill"
+   ],
+   [
+    "Ocean",
+    "1 year from date of delivery"
+   ],
+   [
+    "International air",
+    "Visible damage – within 14 days of delivery; other damage – within 14 days of discovery; non-delivery of goods – 120 days from the date of the air waybill issue"
+   ],
+   [
+    "Small package TSP",
+    "Limits are set forth in the TSP’s individual service guide"
+   ],
+   [
+    "Barge",
+    "9 months from date of delivery or expected date of delivery"
+   ]
+  ]
+ },
+ "dtrPart4|Table A-402-1": {
+  "title": "Table A-402-1. dHHG/iHHG Shipment Quality Bands",
+  "page": 46,
+  "head": [
+   [
+    "Quality Band",
+    "Number of Shipments"
+   ]
+  ],
+  "rows": [
+   [
+    "1",
+    "5"
+   ],
+   [
+    "2",
+    "3"
+   ],
+   [
+    "3",
+    "2"
+   ],
+   [
+    "4",
+    "1"
+   ]
+  ]
+ },
+ "dtrPart4|Table A-402-2": {
+  "title": "Table A-402-2. UB Shipment Quality Bands",
+  "page": 46,
+  "head": [
+   [
+    "Quality Band",
+    "Number of Shipments"
+   ]
+  ],
+  "rows": [
+   [
+    "1",
+    "50"
+   ],
+   [
+    "2",
+    "30"
+   ],
+   [
+    "3",
+    "20"
+   ],
+   [
+    "4",
+    "10"
+   ]
+  ]
+ },
+ "dafi24602v1|Table 6.1": {
+  "title": "Table 6.1. Closest CONUS International Airports to Determine Baseline Travel Cost",
+  "page": 48,
+  "head": [
+   [
+    "Area",
+    "Closest CONUS International Airport"
+   ]
+  ],
+  "rows": [
+   [
+    "USAFE",
+    "BOSTON LOGAN IAP, MA"
+   ],
+   [
+    "PACAF (Excludes HAWAII)",
+    "SEATTLE TACOMA IAP, WA"
+   ],
+   [
+    "HAWAII",
+    "SAN FRANCISCO IAP, CA"
+   ],
+   [
+    "AFCENT/AOR",
+    "BOSTON IAP, MA"
+   ]
+  ]
+ },
+ "dafi24602v2|Table 2.1": {
+  "title": "Table 2.1. Transportation Priorities.",
+  "page": 18,
+  "head": [
+   [
+    "Form",
+    "Priority Designator/Customer Requirement",
+    "Trans Priority",
+    "PPS Goal"
+   ]
+  ],
+  "rows": [
+   [
+    {
+     "t": "DD Form 1348-1A",
+     "r": 3
+    },
+    "PD 01-03, all RDDs, including N_, 999 or Blank",
+    "1 – Air Eligible",
+    "1 day or <"
+   ],
+   [
+    "PD 04-15, RDD is 444, 555, 777, N_, E_, or RDD > 2 days but ≤ 8 days (CONUS customer) or RDD > 5 days but ≤ 21 days (OCONUS customer) from requisition date",
+    "2 – Air Eligible",
+    "2 days or <"
+   ],
+   [
+    "PD 04-15, RDD is blank or RDD > 8 days (CONUS customer) or RDD > 21days (OCONUS customer) from requisition date",
+    "3 – Surface",
+    "5 days or <"
+   ],
+   [
+    {
+     "t": "DD Form 1149",
+     "r": 3
+    },
+    "RDD ≤ 2 days away (Intra-theater (CONUS)) or RDD ≤ 5 days away (Intra-theater (OCONUS))",
+    "1 – Air Eligible",
+    "1 day or <"
+   ],
+   [
+    "RDD > 2 days but ≤ 8 days (Intra-theater (CONUS)) or RDD > 5 days but ≤ 21 days (Intra-theater (OCONUS)) from requisition date",
+    "2 – Air Eligible",
+    "2 days or <"
+   ],
+   [
+    "RDD > 8 days (Intra-theater (CONUS)) or RDD > 21 days (Intra-theater (OCONUS)) from requisition date",
+    "3 – Surface",
+    "5 days or <"
+   ]
+  ]
+ },
+ "dtrPart2|Table 202-1": {
+  "title": "Table 202-1. Timeliness Evaluation Criteria",
+  "page": 34,
+  "head": [
+   [
+    "MOVEMENT EVENT",
+    "MANIFEST TRANSMISSION TO IGC"
+   ]
+  ],
+  "rows": [
+   [
+    {
+     "t": "1. Ocean Shipments",
+     "c": 2,
+     "h": 1
+    }
+   ],
+   [
+    "a. Commercial liner and charter service",
+    "Within 24 hours of event (Goal of 4 hours)"
+   ],
+   [
+    "b. Exercise and wartime unit and sustainment moves on gray-bottom U.S. Naval Ship vessels",
+    "Within 24 hours of event (Goal of 4 hours)"
+   ],
+   [
+    "2. All intra-theater cargo and passenger movements (all modes)",
+    "Within 2 hours of event"
+   ],
+   [
+    "3. All air, truck, and rail cargo and passenger inter-theater movements",
+    "Within 1 hour of event"
+   ]
+  ]
+ },
+ "dtrPart3|Table 303-1": {
+  "title": "Table 303-1. Timeliness Evaluation Criteria",
+  "page": 43,
+  "head": [
+   [
+    "Movement Event",
+    "Lift Transmission to IGC"
+   ]
+  ],
+  "rows": [
+   [
+    {
+     "t": "1. Ocean Shipments",
+     "c": 2,
+     "h": 1
+    }
+   ],
+   [
+    "a. Commercial liner and charter service",
+    "Within 24 hours of event (Goal of 4 hours)"
+   ],
+   [
+    "b. Exercise and wartime unit and sustainment moves on gray-bottom U.S. Naval Ship vessels",
+    "Within 24 hours of event (Goal of 4 hours)"
+   ],
+   [
+    "2. All intra-theater cargo and passenger movements (all modes)",
+    "Within 2 hours of event"
+   ],
+   [
+    "3. All air, truck, and rail cargo and passenger inter-theater movements",
+    "Within 1 hour of event"
+   ]
+  ]
+ },
+ "dtrPart2|Table 202-2": {
+  "title": "Table 202-2. DoD Standard Transit Time Guide – Standard Commodity Shipments",
+  "page": 35,
+  "head": [
+   [
+    {
+     "t": "DISTANCE (MILES)",
+     "r": 2
+    },
+    {
+     "t": "TOTAL TRANSIT DAYS – EXCLUDING SATELLITE MOTOR SURVEILLANCE (SNS) (DDP & PSS) SHIPMENTS",
+     "c": 2
+    }
+   ],
+   [
+    "TL",
+    "LTL"
+   ]
+  ],
+  "rows": [
+   [
+    "<=500",
+    "1",
+    "3"
+   ],
+   [
+    "501 – 1000",
+    "2",
+    "4"
+   ],
+   [
+    "1001 – 1500",
+    "3",
+    "5"
+   ],
+   [
+    "1501 – 2000",
+    "4",
+    "6"
+   ],
+   [
+    "2001 – 2500",
+    "5",
+    "7"
+   ],
+   [
+    ">2500",
+    "6",
+    "7"
+   ]
+  ]
+ },
+ "dtrPart2|Table 202-3": {
+  "title": "Table 202-3. DoD Standard Transit Time Guide – SNS (DDP & PSS) Shipments",
+  "page": 35,
+  "head": [
+   [
+    {
+     "t": "DISTANCE (MILES)",
+     "r": 3
+    },
+    {
+     "t": "TOTAL TRANSIT DAYS FOR SNS (DDP & PSS) SHIPMENTS",
+     "c": 3
+    }
+   ],
+   [
+    "PSS",
+    {
+     "t": "DDP",
+     "c": 2
+    }
+   ],
+   [
+    "TL / LTL / DROM",
+    "TL",
+    "LTL / DROM"
+   ]
+  ],
+  "rows": [
+   [
+    "<=700",
+    "1",
+    "1",
+    "5"
+   ],
+   [
+    "701 – 1400",
+    "2",
+    "2",
+    "6"
+   ],
+   [
+    "1401 – 2100",
+    "3",
+    "3",
+    "7"
+   ],
+   [
+    "2101 – 2800",
+    "4",
+    "4",
+    "8"
+   ],
+   [
+    ">2800",
+    "5",
+    "5",
+    "9"
+   ]
+  ]
+ },
+ "dtrPart2|Table 205-1": {
+  "title": "Table 205-1. Minimum Security Standards for AA&E Shipments (Motor)",
+  "page": 65,
+  "pages": 2,
+  "head": [
+   [
+    {
+     "t": "#",
+     "r": 3
+    },
+    {
+     "t": "Mitigating Measures",
+     "r": 3
+    },
+    {
+     "t": "SRC III, IV UNCAT HC/Div 1.1, 1.2, 1.3 (2)",
+     "c": 5
+    },
+    {
+     "t": "SRC II (2)",
+     "c": 5
+    },
+    {
+     "t": "SRC I (2)",
+     "c": 5
+    }
+   ],
+   [
+    {
+     "t": "Force Protection Condition (FPCON) (1)",
+     "c": 15
+    }
+   ],
+   [
+    "N",
+    "A",
+    "B",
+    "C",
+    "D",
+    "N",
+    "A",
+    "B",
+    "C",
+    "D",
+    "N",
+    "A",
+    "B",
+    "C",
+    "D"
+   ]
+  ],
+  "rows": [
+   [
+    "1",
+    "DDP (12)",
+    "X",
+    "X",
+    "X",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "2",
+    "PSS (12)",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "3",
+    "SEV required for shipments that move via closed box van with trailer tracking (DCS) capability included (4)(15)",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "X",
+    "X"
+   ],
+   [
+    "4",
+    "SEV required for shipments that do not move via closed box van with trailer tracking (DCS) included (4)(15)",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "5",
+    "Satellite Motor Surveillance (SNS) with 2nd Means of Communications. (3)",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "6",
+    "Direct movement to destination (no stop-off) (7)",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "7",
+    "Stops in-transit for a maximum of 100 hours are permitted at DoD secure AA&E holding facilities.",
+    "X",
+    "X",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "8",
+    "En route Stops are permitted IAW MFTUPR-1.",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "9",
+    "Maximum one escort per two cargo vehicles in convoy.",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "X",
+    "X",
+    "X",
+    "",
+    "",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "10",
+    "No trip lease authorized.",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "11",
+    "Exclusive use of vehicle or container with single line-haul. (10)",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "12",
+    "Dromedary or other authorized LTL shipping container authorized. (10,14)",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "13",
+    "Containers or vehicles utilized as AA&E conveyances shall be sealed with a serialized bolt seal meeting the requirements of Federal Specification FF-S-2738, tested and approved by the DoD Lock Program. (8)(11) See Paragraph H.5.",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "14",
+    "Consolidate shipments to maximum extent at DoD approved facilities only",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "15",
+    "Convoy to the same destination",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "16",
+    "Postpone non-essential shipments. (9)",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "X"
+   ],
+   [
+    "17",
+    "Shipper shall confirm ability of destination, to receive/hold shipment. Identify secure holding areas along the planned route and receive shipment clearance from destination prior to shipment release. Shippers provides REPSHIP to destination. (13)",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "18",
+    "TO shall coordinate with local installation security or force protection officer to obtain a risk assessment that includes risk at origin, in transit, and destination. See Paragraph C.2.a (3)",
+    "",
+    "X",
+    "X",
+    "X",
+    "X",
+    "",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "19",
+    "Prior approval for each shipment by Service/DoD Agency Operations Center or other designated crisis response activity.",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "X"
+   ],
+   [
+    "20",
+    "The TSP shall provide the route plan to the DTTS and shipper. Carrier route plans shall be prepared IAW 49CFR397.67(d) (6) See Paragraph R",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "X",
+    "",
+    "",
+    "",
+    "",
+    "X"
+   ],
+   [
+    "21",
+    "In the event of an incident/ accident TSP shall report this event to DTTS. (5)",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ],
+   [
+    "22",
+    "In the event of an incident/accident or additional FPCON requirements, TSP shall call ARTRANS for guidance and instruction.",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X"
+   ]
+  ],
+  "notes": [
+   "(1) FPCON referenced herein is defined in Paragraph A.4.a thru e. FPCON NORMAL (N), FPCON ALPHA (A), FPCON BRAVO (B), FPCON CHARLIE (C), FPCON DELTA (D)",
+   "(2) See Paragraph G., Small shipments of AA&E for exception instructions and TPS requirements when shipping small quantities of small arms and 1.4, 1.5 and 1.6 small arms ammunition. …",
+   "(3) The second means of communication may be a cellular phone, Citizen Band radio, or radiotelephone network.",
+   "(4) SEV qualifications/training/general requirements are described in Paragraph O.4./Paragraph C.2.a.(6).",
+   "(5) Carriers may conduct stops in transit or at destination. Stops at other than DoD installations/activities (according to SRC and FPCON requirements) shall be limited to 2 hours and conducted IAW 49CFR for operational reasons, such as fueling, minor maintenance, or driver amenities. Shipments shall depart origin-shipping activities and arrive at the destination point without delay. …",
+   "(7) Carriers may not conduct intermediate “stop-off” to deliver shipments.",
+   "(9) Service operations center or designated crisis response activity points of contact as directed by the Service shall determine essential shipments. …"
+  ]
+ },
+ "dtrPart2|Table 205-2": {
+  "title": "Table 205-2. Minimum Security Standards for Classified Material",
+  "page": 68,
+  "head": [
+   [
+    "SECRET (See Note 6)",
+    "CONFIDENTIAL (See Note 6)"
+   ]
+  ],
+  "rows": [
+   [
+    {
+     "t": "Motor",
+     "c": 2,
+     "h": 1
+    }
+   ],
+   [
+    "1. TL\na. PSS/SNS/EXC (See Note 1, 2)\nb. Closed and locked vehicle with exclusive use.\nc. Single-line-haul required.\nd. Trip lease not authorized.\ne. Sealed by shipper.",
+    "1. TL\na. DDP/SNS (See Note 1, 2)\nb. Closed and locked vehicle.\nc. Single-line-haul preferred.\nd. Trip lease not authorized.\ne. Sealed by shipper."
+   ],
+   [
+    "2. LTL\na. PSS/SNS/EXC (See Note 1, 2)\nb. Dromedary, or similar container authorized with exclusive use container.\nc. Cargo packaged to a weight of at least 200 lbs and banded (seal if practicable) or container locked and sealed by shipper. (See Note 1.)\nd. Packaged so as to not reveal classified nature of shipment.\ne. Trip lease not authorized.",
+    "2. LTL\na. DDP/SNS (See Note 1, 2)\nb. Dromedary, or similar container authorized.\nc. Cargo packaged to a weight of at least 200 lbs and banded (seal if practicable) or container locked and sealed by shipper. (See Note 1.)\nd. Packaged so as to not reveal classified nature of shipment.\ne. Trip lease not authorized."
+   ],
+   [
+    {
+     "t": "Air",
+     "c": 2,
+     "h": 1
+    }
+   ],
+   [
+    "a. CIS (See Note 2, 5.)\nb. Material in secure storage compartment or in a shipper-sealed, locked, safe-like container. (See Note 3.)\nc. Shipper escort to TSP and immediate pickup at destination.\nd. Packaged so as to not reveal classified nature of shipment.\ne. CCI keying material. (See Note 4.)",
+    "a. CIS (See Note 2, 5)\nb. Shipment by air freight, air taxi, or AMC.\nc. Shipper escort to TSP and immediate pickup at destination.\nd. Containers banded/locked and sealed, if practicable. However, for commercial air freight, banded/locked and shipper sealed.\ne. Container seals applied by shipper.\nf. Packaged so as to not reveal classified nature of shipment."
+   ]
+  ]
+ },
+ "dtrPart2|Table 205-3": {
+  "title": "Table 205-3. Examples of AA&E Shipment Security Risk Categories (SRC) (Reference DoDM 5100.76)",
+  "page": 69,
+  "head": null,
+  "rows": [
+   [
+    {
+     "t": "SRC I EXAMPLES",
+     "c": 1,
+     "h": 1
+    },
+    "MISSILES AND ROCKETS\nNon-nuclear missiles and rockets in a ready to fire configuration (e.g., Hamlet, Redeye, Stinger, Dragon, LAW, Viper). Also where launcher tube and explosive round for missiles are jointly transported though not ready to fire.",
+    "AMMUNITION AND EXPLOSIVES\nExplosive complete rounds for SRC I missiles and rockets."
+   ],
+   [
+    {
+     "t": "SRC II EXAMPLES",
+     "c": 1,
+     "h": 1
+    },
+    "ARMS\nLight automatic weapons up to and including .50 caliber and 40 mm MK 19 machine guns. Weapon components such as silencers, mufflers, and noise suppression devices shall be treated as SRC II items.",
+    "AMMUNITION AND EXPLOSIVES\nGrenades, high explosives, white and phosphorus. Mines, anti-tank, anti personnel (unpacked weight of 50 lbs or less each).\nExplosives used in demolition operation (e.g., C-4, military dynamite, TNT).\nWarheads for sensitive missiles and rockets weighing less than 50 pound each.\nThe binary intermediates “DF” and “QL” when stored separately from each other and from the binary chemical munitions bodies in which they are intended to be employed."
+   ],
+   [
+    {
+     "t": "SRC III EXAMPLES",
+     "c": 1,
+     "h": 1
+    },
+    "ARMS\nLaunch tube and gripstock for Stinger Missile.\nLaunch tube, sight assembly and gripstock for Hamlet and Redeye missions.\nTracker for Dragon missiles.\nMortar tubes excluding the 4.2.\nGrenade launchers.\nRocket and missile launchers, unpacked weight of 100 lbs. or less.\nFlame throwers.\nLauncher and/or missile guidance set and/or optical sight for TOW missile.",
+    "AMMUNITION AND EXPLOSIVES\nAmmunition, 50 caliber and larger, with explosive filled projectile (unpacked weight of 100 pounds or less each).\nGrenades, incendiary and grenade fuses.\nBlasting caps.\nDetonating cord.\nSupplementary charges.\nBulk explosives.\nWarheads for sensitive missiles and rockets weighing more than 50 pounds, but less than 100 pounds each."
+   ],
+   [
+    {
+     "t": "SRC IV EXAMPLES",
+     "c": 1,
+     "h": 1
+    },
+    "ARMS\nShoulder fired weapons, other than grenade launchers, not fully automatic.\nHandguns.\nRecoilless rifles up to and including 106mm.",
+    "AMMUNITION AND EXPLOSIVES\nAmmunition with nonexplosive projectile (unpacked weight of 100 lbs or less each).\nFuses, except for grenade fuses.\nGrenades, illumination, smoke, or practice, CS/CN (tear producing).\nIncendiary destroyers.\nRiot control agents, 100-lb pkg or less.\nAmmunition for SRCs II, III, IV weapons, not otherwise categorized.\nExplosive compounds of sensitive missiles and rockets (except warheads).\nWarheads for precision-guided munitions weighing more than 50 pounds (unpacked weight)."
+   ]
+  ]
+ },
+ "dtrPart2|Table 205-4": {
+  "title": "Table 205-4. Minimum Security Standards for AA&E Shipments (Water)",
+  "page": 70,
+  "head": [
+   [
+    "SECURITY RISK CATEGORY I",
+    "SECURITY RISK CATEGORY II",
+    "SECURITY RISK CATEGORY III, IV, UNCAT Class 1.1-1.3 Explosives"
+   ]
+  ],
+  "rows": [
+   [
+    "1. Written receipt from ship’s officer at POE and written release to TSP at POD. Refer to Table 205-7 for Mode Motor Ground for Intermodal TPS Requirements",
+    "1. Written receipt from ship’s officer at POE and written release to TSP at POD.",
+    "1. Written receipt from ship’s officer at POE and written release to TSP at POD."
+   ],
+   [
+    "2. Pier service only.",
+    "2. Pier service only.",
+    "2. Pier service only."
+   ],
+   [
+    "3. U.S. flag with direct voyage where feasible unless an exception is granted by USTRANSCOM in coordination with ARTRANS. NOTE: If a foreign flag vessel is selected, the ordnance owning Service shall be notified in writing in advance.",
+    "3. U.S. flag with direct voyage where feasible unless an exception is granted by USTRANSCOM in coordination with ARTRANS. NOTE: If a foreign flag vessel is selected, the ordnance owning Service shall be notified in writing in advance.",
+    "3. U.S. flag with direct voyage where feasible unless an exception is granted by USTRANSCOM in coordination with ARTRANS. NOTE: If a foreign flag vessel is selected, the ordnance owning Service shall be notified in writing in advance."
+   ],
+   [
+    "4. Ship’s officer shall maintain constant surveillance over cargo offloaded at intermediate stops.",
+    "4. Ship’s officer shall maintain constant surveillance over cargo offloaded at intermediate stops.",
+    "4. Ship’s officer shall maintain constant surveillance over cargo offloaded at intermediate stops."
+   ],
+   [
+    "5. Cargo stowed so as to be inaccessible or checked at least once each 8 hours by ship’s officers.",
+    "5. Cargo stowed so as to be inaccessible or checked at least once each 8 hours by ship’s officers.",
+    "5. Cargo stowed so as to be inaccessible or under general observations of ship’s officers."
+   ],
+   [
+    "6. Supercargo personnel are required for Foreign Flag where no U.S. ship’s officer with clearance is available.",
+    "6. Supercargo personnel are required for Foreign Flag where no U.S. ship’s officer with clearance is available.",
+    "6. Supercargo personnel are required for Foreign Flag where no U.S. ship’s officer with clearance is available."
+   ]
+  ]
+ },
+ "dtrPart2|Table 205-7": {
+  "title": "Table 205-7. Transportation Protective Services (TPS) Chart for Motor, Barge & Rail Modes",
+  "page": 75,
+  "pages": 2,
+  "head": [
+   [
+    {
+     "t": "#",
+     "r": 2
+    },
+    {
+     "t": "SRC",
+     "r": 2
+    },
+    {
+     "t": "CIIC",
+     "r": 2
+    },
+    {
+     "t": "Items (Examples)",
+     "r": 2
+    },
+    {
+     "t": "Motor",
+     "c": 2
+    },
+    {
+     "t": "Barge",
+     "r": 2
+    },
+    {
+     "t": "Rail",
+     "r": 2
+    }
+   ],
+   [
+    "Ground",
+    "USPS"
+   ]
+  ],
+  "rows": [
+   [
+    {
+     "t": "1. Classified Items (Examples) — TPS / 675 Requirements & Footnote #s",
+     "c": 8,
+     "h": 1
+    }
+   ],
+   [
+    "1",
+    "N/A",
+    "A, B, C",
+    "A: CONFIDENTIAL Formerly Restricted Data\nB: CONFIDENTIAL Restricted Data\nC: CONFIDENTIAL",
+    "DDP/SNS 5, 6, 9, 24",
+    "Note 8",
+    "Notes 3, 4, 8",
+    "RIS 21"
+   ],
+   [
+    "2",
+    "N/A",
+    "G, H, S",
+    "G: SECRET Formerly Restricted Data\nH: SECRET Restricted Data\nS: SECRET",
+    "PSS/SNS/EXC 5, 6, 10",
+    "Note 8",
+    "Notes 3, 4, 8",
+    "Forbidden"
+   ],
+   [
+    "3",
+    "",
+    "D",
+    "D: CONFIDENTIAL Crypto",
+    "DDP/SNS 5, 6, 9",
+    "Note 8",
+    "Notes 3, 4, 8",
+    "RIS 21"
+   ],
+   [
+    "4",
+    "",
+    "E",
+    "E: SECRET Crypto",
+    "PSS/SNS/EXC 5, 6, 10",
+    "Forbidden",
+    "Notes 3, 4, 8",
+    "Forbidden"
+   ],
+   [
+    "5",
+    "N/A",
+    "F, K, L, T",
+    "F: TOP SECRET Crypto\nK: TOP SECRET Formerly Restricted Data\nL: Restricted Data\nT: TOP SECRET",
+    "DCD 5, 10, 17",
+    "Forbidden",
+    "Forbidden",
+    "Forbidden"
+   ],
+   [
+    "6",
+    "N/A",
+    "7",
+    "Demil- Retrograde Arms, Tanks",
+    "DDP/SNS 5, 9, 10, 25",
+    "Note 8",
+    "SNS 3, 4, 8",
+    "RIS 19, 21"
+   ],
+   [
+    {
+     "t": "2. Sensitive Items (Examples) — TPS / 675 Requirements & Footnote #s",
+     "c": 8,
+     "h": 1
+    }
+   ],
+   [
+    "7",
+    "I",
+    "1, 5, 6",
+    "1: Man-Portable Missiles\n5: Weapons w/SECRET Guidance System\n6: Weapons w/CONFIDENTIAL Guidance System",
+    "PSS/SNS/EXC/SEV 2, 5, 8, 9, 10, 22, 23",
+    "Forbidden",
+    "SNS 3, 4, 8",
+    "Notes 20, 21"
+   ],
+   [
+    "8",
+    "N/A",
+    "9",
+    "UNCLASSIFIED Controlled Cryptographic Item (CCI)",
+    "CIS 18",
+    "Note 8",
+    "Notes 3, 4, 8",
+    "Notes 21"
+   ],
+   [
+    "9",
+    "II",
+    "2, 8",
+    "2: Auto Weapons, Landmines, HE Grenades\n8: Weapons w/ CONFIDENTIAL Guidance Systems",
+    "PSS/SNS/EXC 2, 5, 8, 9, 10, 22, 23",
+    "Note 7",
+    "SNS 3, 4, 8",
+    "RIS 19, 21"
+   ],
+   [
+    "10",
+    "III, IV",
+    "C",
+    "Sensitive CONFIDENTIAL AA&E, Bombs, Torpedoes",
+    "DDP/SNS 3, 5, 7, 8, 9, 10, 23",
+    "Note 7",
+    "SNS 3, 4, 8",
+    "RIS 19, 21"
+   ],
+   [
+    "11",
+    "II, III",
+    "2, 3",
+    "Small Shipments of AA&E, Classified (SECRET/CONFIDENTIAL/NWRM), Protected, and Sensitive Cargo",
+    "DDP/SNS 3, 5, 7, 8, 9, 10, 22, 23",
+    "Note 7",
+    "SNS 3, 4, 8",
+    "RIS 19, 21"
+   ],
+   [
+    "12",
+    "IV",
+    "4",
+    "Small arms, Small Arms Ammunition, Night Vision Devices, and Retrograde arms",
+    "DDP/SNS 2, 3, 5, 7, 8, 9, 10, 22, 23",
+    "Note 7",
+    "SNS 3, 4, 8",
+    "RIS 19, 21"
+   ],
+   [
+    "13",
+    "N/A",
+    "7",
+    "Unclassified Ammunition and Explosives",
+    "Notes 3, 8, 9, 10, 22, 23",
+    "Note 7",
+    "SNS 3, 4, 8",
+    "RIS 19, 21"
+   ],
+   [
+    "14",
+    "N/A",
+    "R",
+    "(Precious Metal/Drug) Controlled",
+    "DDP/SNS 5, 10",
+    "Note 7",
+    "SNS 3, 4, 8",
+    "RIS 19, 21"
+   ],
+   [
+    "15",
+    "N/A",
+    "Q",
+    "Drug/Controlled Substance",
+    "CIS 18",
+    "Note 7",
+    "SNS 3, 4, 8",
+    "GSS 19, 21"
+   ],
+   [
+    "16",
+    "N/A",
+    "U",
+    "Unclassified (HC/Div. 1.1, 1.2, 1.3) Ammunition & Explosives, Bombs, Torpedoes",
+    "DDP/SNS 5, 8, 9, 10",
+    "Forbidden",
+    "SNS 3, 4, 8",
+    "RIS 21"
+   ],
+   [
+    "17",
+    "N/A",
+    "O",
+    "UNCLASSIFIED Naval Nuclear Propulsion Information 40",
+    "NO TPS",
+    "NO TPS",
+    "Notes 3, 4, 8",
+    "RIS 21"
+   ],
+   [
+    {
+     "t": "3. Pilferable Items (Examples) — TPS / 675 Requirements & Footnote #s",
+     "c": 8,
+     "h": 1
+    }
+   ],
+   [
+    "19",
+    "N/A",
+    "I, J, M, V, X, Y, Z",
+    "Communications, Electronics, High Value Items (Non-sensitive, Unclassified Items), Aircraft Engine Equip/Parts, Hand tools, Shop Equip/Parts, Clothing, Office Machines, Photographic Equip/Parts",
+    "NO TPS",
+    "NO TPS",
+    "NO TPS",
+    "NO TPS"
+   ],
+   [
+    "20",
+    "N/A",
+    "N",
+    "Firearms Piece Parts and Nonlethal Firearms",
+    "NO TPS",
+    "Note 11",
+    "Note 4",
+    "Note 21"
+   ],
+   [
+    "21",
+    "N/A",
+    "P",
+    "Ammunition & Explosives (A&E)",
+    "Notes 3, 5, 8, 9, 10, 22, 23",
+    "Forbidden",
+    "Note 4",
+    "Note 21"
+   ],
+   [
+    {
+     "t": "4. Inert, Non-Ordnance Items, Tactical Vehicles and Other Items (Examples) — TPS / 675 Requirements & Footnote #s",
+     "c": 8,
+     "h": 1
+    }
+   ],
+   [
+    "22",
+    "N/A",
+    "N/A",
+    "Inert, Training Ordnance, Non-Ordnance",
+    {
+     "t": "NO TPS",
+     "c": 4
+    }
+   ],
+   [
+    "23",
+    "III",
+    "3",
+    "Strykers, LAV-25",
+    "DDP/SNS 5, 9, 10, 12, 22",
+    "Forbidden",
+    "SNS 3, 4, 8",
+    "RIS 12, 21"
+   ],
+   [
+    "24",
+    "I, II",
+    "1, 2",
+    "Avengers, Bradleys",
+    "PSS/SNS/EXC 2, 5, 9, 10, 15, 22",
+    "Forbidden",
+    "SNS 3, 4, 8",
+    "RIS 20, 21"
+   ],
+   [
+    "25",
+    "N/A",
+    "S",
+    "M1A1 Abrams",
+    "PSS/SNS/EXC 5, 9, 10, 13, 14",
+    "Forbidden",
+    "SNS 3, 4, 8",
+    "RIS 13, 20, 21"
+   ],
+   [
+    "26",
+    "N/A",
+    "C",
+    "Classified (CONFIDENTIAL) U.S. Navy submarine class 688 propellers, Trident Class 726 propellers, and Virginia and Sea Wolf Class propulsion assemblies",
+    "DDP/SNS 19, 22",
+    "Forbidden",
+    "SNS 3, 4, 8, 19",
+    "RIS 19, 21"
+   ],
+   [
+    "27",
+    "N/A",
+    "7",
+    "Non AA&E",
+    {
+     "t": "N/A",
+     "c": 4
+    }
+   ],
+   [
+    "28",
+    "N/A",
+    "W",
+    "Unclassified Air Force Critical Component",
+    "CIS 18",
+    "Note 8",
+    "Notes 3, 4, 8",
+    "Note 21"
+   ]
+  ],
+  "notes": [
+   "NOTE 1: This table is NOT to be used as a stand-alone reference. Users must read and understand the detailed procedures in Chapter 205 and use it in conjunction with this table and applicable footnotes.",
+   "Numbers after each entry are the table’s footnote numbers. Descriptions/examples are not all-inclusive; always refer to SRC/CIIC first."
+  ]
+ },
+ "dtrPart2|Table 205-9": {
+  "title": "Table 205-9. Protective/Accessorial Service Table",
+  "page": 82,
+  "head": [
+   [
+    "Transportation Protective Service",
+    "Code"
+   ]
+  ],
+  "rows": [
+   [
+    "Constant Surveillance and Custody Service",
+    "CIS"
+   ],
+   [
+    "Dual Driver Protective Service",
+    "DDP"
+   ],
+   [
+    "Greater Security Service",
+    "GSS"
+   ],
+   [
+    "Military Guard Personnel",
+    "MGP"
+   ],
+   [
+    "Protective Security Service",
+    "PSS"
+   ],
+   [
+    "Rail Armed Guard Surveillance Service",
+    "ARG"
+   ],
+   [
+    "Rail Inspection Service",
+    "RIS"
+   ],
+   [
+    "Satellite Motor Surveillance Service",
+    "SNS"
+   ],
+   [
+    "Security Escort Vehicle Service",
+    "SEV"
+   ],
+   [
+    "Trailer Tracking Service",
+    "DCS"
+   ],
+   [
+    {
+     "t": "Accessorial Services",
+     "c": 1,
+     "h": 1
+    },
+    {
+     "t": "Code",
+     "c": 1,
+     "h": 1
+    }
+   ],
+   [
+    "Exclusive Use of Trailer or Dromedary",
+    "EXC"
+   ],
+   [
+    "Expedited Service",
+    "EXP"
+   ],
+   [
+    "Extra Driver",
+    "EXD"
+   ],
+   [
+    "Military Traffic Expediting Service",
+    "MTX"
+   ],
+   [
+    "Signature and Tally Record Service",
+    "675"
+   ]
+  ]
+ },
+ "dtrPart2|Table 210-3": {
+  "title": "Table 210-3. Completing a TDR",
+  "page": 45,
+  "head": [
+   [
+    "Transportation Discrepancy Document (DD 361)",
+    "Complete These Block Numbers on the TDR",
+    "Complete These Fields in DIS"
+   ]
+  ],
+  "rows": [
+   [
+    "Advisory TDR",
+    "1-2, 4-8, 10, 12, 16-17, 20-24, 28, 30-31",
+    "RFI TDR Type is selected and fields are completed according to whether or not claim action will be taken."
+   ],
+   [
+    "Initial Notification TDR",
+    "1, 4-31",
+    "RFI TDR is selected and fields are completed according to whether or not claim action will be taken."
+   ],
+   [
+    "RFI TDR (not for Claim Action)",
+    "1-28, 30-33",
+    "All fields under the Report Identifier and Line Items tabs. Ensure replies have been annotated under the Reply tab by each Addressee IAW Paragraph H.2.c and H.2.b. Do NOT forward to Claims Office."
+   ],
+   [
+    "RFI TDR Claim for Action",
+    "1-38",
+    "All fields under Report Identifier and Line Items tabs. Upload supporting documentation IAW Table 210-4 to the Supporting Documents tab. Ensure replies have been annotated under the Reply tab by each Addressee IAW Paragraph H.2.c and H.2.b. When forwarding to a Claims Office, complete all fields in the Part II tab."
+   ],
+   [
+    "Miscellaneous Problems TDR",
+    "1-28, 30-31; Block 30 – Indicate the probable party who is responsible for the discrepancy (e.g., shipper, packer, TSP) within 7 calendar days after the discrepancy was discovered.",
+    "All fields under the Report Identifier and Line Items tabs. Ensure replies have been annotated under the Reply tab by each Addressee IAW Paragraph H.2.c and H.2.b."
+   ],
+   [
+    "Astray Freight TDR",
+    "1-31",
+    "All fields under the Report Identifier and Line Items tabs. Ensure replies have been annotated under the Reply tab by each Addressee IAW Paragraph H.2.c and H.2.b."
+   ],
+   [
+    "Ocean Cargo TDR",
+    "1-38\nBlock 29, unless noted elsewhere on the TDR, will be the person that is contacted for additional information. Blocks 28 or 36 should include the details of the survey by the carrier or the Government inspection.",
+    "All fields under Report Identifier and Line Items tabs. Upload supporting documentation IAW Table 210-4 to the Supporting Documents tab. Ensure replies have been annotated under the Reply tab by each Addressee IAW Paragraph H.2.c and H.2.b. When forwarding to a Claims Office, complete all fields in the Part II tab. Include the DoDAAC “HTC711” as a TDR Addressee."
+   ]
+  ]
+ },
+ "dtrPart2|Table 210-4": {
+  "title": "Table 210-4. Supporting Documentation for TDR Development",
+  "page": 46,
+  "pages": 2,
+  "head": [
+   [
+    "Supporting Document",
+    "Shortage Discrepancy",
+    "Damage Discrepancy"
+   ]
+  ],
+  "rows": [
+   [
+    {
+     "t": "Minimum Documentation Needed To Support a TDR for a Claim",
+     "c": 3,
+     "h": 1
+    }
+   ],
+   [
+    "Copy of the BL or TCMD. For commercial air shipments, a copy of both the front and back of the airbill is required.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Copy of the TSPs delivery/interchange receipt with discrepancy noted, signed and dated by the TSPs driver and the consignee.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Copy of the completed shipping document (e.g., DD Form 1348-1, DD Form 250, DD Form 1149, DD Form 1155, packing list) with associated cost.",
+    "✓",
+    "✓"
+   ],
+   [
+    {
+     "t": "Additional Documentation, as Needed/Applicable",
+     "c": 3,
+     "h": 1
+    }
+   ],
+   [
+    "When there is a consolidation of requisitions in a carton covered by one TCN, a completed copy of each document in the consolidation is required to establish the actual loss.",
+    "✓",
+    "✓"
+   ],
+   [
+    "When property is shipped in reparable (F) condition, a reparable value statement is required, citing the actual preshipment value.",
+    "",
+    "✓"
+   ],
+   [
+    "For prepaid FOB origin shipments, a copy of the contractor’s paid invoice is required.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Confirmation from the consignee that the item was not received (i.e., email, fax)",
+    "✓",
+    ""
+   ],
+   [
+    "A copy of the shipper’s reply to the Request for Information confirming whether or not shipment was shipped as billed and condition of property when tendered to the TSP.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Shipper must show if packing, loading, blocking, bracing were properly performed",
+    "",
+    "✓"
+   ],
+   [
+    "Copy of tally-out and tally-in records when TSP is determined responsible for the shortage.",
+    "✓",
+    ""
+   ],
+   [
+    "For concealed loss and damage, a signed statement(s) by person(s) who first discovered the discrepancy, showing time, place, circumstances of delivery, and explanation as to why shortage or damage was not noted at time of delivery. If the property was moved from the original delivery point, also include signed and dated statement(s) or affidavit(s) by person(s) who moved the property, showing distance, method of movement, time, and circumstances of movement.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Copy of the TSP’s inspection/survey report signed by the TSP’s representative and consignee. If TSP declined inspection of damaged property, then provide a copy of the Government’s inspection, signed and dated by a technically qualified person.",
+    "",
+    "✓"
+   ],
+   [
+    "Photographs of the damaged property. If pilferage/theft has occurred photograph possible ways of entry or damage to the container or cargo, photograph seals if they are still intact, and photograph the inside of the container and its contents or lack thereof. Additional photographic examples: MSL, data plates, packaging, Vehicle Identification Number, container number, conveyance",
+    "✓",
+    "✓"
+   ],
+   [
+    "Itemized actual or estimated repair cost statement, signed and dated by a technically qualified person. For commercial repair, a copy of the contractor’s paid invoice. (Include labor separate from parts)",
+    "",
+    "✓"
+   ],
+   [
+    "Copy of the TSP’s receipt for release of salvaged property, showing the preshipment value as the amount of the Government’s loss. The TSP or its authorized agent must sign the receipt.",
+    "",
+    "✓"
+   ],
+   [
+    "Copy of the official accident report initiated by law enforcement personnel for loss or damage due to aircraft, rail, or highway accidents.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Security and law enforcement reports for loss, pilferage, theft, suspected forgery or vandalism",
+    "✓",
+    "✓"
+   ],
+   [
+    "If damaged property was sent to a repair facility, a copy of the BL or freight bill for transportation costs to and from the repair facility.",
+    "",
+    "✓"
+   ],
+   [
+    "For small package express shipments, a copy of the pickup record (e.g., manifest, bar code number, or BL). Include the documentation to support transportation charges paid on shipment.",
+    "✓",
+    "✓"
+   ],
+   [
+    "For small package express shipments, a copy of the tracer or loss and damage investigation report/number. The TSP will not honor claims failing to cite this number.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Appropriation to be credited for replacement or repair costs.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Statements from eye witnesses and/or other involved parties (signed and dated).",
+    "✓",
+    "✓"
+   ],
+   [
+    "Any Certificate of Destruction, Veterinary Inspection Report, or Temperature Readings for temperature controlled shipments that are applicable to the TDR file.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Cargo Declarations, Tracking Reports, Shipping Documents, Inspection Reports, and Weather and Sea State Reports.",
+    "✓",
+    "✓"
+   ],
+   [
+    "Information for replacement costs and depreciation amounts (e.g., FEDLOG, WEBFLIS).",
+    "✓",
+    "✓"
+   ],
+   [
+    "Email correspondence relevant to TDR/claim (e.g., initial notification to TSP).",
+    "✓",
+    "✓"
+   ]
+  ],
+  "notes": [
+   "✓ = required for that type of discrepancy."
+  ]
+ },
+ "dtrPart3|Table 303-2": {
+  "title": "Table 303-2. Unit Move Passenger Manifesting Process",
+  "page": 44,
+  "head": [
+   [
+    "IF",
+    "AND",
+    "THEN"
+   ]
+  ],
+  "rows": [
+   [
+    "1. CRE on scene (see Note 1)",
+    "Unit is using Service deployment system to process passengers",
+    "Deploying unit manifests using deployment system for their service."
+   ],
+   [
+    "2. CRE on scene (see Note 1)",
+    "Unit has no Service deployment system support",
+    "CRE manifests using GATES."
+   ],
+   [
+    "3. AMC terminal or Operating Location (OL) on scene",
+    "Unit is using deployment system to process passengers",
+    "Deploying unit manifests using Service deployment system."
+   ],
+   [
+    "4. AMC terminal or OL on scene",
+    "Unit has no Service deployment system support",
+    "AMC manifests using GATES."
+   ],
+   [
+    "5. No CRE, AMC terminal, or OL on scene",
+    "Unit is using deployment system to process passengers",
+    "Deploying unit manifests using deployment system for their Service."
+   ],
+   [
+    "6. No CRE, AMC terminal, or OL on scene",
+    "Unit has no Service deployment system support",
+    "Deploying unit manifests using peacetime passenger manifesting systems such as Cargo Movement Operational System (CMOS), GOPAX, or local software. (See Note 2.)"
+   ],
+   [
+    "7. Service-operated terminal (Non-AMC)",
+    "Unit is using deployment system to process passengers",
+    "Deploying unit manifests using deployment system for their Service."
+   ],
+   [
+    "8. Service-operated terminal (Non-AMC)",
+    "Unit has no Service deployment system support",
+    "Deploying unit manifests using peacetime passenger manifesting systems such as CMOS, GOPAX, or local software (see Note 2)."
+   ],
+   [
+    "9. Self-deploying unit (see Note 3)",
+    "Unit is using deployment system to process passengers",
+    "Deploying unit manifests using deployment system for their Service."
+   ],
+   [
+    "10. Self-deploying unit (see Note 3)",
+    "Unit has no Service deployment system support",
+    "Deploying unit manifests using peacetime passenger manifesting systems such as CMOS, GOPAX, or local software (see Note 2)."
+   ],
+   [
+    "11. Supercargo passengers",
+    "Unit is using deployment system to process passengers",
+    "Deploying unit manifests using deployment system for their Service."
+   ],
+   [
+    "12. Supercargo passengers",
+    "Unit has no Service deployment system support",
+    "Manifested within the SDDC GATES."
+   ],
+   [
+    "13. Non-Combatant Evacuation Operation",
+    "Unit has no Service deployment system support",
+    "Non-Combatant Evacuation tracking system will be used and passed to IGC."
+   ]
+  ]
+ },
+ "dtrPart4|Table A-402-3": {
+  "title": "Table A-402-3. Codes of Service (COS)",
+  "page": 46,
+  "head": [
+   [
+    "Applicable Shipment Survey Categories",
+    "Codes of Service"
+   ]
+  ],
+  "rows": [
+   [
+    "Domestic Household Goods (dHHG)",
+    "D (Loose) and\n2 (containerized)"
+   ],
+   [
+    "International Household Goods (iHHG)",
+    "4, 5, 6, and T"
+   ],
+   [
+    "Unaccompanied Baggage (UB)",
+    "7, 8, and J"
+   ],
+   [
+    "Origin Storage",
+    ""
+   ],
+   [
+    "Local Moves",
+    ""
+   ],
+   [
+    "Non-Temporary Storage (NTS)",
+    ""
+   ],
+   [
+    "One Time Only (OTO)",
+    "Domestic: N/A\nInternational: 4, 5, 6,7, 8, T & J"
+   ],
+   [
+    "Mobile Homes One Time Only (MOTO)",
+    "Domestic: S\nInternational: N/A"
+   ],
+   [
+    "Boat One Time Only (BOTO)",
+    "Domestic: S\nInternational: 4 (currently)"
+   ],
+   [
+    "Direct Procurement Method (DPM) – Domestic",
+    "BA, BB, BC, BD, HA, HB, HC and HD"
+   ],
+   [
+    "Direct Procurement Method (DPM) – International",
+    "BE, BF, BG, BH, HE, HF, HG and HH"
+   ],
+   [
+    "Direct Procurement Method (DPM) – Inter-Theater",
+    "BK, BL, BM, BN, HK, HL, HM and HN"
+   ],
+   [
+    "Direct Procurement Method (DPM) – Intra-Theater",
+    "BP, BR, BW, BX, BY, HP, HR, HW, HX and HY"
+   ],
+   [
+    "Volume Moves",
+    "Domestic: D\nInternational: 4, 5, 6,7, 8, T & J"
+   ],
+   [
+    "International shipments (CONUS to/from Canada, Alaska, and Mexico)",
+    "I"
+   ]
+  ],
+  "notes": [
+   "NOTE: See Paragraph G of this document for more information on Alaska shipments"
+  ]
+ }
+}

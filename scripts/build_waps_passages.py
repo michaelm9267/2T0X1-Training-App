@@ -26,17 +26,21 @@ OVERRIDES = json.loads((Path(__file__).resolve().parent / 'waps_passage_override
 # bank -> (bank file, [(source text file, kind, citation prefix used by the bank's refs, edition)])
 SOURCES = {
     'dafi10403': ('dafi10403Bank', [('l123_1', 'dafi', '', '17 December 2025')]),
-    'dafi24602v2': ('dafi24602v2Bank', [('l292_1', 'dafi', '', '20 December 2023')]),
+    'dafi24602v2': ('dafi24602v2Bank', [('l292_1', 'dafi', '', '20 December 2023'), ('l292_x', 'dafi', '', '20 December 2023')]),
     'dafi24602v1': ('dafi24602v1Bank', [('l363_1', 'dafi', '', '15 December 2020')]),
     'dafi24602v4': ('dafi24602v4Bank', [('l503_1', 'dafi', '', '2 June 2026')]),
     'dtrPart2': ('dtrPart2Bank', [('l624_1', 'dtr', 'Ch 202', '25 September 2026'), ('l624_2', 'dtr', 'Ch 205', '1 June 2026'),
                                   ('l624_3', 'dtr', 'Ch 210', '14 January 2026')]),
     'dtrPart3': ('dtrPart3Bank', [('l688_2', 'dtr', 'Ch 303', '25 September 2026'), ('l688_1', 'dtr', 'App P', 'June 2016')]),
+    # The PDG: AFH 1, Airman. Its questions live in afh1/ch*.js and afh1/att.js (default-exported row lists).
+    'afh1': ('afh1/', [('afh1', 'dafi', '', '15 February 2025')]),
     'dtrPart4': ('dtrPart4Bank', [('l731_1', 'dtr', 'Ch A-402', '14 July 2026'), ('l731_2', 'dtr', 'Ch A-411', '21 August 2024'),
-                                  ('l731_3', 'dtr', 'App A-B', '18 February 2026, effective 15 May 2026')]),
+                                  ('l731_3', 'dtr', 'App A-B', '18 February 2026, effective 15 May 2026'),
+                                  ('l731_4', 'dtr', 'Ch A-401', '5 May 2025'), ('l731_5', 'dtr', 'App A-M', '9 January 2026')]),
 }
 
 HEADER = [
+    re.compile(r'^\s*AFH 1, AIRMAN\s+15 February 2025\s*$'),
     re.compile(r'^\s*(\d+\s+)?(DAFI|AFI|DAFMAN)\s?\d{2}-\d{3}(V\d)?\s+\d{1,2}\s+[A-Z]+\s+\d{4}(\s+\d+)?\s*$'),
     re.compile(r'^\s*Defense Transportation Regulation\s*[–-]\s*Part'),
     re.compile(r'^\s*(Cargo Movement|Mobility|Personal Property)\s*$'),
@@ -99,7 +103,7 @@ def special_key(line):
 
 
 # ----- DAFI: 1.2.3. numbering --------------------------------------------------------------------
-DAFI_MARK = re.compile(r'^(A?\d+(?:\.\d+)+)\.\s')
+DAFI_MARK = re.compile(r'^(A?\d+(?:\.\d+)+)\.(?:\s|(?=[A-Z][a-z]))')
 
 
 def next_number(label):
@@ -119,7 +123,8 @@ def dafi_accepts(label, path):
     return any(parts[:-1] == stack[:depth] and parts[-1] == next_number(stack[depth]) for depth in range(len(stack)))
 
 
-def dafi_blocks(lines):
+def dafi_blocks(lines, inline_captions=False):
+    """inline_captions: figure and table captions sit mid-paragraph (AFH 1), so they stay in the paragraph."""
     blocks, path, seen = [], None, set()
     for line, page in lines:
         match = DAFI_MARK.match(line)
@@ -129,6 +134,8 @@ def dafi_blocks(lines):
             blocks.append({'key': path, 'path': path.split('.'), 'lines': [line], 'pages': [page]})
             continue
         key = special_key(line)
+        if key and inline_captions and CAPTION.match(line):
+            key = None
         if key:
             blocks.append({'key': key, 'path': None, 'lines': [line], 'pages': [page], 'caption': True})
             continue
@@ -324,6 +331,20 @@ def excerpt(units, question, answer, keep=1):
     plus the best-matching run of the rest."""
     if sum(len(u) + 1 for u in units) <= MAX_CHARS:
         return '\n'.join(units)
+    # A paragraph too long to show whole is split into sentences, so the excerpt can land on the
+    # sentence that answers the question; a split kept paragraph keeps only its first sentence.
+    split, kept = [], 0
+    for index, unit in enumerate(units):
+        parts = re.split(r'(?<=[.!?\u201d"])\s+(?=[A-Z\u201c"(])', unit) if len(unit) > MAX_CHARS else [unit]
+        while len(parts) > 1 and re.fullmatch(r'A?[\d.]+', parts[0]):  # keep "1.4." with its first sentence
+            parts[:2] = [f'{parts[0]} {parts[1]}']
+        split.extend(parts)
+        if index < keep:
+            kept += 1 if len(parts) > 1 else len(parts)
+            if len(parts) > 1:
+                split[len(split) - len(parts) + 1:len(split)] = [' '.join(parts[1:])] if index < keep - 1 else parts[1:]
+    if kept != keep or len(split) != len(units):
+        units, keep = split, max(kept, 1)
     answer_words, question_words = set(words(answer)), set(words(question)) - set(words(answer))
     found = [set(words(u)) for u in units]
 
@@ -370,6 +391,13 @@ def local_ref(kind, prefix, ref):
 
 def bank_rows(name):
     """[ref, question, answer] for each question, read by evaluating the bank module in node."""
+    if name.endswith('/'):  # AFH 1 chapter files: rows are [ref, section, kind, question, answer, wrong]
+        rows = []
+        for path in sorted([*(WAPS / name).glob('ch*.js'), *(WAPS / name).glob('att.js')]):
+            source = path.read_text().replace('export default rows;', '')
+            script = source + '\nprocess.stdout.write(JSON.stringify(rows.map(r => [r[0], r[3], r[4]])));'
+            rows += json.loads(subprocess.run(['node', '-e', script], capture_output=True, text=True, check=True).stdout)
+        return rows
     source = (WAPS / f'{name}.js').read_text().replace('export const ', 'const ')
     bank = re.search(r'^const (\w+Bank) =', source, re.M).group(1)
     script = source + f'\nprocess.stdout.write(JSON.stringify({bank}.map(i => [i.ref, i.question, i.answer])));'
@@ -381,11 +409,15 @@ def main():
     report = '--report' in sys.argv
     (WAPS / 'passages').mkdir(exist_ok=True)
     weak, missing_total = [], 0
+    # --only <bank>[,<bank>] rebuilds just those banks; the SKT passage files have hand-curated quotes.
+    only = sys.argv[sys.argv.index('--only') + 1].split(',') if '--only' in sys.argv else None
     for bank, (bank_file, sources) in SOURCES.items():
+        if only and bank not in only:
+            continue
         parsed = []
         for name, kind, prefix, _ in sources:
             lines = read_lines(src / f'{name}.txt')
-            parsed.append((kind, prefix, lines, dafi_blocks(lines) if kind == 'dafi' else dtr_blocks(lines)))
+            parsed.append((kind, prefix, lines, dafi_blocks(lines, inline_captions=bank == 'afh1') if kind == 'dafi' else dtr_blocks(lines)))
         refs, questions, missing = {}, {}, []
         for ref, question, answer in bank_rows(bank_file):
             candidates = []

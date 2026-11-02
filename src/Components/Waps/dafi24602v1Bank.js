@@ -1,5 +1,5 @@
 // DAFI 24-602 Volume 1, Passenger Movement (excerpt headed AFI24-602V1, 15 DEC 2020): Chapters 1, 2, 3,
-// 5, 6 and 7 (the SSgt/E-5 WAPS scope; Chapter 4 is not included).
+// 5, 6 and 7 (the SSgt/E-5 WAPS scope); Chapters 2, 3, 4, 6 and 7 (the TSgt/E-6 scope).
 // Each row: [paragraph, section, question, correct answer, three wrong answers].
 // Wrong answers are written so none of them is also true under the cited paragraph.
 
@@ -7,6 +7,7 @@ export const dafi24602v1Sections = [
   { id: 'ch1', label: 'Chapter 1', title: 'Roles and Responsibilities' },
   { id: 'ch2', label: 'Chapter 2', title: 'Travel Policy' },
   { id: 'ch3', label: 'Chapter 3', title: 'Travel Procedures' },
+  { id: 'ch4', label: 'Chapter 4', title: 'Temporary Duty (TDY) Travel' },
   { id: 'ch5', label: 'Chapter 5', title: 'Permanent Change of Station' },
   { id: 'ch6', label: 'Chapter 6', title: 'Special Circumstances' },
   { id: 'ch7', label: 'Chapter 7', title: 'Travel Documentation and Billing' },
@@ -216,6 +217,18 @@ const rows = [
   ['7.13.1', 'ch7', 'The GTCV electronic invoice should be accessed no later than how long after the billing cycle ends?', 'Five working days', ['Three working days', '10 working days', '30 days']],
   ['7.13.1', 'ch7', 'If the online invoice is not accessible within how many working days after the billing cycle, the TO contacts the GTCV?', 'Three', ['One', 'Five', 'Ten']],
   ['7.13.5.3', 'ch7', 'Who must approve deviations from using SharePoint for CBA reconciliation documents?', 'AFIMSC/IZLT', ['DFAS', 'The TMC', 'The LRS Commander']],
+
+  // TSgt (E-6) SKT chapters not on the SSgt list.
+  ["4.1","ch4","What is the primary transportation mode for DoD personnel on TDY?","Air",["Privately owned vehicle","Rail","Rental car"]],
+  ["4.1","ch4","When may surface transportation be approved for TDY?","For operational requirements, not personal convenience",["Whenever the traveler prefers to drive","Only for trips under 400 miles","Whenever it costs less than commercial air travel for the trip"]],
+  ["4.1.3","ch4","Which airlift must be used to the maximum extent for PCS and TDY transoceanic travel?","Patriot Express",["Space-available travel","Commercial City Pair flights","Opportune organic airlift"]],
+  ["4.1.3","ch4","Which attachment provides the Mission Impact Statement for non-use of Patriot Express?","Attachment 2",["Attachment 1","Attachment 3","Attachment 4"]],
+  ["4.1.4","ch4","Use of foreign-flag carriers on personally procured transoceanic travel is reimbursable only if what?","The Orders Approving Official authorized or approved it",["The traveler saved money compared with the City Pair fare","The TMC was closed","The flight was over 14 hours"]],
+  ["4.1.5","ch4","If a TDY is known before the member departs on leave, how is travel reimbursed?","Actual expenses up to the constructed PDS-to-TDY round trip",["Full cost from the leave point","City Pair fare from the leave point to the TDY location","No reimbursement at all"]],
+  ["4.2","ch4","When may government contract airfares be used to and from leave points?","Only when the leave is at the TDY location",["Always, if the traveler pays the difference","Whenever the leave is under 10 days","Whenever the TMC books the leave portion"]],
+  ["4.3","ch4","When leave is combined with official travel, who pays any cost over the cost of official travel?","The traveler",["The unit","The TMC","DFAS"]],
+  ["4.4","ch4","Which may NOT be used to purchase unofficial travel?","GTCC, IBA, or CBA",["A personal credit card","Cash","A personal check"]],
+  ["4.5","ch4","When the TMC is unavailable, what must the TO/TMC issue so the traveler can self-procure tickets?","A non-availability memo",["A DD Form 1351-2","A Mission Impact Statement","A Patriot Express waiver"]],
 ];
 
 export const dafi24602v1Bank = rows.map(([ref, section, question, answer, wrong, identityQuestion = question]) => ({

@@ -1,6 +1,6 @@
 // DAFI 24-602 Volume 4, Personal Property (2 JUNE 2026): the SSgt/E-5 WAPS scope is Chapters 3 through 8,
 // 11 and 12 and Attachment 4. The excerpt provided has Chapters 3, 6, 7, 8, 11, 12 and Attachment 4
-// (Chapters 4 and 5 were not included, and Chapter 14 is out of scope).
+// (Chapters 4 and 5 were not included). The TSgt/E-6 scope is Chapters 3, 6, 7, 8, 11 and 14 and Attachment 4.
 // Each row: [paragraph, section, question, correct answer, three wrong answers].
 // Wrong answers are written so none of them is also true under the cited paragraph.
 
@@ -11,6 +11,7 @@ export const dafi24602v4Sections = [
   { id: 'ch8', label: 'Chapter 8', title: 'Personally Procured Movement of HHG' },
   { id: 'ch11', label: 'Chapter 11', title: 'General Administrative Guidance' },
   { id: 'ch12', label: 'Chapter 12', title: 'Excess Cost Responsibilities/Procedures' },
+  { id: 'ch14', label: 'Chapter 14', title: 'Personal Property Quality Control' },
   { id: 'att4', label: 'Attachment 4', title: 'Telephonic Inspection' },
 ];
 
@@ -228,6 +229,30 @@ const rows = [
   ['Atch 4', 'att4', 'Per the outbound DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4), which form must the TSP have provided at origin?', 'DD 619, inventory, and GBL/BL', ['DD Form 1797', 'DD Form 1857', 'DD Form 2278'], 'Which form must the TSP have provided at origin, per the outbound telephonic inspection?'],
   ['Atch 4', 'att4', 'On the inbound DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4), what is the customer briefed on verifying?', 'DD Form 619-1 services', ['The DD Form 1299 weight', 'The excess cost DD Form 139', 'The PPM DD Form 2278'], 'On the inbound telephonic inspection, what is the customer briefed on verifying?'],
   ['Atch 4', 'att4', 'Which inventory check is on the outbound DAF HHG telephonic inspection (DAFI 24-602V4, Attachment 4)?', 'All items, including member/spouse PBP&E', ['Were all items photographed?', 'Was the inventory signed by the TO?', 'Was the inventory emailed to PPA HQ?'], 'Which inventory check is on the outbound telephonic inspection?'],
+
+  // TSgt (E-6) SKT chapters not on the SSgt list.
+  ["14.1.1","ch14","What percentage of personal property shipments should JPPSO/PPSO/PPPO aim to inspect?","80%",["50%","100%","60%"]],
+  ["14.1.1","ch14","At least what share of personal property inspections must be conducted in person?","50%",["80%","25%","100%"]],
+  ["14.1.1","ch14","When is credit for an inspection recorded?","On the pickup/delivery date after on-site requirements are met",["When the TSP invoices","When the customer completes the Customer Satisfaction Survey","At the end of the month"]],
+  ["14.1.2","ch14","How long after the recorded delivery date may DAF QA inspectors conduct post-delivery inspections?","Up to 5 GBDs",["Up to 10 GBDs","Up to 30 days","Up to 180 days"]],
+  ["14.2","ch14","Military QC inspectors should be drawn from which grades?","E-4 and above",["E-5 and above","E-6 and above","E-3 and above"]],
+  ["14.3","ch14","Who provides computer-based training courses for QC inspectors?","USTRANSCOM",["AETC","AFIMSC","PPA HQ"]],
+  ["14.7.1.1","ch14","How may the TSP perform the pre-move survey?","In residence, virtually with consent, or telephonically",["Only in residence","Only telephonically, after the customer signs DD Form 1797","Only virtually"]],
+  ["14.7.1.8","ch14","Customers from Gypsy Moth areas must provide the TSP what?","Gypsy Moth Inspection Certification",["A USDA import permit","DD Form 1252","A pest-free WPM stamp on every wooden item"]],
+  ["14.7.1.8","ch14","Gypsy Moths cause an estimated how much annual damage?","$868 million",["$86 million","$1.2 billion","$500 million"]],
+  ["14.7.1.11","ch14","If a shipment must be split for the line haul movement, which RDD applies?","The established RDD applies to all parts",["Each part receives its own new RDD","The last part gets 10 extra days","The destination PPSO sets a new RDD"]],
+  ["14.7.2.2","ch14","How long does the customer have to file a notice of loss or damage?","180 days from delivery",["75 days","9 months","30 days from the delivery date"]],
+  ["14.7.2.3","ch14","If the customer waives unpacking, who disposes of empty cartons and packing material?","The customer",["The TSP","The PPSO","The QC inspector"]],
+  ["14.7.2.4","ch14","What does the customer verify by signing DD Form 619-1?","That accessorial services were performed",["That nothing was damaged","That the inventory is accurate","That the CSS was completed"]],
+  ["14.8.2","ch14","Under the International Tender, which item number covers crating?","Item 508",["Item 225","Item 501","Item 410"]],
+  ["14.8.2.1","ch14","Which grandfather clock feature could justify crating at government expense?","Leaded or curved glass panels",["It is a grandfather clock","It was crated on a previous move","The customer declared it of extraordinary value"]],
+  ["14.8.2.3","ch14","Which items are eligible for crating because they may be too heavy or large for cartons?","Marble tabletops and pool table slates",["Sofas and buffets","Mattresses","Flat screen TVs under 55 inches"]],
+  ["14.8.2.5","ch14","May crating be denied because the member did not keep a government crate from a previous move?","No",["Yes, always","Only for OCONUS moves","Only for items over 500 pounds"]],
+  ["14.8.4","ch14","Which is an approved exception for debris removal service?","BLUEBARK shipments",["Any shipment over 10,000 pounds","Any retiring member","Any customer who requests it"]],
+  ["14.8.5","ch14","Under 400NG Item 225, whose responsibility is removing items from self/mini storage?","The member's",["The TSP's","The PPSO's","The storage facility's"]],
+  ["14.8.6","ch14","Should third party service be authorized to stabilize a front-load washer drum?","No; it is included in the transportation charge",["Yes, always","Only for OCONUS moves","Only if the customer pays for the service up front"]],
+  ["14.8.7","ch14","If a plastic tote cannot fit in an approved carton, what does the TSP do?","Empty it, pack the contents in a carton, and pad-wrap the tote",["Ship the tote as the member packed it","Refuse to ship the tote","Charge the customer for a crate"]],
+  ["14.9.2","ch14","Where does the inspector record inspections?","PPA HQ SharePoint and Personal Property Systems",["CMOS","JCM","TPPS and the Defense Personal Property System"]],
 ];
 
 export const dafi24602v4Bank = rows.map(([ref, section, question, answer, wrong, identityQuestion = question]) => ({

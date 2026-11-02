@@ -2,7 +2,13 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import WapsStudyTool from './WapsStudyTool';
 beforeEach(() => localStorage.clear());
-function open() {render(<WapsStudyTool/>); userEvent.click(screen.getByRole('button', {name: /SSgt \/ E-5/}));}
+
+// The publication (or PDG chapter) and section pickers are dropdowns.
+function pick(label, option) {
+  const select = screen.getByRole('combobox', { name: label });
+  userEvent.selectOptions(select, within(select).getByRole('option', { name: option }));
+}
+function open() {render(<WapsStudyTool/>); userEvent.click(screen.getByRole('button', {name: /SSgt \/ E-5/})); userEvent.click(screen.getByRole('button', { name: /SSgt SKT/ }));}
 test('numeric recall accepts a typed value and records its result', () => {
   open(); userEvent.click(screen.getByRole('tab', {name: 'Number recall'}));
   userEvent.click(screen.getByRole('button', {name: 'Start drill'}));
@@ -13,7 +19,7 @@ test('numeric recall accepts a typed value and records its result', () => {
   expect(Object.keys(JSON.parse(localStorage.getItem('waps-progress-e5')).cards)).toHaveLength(1);
 });
 test('exam setup saves explicit publication weights and blocks invalid capacity', () => {
-  open(); userEvent.click(screen.getByRole('tab', {name: /All regulations/}));
+  open(); pick('Publication', /All regulations/);
   userEvent.click(screen.getByRole('tab', {name: 'Full exam'}));
   const panel = screen.getByRole('region', {name: 'Full exam'});
   expect(within(panel).getByText(/not an official SKT blueprint/i)).toBeInTheDocument();
@@ -27,7 +33,7 @@ test('weak spots explain when more scored answers are needed', () => {
   expect(screen.getByText(/Answer some practice questions first/)).toBeInTheDocument();
 });
 test('scenario drill combines season, weight and distance with source explanations', () => {
-  open(); userEvent.click(screen.getByRole('tab', {name: /All regulations/}));
+  open(); pick('Publication', /All regulations/);
   userEvent.click(screen.getByRole('tab', {name: 'Scenarios'}));
   userEvent.click(screen.getByRole('button', {name: 'Start drill'}));
   const choices = screen.getByRole('group', {name: 'Answer choices'});
@@ -36,7 +42,7 @@ test('scenario drill combines season, weight and distance with source explanatio
   expect(screen.getByText(/greater than 800 miles/)).toBeInTheDocument();
 });
 test('custom exam count and time are configurable and persist with the blueprint', () => {
-  open(); userEvent.click(screen.getByRole('tab', {name:/All regulations/})); userEvent.click(screen.getByRole('tab', {name:'Full exam'}));
+  open(); pick('Publication', /All regulations/); userEvent.click(screen.getByRole('tab', {name:'Full exam'}));
   userEvent.selectOptions(screen.getByLabelText('Questions'), 'custom');
   userEvent.clear(screen.getByLabelText('Custom question count')); userEvent.type(screen.getByLabelText('Custom question count'), '37');
   userEvent.selectOptions(screen.getByLabelText('Time limit'), 'custom');

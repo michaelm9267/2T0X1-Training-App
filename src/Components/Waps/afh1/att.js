@@ -1,0 +1,40 @@
+// AFH 1 Attachments 4 (Chief Master Sergeants of the Air Force) and 7 (USAF Medal of Honor Recipients).
+// Row: [citation, section, kind, question, answer, three wrong answers]. SSgt levels: ATT4 A, ATT7 B.
+const rows = [
+  ['Atch 4', 'ATT4', 'A', 'Who was the first Chief Master Sergeant of the Air Force?', 'CMSAF Paul W. Airey', ['CMSAF Donald L. Harlow', 'CMSAF Richard D. Kisling', 'CMSAF Thomas N. Barnes']],
+  ['Atch 4', 'ATT4', 'A', 'CMSAF Airey\'s efforts helped produce which system adopted in 1970?', 'The Weighted Airman Promotion System', ['The Enlisted Performance Report', 'The Stripes for Exceptional Performers Program', 'The Senior NCO Academy']],
+  ['Atch 4', 'ATT4', 'A', 'Which job did CMSAF Airey call one of the most important in the Air Force?', 'First sergeant', ['Military training instructor', 'Command chief', 'Recruiter']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF was known as "the GI\'s man in Washington"?', 'CMSAF Richard D. Kisling', ['CMSAF Paul W. Airey', 'CMSAF James M. McCoy', 'CMSAF Sam E. Parish']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF pushed for the first senior NCO academy, approved by Congress in 1972?', 'CMSAF Richard D. Kisling', ['CMSAF Donald L. Harlow', 'CMSAF Thomas N. Barnes', 'CMSAF Arthur L. "Bud" Andrews']],
+  ['Atch 4', 'ATT4', 'A', 'Who was the first African-American to serve in the highest enlisted post of a military service?', 'CMSAF Thomas N. Barnes', ['CMSAF Kaleth O. Wright', 'CMSAF James C. Binnicker', 'CMSAF Arthur L. Andrews']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF secured a policy letting Senior Airmen move their families at government expense on a PCS?', 'CMSAF Robert D. Gaylor', ['CMSAF James M. McCoy', 'CMSAF Sam E. Parish', 'CMSAF Thomas N. Barnes']],
+  ['Atch 4', 'ATT4', 'A', 'During which CMSAF\'s tour was the Stripes for Exceptional Performers Program instituted?', 'CMSAF James M. McCoy', ['CMSAF Arthur L. Andrews', 'CMSAF Gary R. Pfingston', 'CMSAF Robert D. Gaylor']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF urged Airmen to "think we instead of me, me, me"?', 'CMSAF Arthur L. Andrews', ['CMSAF Sam E. Parish', 'CMSAF James C. Binnicker', 'CMSAF Eric W. Benken']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF got approval for the Levitow Award and an Air Force-wide First Sergeant of the Year Program?', 'CMSAF Sam E. Parish', ['CMSAF Arthur L. Andrews', 'CMSAF James C. Binnicker', 'CMSAF David J. Campanale']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF replaced the Airman performance report with the enlisted performance report?', 'CMSAF James C. Binnicker', ['CMSAF Rodney J. McKinley', 'CMSAF James A. Cody', 'CMSAF Sam E. Parish']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF served during Desert Storm and the Air Force drawdown?', 'CMSAF Gary R. Pfingston', ['CMSAF David J. Campanale', 'CMSAF James C. Binnicker', 'CMSAF Gerald R. Murray']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF helped defeat the proposed "High One" retirement change in Congress?', 'CMSAF David J. Campanale', ['CMSAF Eric W. Benken', 'CMSAF Frederick J. Finch', 'CMSAF Gary R. Pfingston']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF crafted the NCO Professional Development Seminar and championed Warrior Week?', 'CMSAF Eric W. Benken', ['CMSAF Jim Finch', 'CMSAF Gerald R. Murray', 'CMSAF David J. Campanale']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF helped restructure PME from four to three levels and create Airman Leadership School?', 'CMSAF Jim Finch', ['CMSAF Eric W. Benken', 'CMSAF James A. Roy', 'CMSAF Richard D. Kisling']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF led development of a new physical fitness program after 11 September 2001?', 'CMSAF Gerald R. Murray', ['CMSAF Rodney J. McKinley', 'CMSAF Jim Finch', 'CMSAF James A. Roy']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF opened the door for the Airman\'s Creed and the return of the Good Conduct Medal?', 'CMSAF Rodney J. McKinley', ['CMSAF Gerald R. Murray', 'CMSAF James A. Roy', 'CMSAF James A. Cody']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF developed the Enlisted PME-Next construct?', 'CMSAF James A. Roy', ['CMSAF James A. Cody', 'CMSAF Rodney J. McKinley', 'CMSAF Kaleth O. Wright']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF established Developmental Special Duties and overhauled the EPR and WAPS?', 'CMSAF James A. Cody', ['CMSAF James A. Roy', 'CMSAF Kaleth O. Wright', 'CMSAF JoAnne S. Bass']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF entered the Air Force in 1989 as a dental technician?', 'CMSAF Kaleth O. Wright', ['CMSAF JoAnne S. Bass', 'CMSAF James A. Cody', 'CMSAF David A. Flosi']],
+  ['Atch 4', 'ATT4', 'A', 'Who was the 19th Chief Master Sergeant of the Air Force?', 'CMSAF JoAnne S. Bass', ['CMSAF Kaleth O. Wright', 'CMSAF David A. Flosi', 'CMSAF James A. Cody']],
+  ['Atch 4', 'ATT4', 'A', 'Who is the 20th Chief Master Sergeant of the Air Force?', 'CMSAF David A. Flosi', ['CMSAF JoAnne S. Bass', 'CMSAF Kaleth O. Wright', 'CMSAF James A. Cody']],
+  ['Atch 4', 'ATT4', 'A', 'In what career field did CMSAF David A. Flosi enter the Air Force in 1996?', 'Nuclear weapons specialist', ['Air traffic controller', 'Dental technician', 'Aircraft maintenance']],
+  ['Atch 4', 'ATT4', 'A', 'Which CMSAF was a prisoner of war in World War II?', 'CMSAF Paul W. Airey', ['CMSAF Richard D. Kisling', 'CMSAF Donald L. Harlow', 'CMSAF Robert D. Gaylor']],
+
+  ['Atch 7', 'ATT7', 'A', 'Which CMSgt is listed as a USAF Medal of Honor recipient for actions on 11 March 1968?', 'CMSgt Richard Etchberger', ['CMSgt Paul W. Airey', 'CMSgt Wayne L. Fisk', 'CMSgt Duane D. Hackney']],
+  ['Atch 7', 'ATT7', 'A', 'Which Airman First Class received the Medal of Honor for actions on 11 April 1966?', 'A1C William Pitsenbarger', ['A1C John Levitow', 'Sgt Maynard H. Smith', 'SSgt Henry E. Erwin']],
+  ['Atch 7', 'ATT7', 'A', 'Which Airman First Class received the Medal of Honor for actions on 24 February 1969?', 'A1C John Levitow', ['A1C William Pitsenbarger', 'TSgt Forrest L. Vosler', 'Sgt Archibald Mathies']],
+  ['Atch 7', 'ATT7', 'A', 'Which Medal of Honor recipient\'s action date is listed as 22 August 2018?', 'TSgt John Allan Chapman', ['CMSgt Richard Etchberger', 'Capt Steven L. Bennett', 'Maj George E. Day']],
+  ['Atch 7', 'ATT7', 'A', 'Which SSgt received the Medal of Honor for actions on 12 April 1945?', 'SSgt Henry E. Erwin', ['TSgt Forrest L. Vosler', 'Sgt Maynard H. Smith', 'Sgt Archibald Mathies']],
+  ['Atch 7', 'ATT7', 'A', 'Which future general received the Medal of Honor for the 18 April 1942 raid?', 'BG James H. Doolittle', ['BG Kenneth N. Walker', 'BG Frederick W. Castle', 'Col Leon William Johnson']],
+  ['Atch 7', 'ATT7', 'A', 'Which World War I aviator from Columbus, Ohio, is a Medal of Honor recipient?', '1st Lt Edward V. Rickenbacker', ['2d Lt Frank Luke Jr.', '2d Lt Erwin R. Bleckley', '1st Lt Harold E. Goetler']],
+  ['Atch 7', 'ATT7', 'B', 'Which enlisted ranks appear among Medal of Honor recipients in Attachment 7?', 'Sgt, SSgt, TSgt, CMSgt, and A1C', ['Only SSgt and TSgt', 'Only CMSgt', 'Only Sergeants, Staff Sergeants, and Master Sergeants']],
+  ['Atch 7', 'ATT7', 'B', 'Which two Medal of Honor recipients in Attachment 7 share the action date 9 Nov 1967?', 'Capt Lance Peter Sijan and Capt Gerald O. Young', ['Maj George E. Day and Capt Hilliard A. Wilbanks', 'Col Leo Thorsness and Maj Merlyn H. Dethlefsen', 'A1C John Levitow and A1C William Pitsenbarger, both enlisted aerial gunners']],
+];
+
+export default rows;

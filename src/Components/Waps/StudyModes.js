@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import RegulationPassage from './RegulationPassage';
+import AnswerExplanation from './AnswerExplanation';
 import { QuestionReport } from './QuestionReport';
 import { buildExam, buildTest, nextDue, reviewCard, sectionStats, studyQueue, troubleCards, readiness } from './studyLogic';
 
@@ -10,9 +11,53 @@ const formatDue = time => {
 };
 
 // Hover (or focus, or tap) a citation to read the regulation's exact wording. Items in the mixed
-// (all regulations) bank carry their own publication name.
+// (all regulations) bank carry their own publication name. The two parts need distinct keys: with
+// a shared key React cannot tell them apart and leaves old citations behind as the question changes.
 function Cite({ item, publication, quote }) {
-  return <><RegulationPassage key={item.id} item={item} publication={publication} quote={quote} /><QuestionReport key={item.id} item={item}/></>;
+  return <><RegulationPassage key={`${item.id}-cite`} item={item} publication={publication} quote={quote} /><QuestionReport key={`${item.id}-report`} item={item}/></>;
+}
+
+// Find any question in the current publication and section by words from its question, answer,
+// or citation, then step through the matches. The answer stays hidden until asked for.
+export function QuestionSearch({ bank, publication }) {
+  const [query, setQuery] = useState('');
+  const [index, setIndex] = useState(0);
+  const [shown, setShown] = useState(false);
+  const matches = useMemo(() => {
+    const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (!terms.length) return null;
+    return bank.filter(item => {
+      const text = `${item.question} ${item.answer} ${item.ref}`.toLowerCase();
+      return terms.every(term => text.includes(term));
+    });
+  }, [bank, query]);
+  const item = matches?.[index];
+  const go = step => { setIndex(i => (i + step + matches.length) % matches.length); setShown(false); };
+
+  return (
+    <section className="waps-search" aria-label="Search questions">
+      <label className="waps-search-box">
+        <span>Search questions</span>
+        <input type="search" value={query} placeholder="Words from a question, answer, or paragraph"
+          onChange={event => { setQuery(event.target.value); setIndex(0); setShown(false); }} />
+      </label>
+      {matches && !item && <p className="waps-muted">No questions match.</p>}
+      {item && <>
+        <div className="waps-progress-line"><span>Match {index + 1} of {matches.length}</span></div>
+        <p className="waps-question">{item.question}</p>
+        {shown ? <div className="waps-answer">
+          <span>Answer</span>
+          <strong>{item.answer}</strong>
+          <Cite item={item} publication={publication} />
+          <AnswerExplanation key={item.id} item={item} publication={publication} />
+        </div> : <button type="button" onClick={() => setShown(true)}>Show search answer</button>}
+        <div className="waps-actions">
+          <button type="button" onClick={() => go(-1)} disabled={matches.length < 2}>Previous match</button>
+          <button type="button" onClick={() => go(1)} disabled={matches.length < 2}>Next match</button>
+        </div>
+      </>}
+    </section>
+  );
 }
 
 export function Flashcards({ bank, progress, onProgress, section, publication }) {
@@ -36,6 +81,8 @@ export function Flashcards({ bank, progress, onProgress, section, publication })
     setTally(t => ({ right: t.right + (correct ? 1 : 0), wrong: t.wrong + (correct ? 0 : 1) }));
     setPosition(p => p + 1); setRevealed(false); setGuess('');
   };
+  // Moving without rating leaves a card's schedule unchanged.
+  const move = step => { setPosition(p => p + step); setRevealed(false); setGuess(''); };
 
   if (!item) {
     const stats = sectionStats(bank, progress, section);
@@ -55,10 +102,7 @@ export function Flashcards({ bank, progress, onProgress, section, publication })
 
   return (
     <section className="waps-panel" aria-label="Flashcards">
-      <div className="waps-progress-line">
-        <span>Card {position + 1} of {queue.length}</span>
-        <Cite item={item} publication={publication} quote={revealed} />
-      </div>
+      <div className="waps-progress-line"><span>Card {position + 1} of {queue.length}</span></div>
       <p className="waps-question">{item.question}</p>
       {!revealed ? <>
         <label className="waps-guess">Your answer (say it or type it before you flip)
@@ -70,6 +114,8 @@ export function Flashcards({ bank, progress, onProgress, section, publication })
           <span>Answer</span>
           <strong>{item.answer}</strong>
           {guess.trim() && <p className="waps-muted">You said: {guess}</p>}
+          <Cite item={item} publication={publication} />
+          <AnswerExplanation key={item.id} item={item} publication={publication} />
         </div>
         <p className="waps-muted">Did you get it right?</p>
         <div className="waps-actions">
@@ -77,6 +123,10 @@ export function Flashcards({ bank, progress, onProgress, section, publication })
           <button type="button" className="waps-primary" onClick={() => rate(true)}>Got it</button>
         </div>
       </>}
+      <div className="waps-actions waps-step">
+        <button type="button" onClick={() => move(-1)} disabled={position === 0}>Previous card</button>
+        <button type="button" onClick={() => move(1)}>Next card</button>
+      </div>
     </section>
   );
 }
@@ -85,11 +135,10 @@ export function PracticeTest({ bank, progress, onProgress, onFinish, section, pu
   const [length, setLength] = useState(25);
   const [test, setTest] = useState(null);
   const [position, setPosition] = useState(0);
-  const [picked, setPicked] = useState(null);
   const [answers, setAnswers] = useState([]);
   const pool = bank.filter(item => section === 'all' || item.section === section);
 
-  const start = items => { setTest(items); setPosition(0); setPicked(null); setAnswers([]); };
+  const start = items => { setTest(items); setPosition(0); setAnswers([]); };
 
   if (!test) return (
     <section className="waps-panel" aria-label="Practice test">
@@ -121,6 +170,7 @@ export function PracticeTest({ bank, progress, onProgress, onFinish, section, pu
               <p className="waps-wrong-text">You picked: {choice}</p>
               <p className="waps-right-text">Correct: {miss.answer}</p>
               <Cite item={miss} publication={publication} />
+              <AnswerExplanation item={miss} publication={publication} picked={choice} />
             </li>)}
           </ul>
         </>}
@@ -132,16 +182,17 @@ export function PracticeTest({ bank, progress, onProgress, onFinish, section, pu
     );
   }
 
+  // Answered questions stay answered: going back shows the earlier choice and its feedback.
+  const picked = answers.find(answer => answer.item.id === item.id)?.choice || null;
   const choose = choice => {
     if (picked) return;
     const correct = choice === item.answer;
-    setPicked(choice);
     setAnswers(list => [...list, { item, choice, correct }]);
     onProgress(reviewCard(progress, item.id, correct));
   };
   const next = () => {
     if (position + 1 === test.length) onFinish({ at: Date.now(), kind: 'practice', section, right: answers.filter(a => a.correct).length, total: answers.length, outcomes: answers.map(a => ({id: a.item.id, setId: a.item.setId, section: a.item.sourceSection || a.item.section, correct: a.correct})) });
-    setPosition(p => p + 1); setPicked(null);
+    setPosition(p => p + 1);
   };
 
   return (
@@ -157,8 +208,12 @@ export function PracticeTest({ bank, progress, onProgress, onFinish, section, pu
       {picked && <div className="waps-feedback" role="status">
         <strong>{picked === item.answer ? 'Correct.' : `Incorrect. The answer is: ${item.answer}`}</strong>
         <Cite item={item} publication={publication} />
-        <button type="button" className="waps-primary" onClick={next}>{position + 1 === test.length ? 'See results' : 'Next question'}</button>
+        <AnswerExplanation key={item.id} item={item} publication={publication} picked={picked} open={picked !== item.answer} />
       </div>}
+      <div className="waps-actions waps-step">
+        <button type="button" onClick={() => setPosition(p => p - 1)} disabled={position === 0}>Previous question</button>
+        {picked && <button type="button" className="waps-primary" onClick={next}>{position + 1 === test.length ? 'See results' : 'Next question'}</button>}
+      </div>
     </section>
   );
 }
@@ -271,6 +326,7 @@ export function MockExam({ bank, progress, onProgress, onFinish, sections, saved
               <p className="waps-wrong-text">{choice ? `You picked: ${choice}` : 'Left blank'}</p>
               <p className="waps-right-text">Correct: {item.answer}</p>
               <Cite item={item} />
+              <AnswerExplanation item={item} picked={choice} />
             </li>)}
           </ul>
         </>}

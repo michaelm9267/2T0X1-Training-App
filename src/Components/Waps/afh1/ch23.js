@@ -1,0 +1,43 @@
+// AFH 1 Chapter 23, Dress and Appearance. Row: [paragraph, section, kind, question, answer, three wrong answers].
+// Every Chapter 23 section is level B (Understanding) for SSgt.
+const rows = [
+  ['23.2', '23A', 'A', 'Which instruction governs dress and personal appearance of Air Force and Space Force personnel?', 'DAFI 36-2903', ['DAFMAN 36-2905', 'AFI 36-2909', 'DAFMAN 36-2806']],
+  ['23.2', '23A', 'A', 'What are the five elements of dress and personal appearance standards?', 'Neatness, cleanliness, safety, uniformity, and military image', ['Pride, discipline, safety, cleanliness, proper fit, and serviceability', 'Integrity, service, excellence, image, and safety', 'Neatness, comfort, safety, style, and uniformity']],
+  ['23.3', '23A', 'A', 'What is the maximum hair bulk for male Airmen?', '2 1/2 inches', ['1 1/2 inches', '3 inches', '4 inches']],
+  ['23.3', '23A', 'A', 'What is the maximum hair bulk from the scalp for female Airmen?', '4 inches', ['2 1/2 inches', '3 inches', '6 inches']],
+  ['23.3', '23A', 'A', 'How long may fingernails extend beyond the tip of the finger?', '1/4 inch', ['1/8 inch', '1/2 inch', '3/8 inch']],
+  ['23.3', '23A', 'A', 'What is the maximum size of an authorized neck tattoo?', '1 inch in any direction', ['2 inches in any direction', '1/2 inch in any direction', '3 inches in any direction']],
+  ['23.3', '23A', 'A', 'When authorized for medical reasons, beards may not exceed what length?', '1/4 inch', ['1/8 inch', '1/2 inch', '1 inch']],
+  ['23.3', '23A', 'A', 'Which form documents approved tattoo exceptions to policy?', 'DAF Form 4428', ['AF Form 469', 'DAF Form 4446', 'DAF Form 1058']],
+  ['23.1', '23A', 'B', 'Which is authorized while walking in uniform?', 'Drinking a beverage', ['Eating a snack', 'Smoking outside a designated area', 'Holding hands with a spouse']],
+  ['23.1', '23A', 'B', 'When is a brief public display of affection in uniform acceptable?', 'At events like graduations, promotions, or returning from deployment', ['Never under any circumstances', 'Whenever off duty in uniform', 'Only on base']],
+  ['23.3', '23A', 'B', 'Which hair color is NOT authorized?', 'Burgundy', ['Natural red', 'Salt-and-pepper gray', 'Blonde']],
+  ['23.3', '23A', 'B', 'How far may a male mustache extend?', 'Not below the upper lip line or 1/4 inch past the mouth corner', ['To the bottom of the chin', 'Up to 1/2 inch past the mouth corner', 'Any length if neatly trimmed']],
+  ['23.3', '23A', 'B', 'How long may male sideburns extend?', 'Not below the bottom of the ear opening', ['To the bottom of the earlobe or the jawline, if even', 'To the jawline', 'Any length if even']],
+  ['23.3', '23A', 'B', 'Which tattoo location is NOT authorized?', 'The scalp', ['The hand, up to 1 inch', 'The forearm', 'Behind the ear on the neck']],
+  ['23.3', '23A', 'B', 'May Airmen cover an unauthorized-content tattoo with makeup to comply with policy?', 'No; they must start removal or alteration', ['Yes, if it is fully covered by makeup at all times', 'Yes, with commander approval', 'Only when in uniform']],
+  ['23.3', '23A', 'B', 'Violating mandatory tattoo provisions is a violation of which UCMJ article?', 'Article 92', ['Article 134', 'Article 15', 'Article 133']],
+  ['23.4', '23A', 'B', 'What is prohibited regarding dental ornamentation?', 'Gold or platinum caps used only for decoration', ['Caps required for dental or medical necessity', 'Braces', 'Veneers of a natural tooth color and shape']],
+  ['23.5', '23A', 'B', 'Which is an example of a prohibited body modification?', 'Gauging (holes large enough to let light through)', ['A small authorized tattoo on the forearm or upper arm', 'Pierced lower earlobes for females', 'Corrective eye surgery']],
+
+  ['23.7', '23B', 'A', 'Which uniform is worn by officers only?', 'The formal dress uniform', ['The mess dress uniform', 'The semi-formal dress uniform', 'The service dress uniform']],
+  ['23.14', '23B', 'A', 'How many rings may Airmen wear in total?', 'No more than three', ['No more than two', 'No more than four', 'One per hand plus a wedding set']],
+  ['23.14', '23B', 'A', 'What is the maximum diameter of earrings female Airmen may wear in uniform?', 'Six millimeters', ['Four millimeters', 'Eight millimeters', '10 millimeters']],
+  ['23.14', '23B', 'A', 'How wide may a bracelet be in uniform?', 'No wider than 1/2 inch', ['No wider than 1 inch', 'No wider than 1/4 inch', 'No wider than 1 1/2 inches']],
+  ['23.34', '23B', 'A', 'What is the size of a regular ribbon?', '1 3/8 x 3/8 inches', ['11/16 x 3/8 inches', '1 1/2 x 1/2 inches', '1 x 1/4 inches']],
+  ['23.35', '23B', 'A', 'What is the maximum number of devices on one ribbon?', 'Four', ['Three', 'Five', 'Six']],
+  ['23.7', '23B', 'B', 'Which is true when wearing the formal or mess dress uniform?', 'No name tag is worn and saluting is not required', ['A name tag and all earned badges are required on the coat', 'Saluting is required indoors', 'It is mandatory for all enlisted']],
+  ['23.7', '23B', 'B', 'An enlisted Airman has no mess dress. What may they wear to a formal evening function?', 'The semi-formal dress uniform', ['The OCP uniform', 'Civilian black tie with miniature medals', 'The formal dress uniform']],
+  ['23.14', '23B', 'B', 'When may male Airmen wear earrings?', 'In civilian attire while off duty on an installation', ['In uniform with commander approval', 'In civilian attire on official duty', 'Never on an installation']],
+  ['23.14', '23B', 'B', 'Which bracelet is authorized even if it is not silver, gold, or black?', 'A traditional metal POW/MIA/KIA bracelet', ['A bracelet supporting a cause or charity organization', 'A gemstone bracelet with the OCP', 'An ankle bracelet']],
+  ['23.14', '23B', 'B', 'How must necklaces be worn in uniform?', 'Concealed under a collar or undershirt', ['Visible if conservative', 'Only with the mess dress', 'Never, even concealed']],
+  ['23.15', '23B', 'B', 'When may athletic shoes be worn with a uniform other than PT gear?', 'Only when medically necessary and approved by the commander', ['On any weekend duty', 'With the OCP when deployed', 'Never under any circumstances']],
+  ['23.28', '23B', 'B', 'Which badge combination is NOT allowed?', 'A regular size duty badge with a miniature duty badge', ['Miniature wings with a regular size occupational badge', 'Miniature wings with a regular medical badge', 'Regular duty badges on the service dress coat']],
+  ['23.30', '23B', 'B', 'Which medal is always worn in regular size?', 'The Medal of Honor', ['The Air Force Achievement Medal', 'The Bronze Star Medal', 'The Purple Heart']],
+  ['23.31', '23B', 'B', 'When may foreign decorations be worn?', 'Only when also wearing U.S. military decorations', ['At any time in uniform', 'Only in the awarding country', 'Only on civilian clothes']],
+  ['23.32', '23B', 'B', 'When do ANG members wear state decorations?', 'When serving in state status, not on federal active duty', ['At all times in uniform', 'Only on federal active duty', 'Never in uniform']],
+  ['23.35', '23B', 'B', 'After receiving a fifth bronze device, what do you wear?', 'A silver device in place of five bronze devices', ['A second ribbon with the fifth bronze device on it', 'A gold device', 'Five bronze devices on two ribbons']],
+  ['23.35', '23B', 'B', 'How many devices must be on the first ribbon before a second ribbon is worn?', 'At least three', ['At least two', 'Exactly four', 'At least five']],
+];
+
+export default rows;

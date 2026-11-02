@@ -1,9 +1,11 @@
-// DAFI 10-403, Deployment Planning and Execution (17 DEC 2025): Chapter 1, Chapter 3 and Attachment 3.
+// DAFI 10-403, Deployment Planning and Execution (17 DEC 2025): Chapter 1, Chapter 3 and Attachment 3 (SSgt/E-5);
+// Chapters 1, 2 and 3 (TSgt/E-6).
 // Each row: [paragraph, section, question, correct answer, three wrong answers].
 // Wrong answers are written so none of them is also true under the cited paragraph.
 
 export const dafi10403Sections = [
   { id: 'ch1', label: 'Chapter 1', title: 'Roles and Responsibilities' },
+  { id: 'ch2', label: 'Chapter 2', title: 'Pre-Deployment' },
   { id: 'ch3', label: 'Chapter 3', title: 'Deployment Operations' },
   { id: 'att3', label: 'Attachment 3', title: 'Deployment Training Requirements' },
 ];
@@ -142,6 +144,55 @@ const rows = [
   ["Table A3.1","att3","In DAFI 10-403's deployment training requirements (Table A3.1), which publication is listed for Weapons Courier and Ammunition Courier training?","AFI 24-602, Volume 2",["DAFMAN 21-201","DoDM 5200.01V1_AFMAN 16-1404V1","DAFI 91-202"],"Which publication is listed for Weapons Courier and Ammunition Courier training?"],
   ["Table A3.1","att3","In DAFI 10-403's deployment training requirements (Table A3.1), which publication is listed for Classified Courier training?","DoDM 5200.01V1_AFMAN 16-1404V1",["AFI 24-602, Volume 2","DAFI 10-403","DAFMAN 23-300"],"Which publication is listed for Classified Courier training?"],
   ["Table A3.1","att3","In DAFI 10-403's deployment training requirements (Table A3.1), who is the trainer/record keeper for Cargo In-Check, Quality Control, Ramp Coordinator, and Joint Airlift Inspector training?","LRS/Deployment and Distribution Flight/Air Transportation Function",["P&I","The work center OIC or NCOIC","LRS/Materiel Management"],"Who is the trainer/record keeper for Cargo In-Check, Quality Control, Ramp Coordinator, and Joint Airlift Inspector training?"],
+
+  // TSgt (E-6) SKT chapters not on the SSgt list.
+  ["2.1","ch2","Which two publications are the primary AF sources for operations planning and execution policy and guidance?","AFI 10-401 and the AFFORGEN Support Plan",["DAFI 10-403 and DAFMAN 10-406, Unit Type Code Management","JP 4-0 and JP 5-0","AFI 10-201 and AFI 10-405"]],
+  ["2.1.2","ch2","Which joint publications should installation base plans and branch plans rely heavily on?","JP 4-0, Joint Logistics, and JP 5-0",["JP 1 and JP 3-0","JP 3-35 and JP 4-09","JP 3-17, Air Mobility Operations, and JP 4-01"]],
+  ["2.1.3","ch2","Who is the OPR and leads planning conferences for force generation, deployment, sustainment, and redeployment?","Installation Plans and Integration (P&I)",["The Logistics Readiness Squadron commander","The Unit Deployment Manager","The Deployment Control Center"]],
+  ["2.2.1","ch2","What is the DoD-directed single, integrated joint command and control system for conventional operation planning and execution?","Joint Operations Planning and Execution System",["Deliberate and Crisis Action Planning and Execution System","Global Air Transportation Execution System","Single Mobility System"]],
+  ["2.2.2","ch2","Which AF system provides standard data files and procedures for force planning, sourcing, and transportation feasibility estimation?","DCAPES",["LOGMOD","CMOS","ICODES"]],
+  ["2.2.3","ch2","Which web-based program manages deploying UTC equipment and personnel data and movement scheduling?","LOGMOD",["DCAPES","GATES","IGC"]],
+  ["2.2.3.1.1","ch2","If LOGMOD is unavailable, which form documents the Deployment Schedule of Events for cargo?","AF Form 2511",["AF Form 2511A","AF Form 2512","AF Form 2518"]],
+  ["2.2.3.1.2","ch2","Which form is the Deployment Schedule of Events – Personnel?","AF Form 2511A",["AF Form 2511","AF Form 4005","AF Form 2512"]],
+  ["2.2.3.1.4","ch2","Which form is the Deployment Packing List?","AF Form 2518",["AF Form 2512","AF Form 4006","AF Form 4080"]],
+  ["2.2.3.1.6","ch2","Which form documents Unit Deployment Shortfalls/Reclama?","AF Form 4006",["AF Form 4005","AF Form 2518","AF Form 2511A"]],
+  ["2.2.4","ch2","What is the AF system of record for wing-level transportation deployment data such as movement documentation and bar coding?","CMOS",["LOGMOD","GATES","DCAPES"]],
+  ["2.2.5","ch2","What is the DoD web-based system of record for computerized load plans?","ICODES",["CMOS","GATES","A2I"]],
+  ["2.2.5","ch2","Which forms are approved for completing manual load plans?","DD Form 2130 series and AF Form 4080",["DD Form 1384 and AF Form 2512","DD Form 2131 and DD Form 2133","AF Form 2511, AF Form 2512, and AF Form 2518"]],
+  ["2.2.11","ch2","What is the Synchronized Pre-deployment and Operational Tracker used for?","Contractor personnel accountability in contingency operations",["Tracking deploying UTC cargo from origin through the port of debarkation","Military personnel records","Load planning for aircraft"]],
+  ["2.3.1","ch2","What does the UTA library identify?","The installation's UTCs combined with Unit Identification Codes",["The installation's 463L pallet and net inventory and its condition","Every deployed member's travel itinerary","The installation's aircraft load plans"]],
+  ["2.3.2.3","ch2","How often do AF Commands, AFIMSC FAMs, or UTA Change Facilitators update the UTA?","Annually",["Semiannually","Quarterly","Every two years"]],
+  ["2.3.3","ch2","How often does the IDO, through P&I, convene the DPWG and maintain the LOGPLAN PID for the UTA?","Semiannually, or upon receipt of a new or revised UTA",["Annually at the start of each fiscal year and before every FRGB","Monthly","Every two years"]],
+  ["2.3.3.3.2","ch2","When calculating MOBAG and weapons requirements, which total is provided?","The largest combined total of consecutive phases",["The average of all phases across the full force generation cycle","The total for the current phase only","The smallest phase requirement"]],
+  ["2.3.5","ch2","How many UTC records may a person be assigned to?","One",["Two","Three","As many as the UDM requires"]],
+  ["2.4.6","ch2","How often must the Installation Deployment Plan be reviewed?","Every two years",["Annually","Every three years","Semiannually"]],
+  ["2.4.7.2","ch2","What change in manpower or equipment authorizations requires the IDP to be revised?","A major change greater than 10%",["Any change at all","A change greater than 25%","A change greater than 5%"]],
+  ["2.4.2","ch2","Which units does the IDP apply to?","All assigned, attached, and tenant units with potential to deploy",["Only the host wing's assigned units and their geographically separated units","Only units with current taskings","Only the LRS and FSS"]],
+  ["2.5.2","ch2","When does the Deployment Process Working Group meet?","In the first 90 days of a force generation phase and before the FRGB",["Monthly, and again whenever a new deployment tasking is received by the installation","Once a year at the start of the fiscal year","Only when a tasking is received"]],
+  ["2.5.3","ch2","Who chairs the Deployment Process Working Group?","The IDO",["The LRS commander","The wing commander","The UDM"]],
+  ["2.5.4.11","ch2","Who acts as the DPWG secretariat and publishes meeting minutes?","P&I",["The UDM","The Force Support Squadron","The IDO"]],
+  ["2.5.4.6","ch2","Which DPWG member is mandatory only at Air Mobility Command units?","Aerial Port Squadron",["Public Health representative","Contracting Squadron representative","Comptroller Squadron representative"]],
+  ["2.6.1","ch2","What is the SecDef-mandated system of record for measuring force readiness?","Defense Readiness Reporting System",["DCAPES","Single Mobility System","Military Personnel Data System"]],
+  ["2.9.4","ch2","Personnel tasked to deploy must complete pre-deployment AFDF and eDRC requirements no later than when?","15 days before their scheduled available to load date",["30 days before their scheduled available to load date","7 days before departure","The day before departure"]],
+  ["2.9.3","ch2","Who is exempt from AFDF and e-DRC requirements unless tasked to deploy?","General officers and personnel assigned outside the Air Force",["All civilians and contractors assigned to the installation","Personnel within one year of retirement or separation","All SNCOs"]],
+  ["2.9.5.3","ch2","What do personnel with documented medical conditions deploy with in addition to standard identification tags?","Red medical alert identification tags",["A copy of their full medical record","A medical waiver letter","Blue medical tags"]],
+  ["2.9.5.10","ch2","Which members must complete DAF Form 357, Family Care Certification?","Military married to military with dependents, and military single parents",["All deploying members regardless of their marital or dependent status","Only members with more than two dependents","Only civilians"]],
+  ["2.9.5.13","ch2","Which document is protected by the Privacy Act and is NOT uploaded to the Commander Dashboard or kept by the UDM?","DD Form 2795, Pre-Deployment Health Assessment",["AF Form 2518, Deployment Packing List","AF Form 4005, Individual Deployment Requirements Checklist","DD Form 2131, Passenger Manifest"]],
+  ["2.11.1.5","ch2","What must P&I's deployment workcenter training update at the FRGB include?","Classes conducted, personnel scheduled and trained, and no-shows",["Only the number of classes held and the instructors who taught them","Each trainee's test scores","Instructor qualifications"]],
+  ["2.12.1","ch2","What is the accountable property system of record for general support equipment?","The Enterprise Logistics Management System",["LOGMOD","DCAPES","ICODES"]],
+  ["2.12.3","ch2","Which subsystem do installations use to collect and store pilot unit UTC logistics detail data?","LOGFOR",["LOGPLAN","LOGMOD","DCAPES"]],
+  ["2.12.4.8","ch2","When will UTC tailoring NOT be approved?","When it makes the UTC's gross movement weight exceed the standard LOGFOR weight",["When it removes any equipment item listed in the UTC's Mission Capability Statement","When the UDM requests it","When prepositioned materiel exists"]],
+  ["2.12.4.3","ch2","Which materiel should NOT be tailored out of standard mobility UTCs?","Organic materiel such as toolboxes and safety equipment",["War Reserve Materiel prepositioned at the forward operating site","Items available through host nation support","Items available through Operational Contract Support"]],
+  ["2.12.6.2","ch2","What are the two movement prioritization methods?","\"By UTC\" and \"Within UTC\"",["By weight and by cube","By echelon and by priority","By aircraft and by pallet"]],
+  ["2.12.7.1","ch2","What is the DoD system of record for in-transit visibility data?","The Integrated Data Environment Global Transportation Network",["CMOS","GATES","Single Mobility System"]],
+  ["2.12.7.2.1","ch2","If CMOS or GATES is unavailable, which form is used as the passenger manifest?","DD Form 2131",["DD Form 2133","DD Form 1384","AF Form 2511A"]],
+  ["2.12.7.2.2","ch2","Which form is the Joint Airlift Inspection Record?","DD Form 2133",["DD Form 2131","DD Form 1384","DD Form 1387"]],
+  ["2.12.7.3.3.1","ch2","Which aircraft is the standard planning aircraft for pre-planned load plans?","C-17",["C-130","C-5","KC-46"]],
+  ["2.13.1","ch2","What is the mandatory standard container for developing standard LOGFOR UTCs?","463L pallets",["ISU-90 containers","Cadillac bins","Brooks & Perkins containers"]],
+  ["2.13.1","ch2","Which UTCs may deviate from the 463L pallet requirement?","Basic Expeditionary Airfield Resources UTCs",["Medical UTCs","Security forces and civil engineer prime BEEF UTCs","Civil engineering UTCs"]],
+  ["2.13.3","ch2","Who provides 463L pallets to units?","Air Mobility Command",["The unit itself","The LRS","AFMC"]],
+  ["2.13.3","ch2","Which 463L items must units purchase themselves?","Accessories such as nets, tie-downs, and dunnage",["The 463L pallets themselves, at the unit's expense","Nothing; AMC provides all of it","Only the pallets that are lost or damaged beyond repair"]],
+  ["2.15.3","ch2","Deploying personnel may only deploy with weapons that have received what?","A law of war weapons legal review",["A depot-level inspection","A MAJCOM waiver","A test fire within 30 days of departure"]],
 ];
 
 // The id comes from the paragraph and question text so saved progress survives adding or reordering rows.

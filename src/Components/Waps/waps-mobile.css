@@ -11,23 +11,18 @@
   .waps-header h2 { margin-top: 6px; font-size: 1.35rem; }
   .waps-workspace .waps-change { flex-shrink: 0; min-height: 36px; padding: 6px 10px; font-size: .78rem; white-space: nowrap; }
 
-  /* Publications: one sideways-scrolling row of names instead of eight stacked cards.
-     "All regulations" leads the row so the mixed review and full exam are easy to find. */
-  .waps-publications { display: flex; gap: 8px; margin: 0 -12px; padding: 0 12px 4px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 12px; scrollbar-width: none; }
-  .waps-publications::-webkit-scrollbar { display: none; }
-  .waps-workspace .waps-publications button { flex: 0 0 auto; min-height: 40px; padding: 8px 12px; scroll-snap-align: start; white-space: nowrap; }
-  .waps-publications button span { display: none; }
-  .waps-workspace .waps-publications .waps-combined { order: -1; grid-column: auto; }
+  /* Publication and section pickers are dropdowns; 16px text keeps iOS from zooming on focus. */
+  .waps-workspace .waps-select select { font-size: 16px; }
 
   .waps-source { gap: 6px; padding: 12px 14px; }
   .waps-source h3 { font-size: .95rem; }
   .waps-source .waps-muted { font-size: .78rem; }
 
-  /* Sections and study modes: single rows that scroll sideways rather than wrapping. */
-  .waps-filters, .waps-modes { flex-wrap: nowrap; margin: 0 -12px; padding: 0 12px; overflow-x: auto; scrollbar-width: none; }
+  /* Study modes: a single row that scrolls sideways rather than wrapping. */
+  .waps-modes { flex-wrap: nowrap; margin: 0 -12px; padding: 0 12px; overflow-x: auto; scrollbar-width: none; }
   .waps-modes { padding-bottom: 8px; }
-  .waps-filters::-webkit-scrollbar, .waps-modes::-webkit-scrollbar { display: none; }
-  .waps-workspace .waps-filters button, .waps-workspace .waps-modes button { flex: 0 0 auto; min-height: 38px; white-space: nowrap; }
+  .waps-modes::-webkit-scrollbar { display: none; }
+  .waps-workspace .waps-modes button { flex: 0 0 auto; min-height: 38px; white-space: nowrap; }
 
   .waps-panel { gap: 12px; padding: 16px 14px; border-radius: 12px; }
   .waps-question { font-size: 1.05rem; }

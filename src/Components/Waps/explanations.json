@@ -1,0 +1,1539 @@
+{
+ "1.15.1.4.1|What is the minimum time an appointed IDO fills the position (outside short-tour locations)?": {
+  "why": "Para 1.15.1.4.1 says the appointed IDO fills the position for not less than 18 months.",
+  "wrong": {
+   "12 months": "12 months is the shorter minimum that applies only at short-tour locations, which this question excludes.",
+   "24 months": "24 months is longer than the regulation requires; 18 months is the floor.",
+   "36 months": "36 months is not in the rule; the minimum is 18 months."
+  },
+  "watch": "The 12-month figure is the short-tour exception, not the general rule. Read the question for 'outside short-tour locations.'"
+ },
+ "1.16.5|Within how many days of assignment must a new unit commander receive the deployment orientation briefing from P&I?": {
+  "why": "Para 1.16.5 requires the unit commander to receive the P&I deployment orientation within 90 days of assignment.",
+  "wrong": {
+   "30 days": "30 days is a stricter deadline than the regulation sets.",
+   "60 days": "60 days is also stricter than the 90 days allowed.",
+   "120 days": "120 days would exceed the 90-day limit."
+  }
+ },
+ "1.18.6|If units do not take corrective action on reported discrepancies within how many calendar days does the IDO elevate them?": {
+  "why": "Para 1.18.6 Note: if units do not act within 14 calendar days, the IDO elevates the discrepancies to AFPC/DPMW and the Command A1 and A4.",
+  "wrong": {
+   "7 calendar days": "7 calendar days is half the time the units are given.",
+   "30 calendar days": "30 calendar days is more time than the rule allows before elevation.",
+   "45 calendar days": "45 calendar days is far beyond the 14-day trigger."
+  },
+  "watch": "The trigger is calendar days, not duty days."
+ },
+ "1.28.4|About how long before the start of each force generation phase does the IDO provide the FRGB?": {
+  "why": "Para 1.28.4 says the IDO provides the FRGB approximately 90 days before each force generation phase starts.",
+  "wrong": {
+   "Approximately 30 days": "Approximately 30 days would leave too little lead time; the rule says 90.",
+   "Approximately 60 days": "Approximately 60 days is not the stated lead time.",
+   "Approximately 180 days": "Approximately 180 days is twice the stated lead time."
+  },
+  "watch": "Para 1.28.8 also uses 90 days, but for DCC exercises in the first 90 days of the cycle, not before it."
+ },
+ "1.28.4.2|The Maximum Simultaneous Deployment Capability is the installation's total capacity to deploy forces in what time period?": {
+  "why": "Para 1.28.4.2 defines the Maximum Simultaneous Deployment Capability as the installation's total capacity to deploy forces in a 24-hour period.",
+  "wrong": {
+   "12 hours": "12 hours is half the defined period.",
+   "48 hours": "48 hours is double the defined period.",
+   "72 hours": "72 hours is not the defined period."
+  }
+ },
+ "1.29.3|UDMs must complete the 8U000 AFJQS and AFFORGEN Connect training no later than how long after appointment?": {
+  "why": "Para 1.29.3 requires UDMs to complete the 8U000 AFJQS and AFFORGEN Connect training no later than 12 months after appointment.",
+  "wrong": {
+   "90 days": "90 days is far stricter than the regulation requires.",
+   "6 months": "6 months is half the time allowed.",
+   "18 months": "18 months exceeds the 12-month limit; 18 months is the IDO's minimum tour length, not a UDM training deadline."
+  },
+  "watch": "The note says the 12-month limit applies to both 8U000 and additional duty UDMs."
+ },
+ "1.29.4.2|Within how many days of assignment are AFDF/eDRC checklist items 1-5 validated and items 6-12 updated?": {
+  "why": "Para 1.29.4.2 says to validate AFDF/eDRC items 1-5 and update items 6-12 within fifteen (15) days of assignment.",
+  "wrong": {
+   "5 days": "5 days is stricter than the rule; 5 days is the UDM's review window after a tasking (para 3.13.4.3).",
+   "10 days": "10 days is not the stated window.",
+   "30 days": "30 days is double the allowed time."
+  }
+ },
+ "1.29.6.4|A short-notice deployment is one with less than how many days notice?": {
+  "why": "Para 1.29.6.4 defines a short-notice deployment as one with less than 15 days' notice.",
+  "wrong": {
+   "5 days": "5 days is not the threshold; 15 days is.",
+   "10 days": "10 days is not the threshold.",
+   "30 days": "30 days is not the threshold; it is the earliest point for the UDM's final readiness review."
+  },
+  "watch": "With short notice, the UDM notifies the gaining commander of known training or processing deficiencies."
+ },
+ "3.2.3|Within how many hours of receiving the order does the IDO provide a concept brief?": {
+  "why": "Para 3.2.3 requires the IDO to give a concept brief within 4 hours of receiving the order.",
+  "wrong": {
+   "2 hours": "2 hours is stricter than required.",
+   "12 hours": "12 hours is three times the allowed time.",
+   "24 hours": "24 hours is far beyond the 4-hour standard."
+  }
+ },
+ "3.13.1.3|If DCAPES does not show personnel arriving at the destination within how many duty days of departure does the DCC contact the forward site?": {
+  "why": "Para 3.13.1.3: the DCC contacts the forward site if DCAPES does not show arrival within seven (7) duty days of departure.",
+  "wrong": {
+   "3 duty days": "3 duty days is earlier than the rule's trigger.",
+   "10 duty days": "10 duty days waits longer than the rule allows.",
+   "14 duty days": "14 duty days is twice the trigger."
+  },
+  "watch": "Count duty days, not calendar days."
+ },
+ "3.13.4.3|After tasking notification, within how many days does the UDM review the member's AFDF or eDRC?": {
+  "why": "Para 3.13.4.3: the UDM reviews the member's AFDF or eDRC within five (5) days of tasking notification.",
+  "wrong": {
+   "3 days": "3 days is stricter than required.",
+   "10 days": "10 days is double the allowed time.",
+   "15 days": "15 days is the window for validating checklist items after assignment (para 1.29.4.2), not after tasking."
+  }
+ },
+ "3.13.4.4|When does the UDM do the final review of a member's readiness to deploy?": {
+  "why": "Para 3.13.4.4 sets the final readiness review no earlier than 30 days and no later than 10 days before out-processing.",
+  "wrong": {
+   "No earlier than 15 days and no later than 5 days before out-processing": "15 and 5 days are not the window's limits; the window opens at 30 days and closes at 10 days.",
+   "The day of out-processing": "The day of out-processing is too late; the review must be done at least 10 days before.",
+   "Within 5 days of tasking notification": "Within 5 days of tasking is the UDM's first AFDF/eDRC review (para 3.13.4.3), not the final review."
+  },
+  "watch": "The final review is a window with a start and an end, not a single deadline."
+ },
+ "3.13.4.7|The UDM reviews and signs the AFDF or eDRC no later than how long before the member's scheduled processing date?": {
+  "why": "Para 3.13.4.7: the UDM reviews and electronically signs the AFDF or eDRC no later than three (3) duty days before the processing date.",
+  "wrong": {
+   "1 duty day": "1 duty day leaves less time than the rule requires.",
+   "5 duty days": "5 duty days is the member's own upload deadline (para 3.15.1), not the UDM's signature deadline.",
+   "10 duty days": "10 duty days is not this deadline."
+  },
+  "watch": "Order of events: the member uploads by 5 duty days out, then the UDM signs by 3 duty days out."
+ },
+ "3.13.4.10.2|Personnel deploying by airlift from home station assemble no less than how long before aircraft departure?": {
+  "why": "Para 3.13.4.10.2: personnel deploying by airlift from home station assemble not less than 3 hours before departure, for manifesting and anti-hijack processing.",
+  "wrong": {
+   "1 hour": "1 hour is not enough time for manifesting and anti-hijack processing.",
+   "2 hours": "2 hours is less than the 3-hour minimum.",
+   "4 hours": "4 hours is more than the rule requires; 3 hours is the minimum."
+  }
+ },
+ "3.15.1|Deploying personnel upload all required documents to their AFDF or e-DRC no later than how long before their processing date?": {
+  "why": "Para 3.15.1: deploying members upload all required documents no later than five (5) duty days before their processing date.",
+  "wrong": {
+   "3 duty days": "3 duty days is the UDM's signature deadline (para 3.13.4.7), not the member's upload deadline.",
+   "10 duty days": "10 duty days is more lead time than required.",
+   "15 days": "15 days is the pre-deployment AFDF/eDRC completion standard measured from the available-to-load date (para 2.9.4)."
+  }
+ },
+ "Table A3.1|What is the refresher frequency for Hazardous Material Preparers, Inspectors, Handlers, and Packers?": {
+  "why": "Table A3.1 lists Hazardous Material Preparers with an initial course and a 24-month refresher.",
+  "wrong": {
+   "12 months": "12 months is not the listed refresher for HAZMAT preparers.",
+   "15 months": "15 months is not the listed refresher for HAZMAT preparers.",
+   "As required": "'As required' is not the listed frequency; the table gives a fixed 24-month refresher."
+  }
+ },
+ "2.9.4|Personnel tasked to deploy must complete pre-deployment AFDF and eDRC requirements no later than when?": {
+  "why": "Para 2.9.4: all personnel tasked to deploy complete the pre-deployment AFDF and eDRC requirements no later than fifteen (15) days before their scheduled available-to-load date.",
+  "wrong": {
+   "30 days before their scheduled available to load date": "30 days before the ALD is more lead time than required.",
+   "7 days before departure": "7 days before departure uses the wrong reference point and the wrong number.",
+   "The day before departure": "The day before departure is far too late."
+  },
+  "watch": "This deadline counts back from the available-to-load date, not from the processing date or departure."
+ },
+ "1.28.8|When must DCC training exercises be conducted?": {
+  "why": "Para 1.28.8 requires DCC training exercises in the first 90 days of every force generation cycle.",
+  "wrong": {
+   "Within 30 days of a new IDO appointment": "Within 30 days of a new IDO's appointment is not a stated trigger.",
+   "Once every two years": "Once every two years is far less often than every force generation cycle.",
+   "In the last 90 days of every force generation cycle": "The last 90 days of the cycle is the wrong end; the rule says the first 90 days."
+  },
+  "watch": "Don't confuse this with the FRGB, which comes about 90 days before each phase starts (para 1.28.4)."
+ },
+ "3.13.4.8.1|A deploying member's CAC must be valid for how long?": {
+  "why": "Para 3.13.4.8.1: a deploying member's CAC must be valid for the length of the deployment plus 30 days.",
+  "wrong": {
+   "The length of the deployment only": "The length of the deployment alone leaves no margin; the rule adds 30 days.",
+   "The length of the deployment plus 90 days": "Plus 90 days is more than the rule requires.",
+   "At least one year": "At least one year is not the standard; validity is tied to deployment length plus 30 days."
+  }
+ },
+ "3.14.3|Can equipment normally shipped as freight or cargo be deployed as baggage?": {
+  "why": "Para 3.14.3: the APT will not deploy items normally shipped as freight or cargo as baggage, IAW DAFI 24-605V2.",
+  "wrong": {
+   "It may deploy as baggage if under 70 lb": "There is no weight exception; a 70 lb limit is not part of this rule.",
+   "It may deploy as baggage if listed on CED orders": "Listing items on CED orders does not turn cargo into baggage.",
+   "It may deploy as baggage if the UDM approves": "The UDM cannot approve an exception to this rule."
+  }
+ },
+ "24-602V2|2.3.6|On the DD Form 1348-1A, which blocks hold the NMFC and the Type Cargo Code used for shipment planning?": {
+  "why": "Para 2.3.6: on the DD Form 1348-1A, the NMFC is in Block 6 and the TCC is in Block 8.",
+  "wrong": {
+   "NMFC in block 8 and TCC in block 6": "This reverses the two blocks; the NMFC is in 6 and the TCC is in 8.",
+   "NMFC in block 9 and TCC in block 27": "Blocks 9 and 27 are not where these codes are used for shipment planning.",
+   "NMFC in block 22 and TCC in block 23": "Blocks 22 and 23 are not where these codes are used for shipment planning."
+  },
+  "watch": "If the NMFC or TCC is wrong or missing, contact the LRS Customer Support Section for a correction."
+ },
+ "24-602V2|2.4|Where is the Priority Designator found on the DD Form 1348-1A?": {
+  "why": "Para 2.4: the Priority Designator is in positions 60-61 of the DD Form 1348-1A.",
+  "wrong": {
+   "Positions 4-6": "Positions 4-6 are not where the PD appears.",
+   "Positions 30-43": "Positions 30-43 are not where the PD appears.",
+   "Positions 55-56": "Positions 55-56 are close but wrong; the PD is in 60-61."
+  },
+  "watch": "On a DD Form 1149, the priority is in Block 8 instead."
+ },
+ "24-602V2|Table 2.1|What is the Pick, Pack and Ship (PPS) goal for TP-3?": {
+  "why": "Table 2.1 sets the Pick, Pack and Ship goal for TP-3 (surface) at 5 days or less.",
+  "wrong": {
+   "1 day or less": "1 day or less is the TP-1 goal.",
+   "2 days or less": "2 days or less is the TP-2 goal.",
+   "8 days or less": "8 days or less is an RDD threshold in the table, not a PPS goal."
+  },
+  "watch": "TP-1 and TP-2 are air eligible; TP-3 is surface, so its goal is longer."
+ },
+ "24-602V2|2.4.2|All TP-1 cargo must move within 24 hours at what PPS standard rate?": {
+  "why": "Para 2.4.2: shipping activities move all TP-1 cargo within 24 hours at a PPS standard rate of 85% or higher.",
+  "wrong": {
+   "75% or higher": "75% or higher is below the required rate.",
+   "90% or higher": "90% or higher is stricter than the stated standard.",
+   "100%": "100% is not the standard; the rule sets 85%."
+  }
+ },
+ "24-602V2|2.22|Outbound documentation files are kept IAW AFI 33-322 and which AFRIMS table?": {
+  "why": "Para 2.22: outbound documentation files follow AFI 33-322 and AFRIMS Table 24-01, Transportation.",
+  "wrong": {
+   "Table 23-01": "Table 23-01 is not the transportation table cited.",
+   "Table 24-10": "Table 24-10 has the right series but the wrong table number.",
+   "Table 36-01": "Table 36-01 is a personnel-series table, not transportation."
+  }
+ },
+ "24-602V2|2.23.1.4|How long are F-35 shipment records kept IAW the SSUG?": {
+  "why": "Para 2.23.1.4: F-35 shipment records are kept for 48 months IAW the SSUG.",
+  "wrong": {
+   "12 months": "12 months is a quarter of the required retention.",
+   "24 months": "24 months is half the required retention.",
+   "36 months": "36 months falls short of the 48 months required."
+  }
+ },
+ "24-602V2|2.25.3|An F-35 receipt-related Action Request (AR) is submitted no later than how long after discovering a problem?": {
+  "why": "Para 2.25.3: submit a receipt-related Action Request no later than 12 hours after discovering a problem.",
+  "wrong": {
+   "2 hours": "2 hours is stricter than required.",
+   "24 hours": "24 hours is double the allowed time.",
+   "5 GBDs": "5 GBDs is far beyond the 12-hour limit."
+  }
+ },
+ "24-602V2|3.2.1.2|Trained units that receive government materiel directly turn the signed transportation documentation over to Inbound Cargo within how long?": {
+  "why": "Para 3.2.1.2: trained units turn signed transportation documentation over to Inbound Cargo within 7 GBDs of receipt.",
+  "wrong": {
+   "24 hours": "24 hours is stricter than required.",
+   "3 GBDs": "3 GBDs is less time than allowed.",
+   "30 days": "30 days is far beyond the 7-GBD limit."
+  }
+ },
+ "24-602V2|Table 3.1|What is the receipt processing time goal for 999/MICAP/NMCS materiel?": {
+  "why": "Table 3.1: 999/MICAP/NMCS materiel is processed within 4 hours of receipt.",
+  "wrong": {
+   "Within 12 hours of receipt": "12 hours is the consignee pick-up standard for 999/MICAP/NMCS (Table 3.2), not the processing goal.",
+   "Within 24 hours of receipt": "24 hours is the goal for IPG I materiel.",
+   "Within 1 GBD": "1 GBD is not a processing goal in Table 3.1."
+  },
+  "watch": "Table 3.1 is how fast Inbound Cargo processes the receipt. Table 3.2 is how fast the consignee picks it up."
+ },
+ "24-602V2|Table 3.2|Consignees must pick up 999/MICAP/NMCS cargo within how long of notification?": {
+  "why": "Table 3.2: consignees pick up 999/MICAP/NMCS cargo within 12 hours of notification.",
+  "wrong": {
+   "4 hours": "4 hours is the Table 3.1 processing goal for the same priority.",
+   "24 hours": "24 hours is not the pick-up standard for this priority.",
+   "1 GBD": "1 GBD is the pick-up standard for TP-1 cargo."
+  },
+  "watch": "Pick-up times run from consignee notification, not from receipt."
+ },
+ "24-602V2|4.8.7.3|For military airlift, which block of the DD Form 1387-2 shows the TPS required?": {
+  "why": "Para 4.8.7.3: for military airlift, the DD Form 1387-2 must show the TPS required in Block 6.",
+  "wrong": {
+   "Block 1": "Block 1 is not where the TPS is entered.",
+   "Block 9": "Block 9 is not where the TPS is entered.",
+   "Block 18": "Block 18 is not where the TPS is entered."
+  },
+  "watch": "See DTR Part II, Chapter 205 for how to prepare and distribute the DD Form 1387-2."
+ },
+ "24-602V2|4.8.9.4|For shipments other than next-day small package, how long does the shipping activity wait for a REPSHIP acknowledgment before e-mailing?": {
+  "why": "Para 4.8.9.4: for shipments other than next-day small package, the shipping activity waits 24 hours for the REPSHIP acknowledgment, then sends an e-mail REPSHIP.",
+  "wrong": {
+   "30 minutes": "30 minutes applies only to next-day small package carrier shipments.",
+   "12 hours": "12 hours is not a REPSHIP suspense in this paragraph.",
+   "72 hours": "72 hours waits three times longer than allowed."
+  },
+  "watch": "Two suspenses: 30 minutes for next-day small package, 24 hours for everything else."
+ },
+ "24-602V2|4.9.6.5|Within how long of releasing an outbound NWRM shipment is the official e-mail notification sent?": {
+  "why": "Para 4.9.6.5: the NWRM e-mail notification goes out within two hours (CONUS) or eight hours (OCONUS) of releasing the shipment.",
+  "wrong": {
+   "1 hour CONUS, 4 hours OCONUS": "1 and 4 hours are stricter than the rule.",
+   "4 hours CONUS, 12 hours OCONUS": "4 and 12 hours allow more time than the rule.",
+   "24 hours worldwide": "There is no single worldwide 24-hour standard; CONUS and OCONUS differ."
+  },
+  "watch": "The e-mail is in addition to the REPSHIP. It does not replace it."
+ },
+ "24-602V2|4.9.7|For a TPS violation, the discrepancy report number is e-mailed to AFIMSC/IZDT within how long of discovery?": {
+  "why": "Para 4.9.7: for a TPS violation, the discrepancy report number goes to AFIMSC/IZDT by e-mail within 12 hours of discovery.",
+  "wrong": {
+   "2 hours": "2 hours is stricter than required; it is the CONUS NWRM notification time.",
+   "24 hours": "24 hours is double the allowed time.",
+   "5 GBDs": "5 GBDs is far beyond the 12-hour limit."
+  },
+  "watch": "The security manager must also be told about a suspected security breach, and remediation starts immediately."
+ },
+ "24-602V2|8.10.7.4|What is the minimum bench stock of packaging materials each shipping activity must keep?": {
+  "why": "Para 8.10.7.4: each shipping activity must keep at least a 30-day level of packaging bench stock.",
+  "wrong": {
+   "A 7-day level": "A 7-day level is below the required minimum.",
+   "A 60-day level": "A 60-day level is more than the minimum; it is allowed but not required.",
+   "A 90-day level": "90 days is the most an overseas base may keep, not the minimum."
+  },
+  "watch": "30 days is the floor everywhere. 90 days is the ceiling for overseas bases."
+ },
+ "24-602V2|8.12.2|A consolidation container holding a unit marked \"FRAGILE\" gets a fragile label only if it weighs how much?": {
+  "why": "Para 8.12.2: put a fragile label on the consolidation container only if its gross weight is 75 pounds (34.01 kg) or less.",
+  "wrong": {
+   "50 pounds or less": "50 pounds or less understates the limit.",
+   "150 pounds or less": "150 pounds or less is double the limit.",
+   "Any weight": "Not any weight; over 75 pounds, the consolidation container gets no fragile label."
+  }
+ },
+ "24-602V2|8.12.7.4.2|A crate over 48 inches tall must be marked \"TOP-HEAVY\" when its CG is more than how many inches above the base?": {
+  "why": "Para 8.12.7.4.2: a crate over 48 inches tall with its CG more than 24 inches above the base is marked TOP-HEAVY.",
+  "wrong": {
+   "12 inches": "12 inches is not the CG threshold.",
+   "36 inches": "36 inches is not the CG threshold.",
+   "48 inches": "48 inches is the crate height condition, not the CG height."
+  },
+  "watch": "Two conditions must both be met: height over 48 inches and CG over 24 inches."
+ },
+ "24-602V2|10.16.4|The RCP annual report is completed and distributed no later than how long after the inspection?": {
+  "why": "Para 10.16.4: the RCP annual report is completed and distributed NLT 30 days after the inspection.",
+  "wrong": {
+   "10 days": "10 days is stricter than required.",
+   "60 days": "60 days is double the allowed time.",
+   "90 days": "90 days is far beyond the limit."
+  },
+  "watch": "Wing and group commanders should get a copy when container loss or destruction causes significant cost."
+ },
+ "24-602V2|11.9.8|Inbound Cargo returns the annotated TTL within how long of receipt?": {
+  "why": "Para 11.9.8: Inbound Cargo returns the annotated TTL to Customer Service within 5 GBDs of receipt.",
+  "wrong": {
+   "2 GBDs": "2 GBDs is stricter than required.",
+   "10 GBDs": "10 GBDs is double the allowed time.",
+   "30 days": "30 days is far beyond the limit."
+  }
+ },
+ "24-602V2|11.10.5|The completed Delinquent Shipment Listing is returned to Customer Support within how long?": {
+  "why": "Para 11.10.5: return the completed Delinquent Shipment Listing to the Customer Support Liaison Element within 5 GBDs of receipt.",
+  "wrong": {
+   "24 hours": "24 hours is stricter than required.",
+   "10 GBDs": "10 GBDs is double the allowed time.",
+   "15 days": "15 days is triple the allowed time."
+  },
+  "watch": "The TTL (para 11.9.8) uses the same 5-GBD return time."
+ },
+ "24-602V1|1.10.7|MAJCOMs submit requests for exceptions to transportation policy to AFIMSC/IZLT no later than how long before travel?": {
+  "why": "Para 1.10.7: MAJCOMs submit exception-to-policy requests to AFIMSC/IZLT NLT 30 duty days before the travel date.",
+  "wrong": {
+   "10 duty days": "10 duty days is too late.",
+   "20 duty days": "20 duty days is the business class lead time (para 2.10.8), not this one.",
+   "45 days": "45 days is not the stated lead time and is not counted in duty days."
+  }
+ },
+ "24-602V1|2.8.1.1|PCT requests needing AF/CV, SAF/AA, SAF/US, or SAF/OS approval are submitted no less than how long before travel?": {
+  "why": "Para 2.8.1.1: PCT requests needing AF/CV, SAF/AA, SAF/US, or SAF/OS approval go in as soon as known, but no less than 30 duty days before travel.",
+  "wrong": {
+   "10 duty days": "10 duty days is the time AFIMSC/IZLT has to forward first class requests (para 2.10.7).",
+   "20 duty days": "20 duty days is the business class lead time (para 2.10.8).",
+   "60 days": "60 days is not the stated minimum."
+  }
+ },
+ "24-602V1|2.10.7|AFIMSC/IZLT provides first class requests to AF/A4LR within how long?": {
+  "why": "Para 2.10.7: AFIMSC/IZLT provides first class requests to AF/A4LR within 10 duty days.",
+  "wrong": {
+   "5 duty days": "5 duty days is stricter than required.",
+   "20 duty days": "20 duty days is the business class arrival lead time.",
+   "30 duty days": "30 duty days is the lead time for senior-level PCT approval."
+  },
+  "watch": "Three PCT numbers: 30 duty days (senior-level approval), 20 duty days (business class), and 10 duty days (IZLT forwards first class)."
+ },
+ "24-602V1|2.10.8|Business class requests must arrive at AF/A4LR no less than how long before travel?": {
+  "why": "Para 2.10.8: business class requests must arrive at AF/A4LR no less than 20 duty days before travel.",
+  "wrong": {
+   "10 duty days": "10 duty days is IZLT's time to forward first class requests.",
+   "30 duty days": "30 duty days is the senior-level PCT lead time.",
+   "5 duty days": "5 duty days is far too late."
+  }
+ },
+ "24-602V1|2.12.7.4|For spouse travel to a MAJCOM squadron commander/command chief orientation, how much tenure must the sponsor have remaining?": {
+  "why": "Para 2.12.7.4: spouse travel to a MAJCOM squadron commander/command chief orientation needs a sponsor with at least 12 months of tenure remaining.",
+  "wrong": {
+   "At least 6 months": "6 months is less tenure than required.",
+   "At least 18 months": "18 months is more than the rule requires.",
+   "At least 24 months": "24 months is more than the rule requires."
+  }
+ },
+ "24-602V1|3.6.7|A rest stop on international official travel must not exceed how long?": {
+  "why": "Para 3.6.7: a rest stop on international official travel must not exceed 24 hours.",
+  "wrong": {
+   "12 hours": "12 hours is shorter than the rule's limit.",
+   "48 hours": "48 hours exceeds the 24-hour limit.",
+   "72 hours": "72 hours exceeds the 24-hour limit."
+  },
+  "watch": "A rest stop must cost the government nothing extra and use the normally traveled route. Circuitous routing to get one is not allowed."
+ },
+ "24-602V1|3.10|ITA travel approval requests should be submitted at least how long before travel?": {
+  "why": "Para 3.10 asks that ITA approval requests be submitted at least 20 working days before travel.",
+  "wrong": {
+   "10 working days": "10 working days is half the requested lead time.",
+   "30 working days": "30 working days is more than the stated lead time.",
+   "5 working days": "5 working days is far too late."
+  }
+ },
+ "24-602V1|3.15|MILAIR should not be used when commercial air can meet the traveler's requirements within what period?": {
+  "why": "Para 3.15: don't use MILAIR when commercial air, including Patriot Express, can meet the traveler's requirements within a 24-hour period.",
+  "wrong": {
+   "12 hours": "12 hours is narrower than the stated period.",
+   "48 hours": "48 hours is wider than the stated period.",
+   "72 hours": "72 hours is wider than the stated period."
+  },
+  "watch": "Patriot Express is AMC-contracted commercial service, not MILAIR."
+ },
+ "24-602V1|5.1|The PCS port call request should be submitted no later than how long before projected departure?": {
+  "why": "Para 5.1: submit the PCS port call request (AF Form 1546) no later than 90 days before projected departure.",
+  "wrong": {
+   "30 days": "30 days is far too late.",
+   "45 days": "45 days is the minimum for giving the traveler a confirmed port call (para 5.1.1), not the request deadline.",
+   "60 days": "60 days is the optimal time for a confirmed port call (para 5.1.1), not the request deadline."
+  },
+  "watch": "Request by 90 days out. The traveler should get a confirmed port call at 60 days, and no later than 45."
+ },
+ "24-602V1|5.1.2|For concurrent dependent travel, how much time must the member have remaining on their DEROS when the dependents arrive?": {
+  "why": "Para 5.1.2: for concurrent dependent travel, the member must have at least 12 months remaining on the DEROS when the dependents arrive.",
+  "wrong": {
+   "At least 6 months": "6 months is less than required.",
+   "At least 18 months": "18 months is more than required.",
+   "At least 24 months": "24 months is more than required."
+  }
+ },
+ "24-602V1|7.9.4|The TO must follow up on unprocessed ticket refunds beyond how long?": {
+  "why": "Para 7.9.4: the TO follows up on ticket refunds still unprocessed after 45 days.",
+  "wrong": {
+   "30 days": "30 days is earlier than the stated trigger.",
+   "60 days": "60 days waits longer than the stated trigger.",
+   "120 days": "120 days is how long the SF 1170 suspense copy is kept (para 7.8.1)."
+  }
+ },
+ "24-602V1|4.1.3|Which attachment provides the Mission Impact Statement for non-use of Patriot Express?": {
+  "why": "Para 4.1.3: use Attachment 2 for the Mission Impact Statement for non-use of Patriot Express.",
+  "wrong": {
+   "Attachment 1": "Attachment 1 is the glossary, not the Mission Impact Statement.",
+   "Attachment 3": "Attachment 3 is not the Mission Impact Statement.",
+   "Attachment 4": "Attachment 4 is not the Mission Impact Statement."
+  },
+  "watch": "Unit commanders or authorizing officials must review and approve the statement."
+ },
+ "24-602V1|3.6.4|What minimum travel window must TOs get when booking PCS travelers on the Patriot Express?": {
+  "why": "Para 3.6.4: TOs must get a minimum 10-day travel window for PCS travelers on AMC/Patriot Express, and request 20 days for travelers with pets.",
+  "wrong": {
+   "5 days (10 days with pets)": "5 and 10 days are half the stated windows.",
+   "3 days (7 days with pets)": "3 and 7 days are far shorter than required.",
+   "30 days (45 days with pets)": "30 and 45 days are not the stated windows."
+  },
+  "watch": "PCS gets a 10-day window. TDY uses a flexible 2-3 day window (para 3.6.5)."
+ },
+ "24-602V1|3.6.5|What window should TOs check for TDY travel on the Patriot Express?": {
+  "why": "Para 3.6.5: for TDY travel on AMC/PE, TOs should use a flexible 2-3 day travel window before booking a single commercial travel day.",
+  "wrong": {
+   "A 10-day window": "10 days is the PCS minimum window (para 3.6.4).",
+   "A single day only": "A single day only is what commercial booking uses after PE has been checked.",
+   "A 20-day window": "20 days is the window requested for PCS travelers with pets."
+  }
+ },
+ "24-602V1|5.1.1|Air Force policy is to give PCS travelers confirmed port calls when?": {
+  "why": "Para 5.1.1: Air Force policy is confirmed port calls optimally 60 days and minimally 45 days before departure.",
+  "wrong": {
+   "Optimally 90 days and minimally 60 days": "90 and 60 days mixes up the 90-day request deadline (para 5.1) with the 60-day goal.",
+   "Optimally 30 days and minimally 14 days": "30 and 14 days are later than policy allows.",
+   "At least 10 days before departure": "10 days is the PCS travel window length on Patriot Express, not a port call standard."
+  },
+  "watch": "If AMC can't confirm in time, or the member faces hardship, the TO should get commercial reservations."
+ },
+ "24-602V1|1.5.4|AF/A3 manages and executes the special airlift mission aircraft assigned to which wing?": {
+  "why": "Para 1.5.4: AF/A3 manages and executes the special airlift mission aircraft assigned to the 89th Airlift Wing.",
+  "wrong": {
+   "375th Air Mobility Wing": "The 375th Air Mobility Wing is not named in this paragraph.",
+   "62d Airlift Wing": "The 62d Airlift Wing is not named in this paragraph.",
+   "436th Airlift Wing": "The 436th Airlift Wing is not named in this paragraph."
+  }
+ },
+ "24-602V1|1.14.5|How long should an interim 2T071 MSgt TO appointment last (without an extension)?": {
+  "why": "Para 1.14.5: an interim 2T071 MSgt TO appointment should last no longer than 180 days without an extension.",
+  "wrong": {
+   "90 days": "90 days is shorter than the stated limit.",
+   "1 year": "1 year is longer than the stated limit.",
+   "2 years": "2 years is far longer than the stated limit."
+  },
+  "watch": "It applies only when no civilian ITO or qualified 2T091 SMSgt is available, and AFIMSC/IZLT (or the ARC) approves."
+ },
+ "24-602V1|2.8.1.2|How long does the PCT approval authority keep an approved PCT package for audit?": {
+  "why": "Para 2.8.1.2: the PCT approval authority keeps a file copy of an approved package for 6 years and 3 months for audit.",
+  "wrong": {
+   "2 years after the approved travel ends": "2 years after travel ends is far too short.",
+   "3 years": "3 years is about half the required retention.",
+   "1 year": "1 year is far too short."
+  }
+ },
+ "24-602V1|5.4|What is the AMC weight limit for a pet and its container combined?": {
+  "why": "Para 5.4: on AMC flights, each pet and its container combined may weigh up to 150 pounds.",
+  "wrong": {
+   "70 pounds each": "70 pounds each understates the limit.",
+   "100 pounds each": "100 pounds each understates the limit.",
+   "200 pounds each": "200 pounds each exceeds the limit."
+  },
+  "watch": "Only cats and dogs count as pets, with a limit of two per family, in PCS status only. Military members can't be reimbursed for pet shipping, though quarantine is reimbursable up to $550."
+ },
+ "24-602V1|7.8.1|How long is the suspense copy of an SF 1170 refund request kept before tracer action?": {
+  "why": "Para 7.8.1: keep the suspense copy of the SF 1170 for 120 days and send the originals to the carrier.",
+  "wrong": {
+   "30 days": "30 days is far shorter than required.",
+   "45 days": "45 days is the follow-up trigger for unprocessed refunds (para 7.9.4).",
+   "90 days": "90 days is shorter than required."
+  }
+ },
+ "24-602V4|3.1.3.3.3|If PBP&E cannot be weighed at origin, what constructive weight applies?": {
+  "why": "Para 3.1.3.3.3: if PBP&E can't be weighed at origin, a constructive weight of 7 pounds per cubic foot applies.",
+  "wrong": {
+   "5 pounds per cubic foot": "5 pounds per cubic foot understates the constructive weight.",
+   "10 pounds per cubic foot": "10 pounds per cubic foot overstates the constructive weight.",
+   "6.5 pounds per cubic foot": "6.5 pounds per cubic foot is close but is not the stated rate."
+  },
+  "watch": "PBP&E is packed separately and marked M-PRO (member) or S-PRO (spouse). Spouse pro-gear is capped at 500 pounds."
+ },
+ "24-602V4|6.1.4.1.3|For a member on TDY or deployment, government storage terminates no later than how long after the TDY/deployment ends (unless extended)?": {
+  "why": "Para 6.1.4.1.3: storage at government expense ends no later than 90 days after the TDY or deployment is completed, unless an additional 90 days is approved.",
+  "wrong": {
+   "30 days": "30 days is shorter than the rule allows.",
+   "60 days": "60 days is shorter than the rule allows.",
+   "180 days": "180 days is the most possible only with the extra 90-day approval, not the standard limit."
+  },
+  "watch": "The request needs the TDY or deployment order and the member's statement of need."
+ },
+ "24-602V4|7.4.1|How much time must a member have remaining on OCONUS orders to ship a POV?": {
+  "why": "Para 7.4.1: the member must have at least 12 months remaining on the OCONUS orders to ship a POV.",
+  "wrong": {
+   "At least 6 months": "6 months is less than required.",
+   "At least 18 months": "18 months is more than required.",
+   "At least 24 months": "24 months is more than required."
+  },
+  "watch": "The POV also has to reach the VPC or port within 90 days of departure from the previous PDS. A tour of 1 year or less needs an exception (para 7.4.1.1)."
+ },
+ "24-602V4|7.4.1.1|For an OCONUS tour of 1 year or less with an approved exception, the POV must reach the VPC/port within how long?": {
+  "why": "Para 7.4.1.1: with an exception for a tour of 1 year or less, the POV must be delivered to the VPC or port within 30 days after the member leaves the last PDS.",
+  "wrong": {
+   "90 days": "90 days is the normal delivery window (para 7.4.1), not the short-tour exception window.",
+   "14 days": "14 days is shorter than required.",
+   "60 days": "60 days is not the stated window."
+  }
+ },
+ "24-602V4|7.15.1|POV storage at government expense terminates no later than how long after TDY completion?": {
+  "why": "Para 7.15.1: POV storage at government expense ends no later than 90 days after TDY completion.",
+  "wrong": {
+   "30 days": "30 days is shorter than the stated limit.",
+   "180 days": "180 days is longer than the stated limit.",
+   "1 year": "1 year is far longer than the stated limit."
+  }
+ },
+ "24-602V4|8.2.2.1.1|What advance may a member get for an actual expense PPM, based on estimated weight?": {
+  "why": "Para 8.2.2.1.1: the member may get an advance of 60% of the GCC, based on an estimated weight up to the weight allowance.",
+  "wrong": {
+   "100% of the GCC": "100% of the GCC is possible only when the member shows a carrier invoice or estimated expenses over 100% of the GCC, not as the base advance.",
+   "50% of the GCC": "50% of the GCC understates the advance.",
+   "95% of the GCC": "95% of the GCC is not the advance rate."
+  },
+  "watch": "The 100% figure is a cap on the operating allowance when documented costs are higher. It is not the default."
+ },
+ "24-602V4|8.2.2.5.1|How long may a member arrange temporary storage for a PPM before needing PPSO approval for more?": {
+  "why": "Para 8.2.2.5.1: the member may arrange temporary storage of up to 90 days, and may ask the PPSO for another 90 days.",
+  "wrong": {
+   "30 days": "30 days is shorter than allowed.",
+   "60 days": "60 days is shorter than allowed.",
+   "180 days": "180 days is the total possible only with PPSO approval of the second 90 days."
+  },
+  "watch": "The PPSO documents each extra 90 days on a DD Form 1857."
+ },
+ "24-602V4|8.7|What is the basic government valuation coverage for HHG?": {
+  "why": "Para 8.7: the government's basic valuation coverage for HHG is $40,000.",
+  "wrong": {
+   "$10,000": "$10,000 understates the coverage.",
+   "$25,000": "$25,000 understates the coverage.",
+   "$50,000": "$50,000 overstates the coverage."
+  },
+  "watch": "The cost of extra private insurance is not reimbursable."
+ },
+ "24-602V4|11.6.2|TP-2 airlift for inter-theater HHG is authorized unless the member has a TDY/leave/delay en route of more than how long?": {
+  "why": "Para 11.6.2: TP-2 airlift for inter-theater HHG is authorized unless the member has a TDY, leave, or delay en route of more than 30 days. Then ship by surface.",
+  "wrong": {
+   "14 days": "14 days is shorter than the stated threshold.",
+   "60 days": "60 days is longer than the stated threshold.",
+   "90 days": "90 days is longer than the stated threshold."
+  }
+ },
+ "24-602V4|11.10|Shipping offices may use DPM for domestic shipments estimated at how much weight or less?": {
+  "why": "Para 11.10: shipping offices may use DPM for domestic shipments estimated at 1,000 pounds or less, or when cost-effective.",
+  "wrong": {
+   "500 pounds": "500 pounds understates the threshold.",
+   "2,500 pounds": "2,500 pounds overstates the threshold.",
+   "5,000 pounds": "5,000 pounds overstates the threshold."
+  }
+ },
+ "24-602V4|Atch 4|Within how many days does the inspector instruct the customer to complete the CSS?": {
+  "why": "Attachment 4: on the telephonic inspection, the inspector tells the customer to complete the Customer Satisfaction Survey within 7 days.",
+  "wrong": {
+   "30 days": "30 days is not the CSS instruction on the checklist.",
+   "14 days": "14 days is not the CSS instruction on the checklist.",
+   "120 days": "120 days is not the CSS instruction on the checklist."
+  }
+ },
+ "24-602V4|14.1.2|How long after the recorded delivery date may DAF QA inspectors conduct post-delivery inspections?": {
+  "why": "Para 14.1.2: DAF QA inspectors may do post-delivery inspections up to five (5) GBDs after the delivery date recorded in DPS.",
+  "wrong": {
+   "Up to 10 GBDs": "10 GBDs is double the authorized period.",
+   "Up to 30 days": "30 days is far beyond the authorized period.",
+   "Up to 180 days": "180 days is far beyond the authorized period."
+  },
+  "watch": "This exists to cover gaps when TSPs enter delivery data late or wrong. These inspections count toward the overall inspection rate."
+ },
+ "24-602V4|14.2|Military QC inspectors should be drawn from which grades?": {
+  "why": "Para 14.2: military QC inspectors should be E-4 and above, or civilians with a broad 2T0X1 traffic management background.",
+  "wrong": {
+   "E-5 and above": "E-5 and above is narrower than the stated pool.",
+   "E-6 and above": "E-6 and above is narrower than the stated pool.",
+   "E-3 and above": "E-3 and above is broader than the stated pool."
+  }
+ },
+ "24-602V4|3.4.1.3|Is space-required airlift of HHG (including to hardlift areas) authorized for retirees or separatees?": {
+  "why": "Para 3.4.1.3 Note: space-required airlift of HHG, including airlift to hardlift areas, is not authorized for retirees or separatees.",
+  "wrong": {
+   "Authorized": "It is not authorized for retirees or separatees.",
+   "Authorized only to hardlift areas": "Hardlift areas are specifically included in the prohibition.",
+   "Authorized with PPA HQ approval": "No approval authority is given for an exception."
+  },
+  "watch": "There is no TP-4 capability for inter-theater shipments, but TP-2 is available."
+ },
+ "24-602V4|7.4.3|Is replacement POV shipment normally approved if the member already has a second vehicle?": {
+  "why": "Para 7.4.3: replacement POV transportation is normally not approved if the member already has a second vehicle.",
+  "wrong": {
+   "It is normally approved": "It is normally not approved when the member has a second vehicle.",
+   "It is approved with 12 months left": "Tour time remaining does not override the second-vehicle rule.",
+   "It is approved for CONUS only": "The rule is about OCONUS replacement, not CONUS-only approval."
+  },
+  "watch": "Replacement is also normally not approved if a vehicle can be bought at the overseas location."
+ },
+ "24-602V4|7.9.2.3|May commercial \"drive-away\" service be used for overland shipment of these POVs?": {
+  "why": "Para 7.9.2.3: commercial drive-away service is not to be used for overland shipment of POVs.",
+  "wrong": {
+   "It may be used": "It may not be used under this paragraph.",
+   "It may be used within CONUS only": "No CONUS exception is given.",
+   "It may be used with NOK approval": "NOK approval does not create an exception."
+  }
+ },
+ "24-602V4|8.2.1.6|Are special routing and services requested by the member reimbursable as part of actual cost?": {
+  "why": "Para 8.2.1.6: special routing and services the member requests are not part of the actual cost and are not reimbursable.",
+  "wrong": {
+   "Fully reimbursable": "They are not reimbursable at all.",
+   "Reimbursable up to 10%": "There is no partial 10% reimbursement.",
+   "Reimbursable with TO approval": "TO approval does not make them reimbursable."
+  }
+ },
+ "24-602V4|8.5.4|May the weight of a rented or borrowed car-top carrier be included?": {
+  "why": "Para 8.5.4: a rented or borrowed car-top carrier's weight can't be included in net weight. A personally owned carrier that a TSP would accept may be included.",
+  "wrong": {
+   "It may be included": "It may not be included if rented or borrowed.",
+   "It may be included if rented": "Renting it is exactly what excludes it.",
+   "It may be included for OCONUS moves": "OCONUS moves are not an exception."
+  },
+  "watch": "Ownership is the deciding factor: personally owned counts, rented or borrowed does not."
+ },
+ "24-602V4|8.5.8|For a PPM moving a boat, will the registration weight suffice?": {
+  "why": "Para 8.5.8: a full weight ticket is required when moving a boat. Registration weight won't do for the incentive payment.",
+  "wrong": {
+   "It is sufficient": "Registration weight is not sufficient.",
+   "It is sufficient for small boats": "Boat size is not an exception.",
+   "It is sufficient with a trailer": "Including a trailer does not make registration weight acceptable."
+  }
+ },
+ "24-602V4|8.6.4.4|Must members get separate weight tickets for PBP&E in a PPM?": {
+  "why": "Para 8.6.4.4: members don't need separate weight tickets for PBP&E in a PPM.",
+  "wrong": {
+   "Separate tickets": "Separate tickets are not required.",
+   "Separate tickets for spouse PBP&E": "Spouse PBP&E doesn't need separate tickets either.",
+   "Separate tickets over 500 pounds": "There is no 500-pound threshold for separate tickets."
+  },
+  "watch": "PBP&E still has to be declared and described separately. Only separate weight tickets are waived."
+ },
+ "DTR-II|Ch 202, para B.1.a|How long must the TO keep the written justification for each override?": {
+  "why": "Ch 202, para B.1.a: the TO keeps written justification for each routing override for 3 years from pickup.",
+  "wrong": {
+   "1 year from pickup": "1 year from pickup is shorter than required.",
+   "2 years from delivery": "2 years from delivery uses the wrong period and the wrong starting point.",
+   "6 years from pickup": "6 years from pickup is longer than required."
+  }
+ },
+ "DTR-II|Ch 202, para C.1.a|How long should a shipment remain open in ATR at a minimum?": {
+  "why": "Ch 202, para C.1.a: a standard electronic routing should stay open in ATR for a minimum of 30 minutes.",
+  "wrong": {
+   "4 hours": "4 hours is not the minimum open time.",
+   "24 hours": "24 hours is when unawarded shipments auto-cancel, not the minimum open time.",
+   "10 minutes": "10 minutes is shorter than the minimum."
+  },
+  "watch": "30 minutes is the minimum to stay open. 24 hours is the auto-cancel point."
+ },
+ "DTR-II|Ch 202, para C.1.c|Negotiated route orders must be awarded within how long of receiving the 349 Report?": {
+  "why": "Ch 202, para C.1.c: negotiated route orders must be awarded within 72 hours of receiving the 349 Report.",
+  "wrong": {
+   "24 hours": "24 hours is the auto-cancel point for standard electronic routings, not negotiated awards.",
+   "48 hours": "48 hours is shorter than allowed.",
+   "7 days": "7 days is longer than allowed."
+  }
+ },
+ "DTR-II|Ch 202, Table 202-1|Within how long must intra-theater cargo and passenger movements be transmitted to IGC?": {
+  "why": "Table 202-1: intra-theater cargo and passenger movements (all modes) go to IGC within 2 hours of the event.",
+  "wrong": {
+   "Within 1 hour": "1 hour is the standard for inter-theater air, truck, and rail movements.",
+   "Within 24 hours": "24 hours is the ocean shipment standard.",
+   "Within 4 hours": "4 hours is the ocean shipment goal, not the intra-theater standard."
+  },
+  "watch": "Inter-theater air, truck, and rail is the fastest at 1 hour. Ocean shipments are the slowest at 24 hours, with a 4-hour goal."
+ },
+ "DTR-II|Ch 202, para Q.5|DFRIF cars requested less than how many days before loading may not be received in time?": {
+  "why": "Ch 202, para Q.5: DFRIF cars requested less than 30 days before loading may not arrive in time.",
+  "wrong": {
+   "7 days": "7 days is far shorter than the stated lead time.",
+   "14 days": "14 days is shorter than the stated lead time.",
+   "60 days": "60 days is longer than the stated lead time."
+  }
+ },
+ "DTR-II|Ch 202, para R.2.b|What is the ordered-not-used threshold when 51-100 railcars are ordered?": {
+  "why": "Ch 202, para R.2.b: the ordered-not-used threshold for 51-100 railcars is 7 railcars.",
+  "wrong": {
+   "5 railcars": "5 railcars is the threshold for 1-50 ordered.",
+   "10 railcars": "10 railcars is the threshold for 101-150 ordered.",
+   "15 railcars": "15 railcars is the threshold for 151-300 ordered."
+  },
+  "watch": "The thresholds step up: 5, 7, 10, 15, then 20 for over 300."
+ },
+ "DTR-II|Ch 202, para AA.2.c(2)(a)|Within how long of receipt at the OCCA will the ETR be provided to the TO?": {
+  "why": "Ch 202, para AA.2.c(2)(a): the OCCA gives the ETR to the TO within 3 working days of receipt.",
+  "wrong": {
+   "24 hours": "24 hours is stricter than the stated time.",
+   "7 calendar days": "7 calendar days is longer and uses calendar days.",
+   "10 working days": "10 working days is far longer than allowed; 10 days is the advance-availability point for clearance lead time."
+  },
+  "watch": "If clearance takes longer, the authority must tell the offeror why and give an estimated clearance time."
+ },
+ "DTR-II|Ch 202, para AA.3.b(1)|Absent TFG guidance, how far in advance must special requirements be coordinated with the APOE?": {
+  "why": "Ch 202, para AA.3.b(1): without TFG guidance, coordinate special requirements with the APOE at least 72 hours before delivery.",
+  "wrong": {
+   "At least 24 hours before delivery": "24 hours is less lead time than required.",
+   "At least 7 days before delivery": "7 days is more lead time than required.",
+   "At least 48 hours before delivery": "48 hours is less lead time than required."
+  }
+ },
+ "DTR-II|Ch 205, para C.2.d(5)|The consignee notifies the TSP and Service HQ when sensitive shipments are not received within how long of the ETA?": {
+  "why": "Ch 205, para C.2.d(5): the consignee notifies the TSP and Service HQ when listed sensitive shipments aren't received within 12 hours of the ETA.",
+  "wrong": {
+   "2 hours": "2 hours is stricter than the stated time.",
+   "24 hours": "24 hours is double the stated time.",
+   "72 hours": "72 hours is far longer than the stated time."
+  },
+  "watch": "If the TSP can't explain the delay, contact DTTS for tracking help."
+ },
+ "DTR-II|Ch 205, para G.2.c(2)|How many small arms weapons or parts may a DoD-approved commercial TSP move with CIS?": {
+  "why": "Ch 205, para G.2.c(2): a DoD-approved commercial TSP that provides CIS may move small arms weapons or major parts in quantities of 15 or fewer.",
+  "wrong": {
+   "25 or fewer": "25 or fewer exceeds the stated quantity.",
+   "50 or fewer": "50 or fewer exceeds the stated quantity.",
+   "Any quantity": "Any quantity ignores the 15-item limit."
+  }
+ },
+ "DTR-II|Ch 205, para G.3.d(10)|What is the maximum aggregate gross weight per package for HC/Div 1.4S ammunition reclassified as ORM-D?": {
+  "why": "Ch 205, para G.3.d(10): HC/Div 1.4S ammunition reclassified as ORM-D is limited to 30 kg (66 lbs) aggregate gross weight per package, including packaging.",
+  "wrong": {
+   "70 lbs": "70 lbs is not the limit and is just over 30 kg.",
+   "150 lbs": "150 lbs is the NGDS small arms package limit (para G.3.e(3)(c)), not the ORM-D limit.",
+   "15 kg (33 lbs)": "15 kg (33 lbs) is half the stated limit."
+  },
+  "watch": "ORM-D for CONUS only is allowed under 49 CFR 173.63. Packages must be marked ORM-D next to or below the proper shipping name."
+ },
+ "DTR-II|Ch 205, para G.3.e(3)(c)|For NGDS small arms ammunition, how many rounds may each unit package hold?": {
+  "why": "Ch 205, para G.3.e(3)(c): NGDS small arms ammunition goes in unit packages of 4,000 rounds or fewer, with no package over 150 lbs.",
+  "wrong": {
+   "1,000 rounds or fewer": "1,000 rounds is far below the limit.",
+   "10,000 rounds or fewer": "10,000 rounds exceeds the limit.",
+   "500 rounds or fewer": "500 rounds is far below the limit."
+  },
+  "watch": "Two limits apply: 4,000 rounds per unit package and 150 lbs per package."
+ },
+ "DTR-II|Ch 205, para H.7.a|With seals intact, within how long must SRC I and II shipments get inventory quantity verification?": {
+  "why": "Ch 205, para H.7.a: with seals intact and no signs of tampering, SRC I and II shipments get inventory quantity verification within 24 hours.",
+  "wrong": {
+   "48 hours": "48 hours is the SRC III and IV window (para H.7.b).",
+   "72 hours": "72 hours is longer than any verification window here.",
+   "7 days": "7 days is far longer than allowed."
+  },
+  "watch": "If seals are broken or there are signs of tampering, inventory immediately, whatever the SRC."
+ },
+ "DTR-II|Ch 205, para H.7.b|Within how long must SRC III and IV shipments get inventory quantity verification?": {
+  "why": "Ch 205, para H.7.b: SRC III and IV shipments get inventory quantity verification within 48 hours of receipt.",
+  "wrong": {
+   "24 hours": "24 hours is the SRC I and II window.",
+   "72 hours": "72 hours is longer than allowed.",
+   "5 days": "5 days is far longer than allowed."
+  }
+ },
+ "DTR-II|Ch 205, para K.3|How long must shipping papers for hazardous waste be retained?": {
+  "why": "Ch 205, para K.3: keep hazardous waste shipping papers for 3 years after the initial TSP accepts the material.",
+  "wrong": {
+   "2 years": "2 years is the retention for other (non-waste) HAZMAT.",
+   "1 year": "1 year is shorter than any retention period here.",
+   "90 days": "90 days is far shorter than required."
+  },
+  "watch": "Radioactive materials papers are also kept for 3 years, under 10 CFR 30."
+ },
+ "DTR-II|Ch 205, para L.7|NWRM shipment notifications must go out within how long of processing or receipt?": {
+  "why": "Ch 205, para L.7: NWRM notifications go out within 2 hours (CONUS) and 8 hours (OCONUS) of processing or receipt.",
+  "wrong": {
+   "24 hours CONUS and 48 hours OCONUS": "24 and 48 hours are far too slow.",
+   "1 hour anywhere": "There is no single 1-hour standard; CONUS and OCONUS differ.",
+   "8 hours CONUS and 24 hours OCONUS": "8 and 24 hours shifts both values; 8 hours is the OCONUS limit, not CONUS."
+  },
+  "watch": "These notifications are in addition to REPSHIPs and must be auditable."
+ },
+ "DTR-II|Ch 205, para O.6.a|If the consignee requests a paper copy of an electronic tracing history, how soon must the TSP provide it?": {
+  "why": "Ch 205, para O.6.a: if the consignee asks for a paper copy of the electronic tracing history, the TSP must provide it within 24 hours.",
+  "wrong": {
+   "Within 72 hours": "72 hours is longer than allowed.",
+   "Within 7 days": "7 days is far longer than allowed.",
+   "At the next shipment": "At the next shipment is not a set deadline and is too late."
+  }
+ },
+ "DTR-II|Ch 205, para X.6|SRC I AA&E FMS material must be shipped under which Delivery Term Codes?": {
+  "why": "Ch 205, para X.6: SRC I AA&E FMS material ships as DTC 9 or DTC 7.",
+  "wrong": {
+   "DTC 8 or DTC 5": "DTC 8 is the minimum for SRC II-IV sensitive AA&E, not SRC I.",
+   "DTC 4 or DTC E": "DTC 4 or DTC E is not what the paragraph assigns.",
+   "DTC 2 only": "DTC 2 alone is not what the paragraph assigns."
+  },
+  "watch": "SRC II, III, and IV must stay under DoD control at least through a DoD-controlled SPOE, which is why the minimum is DTC 8."
+ },
+ "DTR-II|Ch 205, Table 205-1|Under Table 205-1, stops at non-DoD locations are limited to how long?": {
+  "why": "Table 205-1 limits AA&E stops at non-DoD locations to 2 hours.",
+  "wrong": {
+   "30 minutes": "30 minutes is stricter than the table's limit.",
+   "4 hours": "4 hours exceeds the table's limit.",
+   "100 hours": "100 hours is not a stop limit."
+  }
+ },
+ "DTR-II|Ch 210, para B.6.k|Discrepancies of less than what value are documented, reported, and settled at the local level?": {
+  "why": "Ch 210, para B.6.k: discrepancies under $500 are documented, reported, and settled at the local level.",
+  "wrong": {
+   "$100": "$100 understates the local threshold.",
+   "$1,000": "$1,000 overstates the local threshold.",
+   "$2,500": "$2,500 overstates the local threshold."
+  },
+  "watch": "Classified, protected, HAZMAT, and SCP/FMS discrepancies are reported at any value. Only claims of $500 or more go to the claims office."
+ },
+ "DTR-III|Ch 303, para C.2.b(1)(e)2|Cargo exceeding what height or width may require ATTLA certification?": {
+  "why": "Ch 303, para C.2.b(1)(e)2: cargo over 8 ft (96 inches) in height or width may need ATTLA certification.",
+  "wrong": {
+   "6 ft (72 inches)": "6 ft is below the trigger.",
+   "10 ft (120 inches)": "10 ft is above the trigger.",
+   "12 ft (144 inches)": "12 ft is above the trigger."
+  }
+ },
+ "DTR-III|Ch 303, para C.2.b(1)(e)3|Cargo exceeding what weight may require ATTLA certification?": {
+  "why": "Ch 303, para C.2.b(1)(e)3: cargo over 10,000 lbs may need ATTLA certification.",
+  "wrong": {
+   "5,000 lbs": "5,000 lbs is the pneumatic-tire axle load trigger.",
+   "25,000 lbs": "25,000 lbs is above the trigger.",
+   "2,500 lbs": "2,500 lbs is the pneumatic-tire wheel load trigger."
+  },
+  "watch": "The ATTLA triggers: 8 ft height or width, 10,000 lbs weight, 50 psi floor contact pressure, 5,000 lbs axle load, and 2,500 lbs wheel load."
+ },
+ "DTR-III|Ch 303, para C.2.b(1)(e)4|What floor contact pressure may trigger ATTLA certification?": {
+  "why": "Ch 303, para C.2.b(1)(e)4: floor contact pressure over 50 pounds per square inch may need ATTLA certification.",
+  "wrong": {
+   "100 pounds per square inch": "100 psi is above the trigger.",
+   "25 pounds per square inch": "25 psi is below the trigger.",
+   "75 pounds per square inch": "75 psi is above the trigger."
+  }
+ },
+ "DTR-III|Ch 303, para C.2.b(1)(e)5|For a vehicle with pneumatic tires, axle loads above what may require ATTLA certification?": {
+  "why": "Ch 303, para C.2.b(1)(e)5: for vehicles with pneumatic tires, axle loads over 5,000 lbs may need ATTLA certification.",
+  "wrong": {
+   "2,500 lbs": "2,500 lbs is the wheel load trigger, not the axle load.",
+   "10,000 lbs": "10,000 lbs is the total weight trigger.",
+   "7,500 lbs": "7,500 lbs is not a trigger."
+  },
+  "watch": "Axle load is twice the wheel load trigger: 5,000 lbs against 2,500 lbs."
+ },
+ "DTR-III|Ch 303, para C.2.b(1)(e)6|For a vehicle with pneumatic tires, wheel loads above what may require ATTLA certification?": {
+  "why": "Ch 303, para C.2.b(1)(e)6: for vehicles with pneumatic tires, wheel loads over 2,500 lbs may need ATTLA certification.",
+  "wrong": {
+   "1,000 lbs": "1,000 lbs is below the trigger.",
+   "5,000 lbs": "5,000 lbs is the axle load trigger.",
+   "1,500 lbs": "1,500 lbs is below the trigger."
+  }
+ },
+ "DTR-III|Ch 303, para C.2.c(1)(c)1|The 618 AOC recommends airlift documents be submitted no later than how long before the longest diplomatic lead time?": {
+  "why": "Ch 303, para C.2.c(1)(c)1: the 618 AOC recommends submitting airlift documents no later than 10 days before the longest diplomatic lead time.",
+  "wrong": {
+   "3 days": "3 days is less lead time than recommended.",
+   "30 days": "30 days is more than recommended.",
+   "96 hours": "96 hours is less lead time than recommended."
+  },
+  "watch": "Neighboring countries' overflight clearances can push the lead time out. Anything submitted inside the diplomatic lead time needs an expedited diplomatic POC."
+ },
+ "DTR-III|Ch 303, para C.2.c(1)(c)2|Post-JI final/updated load plans are emailed to TACC flight managers no later than when?": {
+  "why": "Ch 303, para C.2.c(1)(c)2: e-mail post-JI final load plans to TACC flight managers NLT 6 hours before departure.",
+  "wrong": {
+   "3 hours prior": "3 hours is too late for fuel and mission planning.",
+   "24 hours prior": "24 hours is earlier than the stated deadline.",
+   "1 hour prior": "1 hour is far too late."
+  }
+ },
+ "DTR-III|Ch 303, para C.3.b(3)|The JI of cargo and equipment loads must be completed no later than when?": {
+  "why": "Ch 303, para C.3.b(3): the JI of cargo and equipment loads is completed NLT 6 hours before departure.",
+  "wrong": {
+   "3 hours prior": "3 hours leaves less time than required.",
+   "1 hour prior": "1 hour is far too late.",
+   "24 hours prior": "24 hours is earlier than required."
+  },
+  "watch": "Both the JI and the post-JI load plan e-mail use the 6-hour mark."
+ },
+ "DTR-III|Ch 303, para C.4.c|Aircraft safety requirements apply to vehicles and personnel approaching within how many feet of an aircraft?": {
+  "why": "Ch 303, para C.4.c: aircraft safety requirements apply to vehicles and personnel coming within 50 feet of an aircraft.",
+  "wrong": {
+   "25 feet": "25 feet is the 5 MPH speed zone, not the safety circle.",
+   "10 feet": "10 feet is the minimum parking distance and the 3 MPH zone.",
+   "100 feet": "100 feet is wider than the stated circle."
+  }
+ },
+ "DTR-III|Ch 303, para C.4.c(1)(f)|Equipment may not be refueled or serviced within how many feet of an aircraft?": {
+  "why": "Ch 303, para C.4.c(1)(f): equipment is not refueled or serviced within 50 feet of an aircraft.",
+  "wrong": {
+   "25 feet": "25 feet is a vehicle speed zone, not the servicing limit.",
+   "10 feet": "10 feet is the minimum parking distance.",
+   "100 feet": "100 feet is wider than required."
+  }
+ },
+ "DTR-III|Ch 303, para C.4.c(2)(a)1|How close may personnel approach a running C-5 engine intake?": {
+  "why": "Ch 303, para C.4.c(2)(a)1: no one may come within 50 feet of a running C-5 engine intake.",
+  "wrong": {
+   "No closer than 20 feet": "20 feet is the KC-10 limit.",
+   "No closer than 35 feet": "35 feet is the KC-135E limit.",
+   "No closer than 10 feet": "10 feet is the C-130 propeller danger area."
+  },
+  "watch": "The C-17 also uses 50 feet."
+ },
+ "DTR-III|Ch 303, para C.4.c(2)(a)2|How close may personnel approach a running KC-10 engine intake?": {
+  "why": "Ch 303, para C.4.c(2)(a)2: no one may come within 20 feet of a running KC-10 engine intake.",
+  "wrong": {
+   "No closer than 50 feet": "50 feet is the C-5 and C-17 limit.",
+   "No closer than 35 feet": "35 feet is the KC-135E limit.",
+   "No closer than 10 feet": "10 feet is the C-130 propeller danger area."
+  }
+ },
+ "DTR-III|Ch 303, para C.4.c(2)(a)3|Behind a C-17, windblast exceeding 138 MPH can be expected within how far aft of the engines?": {
+  "why": "Ch 303, para C.4.c(2)(a)3: windblast over 138 MPH can be expected within 28 feet aft of a C-17's engines.",
+  "wrong": {
+   "95 feet": "95 feet is where C-17 windblast is about 68 MPH.",
+   "50 feet": "50 feet is the C-17 intake distance, not the blast distance.",
+   "200 feet": "200 feet is a C-5 distance (nearly 70 MPH)."
+  },
+  "watch": "Two C-17 numbers: 138 MPH within 28 feet, 68 MPH within 95 feet."
+ },
+ "DTR-III|Ch 303, para C.4.c(2)(a)4|How close may personnel approach a running KC-135E engine intake?": {
+  "why": "Ch 303, para C.4.c(2)(a)4: no one may come within 35 feet of a running KC-135E engine intake.",
+  "wrong": {
+   "No closer than 50 feet": "50 feet is the C-5 and C-17 limit.",
+   "No closer than 20 feet": "20 feet is the KC-10 limit.",
+   "No closer than 25 feet": "25 feet is the KC-135E blast distance (over 100 MPH), not the intake limit."
+  }
+ },
+ "DTR-III|Ch 303, para C.4.c(2)(b)|What is the propeller danger area in front of a C-130 propeller?": {
+  "why": "Ch 303, para C.4.c(2)(b): the C-130 propeller danger area is 10 feet in front of the propeller.",
+  "wrong": {
+   "20 feet": "20 feet is the KC-10 intake limit.",
+   "50 feet": "50 feet is the C-5 and C-17 intake limit.",
+   "5 feet": "5 feet is less than the stated danger area."
+  },
+  "watch": "Behind the engines, C-130 wake at maximum power is over 100 MPH at 200 feet."
+ },
+ "DTR-III|Ch 303, para C.4.c(2)(c)|How high is the C-5 cargo floor from the ground in the unkneeled position?": {
+  "why": "Ch 303, para C.4.c(2)(c): the C-5 cargo floor is 9 feet off the ground when unkneeled.",
+  "wrong": {
+   "5 feet": "5 feet understates the height.",
+   "12 feet": "12 feet overstates the height.",
+   "7 feet": "7 feet is the minimum antenna tip height, not the C-5 floor."
+  }
+ },
+ "DTR-III|Ch 303, para C.4.c(3)(e)|With the tip cap clip fastened, vehicle radio antennas may not be lower than how high above the ground?": {
+  "why": "Ch 303, para C.4.c(3)(e): with the clip fastened, antenna tip caps may not be less than 7 feet above the ground.",
+  "wrong": {
+   "5 feet": "5 feet is lower than allowed.",
+   "10 feet": "10 feet is not the stated minimum.",
+   "9 feet": "9 feet is the C-5 unkneeled floor height."
+  }
+ },
+ "DTR-III|Ch 303, para C.4.c(4)(b)|What is the maximum vehicle speed within 25 feet of an aircraft?": {
+  "why": "Ch 303, para C.4.c(4)(b): maximum vehicle speed within 25 feet of an aircraft is 5 MPH.",
+  "wrong": {
+   "3 MPH": "3 MPH is the limit within 10 feet.",
+   "10 MPH": "10 MPH exceeds the limit.",
+   "15 MPH": "15 MPH exceeds the limit."
+  },
+  "watch": "Two zones: 5 MPH within 25 feet and 3 MPH within 10 feet."
+ },
+ "DTR-III|Ch 303, para C.4.c(4)(c)|Vehicles not loading or offloading may not park closer than how far from an aircraft?": {
+  "why": "Ch 303, para C.4.c(4)(c): vehicles that aren't loading or offloading may not park closer than 10 feet from an aircraft.",
+  "wrong": {
+   "25 feet": "25 feet is the 5 MPH zone, not the parking minimum.",
+   "5 feet": "5 feet is closer than allowed.",
+   "50 feet": "50 feet is the safety circle and refueling distance."
+  }
+ },
+ "DTR-III|Ch 303, para D.2.d(4)|Under the mobility exception, the second bag is limited to what weight?": {
+  "why": "Ch 303, para D.2.d(4): under the mobility exception, the second checked bag is limited to 70 pounds.",
+  "wrong": {
+   "100 pounds": "100 pounds exceeds the limit.",
+   "50 pounds": "50 pounds understates the limit.",
+   "62 pounds": "62 is the linear-inch size limit for checked bags, not a weight."
+  },
+  "watch": "Don't mix up the size limit (62 linear inches) with the weight limit (70 pounds)."
+ },
+ "DTR-IV|Ch A-402, para C.2.c(1)(b)|What is the Code 2 weight criterion during Peak Season?": {
+  "why": "Ch A-402, para C.2.c(1)(b): Code 2 shipments are estimated at 10,000 lbs or less in Peak Season (15 May - 30 Sep).",
+  "wrong": {
+   "3,000 lbs or less": "3,000 lbs or less is the Non-Peak Season criterion (1 Oct - 14 May).",
+   "5,000 lbs or less": "5,000 lbs or less is not a Code 2 criterion.",
+   "18,000 lbs or less": "18,000 lbs is the maximum JTR weight allowance, not a Code 2 criterion."
+  },
+  "watch": "The weight criterion depends on the season. Check the pickup date before applying it. Distance and the other Code 2 criteria still apply."
+ },
+ "DTR-IV|Ch A-402, para C.3.b(2)|If there are no major capacity constraints, the PPSO Director keeps re-offering through BVS until the shipment is within how many days of the pickup window?": {
+  "why": "Ch A-402, para C.3.b(2): with no major capacity constraints, the PPSO Director keeps re-offering through BVS until the shipment is within 45 days of the pickup window.",
+  "wrong": {
+   "30 days": "30 days is not the stated point.",
+   "14 days": "14 days is not the stated point.",
+   "60 days": "60 days is not the stated point."
+  },
+  "watch": "Only the PPSO Director can approve manual award processes, and that authority can't be delegated."
+ },
+ "DTR-IV|Ch A-402, para C.3.e|If no TSP accepts a short-fuse shipment within how long does DPS alert the PPSO of \"Non-Response\"?": {
+  "why": "Ch A-402, para C.3.e: if no TSP accepts a short-fuse shipment within 24 hours, DPS alerts the PPSO of a Non-Response.",
+  "wrong": {
+   "12 hours": "12 hours is shorter than the stated time.",
+   "48 hours": "48 hours is longer than the stated time.",
+   "5 GBDs": "5 GBDs is what defines a short-fuse shipment (pickup within 5 GBDs), not the alert time."
+  },
+  "watch": "Short-fuse shipments go to the first TSP that accepts. They are bonus shipments and don't count against the TSP's distribution."
+ },
+ "DTR-IV|Ch A-402, para C.4.a|If a TSP refuses a shipment, it may be ineligible in that PPSO's market for how long?": {
+  "why": "Ch A-402, para C.4.a: a TSP that refuses a shipment may be ineligible in that PPSO's market for 30 calendar days.",
+  "wrong": {
+   "10 calendar days": "10 calendar days is shorter than the stated period.",
+   "90 calendar days": "90 calendar days is longer than the stated period.",
+   "1 year": "1 year is far longer; multiple refusals can lead to disqualification, but a single refusal is 30 days."
+  },
+  "watch": "Refusals aren't allowed in DP3 because TSPs use blackout dates. The exceptions are short-fuse shipments and shipments with short RDDs."
+ },
+ "DTR-IV|Ch A-402, para C.4.a note|How far ahead does DoW PPA issue a Customer Advisory before changing refusal procedures?": {
+  "why": "Ch A-402, para C.4.a note: DoW PPA issues a Customer Advisory 10 GBDs before changing refusal procedures.",
+  "wrong": {
+   "30 days": "30 days is not the stated notice period.",
+   "5 GBDs": "5 GBDs is half the stated notice period.",
+   "24 hours": "24 hours is the TSP's time to accept an offer, not the advisory notice."
+  }
+ },
+ "DTR-IV|Ch A-402, para D.5.a note|SIT for a DoW civilian employee on a CONUS-to-CONUS shipment may not exceed what (unless more is authorized)?": {
+  "why": "Ch A-402, para D.5.a note: SIT for a DoW civilian employee on a CONUS-to-CONUS shipment may not exceed 60 days unless more is authorized.",
+  "wrong": {
+   "90 days": "90 days is the standard SIT period for military members, not civilian CONUS-to-CONUS.",
+   "30 days": "30 days is shorter than the stated limit.",
+   "180 days": "180 days is far longer than the stated limit."
+  },
+  "watch": "Civilian CONUS-to-CONUS SIT is shorter than the usual military period."
+ },
+ "DTR-IV|Ch A-402, para D.5.a|SIT and related charges are based on the destination in which block of the BL?": {
+  "why": "Ch A-402, para D.5.a: SIT and related charges are based on the destination city or installation in Block 18 of the BL.",
+  "wrong": {
+   "Block 19": "Block 19 is not the destination block used for SIT charges.",
+   "Block 20": "Block 20 is not the destination block used for SIT charges.",
+   "Block 25": "Block 25 is not the destination block used for SIT charges."
+  }
+ },
+ "DTR-IV|Ch A-402, para D.5.a(3)(f)|DPS notifies customers when SIT expires within how many days?": {
+  "why": "Ch A-402, para D.5.a(3)(f): DPS notifies customers in advance when SIT expires within 30 days.",
+  "wrong": {
+   "10 days": "10 days gives less notice than DPS provides.",
+   "60 days": "60 days gives more notice than DPS provides.",
+   "90 days": "90 days is a common SIT period, not the notice window."
+  },
+  "watch": "The paragraph's example: into SIT 1 June, authorization ends 1 September, so DPS notifies by 1 August."
+ },
+ "DTR-IV|Ch A-402, para D.7.a(1)|A customer may request a reweigh if they believe the shipment will exceed or be within what percentage of their weight allowance?": {
+  "why": "Ch A-402, para D.7.a(1): a customer may request a reweigh if they believe the shipment will exceed, or be within 90 percent of, their weight allowance.",
+  "wrong": {
+   "75 percent": "75 percent is lower than the stated threshold.",
+   "95 percent": "95 percent is higher than the stated threshold.",
+   "80 percent": "80 percent is lower than the stated threshold."
+  },
+  "watch": "The reweigh is entered in DPS as a pre-approval, and the PPSO approves or denies it."
+ },
+ "DTR-IV|Ch A-402, para E.2.b|If a PPSO other than the origin PPSO learns of a diversion, it must notify the origin PPSO within how long?": {
+  "why": "Ch A-402, para E.2.b: a PPSO other than the origin PPSO that learns of a diversion processes it and notifies the origin PPSO within 24 hours.",
+  "wrong": {
+   "72 hours": "72 hours is longer than allowed.",
+   "5 GBDs": "5 GBDs is far longer than allowed.",
+   "30 days": "30 days is far longer than allowed."
+  }
+ },
+ "DTR-IV|Ch A-411, para C.1.a|PPM SIT beyond how many days requires written TO approval?": {
+  "why": "Ch A-411, para C.1.a: PPM SIT over 90 days requires written TO approval.",
+  "wrong": {
+   "30 days": "30 days is below the threshold.",
+   "60 days": "60 days is below the threshold.",
+   "180 days": "180 days is above the threshold."
+  },
+  "watch": "All PPM SIT needs prior TO approval before storage begins. Written approval is what's needed past 90 days."
+ },
+ "DTR-IV|Ch A-411, Figure 411-1|On DD Form 2278, the member agrees to furnish certified weight tickets within how many days of the start of the move?": {
+  "why": "Figure 411-1 (DD Form 2278): the member agrees to furnish certified gross and tare weight tickets within 45 days of the start of the move.",
+  "wrong": {
+   "30 days": "30 days is shorter than the stated period.",
+   "60 days": "60 days is longer than the stated period.",
+   "90 days": "90 days is longer than the stated period."
+  }
+ },
+ "DTR-IV|App A-B, para A.2.c(2)|To be awarded shipments after 15 May 2026, a TSP must complete which CMMC self-assessment by 15 March 2026?": {
+  "why": "App A-B, para A.2.c(2): to be awarded shipments after 15 May 2026, the TSP must complete the CMMC Level 1 self-assessment affirmation by 15 March 2026.",
+  "wrong": {
+   "CMMC Level 2": "CMMC Level 2 is the 2027 requirement (para A.2.c(3)).",
+   "CMMC Level 3": "CMMC Level 3 is not required by these paragraphs.",
+   "None": "An affirmation is required; it is not optional."
+  },
+  "watch": "Phased: Level 1 by March 2026 for May 2026 awards, then Level 2 by March 2027 for May 2027 awards."
+ },
+ "DTR-IV|App A-B, para A.2.c(3)|To be awarded shipments after 15 May 2027, a TSP must complete which CMMC self-assessment by 15 March 2027?": {
+  "why": "App A-B, para A.2.c(3): to be awarded shipments after 15 May 2027, the TSP must complete the CMMC Level 2 self-assessment affirmation by 15 March 2027, then annually.",
+  "wrong": {
+   "CMMC Level 1": "CMMC Level 1 is the 2026 requirement.",
+   "CMMC Level 3": "CMMC Level 3 is not required by these paragraphs.",
+   "None": "An affirmation is required; it is not optional."
+  }
+ },
+ "DTR-IV|App A-B, para A.2.d(2)|A TSP must report a cyber incident to USTRANSCOM no later than how long after discovery?": {
+  "why": "App A-B, para A.2.d(2): the TSP notifies USTRANSCOM as soon as practical, but no later than 72 hours after discovering a reportable cyber incident.",
+  "wrong": {
+   "24 hours": "24 hours is stricter than the stated limit.",
+   "5 calendar days": "5 calendar days is longer than allowed.",
+   "30 days": "30 days is far longer than allowed."
+  },
+  "watch": "The clock starts when the incident is discovered or reported to the company, its employees, contractors, or its cybersecurity firm."
+ },
+ "DTR-IV|App A-B, para B.2.f|How far from the personal property is smoking (including e-cigarettes) prohibited?": {
+  "why": "App A-B, para B.2.f: smoking, including e-cigarettes, is not allowed in the customer's residence or within 50 feet of the personal property.",
+  "wrong": {
+   "25 feet": "25 feet is closer than allowed.",
+   "10 feet": "10 feet is closer than allowed.",
+   "100 feet": "100 feet is more than the stated distance."
+  }
+ },
+ "DTR-IV|App A-B, para B.10.e|Within how long of the customer's notice must the TSP arrange a repair firm to inspect real property damage?": {
+  "why": "App A-B, para B.10.e: the TSP arranges for a repair firm to inspect real property damage within 15 calendar days of the customer's notice.",
+  "wrong": {
+   "7 calendar days": "7 calendar days is shorter than the stated time.",
+   "30 calendar days": "30 calendar days is longer than the stated time.",
+   "3 GBDs": "3 GBDs is far shorter than the stated time."
+  },
+  "watch": "The TSP is responsible for real property damage. It must lay floor coverings and protect doorways in high-traffic areas before pack-out or delivery."
+ },
+ "DTR-IV|App A-B, para B.11.d(1)|Within how long of receipt must the TSP reimburse an inconvenience claim?": {
+  "why": "App A-B, para B.11.d(1): the TSP reimburses an inconvenience claim within 30 days of receiving it.",
+  "wrong": {
+   "10 days": "10 days is shorter than the stated time.",
+   "60 days": "60 days is longer than allowed.",
+   "5 GBDs": "5 GBDs is far shorter than the stated time."
+  },
+  "watch": "The claim counts from the day after the missed pickup date or RDD until the day of actual pickup or delivery."
+ },
+ "DTR-IV|App A-B, para B.11.d(2)|What percentage of the M&IE per diem does each dependent traveling on the orders receive for an IC?": {
+  "why": "App A-B, para B.11.d(2): each dependent traveling on the orders gets 75 percent of the M&IE rate for an inconvenience claim. The customer gets the full rate.",
+  "wrong": {
+   "100 percent": "100 percent is the customer's own rate, not a dependent's.",
+   "50 percent": "50 percent understates the dependent rate.",
+   "25 percent": "25 percent understates the dependent rate."
+  },
+  "watch": "The claim uses M&IE only, not lodging, at the pickup or delivery location."
+ },
+ "DTR-IV|App A-B, para B.11.i(6)|In a catastrophic loss or mold remediation, IC liability ends how long after payment for essential items?": {
+  "why": "App A-B, para B.11.i(6): in a catastrophic loss or mold remediation, IC liability ends 15 days after payment is received for essential items.",
+  "wrong": {
+   "30 days": "30 days is longer than the stated period; 30 days is the IC reimbursement deadline.",
+   "7 days": "7 days is shorter than the stated period.",
+   "60 days": "60 days is longer than the stated period."
+  }
+ },
+ "AFH1|2.4|The 1914 bill creating the Aviation Section gave enlisted men on flying status what pay increase?": {
+  "why": "Para 2.4: the 1914 bill created the aviation mechanician rating with a 50 percent pay increase for enlisted men instructed in flying while on flying status.",
+  "wrong": {
+   "25 percent": "25 percent understates the increase.",
+   "10 percent": "10 percent understates the increase.",
+   "100 percent": "100 percent overstates the increase."
+  },
+  "watch": "The Aviation Section started with 60 officers and 260 enlisted men."
+ },
+ "AFH1|2.9|The 1918 drawdown reduced Air Service personnel from 190,000 to fewer than how many?": {
+  "why": "Para 2.9: the 1918 drawdown cut Air Service personnel from 190,000 to fewer than 20,000.",
+  "wrong": {
+   "50,000": "50,000 overstates what remained.",
+   "75,000": "75,000 overstates what remained.",
+   "100,000": "100,000 overstates what remained."
+  },
+  "watch": "Funding fell just as sharply, from $952 million in 1919 to $28 million in 1920."
+ },
+ "AFH1|2.12|Under Gen Henry H. Arnold's command in World War II, the Army Air Forces expanded to about how many members?": {
+  "why": "Para 2.12: under Gen Arnold, the Army Air Forces grew to nearly 2.5 million members in World War II.",
+  "wrong": {
+   "About 500,000": "About 500,000 understates the expansion.",
+   "About 1 million": "About 1 million understates the expansion.",
+   "Nearly 5 million": "Nearly 5 million is double the stated figure."
+  }
+ },
+ "AFH1|2.14|In 1940, President Franklin D. Roosevelt called for American industry to build how many military aircraft a year?": {
+  "why": "Para 2.14: in 1940, President Roosevelt called for American industry to build 50,000 military aircraft a year.",
+  "wrong": {
+   "10,000": "10,000 understates the goal.",
+   "25,000": "25,000 is half the stated goal.",
+   "100,000": "100,000 is double the stated goal."
+  },
+  "watch": "At the time, the Air Corps had only about 1,700 tactical and training aircraft."
+ },
+ "AFH1|2.18|On what date did the Japanese government surrender in World War II?": {
+  "why": "Para 2.18: the Japanese government surrendered on 14 August 1945.",
+  "wrong": {
+   "6 August 1945": "6 August 1945 is when the first atomic bomb was dropped on Hiroshima, before the surrender.",
+   "2 September 1945": "2 September 1945 is when the formal surrender document was signed, after the government had already surrendered.",
+   "8 May 1945": "8 May 1945 is the end of the war in Europe (V-E Day), not Japan's surrender."
+  },
+  "watch": "Surrender (14 August) and the signing ceremony (2 September) are different events."
+ },
+ "AFH1|3.2|For how long did airpower sustain the 2.5 million residents of West Berlin during the Soviet blockade?": {
+  "why": "Para 3.2: airpower sustained West Berlin's 2.5 million residents for 15 months during the blockade (Operation Vittles).",
+  "wrong": {
+   "6 months": "6 months understates the operation.",
+   "9 months": "9 months understates the operation.",
+   "24 months": "24 months overstates the operation."
+  }
+ },
+ "AFH1|3.3|About how wide is the Korean demilitarized zone created by the armistice?": {
+  "why": "Para 3.3: the armistice created a demilitarized zone about 4 kilometers (2.48 miles) wide.",
+  "wrong": {
+   "About 10 kilometers (6.2 miles)": "About 10 kilometers overstates the width.",
+   "About 1 kilometer (0.62 miles)": "About 1 kilometer understates the width.",
+   "About 38 kilometers (23.6 miles)": "38 is the parallel that divided Korea, not the DMZ width."
+  },
+  "watch": "Don't mix up the 38th parallel with the DMZ's size."
+ },
+ "AFH1|3.7|How long was the intense Operation Linebacker II air campaign of December 1972?": {
+  "why": "Para 3.7: Operation Linebacker II in December 1972 was an intense 11-day air campaign.",
+  "wrong": {
+   "7 days": "7 days understates the campaign.",
+   "30 days": "30 days overstates the campaign.",
+   "77 days": "77 days is far longer than the stated campaign."
+  }
+ },
+ "AFH1|3.13|Under START I, the United States agreed to reduce to how many total warheads?": {
+  "why": "Para 3.13: under START I, the United States agreed to reduce to 6,000 total warheads.",
+  "wrong": {
+   "3,500": "3,500 is lower than the START I limit.",
+   "1,550": "1,550 is far lower than the START I limit.",
+   "10,000": "10,000 is higher than the START I limit."
+  }
+ },
+ "AFH1|3.14|On what date did Saddam Hussein order Iraqi troops to invade Kuwait?": {
+  "why": "Para 3.14: Saddam Hussein ordered 100,000 Iraqi troops to invade Kuwait on 2 August 1990.",
+  "wrong": {
+   "17 January 1991": "17 January 1991 is when the Operation Desert Storm air campaign began.",
+   "8 August 1990": "8 August 1990 came after the invasion had already happened.",
+   "28 February 1991": "28 February 1991 is when combat operations in Desert Storm ended."
+  },
+  "watch": "Desert Shield was the defensive buildup after the invasion. Desert Storm was the offensive that began in January 1991."
+ },
+ "AFH1|3.15|Operation Allied Force, begun 24 March 1999 against Serbia over Kosovo, lasted how long?": {
+  "why": "Para 3.15: Operation Allied Force began 24 March 1999 and lasted 78 days.",
+  "wrong": {
+   "43 days": "43 days understates the campaign.",
+   "11 days": "11 days was the length of Linebacker II in 1972, not Allied Force.",
+   "100 days": "100 days overstates the campaign."
+  }
+ },
+ "AFH1|4.7|What is the key difference between the AIM-120 and the AIM-9M/X?": {
+  "why": "Para 4.7: the AIM-120 is a supersonic, medium-range, active radar guided missile with beyond-visual-range capability. The AIM-9M/X is a short-range, passive infrared, heat-seeking missile.",
+  "wrong": {
+   "The AIM-120 is short-range heat-seeking; the AIM-9 is radar guided beyond visual range": "This swaps the two missiles' guidance and range.",
+   "The AIM-120 attacks ground targets; the AIM-9 attacks only aircraft": "Both are air-to-air missiles; neither is described as attacking ground targets.",
+   "The AIM-120 is subsonic and nuclear; the AIM-9 is supersonic and conventional": "Both are supersonic missiles with high explosive warheads; neither is nuclear."
+  },
+  "watch": "Remember it as AIM-120 (AMRAAM): radar, beyond visual range. AIM-9 (Sidewinder): heat seeking, short range."
+ },
+ "AFH1|5.15|Air Force Reserve Command provides about what share of the Total Force for about 5 percent of the manpower budget?": {
+  "why": "Para 5.15: AFRC provides about 20 percent of the Total Force for about 5 percent of the manpower budget.",
+  "wrong": {
+   "About 10 percent": "About 10 percent understates AFRC's share.",
+   "About 35 percent": "About 35 percent overstates AFRC's share.",
+   "About 50 percent": "About 50 percent far overstates AFRC's share."
+  }
+ },
+ "AFH1|5.16|What is the minimum adjusted population for a RegAF wing?": {
+  "why": "Para 5.16: a RegAF wing must have a minimum adjusted population of at least 1,000.",
+  "wrong": {
+   "750": "750 is the minimum for Air National Guard and AFRC wings, not RegAF.",
+   "10,000": "10,000 is far above the minimum.",
+   "35": "35 is far below the minimum for a wing."
+  },
+  "watch": "Groups need at least 400 (200 for ANG and AFRC). Wings need 1,000 (750 for ANG and AFRC)."
+ },
+ "AFH1|7.1|Field Grade Officers hold which grades?": {
+  "why": "Para 7.1: Field Grade Officers are O-4 through O-6.",
+  "wrong": {
+   "O-1 through O-3": "O-1 through O-3 are Company Grade Officers.",
+   "O-7 through O-10": "O-7 through O-10 are General Officers.",
+   "O-3 through O-5 only": "O-3 through O-5 mixes the tiers; O-3 is Company Grade and O-6 is Field Grade."
+  }
+ },
+ "AFH1|7.16|Within how many days must newly assigned RegAF personnel be interviewed to determine training status?": {
+  "why": "Para 7.16: newly assigned RegAF personnel are interviewed within 30 days to determine their training status.",
+  "wrong": {
+   "60 days": "60 days is longer than allowed.",
+   "90 days": "90 days is longer than allowed.",
+   "120 days": "120 days is longer than allowed."
+  }
+ },
+ "AFH1|7.24|What is the maximum AFCOOL credentialing funding per Airman's career?": {
+  "why": "Para 7.24: AFCOOL funds a maximum of $4,500 per Airman's career.",
+  "wrong": {
+   "$1,500": "$1,500 understates the maximum.",
+   "$3,000": "$3,000 understates the maximum.",
+   "$10,000": "$10,000 overstates the maximum."
+  }
+ },
+ "AFH1|7.28|What maximum annual tuition and fees scholarship do the ROTC Airman programs provide?": {
+  "why": "Para 7.28: the ROTC Airman programs provide a tuition and fees scholarship of up to $18,000 per year, plus a textbook allowance and a monthly stipend.",
+  "wrong": {
+   "$10,000": "$10,000 understates the scholarship.",
+   "$4,500": "$4,500 is the AFCOOL lifetime credentialing limit, not ROTC tuition.",
+   "$25,000": "$25,000 overstates the scholarship."
+  }
+ },
+ "AFH1|8.4|Within how many days of when supervision begins must the initial feedback session be conducted?": {
+  "why": "Para 8.4: the initial feedback session must be held within the first 60 days of supervision.",
+  "wrong": {
+   "30 days": "30 days is when the MPF sends the feedback notice, not the deadline for the session.",
+   "90 days": "90 days is longer than allowed.",
+   "120 days": "120 days is longer than allowed."
+  },
+  "watch": "The initial feedback is the ratee's only initial session until there is a change of reporting official."
+ },
+ "AFH1|8.10|First-term Airmen receive selective reenlistment consideration within how many months of their expiration of term of service?": {
+  "why": "Para 8.10: first-term Airmen get selective reenlistment consideration within 15 months of their ETS.",
+  "wrong": {
+   "13 months": "13 months is not the stated point.",
+   "12 months": "12 months is not the stated point.",
+   "18 months": "18 months is not the stated point."
+  }
+ },
+ "AFH1|8.12|Under the NCO Career Status Program, Airmen with at least how many years TAFMS are reenlisted for an unspecified period?": {
+  "why": "Para 8.12: Airmen selected for continued service with at least 12 years TAFMS on the date of discharge are reenlisted for an unspecified period.",
+  "wrong": {
+   "10 years": "10 years is below the threshold.",
+   "16 years": "16 years is above the threshold.",
+   "20 years": "20 years is above the threshold."
+  },
+  "watch": "They serve up to the High Year of Tenure for their grade."
+ },
+ "AFH1|8.14|What is the maximum length of voluntary extensions per enlistment?": {
+  "why": "Para 8.14: voluntary extensions are limited to 48 months per enlistment.",
+  "wrong": {
+   "24 months": "24 months is half the limit.",
+   "36 months": "36 months understates the limit.",
+   "60 months": "60 months exceeds the limit."
+  },
+  "watch": "Extensions are granted in whole months. 15½ months of needed retainability means a 16-month extension."
+ },
+ "AFH1|8.15|Selective Retention Bonus Zone B applies to Airmen reenlisting between how many years of service?": {
+  "why": "Para 8.15: SRB Zone B covers Airmen reenlisting between 6 and 10 years of service.",
+  "wrong": {
+   "17 months and 6 years": "17 months to 6 years is Zone A.",
+   "10 and 14 years": "10 to 14 years is Zone C.",
+   "18 and 20 years": "18 to 20 years is Zone E."
+  },
+  "watch": "An Airman can get one SRB per zone: A, B, C, or E. There is no Zone D in this list."
+ },
+ "AFH1|8.20|What percentage of similar units in a command may be recommended annually for the Air Force Outstanding Unit Award?": {
+  "why": "Para 8.20: no more than 10 percent of similar units in a command may be recommended for the AFOUA each year.",
+  "wrong": {
+   "5 percent": "5 percent understates the limit.",
+   "20 percent": "20 percent overstates the limit.",
+   "25 percent": "25 percent overstates the limit."
+  }
+ },
+ "AFH1|8.21|The Combat Action Medal is awarded to members in which grades?": {
+  "why": "Para 8.21: the Combat Action Medal goes to members in grades E-1 through O-6 who took part in ground or air combat on or after 11 September 2001.",
+  "wrong": {
+   "E-1 through E-9 only": "Enlisted only is too narrow; officers through O-6 are eligible.",
+   "O-1 through O-10 only": "Officers only is wrong; enlisted members are eligible, and O-7 and above are not.",
+   "All grades, including general officers": "General officers (O-7 and above) are not included."
+  }
+ },
+ "AFH1|9.2|By law, the average number of RegAF enlisted members in grade E-9 may not exceed what percent?": {
+  "why": "Para 9.2: by law, the average number of RegAF enlisted members in grade E-9 may not exceed 1.25 percent.",
+  "wrong": {
+   "2.5 percent": "2.5 percent is the E-8 limit.",
+   "1 percent": "1 percent understates the E-9 limit.",
+   "5 percent of the force": "5 percent far overstates the limit."
+  },
+  "watch": "E-8 is capped at 2.5 percent and E-9 at 1.25 percent, half the E-8 figure."
+ },
+ "AFH1|9.5|At how much time in grade may an Airman be promotion eligible to Airman First Class?": {
+  "why": "Para 9.5: an Airman may be promotion eligible to A1C at 10 months time in grade.",
+  "wrong": {
+   "6 months": "6 months is when an Airman Basic becomes eligible for Airman.",
+   "12 months": "12 months is not the stated time in grade.",
+   "20 months": "20 months is not the A1C requirement."
+  },
+  "watch": "Airmen who enlist for six years are promoted from AB straight to A1C after technical training, or after 20 weeks of technical training."
+ },
+ "AFH1|9.6|Within how many duty days must eligible selects sign the Promotion Statement of Understanding?": {
+  "why": "Para 9.6: eligible selects sign the Promotion Statement of Understanding within 10 duty days after selections are confirmed.",
+  "wrong": {
+   "5 duty days": "5 duty days is shorter than allowed.",
+   "30 duty days": "30 duty days is longer than allowed.",
+   "15 duty days": "15 duty days is longer than allowed."
+  },
+  "watch": "This applies to MSgt and SMSgt selects with more than 18 years TAFMS, and to every CMSgt select."
+ },
+ "AFH1|9.11|Violating the group study prohibition can be prosecuted under which UCMJ article?": {
+  "why": "Para 9.11: group study for promotion testing is prohibited, and violators can be prosecuted under Article 92 (failure to obey an order or regulation).",
+  "wrong": {
+   "Article 15": "Article 15 is nonjudicial punishment, the procedure, not the offense charged.",
+   "Article 134": "Article 134 is the general article, not the cited offense.",
+   "Article 107": "Article 107 covers false official statements, not the group study prohibition."
+  }
+ },
+ "AFH1|9.12|How long before the test date must promotion eligibles have access to reference materials?": {
+  "why": "Para 9.12: promotion eligibles must have access to reference materials at least 60 days before the test date.",
+  "wrong": {
+   "At least 30 days": "30 days is less than required.",
+   "At least 90 days": "90 days is more than the stated minimum.",
+   "At least 14 days": "14 days is far less than required."
+  }
+ },
+ "AFH1|9.17|What is the minimum score required on the PFE?": {
+  "why": "Para 9.17: the minimum PFE score is 40 points. The SKT minimum is also 40, and the combined minimum is 90.",
+  "wrong": {
+   "45 points": "45 points is higher than the minimum.",
+   "50 points": "50 points is what you need on the other test if you score only 40 on one.",
+   "90 points": "90 points is the combined minimum for both tests."
+  },
+  "watch": "40 on each test alone isn't enough. If you score 40 on one, you need 50 on the other to reach 90."
+ },
+ "AFH1|10.3|Once orders are published, assignments are not normally cancelled within how many days of the projected departure date?": {
+  "why": "Para 10.3: once orders are published, assignments are not normally cancelled within 60 days of the projected departure date.",
+  "wrong": {
+   "30 days": "30 days is not the stated cutoff.",
+   "90 days": "90 days is not the stated cutoff.",
+   "120 days": "120 days is not the stated cutoff."
+  },
+  "watch": "The exception is when the Airman can't be effectively used at the projected location."
+ },
+ "AFH1|10.4|Which positions do Staff Sergeants and Senior Airmen primarily fill?": {
+  "why": "Para 10.4: SSgts and SrA primarily fill 5-skill level positions.",
+  "wrong": {
+   "3-skill level positions": "3-skill level positions are filled by Amn and A1C.",
+   "7-skill level positions": "7-skill level positions are filled mainly by TSgt and MSgt.",
+   "Chief enlisted manager positions": "Chief enlisted manager positions are filled by CMSgts."
+  }
+ },
+ "AFH1|10.5|What is the service retainability requirement for a CONUS to CONUS PCS?": {
+  "why": "Para 10.5: the service retainability requirement for a CONUS to CONUS PCS is 24 months, regardless of career status.",
+  "wrong": {
+   "12 months": "12 months is less than required.",
+   "36 months": "36 months is more than required.",
+   "48 months": "48 months is the CONUS-to-CONUS time-on-station requirement (para 10.6), not retainability."
+  },
+  "watch": "Retainability (24 months to go) is not the same as time on station (48 months already served)."
+ },
+ "AFH1|10.6|For most CONUS to CONUS PCS moves, how much time on station must Airmen have?": {
+  "why": "Para 10.6: for most CONUS to CONUS PCS moves, first-term and career Airmen need at least 48 months time on station.",
+  "wrong": {
+   "24 months": "24 months is what career Airmen need for CONUS to overseas.",
+   "36 months": "36 months is not a stated requirement.",
+   "12 months": "12 months is what first-term Airmen need for CONUS to overseas."
+  },
+  "watch": "The first-term Airmen base of preference program is an exception to the 48 months."
+ },
+ "AFH1|10.9|Humanitarian problems must normally be resolvable within what time frame?": {
+  "why": "Para 10.9: humanitarian problems must normally be resolvable within 12 months.",
+  "wrong": {
+   "6 months": "6 months is shorter than the stated time frame.",
+   "18 months": "18 months is longer than the stated time frame.",
+   "24 months": "24 months is longer than the stated time frame."
+  }
+ },
+ "AFH1|10.14|How much prior 8R000 experience is required to enter SDI 8R200 (RegAF)?": {
+  "why": "Para 10.14: RegAF members need 36 months of prior 8R000 experience to enter SDI 8R200.",
+  "wrong": {
+   "24 months": "24 months is less than required.",
+   "12 months": "12 months is less than required.",
+   "48 months": "48 months is more than required."
+  }
+ },
+ "AFH1|11.3|By when must the TAP Capstone be completed?": {
+  "why": "Para 11.3: Capstone is completed no later than 90 days before separation, retirement, or release from active duty.",
+  "wrong": {
+   "No later than 365 days before separation or retirement": "365 days is the deadline for Individualized Initial Counseling and Pre-separation Counseling, not Capstone.",
+   "No later than 30 days before separation or retirement": "30 days is later than allowed.",
+   "On the final day of active service": "The final day of service is far too late."
+  },
+  "watch": "Capstone verifies the transition plan and the Career Readiness Standard deliverables."
+ },
+ "AFH1|11.5|Within how many days must RegAF members notify their commander of changes requiring a new family care plan?": {
+  "why": "Para 11.5: RegAF members notify their commander within 30 days of changes that require a new family care plan.",
+  "wrong": {
+   "60 days": "60 days is longer than allowed.",
+   "10 days": "10 days is shorter than the stated time.",
+   "90 days": "90 days is longer than allowed."
+  }
+ },
+ "AFH1|11.6|VA disability compensation is graduated on what scale?": {
+  "why": "Para 11.6: VA disability compensation is graduated from 10 to 100 percent in 10 percent increments.",
+  "wrong": {
+   "0 to 50 percent in 5 percent increments": "0-50 percent in 5 percent steps is not the VA scale.",
+   "25 to 100 percent in 25 percent increments": "25 percent steps are not the VA scale.",
+   "1 to 10 on a numeric scale": "A 1-10 numeric scale is not how VA rates disability."
+  }
+ }
+}
