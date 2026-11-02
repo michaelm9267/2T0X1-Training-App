@@ -6,7 +6,7 @@ Implemented scope: the seven existing E-5 publications. E-6 content is unchanged
 
 All 1,520 question/answer/distractor sets have an editorial decision and passage evidence in `waps-audit-*.json` beside this file. Review checks fidelity to the supplied editions; it does not establish that those editions are the current SKT study references. Ambiguous alternatives, missing exceptions, unsupported stem claims, and incomplete passage excerpts were corrected. Saved question IDs are preserved, including when a displayed stem needed correction.
 
-Run `npm run audit:waps` to check review coverage, unchanged reviewed choices, citation availability, distinct options, and character-length bias. CI runs this command and the Jest regression tests. A changed answer needs a new source review and updated audit record; automated checks cannot prove semantic correctness.
+Run `npm run audit:waps` to report review coverage and check unchanged reviewed choices, citation availability, distinct options, and character-length bias. Questions added after the original E-5 review are counted as `pendingReview`; they do not receive a false verified status. CI still fails if a reviewed question changes or any question lacks its structural or passage checks. A changed answer needs a new source review and updated audit record; automated checks cannot prove semantic correctness.
 
 | Publication | Questions | Longest-choice success before | After |
 | --- | ---: | ---: | ---: |

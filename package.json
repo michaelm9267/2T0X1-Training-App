@@ -19,7 +19,7 @@
     "build": "react-scripts build && node scripts/build_offline.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "audit:waps": "node scripts/audit_waps.js"
+    "audit:waps": "node --test scripts/audit_policy.test.js && node scripts/audit_waps.js"
   },
   "eslintConfig": {
     "extends": [
