@@ -4,13 +4,15 @@ import { setCurrentUser } from '../../currentUser';
 import * as client from './firebaseClient';
 import { createCloudSync, hydrate, clearLocal, claimLocal } from './cloudSync';
 import WapsStudyTool from '../Waps/WapsStudyTool';
+import CfetpCenter from '../Cfetp/CfetpCenter';
 import AcronymTooltip from '../Glossary/AcronymTooltip';
 import './auth.css';
 
 // The app opens only for signed-in users on the instructor's allow-list. Trainee and instructor
 // work is mirrored to their account; a demo account (for showcasing the app) keeps work in this
-// browser only and starts fresh at each sign-in. The WAPS Study Tool is open to signed-out
-// visitors (guest mode, or a link ending in #waps); its progress stays in this browser.
+// browser only and starts fresh at each sign-in. The WAPS Study Tool and the CFETP / TTG trainer
+// guide are open to signed-out visitors (guest mode, or a link ending in #waps or #cfetp); what
+// they save stays in this browser.
 const ERRORS = {
   'auth/invalid-credential': 'Email or password is incorrect.',
   'auth/wrong-password': 'Email or password is incorrect.',
@@ -35,7 +37,11 @@ function Shell({ children }) {
   </main>;
 }
 
-const GUEST_HASH = '#waps';
+const GUEST_TOOLS = {
+  waps: { hash: '#waps', label: '2T0 WAPS Study Tool', note: 'progress is saved in this browser only', Tool: WapsStudyTool },
+  cfetp: { hash: '#cfetp', label: 'CFETP / TTGs', note: 'session lists and training ticks are saved in this browser only', Tool: CfetpCenter },
+};
+const guestFromHash = () => Object.keys(GUEST_TOOLS).find(id => GUEST_TOOLS[id].hash === window.location.hash) || null;
 
 function SignIn({ onGuest }) {
   const [email, setEmail] = useState('');
@@ -65,17 +71,23 @@ function SignIn({ onGuest }) {
     {notice && <p className={notice.error ? 'auth-error' : 'auth-note'} role={notice.error ? 'alert' : 'status'}>{notice.text}</p>}
     <p className="auth-fine">Accounts are issued by your instructor.</p>
     <div className="auth-divider"><span>no account?</span></div>
-    <button type="button" className="auth-guest" onClick={onGuest}>Study for WAPS without signing in</button>
+    <div className="auth-guest-options">
+      <button type="button" className="auth-guest" onClick={() => onGuest('waps')}>Study for WAPS without signing in</button>
+      <button type="button" className="auth-guest" onClick={() => onGuest('cfetp')}>Open the CFETP / TTG trainer guide without signing in</button>
+    </div>
   </Shell>;
 }
 
-function GuestWaps({ onSignIn }) {
+function Guest({ tool, onSwitch, onSignIn }) {
+  const { label, note, Tool } = GUEST_TOOLS[tool];
+  const other = tool === 'waps' ? 'cfetp' : 'waps';
   return <>
     <div className="auth-account-bar">
-      <span><strong>Guest</strong> · 2T0 WAPS Study Tool · progress is saved in this browser only</span>
+      <span><strong>Guest</strong> · {label} · {note}</span>
+      <button type="button" onClick={() => onSwitch(other)}>Open {GUEST_TOOLS[other].label}</button>
       <button type="button" onClick={onSignIn}>Sign in</button>
     </div>
-    <WapsStudyTool />
+    <Tool />
     <AcronymTooltip />
   </>;
 }
@@ -88,11 +100,12 @@ export default function AuthGate({ children }) {
     window.addEventListener('online', update); window.addEventListener('offline', update);
     return () => {window.removeEventListener('online', update); window.removeEventListener('offline', update);};
   }, []);
-  const [guest, setGuest] = useState(() => window.location.hash === GUEST_HASH);
-  const setGuestMode = (on) => {
-    setGuest(on);
-    window.history.replaceState(null, '', on ? GUEST_HASH : window.location.pathname + window.location.search);
+  const [guest, setGuest] = useState(guestFromHash);
+  const setGuestMode = (tool) => {
+    setGuest(tool);
+    window.history.replaceState(null, '', tool ? GUEST_TOOLS[tool].hash : window.location.pathname + window.location.search);
   };
+  const guestView = tool => <Guest tool={tool} onSwitch={setGuestMode} onSignIn={() => setGuestMode(null)} />;
   const sync = useRef(null);
   const [syncError, setSyncError] = useState('');
 
@@ -168,9 +181,9 @@ export default function AuthGate({ children }) {
     window.location.reload();
   }
 
-  if (!online && state.phase !== 'ready') return <GuestWaps onSignIn={() => setGuestMode(false)} />;
+  if (!online && state.phase !== 'ready') return guestView(guest || 'waps');
   if (state.phase === 'loading' || state.phase === 'checking') return <Shell><p className="auth-note" role="status">Signing in…</p></Shell>;
-  if (state.phase === 'signedOut') return guest ? <GuestWaps onSignIn={() => setGuestMode(false)} /> : <SignIn onGuest={() => setGuestMode(true)} />;
+  if (state.phase === 'signedOut') return guest ? guestView(guest) : <SignIn onGuest={setGuestMode} />;
   if (state.phase === 'signingOut') return <Shell><p className="auth-note" role="status">Saving your work and signing out…</p></Shell>;
   if (state.phase === 'denied' || state.phase === 'error') return <Shell>
     <p className="auth-error" role="alert">{state.phase === 'denied'

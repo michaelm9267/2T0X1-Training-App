@@ -114,6 +114,28 @@ test('signed-out visitors can open the WAPS Study Tool as a guest and go back to
   expect(window.location.hash).toBe('');
 });
 
+test('signed-out visitors can open the CFETP / TTG guide as a guest and switch to WAPS', async () => {
+  render(<AuthGate><p>Training app</p></AuthGate>);
+  await waitFor(() => authCallback(null));
+  userEvent.click(await screen.findByRole('button', { name: 'Open the CFETP / TTG trainer guide without signing in' }));
+  expect(screen.getByRole('heading', { name: 'CFETP Training Center' })).toBeInTheDocument();
+  expect(screen.queryByText('Training app')).not.toBeInTheDocument();
+  expect(window.location.hash).toBe('#cfetp');
+  userEvent.click(screen.getByRole('button', { name: 'Open 2T0 WAPS Study Tool' }));
+  expect(screen.getByRole('heading', { name: 'What are you studying for?' })).toBeInTheDocument();
+  expect(window.location.hash).toBe('#waps');
+  userEvent.click(screen.getByRole('button', { name: 'Sign in' }));
+  expect(window.location.hash).toBe('');
+});
+
+test('a #cfetp link opens the guest CFETP guide directly', async () => {
+  window.history.replaceState(null, '', '#cfetp');
+  render(<AuthGate><p>Training app</p></AuthGate>);
+  await waitFor(() => authCallback(null));
+  expect(await screen.findByRole('heading', { name: 'CFETP Training Center' })).toBeInTheDocument();
+  window.history.replaceState(null, '', window.location.pathname);
+});
+
 test('a #waps link opens guest WAPS directly, but a signed-in user still gets the full app', async () => {
   window.history.replaceState(null, '', '#waps');
   client.allowlistEntry.mockResolvedValue({ role: 'trainee' });

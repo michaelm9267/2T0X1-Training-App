@@ -25,3 +25,4 @@
 .auth-guest { width: 100%; min-height: 40px; border: 1px solid var(--accent, #5ee0c5); border-radius: 6px; background: transparent; color: var(--accent, #5ee0c5); font-weight: 600; font-size: .95rem; cursor: pointer; }
 .auth-guest:hover { background: rgb(94 224 197 / 10%); }
 .auth-guest:focus-visible { outline: 2px solid var(--accent, #5ee0c5); outline-offset: 2px; }
+.auth-guest-options { display: flex; flex-direction: column; gap: 8px; }

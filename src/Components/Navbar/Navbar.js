@@ -9,6 +9,7 @@ const trainingModules = [
   { id: 'hhg', label: 'HHG Training' },
   { id: 'pax', label: 'PAX Training' },
   { id: 'waps', label: '2T0 WAPS Study Tool' },
+  { id: 'cfetp', label: 'CFETP / TTGs' },
 ]
 
 function Navbar({ activeModule, onModuleChange }) {
